@@ -40,6 +40,14 @@ Enum values:
 - `security`
 - `ops`
 
+Example:
+
+```json
+{
+  "role": "reviewer"
+}
+```
+
 ### Task
 
 Represents work assigned to an agent.
@@ -58,6 +66,32 @@ Optional fields:
 - `gates_required`: list of gate names to run (ex: `["qa", "security"]`)
 - `run_context`: `RunContext`
 
+Example:
+
+```json
+{
+  "version": "v1",
+  "task_id": "task-123",
+  "role": "dev",
+  "goal": "Implement protocol types",
+  "inputs": {
+    "issue": "https://example.com/issues/42"
+  },
+  "constraints": {
+    "no_network": true
+  },
+  "gates_required": ["qa", "security"],
+  "run_context": {
+    "version": "v1",
+    "repo": "monarchic-agent-protocol",
+    "worktree": "/worktrees/task-123",
+    "image": "ghcr.io/monarchic/runner:stable",
+    "runner": "vm-runner-01",
+    "labels": ["linux", "rust"]
+  }
+}
+```
+
 ### RunContext
 
 Execution hints for a runner.
@@ -74,6 +108,19 @@ Optional fields:
 
 - `labels`: list of labels or tags
 
+Example:
+
+```json
+{
+  "version": "v1",
+  "repo": "monarchic-agent-protocol",
+  "worktree": "/worktrees/task-123",
+  "image": "ghcr.io/monarchic/runner:stable",
+  "runner": "vm-runner-01",
+  "labels": ["linux", "rust"]
+}
+```
+
 ### Artifact
 
 Outputs produced by an agent or runner.
@@ -86,6 +133,19 @@ Required fields:
 - `summary`: short description
 - `path`: path or locator for the artifact
 - `task_id`: task identifier that produced it
+
+Example:
+
+```json
+{
+  "version": "v1",
+  "artifact_id": "artifact-987",
+  "type": "patch",
+  "summary": "Adds v1 protocol schemas",
+  "path": "artifacts/task-123/patch.diff",
+  "task_id": "task-123"
+}
+```
 
 ### Event
 
@@ -103,6 +163,19 @@ Optional fields:
 
 - `message`: human-readable details
 
+Example:
+
+```json
+{
+  "version": "v1",
+  "event_type": "task_started",
+  "timestamp": "2025-01-14T15:04:05Z",
+  "task_id": "task-123",
+  "status": "running",
+  "message": "Runner started VM"
+}
+```
+
 ### GateResult
 
 Outcome of QA, review, security, or other gates.
@@ -117,6 +190,21 @@ Optional fields:
 
 - `reason`: short explanation
 - `evidence`: free-form object with supporting data
+
+Example:
+
+```json
+{
+  "version": "v1",
+  "gate": "security",
+  "status": "pass",
+  "reason": "No high or critical findings",
+  "evidence": {
+    "scanner": "trivy",
+    "report_path": "artifacts/task-123/security.json"
+  }
+}
+```
 
 ## Rust
 
