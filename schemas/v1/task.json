@@ -1,0 +1,40 @@
+{
+  "$id": "https://monarchic.ai/schema/v1/task.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Task",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["version", "task_id", "role", "goal"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "const": "v1"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "role": {
+      "$ref": "agent_role.json"
+    },
+    "goal": {
+      "type": "string"
+    },
+    "inputs": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "constraints": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "gates_required": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "run_context": {
+      "$ref": "run_context.json"
+    }
+  }
+}

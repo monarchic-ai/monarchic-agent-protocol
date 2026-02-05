@@ -1,0 +1,27 @@
+{
+  "$id": "https://monarchic.ai/schema/v1/gate_result.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GateResult",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["version", "gate", "status"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "const": "v1"
+    },
+    "gate": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

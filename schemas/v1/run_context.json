@@ -1,0 +1,32 @@
+{
+  "$id": "https://monarchic.ai/schema/v1/run_context.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RunContext",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["version", "repo", "worktree", "image", "runner"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "const": "v1"
+    },
+    "repo": {
+      "type": "string"
+    },
+    "worktree": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string"
+    },
+    "runner": {
+      "type": "string"
+    },
+    "labels": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
