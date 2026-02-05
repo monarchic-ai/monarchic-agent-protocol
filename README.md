@@ -1,14 +1,22 @@
 # Monarchic AI Protocol
 
-This repository defines the shared, versioned protocol for Monarchic AI. It provides JSON Schemas, Rust types, and TypeScript types that orchestrator, runner, and agent roles use to communicate.
+This repository defines the shared, versioned protocol for Monarchic AI. It is the compatibility layer between the orchestrator, runner, and agent roles, so the schemas are minimal and stable while allowing forward-compatible extensions.
+
+## Purpose
+
+- Provide versioned JSON Schemas for language-agnostic validation.
+- Provide Rust and TypeScript bindings that mirror the schemas.
+- Keep the protocol small and explicit for v1 interoperability.
 
 ## Versioning
 
 - Protocol versions live under `schemas/v1/`.
-- Version is included as a required `version` field set to `"v1"` for all v1 objects.
+- Each v1 object requires `version: "v1"`.
 - New versions must be added under a new directory (e.g. `schemas/v2/`) without changing existing v1 files.
 
-## Schemas
+## Protocol v1 schema
+
+Schema files live under `schemas/v1/`:
 
 - `schemas/v1/task.json`
 - `schemas/v1/artifact.json`
@@ -20,9 +28,99 @@ This repository defines the shared, versioned protocol for Monarchic AI. It prov
 
 All schemas allow additional properties for forward compatibility.
 
+### AgentRole
+
+Enum values:
+
+- `product_owner`
+- `project_manager`
+- `dev`
+- `qa`
+- `reviewer`
+- `security`
+- `ops`
+
+### Task
+
+Represents work assigned to an agent.
+
+Required fields:
+
+- `version`: `"v1"`
+- `task_id`: stable identifier
+- `role`: `AgentRole`
+- `goal`: human-readable objective
+
+Optional fields:
+
+- `inputs`: free-form object
+- `constraints`: free-form object
+- `gates_required`: list of gate names to run (ex: `["qa", "security"]`)
+- `run_context`: `RunContext`
+
+### RunContext
+
+Execution hints for a runner.
+
+Required fields:
+
+- `version`: `"v1"`
+- `repo`: repository identifier or URL
+- `worktree`: worktree path or identifier
+- `image`: VM/container image reference
+- `runner`: runner identifier
+
+Optional fields:
+
+- `labels`: list of labels or tags
+
+### Artifact
+
+Outputs produced by an agent or runner.
+
+Required fields:
+
+- `version`: `"v1"`
+- `artifact_id`: stable identifier
+- `type`: artifact type (ex: `patch`, `log`, `report`)
+- `summary`: short description
+- `path`: path or locator for the artifact
+- `task_id`: task identifier that produced it
+
+### Event
+
+Lifecycle state updates.
+
+Required fields:
+
+- `version`: `"v1"`
+- `event_type`: event category
+- `timestamp`: ISO 8601 timestamp
+- `task_id`: task identifier
+- `status`: state label
+
+Optional fields:
+
+- `message`: human-readable details
+
+### GateResult
+
+Outcome of QA, review, security, or other gates.
+
+Required fields:
+
+- `version`: `"v1"`
+- `gate`: gate name
+- `status`: pass/fail or other gate-specific status
+
+Optional fields:
+
+- `reason`: short explanation
+- `evidence`: free-form object with supporting data
+
 ## Rust
 
-The crate lives at the repo root.
+The crate lives at the repo root in `src/lib.rs`.
 
 ```rust
 use monarchic_agent_protocol::{AgentRole, Task, PROTOCOL_VERSION};
@@ -45,7 +143,7 @@ let task = Task {
 TypeScript bindings are in `ts/index.ts`.
 
 ```ts
-import { Task, AgentRole } from "./ts/index";
+import { Task } from "./ts/index";
 
 const task: Task = {
   version: "v1",
@@ -55,7 +153,7 @@ const task: Task = {
 };
 ```
 
-## Validation
+## Validation and tooling
 
-The Nix flake provides a dev shell with `ajv` for schema compilation. A check validates that all schemas compile.
-
+- `nix develop` provides Rust, Node, jq, and Python `jsonschema`.
+- `nix flake check` compiles all schemas using Draft 2020-12 validation.
