@@ -1,0 +1,12 @@
+{
+  "$id": "https://monarchic.ai/schema/v1/schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Monarchic AI Protocol v1",
+  "oneOf": [
+    { "$ref": "task.json" },
+    { "$ref": "artifact.json" },
+    { "$ref": "event.json" },
+    { "$ref": "gate_result.json" },
+    { "$ref": "run_context.json" }
+  ]
+}

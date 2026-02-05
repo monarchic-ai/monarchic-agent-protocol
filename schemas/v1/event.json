@@ -1,0 +1,30 @@
+{
+  "$id": "https://monarchic.ai/schema/v1/event.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Event",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["version", "event_type", "timestamp", "task_id", "status"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "const": "v1"
+    },
+    "event_type": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    }
+  }
+}

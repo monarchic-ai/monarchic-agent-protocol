@@ -1,0 +1,15 @@
+{
+  "$id": "https://monarchic.ai/schema/v1/agent_role.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AgentRole",
+  "type": "string",
+  "enum": [
+    "product_owner",
+    "project_manager",
+    "dev",
+    "qa",
+    "reviewer",
+    "security",
+    "ops"
+  ]
+}
