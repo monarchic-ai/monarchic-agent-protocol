@@ -1,0 +1,29 @@
+{
+  "$id": "https://monarchic.ai/schema/v1/artifact.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Artifact",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["version", "artifact_id", "type", "summary", "path", "task_id"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "const": "v1"
+    },
+    "artifact_id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "path": {
+      "type": "string"
+    },
+    "task_id": {
+      "type": "string"
+    }
+  }
+}
