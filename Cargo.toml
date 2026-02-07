@@ -8,3 +8,7 @@ description = "Shared protocol types for Monarchic AI"
 [dependencies]
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
+
+[[example]]
+name = "task"
+path = "examples/rust/task.rs"
