@@ -53,6 +53,17 @@
             PY
             touch $out
           '';
+          proto-validation = pkgs.runCommand "proto-validation" {
+            nativeBuildInputs = [
+              pkgs.protobuf
+              pkgs.protoc-gen-go
+              pkgs.protoc-gen-dart
+            ];
+          } ''
+            set -euo pipefail
+            bash ${./scripts/test-proto.sh} ${./schemas/v1/monarchic_agent_protocol.proto}
+            touch $out
+          '';
         });
 
       devShells = forAllSystems (system:
@@ -66,6 +77,8 @@
               pkgs.rustc
               pkgs.rustfmt
               pkgs.protobuf
+              pkgs.protoc-gen-go
+              pkgs.protoc-gen-dart
               pkgs.nodejs
               pkgs.jq
               pkgs.python3

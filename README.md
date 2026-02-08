@@ -278,5 +278,7 @@ Generate bindings (example commands; adjust output directories and protobuf incl
 
 ## Validation and tooling
 
-- `nix develop` provides Rust, Node, jq, and Python `jsonschema`.
-- `nix flake check` compiles all schemas using Draft 2020-12 validation.
+- `nix develop` provides Rust, Node, jq, Python `jsonschema`, and `protoc`.
+- `nix flake check` validates JSON schemas and protobuf codegen.
+- JSON Schema test: `scripts/test-json-schema.sh`.
+- Protobuf codegen test (all languages): `scripts/test-proto.sh`.
