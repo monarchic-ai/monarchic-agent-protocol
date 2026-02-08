@@ -5,7 +5,7 @@ This repository defines the shared, versioned protocol for Monarchic AI. It is t
 ## Purpose
 
 - Provide versioned JSON Schemas for language-agnostic validation.
-- Provide Rust and TypeScript bindings that mirror the schemas.
+- Provide Rust, TypeScript, and Protobuf bindings that mirror the schemas.
 - Keep the protocol small and explicit for v1 interoperability.
 
 ## Versioning
@@ -25,6 +25,7 @@ Schema files live under `schemas/v1/`:
 - `schemas/v1/run_context.json`
 - `schemas/v1/agent_role.json`
 - `schemas/v1/schema.json` (index)
+- `schemas/v1/monarchic_agent_protocol.proto`
 
 All schemas allow additional properties for forward compatibility.
 
@@ -240,6 +241,40 @@ const task: Task = {
   goal: "Implement protocol",
 };
 ```
+
+## Protobuf
+
+The v1 protobuf schema lives at `schemas/v1/monarchic_agent_protocol.proto`. It mirrors the JSON schema and uses `google.protobuf.Struct` for free-form objects (`inputs`, `constraints`, `evidence`, `extensions`). Additional JSON properties should be stored in the `extensions` field on each message.
+
+Generate bindings (example commands; adjust output directories and protobuf include paths):
+
+- C++: `protoc -I schemas/v1 -I <protobuf include> --cpp_out=gen/cpp schemas/v1/monarchic_agent_protocol.proto`
+- Java: `protoc -I schemas/v1 -I <protobuf include> --java_out=gen/java schemas/v1/monarchic_agent_protocol.proto`
+- Kotlin: `protoc -I schemas/v1 -I <protobuf include> --kotlin_out=gen/kotlin schemas/v1/monarchic_agent_protocol.proto`
+- C#: `protoc -I schemas/v1 -I <protobuf include> --csharp_out=gen/csharp schemas/v1/monarchic_agent_protocol.proto`
+- Python: `protoc -I schemas/v1 -I <protobuf include> --python_out=gen/python schemas/v1/monarchic_agent_protocol.proto`
+- Go: `protoc -I schemas/v1 -I <protobuf include> --go_out=gen/go --go_opt=paths=source_relative schemas/v1/monarchic_agent_protocol.proto`
+- Ruby: `protoc -I schemas/v1 -I <protobuf include> --ruby_out=gen/ruby schemas/v1/monarchic_agent_protocol.proto`
+- Objective-C: `protoc -I schemas/v1 -I <protobuf include> --objc_out=gen/objc schemas/v1/monarchic_agent_protocol.proto`
+- PHP: `protoc -I schemas/v1 -I <protobuf include> --php_out=gen/php schemas/v1/monarchic_agent_protocol.proto`
+- Dart: `protoc -I schemas/v1 -I <protobuf include> --dart_out=gen/dart schemas/v1/monarchic_agent_protocol.proto`
+- Rust (prost): use `prost-build` with `schemas/v1/monarchic_agent_protocol.proto` and include the generated module (see `examples/proto/rust/task.rs`).
+
+## Examples
+
+- Rust: `examples/rust/task.rs`
+- TypeScript: `examples/ts/task.ts`
+- Protobuf C++: `examples/proto/cpp/task.cpp`
+- Protobuf Java: `examples/proto/java/TaskExample.java`
+- Protobuf Kotlin: `examples/proto/kotlin/TaskExample.kt`
+- Protobuf C#: `examples/proto/csharp/TaskExample.cs`
+- Protobuf Python: `examples/proto/python/task.py`
+- Protobuf Go: `examples/proto/go/task.go`
+- Protobuf Ruby: `examples/proto/ruby/task.rb`
+- Protobuf Objective-C: `examples/proto/objective-c/TaskExample.m`
+- Protobuf PHP: `examples/proto/php/task.php`
+- Protobuf Dart: `examples/proto/dart/task.dart`
+- Protobuf Rust: `examples/proto/rust/task.rs`
 
 ## Validation and tooling
 

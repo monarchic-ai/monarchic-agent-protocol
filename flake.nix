@@ -65,6 +65,7 @@
               pkgs.cargo
               pkgs.rustc
               pkgs.rustfmt
+              pkgs.protobuf
               pkgs.nodejs
               pkgs.jq
               pkgs.python3

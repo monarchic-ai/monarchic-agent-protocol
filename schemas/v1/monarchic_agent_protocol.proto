@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+package monarchic.agent_protocol.v1;
+
+import "google/protobuf/struct.proto";
+
+option java_package = "ai.monarchic.agent_protocol.v1";
+option java_outer_classname = "MonarchicAgentProtocolV1";
+option java_multiple_files = true;
+option csharp_namespace = "Monarchic.AgentProtocol.V1";
+option go_package = "github.com/monarchic-ai/monarchic-agent-protocol/gen/go/monarchic/agent_protocol/v1;agent_protocolv1";
+option objc_class_prefix = "MAP";
+option php_namespace = "Monarchic\\AgentProtocol\\V1";
+option php_metadata_namespace = "Monarchic\\AgentProtocol\\V1\\Metadata";
+
+enum AgentRole {
+  AGENT_ROLE_UNSPECIFIED = 0;
+  PRODUCT_OWNER = 1;
+  PROJECT_MANAGER = 2;
+  DEV = 3;
+  QA = 4;
+  REVIEWER = 5;
+  SECURITY = 6;
+  OPS = 7;
+}
+
+message Task {
+  string version = 1;
+  string task_id = 2;
+  AgentRole role = 3;
+  string goal = 4;
+  google.protobuf.Struct inputs = 5;
+  google.protobuf.Struct constraints = 6;
+  repeated string gates_required = 7;
+  RunContext run_context = 8;
+  google.protobuf.Struct extensions = 9;
+}
+
+message Artifact {
+  string version = 1;
+  string artifact_id = 2;
+  string type = 3;
+  string summary = 4;
+  string path = 5;
+  string task_id = 6;
+  google.protobuf.Struct extensions = 7;
+}
+
+message Event {
+  string version = 1;
+  string event_type = 2;
+  string timestamp = 3;
+  string task_id = 4;
+  string status = 5;
+  optional string message = 6;
+  google.protobuf.Struct extensions = 7;
+}
+
+message GateResult {
+  string version = 1;
+  string gate = 2;
+  string status = 3;
+  optional string reason = 4;
+  google.protobuf.Struct evidence = 5;
+  google.protobuf.Struct extensions = 6;
+}
+
+message RunContext {
+  string version = 1;
+  string repo = 2;
+  string worktree = 3;
+  string image = 4;
+  string runner = 5;
+  repeated string labels = 6;
+  google.protobuf.Struct extensions = 7;
+}
