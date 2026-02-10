@@ -1,5 +1,7 @@
 .direnv/
 result
+gen/
+python/monarchic_agent_protocol/*_pb2.py
 
 ### Linux ###
 *~

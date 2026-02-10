@@ -1,0 +1,24 @@
+{
+  "name": "@monarchic-ai/monarchic-agent-protocol",
+  "version": "0.1.1",
+  "description": "Shared protocol types for Monarchic AI (TypeScript)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monarchic-ai/monarchic-agent-protocol.git"
+  },
+  "homepage": "https://github.com/monarchic-ai/monarchic-agent-protocol",
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false,
+  "types": "src/ts/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/ts/index.ts"
+    }
+  },
+  "files": [
+    "src/ts"
+  ]
+}

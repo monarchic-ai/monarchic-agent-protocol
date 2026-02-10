@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>Monarchic.AgentProtocol</PackageId>
+    <Version>0.1.1</Version>
+    <Authors>Monarchic AI</Authors>
+    <Description>Monarchic Agent Protocol protobuf bindings for .NET.</Description>
+    <RepositoryUrl>https://github.com/monarchic-ai/monarchic-agent-protocol</RepositoryUrl>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="src/csharp/**/*.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.25.3" />
+  </ItemGroup>
+</Project>

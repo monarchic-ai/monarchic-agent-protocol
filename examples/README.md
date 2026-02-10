@@ -7,7 +7,6 @@
 - Protobuf Kotlin: `examples/proto/kotlin/TaskExample.kt`.
 - Protobuf C#: `examples/proto/csharp/TaskExample.cs`.
 - Protobuf Python: `examples/proto/python/task.py`.
-- Protobuf Go: `examples/proto/go/task.go`.
 - Protobuf Ruby: `examples/proto/ruby/task.rb`.
 - Protobuf Objective-C: `examples/proto/objective-c/TaskExample.m`.
 - Protobuf PHP: `examples/proto/php/task.php`.

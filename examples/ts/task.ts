@@ -1,4 +1,4 @@
-import { Task } from "../ts/index";
+import { Task } from "../src/ts/index";
 
 const task: Task = {
   version: "v1",

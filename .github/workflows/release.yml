@@ -1,0 +1,195 @@
+name: release
+
+permissions:
+  contents: read
+  id-token: write
+
+on:
+  push:
+    branches: ["main"]
+    tags: ["v*"]
+  workflow_dispatch:
+
+jobs:
+  publish-rust:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Check crates.io for existing version
+        id: crate_check
+        run: |
+          set -euo pipefail
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import json
+          import tomllib
+          import urllib.request
+
+          with open("Cargo.toml", "rb") as handle:
+              version = tomllib.load(handle)["package"]["version"]
+
+          exists = False
+          try:
+              with urllib.request.urlopen("https://crates.io/api/v1/crates/monarchic-agent-protocol") as resp:
+                  data = json.load(resp)
+              exists = any(v.get("num") == version for v in data.get("versions", []))
+          except Exception:
+              exists = False
+
+          print(f"exists={'true' if exists else 'false'}")
+          PY
+      - name: Publish crates.io
+        if: steps.crate_check.outputs.exists != 'true'
+        env:
+          CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
+        run: cargo publish
+
+  publish-python:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Check PyPI for existing version
+        id: pypi_check
+        run: |
+          set -euo pipefail
+          VERSION=$(python - <<'PY'
+          import configparser
+          cfg = configparser.ConfigParser()
+          cfg.read("setup.cfg")
+          print(cfg["metadata"]["version"])
+          PY
+          )
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://pypi.org/pypi/monarchic-agent-protocol/${VERSION}/json || true)
+          if [ "$STATUS" = "200" ]; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Build and publish to PyPI
+        if: steps.pypi_check.outputs.exists != 'true'
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+        run: |
+          sudo apt-get update && sudo apt-get install -y protobuf-compiler
+          python -m pip install --upgrade pip build twine protobuf
+          protoc -I schemas/v1 --python_out=src/python/monarchic_agent_protocol schemas/v1/monarchic_agent_protocol.proto
+          python -m build
+          python -m twine upload dist/*
+
+  publish-npm:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          registry-url: "https://registry.npmjs.org"
+      - name: Debug OIDC env
+        run: |
+          env | grep ACTIONS_ID_TOKEN || true
+      - name: Upgrade npm
+        run: |
+          npm -v
+          npm install -g npm@latest
+          npm -v
+      - name: Clear npm auth
+        run: |
+          rm -f ~/.npmrc
+          npm config delete //registry.npmjs.org/:_authToken || true
+          npm config delete //registry.npmjs.org/:_auth || true
+      - name: Publish to npm
+        run: npm publish --access public --provenance
+
+  publish-java:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: "21"
+      - name: JitPack build trigger
+        run: |
+          echo "JitPack builds from tags; no publish step required."
+
+  publish-dotnet:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+      - name: Publish to NuGet
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+        run: |
+          dotnet restore Monarchic.AgentProtocol.csproj
+          dotnet pack Monarchic.AgentProtocol.csproj -c Release -o ./nupkg
+          dotnet nuget push ./nupkg/*.nupkg --api-key "$NUGET_API_KEY" --source https://api.nuget.org/v3/index.json
+
+  publish-ruby:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+      - name: Publish to RubyGems
+        env:
+          GEM_HOST_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
+        run: |
+          gem build monarchic-agent-protocol.gemspec
+          gem push monarchic-agent-protocol-*.gem
+
+  publish-php:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+      - name: Publish to Packagist
+        run: |
+          echo "Packagist syncs from GitHub tags; no publish step required."
+
+  # TODO: pub.dev requires "domain"-based verification through the google console
+  # publish-dart:
+  #   runs-on: ubuntu-latest
+  #   if: startsWith(github.ref, 'refs/tags/v')
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: dart-lang/setup-dart@v1
+  #       with:
+  #         sdk: stable
+  #     - name: Publish to pub.dev
+  #       env:
+  #         PUB_CREDENTIALS: ${{ secrets.PUB_CREDENTIALS }}
+  #       run: |
+  #         dart pub publish --force
+
+  publish-go:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.22"
+      - name: Publish Go module
+        run: |
+          echo "TODO: publish Go module package" >&2
+          exit 1
