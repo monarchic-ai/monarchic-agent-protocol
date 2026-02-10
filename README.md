@@ -209,7 +209,7 @@ Example:
 
 ## Rust
 
-The crate lives at the repo root in `src/lib.rs`.
+The crate lives at the repo root with sources under `src/rust/lib.rs`.
 
 ```rust
 use monarchic_agent_protocol::{AgentRole, Task, PROTOCOL_VERSION};
@@ -229,10 +229,10 @@ let task = Task {
 
 ## TypeScript
 
-TypeScript bindings are in `ts/index.ts`.
+TypeScript bindings are in `src/ts/index.ts`.
 
 ```ts
-import { Task } from "./ts/index";
+import { Task } from "./src/ts/index";
 
 const task: Task = {
   version: "v1",
@@ -242,23 +242,19 @@ const task: Task = {
 };
 ```
 
+## Go
+
+Go module sources live under `src/go` with module path:
+
+```
+github.com/monarchic-ai/monarchic-agent-protocol/src/go
+```
+
 ## Protobuf
 
 The v1 protobuf schema lives at `schemas/v1/monarchic_agent_protocol.proto`. It mirrors the JSON schema and uses `google.protobuf.Struct` for free-form objects (`inputs`, `constraints`, `evidence`, `extensions`). Additional JSON properties should be stored in the `extensions` field on each message.
 
-Generate bindings (example commands; adjust output directories and protobuf include paths):
-
-- C++: `protoc -I schemas/v1 -I <protobuf include> --cpp_out=gen/cpp schemas/v1/monarchic_agent_protocol.proto`
-- Java: `protoc -I schemas/v1 -I <protobuf include> --java_out=gen/java schemas/v1/monarchic_agent_protocol.proto`
-- Kotlin: `protoc -I schemas/v1 -I <protobuf include> --kotlin_out=gen/kotlin schemas/v1/monarchic_agent_protocol.proto`
-- C#: `protoc -I schemas/v1 -I <protobuf include> --csharp_out=gen/csharp schemas/v1/monarchic_agent_protocol.proto`
-- Python: `protoc -I schemas/v1 -I <protobuf include> --python_out=gen/python schemas/v1/monarchic_agent_protocol.proto`
-- Go: `protoc -I schemas/v1 -I <protobuf include> --go_out=gen/go --go_opt=paths=source_relative schemas/v1/monarchic_agent_protocol.proto`
-- Ruby: `protoc -I schemas/v1 -I <protobuf include> --ruby_out=gen/ruby schemas/v1/monarchic_agent_protocol.proto`
-- Objective-C: `protoc -I schemas/v1 -I <protobuf include> --objc_out=gen/objc schemas/v1/monarchic_agent_protocol.proto`
-- PHP: `protoc -I schemas/v1 -I <protobuf include> --php_out=gen/php schemas/v1/monarchic_agent_protocol.proto`
-- Dart: `protoc -I schemas/v1 -I <protobuf include> --dart_out=gen/dart schemas/v1/monarchic_agent_protocol.proto`
-- Rust (prost): use `prost-build` with `schemas/v1/monarchic_agent_protocol.proto` and include the generated module (see `examples/proto/rust/task.rs`).
+Language packages are published per registry. Use the registry package for your language instead of generating local outputs.
 
 ## Examples
 
@@ -269,16 +265,51 @@ Generate bindings (example commands; adjust output directories and protobuf incl
 - Protobuf Kotlin: `examples/proto/kotlin/TaskExample.kt`
 - Protobuf C#: `examples/proto/csharp/TaskExample.cs`
 - Protobuf Python: `examples/proto/python/task.py`
-- Protobuf Go: `examples/proto/go/task.go`
 - Protobuf Ruby: `examples/proto/ruby/task.rb`
 - Protobuf Objective-C: `examples/proto/objective-c/TaskExample.m`
 - Protobuf PHP: `examples/proto/php/task.php`
 - Protobuf Dart: `examples/proto/dart/task.dart`
 - Protobuf Rust: `examples/proto/rust/task.rs`
 
+## Python (PyPI)
+
+Install the published package and import the generated protobuf bindings:
+
+```python
+from monarchic_agent_protocol import monarchic_agent_protocol_pb2 as map_pb2
+```
+
 ## Validation and tooling
 
 - `nix develop` provides Rust, Node, jq, Python `jsonschema`, and `protoc`.
-- `nix flake check` validates JSON schemas and protobuf codegen.
+- `nix flake check` validates JSON schemas, protobuf codegen, and package imports (PyPI + Rust + npm + Go).
 - JSON Schema test: `scripts/test-json-schema.sh`.
 - Protobuf codegen test (all languages): `scripts/test-proto.sh`.
+
+## Nix packages
+
+- `packages.default`: Rust crate for protocol types
+- `packages.rs-lib`: Rust crate for protocol types (local)
+- `packages.rs-registry-lib`: Rust crate from crates.io (registry)
+- `packages.py-lib`: installable Python package (local)
+- `packages.py-registry-lib`: PyPI package (registry)
+- `packages.ts-lib`: TypeScript types package (local)
+- `packages.ts-registry-lib`: npm registry package (types-only)
+- `packages.go-lib`: Go module (local)
+- `packages.go-registry-lib`: Go module from GitHub (registry)
+- `packages.rb-lib`: Ruby gem (local)
+- `packages.rb-registry-lib`: Ruby gem from RubyGems (registry)
+- `packages.java-lib`: Java/Kotlin jar (local)
+- `packages.java-registry-lib`: Java/Kotlin jar from JitPack (registry)
+- `packages.dart-lib`: Dart package (local)
+- `packages.dart-registry-lib`: Dart package from pub.dev (registry)
+- `packages.csharp-lib`: C# package sources (local)
+- `packages.csharp-registry-lib`: C# package from NuGet (registry)
+- `packages.php-lib`: PHP package sources (local)
+- `packages.php-registry-lib`: PHP package from Packagist (registry)
+
+## CI and releases
+
+- `.github/workflows/ci.yml` validates JSON schemas, protobuf codegen, and runs `cargo test`.
+- `.github/workflows/release.yml` publishes language packages.
+  - Python publishing is implemented for PyPI; other language registry steps are scaffolded.

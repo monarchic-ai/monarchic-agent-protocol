@@ -1,0 +1,22 @@
+{
+  "name": "monarchic/agent-protocol",
+  "description": "Monarchic Agent Protocol protobuf bindings for PHP.",
+  "type": "library",
+  "license": "Apache-2.0",
+  "require": {
+    "php": ">=7.4",
+    "google/protobuf": "^3.25"
+  },
+  "autoload": {
+    "psr-4": {
+      "Monarchic\\AgentProtocol\\V1\\": "src/php/Monarchic/AgentProtocol/V1/"
+    }
+  },
+  "version": "0.1.1",
+  "authors": [
+    {
+      "name": "Monarchic AI",
+      "homepage": "https://github.com/monarchic-ai/monarchic-agent-protocol"
+    }
+  ]
+}

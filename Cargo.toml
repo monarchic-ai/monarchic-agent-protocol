@@ -1,9 +1,15 @@
 [package]
 name = "monarchic-agent-protocol"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 license = "MIT"
 description = "Shared protocol types for Monarchic AI"
+repository = "https://github.com/monarchic-ai/monarchic-agent-protocol"
+homepage = "https://github.com/monarchic-ai/monarchic-agent-protocol"
+readme = "README.md"
+
+[lib]
+path = "src/rust/lib.rs"
 
 [dependencies]
 serde = { version = "1", features = ["derive"] }
