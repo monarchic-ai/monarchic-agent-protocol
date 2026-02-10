@@ -1,5 +1,5 @@
-import ai.monarchic.agent_protocol.v1.AgentRole;
-import ai.monarchic.agent_protocol.v1.Task;
+import monarchic.agent_protocol.v1.AgentRole;
+import monarchic.agent_protocol.v1.Task;
 
 public class TaskExample {
   public static void main(String[] args) {

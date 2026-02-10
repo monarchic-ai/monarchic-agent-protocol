@@ -15,16 +15,6 @@ if ! command -v protoc >/dev/null 2>&1; then
   exit 1
 fi
 
-if ! command -v protoc-gen-go >/dev/null 2>&1; then
-  echo "protoc-gen-go not found in PATH" >&2
-  exit 1
-fi
-
-if ! command -v protoc-gen-dart >/dev/null 2>&1; then
-  echo "protoc-gen-dart not found in PATH" >&2
-  exit 1
-fi
-
 tmp_dir="$(mktemp -d)"
 trap 'rm -rf "${tmp_dir}"' EXIT
 
@@ -53,6 +43,16 @@ protoc -I "${proto_dir}" \
   --ruby_out="${tmp_dir}/ruby" \
   --objc_out="${tmp_dir}/objc" \
   --php_out="${tmp_dir}/php" \
-  --go_out="${tmp_dir}/go" --go_opt=paths=source_relative \
-  --dart_out="${tmp_dir}/dart" \
   "${proto_file}"
+
+if command -v protoc-gen-go >/dev/null 2>&1; then
+  protoc -I "${proto_dir}" \
+    --go_out="${tmp_dir}/go" --go_opt=paths=source_relative \
+    "${proto_file}"
+fi
+
+if command -v protoc-gen-dart >/dev/null 2>&1; then
+  protoc -I "${proto_dir}" \
+    --dart_out="${tmp_dir}/dart" \
+    "${proto_file}"
+fi
