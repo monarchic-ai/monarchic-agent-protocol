@@ -1,6 +1,6 @@
 name: monarchic_agent_protocol
 description: Monarchic Agent Protocol protobuf bindings for Dart.
-version: v0.1.3
+version: 0.1.4
 repository: https://github.com/monarchic-ai/monarchic-agent-protocol
 homepage: https://github.com/monarchic-ai/monarchic-agent-protocol
 

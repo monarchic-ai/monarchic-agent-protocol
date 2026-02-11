@@ -110,19 +110,6 @@ jobs:
       - name: Publish to npm
         run: npm publish --access public --provenance
 
-  publish-java:
-    runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/v')
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
-        with:
-          distribution: "temurin"
-          java-version: "21"
-      - name: JitPack build trigger
-        run: |
-          echo "JitPack builds from tags; no publish step required."
-
   publish-dotnet:
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/v')
@@ -154,18 +141,6 @@ jobs:
           gem build monarchic-agent-protocol.gemspec
           gem push monarchic-agent-protocol-*.gem
 
-  publish-php:
-    runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/v')
-    steps:
-      - uses: actions/checkout@v4
-      - uses: shivammathur/setup-php@v2
-        with:
-          php-version: "8.3"
-      - name: Publish to Packagist
-        run: |
-          echo "Packagist syncs from GitHub tags; no publish step required."
-
   # TODO: pub.dev requires "domain"-based verification through the google console
   # publish-dart:
   #   runs-on: ubuntu-latest
@@ -180,16 +155,3 @@ jobs:
   #         PUB_CREDENTIALS: ${{ secrets.PUB_CREDENTIALS }}
   #       run: |
   #         dart pub publish --force
-
-  publish-go:
-    runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/v')
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-go@v5
-        with:
-          go-version: "1.22"
-      - name: Publish Go module
-        run: |
-          echo "TODO: publish Go module package" >&2
-          exit 1
