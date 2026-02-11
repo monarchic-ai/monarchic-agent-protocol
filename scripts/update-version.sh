@@ -59,7 +59,6 @@ update_text Cargo.toml
 update_text setup.cfg
 update_text pubspec.yaml
 update_text build.gradle.kts
-update_text monarchic-agent-protocol.gemspec
 update_text Monarchic.AgentProtocol.csproj
 update_text flake.nix
 
@@ -89,7 +88,6 @@ files = [
     "setup.cfg",
     "pubspec.yaml",
     "build.gradle.kts",
-    "monarchic-agent-protocol.gemspec",
     "Monarchic.AgentProtocol.csproj",
     "flake.nix",
 ]
@@ -102,6 +100,17 @@ for file in files:
     path.write_text(text, encoding="utf-8")
 PY
 
+# Update gemspec version explicitly (it may not match old_version)
+python - <<PY
+import re
+from pathlib import Path
+path = Path("monarchic-agent-protocol.gemspec")
+if path.exists():
+    text = path.read_text(encoding="utf-8")
+    text = re.sub(r'^(\\s*spec\\.version\\s*=\\s*)\"[^\"]+\"', r'\\1\"%s\"' % "$new_version", text, flags=re.M)
+    path.write_text(text, encoding="utf-8")
+PY
+
 # Update gradle.properties if it ever gains a version field
 if rg -q "version" gradle.properties 2>/dev/null; then
   update_text gradle.properties
@@ -110,16 +119,6 @@ fi
 # Refresh Cargo.lock if cargo is available
 if command -v cargo >/dev/null 2>&1; then
   cargo generate-lockfile
-fi
-
-if command -v git >/dev/null 2>&1 && git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
-  tag="v${new_version}"
-  if ! git rev-parse -q --verify "refs/tags/${tag}" >/dev/null 2>&1; then
-    jj tag set "${tag}"
-    echo "Created git tag ${tag}"
-  else
-    echo "Tag ${tag} already exists" >&2
-  fi
 fi
 
 echo "Updated version $old_version -> $new_version"
