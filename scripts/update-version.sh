@@ -79,9 +79,47 @@ if "packages" in obj and "" in obj["packages"]:
 path.write_text(json.dumps(obj, indent=2, ensure_ascii=True) + "\n", encoding="utf-8")
 PY
 
+# Strip accidental v-prefixes on the new version in known files
+python - <<PY
+from pathlib import Path
+
+new_version = "$new_version"
+files = [
+    "Cargo.toml",
+    "setup.cfg",
+    "pubspec.yaml",
+    "build.gradle.kts",
+    "monarchic-agent-protocol.gemspec",
+    "Monarchic.AgentProtocol.csproj",
+    "flake.nix",
+]
+for file in files:
+    path = Path(file)
+    if not path.exists():
+        continue
+    text = path.read_text(encoding="utf-8")
+    text = text.replace(f"v{new_version}", new_version)
+    path.write_text(text, encoding="utf-8")
+PY
+
 # Update gradle.properties if it ever gains a version field
 if rg -q "version" gradle.properties 2>/dev/null; then
   update_text gradle.properties
+fi
+
+# Refresh Cargo.lock if cargo is available
+if command -v cargo >/dev/null 2>&1; then
+  cargo generate-lockfile
+fi
+
+if command -v git >/dev/null 2>&1 && git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  tag="v${new_version}"
+  if ! git rev-parse -q --verify "refs/tags/${tag}" >/dev/null 2>&1; then
+    jj tag set "${tag}"
+    echo "Created git tag ${tag}"
+  else
+    echo "Tag ${tag} already exists" >&2
+  fi
 fi
 
 echo "Updated version $old_version -> $new_version"
