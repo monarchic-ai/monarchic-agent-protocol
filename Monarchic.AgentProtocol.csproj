@@ -4,7 +4,7 @@
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>Monarchic.AgentProtocol</PackageId>
-    <Version>0.1.1</Version>
+    <Version>v0.1.3</Version>
     <Authors>Monarchic AI</Authors>
     <Description>Monarchic Agent Protocol protobuf bindings for .NET.</Description>
     <RepositoryUrl>https://github.com/monarchic-ai/monarchic-agent-protocol</RepositoryUrl>
