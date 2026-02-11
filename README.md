@@ -217,11 +217,11 @@ use monarchic_agent_protocol::{AgentRole, Task, PROTOCOL_VERSION};
 let task = Task {
     version: PROTOCOL_VERSION.to_string(),
     task_id: "task-123".to_string(),
-    role: AgentRole::Dev,
+    role: AgentRole::Dev as i32,
     goal: "Implement protocol".to_string(),
     inputs: None,
     constraints: None,
-    gates_required: None,
+    gates_required: Vec::new(),
     run_context: None,
     extensions: Default::default(),
 };
@@ -285,6 +285,7 @@ from monarchic_agent_protocol import monarchic_agent_protocol_pb2 as map_pb2
 - `nix flake check` validates JSON schemas, protobuf codegen, and package imports (PyPI + Rust + npm + Go).
 - JSON Schema test: `scripts/test-json-schema.sh`.
 - Protobuf codegen test (all languages): `scripts/test-proto.sh`.
+- Protobuf codegen (write to `src/<lang>`): `scripts/generate-proto.sh`.
 
 ## Nix packages
 
