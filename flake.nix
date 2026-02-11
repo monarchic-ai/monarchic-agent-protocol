@@ -21,6 +21,7 @@
             pname = "monarchic-agent-protocol";
             version = "0.1.1";
             src = ./.;
+            nativeBuildInputs = [ pkgs.protobuf ];
             cargoLock = {
               lockFile = ./Cargo.lock;
             };
@@ -41,6 +42,7 @@
               version = "0.1.1";
               sha256 = "14cvs2nnswk7k6v74mpbm78hyw4q185whb5k3jpp96357s5y795b";
             };
+            nativeBuildInputs = [ pkgs.protobuf ];
             cargoLock = {
               lockFile = ./Cargo.lock;
             };
@@ -284,6 +286,28 @@
           };
         });
 
+      apps = forAllSystems (system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+          generateProto = pkgs.writeShellApplication {
+            name = "generate-proto";
+            runtimeInputs = [
+              pkgs.protobuf
+              pkgs.protoc-gen-go
+              pkgs.protoc-gen-dart
+            ];
+            text = ''
+              exec ${./scripts/generate-proto.sh} "$@"
+            '';
+          };
+        in
+        {
+          generate-proto = {
+            type = "app";
+            program = "${generateProto}/bin/generate-proto";
+          };
+        });
+
       checks = forAllSystems (system:
         let
           pkgs = import nixpkgs { inherit system; };
@@ -424,6 +448,7 @@ checksum = "3ff05f8caa9038894637571ae6b9e29466c1f4f829d26c9b28f869a29cbe3445"
             in {
             pname = "rs-import";
             version = "0.1.1";
+            nativeBuildInputs = [ pkgs.protobuf ];
             src =
               let
                 crateImportCargoToml = pkgs.writeText "rs-import-Cargo.toml" ''
@@ -446,11 +471,11 @@ fn main() {
     let task = Task {
         version: PROTOCOL_VERSION.to_string(),
         task_id: "task-123".to_string(),
-        role: AgentRole::Dev,
+        role: AgentRole::Dev as i32,
         goal: "hello".to_string(),
         inputs: None,
         constraints: None,
-        gates_required: None,
+        gates_required: Vec::new(),
         run_context: None,
         extensions: Default::default(),
     };
