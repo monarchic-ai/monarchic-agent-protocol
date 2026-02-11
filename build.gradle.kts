@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "ai.monarchic"
-version = "0.1.1"
+version = "v0.1.3"
 
 dependencies {
     api("com.google.protobuf:protobuf-java:4.32.1")
