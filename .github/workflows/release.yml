@@ -17,6 +17,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
+      - name: Install protoc
+        run: sudo apt-get update && sudo apt-get install -y protobuf-compiler
       - name: Check crates.io for existing version
         id: crate_check
         run: |
@@ -94,6 +96,16 @@ jobs:
         with:
           node-version: "20"
           registry-url: "https://registry.npmjs.org"
+      - name: Check npm for existing version
+        id: npm_check
+        run: |
+          set -euo pipefail
+          PKG_VERSION=$(node -p "require('./package.json').version")
+          if npm view @monarchic-ai/monarchic-agent-protocol@"${PKG_VERSION}" version >/dev/null 2>&1; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
       - name: Debug OIDC env
         run: |
           env | grep ACTIONS_ID_TOKEN || true
@@ -108,6 +120,7 @@ jobs:
           npm config delete //registry.npmjs.org/:_authToken || true
           npm config delete //registry.npmjs.org/:_auth || true
       - name: Publish to npm
+        if: steps.npm_check.outputs.exists != 'true'
         run: npm publish --access public --provenance
 
   publish-dotnet:
