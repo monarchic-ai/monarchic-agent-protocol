@@ -107,7 +107,7 @@ from pathlib import Path
 path = Path("monarchic-agent-protocol.gemspec")
 if path.exists():
     text = path.read_text(encoding="utf-8")
-    text = re.sub(r'^(\\s*spec\\.version\\s*=\\s*)\"[^\"]+\"', r'\\1\"%s\"' % "$new_version", text, flags=re.M)
+    text = re.sub(r'^(\s*spec\.version\s*=\s*)"[^"]+"', r'\1"%s"' % "$new_version", text, flags=re.M)
     path.write_text(text, encoding="utf-8")
 PY
 
