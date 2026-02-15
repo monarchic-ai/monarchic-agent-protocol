@@ -10,6 +10,10 @@ dependencies {
     api("com.google.protobuf:protobuf-java:4.32.1")
 }
 
+repositories {
+    mavenCentral()
+}
+
 java {
     withSourcesJar()
 }
