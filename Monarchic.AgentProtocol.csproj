@@ -6,7 +6,7 @@
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>Monarchic.AgentProtocol</PackageId>
-    <Version>0.1.7</Version>
+    <Version>0.1.9</Version>
     <Authors>Monarchic AI</Authors>
     <Description>Monarchic Agent Protocol protobuf bindings for .NET.</Description>
     <RepositoryUrl>https://github.com/monarchic-ai/monarchic-agent-protocol</RepositoryUrl>
