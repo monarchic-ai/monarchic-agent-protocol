@@ -1,6 +1,6 @@
 [package]
 name = "monarchic-agent-protocol"
-version = "0.1.7"
+version = "0.1.9"
 edition = "2021"
 license = "MIT"
 description = "Shared protocol types for Monarchic AI"
