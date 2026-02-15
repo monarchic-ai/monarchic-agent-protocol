@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name = "monarchic-agent-protocol"
-  spec.version = "0.1.7"
+  spec.version = "0.1.9"
   spec.summary = "Monarchic Agent Protocol protobuf types"
   spec.description = "Ruby bindings and protobuf types for the Monarchic Agent Protocol."
   spec.homepage = "https://github.com/monarchic-ai/monarchic-agent-protocol"
