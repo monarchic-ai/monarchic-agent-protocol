@@ -83,7 +83,7 @@
             src = pkgs.fetchPypi {
               pname = "monarchic_agent_protocol";
               version = "0.1.9";
-              sha256 = "sha256-EW3rWy6snhcu1cX8XGC/Q6vNIJWBESg4a+7BVdcoh10=";
+              sha256 = "0pc753bmbhgfdcw2h4c1jlhcvas3pxh5rz65slp1g7mc5rdynv8i";
             };
             nativeBuildInputs = [
               pkgs.python3Packages.setuptools
@@ -116,7 +116,7 @@
             version = "0.1.9";
             src = pkgs.fetchurl {
               url = "https://registry.npmjs.org/@monarchic-ai/monarchic-agent-protocol/-/monarchic-agent-protocol-0.1.9.tgz";
-              sha256 = "sha256-6td/Is0bp6I9mCJ1e+qG7B6XulmfqAMQ99iWyYLPqOo=";
+              sha256 = "1sm8ry1ck5nqyw807a4zb6x9f7pchvm7nx92k0ys59qvrli7zmza";
             };
             npmDepsHash = "sha256-NtaX5b0/+zq75rZXZFePms505Q8kytrhd89ZifQZZyM=";
             npmPackFlags = [ "--ignore-scripts" ];
@@ -163,14 +163,12 @@
           go-registry-lib = pkgs.buildGoModule {
             pname = "monarchic-agent-protocol-go-mod";
             version = "0.1.9";
-            src = pkgs.runCommand "monarchic-agent-protocol-v0.1.9-src" {} ''
-              set -euo pipefail
-              mkdir -p $out
-              tar -xzf ${pkgs.fetchurl {
-                url = "https://github.com/monarchic-ai/monarchic-agent-protocol/archive/refs/tags/v0.1.9.tar.gz";
-                sha256 = "sha256-hVyikX30Du0w3wwp9HCr87h3Q8eZQGxEuN1tNKsRNAs=";
-              }} -C $out --strip-components=1
-            '';
+            src = pkgs.fetchFromGitHub {
+              owner = "monarchic-ai";
+              repo = "monarchic-agent-protocol";
+              rev = "v0.1.9";
+              sha256 = "14ph6nqnbc351xkwvbfcv3vf3p27pyyy02frnq2z12f5fii9nhiz";
+            };
             modRoot = "src/go";
             vendorHash = "sha256-xj9DXJyfqpCcYXRc6Yr6X4s0F2o3mUQ3HWSNLjlKxWc=";
           };
@@ -186,7 +184,7 @@
             version = "0.1.9";
             src = pkgs.fetchurl {
               url = "https://rubygems.org/downloads/monarchic-agent-protocol-0.1.9.gem";
-              sha256 = "sha256-YbUtoUFYBKNp2jK8n162xMffSq+4uIEQe9fUdQyAJ+E=";
+              sha256 = "1q97h067bm6pgc883f5qmx5dziy4nrg9zg1jv9ls612q86hjvdb1";
             };
           };
 
@@ -220,8 +218,8 @@
           };
 
           java-registry-lib = pkgs.fetchurl {
-            url = "https://jitpack.io/com/github/monarchic-ai/monarchic-agent-protocol/0.1.9/monarchic-agent-protocol-0.1.9.jar";
-            sha256 = "sha256-2pwxwuHmyEQjJ9NBTEyACJHaqDKRmZWg+GT/wvDvDEI=";
+            url = "https://jitpack.io/com/github/monarchic-ai/monarchic-agent-protocol/v0.1.9/monarchic-agent-protocol-v0.1.9.jar";
+            sha256 = "0zk78dprdbb93yr941n42wzlgic0n3q68avx22w7h08g4xybsq6l";
           };
 
           dart-lib = pkgs.stdenv.mkDerivation {
@@ -261,7 +259,7 @@
 
           csharp-registry-lib = pkgs.fetchurl {
             url = "https://api.nuget.org/v3-flatcontainer/monarchic.agentprotocol/0.1.9/monarchic.agentprotocol.0.1.9.nupkg";
-            sha256 = "sha256-yk7SXGXPZfSPvJd1Et6k2Pxqo+jYsuDnm6RQ1kunAgk=";
+            sha256 = "0282lx5xcl54kgky1cnqx2inmz6qlkg14xcppj7z8rfgcmfd4kna";
           };
 
           php-lib = pkgs.stdenv.mkDerivation {
@@ -280,14 +278,12 @@
             '';
           };
 
-          php-registry-lib = pkgs.runCommand "monarchic-agent-protocol-v0.1.9-php-src" {} ''
-            set -euo pipefail
-            mkdir -p $out
-            tar -xzf ${pkgs.fetchurl {
-              url = "https://github.com/monarchic-ai/monarchic-agent-protocol/archive/refs/tags/v0.1.9.tar.gz";
-              sha256 = "sha256-hVyikX30Du0w3wwp9HCr87h3Q8eZQGxEuN1tNKsRNAs=";
-            }} -C $out --strip-components=1
-          '';
+          php-registry-lib = pkgs.fetchFromGitHub {
+            owner = "monarchic-ai";
+            repo = "monarchic-agent-protocol";
+            rev = "v0.1.9";
+            sha256 = "14ph6nqnbc351xkwvbfcv3vf3p27pyyy02frnq2z12f5fii9nhiz";
+          };
         });
 
       apps = forAllSystems (system:
@@ -314,6 +310,18 @@
               exec ${./scripts/update-version.sh} "$@"
             '';
           };
+        updateRegistryHashes = pkgs.writeShellApplication {
+          name = "update-registry-hashes";
+          runtimeInputs = [
+            pkgs.nix
+            pkgs.nix-prefetch-scripts
+            pkgs.prefetch-npm-deps
+            pkgs.python3
+          ];
+          text = ''
+            exec ${builtins.path { path = ./scripts/update-registry-hashes.sh; name = "update-registry-hashes.sh"; }} "$@"
+          '';
+        };
         in
         {
           generate-proto = {
@@ -324,19 +332,21 @@
             type = "app";
             program = "${updateVersion}/bin/update-version";
           };
-        });
+        update-registry-hashes = {
+          type = "app";
+          program = "${updateRegistryHashes}/bin/update-registry-hashes";
+        };
+      });
 
       checks = forAllSystems (system:
         let
           pkgs = import nixpkgs { inherit system; };
-          goRegistrySrc = pkgs.runCommand "monarchic-agent-protocol-v0.1.9-check-src" {} ''
-            set -euo pipefail
-            mkdir -p $out
-            tar -xzf ${pkgs.fetchurl {
-              url = "https://github.com/monarchic-ai/monarchic-agent-protocol/archive/refs/tags/v0.1.9.tar.gz";
-              sha256 = "sha256-hVyikX30Du0w3wwp9HCr87h3Q8eZQGxEuN1tNKsRNAs=";
-            }} -C $out --strip-components=1
-          '';
+          goRegistrySrc = pkgs.fetchFromGitHub {
+            owner = "monarchic-ai";
+            repo = "monarchic-agent-protocol";
+            rev = "v0.1.9";
+            sha256 = "14ph6nqnbc351xkwvbfcv3vf3p27pyyy02frnq2z12f5fii9nhiz";
+          };
           rbProtobuf = pkgs.buildRubyGem {
             gemName = "google-protobuf";
             version = "3.25.3";
@@ -363,7 +373,11 @@ version = "0.1.9"
 edition = "2021"
 
 [dependencies]
-monarchic-agent-protocol = "0.1.9"
+monarchic-agent-protocol = { path = "${pkgs.fetchCrate {
+  pname = "monarchic-agent-protocol";
+  version = "0.1.9";
+  sha256 = "sha256-h6M2iqCBPIiPplWjFtBFL/Jv+RskJSBGxl7zMNfp9cc=";
+}}" }
 EOF
               cat > $out/src/main.rs <<'EOF'
 use monarchic_agent_protocol::{AgentRole, Task, PROTOCOL_VERSION};
