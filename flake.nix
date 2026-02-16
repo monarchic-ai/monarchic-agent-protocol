@@ -192,7 +192,7 @@
             let
               protobufJava = pkgs.fetchurl {
                 url = "https://repo1.maven.org/maven2/com/google/protobuf/protobuf-java/4.32.1/protobuf-java-4.32.1.jar";
-                sha256 = "sha256-jJnk2XEzi6+wsLHRzqmxu7PcljDrnCUQnkx8J7yoMss=";
+                sha256 = "1jrjm2y2fz2ckq82b77b62bdrcxvn6lwxldin2qaz2rkf7cy96cc";
               };
             in
             pkgs.stdenv.mkDerivation {
@@ -322,6 +322,17 @@
             exec ${builtins.path { path = ./scripts/update-registry-hashes.sh; name = "update-registry-hashes.sh"; }} "$@"
           '';
         };
+        updateLocalHashes = pkgs.writeShellApplication {
+          name = "update-local-hashes";
+          runtimeInputs = [
+            pkgs.nix
+            pkgs.nix-prefetch-scripts
+            pkgs.python3
+          ];
+          text = ''
+            exec ${builtins.path { path = ./scripts/update-local-hashes.sh; name = "update-local-hashes.sh"; }} "$@"
+          '';
+        };
         in
         {
           generate-proto = {
@@ -332,11 +343,15 @@
             type = "app";
             program = "${updateVersion}/bin/update-version";
           };
-        update-registry-hashes = {
-          type = "app";
-          program = "${updateRegistryHashes}/bin/update-registry-hashes";
-        };
-      });
+          update-registry-hashes = {
+            type = "app";
+            program = "${updateRegistryHashes}/bin/update-registry-hashes";
+          };
+          update-local-hashes = {
+            type = "app";
+            program = "${updateLocalHashes}/bin/update-local-hashes";
+          };
+        });
 
       checks = forAllSystems (system:
         let
@@ -533,11 +548,56 @@ EOF
             '';
           };
 
-          go-import = pkgs.runCommand "go-import" { nativeBuildInputs = [ pkgs.ripgrep ]; } ''
-            set -euo pipefail
-            rg "type Task struct" ${goRegistrySrc}/src/go/monarchic/agent_protocol/v1/monarchic_agent_protocol.pb.go
-            touch $out
-          '';
+          go-import = pkgs.buildGoModule
+            (let
+              goModImport = pkgs.runCommand "go-import-src" {} ''
+                set -euo pipefail
+                mkdir -p $out
+                cp -r ${goRegistrySrc} $out/monarchic-agent-protocol
+                cat > $out/go.mod <<'MOD'
+                module go-import
+
+                go 1.22
+
+                require (
+                  github.com/monarchic-ai/monarchic-agent-protocol/src/go 0.1.9
+                  google.golang.org/protobuf v1.34.2
+                )
+
+                replace github.com/monarchic-ai/monarchic-agent-protocol/src/go => ./monarchic-agent-protocol/src/go
+
+                MOD
+                cp ${./src/go/go.sum} $out/go.sum
+                cat > $out/main.go <<'GO'
+                package main
+
+                import (
+                  agentprotocol "github.com/monarchic-ai/monarchic-agent-protocol/src/go/monarchic/agent_protocol/v1"
+                )
+
+                func main() {
+                  _ = &agentprotocol.Task{
+                    Version: "v1",
+                    TaskId: "task-123",
+                    Role: agentprotocol.AgentRole_DEV,
+                    Goal: "hello",
+                  }
+                }
+                GO
+              '';
+            in
+            {
+              pname = "go-import";
+              version = "0.1.9";
+              src = goModImport;
+              vendorHash = "sha256-xj9DXJyfqpCcYXRc6Yr6X4s0F2o3mUQ3HWSNLjlKxWc=";
+              doCheck = true;
+              checkPhase = ''
+                runHook preCheck
+                go build ./...
+                runHook postCheck
+              '';
+            });
 
           rb-import = pkgs.stdenv.mkDerivation {
             pname = "rb-import";
@@ -590,7 +650,7 @@ EOF
             let
               protobufJava = pkgs.fetchurl {
                 url = "https://repo1.maven.org/maven2/com/google/protobuf/protobuf-java/4.32.1/protobuf-java-4.32.1.jar";
-                sha256 = "sha256-jJnk2XEzi6+wsLHRzqmxu7PcljDrnCUQnkx8J7yoMss=";
+                sha256 = "1jrjm2y2fz2ckq82b77b62bdrcxvn6lwxldin2qaz2rkf7cy96cc";
               };
             in
             pkgs.stdenv.mkDerivation {
