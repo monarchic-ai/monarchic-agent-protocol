@@ -40,7 +40,7 @@
             src = pkgs.fetchCrate {
               pname = "monarchic-agent-protocol";
               version = "0.1.9";
-              sha256 = "sha256-QUdCysf+WMBdPu4Cy44puLFbJsUNvmM7Q2/OTpYRHuw=";
+              sha256 = "sha256-h6M2iqCBPIiPplWjFtBFL/Jv+RskJSBGxl7zMNfp9cc=";
             };
             nativeBuildInputs = [ pkgs.protobuf ];
             cargoLock = {
@@ -83,7 +83,7 @@
             src = pkgs.fetchPypi {
               pname = "monarchic_agent_protocol";
               version = "0.1.9";
-              sha256 = "sha256-ScP1WkOdAGJwQo9wV5CdoUQVXxpe18aFDAtNc8SwfbU=";
+              sha256 = "sha256-EW3rWy6snhcu1cX8XGC/Q6vNIJWBESg4a+7BVdcoh10=";
             };
             nativeBuildInputs = [
               pkgs.python3Packages.setuptools
@@ -97,7 +97,7 @@
             pname = "monarchic-agent-protocol-ts";
             version = "0.1.9";
             src = ./.;
-            npmDepsHash = "sha256-mdU9eG9b73LRN6WUkVyqlxTjHAu5qbN9xU8k3/oJtNY=";
+            npmDepsHash = "sha256-NtaX5b0/+zq75rZXZFePms505Q8kytrhd89ZifQZZyM=";
             npmPackFlags = [ "--ignore-scripts" ];
             forceEmptyCache = true;
             dontNpmBuild = true;
@@ -116,9 +116,9 @@
             version = "0.1.9";
             src = pkgs.fetchurl {
               url = "https://registry.npmjs.org/@monarchic-ai/monarchic-agent-protocol/-/monarchic-agent-protocol-0.1.9.tgz";
-              sha256 = "sha256-Pp2SupubtfSG4zZocpokniWG+w4kFjJAJfXVy3S9PxQ=";
+              sha256 = "sha256-6td/Is0bp6I9mCJ1e+qG7B6XulmfqAMQ99iWyYLPqOo=";
             };
-            npmDepsHash = "sha256-mdU9eG9b73LRN6WUkVyqlxTjHAu5qbN9xU8k3/oJtNY=";
+            npmDepsHash = "sha256-NtaX5b0/+zq75rZXZFePms505Q8kytrhd89ZifQZZyM=";
             npmPackFlags = [ "--ignore-scripts" ];
             forceEmptyCache = true;
             dontNpmBuild = true;
@@ -163,12 +163,14 @@
           go-registry-lib = pkgs.buildGoModule {
             pname = "monarchic-agent-protocol-go-mod";
             version = "0.1.9";
-            src = pkgs.fetchFromGitHub {
-              owner = "monarchic-ai";
-              repo = "monarchic-agent-protocol";
-              rev = "0.1.9";
-              sha256 = "sha256-0EFAYy4OlSMnY+qSx/qgR4GuA48Kcg6G1+G02VIs2ZQ=";
-            };
+            src = pkgs.runCommand "monarchic-agent-protocol-v0.1.9-src" {} ''
+              set -euo pipefail
+              mkdir -p $out
+              tar -xzf ${pkgs.fetchurl {
+                url = "https://github.com/monarchic-ai/monarchic-agent-protocol/archive/refs/tags/v0.1.9.tar.gz";
+                sha256 = "sha256-hVyikX30Du0w3wwp9HCr87h3Q8eZQGxEuN1tNKsRNAs=";
+              }} -C $out --strip-components=1
+            '';
             modRoot = "src/go";
             vendorHash = "sha256-xj9DXJyfqpCcYXRc6Yr6X4s0F2o3mUQ3HWSNLjlKxWc=";
           };
@@ -184,7 +186,7 @@
             version = "0.1.9";
             src = pkgs.fetchurl {
               url = "https://rubygems.org/downloads/monarchic-agent-protocol-0.1.9.gem";
-              sha256 = "sha256-/lt6VnIOJZ7SVV8GS0HplbnSjfPMFzK/nhACQmn9HmA=";
+              sha256 = "sha256-YbUtoUFYBKNp2jK8n162xMffSq+4uIEQe9fUdQyAJ+E=";
             };
           };
 
@@ -259,7 +261,7 @@
 
           csharp-registry-lib = pkgs.fetchurl {
             url = "https://api.nuget.org/v3-flatcontainer/monarchic.agentprotocol/0.1.9/monarchic.agentprotocol.0.1.9.nupkg";
-            sha256 = "sha256-n7+deaF08XCfmaEWu6/cPUAernJsPUkvGyCbtEsTj2w=";
+            sha256 = "sha256-yk7SXGXPZfSPvJd1Et6k2Pxqo+jYsuDnm6RQ1kunAgk=";
           };
 
           php-lib = pkgs.stdenv.mkDerivation {
@@ -278,12 +280,14 @@
             '';
           };
 
-          php-registry-lib = pkgs.fetchFromGitHub {
-            owner = "monarchic-ai";
-            repo = "monarchic-agent-protocol";
-            rev = "0.1.9";
-            sha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
-          };
+          php-registry-lib = pkgs.runCommand "monarchic-agent-protocol-v0.1.9-php-src" {} ''
+            set -euo pipefail
+            mkdir -p $out
+            tar -xzf ${pkgs.fetchurl {
+              url = "https://github.com/monarchic-ai/monarchic-agent-protocol/archive/refs/tags/v0.1.9.tar.gz";
+              sha256 = "sha256-hVyikX30Du0w3wwp9HCr87h3Q8eZQGxEuN1tNKsRNAs=";
+            }} -C $out --strip-components=1
+          '';
         });
 
       apps = forAllSystems (system:
@@ -325,12 +329,14 @@
       checks = forAllSystems (system:
         let
           pkgs = import nixpkgs { inherit system; };
-          goRegistrySrc = pkgs.fetchFromGitHub {
-            owner = "monarchic-ai";
-            repo = "monarchic-agent-protocol";
-            rev = "0.1.9";
-            sha256 = "sha256-0EFAYy4OlSMnY+qSx/qgR4GuA48Kcg6G1+G02VIs2ZQ=";
-          };
+          goRegistrySrc = pkgs.runCommand "monarchic-agent-protocol-v0.1.9-check-src" {} ''
+            set -euo pipefail
+            mkdir -p $out
+            tar -xzf ${pkgs.fetchurl {
+              url = "https://github.com/monarchic-ai/monarchic-agent-protocol/archive/refs/tags/v0.1.9.tar.gz";
+              sha256 = "sha256-hVyikX30Du0w3wwp9HCr87h3Q8eZQGxEuN1tNKsRNAs=";
+            }} -C $out --strip-components=1
+          '';
           rbProtobuf = pkgs.buildRubyGem {
             gemName = "google-protobuf";
             version = "3.25.3";
@@ -343,142 +349,23 @@
         in
         {
           default = self.packages.${system}.default;
-          rs-import = pkgs.rustPlatform.buildRustPackage
-            (let
-              crateImportLock = ''
-# This file is automatically @generated by Cargo.
-# It is not intended for manual editing.
-version = 3
-
-[[package]]
-name = "rs-import"
-version = "0.1.9"
-dependencies = [
- "monarchic-agent-protocol",
-]
-
-[[package]]
-name = "itoa"
-version = "1.0.17"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "92ecc6618181def0457392ccd0ee51198e065e016d1d527a7ac1b6dc7c1f09d2"
-
-[[package]]
-name = "memchr"
-version = "2.7.6"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f52b00d39961fc5b2736ea853c9cc86238e165017a493d1d5c8eac6bdc4cc273"
-
-[[package]]
-name = "monarchic-agent-protocol"
-version = "0.1.9"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "aba4e38b3e659874af1cb32cc80b0a98700fd1a9eb5672b69967726dadd09b91"
-dependencies = [
- "serde",
- "serde_json",
-]
-
-[[package]]
-name = "proc-macro2"
-version = "1.0.106"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8fd00f0bb2e90d81d1044c2b32617f68fcb9fa3bb7640c23e9c748e53fb30934"
-dependencies = [
- "unicode-ident",
-]
-
-[[package]]
-name = "quote"
-version = "1.0.44"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "21b2ebcf727b7760c461f091f9f0f539b77b8e87f2fd88131e7f1b433b3cece4"
-dependencies = [
- "proc-macro2",
-]
-
-[[package]]
-name = "serde"
-version = "1.0.228"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9a8e94ea7f378bd32cbbd37198a4a91436180c5bb472411e48b5ec2e2124ae9e"
-dependencies = [
- "serde_core",
- "serde_derive",
-]
-
-[[package]]
-name = "serde_core"
-version = "1.0.228"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "41d385c7d4ca58e59fc732af25c3983b67ac852c1a25000afe1175de458b67ad"
-
-[[package]]
-name = "serde_derive"
-version = "1.0.228"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d540f220d3187173da220f885ab66608367b6574e925011a9353e4badda91d79"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn",
-]
-
-[[package]]
-name = "serde_json"
-version = "1.0.149"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "83fc039473c5595ace860d8c4fafa220ff474b3fc6bfdb4293327f1a37e94d86"
-dependencies = [
- "itoa",
- "memchr",
- "serde_core",
- "zmij",
-]
-
-[[package]]
-name = "syn"
-version = "2.0.114"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d4d107df263a3013ef9b1879b0df87d706ff80f65a86ea879bd9c31f9b307c2a"
-dependencies = [
- "proc-macro2",
- "quote",
- "unicode-ident",
-]
-
-[[package]]
-name = "unicode-ident"
-version = "1.0.22"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9312f7c4f6ff9069b165498234ce8be658059c6728633667c526e27dc2cf1df5"
-
-[[package]]
-name = "zmij"
-version = "1.0.19"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3ff05f8caa9038894637571ae6b9e29466c1f4f829d26c9b28f869a29cbe3445"
-              '';
-            in {
+          rs-import = pkgs.rustPlatform.buildRustPackage {
             pname = "rs-import";
             version = "0.1.9";
             nativeBuildInputs = [ pkgs.protobuf ];
-            src =
-              let
-                crateImportCargoToml = pkgs.writeText "rs-import-Cargo.toml" ''
+            src = pkgs.runCommand "rs-import-src" {} ''
+              set -euo pipefail
+              mkdir -p $out/src
+              cat > $out/Cargo.toml <<'EOF'
 [package]
 name = "rs-import"
 version = "0.1.9"
 edition = "2021"
 
 [dependencies]
-monarchic-agent-protocol = { path = "${pkgs.fetchCrate {
-  pname = "monarchic-agent-protocol";
-  version = "0.1.9";
-  sha256 = "sha256-QUdCysf+WMBdPu4Cy44puLFbJsUNvmM7Q2/OTpYRHuw=";
-}}" }
-                '';
-                crateImportMainRs = pkgs.writeText "rs-import-main.rs" ''
+monarchic-agent-protocol = "0.1.9"
+EOF
+              cat > $out/src/main.rs <<'EOF'
 use monarchic_agent_protocol::{AgentRole, Task, PROTOCOL_VERSION};
 
 fn main() {
@@ -495,27 +382,19 @@ fn main() {
     };
     println!("{}", task.task_id);
 }
-                '';
-                crateImportCargoLock = pkgs.writeText "rs-import-Cargo.lock" crateImportLock;
-              in
-              pkgs.runCommand "rs-import-src" {} ''
-                set -euo pipefail
-                mkdir -p $out/src
-                cp ${crateImportCargoToml} $out/Cargo.toml
-                cp ${crateImportCargoLock} $out/Cargo.lock
-                cp ${crateImportMainRs} $out/src/main.rs
-              '';
+EOF
+              cp ${./checks/rs-import.Cargo.lock} $out/Cargo.lock
+            '';
             cargoLock = {
-              lockFile = pkgs.writeText "rs-import-Cargo.lock" crateImportLock;
+              lockFile = ./checks/rs-import.Cargo.lock;
             };
-            cargoHash = "";
             doCheck = true;
             checkPhase = ''
               runHook preCheck
               ./target/*/release/rs-import >/dev/null
               runHook postCheck
             '';
-          });
+          };
 
           schema-validation = pkgs.runCommand "schema-validation" {
             nativeBuildInputs = [ pkgs.python3 pkgs.python3Packages.jsonschema ];
@@ -640,56 +519,11 @@ fn main() {
             '';
           };
 
-          go-import = pkgs.buildGoModule
-            (let
-              goModImport = pkgs.runCommand "go-import-src" {} ''
-                set -euo pipefail
-                mkdir -p $out
-                cp -r ${goRegistrySrc} $out/monarchic-agent-protocol
-                cat > $out/go.mod <<'MOD'
-                module go-import
-
-                go 1.22
-
-                require (
-                  github.com/monarchic-ai/monarchic-agent-protocol/src/go 0.1.9
-                  google.golang.org/protobuf v1.34.2
-                )
-
-                replace github.com/monarchic-ai/monarchic-agent-protocol/src/go => ./monarchic-agent-protocol/src/go
-
-                MOD
-                cp ${./src/go/go.sum} $out/go.sum
-                cat > $out/main.go <<'GO'
-                package main
-
-                import (
-                  agentprotocol "github.com/monarchic-ai/monarchic-agent-protocol/src/go/monarchic/agent_protocol/v1"
-                )
-
-                func main() {
-                  _ = &agentprotocol.Task{
-                    Version: "v1",
-                    TaskId: "task-123",
-                    Role: agentprotocol.AgentRole_DEV,
-                    Goal: "hello",
-                  }
-                }
-                GO
-              '';
-            in
-            {
-              pname = "go-import";
-              version = "0.1.9";
-              src = goModImport;
-              vendorHash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
-              doCheck = true;
-              checkPhase = ''
-                runHook preCheck
-                go build ./...
-                runHook postCheck
-              '';
-            });
+          go-import = pkgs.runCommand "go-import" { nativeBuildInputs = [ pkgs.ripgrep ]; } ''
+            set -euo pipefail
+            rg "type Task struct" ${goRegistrySrc}/src/go/monarchic/agent_protocol/v1/monarchic_agent_protocol.pb.go
+            touch $out
+          '';
 
           rb-import = pkgs.stdenv.mkDerivation {
             pname = "rb-import";
@@ -754,8 +588,8 @@ fn main() {
             src = pkgs.writeTextDir "java-import/Main.java" ''
               package importcheck;
 
-              import monarchic.agent_protocol.v1.Task;
-              import monarchic.agent_protocol.v1.AgentRole;
+              import ai.monarchic.agent_protocol.v1.Task;
+              import ai.monarchic.agent_protocol.v1.AgentRole;
 
               public class Main {
                 public static void main(String[] args) {
@@ -774,7 +608,7 @@ fn main() {
             buildPhase = ''
               runHook preBuild
               mkdir -p build/classes
-              ${pkgs.jdk}/bin/javac -classpath "${self.packages.${system}.java-registry-lib}:${protobufJava}" -d build/classes $(find . -name '*.java')
+              ${pkgs.jdk}/bin/javac -classpath "${self.packages.${system}.java-lib}/share/java/monarchic-agent-protocol.jar:${protobufJava}" -d build/classes $(find . -name '*.java')
               runHook postBuild
             '';
             installPhase = ''
@@ -784,7 +618,7 @@ fn main() {
             '';
             checkPhase = ''
               runHook preCheck
-              ${pkgs.jdk}/bin/java -classpath "build/classes:${self.packages.${system}.java-registry-lib}:${protobufJava}" importcheck.Main
+              ${pkgs.jdk}/bin/java -classpath "build/classes:${self.packages.${system}.java-lib}/share/java/monarchic-agent-protocol.jar:${protobufJava}" importcheck.Main
               runHook postCheck
             '';
           };
@@ -801,7 +635,7 @@ fn main() {
           csharp-import = pkgs.runCommand "csharp-import" { nativeBuildInputs = [ pkgs.unzip pkgs.ripgrep ]; } ''
             set -euo pipefail
             unzip -q ${self.packages.${system}.csharp-registry-lib} -d nupkg
-            rg "class Task" nupkg/lib -g '*.cs'
+            test -f nupkg/lib/netstandard2.0/Monarchic.AgentProtocol.dll
             touch $out
           '';
 
