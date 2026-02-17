@@ -24,6 +24,24 @@
     },
     "task_id": {
       "type": "string"
+    },
+    "provenance": {
+      "$ref": "provenance.json"
+    },
+    "dataset_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "dataset_ref.json"
+      }
+    },
+    "eval_results": {
+      "type": "array",
+      "items": {
+        "$ref": "eval_result.json"
+      }
+    },
+    "experiment_spec": {
+      "$ref": "experiment_spec.json"
     }
   }
 }
