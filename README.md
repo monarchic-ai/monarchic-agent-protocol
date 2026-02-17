@@ -64,7 +64,6 @@ Schema files live under `schemas/v1/`:
 - `schemas/v1/agent_role.json`
 - `schemas/v1/dataset_ref.json`
 - `schemas/v1/experiment_spec.json`
-- `schemas/v1/objective_spec.json`
 - `schemas/v1/eval_result.json`
 - `schemas/v1/provenance.json`
 - `schemas/v1/schema.json` (index)
@@ -124,8 +123,6 @@ Optional fields:
 - `constraints`: free-form object
 - `gates_required`: list of gate names to run (ex: `["qa", "security"]`)
 - `run_context`: `RunContext`
-- `delivery_contract`: typed acceptance and risk contract for autonomous delivery loops
-- `objective_spec`: objective scoring contract for deterministic outcome evaluation
 - `experiment_spec`: typed experiment design contract for deterministic in silico runs
 
 Example:
@@ -287,22 +284,6 @@ Example:
 }
 ```
 
-### RunOutcome
-
-Typed summary contract for objective/cost/risk decisions captured at the end of a run.
-
-Required fields:
-
-- `version`: `"v1"`
-- `task_id`: task identifier
-- `objective_decision`: objective decision label
-- `cost_decision`: cost decision label
-- `risk_decision`: risk decision label
-- `final_decision`: aggregate decision label
-
-Optional fields include `run_id`, `objective_metric`, `objective_score`, cost budget metrics,
-risk detail fields, `summary`, and `evidence`.
-
 ### DatasetRef
 
 Reference to a dataset used by an experiment or output artifact.
@@ -327,18 +308,6 @@ Required fields:
 - `acceptance`: metric threshold policy
 
 Optional fields include `hypothesis`, `model_family`, `seeds`, and free-form `constraints`.
-
-### ObjectiveSpec
-
-Typed objective scoring contract for progress/outcome checks.
-
-Required fields:
-
-- `metric_key`
-- `direction`: `maximize`, `minimize`, or `target`
-
-Optional fields include `target`, `min_delta`, `tolerance`, `report_file`,
-`report_task_id`, `weight`, and `description`.
 
 ### EvalResult
 
@@ -367,10 +336,7 @@ Required fields:
 
 Optional fields include dataset hashes/references and command/task/pipeline hashes.
 
-
-### Language bindings
-
-#### Rust
+## Rust
 
 The crate lives at the repo root with sources under `src/rust/lib.rs`.
 

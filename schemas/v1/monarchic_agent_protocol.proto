@@ -24,14 +24,6 @@ enum AgentRole {
   OPS = 7;
 }
 
-enum OutcomeDecision {
-  OUTCOME_DECISION_UNSPECIFIED = 0;
-  ACCEPT = 1;
-  ITERATE = 2;
-  REJECT = 3;
-  ESCALATE = 4;
-}
-
 message DatasetRef {
   string dataset_id = 1;
   optional string uri = 2;
@@ -63,33 +55,6 @@ message ExperimentSpec {
   AcceptanceCriteria acceptance = 7;
   google.protobuf.Struct constraints = 8;
   google.protobuf.Struct extensions = 9;
-}
-
-message DeliveryContract {
-  string objective = 1;
-  repeated string definition_of_done = 2;
-  repeated string required_checks = 3;
-  string risk_tier = 4;
-  optional uint32 max_cycle_minutes = 5;
-  optional uint32 max_agent_turns = 6;
-  optional string pr_strategy = 7;
-  optional string review_policy = 8;
-  optional string rollback_strategy = 9;
-  optional string notes = 10;
-  google.protobuf.Struct extensions = 11;
-}
-
-message ObjectiveSpec {
-  string metric_key = 1;
-  string direction = 2;
-  optional double target = 3;
-  optional double min_delta = 4;
-  optional double tolerance = 5;
-  optional string report_file = 6;
-  optional string report_task_id = 7;
-  optional double weight = 8;
-  optional string description = 9;
-  google.protobuf.Struct extensions = 10;
 }
 
 message EvalResult {
@@ -132,8 +97,6 @@ message Task {
   RunContext run_context = 8;
   google.protobuf.Struct extensions = 9;
   ExperimentSpec experiment_spec = 10;
-  DeliveryContract delivery_contract = 11;
-  ObjectiveSpec objective_spec = 12;
 }
 
 message Artifact {

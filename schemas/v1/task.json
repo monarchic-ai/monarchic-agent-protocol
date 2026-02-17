@@ -90,15 +90,10 @@
       "title": "Agent Role"
     },
     "run_context": {
-      "$ref": "monarchic.agent_protocol.v1.RunContext.schema.json"
+      "$ref": "run_context.json"
     },
-    "task_id": {
-      "default": "",
-      "type": "string"
-    },
-    "version": {
-      "default": "",
-      "type": "string"
+    "experiment_spec": {
+      "$ref": "experiment_spec.json"
     }
   },
   "title": "Task",
