@@ -1,0 +1,35 @@
+{
+  "$id": "https://monarchic.ai/schema/v1/eval_result.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EvalResult",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["metric", "value", "passed"],
+  "properties": {
+    "metric": {
+      "type": "string"
+    },
+    "value": {
+      "type": "number"
+    },
+    "lower_ci": {
+      "type": "number"
+    },
+    "upper_ci": {
+      "type": "number"
+    },
+    "variance": {
+      "type": "number",
+      "minimum": 0.0
+    },
+    "seed": {
+      "type": "integer"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}
