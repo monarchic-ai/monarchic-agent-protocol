@@ -291,6 +291,9 @@
           pkgs = nixpkgs.legacyPackages.${system};
           generateProto = pkgs.writeShellApplication {
             name = "generate-proto";
+            meta = {
+              description = "Generate language bindings from protobuf schemas.";
+            };
             runtimeInputs = [
               pkgs.protobuf
               pkgs.protoc-gen-go
@@ -302,6 +305,9 @@
           };
           updateVersion = pkgs.writeShellApplication {
             name = "update-version";
+            meta = {
+              description = "Update versions across project files.";
+            };
             runtimeInputs = [
               pkgs.python3
               pkgs.ripgrep
@@ -310,25 +316,31 @@
               exec ${./scripts/update-version.sh} "$@"
             '';
           };
-        updateRegistryHashes = pkgs.writeShellApplication {
-          name = "update-registry-hashes";
-          runtimeInputs = [
-            pkgs.nix
-            pkgs.nix-prefetch-scripts
-            pkgs.prefetch-npm-deps
-            pkgs.python3
-          ];
-          text = ''
-            exec ${builtins.path { path = ./scripts/update-registry-hashes.sh; name = "update-registry-hashes.sh"; }} "$@"
-          '';
-        };
-        updateLocalHashes = pkgs.writeShellApplication {
-          name = "update-local-hashes";
-          runtimeInputs = [
-            pkgs.nix
-            pkgs.nix-prefetch-scripts
-            pkgs.python3
-          ];
+          updateRegistryHashes = pkgs.writeShellApplication {
+            name = "update-registry-hashes";
+            meta = {
+              description = "Update registry package hashes in flake.nix.";
+            };
+            runtimeInputs = [
+              pkgs.nix
+              pkgs.nix-prefetch-scripts
+              pkgs.prefetch-npm-deps
+              pkgs.python3
+            ];
+            text = ''
+              exec ${builtins.path { path = ./scripts/update-registry-hashes.sh; name = "update-registry-hashes.sh"; }} "$@"
+            '';
+          };
+          updateLocalHashes = pkgs.writeShellApplication {
+            name = "update-local-hashes";
+            meta = {
+              description = "Update local build hashes in flake.nix.";
+            };
+            runtimeInputs = [
+              pkgs.nix
+              pkgs.nix-prefetch-scripts
+              pkgs.python3
+            ];
           text = ''
             exec ${builtins.path { path = ./scripts/update-local-hashes.sh; name = "update-local-hashes.sh"; }} "$@"
           '';
@@ -338,18 +350,30 @@
           generate-proto = {
             type = "app";
             program = "${generateProto}/bin/generate-proto";
+            meta = {
+              description = "Generate language bindings from protobuf schemas.";
+            };
           };
           update-version = {
             type = "app";
             program = "${updateVersion}/bin/update-version";
+            meta = {
+              description = "Update versions across project files.";
+            };
           };
           update-registry-hashes = {
             type = "app";
             program = "${updateRegistryHashes}/bin/update-registry-hashes";
+            meta = {
+              description = "Update registry package hashes in flake.nix.";
+            };
           };
           update-local-hashes = {
             type = "app";
             program = "${updateLocalHashes}/bin/update-local-hashes";
+            meta = {
+              description = "Update local build hashes in flake.nix.";
+            };
           };
         });
 
