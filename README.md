@@ -287,6 +287,15 @@ from monarchic_agent_protocol import monarchic_agent_protocol_pb2 as map_pb2
 - Protobuf codegen test (all languages): `scripts/test-proto.sh`.
 - Protobuf codegen (write to `src/<lang>`): `scripts/generate-proto.sh`.
 
+## Contributor scripts
+
+Use the Nix apps (preferred) or the scripts directly:
+
+- `nix run .#generate-proto` (`scripts/generate-proto.sh`): regenerate protobuf outputs into `src/<lang>`.
+- `nix run .#update-version -- <version>` (`scripts/update-version.sh`): bump version across manifests and tags (expects `vX.Y.Z` input).
+- `nix run .#update-registry-hashes` (`scripts/update-registry-hashes.sh`): refresh hashes for published registries (npm, crates, PyPI, RubyGems, NuGet, JitPack, GitHub source).
+- `nix run .#update-local-hashes` (`scripts/update-local-hashes.sh`): refresh hashes for local build inputs.
+
 ## Nix packages
 
 - `packages.default`: Rust crate for protocol types
