@@ -19,7 +19,7 @@
           default = self.packages.${system}.rs-lib;
           rs-lib = pkgs.rustPlatform.buildRustPackage {
             pname = "monarchic-agent-protocol";
-            version = "0.1.9";
+            version = "0.1.10";
             src = ./.;
             nativeBuildInputs = [ pkgs.protobuf ];
             cargoLock = {
@@ -36,10 +36,10 @@
 
           rs-registry-lib = pkgs.rustPlatform.buildRustPackage {
             pname = "monarchic-agent-protocol";
-            version = "0.1.9";
+            version = "0.1.10";
             src = pkgs.fetchCrate {
               pname = "monarchic-agent-protocol";
-              version = "0.1.9";
+              version = "0.1.10";
               sha256 = "sha256-h6M2iqCBPIiPplWjFtBFL/Jv+RskJSBGxl7zMNfp9cc=";
             };
             nativeBuildInputs = [ pkgs.protobuf ];
@@ -57,7 +57,7 @@
 
           py-lib = pkgs.python3Packages.buildPythonPackage {
             pname = "monarchic-agent-protocol";
-            version = "0.1.9";
+            version = "0.1.10";
             format = "pyproject";
             src = ./.;
             nativeBuildInputs = [
@@ -78,11 +78,11 @@
 
           py-registry-lib = pkgs.python3Packages.buildPythonPackage {
             pname = "monarchic-agent-protocol";
-            version = "0.1.9";
+            version = "0.1.10";
             format = "pyproject";
             src = pkgs.fetchPypi {
               pname = "monarchic_agent_protocol";
-              version = "0.1.9";
+              version = "0.1.10";
               sha256 = "0pc753bmbhgfdcw2h4c1jlhcvas3pxh5rz65slp1g7mc5rdynv8i";
             };
             nativeBuildInputs = [
@@ -95,7 +95,7 @@
 
           ts-lib = pkgs.buildNpmPackage {
             pname = "monarchic-agent-protocol-ts";
-            version = "0.1.9";
+            version = "0.1.10";
             src = ./.;
             npmDepsHash = "sha256-NtaX5b0/+zq75rZXZFePms505Q8kytrhd89ZifQZZyM=";
             npmPackFlags = [ "--ignore-scripts" ];
@@ -113,9 +113,9 @@
 
           ts-registry-lib = pkgs.buildNpmPackage {
             pname = "monarchic-agent-protocol-npm";
-            version = "0.1.9";
+            version = "0.1.10";
             src = pkgs.fetchurl {
-              url = "https://registry.npmjs.org/@monarchic-ai/monarchic-agent-protocol/-/monarchic-agent-protocol-0.1.9.tgz";
+              url = "https://registry.npmjs.org/@monarchic-ai/monarchic-agent-protocol/-/monarchic-agent-protocol-0.1.10.tgz";
               sha256 = "1sm8ry1ck5nqyw807a4zb6x9f7pchvm7nx92k0ys59qvrli7zmza";
             };
             npmDepsHash = "sha256-NtaX5b0/+zq75rZXZFePms505Q8kytrhd89ZifQZZyM=";
@@ -128,13 +128,13 @@
                 npmPackageLock = pkgs.writeText "npm-package-lock.json" ''
 {
   "name": "@monarchic-ai/monarchic-agent-protocol",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "lockfileVersion": 3,
   "requires": true,
   "packages": {
     "": {
       "name": "@monarchic-ai/monarchic-agent-protocol",
-      "version": "0.1.9"
+      "version": "0.1.10"
     }
   }
 }
@@ -154,7 +154,7 @@
 
           go-lib = pkgs.buildGoModule {
             pname = "monarchic-agent-protocol-go";
-            version = "0.1.9";
+            version = "0.1.10";
             src = ./.;
             modRoot = "src/go";
             vendorHash = "sha256-xj9DXJyfqpCcYXRc6Yr6X4s0F2o3mUQ3HWSNLjlKxWc=";
@@ -162,11 +162,11 @@
 
           go-registry-lib = pkgs.buildGoModule {
             pname = "monarchic-agent-protocol-go-mod";
-            version = "0.1.9";
+            version = "0.1.10";
             src = pkgs.fetchFromGitHub {
               owner = "monarchic-ai";
               repo = "monarchic-agent-protocol";
-              rev = "v0.1.9";
+              rev = "v0.1.10";
               sha256 = "14ph6nqnbc351xkwvbfcv3vf3p27pyyy02frnq2z12f5fii9nhiz";
             };
             modRoot = "src/go";
@@ -175,15 +175,15 @@
 
           rb-lib = pkgs.buildRubyGem {
             gemName = "monarchic-agent-protocol";
-            version = "0.1.9";
+            version = "0.1.10";
             src = ./.;
           };
 
           rb-registry-lib = pkgs.buildRubyGem {
             gemName = "monarchic-agent-protocol";
-            version = "0.1.9";
+            version = "0.1.10";
             src = pkgs.fetchurl {
-              url = "https://rubygems.org/downloads/monarchic-agent-protocol-0.1.9.gem";
+              url = "https://rubygems.org/downloads/monarchic-agent-protocol-0.1.10.gem";
               sha256 = "1q97h067bm6pgc883f5qmx5dziy4nrg9zg1jv9ls612q86hjvdb1";
             };
           };
@@ -197,7 +197,7 @@
             in
             pkgs.stdenv.mkDerivation {
             pname = "monarchic-agent-protocol-java";
-            version = "0.1.9";
+            version = "0.1.10";
             src = ./.;
             nativeBuildInputs = [
               pkgs.jdk
@@ -218,13 +218,13 @@
           };
 
           java-registry-lib = pkgs.fetchurl {
-            url = "https://jitpack.io/com/github/monarchic-ai/monarchic-agent-protocol/v0.1.9/monarchic-agent-protocol-v0.1.9.jar";
+            url = "https://jitpack.io/com/github/monarchic-ai/monarchic-agent-protocol/v0.1.10/monarchic-agent-protocol-v0.1.10.jar";
             sha256 = "0zk78dprdbb93yr941n42wzlgic0n3q68avx22w7h08g4xybsq6l";
           };
 
           dart-lib = pkgs.stdenv.mkDerivation {
             pname = "monarchic-agent-protocol-dart";
-            version = "0.1.9";
+            version = "0.1.10";
             src = ./.;
             installPhase = ''
               runHook preInstall
@@ -237,13 +237,13 @@
 
           # TODO: pub.dev requires "domain"-based verification through the google console
           # dart-registry-lib = pkgs.fetchurl {
-          #   url = "https://pub.dev/packages/monarchic_agent_protocol/versions/0.1.9.tar.gz";
+          #   url = "https://pub.dev/packages/monarchic_agent_protocol/versions/0.1.10.tar.gz";
           #   sha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
           # };
 
           csharp-lib = pkgs.stdenv.mkDerivation {
             pname = "monarchic-agent-protocol-csharp";
-            version = "0.1.9";
+            version = "0.1.10";
             src = builtins.path {
               path = ./.;
               name = "monarchic-agent-protocol-csharp-src";
@@ -258,13 +258,13 @@
           };
 
           csharp-registry-lib = pkgs.fetchurl {
-            url = "https://api.nuget.org/v3-flatcontainer/monarchic.agentprotocol/0.1.9/monarchic.agentprotocol.0.1.9.nupkg";
+            url = "https://api.nuget.org/v3-flatcontainer/monarchic.agentprotocol/0.1.10/monarchic.agentprotocol.0.1.10.nupkg";
             sha256 = "0282lx5xcl54kgky1cnqx2inmz6qlkg14xcppj7z8rfgcmfd4kna";
           };
 
           php-lib = pkgs.stdenv.mkDerivation {
             pname = "monarchic-agent-protocol-php";
-            version = "0.1.9";
+            version = "0.1.10";
             src = builtins.path {
               path = ./.;
               name = "monarchic-agent-protocol-php-src";
@@ -281,7 +281,7 @@
           php-registry-lib = pkgs.fetchFromGitHub {
             owner = "monarchic-ai";
             repo = "monarchic-agent-protocol";
-            rev = "v0.1.9";
+            rev = "v0.1.10";
             sha256 = "14ph6nqnbc351xkwvbfcv3vf3p27pyyy02frnq2z12f5fii9nhiz";
           };
         });
@@ -383,7 +383,7 @@
           goRegistrySrc = pkgs.fetchFromGitHub {
             owner = "monarchic-ai";
             repo = "monarchic-agent-protocol";
-            rev = "v0.1.9";
+            rev = "v0.1.10";
             sha256 = "14ph6nqnbc351xkwvbfcv3vf3p27pyyy02frnq2z12f5fii9nhiz";
           };
           rbProtobuf = pkgs.buildRubyGem {
@@ -400,7 +400,7 @@
           default = self.packages.${system}.default;
           rs-import = pkgs.rustPlatform.buildRustPackage {
             pname = "rs-import";
-            version = "0.1.9";
+            version = "0.1.10";
             nativeBuildInputs = [ pkgs.protobuf ];
             src = pkgs.runCommand "rs-import-src" {} ''
               set -euo pipefail
@@ -408,13 +408,13 @@
               cat > $out/Cargo.toml <<'EOF'
 [package]
 name = "rs-import"
-version = "0.1.9"
+version = "0.1.10"
 edition = "2021"
 
 [dependencies]
 monarchic-agent-protocol = { path = "${pkgs.fetchCrate {
   pname = "monarchic-agent-protocol";
-  version = "0.1.9";
+  version = "0.1.10";
   sha256 = "sha256-h6M2iqCBPIiPplWjFtBFL/Jv+RskJSBGxl7zMNfp9cc=";
 }}" }
 EOF
@@ -483,7 +483,7 @@ EOF
 
           py-import = pkgs.stdenv.mkDerivation {
             pname = "py-import";
-            version = "0.1.9";
+            version = "0.1.10";
             nativeBuildInputs = [
               (pkgs.python3.withPackages (ps: [ self.packages.${system}.py-registry-lib ]))
             ];
@@ -517,7 +517,7 @@ EOF
 
           ts-import = pkgs.stdenv.mkDerivation {
             pname = "ts-import";
-            version = "0.1.9";
+            version = "0.1.10";
             nativeBuildInputs = [
               pkgs.nodejs
               pkgs.nodePackages.typescript
@@ -584,7 +584,7 @@ EOF
                 go 1.22
 
                 require (
-                  github.com/monarchic-ai/monarchic-agent-protocol/src/go v0.1.9
+                  github.com/monarchic-ai/monarchic-agent-protocol/src/go v0.1.10
                   google.golang.org/protobuf v1.34.2
                 )
 
@@ -612,7 +612,7 @@ EOF
             in
             {
               pname = "go-import";
-              version = "0.1.9";
+              version = "0.1.10";
               src = goModImport;
               vendorHash = "sha256-yZ14RLTS3DccTvhrcawxLFCMiyMgc8maZKez5obuaLc=";
               subPackages = [ "." ];
@@ -626,7 +626,7 @@ EOF
 
           rb-import = pkgs.stdenv.mkDerivation {
             pname = "rb-import";
-            version = "0.1.9";
+            version = "0.1.10";
             nativeBuildInputs = [ pkgs.ruby ];
             buildInputs = [
               self.packages.${system}.rb-registry-lib
@@ -680,7 +680,7 @@ EOF
             in
             pkgs.stdenv.mkDerivation {
             pname = "java-import";
-            version = "0.1.9";
+            version = "0.1.10";
             nativeBuildInputs = [
               pkgs.jdk
             ];
