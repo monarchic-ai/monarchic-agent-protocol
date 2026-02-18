@@ -31,9 +31,38 @@ prefetch_url() {
   nix-prefetch-url --type sha256 "$url"
 }
 
+prefetch_url_with_path() {
+  local url="$1"
+  nix-prefetch-url --type sha256 "$url" 2>&1
+}
+
 prefetch_url_unpacked() {
   local url="$1"
   nix-prefetch-url --type sha256 --unpack "$url"
+}
+
+extract_hash() {
+  python -c 'import re,sys
+text=sys.argv[1].splitlines()
+for line in text:
+    line=line.strip()
+    if re.fullmatch(r"sha256-[A-Za-z0-9+/=]+", line):
+        print(line); sys.exit(0)
+    if re.fullmatch(r"[0-9a-f]{64}", line):
+        print(line); sys.exit(0)
+    if re.fullmatch(r"[0-9a-df-np-sv-z]{32,64}", line):
+        print(line); sys.exit(0)
+sys.exit(1)' "$1"
+}
+
+extract_path() {
+  python -c "import re,sys
+text=sys.argv[1].splitlines()
+for line in text:
+    m=re.search(r\"path is '([^']+)'\", line)
+    if m:
+        print(m.group(1)); sys.exit(0)
+sys.exit(1)" "$1"
 }
 
 echo "Updating registry hashes for version ${version}"
@@ -42,13 +71,20 @@ npm_deps_hash="$(python - <<'PY'
 import re
 from pathlib import Path
 text = Path("flake.nix").read_text(encoding="utf-8")
-m = re.search(r'npmDepsHash\\s*=\\s*"([^"]+)"', text)
+m = re.search(r'npmDepsHash\s*=\s*"([^"]+)"', text)
 print(m.group(1) if m else "")
 PY
 )"
 
 npm_url="https://registry.npmjs.org/@monarchic-ai/monarchic-agent-protocol/-/monarchic-agent-protocol-${version}.tgz"
-npm_hash="$(prefetch_url "$npm_url")"
+prefetch_out="$(prefetch_url_with_path "$npm_url")"
+npm_hash="$(extract_hash "$prefetch_out" || true)"
+npm_path="$(extract_path "$prefetch_out" || true)"
+
+if [[ -z "$npm_hash" ]]; then
+  echo "Failed to extract npm tarball hash" >&2
+  exit 1
+fi
 
 pypi_url="https://files.pythonhosted.org/packages/source/m/monarchic_agent_protocol/monarchic_agent_protocol-${version}.tar.gz"
 pypi_hash="$(prefetch_url "$pypi_url")"
@@ -90,7 +126,7 @@ def update_url_hash(contains: str, new_url: str, new_hash: str) -> None:
     for i, line in enumerate(lines):
         if 'url = "' in line and contains in line:
             lines[i] = re.sub(r'url\s*=\s*"[^"]+"', f'url = "{new_url}"', line)
-            for j in range(i + 1, min(i + 6, len(lines))):
+            for j in range(i + 1, min(i + 8, len(lines))):
                 if "sha256" in lines[j]:
                     lines[j] = re.sub(r'sha256\s*=\s*"[^"]+"', f'sha256 = "{new_hash}"', lines[j])
                     updated = True
@@ -108,7 +144,6 @@ def update_fetchpypi_hash(pname: str, version: str, new_hash: str) -> None:
     updated = False
     for i, line in enumerate(lines):
         if f'pname = "{pname}";' in line:
-            # ensure version matches nearby
             if any(f'version = "{version}";' in lines[j] for j in range(i, min(i + 6, len(lines)))):
                 for j in range(i, min(i + 10, len(lines))):
                     if "sha256" in lines[j]:
@@ -140,7 +175,7 @@ def update_fetchgithub(owner: str, repo: str, rev: str, new_hash: str) -> None:
     for i, line in enumerate(lines):
         if f'owner = "{owner}";' in line:
             if any(f'repo = "{repo}";' in lines[j] for j in range(i, min(i + 6, len(lines)))):
-                for j in range(i, min(i + 10, len(lines))):
+                for j in range(i, min(i + 12, len(lines))):
                     if "rev" in lines[j]:
                         lines[j] = re.sub(r'rev\s*=\s*"[^"]+"', f'rev = "{rev}"', lines[j])
                     if "sha256" in lines[j]:
@@ -161,43 +196,23 @@ update_fetchgithub("monarchic-ai", "monarchic-agent-protocol", os.environ["TAG_V
 path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 PY
 
-# Try to derive npmDepsHash from a nix build when possible (handles no-deps edge cases).
-tmp_lock="$(mktemp)"
-cat >"$tmp_lock" <<JSON
-{
-  "name": "@monarchic-ai/monarchic-agent-protocol",
-  "version": "${version}",
-  "lockfileVersion": 3,
-  "requires": true,
-  "packages": {
-    "": {
-      "name": "@monarchic-ai/monarchic-agent-protocol",
-      "version": "${version}"
-    }
-  }
-}
-JSON
-
-if command -v prefetch-npm-deps >/dev/null 2>&1; then
-  maybe_hash="$(prefetch-npm-deps "$tmp_lock" 2>/tmp/prefetch-npm-deps.err || true)"
-  if [[ -n "$maybe_hash" ]]; then
-    npm_deps_hash="$maybe_hash"
+if [[ -n "${npm_path:-}" && -f "$npm_path" ]]; then
+  if ! command -v prefetch-npm-deps >/dev/null 2>&1; then
+    npm_path=""
   fi
 fi
-rm -f "$tmp_lock"
 
-build_log="$(mktemp)"
-set +e
-nix build -L .#ts-registry-lib --no-link >"$build_log" 2>&1
-build_status=$?
-set -e
-if [[ $build_status -ne 0 ]]; then
-  got_hash="$(grep -oE 'got:[[:space:]]*sha256-[A-Za-z0-9+/=]+' "$build_log" | head -1 | sed -E 's/got:[[:space:]]*//' || true)"
-  if [[ -n "$got_hash" ]]; then
-    npm_deps_hash="$got_hash"
+if [[ -n "${npm_path:-}" && -f "$npm_path" ]]; then
+  tmp_dir="$(mktemp -d)"
+  tar -xzf "$npm_path" -C "$tmp_dir"
+  if [[ -f "$tmp_dir/package/package-lock.json" ]]; then
+    maybe_hash="$(prefetch-npm-deps "$tmp_dir/package/package-lock.json" 2>/tmp/prefetch-npm-deps.err || true)"
+    if [[ -n "$maybe_hash" ]]; then
+      npm_deps_hash="$maybe_hash"
+    fi
   fi
+  rm -rf "$tmp_dir"
 fi
-rm -f "$build_log"
 
 if [[ -z "$npm_deps_hash" ]]; then
   npm_deps_hash="sha256-NtaX5b0/+zq75rZXZFePms505Q8kytrhd89ZifQZZyM="
@@ -210,9 +225,30 @@ import re
 hash = "$npm_deps_hash"
 path = Path("flake.nix")
 text = path.read_text(encoding="utf-8")
-text = re.sub(r'npmDepsHash\\s*=\\s*"[^"]+"', f'npmDepsHash = "{hash}"', text)
+text = re.sub(r'npmDepsHash\s*=\s*"[^"]+"', f'npmDepsHash = "{hash}"', text)
 path.write_text(text, encoding="utf-8")
 PY
+
+npm_log="$(mktemp)"
+set +e
+nix build -L .#ts-registry-lib --no-link >"$npm_log" 2>&1
+npm_status=$?
+set -e
+if [[ $npm_status -ne 0 ]]; then
+  got_hash="$(grep -oE 'got:[[:space:]]*sha256-[A-Za-z0-9+/=]+' "$npm_log" | head -1 | sed -E 's/got:[[:space:]]*//' || true)"
+  if [[ -n "$got_hash" ]]; then
+    python - <<PY
+from pathlib import Path
+import re
+
+hash = "$got_hash"
+path = Path("flake.nix")
+text = path.read_text(encoding="utf-8")
+text = re.sub(r'npmDepsHash\s*=\s*"[^"]+"', f'npmDepsHash = "{hash}"', text)
+path.write_text(text, encoding="utf-8")
+PY
+  fi
+fi
 
 crate_log="$(mktemp)"
 set +e
@@ -229,11 +265,31 @@ import re
 hash = "$got_hash"
 path = Path("flake.nix")
 text = path.read_text(encoding="utf-8")
-text = re.sub(r'(fetchCrate\\s*\\{[^}]*pname\\s*=\\s*"monarchic-agent-protocol";[^}]*version\\s*=\\s*"' + re.escape("$version") + r'";[^}]*sha256\\s*=\\s*)"[^"]+"', r'\\1"' + hash + '"', text, flags=re.S)
+text = re.sub(r'(fetchCrate\s*\{[^}]*pname\s*=\s*"monarchic-agent-protocol";[^}]*version\s*=\s*"' + re.escape("$version") + r'";[^}]*sha256\s*=\s*)"[^"]+"', r'\1"' + hash + '"', text, flags=re.S)
 path.write_text(text, encoding="utf-8")
 PY
   fi
 fi
-rm -f "$crate_log"
+
+crate_hash_log="$(mktemp)"
+set +e
+nix build -L .#checks.x86_64-linux.go-import --no-link >"$crate_hash_log" 2>&1
+crate_hash_status=$?
+set -e
+if [[ $crate_hash_status -ne 0 ]]; then
+  got_hash="$(grep -oE 'got:[[:space:]]*sha256-[A-Za-z0-9+/=]+' "$crate_hash_log" | head -1 | sed -E 's/got:[[:space:]]*//' || true)"
+  if [[ -n "$got_hash" ]]; then
+    python - <<PY
+from pathlib import Path
+import re
+
+hash = "$got_hash"
+path = Path("flake.nix")
+text = path.read_text(encoding="utf-8")
+text = re.sub(r'go-import = pkgs\.buildGoModule \{[^}]*vendorHash\s*=\s*"[^"]+"', lambda m: re.sub(r'vendorHash\s*=\s*"[^"]+"', f'vendorHash = "{hash}"', m.group(0)), text, flags=re.S)
+path.write_text(text, encoding="utf-8")
+PY
+  fi
+fi
 
 echo "Updated registry hashes in flake.nix"
