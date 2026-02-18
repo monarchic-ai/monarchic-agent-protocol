@@ -2,7 +2,7 @@
 name = "monarchic-agent-protocol"
 version = "0.1.10"
 edition = "2021"
-license = "MIT"
+license = "LGPL-3.0-only"
 description = "Shared protocol types for Monarchic AI"
 repository = "https://github.com/monarchic-ai/monarchic-agent-protocol"
 homepage = "https://github.com/monarchic-ai/monarchic-agent-protocol"

@@ -10,7 +10,7 @@
     <Authors>Monarchic AI</Authors>
     <Description>Monarchic Agent Protocol protobuf bindings for .NET.</Description>
     <RepositoryUrl>https://github.com/monarchic-ai/monarchic-agent-protocol</RepositoryUrl>
-    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageLicenseExpression>LGPL-3.0-only</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>

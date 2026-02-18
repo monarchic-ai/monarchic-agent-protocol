@@ -1,20 +1,55 @@
 # Monarchic AI Protocol
 
+[![ci](https://github.com/monarchic-ai/monarchic-agent-protocol/actions/workflows/ci.yml/badge.svg)](https://github.com/monarchic-ai/monarchic-agent-protocol/actions/workflows/ci.yml)
+[![release](https://github.com/monarchic-ai/monarchic-agent-protocol/actions/workflows/release.yml/badge.svg)](https://github.com/monarchic-ai/monarchic-agent-protocol/actions/workflows/release.yml)
+
 This repository defines the shared, versioned protocol for Monarchic AI. It is the compatibility layer between the orchestrator, runner, and agent roles, so the schemas are minimal and stable while allowing forward-compatible extensions.
 
-## Purpose
+## Overview
 
 - Provide versioned JSON Schemas for language-agnostic validation.
 - Provide Rust, TypeScript, and Protobuf bindings that mirror the schemas.
 - Keep the protocol small and explicit for v1 interoperability.
 
-## Versioning
+## Usage
+
+### Quickstart
+
+Install the published package for your language, then use the generated bindings.
+
+### Install
+
+- Rust (crates.io): `cargo add monarchic-agent-protocol`
+- TypeScript (npm): `npm install @monarchic-ai/monarchic-agent-protocol`
+- Python (PyPI): `pip install monarchic-agent-protocol`
+- Ruby (RubyGems): `gem install monarchic-agent-protocol`
+- Go (Go modules): `go get github.com/monarchic-ai/monarchic-agent-protocol/src/go@vX.Y.Z`
+- Java/Kotlin (JitPack): `implementation("com.github.monarchic-ai:monarchic-agent-protocol:vX.Y.Z")`
+- .NET (NuGet): `dotnet add package Monarchic.AgentProtocol`
+- PHP (Packagist): `composer require monarchic-ai/monarchic-agent-protocol`
+
+### Examples
+
+- Rust: `examples/rust/task.rs`
+- TypeScript: `examples/ts/task.ts`
+- Protobuf C++: `examples/proto/cpp/task.cpp`
+- Protobuf Java: `examples/proto/java/TaskExample.java`
+- Protobuf Kotlin: `examples/proto/kotlin/TaskExample.kt`
+- Protobuf C#: `examples/proto/csharp/TaskExample.cs`
+- Protobuf Python: `examples/proto/python/task.py`
+- Protobuf Ruby: `examples/proto/ruby/task.rb`
+- Protobuf Objective-C: `examples/proto/objective-c/TaskExample.m`
+- Protobuf PHP: `examples/proto/php/task.php`
+- Protobuf Dart: `examples/proto/dart/task.dart`
+- Protobuf Rust: `examples/proto/rust/task.rs`
+
+### Versioning
 
 - Protocol versions live under `schemas/v1/`.
 - Each v1 object requires `version: "v1"`.
 - New versions must be added under a new directory (e.g. `schemas/v2/`) without changing existing v1 files.
 
-## Protocol v1 schema
+### Schema summary
 
 Schema files live under `schemas/v1/`:
 
@@ -207,7 +242,9 @@ Example:
 }
 ```
 
-## Rust
+### Language bindings
+
+#### Rust
 
 The crate lives at the repo root with sources under `src/rust/lib.rs`.
 
@@ -227,7 +264,7 @@ let task = Task {
 };
 ```
 
-## TypeScript
+#### TypeScript
 
 TypeScript bindings are in `src/ts/index.ts`.
 
@@ -242,7 +279,7 @@ const task: Task = {
 };
 ```
 
-## Go
+#### Go
 
 Go module sources live under `src/go` with module path:
 
@@ -250,28 +287,13 @@ Go module sources live under `src/go` with module path:
 github.com/monarchic-ai/monarchic-agent-protocol/src/go
 ```
 
-## Protobuf
+#### Protobuf
 
 The v1 protobuf schema lives at `schemas/v1/monarchic_agent_protocol.proto`. It mirrors the JSON schema and uses `google.protobuf.Struct` for free-form objects (`inputs`, `constraints`, `evidence`, `extensions`). Additional JSON properties should be stored in the `extensions` field on each message.
 
 Language packages are published per registry. Use the registry package for your language instead of generating local outputs.
 
-## Examples
-
-- Rust: `examples/rust/task.rs`
-- TypeScript: `examples/ts/task.ts`
-- Protobuf C++: `examples/proto/cpp/task.cpp`
-- Protobuf Java: `examples/proto/java/TaskExample.java`
-- Protobuf Kotlin: `examples/proto/kotlin/TaskExample.kt`
-- Protobuf C#: `examples/proto/csharp/TaskExample.cs`
-- Protobuf Python: `examples/proto/python/task.py`
-- Protobuf Ruby: `examples/proto/ruby/task.rb`
-- Protobuf Objective-C: `examples/proto/objective-c/TaskExample.m`
-- Protobuf PHP: `examples/proto/php/task.php`
-- Protobuf Dart: `examples/proto/dart/task.dart`
-- Protobuf Rust: `examples/proto/rust/task.rs`
-
-## Python (PyPI)
+#### Python (PyPI)
 
 Install the published package and import the generated protobuf bindings:
 
@@ -279,7 +301,29 @@ Install the published package and import the generated protobuf bindings:
 from monarchic_agent_protocol import monarchic_agent_protocol_pb2 as map_pb2
 ```
 
-## Validation and tooling
+#### Ruby
+
+Ruby bindings live under `src/ruby`.
+
+#### Java/Kotlin
+
+Java/Kotlin sources live under `src/java`.
+
+#### C#
+
+C# sources live under `src/csharp`.
+
+#### PHP
+
+PHP sources live under `src/php`.
+
+#### Dart
+
+Dart sources live under `src/dart`.
+
+## Contributing
+
+### Tooling
 
 - `nix develop` provides Rust, Node, jq, Python `jsonschema`, and `protoc`.
 - `nix flake check` validates JSON schemas, protobuf codegen, and package imports (PyPI + Rust + npm + Go).
@@ -287,16 +331,18 @@ from monarchic_agent_protocol import monarchic_agent_protocol_pb2 as map_pb2
 - Protobuf codegen test (all languages): `scripts/test-proto.sh`.
 - Protobuf codegen (write to `src/<lang>`): `scripts/generate-proto.sh`.
 
-## Contributor scripts
-
 Use the Nix apps (preferred) or the scripts directly:
 
 - `nix run .#generate-proto` (`scripts/generate-proto.sh`): regenerate protobuf outputs into `src/<lang>`.
+- `nix run .#update-local-hashes` (`scripts/update-local-hashes.sh`): refresh hashes for local build inputs.
 - `nix run .#update-version -- <version>` (`scripts/update-version.sh`): bump version across manifests and tags (expects `vX.Y.Z` input).
 - `nix run .#update-registry-hashes` (`scripts/update-registry-hashes.sh`): refresh hashes for published registries (npm, crates, PyPI, RubyGems, NuGet, JitPack, GitHub source).
-- `nix run .#update-local-hashes` (`scripts/update-local-hashes.sh`): refresh hashes for local build inputs.
 
-## Nix packages
+For every schema change, generate protobuf outputs and update local hashes.
+
+For every release, tag the commit, update versions, push, and update registry hashes *after pushing*.
+
+### Nix packages
 
 - `packages.default`: Rust crate for protocol types
 - `packages.rs-lib`: Rust crate for protocol types (local)
@@ -318,8 +364,12 @@ Use the Nix apps (preferred) or the scripts directly:
 - `packages.php-lib`: PHP package sources (local)
 - `packages.php-registry-lib`: PHP package from Packagist (registry)
 
-## CI and releases
+### CI and releases
 
 - `.github/workflows/ci.yml` validates JSON schemas, protobuf codegen, and runs `cargo test`.
 - `.github/workflows/release.yml` publishes language packages.
   - Python publishing is implemented for PyPI; other language registry steps are scaffolded.
+
+## License
+
+LGPL-3.0-only
