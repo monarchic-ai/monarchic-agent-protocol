@@ -560,7 +560,7 @@ EOF
                 go 1.22
 
                 require (
-                  github.com/monarchic-ai/monarchic-agent-protocol/src/go 0.1.9
+                  github.com/monarchic-ai/monarchic-agent-protocol/src/go v0.1.9
                   google.golang.org/protobuf v1.34.2
                 )
 
@@ -590,11 +590,12 @@ EOF
               pname = "go-import";
               version = "0.1.9";
               src = goModImport;
-              vendorHash = "sha256-xj9DXJyfqpCcYXRc6Yr6X4s0F2o3mUQ3HWSNLjlKxWc=";
+              vendorHash = "sha256-yZ14RLTS3DccTvhrcawxLFCMiyMgc8maZKez5obuaLc=";
+              subPackages = [ "." ];
               doCheck = true;
               checkPhase = ''
                 runHook preCheck
-                go build ./...
+                go build .
                 runHook postCheck
               '';
             });

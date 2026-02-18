@@ -89,7 +89,6 @@ files = [
     "pubspec.yaml",
     "build.gradle.kts",
     "Monarchic.AgentProtocol.csproj",
-    "flake.nix",
 ]
 for file in files:
     path = Path(file)
