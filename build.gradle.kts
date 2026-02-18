@@ -31,6 +31,15 @@ publishing {
       groupId = "ai.monarchic"
       artifactId = "monarchic-agent-protocol"
       version = project.version.toString()
+      pom {
+        licenses {
+          license {
+            name.set("GNU Lesser General Public License v3.0 only")
+            url.set("https://www.gnu.org/licenses/lgpl-3.0.txt")
+            distribution.set("repo")
+          }
+        }
+      }
     }
   }
 }
