@@ -18,6 +18,7 @@ export interface Task {
   constraints?: Record<string, unknown>;
   gates_required?: string[];
   run_context?: RunContext;
+  experiment_spec?: ExperimentSpec;
   [key: string]: unknown;
 }
 
@@ -28,6 +29,10 @@ export interface Artifact {
   summary: string;
   path: string;
   task_id: string;
+  provenance?: Provenance;
+  dataset_refs?: DatasetRef[];
+  eval_results?: EvalResult[];
+  experiment_spec?: ExperimentSpec;
   [key: string]: unknown;
 }
 
@@ -38,6 +43,8 @@ export interface Event {
   task_id: string;
   status: string;
   message?: string;
+  provenance?: Provenance;
+  eval_results?: EvalResult[];
   [key: string]: unknown;
 }
 
@@ -57,5 +64,67 @@ export interface RunContext {
   image: string;
   runner: string;
   labels?: string[];
+  [key: string]: unknown;
+}
+
+export interface DatasetRef {
+  dataset_id: string;
+  uri?: string;
+  sha256: string;
+  format: string;
+  split?: "train" | "validation" | "test" | "holdout" | "reference" | "other";
+  size_bytes?: number;
+  description?: string;
+  [key: string]: unknown;
+}
+
+export interface AcceptanceCriteria {
+  metric: string;
+  direction: "maximize" | "minimize" | "target";
+  threshold: number;
+  min_effect_size?: number;
+  max_variance?: number;
+  confidence_level?: number;
+  [key: string]: unknown;
+}
+
+export interface ExperimentSpec {
+  experiment_id: string;
+  objective: string;
+  hypothesis?: string;
+  model_family?: string;
+  seeds?: number[];
+  dataset_refs: DatasetRef[];
+  acceptance: AcceptanceCriteria;
+  constraints?: Record<string, unknown>;
+  [key: string]: unknown;
+}
+
+export interface EvalResult {
+  metric: string;
+  value: number;
+  lower_ci?: number;
+  upper_ci?: number;
+  variance?: number;
+  seed?: number;
+  passed: boolean;
+  notes?: string;
+  [key: string]: unknown;
+}
+
+export interface Provenance {
+  prompt_sha256: string;
+  code_sha256: string;
+  dataset_sha256?: string[];
+  runtime: string;
+  model?: string;
+  runner: string;
+  orchestrator: string;
+  task_spec_sha256?: string;
+  pipeline_sha256?: string;
+  command_sha256?: string;
+  created_at: string;
+  source_task_id?: string;
+  dataset_refs?: DatasetRef[];
   [key: string]: unknown;
 }

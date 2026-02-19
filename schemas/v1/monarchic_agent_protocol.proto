@@ -24,6 +24,68 @@ enum AgentRole {
   OPS = 7;
 }
 
+message DatasetRef {
+  string dataset_id = 1;
+  optional string uri = 2;
+  string sha256 = 3;
+  string format = 4;
+  optional string split = 5;
+  optional uint64 size_bytes = 6;
+  optional string description = 7;
+  google.protobuf.Struct extensions = 8;
+}
+
+message AcceptanceCriteria {
+  string metric = 1;
+  string direction = 2;
+  double threshold = 3;
+  optional double min_effect_size = 4;
+  optional double max_variance = 5;
+  optional double confidence_level = 6;
+  google.protobuf.Struct extensions = 7;
+}
+
+message ExperimentSpec {
+  string experiment_id = 1;
+  string objective = 2;
+  optional string hypothesis = 3;
+  optional string model_family = 4;
+  repeated int64 seeds = 5;
+  repeated DatasetRef dataset_refs = 6;
+  AcceptanceCriteria acceptance = 7;
+  google.protobuf.Struct constraints = 8;
+  google.protobuf.Struct extensions = 9;
+}
+
+message EvalResult {
+  string metric = 1;
+  double value = 2;
+  optional double lower_ci = 3;
+  optional double upper_ci = 4;
+  optional double variance = 5;
+  optional int64 seed = 6;
+  bool passed = 7;
+  optional string notes = 8;
+  google.protobuf.Struct extensions = 9;
+}
+
+message Provenance {
+  string prompt_sha256 = 1;
+  string code_sha256 = 2;
+  repeated string dataset_sha256 = 3;
+  string runtime = 4;
+  optional string model = 5;
+  string runner = 6;
+  string orchestrator = 7;
+  optional string task_spec_sha256 = 8;
+  optional string pipeline_sha256 = 9;
+  optional string command_sha256 = 10;
+  string created_at = 11;
+  optional string source_task_id = 12;
+  repeated DatasetRef dataset_refs = 13;
+  google.protobuf.Struct extensions = 14;
+}
+
 message Task {
   string version = 1;
   string task_id = 2;
@@ -34,6 +96,7 @@ message Task {
   repeated string gates_required = 7;
   RunContext run_context = 8;
   google.protobuf.Struct extensions = 9;
+  ExperimentSpec experiment_spec = 10;
 }
 
 message Artifact {
@@ -44,6 +107,10 @@ message Artifact {
   string path = 5;
   string task_id = 6;
   google.protobuf.Struct extensions = 7;
+  Provenance provenance = 8;
+  repeated DatasetRef dataset_refs = 9;
+  repeated EvalResult eval_results = 10;
+  ExperimentSpec experiment_spec = 11;
 }
 
 message Event {
@@ -54,6 +121,8 @@ message Event {
   string status = 5;
   optional string message = 6;
   google.protobuf.Struct extensions = 7;
+  Provenance provenance = 8;
+  repeated EvalResult eval_results = 9;
 }
 
 message GateResult {
