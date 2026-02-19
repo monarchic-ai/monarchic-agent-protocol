@@ -4,7 +4,11 @@
   "title": "DatasetRef",
   "type": "object",
   "additionalProperties": true,
-  "required": ["dataset_id", "sha256", "format"],
+  "required": [
+    "dataset_id",
+    "sha256",
+    "format"
+  ],
   "properties": {
     "dataset_id": {
       "type": "string"
@@ -21,7 +25,14 @@
     },
     "split": {
       "type": "string",
-      "enum": ["train", "validation", "test", "holdout", "reference", "other"]
+      "enum": [
+        "train",
+        "validation",
+        "test",
+        "holdout",
+        "reference",
+        "other"
+      ]
     },
     "size_bytes": {
       "type": "integer",

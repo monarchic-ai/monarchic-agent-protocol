@@ -6,13 +6,13 @@
 package ai.monarchic.agent_protocol.v1;
 
 /**
- * Protobuf type {@code monarchic.agent_protocol.v1.RunContext}
+ * Protobuf type {@code monarchic.agent_protocol.v1.DatasetRef}
  */
 @com.google.protobuf.Generated
-public final class RunContext extends
+public final class DatasetRef extends
     com.google.protobuf.GeneratedMessage implements
-    // @@protoc_insertion_point(message_implements:monarchic.agent_protocol.v1.RunContext)
-    RunContextOrBuilder {
+    // @@protoc_insertion_point(message_implements:monarchic.agent_protocol.v1.DatasetRef)
+    DatasetRefOrBuilder {
 private static final long serialVersionUID = 0L;
   static {
     com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
@@ -21,280 +21,324 @@ private static final long serialVersionUID = 0L;
       /* minor= */ 32,
       /* patch= */ 1,
       /* suffix= */ "",
-      RunContext.class.getName());
+      DatasetRef.class.getName());
   }
-  // Use RunContext.newBuilder() to construct.
-  private RunContext(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+  // Use DatasetRef.newBuilder() to construct.
+  private DatasetRef(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
     super(builder);
   }
-  private RunContext() {
-    version_ = "";
-    repo_ = "";
-    worktree_ = "";
-    image_ = "";
-    runner_ = "";
-    labels_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+  private DatasetRef() {
+    datasetId_ = "";
+    uri_ = "";
+    sha256_ = "";
+    format_ = "";
+    split_ = "";
+    description_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.internal_static_monarchic_agent_protocol_v1_RunContext_descriptor;
+    return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.internal_static_monarchic_agent_protocol_v1_DatasetRef_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.internal_static_monarchic_agent_protocol_v1_RunContext_fieldAccessorTable
+    return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.internal_static_monarchic_agent_protocol_v1_DatasetRef_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            ai.monarchic.agent_protocol.v1.RunContext.class, ai.monarchic.agent_protocol.v1.RunContext.Builder.class);
+            ai.monarchic.agent_protocol.v1.DatasetRef.class, ai.monarchic.agent_protocol.v1.DatasetRef.Builder.class);
   }
 
   private int bitField0_;
-  public static final int VERSION_FIELD_NUMBER = 1;
+  public static final int DATASET_ID_FIELD_NUMBER = 1;
   @SuppressWarnings("serial")
-  private volatile java.lang.Object version_ = "";
+  private volatile java.lang.Object datasetId_ = "";
   /**
-   * <code>string version = 1;</code>
-   * @return The version.
+   * <code>string dataset_id = 1;</code>
+   * @return The datasetId.
    */
   @java.lang.Override
-  public java.lang.String getVersion() {
-    java.lang.Object ref = version_;
+  public java.lang.String getDatasetId() {
+    java.lang.Object ref = datasetId_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      version_ = s;
+      datasetId_ = s;
       return s;
     }
   }
   /**
-   * <code>string version = 1;</code>
-   * @return The bytes for version.
+   * <code>string dataset_id = 1;</code>
+   * @return The bytes for datasetId.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getVersionBytes() {
-    java.lang.Object ref = version_;
+      getDatasetIdBytes() {
+    java.lang.Object ref = datasetId_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      version_ = b;
+      datasetId_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int REPO_FIELD_NUMBER = 2;
+  public static final int URI_FIELD_NUMBER = 2;
   @SuppressWarnings("serial")
-  private volatile java.lang.Object repo_ = "";
+  private volatile java.lang.Object uri_ = "";
   /**
-   * <code>string repo = 2;</code>
-   * @return The repo.
+   * <code>optional string uri = 2;</code>
+   * @return Whether the uri field is set.
    */
   @java.lang.Override
-  public java.lang.String getRepo() {
-    java.lang.Object ref = repo_;
+  public boolean hasUri() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <code>optional string uri = 2;</code>
+   * @return The uri.
+   */
+  @java.lang.Override
+  public java.lang.String getUri() {
+    java.lang.Object ref = uri_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      repo_ = s;
+      uri_ = s;
       return s;
     }
   }
   /**
-   * <code>string repo = 2;</code>
-   * @return The bytes for repo.
+   * <code>optional string uri = 2;</code>
+   * @return The bytes for uri.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getRepoBytes() {
-    java.lang.Object ref = repo_;
+      getUriBytes() {
+    java.lang.Object ref = uri_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      repo_ = b;
+      uri_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int WORKTREE_FIELD_NUMBER = 3;
+  public static final int SHA256_FIELD_NUMBER = 3;
   @SuppressWarnings("serial")
-  private volatile java.lang.Object worktree_ = "";
+  private volatile java.lang.Object sha256_ = "";
   /**
-   * <code>string worktree = 3;</code>
-   * @return The worktree.
+   * <code>string sha256 = 3;</code>
+   * @return The sha256.
    */
   @java.lang.Override
-  public java.lang.String getWorktree() {
-    java.lang.Object ref = worktree_;
+  public java.lang.String getSha256() {
+    java.lang.Object ref = sha256_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      worktree_ = s;
+      sha256_ = s;
       return s;
     }
   }
   /**
-   * <code>string worktree = 3;</code>
-   * @return The bytes for worktree.
+   * <code>string sha256 = 3;</code>
+   * @return The bytes for sha256.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getWorktreeBytes() {
-    java.lang.Object ref = worktree_;
+      getSha256Bytes() {
+    java.lang.Object ref = sha256_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      worktree_ = b;
+      sha256_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int IMAGE_FIELD_NUMBER = 4;
+  public static final int FORMAT_FIELD_NUMBER = 4;
   @SuppressWarnings("serial")
-  private volatile java.lang.Object image_ = "";
+  private volatile java.lang.Object format_ = "";
   /**
-   * <code>string image = 4;</code>
-   * @return The image.
+   * <code>string format = 4;</code>
+   * @return The format.
    */
   @java.lang.Override
-  public java.lang.String getImage() {
-    java.lang.Object ref = image_;
+  public java.lang.String getFormat() {
+    java.lang.Object ref = format_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      image_ = s;
+      format_ = s;
       return s;
     }
   }
   /**
-   * <code>string image = 4;</code>
-   * @return The bytes for image.
+   * <code>string format = 4;</code>
+   * @return The bytes for format.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getImageBytes() {
-    java.lang.Object ref = image_;
+      getFormatBytes() {
+    java.lang.Object ref = format_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      image_ = b;
+      format_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int RUNNER_FIELD_NUMBER = 5;
+  public static final int SPLIT_FIELD_NUMBER = 5;
   @SuppressWarnings("serial")
-  private volatile java.lang.Object runner_ = "";
+  private volatile java.lang.Object split_ = "";
   /**
-   * <code>string runner = 5;</code>
-   * @return The runner.
+   * <code>optional string split = 5;</code>
+   * @return Whether the split field is set.
    */
   @java.lang.Override
-  public java.lang.String getRunner() {
-    java.lang.Object ref = runner_;
+  public boolean hasSplit() {
+    return ((bitField0_ & 0x00000002) != 0);
+  }
+  /**
+   * <code>optional string split = 5;</code>
+   * @return The split.
+   */
+  @java.lang.Override
+  public java.lang.String getSplit() {
+    java.lang.Object ref = split_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      runner_ = s;
+      split_ = s;
       return s;
     }
   }
   /**
-   * <code>string runner = 5;</code>
-   * @return The bytes for runner.
+   * <code>optional string split = 5;</code>
+   * @return The bytes for split.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getRunnerBytes() {
-    java.lang.Object ref = runner_;
+      getSplitBytes() {
+    java.lang.Object ref = split_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      runner_ = b;
+      split_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int LABELS_FIELD_NUMBER = 6;
-  @SuppressWarnings("serial")
-  private com.google.protobuf.LazyStringArrayList labels_ =
-      com.google.protobuf.LazyStringArrayList.emptyList();
+  public static final int SIZE_BYTES_FIELD_NUMBER = 6;
+  private long sizeBytes_ = 0L;
   /**
-   * <code>repeated string labels = 6;</code>
-   * @return A list containing the labels.
+   * <code>optional uint64 size_bytes = 6;</code>
+   * @return Whether the sizeBytes field is set.
    */
-  public com.google.protobuf.ProtocolStringList
-      getLabelsList() {
-    return labels_;
+  @java.lang.Override
+  public boolean hasSizeBytes() {
+    return ((bitField0_ & 0x00000004) != 0);
   }
   /**
-   * <code>repeated string labels = 6;</code>
-   * @return The count of labels.
+   * <code>optional uint64 size_bytes = 6;</code>
+   * @return The sizeBytes.
    */
-  public int getLabelsCount() {
-    return labels_.size();
-  }
-  /**
-   * <code>repeated string labels = 6;</code>
-   * @param index The index of the element to return.
-   * @return The labels at the given index.
-   */
-  public java.lang.String getLabels(int index) {
-    return labels_.get(index);
-  }
-  /**
-   * <code>repeated string labels = 6;</code>
-   * @param index The index of the value to return.
-   * @return The bytes of the labels at the given index.
-   */
-  public com.google.protobuf.ByteString
-      getLabelsBytes(int index) {
-    return labels_.getByteString(index);
+  @java.lang.Override
+  public long getSizeBytes() {
+    return sizeBytes_;
   }
 
-  public static final int EXTENSIONS_FIELD_NUMBER = 7;
+  public static final int DESCRIPTION_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
+  /**
+   * <code>optional string description = 7;</code>
+   * @return Whether the description field is set.
+   */
+  @java.lang.Override
+  public boolean hasDescription() {
+    return ((bitField0_ & 0x00000008) != 0);
+  }
+  /**
+   * <code>optional string description = 7;</code>
+   * @return The description.
+   */
+  @java.lang.Override
+  public java.lang.String getDescription() {
+    java.lang.Object ref = description_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      description_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>optional string description = 7;</code>
+   * @return The bytes for description.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getDescriptionBytes() {
+    java.lang.Object ref = description_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      description_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int EXTENSIONS_FIELD_NUMBER = 8;
   private com.google.protobuf.Struct extensions_;
   /**
-   * <code>.google.protobuf.Struct extensions = 7;</code>
+   * <code>.google.protobuf.Struct extensions = 8;</code>
    * @return Whether the extensions field is set.
    */
   @java.lang.Override
   public boolean hasExtensions() {
-    return ((bitField0_ & 0x00000001) != 0);
+    return ((bitField0_ & 0x00000010) != 0);
   }
   /**
-   * <code>.google.protobuf.Struct extensions = 7;</code>
+   * <code>.google.protobuf.Struct extensions = 8;</code>
    * @return The extensions.
    */
   @java.lang.Override
@@ -302,7 +346,7 @@ private static final long serialVersionUID = 0L;
     return extensions_ == null ? com.google.protobuf.Struct.getDefaultInstance() : extensions_;
   }
   /**
-   * <code>.google.protobuf.Struct extensions = 7;</code>
+   * <code>.google.protobuf.Struct extensions = 8;</code>
    */
   @java.lang.Override
   public com.google.protobuf.StructOrBuilder getExtensionsOrBuilder() {
@@ -323,26 +367,29 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(version_)) {
-      com.google.protobuf.GeneratedMessage.writeString(output, 1, version_);
-    }
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(repo_)) {
-      com.google.protobuf.GeneratedMessage.writeString(output, 2, repo_);
-    }
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(worktree_)) {
-      com.google.protobuf.GeneratedMessage.writeString(output, 3, worktree_);
-    }
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(image_)) {
-      com.google.protobuf.GeneratedMessage.writeString(output, 4, image_);
-    }
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(runner_)) {
-      com.google.protobuf.GeneratedMessage.writeString(output, 5, runner_);
-    }
-    for (int i = 0; i < labels_.size(); i++) {
-      com.google.protobuf.GeneratedMessage.writeString(output, 6, labels_.getRaw(i));
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(datasetId_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 1, datasetId_);
     }
     if (((bitField0_ & 0x00000001) != 0)) {
-      output.writeMessage(7, getExtensions());
+      com.google.protobuf.GeneratedMessage.writeString(output, 2, uri_);
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(sha256_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 3, sha256_);
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(format_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 4, format_);
+    }
+    if (((bitField0_ & 0x00000002) != 0)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 5, split_);
+    }
+    if (((bitField0_ & 0x00000004) != 0)) {
+      output.writeUInt64(6, sizeBytes_);
+    }
+    if (((bitField0_ & 0x00000008) != 0)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 7, description_);
+    }
+    if (((bitField0_ & 0x00000010) != 0)) {
+      output.writeMessage(8, getExtensions());
     }
     getUnknownFields().writeTo(output);
   }
@@ -353,32 +400,31 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(version_)) {
-      size += com.google.protobuf.GeneratedMessage.computeStringSize(1, version_);
-    }
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(repo_)) {
-      size += com.google.protobuf.GeneratedMessage.computeStringSize(2, repo_);
-    }
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(worktree_)) {
-      size += com.google.protobuf.GeneratedMessage.computeStringSize(3, worktree_);
-    }
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(image_)) {
-      size += com.google.protobuf.GeneratedMessage.computeStringSize(4, image_);
-    }
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(runner_)) {
-      size += com.google.protobuf.GeneratedMessage.computeStringSize(5, runner_);
-    }
-    {
-      int dataSize = 0;
-      for (int i = 0; i < labels_.size(); i++) {
-        dataSize += computeStringSizeNoTag(labels_.getRaw(i));
-      }
-      size += dataSize;
-      size += 1 * getLabelsList().size();
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(datasetId_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(1, datasetId_);
     }
     if (((bitField0_ & 0x00000001) != 0)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(2, uri_);
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(sha256_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(3, sha256_);
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(format_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(4, format_);
+    }
+    if (((bitField0_ & 0x00000002) != 0)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(5, split_);
+    }
+    if (((bitField0_ & 0x00000004) != 0)) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(7, getExtensions());
+        .computeUInt64Size(6, sizeBytes_);
+    }
+    if (((bitField0_ & 0x00000008) != 0)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(7, description_);
+    }
+    if (((bitField0_ & 0x00000010) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(8, getExtensions());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -390,23 +436,37 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof ai.monarchic.agent_protocol.v1.RunContext)) {
+    if (!(obj instanceof ai.monarchic.agent_protocol.v1.DatasetRef)) {
       return super.equals(obj);
     }
-    ai.monarchic.agent_protocol.v1.RunContext other = (ai.monarchic.agent_protocol.v1.RunContext) obj;
+    ai.monarchic.agent_protocol.v1.DatasetRef other = (ai.monarchic.agent_protocol.v1.DatasetRef) obj;
 
-    if (!getVersion()
-        .equals(other.getVersion())) return false;
-    if (!getRepo()
-        .equals(other.getRepo())) return false;
-    if (!getWorktree()
-        .equals(other.getWorktree())) return false;
-    if (!getImage()
-        .equals(other.getImage())) return false;
-    if (!getRunner()
-        .equals(other.getRunner())) return false;
-    if (!getLabelsList()
-        .equals(other.getLabelsList())) return false;
+    if (!getDatasetId()
+        .equals(other.getDatasetId())) return false;
+    if (hasUri() != other.hasUri()) return false;
+    if (hasUri()) {
+      if (!getUri()
+          .equals(other.getUri())) return false;
+    }
+    if (!getSha256()
+        .equals(other.getSha256())) return false;
+    if (!getFormat()
+        .equals(other.getFormat())) return false;
+    if (hasSplit() != other.hasSplit()) return false;
+    if (hasSplit()) {
+      if (!getSplit()
+          .equals(other.getSplit())) return false;
+    }
+    if (hasSizeBytes() != other.hasSizeBytes()) return false;
+    if (hasSizeBytes()) {
+      if (getSizeBytes()
+          != other.getSizeBytes()) return false;
+    }
+    if (hasDescription() != other.hasDescription()) return false;
+    if (hasDescription()) {
+      if (!getDescription()
+          .equals(other.getDescription())) return false;
+    }
     if (hasExtensions() != other.hasExtensions()) return false;
     if (hasExtensions()) {
       if (!getExtensions()
@@ -423,19 +483,28 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + VERSION_FIELD_NUMBER;
-    hash = (53 * hash) + getVersion().hashCode();
-    hash = (37 * hash) + REPO_FIELD_NUMBER;
-    hash = (53 * hash) + getRepo().hashCode();
-    hash = (37 * hash) + WORKTREE_FIELD_NUMBER;
-    hash = (53 * hash) + getWorktree().hashCode();
-    hash = (37 * hash) + IMAGE_FIELD_NUMBER;
-    hash = (53 * hash) + getImage().hashCode();
-    hash = (37 * hash) + RUNNER_FIELD_NUMBER;
-    hash = (53 * hash) + getRunner().hashCode();
-    if (getLabelsCount() > 0) {
-      hash = (37 * hash) + LABELS_FIELD_NUMBER;
-      hash = (53 * hash) + getLabelsList().hashCode();
+    hash = (37 * hash) + DATASET_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getDatasetId().hashCode();
+    if (hasUri()) {
+      hash = (37 * hash) + URI_FIELD_NUMBER;
+      hash = (53 * hash) + getUri().hashCode();
+    }
+    hash = (37 * hash) + SHA256_FIELD_NUMBER;
+    hash = (53 * hash) + getSha256().hashCode();
+    hash = (37 * hash) + FORMAT_FIELD_NUMBER;
+    hash = (53 * hash) + getFormat().hashCode();
+    if (hasSplit()) {
+      hash = (37 * hash) + SPLIT_FIELD_NUMBER;
+      hash = (53 * hash) + getSplit().hashCode();
+    }
+    if (hasSizeBytes()) {
+      hash = (37 * hash) + SIZE_BYTES_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getSizeBytes());
+    }
+    if (hasDescription()) {
+      hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
+      hash = (53 * hash) + getDescription().hashCode();
     }
     if (hasExtensions()) {
       hash = (37 * hash) + EXTENSIONS_FIELD_NUMBER;
@@ -446,44 +515,44 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static ai.monarchic.agent_protocol.v1.RunContext parseFrom(
+  public static ai.monarchic.agent_protocol.v1.DatasetRef parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static ai.monarchic.agent_protocol.v1.RunContext parseFrom(
+  public static ai.monarchic.agent_protocol.v1.DatasetRef parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static ai.monarchic.agent_protocol.v1.RunContext parseFrom(
+  public static ai.monarchic.agent_protocol.v1.DatasetRef parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static ai.monarchic.agent_protocol.v1.RunContext parseFrom(
+  public static ai.monarchic.agent_protocol.v1.DatasetRef parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static ai.monarchic.agent_protocol.v1.RunContext parseFrom(byte[] data)
+  public static ai.monarchic.agent_protocol.v1.DatasetRef parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static ai.monarchic.agent_protocol.v1.RunContext parseFrom(
+  public static ai.monarchic.agent_protocol.v1.DatasetRef parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static ai.monarchic.agent_protocol.v1.RunContext parseFrom(java.io.InputStream input)
+  public static ai.monarchic.agent_protocol.v1.DatasetRef parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseWithIOException(PARSER, input);
   }
-  public static ai.monarchic.agent_protocol.v1.RunContext parseFrom(
+  public static ai.monarchic.agent_protocol.v1.DatasetRef parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -491,26 +560,26 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  public static ai.monarchic.agent_protocol.v1.RunContext parseDelimitedFrom(java.io.InputStream input)
+  public static ai.monarchic.agent_protocol.v1.DatasetRef parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseDelimitedWithIOException(PARSER, input);
   }
 
-  public static ai.monarchic.agent_protocol.v1.RunContext parseDelimitedFrom(
+  public static ai.monarchic.agent_protocol.v1.DatasetRef parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static ai.monarchic.agent_protocol.v1.RunContext parseFrom(
+  public static ai.monarchic.agent_protocol.v1.DatasetRef parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseWithIOException(PARSER, input);
   }
-  public static ai.monarchic.agent_protocol.v1.RunContext parseFrom(
+  public static ai.monarchic.agent_protocol.v1.DatasetRef parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -523,7 +592,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(ai.monarchic.agent_protocol.v1.RunContext prototype) {
+  public static Builder newBuilder(ai.monarchic.agent_protocol.v1.DatasetRef prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -539,26 +608,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code monarchic.agent_protocol.v1.RunContext}
+   * Protobuf type {@code monarchic.agent_protocol.v1.DatasetRef}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:monarchic.agent_protocol.v1.RunContext)
-      ai.monarchic.agent_protocol.v1.RunContextOrBuilder {
+      // @@protoc_insertion_point(builder_implements:monarchic.agent_protocol.v1.DatasetRef)
+      ai.monarchic.agent_protocol.v1.DatasetRefOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.internal_static_monarchic_agent_protocol_v1_RunContext_descriptor;
+      return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.internal_static_monarchic_agent_protocol_v1_DatasetRef_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.internal_static_monarchic_agent_protocol_v1_RunContext_fieldAccessorTable
+      return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.internal_static_monarchic_agent_protocol_v1_DatasetRef_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              ai.monarchic.agent_protocol.v1.RunContext.class, ai.monarchic.agent_protocol.v1.RunContext.Builder.class);
+              ai.monarchic.agent_protocol.v1.DatasetRef.class, ai.monarchic.agent_protocol.v1.DatasetRef.Builder.class);
     }
 
-    // Construct using ai.monarchic.agent_protocol.v1.RunContext.newBuilder()
+    // Construct using ai.monarchic.agent_protocol.v1.DatasetRef.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -578,13 +647,13 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      version_ = "";
-      repo_ = "";
-      worktree_ = "";
-      image_ = "";
-      runner_ = "";
-      labels_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      datasetId_ = "";
+      uri_ = "";
+      sha256_ = "";
+      format_ = "";
+      split_ = "";
+      sizeBytes_ = 0L;
+      description_ = "";
       extensions_ = null;
       if (extensionsBuilder_ != null) {
         extensionsBuilder_.dispose();
@@ -596,17 +665,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.internal_static_monarchic_agent_protocol_v1_RunContext_descriptor;
+      return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.internal_static_monarchic_agent_protocol_v1_DatasetRef_descriptor;
     }
 
     @java.lang.Override
-    public ai.monarchic.agent_protocol.v1.RunContext getDefaultInstanceForType() {
-      return ai.monarchic.agent_protocol.v1.RunContext.getDefaultInstance();
+    public ai.monarchic.agent_protocol.v1.DatasetRef getDefaultInstanceForType() {
+      return ai.monarchic.agent_protocol.v1.DatasetRef.getDefaultInstance();
     }
 
     @java.lang.Override
-    public ai.monarchic.agent_protocol.v1.RunContext build() {
-      ai.monarchic.agent_protocol.v1.RunContext result = buildPartial();
+    public ai.monarchic.agent_protocol.v1.DatasetRef build() {
+      ai.monarchic.agent_protocol.v1.DatasetRef result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -614,89 +683,93 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public ai.monarchic.agent_protocol.v1.RunContext buildPartial() {
-      ai.monarchic.agent_protocol.v1.RunContext result = new ai.monarchic.agent_protocol.v1.RunContext(this);
+    public ai.monarchic.agent_protocol.v1.DatasetRef buildPartial() {
+      ai.monarchic.agent_protocol.v1.DatasetRef result = new ai.monarchic.agent_protocol.v1.DatasetRef(this);
       if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
     }
 
-    private void buildPartial0(ai.monarchic.agent_protocol.v1.RunContext result) {
+    private void buildPartial0(ai.monarchic.agent_protocol.v1.DatasetRef result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.version_ = version_;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.repo_ = repo_;
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.worktree_ = worktree_;
-      }
-      if (((from_bitField0_ & 0x00000008) != 0)) {
-        result.image_ = image_;
-      }
-      if (((from_bitField0_ & 0x00000010) != 0)) {
-        result.runner_ = runner_;
-      }
-      if (((from_bitField0_ & 0x00000020) != 0)) {
-        labels_.makeImmutable();
-        result.labels_ = labels_;
+        result.datasetId_ = datasetId_;
       }
       int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.uri_ = uri_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.sha256_ = sha256_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.format_ = format_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.split_ = split_;
+        to_bitField0_ |= 0x00000002;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.sizeBytes_ = sizeBytes_;
+        to_bitField0_ |= 0x00000004;
+      }
       if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.description_ = description_;
+        to_bitField0_ |= 0x00000008;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
         result.extensions_ = extensionsBuilder_ == null
             ? extensions_
             : extensionsBuilder_.build();
-        to_bitField0_ |= 0x00000001;
+        to_bitField0_ |= 0x00000010;
       }
       result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof ai.monarchic.agent_protocol.v1.RunContext) {
-        return mergeFrom((ai.monarchic.agent_protocol.v1.RunContext)other);
+      if (other instanceof ai.monarchic.agent_protocol.v1.DatasetRef) {
+        return mergeFrom((ai.monarchic.agent_protocol.v1.DatasetRef)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(ai.monarchic.agent_protocol.v1.RunContext other) {
-      if (other == ai.monarchic.agent_protocol.v1.RunContext.getDefaultInstance()) return this;
-      if (!other.getVersion().isEmpty()) {
-        version_ = other.version_;
+    public Builder mergeFrom(ai.monarchic.agent_protocol.v1.DatasetRef other) {
+      if (other == ai.monarchic.agent_protocol.v1.DatasetRef.getDefaultInstance()) return this;
+      if (!other.getDatasetId().isEmpty()) {
+        datasetId_ = other.datasetId_;
         bitField0_ |= 0x00000001;
         onChanged();
       }
-      if (!other.getRepo().isEmpty()) {
-        repo_ = other.repo_;
+      if (other.hasUri()) {
+        uri_ = other.uri_;
         bitField0_ |= 0x00000002;
         onChanged();
       }
-      if (!other.getWorktree().isEmpty()) {
-        worktree_ = other.worktree_;
+      if (!other.getSha256().isEmpty()) {
+        sha256_ = other.sha256_;
         bitField0_ |= 0x00000004;
         onChanged();
       }
-      if (!other.getImage().isEmpty()) {
-        image_ = other.image_;
+      if (!other.getFormat().isEmpty()) {
+        format_ = other.format_;
         bitField0_ |= 0x00000008;
         onChanged();
       }
-      if (!other.getRunner().isEmpty()) {
-        runner_ = other.runner_;
+      if (other.hasSplit()) {
+        split_ = other.split_;
         bitField0_ |= 0x00000010;
         onChanged();
       }
-      if (!other.labels_.isEmpty()) {
-        if (labels_.isEmpty()) {
-          labels_ = other.labels_;
-          bitField0_ |= 0x00000020;
-        } else {
-          ensureLabelsIsMutable();
-          labels_.addAll(other.labels_);
-        }
+      if (other.hasSizeBytes()) {
+        setSizeBytes(other.getSizeBytes());
+      }
+      if (other.hasDescription()) {
+        description_ = other.description_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (other.hasExtensions()) {
@@ -729,43 +802,47 @@ private static final long serialVersionUID = 0L;
               done = true;
               break;
             case 10: {
-              version_ = input.readStringRequireUtf8();
+              datasetId_ = input.readStringRequireUtf8();
               bitField0_ |= 0x00000001;
               break;
             } // case 10
             case 18: {
-              repo_ = input.readStringRequireUtf8();
+              uri_ = input.readStringRequireUtf8();
               bitField0_ |= 0x00000002;
               break;
             } // case 18
             case 26: {
-              worktree_ = input.readStringRequireUtf8();
+              sha256_ = input.readStringRequireUtf8();
               bitField0_ |= 0x00000004;
               break;
             } // case 26
             case 34: {
-              image_ = input.readStringRequireUtf8();
+              format_ = input.readStringRequireUtf8();
               bitField0_ |= 0x00000008;
               break;
             } // case 34
             case 42: {
-              runner_ = input.readStringRequireUtf8();
+              split_ = input.readStringRequireUtf8();
               bitField0_ |= 0x00000010;
               break;
             } // case 42
-            case 50: {
-              java.lang.String s = input.readStringRequireUtf8();
-              ensureLabelsIsMutable();
-              labels_.add(s);
+            case 48: {
+              sizeBytes_ = input.readUInt64();
+              bitField0_ |= 0x00000020;
               break;
-            } // case 50
+            } // case 48
             case 58: {
-              input.readMessage(
-                  internalGetExtensionsFieldBuilder().getBuilder(),
-                  extensionRegistry);
+              description_ = input.readStringRequireUtf8();
               bitField0_ |= 0x00000040;
               break;
             } // case 58
+            case 66: {
+              input.readMessage(
+                  internalGetExtensionsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -783,473 +860,495 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.lang.Object version_ = "";
+    private java.lang.Object datasetId_ = "";
     /**
-     * <code>string version = 1;</code>
-     * @return The version.
+     * <code>string dataset_id = 1;</code>
+     * @return The datasetId.
      */
-    public java.lang.String getVersion() {
-      java.lang.Object ref = version_;
+    public java.lang.String getDatasetId() {
+      java.lang.Object ref = datasetId_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        version_ = s;
+        datasetId_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string version = 1;</code>
-     * @return The bytes for version.
+     * <code>string dataset_id = 1;</code>
+     * @return The bytes for datasetId.
      */
     public com.google.protobuf.ByteString
-        getVersionBytes() {
-      java.lang.Object ref = version_;
+        getDatasetIdBytes() {
+      java.lang.Object ref = datasetId_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        version_ = b;
+        datasetId_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string version = 1;</code>
-     * @param value The version to set.
+     * <code>string dataset_id = 1;</code>
+     * @param value The datasetId to set.
      * @return This builder for chaining.
      */
-    public Builder setVersion(
+    public Builder setDatasetId(
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
-      version_ = value;
+      datasetId_ = value;
       bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
-     * <code>string version = 1;</code>
+     * <code>string dataset_id = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearVersion() {
-      version_ = getDefaultInstance().getVersion();
+    public Builder clearDatasetId() {
+      datasetId_ = getDefaultInstance().getDatasetId();
       bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
-     * <code>string version = 1;</code>
-     * @param value The bytes for version to set.
+     * <code>string dataset_id = 1;</code>
+     * @param value The bytes for datasetId to set.
      * @return This builder for chaining.
      */
-    public Builder setVersionBytes(
+    public Builder setDatasetIdBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
-      version_ = value;
+      datasetId_ = value;
       bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
 
-    private java.lang.Object repo_ = "";
+    private java.lang.Object uri_ = "";
     /**
-     * <code>string repo = 2;</code>
-     * @return The repo.
+     * <code>optional string uri = 2;</code>
+     * @return Whether the uri field is set.
      */
-    public java.lang.String getRepo() {
-      java.lang.Object ref = repo_;
+    public boolean hasUri() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional string uri = 2;</code>
+     * @return The uri.
+     */
+    public java.lang.String getUri() {
+      java.lang.Object ref = uri_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        repo_ = s;
+        uri_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string repo = 2;</code>
-     * @return The bytes for repo.
+     * <code>optional string uri = 2;</code>
+     * @return The bytes for uri.
      */
     public com.google.protobuf.ByteString
-        getRepoBytes() {
-      java.lang.Object ref = repo_;
+        getUriBytes() {
+      java.lang.Object ref = uri_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        repo_ = b;
+        uri_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string repo = 2;</code>
-     * @param value The repo to set.
+     * <code>optional string uri = 2;</code>
+     * @param value The uri to set.
      * @return This builder for chaining.
      */
-    public Builder setRepo(
+    public Builder setUri(
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
-      repo_ = value;
+      uri_ = value;
       bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
-     * <code>string repo = 2;</code>
+     * <code>optional string uri = 2;</code>
      * @return This builder for chaining.
      */
-    public Builder clearRepo() {
-      repo_ = getDefaultInstance().getRepo();
+    public Builder clearUri() {
+      uri_ = getDefaultInstance().getUri();
       bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
-     * <code>string repo = 2;</code>
-     * @param value The bytes for repo to set.
+     * <code>optional string uri = 2;</code>
+     * @param value The bytes for uri to set.
      * @return This builder for chaining.
      */
-    public Builder setRepoBytes(
+    public Builder setUriBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
-      repo_ = value;
+      uri_ = value;
       bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
 
-    private java.lang.Object worktree_ = "";
+    private java.lang.Object sha256_ = "";
     /**
-     * <code>string worktree = 3;</code>
-     * @return The worktree.
+     * <code>string sha256 = 3;</code>
+     * @return The sha256.
      */
-    public java.lang.String getWorktree() {
-      java.lang.Object ref = worktree_;
+    public java.lang.String getSha256() {
+      java.lang.Object ref = sha256_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        worktree_ = s;
+        sha256_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string worktree = 3;</code>
-     * @return The bytes for worktree.
+     * <code>string sha256 = 3;</code>
+     * @return The bytes for sha256.
      */
     public com.google.protobuf.ByteString
-        getWorktreeBytes() {
-      java.lang.Object ref = worktree_;
+        getSha256Bytes() {
+      java.lang.Object ref = sha256_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        worktree_ = b;
+        sha256_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string worktree = 3;</code>
-     * @param value The worktree to set.
+     * <code>string sha256 = 3;</code>
+     * @param value The sha256 to set.
      * @return This builder for chaining.
      */
-    public Builder setWorktree(
+    public Builder setSha256(
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
-      worktree_ = value;
+      sha256_ = value;
       bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
-     * <code>string worktree = 3;</code>
+     * <code>string sha256 = 3;</code>
      * @return This builder for chaining.
      */
-    public Builder clearWorktree() {
-      worktree_ = getDefaultInstance().getWorktree();
+    public Builder clearSha256() {
+      sha256_ = getDefaultInstance().getSha256();
       bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
     /**
-     * <code>string worktree = 3;</code>
-     * @param value The bytes for worktree to set.
+     * <code>string sha256 = 3;</code>
+     * @param value The bytes for sha256 to set.
      * @return This builder for chaining.
      */
-    public Builder setWorktreeBytes(
+    public Builder setSha256Bytes(
         com.google.protobuf.ByteString value) {
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
-      worktree_ = value;
+      sha256_ = value;
       bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
 
-    private java.lang.Object image_ = "";
+    private java.lang.Object format_ = "";
     /**
-     * <code>string image = 4;</code>
-     * @return The image.
+     * <code>string format = 4;</code>
+     * @return The format.
      */
-    public java.lang.String getImage() {
-      java.lang.Object ref = image_;
+    public java.lang.String getFormat() {
+      java.lang.Object ref = format_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        image_ = s;
+        format_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string image = 4;</code>
-     * @return The bytes for image.
+     * <code>string format = 4;</code>
+     * @return The bytes for format.
      */
     public com.google.protobuf.ByteString
-        getImageBytes() {
-      java.lang.Object ref = image_;
+        getFormatBytes() {
+      java.lang.Object ref = format_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        image_ = b;
+        format_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string image = 4;</code>
-     * @param value The image to set.
+     * <code>string format = 4;</code>
+     * @param value The format to set.
      * @return This builder for chaining.
      */
-    public Builder setImage(
+    public Builder setFormat(
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
-      image_ = value;
+      format_ = value;
       bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
-     * <code>string image = 4;</code>
+     * <code>string format = 4;</code>
      * @return This builder for chaining.
      */
-    public Builder clearImage() {
-      image_ = getDefaultInstance().getImage();
+    public Builder clearFormat() {
+      format_ = getDefaultInstance().getFormat();
       bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
     /**
-     * <code>string image = 4;</code>
-     * @param value The bytes for image to set.
+     * <code>string format = 4;</code>
+     * @param value The bytes for format to set.
      * @return This builder for chaining.
      */
-    public Builder setImageBytes(
+    public Builder setFormatBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
-      image_ = value;
+      format_ = value;
       bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
 
-    private java.lang.Object runner_ = "";
+    private java.lang.Object split_ = "";
     /**
-     * <code>string runner = 5;</code>
-     * @return The runner.
+     * <code>optional string split = 5;</code>
+     * @return Whether the split field is set.
      */
-    public java.lang.String getRunner() {
-      java.lang.Object ref = runner_;
+    public boolean hasSplit() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <code>optional string split = 5;</code>
+     * @return The split.
+     */
+    public java.lang.String getSplit() {
+      java.lang.Object ref = split_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        runner_ = s;
+        split_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string runner = 5;</code>
-     * @return The bytes for runner.
+     * <code>optional string split = 5;</code>
+     * @return The bytes for split.
      */
     public com.google.protobuf.ByteString
-        getRunnerBytes() {
-      java.lang.Object ref = runner_;
+        getSplitBytes() {
+      java.lang.Object ref = split_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        runner_ = b;
+        split_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string runner = 5;</code>
-     * @param value The runner to set.
+     * <code>optional string split = 5;</code>
+     * @param value The split to set.
      * @return This builder for chaining.
      */
-    public Builder setRunner(
+    public Builder setSplit(
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
-      runner_ = value;
+      split_ = value;
       bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
     /**
-     * <code>string runner = 5;</code>
+     * <code>optional string split = 5;</code>
      * @return This builder for chaining.
      */
-    public Builder clearRunner() {
-      runner_ = getDefaultInstance().getRunner();
+    public Builder clearSplit() {
+      split_ = getDefaultInstance().getSplit();
       bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
     /**
-     * <code>string runner = 5;</code>
-     * @param value The bytes for runner to set.
+     * <code>optional string split = 5;</code>
+     * @param value The bytes for split to set.
      * @return This builder for chaining.
      */
-    public Builder setRunnerBytes(
+    public Builder setSplitBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
-      runner_ = value;
+      split_ = value;
       bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList labels_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
-    private void ensureLabelsIsMutable() {
-      if (!labels_.isModifiable()) {
-        labels_ = new com.google.protobuf.LazyStringArrayList(labels_);
-      }
+    private long sizeBytes_ ;
+    /**
+     * <code>optional uint64 size_bytes = 6;</code>
+     * @return Whether the sizeBytes field is set.
+     */
+    @java.lang.Override
+    public boolean hasSizeBytes() {
+      return ((bitField0_ & 0x00000020) != 0);
+    }
+    /**
+     * <code>optional uint64 size_bytes = 6;</code>
+     * @return The sizeBytes.
+     */
+    @java.lang.Override
+    public long getSizeBytes() {
+      return sizeBytes_;
+    }
+    /**
+     * <code>optional uint64 size_bytes = 6;</code>
+     * @param value The sizeBytes to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSizeBytes(long value) {
+
+      sizeBytes_ = value;
       bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
     }
     /**
-     * <code>repeated string labels = 6;</code>
-     * @return A list containing the labels.
+     * <code>optional uint64 size_bytes = 6;</code>
+     * @return This builder for chaining.
      */
-    public com.google.protobuf.ProtocolStringList
-        getLabelsList() {
-      labels_.makeImmutable();
-      return labels_;
+    public Builder clearSizeBytes() {
+      bitField0_ = (bitField0_ & ~0x00000020);
+      sizeBytes_ = 0L;
+      onChanged();
+      return this;
     }
+
+    private java.lang.Object description_ = "";
     /**
-     * <code>repeated string labels = 6;</code>
-     * @return The count of labels.
+     * <code>optional string description = 7;</code>
+     * @return Whether the description field is set.
      */
-    public int getLabelsCount() {
-      return labels_.size();
+    public boolean hasDescription() {
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
-     * <code>repeated string labels = 6;</code>
-     * @param index The index of the element to return.
-     * @return The labels at the given index.
+     * <code>optional string description = 7;</code>
+     * @return The description.
      */
-    public java.lang.String getLabels(int index) {
-      return labels_.get(index);
+    public java.lang.String getDescription() {
+      java.lang.Object ref = description_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        description_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
     /**
-     * <code>repeated string labels = 6;</code>
-     * @param index The index of the value to return.
-     * @return The bytes of the labels at the given index.
+     * <code>optional string description = 7;</code>
+     * @return The bytes for description.
      */
     public com.google.protobuf.ByteString
-        getLabelsBytes(int index) {
-      return labels_.getByteString(index);
+        getDescriptionBytes() {
+      java.lang.Object ref = description_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        description_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
     /**
-     * <code>repeated string labels = 6;</code>
-     * @param index The index to set the value at.
-     * @param value The labels to set.
+     * <code>optional string description = 7;</code>
+     * @param value The description to set.
      * @return This builder for chaining.
      */
-    public Builder setLabels(
-        int index, java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      ensureLabelsIsMutable();
-      labels_.set(index, value);
-      bitField0_ |= 0x00000020;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>repeated string labels = 6;</code>
-     * @param value The labels to add.
-     * @return This builder for chaining.
-     */
-    public Builder addLabels(
+    public Builder setDescription(
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
-      ensureLabelsIsMutable();
-      labels_.add(value);
-      bitField0_ |= 0x00000020;
+      description_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
     /**
-     * <code>repeated string labels = 6;</code>
-     * @param values The labels to add.
+     * <code>optional string description = 7;</code>
      * @return This builder for chaining.
      */
-    public Builder addAllLabels(
-        java.lang.Iterable<java.lang.String> values) {
-      ensureLabelsIsMutable();
-      com.google.protobuf.AbstractMessageLite.Builder.addAll(
-          values, labels_);
-      bitField0_ |= 0x00000020;
+    public Builder clearDescription() {
+      description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
     /**
-     * <code>repeated string labels = 6;</code>
+     * <code>optional string description = 7;</code>
+     * @param value The bytes for description to set.
      * @return This builder for chaining.
      */
-    public Builder clearLabels() {
-      labels_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000020);;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>repeated string labels = 6;</code>
-     * @param value The bytes of the labels to add.
-     * @return This builder for chaining.
-     */
-    public Builder addLabelsBytes(
+    public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
-      ensureLabelsIsMutable();
-      labels_.add(value);
-      bitField0_ |= 0x00000020;
+      description_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1258,14 +1357,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilder<
         com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> extensionsBuilder_;
     /**
-     * <code>.google.protobuf.Struct extensions = 7;</code>
+     * <code>.google.protobuf.Struct extensions = 8;</code>
      * @return Whether the extensions field is set.
      */
     public boolean hasExtensions() {
-      return ((bitField0_ & 0x00000040) != 0);
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
-     * <code>.google.protobuf.Struct extensions = 7;</code>
+     * <code>.google.protobuf.Struct extensions = 8;</code>
      * @return The extensions.
      */
     public com.google.protobuf.Struct getExtensions() {
@@ -1276,7 +1375,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Struct extensions = 7;</code>
+     * <code>.google.protobuf.Struct extensions = 8;</code>
      */
     public Builder setExtensions(com.google.protobuf.Struct value) {
       if (extensionsBuilder_ == null) {
@@ -1287,12 +1386,12 @@ private static final long serialVersionUID = 0L;
       } else {
         extensionsBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000040;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
     /**
-     * <code>.google.protobuf.Struct extensions = 7;</code>
+     * <code>.google.protobuf.Struct extensions = 8;</code>
      */
     public Builder setExtensions(
         com.google.protobuf.Struct.Builder builderForValue) {
@@ -1301,16 +1400,16 @@ private static final long serialVersionUID = 0L;
       } else {
         extensionsBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000040;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
     /**
-     * <code>.google.protobuf.Struct extensions = 7;</code>
+     * <code>.google.protobuf.Struct extensions = 8;</code>
      */
     public Builder mergeExtensions(com.google.protobuf.Struct value) {
       if (extensionsBuilder_ == null) {
-        if (((bitField0_ & 0x00000040) != 0) &&
+        if (((bitField0_ & 0x00000080) != 0) &&
           extensions_ != null &&
           extensions_ != com.google.protobuf.Struct.getDefaultInstance()) {
           getExtensionsBuilder().mergeFrom(value);
@@ -1321,16 +1420,16 @@ private static final long serialVersionUID = 0L;
         extensionsBuilder_.mergeFrom(value);
       }
       if (extensions_ != null) {
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       return this;
     }
     /**
-     * <code>.google.protobuf.Struct extensions = 7;</code>
+     * <code>.google.protobuf.Struct extensions = 8;</code>
      */
     public Builder clearExtensions() {
-      bitField0_ = (bitField0_ & ~0x00000040);
+      bitField0_ = (bitField0_ & ~0x00000080);
       extensions_ = null;
       if (extensionsBuilder_ != null) {
         extensionsBuilder_.dispose();
@@ -1340,15 +1439,15 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Struct extensions = 7;</code>
+     * <code>.google.protobuf.Struct extensions = 8;</code>
      */
     public com.google.protobuf.Struct.Builder getExtensionsBuilder() {
-      bitField0_ |= 0x00000040;
+      bitField0_ |= 0x00000080;
       onChanged();
       return internalGetExtensionsFieldBuilder().getBuilder();
     }
     /**
-     * <code>.google.protobuf.Struct extensions = 7;</code>
+     * <code>.google.protobuf.Struct extensions = 8;</code>
      */
     public com.google.protobuf.StructOrBuilder getExtensionsOrBuilder() {
       if (extensionsBuilder_ != null) {
@@ -1359,7 +1458,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Struct extensions = 7;</code>
+     * <code>.google.protobuf.Struct extensions = 8;</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
@@ -1375,23 +1474,23 @@ private static final long serialVersionUID = 0L;
       return extensionsBuilder_;
     }
 
-    // @@protoc_insertion_point(builder_scope:monarchic.agent_protocol.v1.RunContext)
+    // @@protoc_insertion_point(builder_scope:monarchic.agent_protocol.v1.DatasetRef)
   }
 
-  // @@protoc_insertion_point(class_scope:monarchic.agent_protocol.v1.RunContext)
-  private static final ai.monarchic.agent_protocol.v1.RunContext DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:monarchic.agent_protocol.v1.DatasetRef)
+  private static final ai.monarchic.agent_protocol.v1.DatasetRef DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new ai.monarchic.agent_protocol.v1.RunContext();
+    DEFAULT_INSTANCE = new ai.monarchic.agent_protocol.v1.DatasetRef();
   }
 
-  public static ai.monarchic.agent_protocol.v1.RunContext getDefaultInstance() {
+  public static ai.monarchic.agent_protocol.v1.DatasetRef getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<RunContext>
-      PARSER = new com.google.protobuf.AbstractParser<RunContext>() {
+  private static final com.google.protobuf.Parser<DatasetRef>
+      PARSER = new com.google.protobuf.AbstractParser<DatasetRef>() {
     @java.lang.Override
-    public RunContext parsePartialFrom(
+    public DatasetRef parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -1410,17 +1509,17 @@ private static final long serialVersionUID = 0L;
     }
   };
 
-  public static com.google.protobuf.Parser<RunContext> parser() {
+  public static com.google.protobuf.Parser<DatasetRef> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<RunContext> getParserForType() {
+  public com.google.protobuf.Parser<DatasetRef> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public ai.monarchic.agent_protocol.v1.RunContext getDefaultInstanceForType() {
+  public ai.monarchic.agent_protocol.v1.DatasetRef getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

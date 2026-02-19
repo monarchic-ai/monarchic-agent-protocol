@@ -8,7 +8,6 @@
 - Protobuf C#: `examples/proto/csharp/TaskExample.cs`.
 - Protobuf Python: `examples/proto/python/task.py`.
 - Protobuf Ruby: `examples/proto/ruby/task.rb`.
-- Protobuf Objective-C: `examples/proto/objective-c/TaskExample.m`.
 - Protobuf PHP: `examples/proto/php/task.php`.
 - Protobuf Dart: `examples/proto/dart/task.dart`.
 - Protobuf Rust: `examples/proto/rust/task.rs`.

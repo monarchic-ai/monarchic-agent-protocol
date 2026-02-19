@@ -1,46 +1,100 @@
 {
-  "$id": "https://monarchic.ai/schema/v1/task.json",
+  "$id": "monarchic.agent_protocol.v1.Task.schema.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Task",
-  "type": "object",
   "additionalProperties": true,
-  "required": ["version", "task_id", "role", "goal"],
-  "properties": {
-    "version": {
-      "type": "string",
-      "const": "v1"
+  "patternProperties": {
+    "^(deliveryContract)$": {
+      "$ref": "monarchic.agent_protocol.v1.DeliveryContract.schema.json"
     },
-    "task_id": {
+    "^(experimentSpec)$": {
+      "$ref": "monarchic.agent_protocol.v1.ExperimentSpec.schema.json"
+    },
+    "^(gatesRequired)$": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "^(runContext)$": {
+      "$ref": "monarchic.agent_protocol.v1.RunContext.schema.json"
+    },
+    "^(taskId)$": {
+      "default": "",
       "type": "string"
+    }
+  },
+  "properties": {
+    "constraints": {
+      "$ref": "google.protobuf.Struct.schema.json"
     },
-    "role": {
-      "$ref": "agent_role.json"
+    "delivery_contract": {
+      "$ref": "monarchic.agent_protocol.v1.DeliveryContract.schema.json"
+    },
+    "experiment_spec": {
+      "$ref": "monarchic.agent_protocol.v1.ExperimentSpec.schema.json"
+    },
+    "extensions": {
+      "$ref": "google.protobuf.Struct.schema.json"
+    },
+    "gates_required": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
     },
     "goal": {
+      "default": "",
       "type": "string"
     },
     "inputs": {
-      "type": "object",
-      "additionalProperties": true
+      "$ref": "google.protobuf.Struct.schema.json"
     },
-    "constraints": {
-      "type": "object",
-      "additionalProperties": true
-    },
-    "gates_required": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
+    "role": {
+      "anyOf": [
+        {
+          "pattern": "^AGENT_ROLE_UNSPECIFIED$",
+          "type": "string"
+        },
+        {
+          "enum": [
+            "PRODUCT_OWNER",
+            "PROJECT_MANAGER",
+            "DEV",
+            "QA",
+            "REVIEWER",
+            "SECURITY",
+            "OPS",
+            "product_owner",
+            "project_manager",
+            "dev",
+            "qa",
+            "reviewer",
+            "security",
+            "ops"
+          ],
+          "type": "string"
+        },
+        {
+          "maximum": 2147483647,
+          "minimum": -2147483648,
+          "type": "integer"
+        }
+      ],
+      "default": 0,
+      "title": "Agent Role"
     },
     "run_context": {
-      "$ref": "run_context.json"
+      "$ref": "monarchic.agent_protocol.v1.RunContext.schema.json"
     },
-    "delivery_contract": {
-      "$ref": "delivery_contract.json"
+    "task_id": {
+      "default": "",
+      "type": "string"
     },
-    "experiment_spec": {
-      "$ref": "experiment_spec.json"
+    "version": {
+      "default": "",
+      "type": "string"
     }
-  }
+  },
+  "title": "Task",
+  "type": "object"
 }

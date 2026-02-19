@@ -50,6 +50,14 @@ class Task extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.google.protobuf.Struct extensions = 9;</code>
      */
     protected $extensions = null;
+    /**
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.ExperimentSpec experiment_spec = 10;</code>
+     */
+    protected $experiment_spec = null;
+    /**
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.DeliveryContract delivery_contract = 11;</code>
+     */
+    protected $delivery_contract = null;
 
     /**
      * Constructor.
@@ -66,6 +74,8 @@ class Task extends \Google\Protobuf\Internal\Message
      *     @type string[] $gates_required
      *     @type \Monarchic\AgentProtocol\V1\RunContext $run_context
      *     @type \Google\Protobuf\Struct $extensions
+     *     @type \Monarchic\AgentProtocol\V1\ExperimentSpec $experiment_spec
+     *     @type \Monarchic\AgentProtocol\V1\DeliveryContract $delivery_contract
      * }
      */
     public function __construct($data = NULL) {
@@ -307,6 +317,70 @@ class Task extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->extensions = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.ExperimentSpec experiment_spec = 10;</code>
+     * @return \Monarchic\AgentProtocol\V1\ExperimentSpec|null
+     */
+    public function getExperimentSpec()
+    {
+        return $this->experiment_spec;
+    }
+
+    public function hasExperimentSpec()
+    {
+        return isset($this->experiment_spec);
+    }
+
+    public function clearExperimentSpec()
+    {
+        unset($this->experiment_spec);
+    }
+
+    /**
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.ExperimentSpec experiment_spec = 10;</code>
+     * @param \Monarchic\AgentProtocol\V1\ExperimentSpec $var
+     * @return $this
+     */
+    public function setExperimentSpec($var)
+    {
+        GPBUtil::checkMessage($var, \Monarchic\AgentProtocol\V1\ExperimentSpec::class);
+        $this->experiment_spec = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.DeliveryContract delivery_contract = 11;</code>
+     * @return \Monarchic\AgentProtocol\V1\DeliveryContract|null
+     */
+    public function getDeliveryContract()
+    {
+        return $this->delivery_contract;
+    }
+
+    public function hasDeliveryContract()
+    {
+        return isset($this->delivery_contract);
+    }
+
+    public function clearDeliveryContract()
+    {
+        unset($this->delivery_contract);
+    }
+
+    /**
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.DeliveryContract delivery_contract = 11;</code>
+     * @param \Monarchic\AgentProtocol\V1\DeliveryContract $var
+     * @return $this
+     */
+    public function setDeliveryContract($var)
+    {
+        GPBUtil::checkMessage($var, \Monarchic\AgentProtocol\V1\DeliveryContract::class);
+        $this->delivery_contract = $var;
 
         return $this;
     }

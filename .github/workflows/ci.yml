@@ -5,11 +5,20 @@ on:
   push:
     branches: [main]
 
+permissions:
+  contents: write
+
 jobs:
   validate:
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref || github.ref }}
+          fetch-depth: 0
+
+      - uses: cachix/install-nix-action@v27
 
       - uses: actions/setup-python@v5
         with:
@@ -26,7 +35,16 @@ jobs:
           sdk: stable
 
       - name: Install protobuf compiler
-        run: sudo apt-get update && sudo apt-get install -y protobuf-compiler
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y protobuf-compiler libprotobuf-dev g++ default-jdk libprotobuf-java ruby php kotlin
+
+      - name: Install TypeScript compiler
+        run: npm install -g typescript
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
 
       - name: Install protoc plugins
         run: |
@@ -54,5 +72,49 @@ jobs:
       - name: Validate protobuf codegen
         run: bash scripts/test-proto.sh schemas/v1/monarchic_agent_protocol.proto
 
+      - name: Compile examples
+        run: bash scripts/test-examples.sh
+
       - name: Cargo test
         run: cargo test
+
+      - name: Generate protobuf outputs
+        run: nix run .#generate-proto
+
+      - name: Generate JSON Schemas
+        run: nix run .#generate-json-schema
+
+      - name: Update local hashes
+        run: nix run .#update-local-hashes
+
+      - name: Commit generated changes
+        if: >
+          (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
+          (github.event_name == 'pull_request' &&
+            github.event.pull_request.head.repo.full_name == github.repository)
+        run: |
+          set -euo pipefail
+          if git diff --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          if ! git diff --quiet -- schemas/v1 src; then
+            git add schemas/v1 src
+            git commit -m "ci: generate schema [ci skip]" || true
+          fi
+
+          if ! git diff --quiet -- flake.nix; then
+            git add flake.nix
+            git commit -m "ci: update local hashes [ci skip]" || true
+          fi
+
+          if git log -1 --pretty=%B | rg -q "ci: (generate schema|update local hashes)"; then
+            if [ "${GITHUB_EVENT_NAME}" = "pull_request" ]; then
+              git push origin "HEAD:${GITHUB_HEAD_REF}"
+            else
+              git push origin HEAD:main
+            fi
+          fi

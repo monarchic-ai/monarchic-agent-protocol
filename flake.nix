@@ -298,9 +298,47 @@
               pkgs.protobuf
               pkgs.protoc-gen-go
               pkgs.protoc-gen-dart
+              pkgs.python3
+              (pkgs.buildGoModule {
+                pname = "protoc-gen-jsonschema";
+                version = "0.5.2";
+                src = pkgs.fetchFromGitHub {
+                  owner = "bufbuild";
+                  repo = "protoschema-plugins";
+                  rev = "v0.5.2";
+                  sha256 = "0h3whjflsd2pc7s075rzq4rsxgdrxnp5l2yqhpiadmssrlwy746f";
+                };
+                vendorHash = "sha256-bXSnunEIsxlea0+aj7MjY/TMANF3bBFmm0o0O8LjRwg=";
+                subPackages = [ "cmd/protoc-gen-jsonschema" ];
+              })
             ];
             text = ''
               exec ${./scripts/generate-proto.sh} "$@"
+            '';
+          };
+          generateJsonSchema = pkgs.writeShellApplication {
+            name = "generate-json-schema";
+            meta = {
+              description = "Generate JSON Schemas from protobuf definitions.";
+            };
+            runtimeInputs = [
+              pkgs.protobuf
+              pkgs.python3
+              (pkgs.buildGoModule {
+                pname = "protoc-gen-jsonschema";
+                version = "0.5.2";
+                src = pkgs.fetchFromGitHub {
+                  owner = "bufbuild";
+                  repo = "protoschema-plugins";
+                  rev = "v0.5.2";
+                  sha256 = "0h3whjflsd2pc7s075rzq4rsxgdrxnp5l2yqhpiadmssrlwy746f";
+                };
+                vendorHash = "sha256-bXSnunEIsxlea0+aj7MjY/TMANF3bBFmm0o0O8LjRwg=";
+                subPackages = [ "cmd/protoc-gen-jsonschema" ];
+              })
+            ];
+            text = ''
+              exec ${builtins.path { path = ./scripts/generate-json-schema.sh; name = "generate-json-schema.sh"; }} "$@"
             '';
           };
           updateVersion = pkgs.writeShellApplication {
@@ -352,6 +390,13 @@
             program = "${generateProto}/bin/generate-proto";
             meta = {
               description = "Generate language bindings from protobuf schemas.";
+            };
+          };
+          generate-json-schema = {
+            type = "app";
+            program = "${generateJsonSchema}/bin/generate-json-schema";
+            meta = {
+              description = "Generate JSON Schemas from protobuf definitions.";
             };
           };
           update-version = {
@@ -449,29 +494,16 @@ EOF
             '';
           };
 
-          schema-validation = pkgs.runCommand "schema-validation" {
-            nativeBuildInputs = [ pkgs.python3 pkgs.python3Packages.jsonschema ];
+          test-json-schema = pkgs.runCommand "test-json-schema" {
+            nativeBuildInputs = [ pkgs.bash pkgs.python3 pkgs.python3Packages.jsonschema ];
           } ''
             set -euo pipefail
-            python <<'PY'
-            import json
-            import os
-            from jsonschema import Draft202012Validator
-
-            schema_dir = "${./schemas/v1}"
-            schemas = []
-            for name in os.listdir(schema_dir):
-                if name.endswith(".json"):
-                    with open(os.path.join(schema_dir, name), "r", encoding="utf-8") as handle:
-                        schemas.append(json.load(handle))
-
-            for schema in schemas:
-                Draft202012Validator.check_schema(schema)
-            PY
+            cd ${self}
+            ${pkgs.bash}/bin/bash ./scripts/test-json-schema.sh
             touch $out
           '';
 
-          proto-validation = pkgs.runCommand "proto-validation" {
+          test-proto = pkgs.runCommand "test-proto" {
             nativeBuildInputs = [
               pkgs.protobuf
             ];
@@ -741,6 +773,137 @@ EOF
           php-import = pkgs.runCommand "php-import" { nativeBuildInputs = [ pkgs.ripgrep ]; } ''
             set -euo pipefail
             rg "class Task" ${self.packages.${system}.php-registry-lib}/src/php/Monarchic/AgentProtocol/V1/Task.php
+            touch $out
+          '';
+
+          generate-proto-check = pkgs.runCommand "generate-proto-check" {
+            nativeBuildInputs = [
+              pkgs.bash
+              pkgs.protobuf
+              pkgs.protoc-gen-go
+              pkgs.protoc-gen-dart
+              pkgs.python3
+              (pkgs.buildGoModule {
+                pname = "protoc-gen-jsonschema";
+                version = "0.5.2";
+                src = pkgs.fetchFromGitHub {
+                  owner = "bufbuild";
+                  repo = "protoschema-plugins";
+                  rev = "v0.5.2";
+                  sha256 = "0h3whjflsd2pc7s075rzq4rsxgdrxnp5l2yqhpiadmssrlwy746f";
+                };
+                vendorHash = "sha256-bXSnunEIsxlea0+aj7MjY/TMANF3bBFmm0o0O8LjRwg=";
+                subPackages = [ "cmd/protoc-gen-jsonschema" ];
+              })
+            ];
+          } ''
+            set -euo pipefail
+            cp -R ${self} repo
+            chmod -R u+w repo
+            cd repo
+            src_dir="${self}"
+            ${pkgs.bash}/bin/bash ./scripts/generate-proto.sh
+            diff -r -x result -x "result-*" schemas/v1 "$src_dir/schemas/v1"
+            diff -r -x result -x "result-*" src "$src_dir/src"
+            touch $out
+          '';
+
+          generate-json-schema-check = pkgs.runCommand "generate-json-schema-check" {
+            nativeBuildInputs = [
+              pkgs.bash
+              pkgs.protobuf
+              pkgs.python3
+              (pkgs.buildGoModule {
+                pname = "protoc-gen-jsonschema";
+                version = "0.5.2";
+                src = pkgs.fetchFromGitHub {
+                  owner = "bufbuild";
+                  repo = "protoschema-plugins";
+                  rev = "v0.5.2";
+                  sha256 = "0h3whjflsd2pc7s075rzq4rsxgdrxnp5l2yqhpiadmssrlwy746f";
+                };
+                vendorHash = "sha256-bXSnunEIsxlea0+aj7MjY/TMANF3bBFmm0o0O8LjRwg=";
+                subPackages = [ "cmd/protoc-gen-jsonschema" ];
+              })
+            ];
+          } ''
+            set -euo pipefail
+            cp -R ${self} repo
+            chmod -R u+w repo
+            cd repo
+            src_dir="${self}"
+            ${pkgs.bash}/bin/bash ./scripts/generate-json-schema.sh
+            diff -r -x result -x "result-*" schemas/v1 "$src_dir/schemas/v1"
+            touch $out
+          '';
+
+          update-local-hashes-check = pkgs.runCommand "update-local-hashes-check" {
+            nativeBuildInputs = [
+              pkgs.bash
+              pkgs.nix
+              pkgs.nix-prefetch-scripts
+              pkgs.python3
+            ];
+          } ''
+            set -euo pipefail
+            cp -R ${self} repo
+            chmod -R u+w repo
+            cd repo
+            export NIX_STATE_DIR="$PWD/.nix-state"
+            export NIX_PROFILES_DIR="$PWD/.nix-profiles"
+            export NIX_DATA_DIR="$PWD/.nix-data"
+            mkdir -p "$NIX_STATE_DIR" "$NIX_PROFILES_DIR" "$NIX_DATA_DIR"
+            export SKIP_NETWORK=1
+            ${pkgs.bash}/bin/bash ./scripts/update-local-hashes.sh
+            diff -u ${self}/flake.nix flake.nix
+            touch $out
+          '';
+
+          update-registry-hashes-check = pkgs.runCommand "update-registry-hashes-check" {
+            nativeBuildInputs = [
+              pkgs.bash
+              pkgs.nix
+              pkgs.nix-prefetch-scripts
+              pkgs.prefetch-npm-deps
+              pkgs.python3
+            ];
+          } ''
+            set -euo pipefail
+            cp -R ${self} repo
+            chmod -R u+w repo
+            cd repo
+            export NIX_STATE_DIR="$PWD/.nix-state"
+            export NIX_PROFILES_DIR="$PWD/.nix-profiles"
+            export NIX_DATA_DIR="$PWD/.nix-data"
+            mkdir -p "$NIX_STATE_DIR" "$NIX_PROFILES_DIR" "$NIX_DATA_DIR"
+            export SKIP_NETWORK=1
+            ${pkgs.bash}/bin/bash ./scripts/update-registry-hashes.sh
+            diff -u ${self}/flake.nix flake.nix
+            touch $out
+          '';
+
+          update-version-check = pkgs.runCommand "update-version-check" {
+            nativeBuildInputs = [
+              pkgs.bash
+              pkgs.python3
+              pkgs.ripgrep
+            ];
+          } ''
+            set -euo pipefail
+            cp -R ${self} repo
+            chmod -R u+w repo
+            cd repo
+            version="$(python - <<'PY'
+from pathlib import Path
+import tomllib
+
+data = tomllib.loads(Path("Cargo.toml").read_text(encoding="utf-8"))
+print(data["package"]["version"])
+PY
+)"
+            ${pkgs.bash}/bin/bash ./scripts/update-version.sh "v$version"
+            diff -u ${self}/Cargo.toml Cargo.toml
+            diff -u ${self}/flake.nix flake.nix
             touch $out
           '';
         });
