@@ -1,0 +1,34 @@
+{
+  "$id": "https://monarchic.ai/schema/v1/dataset_ref.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DatasetRef",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["dataset_id", "sha256", "format"],
+  "properties": {
+    "dataset_id": {
+      "type": "string"
+    },
+    "uri": {
+      "type": "string"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$"
+    },
+    "format": {
+      "type": "string"
+    },
+    "split": {
+      "type": "string",
+      "enum": ["train", "validation", "test", "holdout", "reference", "other"]
+    },
+    "size_bytes": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

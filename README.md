@@ -59,6 +59,10 @@ Schema files live under `schemas/v1/`:
 - `schemas/v1/gate_result.json`
 - `schemas/v1/run_context.json`
 - `schemas/v1/agent_role.json`
+- `schemas/v1/dataset_ref.json`
+- `schemas/v1/experiment_spec.json`
+- `schemas/v1/eval_result.json`
+- `schemas/v1/provenance.json`
 - `schemas/v1/schema.json` (index)
 - `schemas/v1/monarchic_agent_protocol.proto`
 
@@ -101,6 +105,7 @@ Optional fields:
 - `constraints`: free-form object
 - `gates_required`: list of gate names to run (ex: `["qa", "security"]`)
 - `run_context`: `RunContext`
+- `experiment_spec`: typed experiment design contract for deterministic in silico runs
 
 Example:
 
@@ -169,6 +174,10 @@ Required fields:
 - `summary`: short description
 - `path`: path or locator for the artifact
 - `task_id`: task identifier that produced it
+- `provenance`: typed provenance hashes and runtime metadata
+- `dataset_refs`: datasets used while producing the artifact
+- `eval_results`: typed metric outputs with optional uncertainty bounds
+- `experiment_spec`: optional copy of experiment contract used for this output
 
 Example:
 
@@ -198,6 +207,8 @@ Required fields:
 Optional fields:
 
 - `message`: human-readable details
+- `provenance`: typed runtime/source hashes for event attribution
+- `eval_results`: optional metric snapshot payloads
 
 Example:
 
@@ -241,6 +252,59 @@ Example:
   }
 }
 ```
+
+### DatasetRef
+
+Reference to a dataset used by an experiment or output artifact.
+
+Required fields:
+
+- `dataset_id`
+- `sha256`
+- `format`
+
+Optional fields include `uri`, `split`, `size_bytes`, and `description`.
+
+### ExperimentSpec
+
+Typed contract for model design and acceptance checks.
+
+Required fields:
+
+- `experiment_id`
+- `objective`
+- `dataset_refs`: list of `DatasetRef`
+- `acceptance`: metric threshold policy
+
+Optional fields include `hypothesis`, `model_family`, `seeds`, and free-form `constraints`.
+
+### EvalResult
+
+Typed evaluation output row.
+
+Required fields:
+
+- `metric`
+- `value`
+- `passed`
+
+Optional fields include `lower_ci`, `upper_ci`, `variance`, `seed`, and `notes`.
+
+### Provenance
+
+Typed provenance contract for reproducibility and traceability.
+
+Required fields:
+
+- `prompt_sha256`
+- `code_sha256`
+- `runtime`
+- `runner`
+- `orchestrator`
+- `created_at`
+
+Optional fields include dataset hashes/references and command/task/pipeline hashes.
+
 
 ### Language bindings
 

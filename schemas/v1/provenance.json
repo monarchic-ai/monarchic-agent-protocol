@@ -1,0 +1,62 @@
+{
+  "$id": "https://monarchic.ai/schema/v1/provenance.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Provenance",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["prompt_sha256", "code_sha256", "runtime", "runner", "orchestrator", "created_at"],
+  "properties": {
+    "prompt_sha256": {
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$"
+    },
+    "code_sha256": {
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$"
+    },
+    "dataset_sha256": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-fA-F0-9]{64}$"
+      }
+    },
+    "runtime": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "runner": {
+      "type": "string"
+    },
+    "orchestrator": {
+      "type": "string"
+    },
+    "task_spec_sha256": {
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$"
+    },
+    "pipeline_sha256": {
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$"
+    },
+    "command_sha256": {
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source_task_id": {
+      "type": "string"
+    },
+    "dataset_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "dataset_ref.json"
+      }
+    }
+  }
+}
