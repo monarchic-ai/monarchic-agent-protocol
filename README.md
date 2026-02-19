@@ -80,11 +80,12 @@ All schemas allow additional properties for forward compatibility.
 - `schemas/v1/event.json`
 - `schemas/v1/gate_result.json`
 - `schemas/v1/run_context.json`
-- `schemas/v1/run_outcome.json`
+- `schemas/v1/dataset_ref.json`
+- `schemas/v1/experiment_spec.json`
+- `schemas/v1/eval_result.json`
+- `schemas/v1/provenance.json`
 
 `schemas/v1/agent_role.json` is a shared schema used by `task.json`.
-`schemas/v1/dataset_ref.json`, `schemas/v1/experiment_spec.json`, `schemas/v1/objective_spec.json`,
-`schemas/v1/eval_result.json`, and `schemas/v1/provenance.json` are referenced by top-level schemas.
 
 ### AgentRole
 
@@ -432,18 +433,6 @@ Dart sources live under `src/dart`.
 - JSON Schema regeneration only: `scripts/generate-json-schema.sh`.
 - JSON Schema generation requires `protoc-gen-jsonschema` (install with `go install github.com/chrusty/protoc-gen-jsonschema/cmd/protoc-gen-jsonschema@latest`).
 
-Use the Nix apps (preferred) or the scripts directly:
-
-- `nix run .#generate-proto` (`scripts/generate-proto.sh`): regenerate protobuf outputs into `src/<lang>`.
-- `nix run .#generate-json-schema` (`scripts/generate-json-schema.sh`): regenerate JSON Schemas from the protobuf source.
-- `nix run .#update-local-hashes` (`scripts/update-local-hashes.sh`): refresh hashes for local build inputs.
-- `nix run .#update-version -- <version>` (`scripts/update-version.sh`): bump version across manifests and tags (expects `vX.Y.Z` input).
-- `nix run .#update-registry-hashes` (`scripts/update-registry-hashes.sh`): refresh hashes for published registries (npm, crates, PyPI, RubyGems, NuGet, JitPack, GitHub source).
-
-For every schema change, generate protobuf outputs and update local hashes.
-
-For every release, tag the commit, update versions, push, and update registry hashes *after pushing*.
-
 ### Schema validation workflow
 
 1. Run full schema lint and semantic checks: `bash scripts/lint-schemas.sh`.
@@ -453,7 +442,7 @@ For every release, tag the commit, update versions, push, and update registry ha
 5. Verify schema changelog entry format: `bash scripts/test-schema-changelog-format.sh`.
 6. Verify README schema index coverage stays aligned: `bash scripts/test-readme-schema-index-coverage.sh`.
 
-### Nix packages
+## Nix packages
 
 - `packages.default`: Rust crate for protocol types
 - `packages.rs-lib`: Rust crate for protocol types (local)

@@ -68,12 +68,6 @@ def iter_refs(node):
         for item in node:
             yield from iter_refs(item)
 
-def is_symbolic_schema_ref(ref):
-    # Generated schema bundles may emit symbolic refs like
-    # "monarchic.agent_protocol.v1.RunContext.schema.json" that are
-    # resolved by $id/store, not by local filesystem paths.
-    return ref.endswith(".schema.json") and "/" not in ref
-
 def find_missing_local_refs(schemas, base_dir):
     missing_refs = []
     for schema_name, schema in schemas.items():
@@ -81,8 +75,6 @@ def find_missing_local_refs(schemas, base_dir):
         for ref in iter_refs(schema):
             local_target = ref.split("#", 1)[0]
             if not local_target or "://" in local_target:
-                continue
-            if is_symbolic_schema_ref(local_target):
                 continue
             ref_path = os.path.join(base_dir, local_target)
             if not os.path.isfile(ref_path):
@@ -138,11 +130,11 @@ def validate_invalid_task_fixture(schemas, fixture_path):
         )
         raise SystemExit(1)
     if not any(
-        error.validator in {"anyOf", "type"} and list(error.path) == ["role"]
+        error.validator == "required" and "goal" in error.message
         for error in validation_errors
     ):
         print(
-            "Invalid task fixture check failed: expected a type error for role.",
+            "Invalid task fixture check failed: expected a missing 'goal' required-field error.",
             file=sys.stderr,
         )
         for error in validation_errors:
