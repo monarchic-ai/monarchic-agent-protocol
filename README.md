@@ -38,7 +38,6 @@ Install the published package for your language, then use the generated bindings
 - Protobuf C#: `examples/proto/csharp/TaskExample.cs`
 - Protobuf Python: `examples/proto/python/task.py`
 - Protobuf Ruby: `examples/proto/ruby/task.rb`
-- Protobuf Objective-C: `examples/proto/objective-c/TaskExample.m`
 - Protobuf PHP: `examples/proto/php/task.php`
 - Protobuf Dart: `examples/proto/dart/task.dart`
 - Protobuf Rust: `examples/proto/rust/task.rs`
@@ -50,6 +49,8 @@ Install the published package for your language, then use the generated bindings
 - New versions must be added under a new directory (e.g. `schemas/v2/`) without changing existing v1 files.
 
 ### Schema summary
+
+JSON Schema files are generated from the protobuf definitions. Do not edit them by hand.
 
 Schema files live under `schemas/v1/`:
 
@@ -408,11 +409,14 @@ Dart sources live under `src/dart`.
 - `nix flake check` validates JSON schemas, protobuf codegen, and package imports (PyPI + Rust + npm + Go).
 - JSON Schema test: `scripts/test-json-schema.sh`.
 - Protobuf codegen test (all languages): `scripts/test-proto.sh`.
-- Protobuf codegen (write to `src/<lang>`): `scripts/generate-proto.sh`.
+- Protobuf codegen (write to `src/<lang>` and regenerate JSON schemas): `scripts/generate-proto.sh`.
+- JSON Schema regeneration only: `scripts/generate-json-schema.sh`.
+- JSON Schema generation requires `protoc-gen-jsonschema` (install with `go install github.com/chrusty/protoc-gen-jsonschema/cmd/protoc-gen-jsonschema@latest`).
 
 Use the Nix apps (preferred) or the scripts directly:
 
 - `nix run .#generate-proto` (`scripts/generate-proto.sh`): regenerate protobuf outputs into `src/<lang>`.
+- `nix run .#generate-json-schema` (`scripts/generate-json-schema.sh`): regenerate JSON Schemas from the protobuf source.
 - `nix run .#update-local-hashes` (`scripts/update-local-hashes.sh`): refresh hashes for local build inputs.
 - `nix run .#update-version -- <version>` (`scripts/update-version.sh`): bump version across manifests and tags (expects `vX.Y.Z` input).
 - `nix run .#update-registry-hashes` (`scripts/update-registry-hashes.sh`): refresh hashes for published registries (npm, crates, PyPI, RubyGems, NuGet, JitPack, GitHub source).

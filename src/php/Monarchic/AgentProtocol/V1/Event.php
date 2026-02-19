@@ -42,6 +42,14 @@ class Event extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.google.protobuf.Struct extensions = 7;</code>
      */
     protected $extensions = null;
+    /**
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.Provenance provenance = 8;</code>
+     */
+    protected $provenance = null;
+    /**
+     * Generated from protobuf field <code>repeated .monarchic.agent_protocol.v1.EvalResult eval_results = 9;</code>
+     */
+    private $eval_results;
 
     /**
      * Constructor.
@@ -56,6 +64,8 @@ class Event extends \Google\Protobuf\Internal\Message
      *     @type string $status
      *     @type string $message
      *     @type \Google\Protobuf\Struct $extensions
+     *     @type \Monarchic\AgentProtocol\V1\Provenance $provenance
+     *     @type \Monarchic\AgentProtocol\V1\EvalResult[] $eval_results
      * }
      */
     public function __construct($data = NULL) {
@@ -233,6 +243,60 @@ class Event extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->extensions = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.Provenance provenance = 8;</code>
+     * @return \Monarchic\AgentProtocol\V1\Provenance|null
+     */
+    public function getProvenance()
+    {
+        return $this->provenance;
+    }
+
+    public function hasProvenance()
+    {
+        return isset($this->provenance);
+    }
+
+    public function clearProvenance()
+    {
+        unset($this->provenance);
+    }
+
+    /**
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.Provenance provenance = 8;</code>
+     * @param \Monarchic\AgentProtocol\V1\Provenance $var
+     * @return $this
+     */
+    public function setProvenance($var)
+    {
+        GPBUtil::checkMessage($var, \Monarchic\AgentProtocol\V1\Provenance::class);
+        $this->provenance = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .monarchic.agent_protocol.v1.EvalResult eval_results = 9;</code>
+     * @return RepeatedField<\Monarchic\AgentProtocol\V1\EvalResult>
+     */
+    public function getEvalResults()
+    {
+        return $this->eval_results;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .monarchic.agent_protocol.v1.EvalResult eval_results = 9;</code>
+     * @param \Monarchic\AgentProtocol\V1\EvalResult[] $var
+     * @return $this
+     */
+    public function setEvalResults($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Monarchic\AgentProtocol\V1\EvalResult::class);
+        $this->eval_results = $arr;
 
         return $this;
     }

@@ -1,32 +1,38 @@
 {
-  "$id": "https://monarchic.ai/schema/v1/run_context.json",
+  "$id": "monarchic.agent_protocol.v1.RunContext.schema.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "RunContext",
-  "type": "object",
   "additionalProperties": true,
-  "required": ["version", "repo", "worktree", "image", "runner"],
   "properties": {
-    "version": {
-      "type": "string",
-      "const": "v1"
-    },
-    "repo": {
-      "type": "string"
-    },
-    "worktree": {
-      "type": "string"
+    "extensions": {
+      "$ref": "google.protobuf.Struct.schema.json"
     },
     "image": {
-      "type": "string"
-    },
-    "runner": {
+      "default": "",
       "type": "string"
     },
     "labels": {
-      "type": "array",
       "items": {
         "type": "string"
-      }
+      },
+      "type": "array"
+    },
+    "repo": {
+      "default": "",
+      "type": "string"
+    },
+    "runner": {
+      "default": "",
+      "type": "string"
+    },
+    "version": {
+      "default": "",
+      "type": "string"
+    },
+    "worktree": {
+      "default": "",
+      "type": "string"
     }
-  }
+  },
+  "title": "Run Context",
+  "type": "object"
 }

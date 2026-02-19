@@ -4,7 +4,12 @@
   "title": "ExperimentSpec",
   "type": "object",
   "additionalProperties": true,
-  "required": ["experiment_id", "objective", "dataset_refs", "acceptance"],
+  "required": [
+    "experiment_id",
+    "objective",
+    "dataset_refs",
+    "acceptance"
+  ],
   "properties": {
     "experiment_id": {
       "type": "string"
@@ -33,14 +38,22 @@
     "acceptance": {
       "type": "object",
       "additionalProperties": true,
-      "required": ["metric", "direction", "threshold"],
+      "required": [
+        "metric",
+        "direction",
+        "threshold"
+      ],
       "properties": {
         "metric": {
           "type": "string"
         },
         "direction": {
           "type": "string",
-          "enum": ["maximize", "minimize", "target"]
+          "enum": [
+            "maximize",
+            "minimize",
+            "target"
+          ]
         },
         "threshold": {
           "type": "number"

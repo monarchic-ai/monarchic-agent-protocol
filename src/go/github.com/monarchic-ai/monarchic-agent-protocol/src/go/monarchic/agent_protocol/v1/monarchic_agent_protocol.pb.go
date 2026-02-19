@@ -86,24 +86,706 @@ func (AgentRole) EnumDescriptor() ([]byte, []int) {
 	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{0}
 }
 
-type Task struct {
+type DatasetRef struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Version       string                 `protobuf:"bytes,1,opt,name=version,proto3" json:"version,omitempty"`
-	TaskId        string                 `protobuf:"bytes,2,opt,name=task_id,json=taskId,proto3" json:"task_id,omitempty"`
-	Role          AgentRole              `protobuf:"varint,3,opt,name=role,proto3,enum=monarchic.agent_protocol.v1.AgentRole" json:"role,omitempty"`
-	Goal          string                 `protobuf:"bytes,4,opt,name=goal,proto3" json:"goal,omitempty"`
-	Inputs        *structpb.Struct       `protobuf:"bytes,5,opt,name=inputs,proto3" json:"inputs,omitempty"`
-	Constraints   *structpb.Struct       `protobuf:"bytes,6,opt,name=constraints,proto3" json:"constraints,omitempty"`
-	GatesRequired []string               `protobuf:"bytes,7,rep,name=gates_required,json=gatesRequired,proto3" json:"gates_required,omitempty"`
-	RunContext    *RunContext            `protobuf:"bytes,8,opt,name=run_context,json=runContext,proto3" json:"run_context,omitempty"`
+	DatasetId     string                 `protobuf:"bytes,1,opt,name=dataset_id,json=datasetId,proto3" json:"dataset_id,omitempty"`
+	Uri           *string                `protobuf:"bytes,2,opt,name=uri,proto3,oneof" json:"uri,omitempty"`
+	Sha256        string                 `protobuf:"bytes,3,opt,name=sha256,proto3" json:"sha256,omitempty"`
+	Format        string                 `protobuf:"bytes,4,opt,name=format,proto3" json:"format,omitempty"`
+	Split         *string                `protobuf:"bytes,5,opt,name=split,proto3,oneof" json:"split,omitempty"`
+	SizeBytes     *uint64                `protobuf:"varint,6,opt,name=size_bytes,json=sizeBytes,proto3,oneof" json:"size_bytes,omitempty"`
+	Description   *string                `protobuf:"bytes,7,opt,name=description,proto3,oneof" json:"description,omitempty"`
+	Extensions    *structpb.Struct       `protobuf:"bytes,8,opt,name=extensions,proto3" json:"extensions,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DatasetRef) Reset() {
+	*x = DatasetRef{}
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DatasetRef) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DatasetRef) ProtoMessage() {}
+
+func (x *DatasetRef) ProtoReflect() protoreflect.Message {
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DatasetRef.ProtoReflect.Descriptor instead.
+func (*DatasetRef) Descriptor() ([]byte, []int) {
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *DatasetRef) GetDatasetId() string {
+	if x != nil {
+		return x.DatasetId
+	}
+	return ""
+}
+
+func (x *DatasetRef) GetUri() string {
+	if x != nil && x.Uri != nil {
+		return *x.Uri
+	}
+	return ""
+}
+
+func (x *DatasetRef) GetSha256() string {
+	if x != nil {
+		return x.Sha256
+	}
+	return ""
+}
+
+func (x *DatasetRef) GetFormat() string {
+	if x != nil {
+		return x.Format
+	}
+	return ""
+}
+
+func (x *DatasetRef) GetSplit() string {
+	if x != nil && x.Split != nil {
+		return *x.Split
+	}
+	return ""
+}
+
+func (x *DatasetRef) GetSizeBytes() uint64 {
+	if x != nil && x.SizeBytes != nil {
+		return *x.SizeBytes
+	}
+	return 0
+}
+
+func (x *DatasetRef) GetDescription() string {
+	if x != nil && x.Description != nil {
+		return *x.Description
+	}
+	return ""
+}
+
+func (x *DatasetRef) GetExtensions() *structpb.Struct {
+	if x != nil {
+		return x.Extensions
+	}
+	return nil
+}
+
+type AcceptanceCriteria struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	Metric          string                 `protobuf:"bytes,1,opt,name=metric,proto3" json:"metric,omitempty"`
+	Direction       string                 `protobuf:"bytes,2,opt,name=direction,proto3" json:"direction,omitempty"`
+	Threshold       float64                `protobuf:"fixed64,3,opt,name=threshold,proto3" json:"threshold,omitempty"`
+	MinEffectSize   *float64               `protobuf:"fixed64,4,opt,name=min_effect_size,json=minEffectSize,proto3,oneof" json:"min_effect_size,omitempty"`
+	MaxVariance     *float64               `protobuf:"fixed64,5,opt,name=max_variance,json=maxVariance,proto3,oneof" json:"max_variance,omitempty"`
+	ConfidenceLevel *float64               `protobuf:"fixed64,6,opt,name=confidence_level,json=confidenceLevel,proto3,oneof" json:"confidence_level,omitempty"`
+	Extensions      *structpb.Struct       `protobuf:"bytes,7,opt,name=extensions,proto3" json:"extensions,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *AcceptanceCriteria) Reset() {
+	*x = AcceptanceCriteria{}
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AcceptanceCriteria) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AcceptanceCriteria) ProtoMessage() {}
+
+func (x *AcceptanceCriteria) ProtoReflect() protoreflect.Message {
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AcceptanceCriteria.ProtoReflect.Descriptor instead.
+func (*AcceptanceCriteria) Descriptor() ([]byte, []int) {
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *AcceptanceCriteria) GetMetric() string {
+	if x != nil {
+		return x.Metric
+	}
+	return ""
+}
+
+func (x *AcceptanceCriteria) GetDirection() string {
+	if x != nil {
+		return x.Direction
+	}
+	return ""
+}
+
+func (x *AcceptanceCriteria) GetThreshold() float64 {
+	if x != nil {
+		return x.Threshold
+	}
+	return 0
+}
+
+func (x *AcceptanceCriteria) GetMinEffectSize() float64 {
+	if x != nil && x.MinEffectSize != nil {
+		return *x.MinEffectSize
+	}
+	return 0
+}
+
+func (x *AcceptanceCriteria) GetMaxVariance() float64 {
+	if x != nil && x.MaxVariance != nil {
+		return *x.MaxVariance
+	}
+	return 0
+}
+
+func (x *AcceptanceCriteria) GetConfidenceLevel() float64 {
+	if x != nil && x.ConfidenceLevel != nil {
+		return *x.ConfidenceLevel
+	}
+	return 0
+}
+
+func (x *AcceptanceCriteria) GetExtensions() *structpb.Struct {
+	if x != nil {
+		return x.Extensions
+	}
+	return nil
+}
+
+type ExperimentSpec struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ExperimentId  string                 `protobuf:"bytes,1,opt,name=experiment_id,json=experimentId,proto3" json:"experiment_id,omitempty"`
+	Objective     string                 `protobuf:"bytes,2,opt,name=objective,proto3" json:"objective,omitempty"`
+	Hypothesis    *string                `protobuf:"bytes,3,opt,name=hypothesis,proto3,oneof" json:"hypothesis,omitempty"`
+	ModelFamily   *string                `protobuf:"bytes,4,opt,name=model_family,json=modelFamily,proto3,oneof" json:"model_family,omitempty"`
+	Seeds         []int64                `protobuf:"varint,5,rep,packed,name=seeds,proto3" json:"seeds,omitempty"`
+	DatasetRefs   []*DatasetRef          `protobuf:"bytes,6,rep,name=dataset_refs,json=datasetRefs,proto3" json:"dataset_refs,omitempty"`
+	Acceptance    *AcceptanceCriteria    `protobuf:"bytes,7,opt,name=acceptance,proto3" json:"acceptance,omitempty"`
+	Constraints   *structpb.Struct       `protobuf:"bytes,8,opt,name=constraints,proto3" json:"constraints,omitempty"`
 	Extensions    *structpb.Struct       `protobuf:"bytes,9,opt,name=extensions,proto3" json:"extensions,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
+func (x *ExperimentSpec) Reset() {
+	*x = ExperimentSpec{}
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ExperimentSpec) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ExperimentSpec) ProtoMessage() {}
+
+func (x *ExperimentSpec) ProtoReflect() protoreflect.Message {
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ExperimentSpec.ProtoReflect.Descriptor instead.
+func (*ExperimentSpec) Descriptor() ([]byte, []int) {
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *ExperimentSpec) GetExperimentId() string {
+	if x != nil {
+		return x.ExperimentId
+	}
+	return ""
+}
+
+func (x *ExperimentSpec) GetObjective() string {
+	if x != nil {
+		return x.Objective
+	}
+	return ""
+}
+
+func (x *ExperimentSpec) GetHypothesis() string {
+	if x != nil && x.Hypothesis != nil {
+		return *x.Hypothesis
+	}
+	return ""
+}
+
+func (x *ExperimentSpec) GetModelFamily() string {
+	if x != nil && x.ModelFamily != nil {
+		return *x.ModelFamily
+	}
+	return ""
+}
+
+func (x *ExperimentSpec) GetSeeds() []int64 {
+	if x != nil {
+		return x.Seeds
+	}
+	return nil
+}
+
+func (x *ExperimentSpec) GetDatasetRefs() []*DatasetRef {
+	if x != nil {
+		return x.DatasetRefs
+	}
+	return nil
+}
+
+func (x *ExperimentSpec) GetAcceptance() *AcceptanceCriteria {
+	if x != nil {
+		return x.Acceptance
+	}
+	return nil
+}
+
+func (x *ExperimentSpec) GetConstraints() *structpb.Struct {
+	if x != nil {
+		return x.Constraints
+	}
+	return nil
+}
+
+func (x *ExperimentSpec) GetExtensions() *structpb.Struct {
+	if x != nil {
+		return x.Extensions
+	}
+	return nil
+}
+
+type DeliveryContract struct {
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	Objective        string                 `protobuf:"bytes,1,opt,name=objective,proto3" json:"objective,omitempty"`
+	DefinitionOfDone []string               `protobuf:"bytes,2,rep,name=definition_of_done,json=definitionOfDone,proto3" json:"definition_of_done,omitempty"`
+	RequiredChecks   []string               `protobuf:"bytes,3,rep,name=required_checks,json=requiredChecks,proto3" json:"required_checks,omitempty"`
+	RiskTier         string                 `protobuf:"bytes,4,opt,name=risk_tier,json=riskTier,proto3" json:"risk_tier,omitempty"`
+	MaxCycleMinutes  *uint32                `protobuf:"varint,5,opt,name=max_cycle_minutes,json=maxCycleMinutes,proto3,oneof" json:"max_cycle_minutes,omitempty"`
+	MaxAgentTurns    *uint32                `protobuf:"varint,6,opt,name=max_agent_turns,json=maxAgentTurns,proto3,oneof" json:"max_agent_turns,omitempty"`
+	PrStrategy       *string                `protobuf:"bytes,7,opt,name=pr_strategy,json=prStrategy,proto3,oneof" json:"pr_strategy,omitempty"`
+	ReviewPolicy     *string                `protobuf:"bytes,8,opt,name=review_policy,json=reviewPolicy,proto3,oneof" json:"review_policy,omitempty"`
+	RollbackStrategy *string                `protobuf:"bytes,9,opt,name=rollback_strategy,json=rollbackStrategy,proto3,oneof" json:"rollback_strategy,omitempty"`
+	Notes            *string                `protobuf:"bytes,10,opt,name=notes,proto3,oneof" json:"notes,omitempty"`
+	Extensions       *structpb.Struct       `protobuf:"bytes,11,opt,name=extensions,proto3" json:"extensions,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
+}
+
+func (x *DeliveryContract) Reset() {
+	*x = DeliveryContract{}
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeliveryContract) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeliveryContract) ProtoMessage() {}
+
+func (x *DeliveryContract) ProtoReflect() protoreflect.Message {
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeliveryContract.ProtoReflect.Descriptor instead.
+func (*DeliveryContract) Descriptor() ([]byte, []int) {
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *DeliveryContract) GetObjective() string {
+	if x != nil {
+		return x.Objective
+	}
+	return ""
+}
+
+func (x *DeliveryContract) GetDefinitionOfDone() []string {
+	if x != nil {
+		return x.DefinitionOfDone
+	}
+	return nil
+}
+
+func (x *DeliveryContract) GetRequiredChecks() []string {
+	if x != nil {
+		return x.RequiredChecks
+	}
+	return nil
+}
+
+func (x *DeliveryContract) GetRiskTier() string {
+	if x != nil {
+		return x.RiskTier
+	}
+	return ""
+}
+
+func (x *DeliveryContract) GetMaxCycleMinutes() uint32 {
+	if x != nil && x.MaxCycleMinutes != nil {
+		return *x.MaxCycleMinutes
+	}
+	return 0
+}
+
+func (x *DeliveryContract) GetMaxAgentTurns() uint32 {
+	if x != nil && x.MaxAgentTurns != nil {
+		return *x.MaxAgentTurns
+	}
+	return 0
+}
+
+func (x *DeliveryContract) GetPrStrategy() string {
+	if x != nil && x.PrStrategy != nil {
+		return *x.PrStrategy
+	}
+	return ""
+}
+
+func (x *DeliveryContract) GetReviewPolicy() string {
+	if x != nil && x.ReviewPolicy != nil {
+		return *x.ReviewPolicy
+	}
+	return ""
+}
+
+func (x *DeliveryContract) GetRollbackStrategy() string {
+	if x != nil && x.RollbackStrategy != nil {
+		return *x.RollbackStrategy
+	}
+	return ""
+}
+
+func (x *DeliveryContract) GetNotes() string {
+	if x != nil && x.Notes != nil {
+		return *x.Notes
+	}
+	return ""
+}
+
+func (x *DeliveryContract) GetExtensions() *structpb.Struct {
+	if x != nil {
+		return x.Extensions
+	}
+	return nil
+}
+
+type EvalResult struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Metric        string                 `protobuf:"bytes,1,opt,name=metric,proto3" json:"metric,omitempty"`
+	Value         float64                `protobuf:"fixed64,2,opt,name=value,proto3" json:"value,omitempty"`
+	LowerCi       *float64               `protobuf:"fixed64,3,opt,name=lower_ci,json=lowerCi,proto3,oneof" json:"lower_ci,omitempty"`
+	UpperCi       *float64               `protobuf:"fixed64,4,opt,name=upper_ci,json=upperCi,proto3,oneof" json:"upper_ci,omitempty"`
+	Variance      *float64               `protobuf:"fixed64,5,opt,name=variance,proto3,oneof" json:"variance,omitempty"`
+	Seed          *int64                 `protobuf:"varint,6,opt,name=seed,proto3,oneof" json:"seed,omitempty"`
+	Passed        bool                   `protobuf:"varint,7,opt,name=passed,proto3" json:"passed,omitempty"`
+	Notes         *string                `protobuf:"bytes,8,opt,name=notes,proto3,oneof" json:"notes,omitempty"`
+	Extensions    *structpb.Struct       `protobuf:"bytes,9,opt,name=extensions,proto3" json:"extensions,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EvalResult) Reset() {
+	*x = EvalResult{}
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EvalResult) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EvalResult) ProtoMessage() {}
+
+func (x *EvalResult) ProtoReflect() protoreflect.Message {
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EvalResult.ProtoReflect.Descriptor instead.
+func (*EvalResult) Descriptor() ([]byte, []int) {
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *EvalResult) GetMetric() string {
+	if x != nil {
+		return x.Metric
+	}
+	return ""
+}
+
+func (x *EvalResult) GetValue() float64 {
+	if x != nil {
+		return x.Value
+	}
+	return 0
+}
+
+func (x *EvalResult) GetLowerCi() float64 {
+	if x != nil && x.LowerCi != nil {
+		return *x.LowerCi
+	}
+	return 0
+}
+
+func (x *EvalResult) GetUpperCi() float64 {
+	if x != nil && x.UpperCi != nil {
+		return *x.UpperCi
+	}
+	return 0
+}
+
+func (x *EvalResult) GetVariance() float64 {
+	if x != nil && x.Variance != nil {
+		return *x.Variance
+	}
+	return 0
+}
+
+func (x *EvalResult) GetSeed() int64 {
+	if x != nil && x.Seed != nil {
+		return *x.Seed
+	}
+	return 0
+}
+
+func (x *EvalResult) GetPassed() bool {
+	if x != nil {
+		return x.Passed
+	}
+	return false
+}
+
+func (x *EvalResult) GetNotes() string {
+	if x != nil && x.Notes != nil {
+		return *x.Notes
+	}
+	return ""
+}
+
+func (x *EvalResult) GetExtensions() *structpb.Struct {
+	if x != nil {
+		return x.Extensions
+	}
+	return nil
+}
+
+type Provenance struct {
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	PromptSha256   string                 `protobuf:"bytes,1,opt,name=prompt_sha256,json=promptSha256,proto3" json:"prompt_sha256,omitempty"`
+	CodeSha256     string                 `protobuf:"bytes,2,opt,name=code_sha256,json=codeSha256,proto3" json:"code_sha256,omitempty"`
+	DatasetSha256  []string               `protobuf:"bytes,3,rep,name=dataset_sha256,json=datasetSha256,proto3" json:"dataset_sha256,omitempty"`
+	Runtime        string                 `protobuf:"bytes,4,opt,name=runtime,proto3" json:"runtime,omitempty"`
+	Model          *string                `protobuf:"bytes,5,opt,name=model,proto3,oneof" json:"model,omitempty"`
+	Runner         string                 `protobuf:"bytes,6,opt,name=runner,proto3" json:"runner,omitempty"`
+	Orchestrator   string                 `protobuf:"bytes,7,opt,name=orchestrator,proto3" json:"orchestrator,omitempty"`
+	TaskSpecSha256 *string                `protobuf:"bytes,8,opt,name=task_spec_sha256,json=taskSpecSha256,proto3,oneof" json:"task_spec_sha256,omitempty"`
+	PipelineSha256 *string                `protobuf:"bytes,9,opt,name=pipeline_sha256,json=pipelineSha256,proto3,oneof" json:"pipeline_sha256,omitempty"`
+	CommandSha256  *string                `protobuf:"bytes,10,opt,name=command_sha256,json=commandSha256,proto3,oneof" json:"command_sha256,omitempty"`
+	CreatedAt      string                 `protobuf:"bytes,11,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	SourceTaskId   *string                `protobuf:"bytes,12,opt,name=source_task_id,json=sourceTaskId,proto3,oneof" json:"source_task_id,omitempty"`
+	DatasetRefs    []*DatasetRef          `protobuf:"bytes,13,rep,name=dataset_refs,json=datasetRefs,proto3" json:"dataset_refs,omitempty"`
+	Extensions     *structpb.Struct       `protobuf:"bytes,14,opt,name=extensions,proto3" json:"extensions,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
+}
+
+func (x *Provenance) Reset() {
+	*x = Provenance{}
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Provenance) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Provenance) ProtoMessage() {}
+
+func (x *Provenance) ProtoReflect() protoreflect.Message {
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Provenance.ProtoReflect.Descriptor instead.
+func (*Provenance) Descriptor() ([]byte, []int) {
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *Provenance) GetPromptSha256() string {
+	if x != nil {
+		return x.PromptSha256
+	}
+	return ""
+}
+
+func (x *Provenance) GetCodeSha256() string {
+	if x != nil {
+		return x.CodeSha256
+	}
+	return ""
+}
+
+func (x *Provenance) GetDatasetSha256() []string {
+	if x != nil {
+		return x.DatasetSha256
+	}
+	return nil
+}
+
+func (x *Provenance) GetRuntime() string {
+	if x != nil {
+		return x.Runtime
+	}
+	return ""
+}
+
+func (x *Provenance) GetModel() string {
+	if x != nil && x.Model != nil {
+		return *x.Model
+	}
+	return ""
+}
+
+func (x *Provenance) GetRunner() string {
+	if x != nil {
+		return x.Runner
+	}
+	return ""
+}
+
+func (x *Provenance) GetOrchestrator() string {
+	if x != nil {
+		return x.Orchestrator
+	}
+	return ""
+}
+
+func (x *Provenance) GetTaskSpecSha256() string {
+	if x != nil && x.TaskSpecSha256 != nil {
+		return *x.TaskSpecSha256
+	}
+	return ""
+}
+
+func (x *Provenance) GetPipelineSha256() string {
+	if x != nil && x.PipelineSha256 != nil {
+		return *x.PipelineSha256
+	}
+	return ""
+}
+
+func (x *Provenance) GetCommandSha256() string {
+	if x != nil && x.CommandSha256 != nil {
+		return *x.CommandSha256
+	}
+	return ""
+}
+
+func (x *Provenance) GetCreatedAt() string {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return ""
+}
+
+func (x *Provenance) GetSourceTaskId() string {
+	if x != nil && x.SourceTaskId != nil {
+		return *x.SourceTaskId
+	}
+	return ""
+}
+
+func (x *Provenance) GetDatasetRefs() []*DatasetRef {
+	if x != nil {
+		return x.DatasetRefs
+	}
+	return nil
+}
+
+func (x *Provenance) GetExtensions() *structpb.Struct {
+	if x != nil {
+		return x.Extensions
+	}
+	return nil
+}
+
+type Task struct {
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	Version          string                 `protobuf:"bytes,1,opt,name=version,proto3" json:"version,omitempty"`
+	TaskId           string                 `protobuf:"bytes,2,opt,name=task_id,json=taskId,proto3" json:"task_id,omitempty"`
+	Role             AgentRole              `protobuf:"varint,3,opt,name=role,proto3,enum=monarchic.agent_protocol.v1.AgentRole" json:"role,omitempty"`
+	Goal             string                 `protobuf:"bytes,4,opt,name=goal,proto3" json:"goal,omitempty"`
+	Inputs           *structpb.Struct       `protobuf:"bytes,5,opt,name=inputs,proto3" json:"inputs,omitempty"`
+	Constraints      *structpb.Struct       `protobuf:"bytes,6,opt,name=constraints,proto3" json:"constraints,omitempty"`
+	GatesRequired    []string               `protobuf:"bytes,7,rep,name=gates_required,json=gatesRequired,proto3" json:"gates_required,omitempty"`
+	RunContext       *RunContext            `protobuf:"bytes,8,opt,name=run_context,json=runContext,proto3" json:"run_context,omitempty"`
+	Extensions       *structpb.Struct       `protobuf:"bytes,9,opt,name=extensions,proto3" json:"extensions,omitempty"`
+	ExperimentSpec   *ExperimentSpec        `protobuf:"bytes,10,opt,name=experiment_spec,json=experimentSpec,proto3" json:"experiment_spec,omitempty"`
+	DeliveryContract *DeliveryContract      `protobuf:"bytes,11,opt,name=delivery_contract,json=deliveryContract,proto3" json:"delivery_contract,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
+}
+
 func (x *Task) Reset() {
 	*x = Task{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[0]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -115,7 +797,7 @@ func (x *Task) String() string {
 func (*Task) ProtoMessage() {}
 
 func (x *Task) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[0]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -128,7 +810,7 @@ func (x *Task) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Task.ProtoReflect.Descriptor instead.
 func (*Task) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{0}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *Task) GetVersion() string {
@@ -194,22 +876,40 @@ func (x *Task) GetExtensions() *structpb.Struct {
 	return nil
 }
 
+func (x *Task) GetExperimentSpec() *ExperimentSpec {
+	if x != nil {
+		return x.ExperimentSpec
+	}
+	return nil
+}
+
+func (x *Task) GetDeliveryContract() *DeliveryContract {
+	if x != nil {
+		return x.DeliveryContract
+	}
+	return nil
+}
+
 type Artifact struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Version       string                 `protobuf:"bytes,1,opt,name=version,proto3" json:"version,omitempty"`
-	ArtifactId    string                 `protobuf:"bytes,2,opt,name=artifact_id,json=artifactId,proto3" json:"artifact_id,omitempty"`
-	Type          string                 `protobuf:"bytes,3,opt,name=type,proto3" json:"type,omitempty"`
-	Summary       string                 `protobuf:"bytes,4,opt,name=summary,proto3" json:"summary,omitempty"`
-	Path          string                 `protobuf:"bytes,5,opt,name=path,proto3" json:"path,omitempty"`
-	TaskId        string                 `protobuf:"bytes,6,opt,name=task_id,json=taskId,proto3" json:"task_id,omitempty"`
-	Extensions    *structpb.Struct       `protobuf:"bytes,7,opt,name=extensions,proto3" json:"extensions,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	Version        string                 `protobuf:"bytes,1,opt,name=version,proto3" json:"version,omitempty"`
+	ArtifactId     string                 `protobuf:"bytes,2,opt,name=artifact_id,json=artifactId,proto3" json:"artifact_id,omitempty"`
+	Type           string                 `protobuf:"bytes,3,opt,name=type,proto3" json:"type,omitempty"`
+	Summary        string                 `protobuf:"bytes,4,opt,name=summary,proto3" json:"summary,omitempty"`
+	Path           string                 `protobuf:"bytes,5,opt,name=path,proto3" json:"path,omitempty"`
+	TaskId         string                 `protobuf:"bytes,6,opt,name=task_id,json=taskId,proto3" json:"task_id,omitempty"`
+	Extensions     *structpb.Struct       `protobuf:"bytes,7,opt,name=extensions,proto3" json:"extensions,omitempty"`
+	Provenance     *Provenance            `protobuf:"bytes,8,opt,name=provenance,proto3" json:"provenance,omitempty"`
+	DatasetRefs    []*DatasetRef          `protobuf:"bytes,9,rep,name=dataset_refs,json=datasetRefs,proto3" json:"dataset_refs,omitempty"`
+	EvalResults    []*EvalResult          `protobuf:"bytes,10,rep,name=eval_results,json=evalResults,proto3" json:"eval_results,omitempty"`
+	ExperimentSpec *ExperimentSpec        `protobuf:"bytes,11,opt,name=experiment_spec,json=experimentSpec,proto3" json:"experiment_spec,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *Artifact) Reset() {
 	*x = Artifact{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[1]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -221,7 +921,7 @@ func (x *Artifact) String() string {
 func (*Artifact) ProtoMessage() {}
 
 func (x *Artifact) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[1]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -234,7 +934,7 @@ func (x *Artifact) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Artifact.ProtoReflect.Descriptor instead.
 func (*Artifact) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{1}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *Artifact) GetVersion() string {
@@ -286,6 +986,34 @@ func (x *Artifact) GetExtensions() *structpb.Struct {
 	return nil
 }
 
+func (x *Artifact) GetProvenance() *Provenance {
+	if x != nil {
+		return x.Provenance
+	}
+	return nil
+}
+
+func (x *Artifact) GetDatasetRefs() []*DatasetRef {
+	if x != nil {
+		return x.DatasetRefs
+	}
+	return nil
+}
+
+func (x *Artifact) GetEvalResults() []*EvalResult {
+	if x != nil {
+		return x.EvalResults
+	}
+	return nil
+}
+
+func (x *Artifact) GetExperimentSpec() *ExperimentSpec {
+	if x != nil {
+		return x.ExperimentSpec
+	}
+	return nil
+}
+
 type Event struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Version       string                 `protobuf:"bytes,1,opt,name=version,proto3" json:"version,omitempty"`
@@ -295,13 +1023,15 @@ type Event struct {
 	Status        string                 `protobuf:"bytes,5,opt,name=status,proto3" json:"status,omitempty"`
 	Message       *string                `protobuf:"bytes,6,opt,name=message,proto3,oneof" json:"message,omitempty"`
 	Extensions    *structpb.Struct       `protobuf:"bytes,7,opt,name=extensions,proto3" json:"extensions,omitempty"`
+	Provenance    *Provenance            `protobuf:"bytes,8,opt,name=provenance,proto3" json:"provenance,omitempty"`
+	EvalResults   []*EvalResult          `protobuf:"bytes,9,rep,name=eval_results,json=evalResults,proto3" json:"eval_results,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Event) Reset() {
 	*x = Event{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[2]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -313,7 +1043,7 @@ func (x *Event) String() string {
 func (*Event) ProtoMessage() {}
 
 func (x *Event) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[2]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -326,7 +1056,7 @@ func (x *Event) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Event.ProtoReflect.Descriptor instead.
 func (*Event) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{2}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *Event) GetVersion() string {
@@ -378,6 +1108,20 @@ func (x *Event) GetExtensions() *structpb.Struct {
 	return nil
 }
 
+func (x *Event) GetProvenance() *Provenance {
+	if x != nil {
+		return x.Provenance
+	}
+	return nil
+}
+
+func (x *Event) GetEvalResults() []*EvalResult {
+	if x != nil {
+		return x.EvalResults
+	}
+	return nil
+}
+
 type GateResult struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Version       string                 `protobuf:"bytes,1,opt,name=version,proto3" json:"version,omitempty"`
@@ -392,7 +1136,7 @@ type GateResult struct {
 
 func (x *GateResult) Reset() {
 	*x = GateResult{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[3]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -404,7 +1148,7 @@ func (x *GateResult) String() string {
 func (*GateResult) ProtoMessage() {}
 
 func (x *GateResult) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[3]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -417,7 +1161,7 @@ func (x *GateResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GateResult.ProtoReflect.Descriptor instead.
 func (*GateResult) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{3}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *GateResult) GetVersion() string {
@@ -477,7 +1221,7 @@ type RunContext struct {
 
 func (x *RunContext) Reset() {
 	*x = RunContext{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[4]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -489,7 +1233,7 @@ func (x *RunContext) String() string {
 func (*RunContext) ProtoMessage() {}
 
 func (x *RunContext) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[4]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -502,7 +1246,7 @@ func (x *RunContext) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RunContext.ProtoReflect.Descriptor instead.
 func (*RunContext) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{4}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *RunContext) GetVersion() string {
@@ -558,7 +1302,122 @@ var File_monarchic_agent_protocol_proto protoreflect.FileDescriptor
 
 const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"\n" +
-	"\x1emonarchic_agent_protocol.proto\x12\x1bmonarchic.agent_protocol.v1\x1a\x1cgoogle/protobuf/struct.proto\"\x9f\x03\n" +
+	"\x1emonarchic_agent_protocol.proto\x12\x1bmonarchic.agent_protocol.v1\x1a\x1cgoogle/protobuf/struct.proto\"\xc2\x02\n" +
+	"\n" +
+	"DatasetRef\x12\x1d\n" +
+	"\n" +
+	"dataset_id\x18\x01 \x01(\tR\tdatasetId\x12\x15\n" +
+	"\x03uri\x18\x02 \x01(\tH\x00R\x03uri\x88\x01\x01\x12\x16\n" +
+	"\x06sha256\x18\x03 \x01(\tR\x06sha256\x12\x16\n" +
+	"\x06format\x18\x04 \x01(\tR\x06format\x12\x19\n" +
+	"\x05split\x18\x05 \x01(\tH\x01R\x05split\x88\x01\x01\x12\"\n" +
+	"\n" +
+	"size_bytes\x18\x06 \x01(\x04H\x02R\tsizeBytes\x88\x01\x01\x12%\n" +
+	"\vdescription\x18\a \x01(\tH\x03R\vdescription\x88\x01\x01\x127\n" +
+	"\n" +
+	"extensions\x18\b \x01(\v2\x17.google.protobuf.StructR\n" +
+	"extensionsB\x06\n" +
+	"\x04_uriB\b\n" +
+	"\x06_splitB\r\n" +
+	"\v_size_bytesB\x0e\n" +
+	"\f_description\"\xe0\x02\n" +
+	"\x12AcceptanceCriteria\x12\x16\n" +
+	"\x06metric\x18\x01 \x01(\tR\x06metric\x12\x1c\n" +
+	"\tdirection\x18\x02 \x01(\tR\tdirection\x12\x1c\n" +
+	"\tthreshold\x18\x03 \x01(\x01R\tthreshold\x12+\n" +
+	"\x0fmin_effect_size\x18\x04 \x01(\x01H\x00R\rminEffectSize\x88\x01\x01\x12&\n" +
+	"\fmax_variance\x18\x05 \x01(\x01H\x01R\vmaxVariance\x88\x01\x01\x12.\n" +
+	"\x10confidence_level\x18\x06 \x01(\x01H\x02R\x0fconfidenceLevel\x88\x01\x01\x127\n" +
+	"\n" +
+	"extensions\x18\a \x01(\v2\x17.google.protobuf.StructR\n" +
+	"extensionsB\x12\n" +
+	"\x10_min_effect_sizeB\x0f\n" +
+	"\r_max_varianceB\x13\n" +
+	"\x11_confidence_level\"\xe7\x03\n" +
+	"\x0eExperimentSpec\x12#\n" +
+	"\rexperiment_id\x18\x01 \x01(\tR\fexperimentId\x12\x1c\n" +
+	"\tobjective\x18\x02 \x01(\tR\tobjective\x12#\n" +
+	"\n" +
+	"hypothesis\x18\x03 \x01(\tH\x00R\n" +
+	"hypothesis\x88\x01\x01\x12&\n" +
+	"\fmodel_family\x18\x04 \x01(\tH\x01R\vmodelFamily\x88\x01\x01\x12\x14\n" +
+	"\x05seeds\x18\x05 \x03(\x03R\x05seeds\x12J\n" +
+	"\fdataset_refs\x18\x06 \x03(\v2'.monarchic.agent_protocol.v1.DatasetRefR\vdatasetRefs\x12O\n" +
+	"\n" +
+	"acceptance\x18\a \x01(\v2/.monarchic.agent_protocol.v1.AcceptanceCriteriaR\n" +
+	"acceptance\x129\n" +
+	"\vconstraints\x18\b \x01(\v2\x17.google.protobuf.StructR\vconstraints\x127\n" +
+	"\n" +
+	"extensions\x18\t \x01(\v2\x17.google.protobuf.StructR\n" +
+	"extensionsB\r\n" +
+	"\v_hypothesisB\x0f\n" +
+	"\r_model_family\"\xc4\x04\n" +
+	"\x10DeliveryContract\x12\x1c\n" +
+	"\tobjective\x18\x01 \x01(\tR\tobjective\x12,\n" +
+	"\x12definition_of_done\x18\x02 \x03(\tR\x10definitionOfDone\x12'\n" +
+	"\x0frequired_checks\x18\x03 \x03(\tR\x0erequiredChecks\x12\x1b\n" +
+	"\trisk_tier\x18\x04 \x01(\tR\briskTier\x12/\n" +
+	"\x11max_cycle_minutes\x18\x05 \x01(\rH\x00R\x0fmaxCycleMinutes\x88\x01\x01\x12+\n" +
+	"\x0fmax_agent_turns\x18\x06 \x01(\rH\x01R\rmaxAgentTurns\x88\x01\x01\x12$\n" +
+	"\vpr_strategy\x18\a \x01(\tH\x02R\n" +
+	"prStrategy\x88\x01\x01\x12(\n" +
+	"\rreview_policy\x18\b \x01(\tH\x03R\freviewPolicy\x88\x01\x01\x120\n" +
+	"\x11rollback_strategy\x18\t \x01(\tH\x04R\x10rollbackStrategy\x88\x01\x01\x12\x19\n" +
+	"\x05notes\x18\n" +
+	" \x01(\tH\x05R\x05notes\x88\x01\x01\x127\n" +
+	"\n" +
+	"extensions\x18\v \x01(\v2\x17.google.protobuf.StructR\n" +
+	"extensionsB\x14\n" +
+	"\x12_max_cycle_minutesB\x12\n" +
+	"\x10_max_agent_turnsB\x0e\n" +
+	"\f_pr_strategyB\x10\n" +
+	"\x0e_review_policyB\x14\n" +
+	"\x12_rollback_strategyB\b\n" +
+	"\x06_notes\"\xda\x02\n" +
+	"\n" +
+	"EvalResult\x12\x16\n" +
+	"\x06metric\x18\x01 \x01(\tR\x06metric\x12\x14\n" +
+	"\x05value\x18\x02 \x01(\x01R\x05value\x12\x1e\n" +
+	"\blower_ci\x18\x03 \x01(\x01H\x00R\alowerCi\x88\x01\x01\x12\x1e\n" +
+	"\bupper_ci\x18\x04 \x01(\x01H\x01R\aupperCi\x88\x01\x01\x12\x1f\n" +
+	"\bvariance\x18\x05 \x01(\x01H\x02R\bvariance\x88\x01\x01\x12\x17\n" +
+	"\x04seed\x18\x06 \x01(\x03H\x03R\x04seed\x88\x01\x01\x12\x16\n" +
+	"\x06passed\x18\a \x01(\bR\x06passed\x12\x19\n" +
+	"\x05notes\x18\b \x01(\tH\x04R\x05notes\x88\x01\x01\x127\n" +
+	"\n" +
+	"extensions\x18\t \x01(\v2\x17.google.protobuf.StructR\n" +
+	"extensionsB\v\n" +
+	"\t_lower_ciB\v\n" +
+	"\t_upper_ciB\v\n" +
+	"\t_varianceB\a\n" +
+	"\x05_seedB\b\n" +
+	"\x06_notes\"\x9b\x05\n" +
+	"\n" +
+	"Provenance\x12#\n" +
+	"\rprompt_sha256\x18\x01 \x01(\tR\fpromptSha256\x12\x1f\n" +
+	"\vcode_sha256\x18\x02 \x01(\tR\n" +
+	"codeSha256\x12%\n" +
+	"\x0edataset_sha256\x18\x03 \x03(\tR\rdatasetSha256\x12\x18\n" +
+	"\aruntime\x18\x04 \x01(\tR\aruntime\x12\x19\n" +
+	"\x05model\x18\x05 \x01(\tH\x00R\x05model\x88\x01\x01\x12\x16\n" +
+	"\x06runner\x18\x06 \x01(\tR\x06runner\x12\"\n" +
+	"\forchestrator\x18\a \x01(\tR\forchestrator\x12-\n" +
+	"\x10task_spec_sha256\x18\b \x01(\tH\x01R\x0etaskSpecSha256\x88\x01\x01\x12,\n" +
+	"\x0fpipeline_sha256\x18\t \x01(\tH\x02R\x0epipelineSha256\x88\x01\x01\x12*\n" +
+	"\x0ecommand_sha256\x18\n" +
+	" \x01(\tH\x03R\rcommandSha256\x88\x01\x01\x12\x1d\n" +
+	"\n" +
+	"created_at\x18\v \x01(\tR\tcreatedAt\x12)\n" +
+	"\x0esource_task_id\x18\f \x01(\tH\x04R\fsourceTaskId\x88\x01\x01\x12J\n" +
+	"\fdataset_refs\x18\r \x03(\v2'.monarchic.agent_protocol.v1.DatasetRefR\vdatasetRefs\x127\n" +
+	"\n" +
+	"extensions\x18\x0e \x01(\v2\x17.google.protobuf.StructR\n" +
+	"extensionsB\b\n" +
+	"\x06_modelB\x13\n" +
+	"\x11_task_spec_sha256B\x12\n" +
+	"\x10_pipeline_sha256B\x11\n" +
+	"\x0f_command_sha256B\x11\n" +
+	"\x0f_source_task_id\"\xd1\x04\n" +
 	"\x04Task\x12\x18\n" +
 	"\aversion\x18\x01 \x01(\tR\aversion\x12\x17\n" +
 	"\atask_id\x18\x02 \x01(\tR\x06taskId\x12:\n" +
@@ -571,7 +1430,10 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"runContext\x127\n" +
 	"\n" +
 	"extensions\x18\t \x01(\v2\x17.google.protobuf.StructR\n" +
-	"extensions\"\xd9\x01\n" +
+	"extensions\x12T\n" +
+	"\x0fexperiment_spec\x18\n" +
+	" \x01(\v2+.monarchic.agent_protocol.v1.ExperimentSpecR\x0eexperimentSpec\x12Z\n" +
+	"\x11delivery_contract\x18\v \x01(\v2-.monarchic.agent_protocol.v1.DeliveryContractR\x10deliveryContract\"\x90\x04\n" +
 	"\bArtifact\x12\x18\n" +
 	"\aversion\x18\x01 \x01(\tR\aversion\x12\x1f\n" +
 	"\vartifact_id\x18\x02 \x01(\tR\n" +
@@ -582,7 +1444,14 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"\atask_id\x18\x06 \x01(\tR\x06taskId\x127\n" +
 	"\n" +
 	"extensions\x18\a \x01(\v2\x17.google.protobuf.StructR\n" +
-	"extensions\"\xf3\x01\n" +
+	"extensions\x12G\n" +
+	"\n" +
+	"provenance\x18\b \x01(\v2'.monarchic.agent_protocol.v1.ProvenanceR\n" +
+	"provenance\x12J\n" +
+	"\fdataset_refs\x18\t \x03(\v2'.monarchic.agent_protocol.v1.DatasetRefR\vdatasetRefs\x12J\n" +
+	"\feval_results\x18\n" +
+	" \x03(\v2'.monarchic.agent_protocol.v1.EvalResultR\vevalResults\x12T\n" +
+	"\x0fexperiment_spec\x18\v \x01(\v2+.monarchic.agent_protocol.v1.ExperimentSpecR\x0eexperimentSpec\"\x88\x03\n" +
 	"\x05Event\x12\x18\n" +
 	"\aversion\x18\x01 \x01(\tR\aversion\x12\x1d\n" +
 	"\n" +
@@ -593,7 +1462,11 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"\amessage\x18\x06 \x01(\tH\x00R\amessage\x88\x01\x01\x127\n" +
 	"\n" +
 	"extensions\x18\a \x01(\v2\x17.google.protobuf.StructR\n" +
-	"extensionsB\n" +
+	"extensions\x12G\n" +
+	"\n" +
+	"provenance\x18\b \x01(\v2'.monarchic.agent_protocol.v1.ProvenanceR\n" +
+	"provenance\x12J\n" +
+	"\feval_results\x18\t \x03(\v2'.monarchic.agent_protocol.v1.EvalResultR\vevalResultsB\n" +
 	"\n" +
 	"\b_message\"\xe8\x01\n" +
 	"\n" +
@@ -626,8 +1499,8 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"\x02QA\x10\x04\x12\f\n" +
 	"\bREVIEWER\x10\x05\x12\f\n" +
 	"\bSECURITY\x10\x06\x12\a\n" +
-	"\x03OPS\x10\aB\x85\x02\n" +
-	"\x1bmonarchic.agent_protocol.v1B\x18MonarchicAgentProtocolV1P\x01Zdgithub.com/monarchic-ai/monarchic-agent-protocol/src/go/monarchic/agent_protocol/v1;agent_protocolv1\xa2\x02\x03MAP\xaa\x02\x1aMonarchic.AgentProtocol.V1\xca\x02\x1aMonarchic\\AgentProtocol\\V1\xe2\x02#Monarchic\\AgentProtocol\\V1\\Metadatab\x06proto3"
+	"\x03OPS\x10\aB\x88\x02\n" +
+	"\x1eai.monarchic.agent_protocol.v1B\x18MonarchicAgentProtocolV1P\x01Zdgithub.com/monarchic-ai/monarchic-agent-protocol/src/go/monarchic/agent_protocol/v1;agent_protocolv1\xa2\x02\x03MAP\xaa\x02\x1aMonarchic.AgentProtocol.V1\xca\x02\x1aMonarchic\\AgentProtocol\\V1\xe2\x02#Monarchic\\AgentProtocol\\V1\\Metadatab\x06proto3"
 
 var (
 	file_monarchic_agent_protocol_proto_rawDescOnce sync.Once
@@ -642,32 +1515,56 @@ func file_monarchic_agent_protocol_proto_rawDescGZIP() []byte {
 }
 
 var file_monarchic_agent_protocol_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_monarchic_agent_protocol_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
+var file_monarchic_agent_protocol_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
 var file_monarchic_agent_protocol_proto_goTypes = []any{
-	(AgentRole)(0),          // 0: monarchic.agent_protocol.v1.AgentRole
-	(*Task)(nil),            // 1: monarchic.agent_protocol.v1.Task
-	(*Artifact)(nil),        // 2: monarchic.agent_protocol.v1.Artifact
-	(*Event)(nil),           // 3: monarchic.agent_protocol.v1.Event
-	(*GateResult)(nil),      // 4: monarchic.agent_protocol.v1.GateResult
-	(*RunContext)(nil),      // 5: monarchic.agent_protocol.v1.RunContext
-	(*structpb.Struct)(nil), // 6: google.protobuf.Struct
+	(AgentRole)(0),             // 0: monarchic.agent_protocol.v1.AgentRole
+	(*DatasetRef)(nil),         // 1: monarchic.agent_protocol.v1.DatasetRef
+	(*AcceptanceCriteria)(nil), // 2: monarchic.agent_protocol.v1.AcceptanceCriteria
+	(*ExperimentSpec)(nil),     // 3: monarchic.agent_protocol.v1.ExperimentSpec
+	(*DeliveryContract)(nil),   // 4: monarchic.agent_protocol.v1.DeliveryContract
+	(*EvalResult)(nil),         // 5: monarchic.agent_protocol.v1.EvalResult
+	(*Provenance)(nil),         // 6: monarchic.agent_protocol.v1.Provenance
+	(*Task)(nil),               // 7: monarchic.agent_protocol.v1.Task
+	(*Artifact)(nil),           // 8: monarchic.agent_protocol.v1.Artifact
+	(*Event)(nil),              // 9: monarchic.agent_protocol.v1.Event
+	(*GateResult)(nil),         // 10: monarchic.agent_protocol.v1.GateResult
+	(*RunContext)(nil),         // 11: monarchic.agent_protocol.v1.RunContext
+	(*structpb.Struct)(nil),    // 12: google.protobuf.Struct
 }
 var file_monarchic_agent_protocol_proto_depIdxs = []int32{
-	0,  // 0: monarchic.agent_protocol.v1.Task.role:type_name -> monarchic.agent_protocol.v1.AgentRole
-	6,  // 1: monarchic.agent_protocol.v1.Task.inputs:type_name -> google.protobuf.Struct
-	6,  // 2: monarchic.agent_protocol.v1.Task.constraints:type_name -> google.protobuf.Struct
-	5,  // 3: monarchic.agent_protocol.v1.Task.run_context:type_name -> monarchic.agent_protocol.v1.RunContext
-	6,  // 4: monarchic.agent_protocol.v1.Task.extensions:type_name -> google.protobuf.Struct
-	6,  // 5: monarchic.agent_protocol.v1.Artifact.extensions:type_name -> google.protobuf.Struct
-	6,  // 6: monarchic.agent_protocol.v1.Event.extensions:type_name -> google.protobuf.Struct
-	6,  // 7: monarchic.agent_protocol.v1.GateResult.evidence:type_name -> google.protobuf.Struct
-	6,  // 8: monarchic.agent_protocol.v1.GateResult.extensions:type_name -> google.protobuf.Struct
-	6,  // 9: monarchic.agent_protocol.v1.RunContext.extensions:type_name -> google.protobuf.Struct
-	10, // [10:10] is the sub-list for method output_type
-	10, // [10:10] is the sub-list for method input_type
-	10, // [10:10] is the sub-list for extension type_name
-	10, // [10:10] is the sub-list for extension extendee
-	0,  // [0:10] is the sub-list for field type_name
+	12, // 0: monarchic.agent_protocol.v1.DatasetRef.extensions:type_name -> google.protobuf.Struct
+	12, // 1: monarchic.agent_protocol.v1.AcceptanceCriteria.extensions:type_name -> google.protobuf.Struct
+	1,  // 2: monarchic.agent_protocol.v1.ExperimentSpec.dataset_refs:type_name -> monarchic.agent_protocol.v1.DatasetRef
+	2,  // 3: monarchic.agent_protocol.v1.ExperimentSpec.acceptance:type_name -> monarchic.agent_protocol.v1.AcceptanceCriteria
+	12, // 4: monarchic.agent_protocol.v1.ExperimentSpec.constraints:type_name -> google.protobuf.Struct
+	12, // 5: monarchic.agent_protocol.v1.ExperimentSpec.extensions:type_name -> google.protobuf.Struct
+	12, // 6: monarchic.agent_protocol.v1.DeliveryContract.extensions:type_name -> google.protobuf.Struct
+	12, // 7: monarchic.agent_protocol.v1.EvalResult.extensions:type_name -> google.protobuf.Struct
+	1,  // 8: monarchic.agent_protocol.v1.Provenance.dataset_refs:type_name -> monarchic.agent_protocol.v1.DatasetRef
+	12, // 9: monarchic.agent_protocol.v1.Provenance.extensions:type_name -> google.protobuf.Struct
+	0,  // 10: monarchic.agent_protocol.v1.Task.role:type_name -> monarchic.agent_protocol.v1.AgentRole
+	12, // 11: monarchic.agent_protocol.v1.Task.inputs:type_name -> google.protobuf.Struct
+	12, // 12: monarchic.agent_protocol.v1.Task.constraints:type_name -> google.protobuf.Struct
+	11, // 13: monarchic.agent_protocol.v1.Task.run_context:type_name -> monarchic.agent_protocol.v1.RunContext
+	12, // 14: monarchic.agent_protocol.v1.Task.extensions:type_name -> google.protobuf.Struct
+	3,  // 15: monarchic.agent_protocol.v1.Task.experiment_spec:type_name -> monarchic.agent_protocol.v1.ExperimentSpec
+	4,  // 16: monarchic.agent_protocol.v1.Task.delivery_contract:type_name -> monarchic.agent_protocol.v1.DeliveryContract
+	12, // 17: monarchic.agent_protocol.v1.Artifact.extensions:type_name -> google.protobuf.Struct
+	6,  // 18: monarchic.agent_protocol.v1.Artifact.provenance:type_name -> monarchic.agent_protocol.v1.Provenance
+	1,  // 19: monarchic.agent_protocol.v1.Artifact.dataset_refs:type_name -> monarchic.agent_protocol.v1.DatasetRef
+	5,  // 20: monarchic.agent_protocol.v1.Artifact.eval_results:type_name -> monarchic.agent_protocol.v1.EvalResult
+	3,  // 21: monarchic.agent_protocol.v1.Artifact.experiment_spec:type_name -> monarchic.agent_protocol.v1.ExperimentSpec
+	12, // 22: monarchic.agent_protocol.v1.Event.extensions:type_name -> google.protobuf.Struct
+	6,  // 23: monarchic.agent_protocol.v1.Event.provenance:type_name -> monarchic.agent_protocol.v1.Provenance
+	5,  // 24: monarchic.agent_protocol.v1.Event.eval_results:type_name -> monarchic.agent_protocol.v1.EvalResult
+	12, // 25: monarchic.agent_protocol.v1.GateResult.evidence:type_name -> google.protobuf.Struct
+	12, // 26: monarchic.agent_protocol.v1.GateResult.extensions:type_name -> google.protobuf.Struct
+	12, // 27: monarchic.agent_protocol.v1.RunContext.extensions:type_name -> google.protobuf.Struct
+	28, // [28:28] is the sub-list for method output_type
+	28, // [28:28] is the sub-list for method input_type
+	28, // [28:28] is the sub-list for extension type_name
+	28, // [28:28] is the sub-list for extension extendee
+	0,  // [0:28] is the sub-list for field type_name
 }
 
 func init() { file_monarchic_agent_protocol_proto_init() }
@@ -675,15 +1572,21 @@ func file_monarchic_agent_protocol_proto_init() {
 	if File_monarchic_agent_protocol_proto != nil {
 		return
 	}
+	file_monarchic_agent_protocol_proto_msgTypes[0].OneofWrappers = []any{}
+	file_monarchic_agent_protocol_proto_msgTypes[1].OneofWrappers = []any{}
 	file_monarchic_agent_protocol_proto_msgTypes[2].OneofWrappers = []any{}
 	file_monarchic_agent_protocol_proto_msgTypes[3].OneofWrappers = []any{}
+	file_monarchic_agent_protocol_proto_msgTypes[4].OneofWrappers = []any{}
+	file_monarchic_agent_protocol_proto_msgTypes[5].OneofWrappers = []any{}
+	file_monarchic_agent_protocol_proto_msgTypes[8].OneofWrappers = []any{}
+	file_monarchic_agent_protocol_proto_msgTypes[9].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_monarchic_agent_protocol_proto_rawDesc), len(file_monarchic_agent_protocol_proto_rawDesc)),
 			NumEnums:      1,
-			NumMessages:   5,
+			NumMessages:   11,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

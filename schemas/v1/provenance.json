@@ -4,7 +4,14 @@
   "title": "Provenance",
   "type": "object",
   "additionalProperties": true,
-  "required": ["prompt_sha256", "code_sha256", "runtime", "runner", "orchestrator", "created_at"],
+  "required": [
+    "prompt_sha256",
+    "code_sha256",
+    "runtime",
+    "runner",
+    "orchestrator",
+    "created_at"
+  ],
   "properties": {
     "prompt_sha256": {
       "type": "string",

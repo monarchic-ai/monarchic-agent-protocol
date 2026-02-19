@@ -33,7 +33,12 @@
     },
     "risk_tier": {
       "type": "string",
-      "enum": ["low", "medium", "high", "critical"]
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
     },
     "max_cycle_minutes": {
       "type": "integer",
@@ -45,15 +50,26 @@
     },
     "pr_strategy": {
       "type": "string",
-      "enum": ["single", "stacked", "incremental"]
+      "enum": [
+        "single",
+        "stacked",
+        "incremental"
+      ]
     },
     "review_policy": {
       "type": "string",
-      "enum": ["auto", "human_required"]
+      "enum": [
+        "auto",
+        "human_required"
+      ]
     },
     "rollback_strategy": {
       "type": "string",
-      "enum": ["revert_commit", "revert_pr", "manual"]
+      "enum": [
+        "revert_commit",
+        "revert_pr",
+        "manual"
+      ]
     },
     "notes": {
       "type": "string"

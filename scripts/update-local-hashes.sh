@@ -2,12 +2,14 @@
 set -euo pipefail
 
 if ! command -v git >/dev/null 2>&1; then
-  echo "git is required" >&2
-  exit 1
+  repo_root="$PWD"
+else
+  if repo_root="$(git rev-parse --show-toplevel 2>/dev/null)"; then
+    cd "$repo_root"
+  else
+    repo_root="$PWD"
+  fi
 fi
-
-repo_root="$(git rev-parse --show-toplevel)"
-cd "$repo_root"
 
 if [[ ! -f flake.nix ]]; then
   echo "Run from repo root" >&2
@@ -15,6 +17,11 @@ if [[ ! -f flake.nix ]]; then
 fi
 
 echo "Updating local build hashes"
+
+if [[ "${SKIP_NETWORK:-}" == "1" ]]; then
+  echo "SKIP_NETWORK=1 set; skipping local hash updates"
+  exit 0
+fi
 
 get_got_hash() {
   local attr="$1"

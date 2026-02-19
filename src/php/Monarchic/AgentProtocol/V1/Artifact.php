@@ -42,6 +42,22 @@ class Artifact extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.google.protobuf.Struct extensions = 7;</code>
      */
     protected $extensions = null;
+    /**
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.Provenance provenance = 8;</code>
+     */
+    protected $provenance = null;
+    /**
+     * Generated from protobuf field <code>repeated .monarchic.agent_protocol.v1.DatasetRef dataset_refs = 9;</code>
+     */
+    private $dataset_refs;
+    /**
+     * Generated from protobuf field <code>repeated .monarchic.agent_protocol.v1.EvalResult eval_results = 10;</code>
+     */
+    private $eval_results;
+    /**
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.ExperimentSpec experiment_spec = 11;</code>
+     */
+    protected $experiment_spec = null;
 
     /**
      * Constructor.
@@ -56,6 +72,10 @@ class Artifact extends \Google\Protobuf\Internal\Message
      *     @type string $path
      *     @type string $task_id
      *     @type \Google\Protobuf\Struct $extensions
+     *     @type \Monarchic\AgentProtocol\V1\Provenance $provenance
+     *     @type \Monarchic\AgentProtocol\V1\DatasetRef[] $dataset_refs
+     *     @type \Monarchic\AgentProtocol\V1\EvalResult[] $eval_results
+     *     @type \Monarchic\AgentProtocol\V1\ExperimentSpec $experiment_spec
      * }
      */
     public function __construct($data = NULL) {
@@ -223,6 +243,114 @@ class Artifact extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->extensions = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.Provenance provenance = 8;</code>
+     * @return \Monarchic\AgentProtocol\V1\Provenance|null
+     */
+    public function getProvenance()
+    {
+        return $this->provenance;
+    }
+
+    public function hasProvenance()
+    {
+        return isset($this->provenance);
+    }
+
+    public function clearProvenance()
+    {
+        unset($this->provenance);
+    }
+
+    /**
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.Provenance provenance = 8;</code>
+     * @param \Monarchic\AgentProtocol\V1\Provenance $var
+     * @return $this
+     */
+    public function setProvenance($var)
+    {
+        GPBUtil::checkMessage($var, \Monarchic\AgentProtocol\V1\Provenance::class);
+        $this->provenance = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .monarchic.agent_protocol.v1.DatasetRef dataset_refs = 9;</code>
+     * @return RepeatedField<\Monarchic\AgentProtocol\V1\DatasetRef>
+     */
+    public function getDatasetRefs()
+    {
+        return $this->dataset_refs;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .monarchic.agent_protocol.v1.DatasetRef dataset_refs = 9;</code>
+     * @param \Monarchic\AgentProtocol\V1\DatasetRef[] $var
+     * @return $this
+     */
+    public function setDatasetRefs($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Monarchic\AgentProtocol\V1\DatasetRef::class);
+        $this->dataset_refs = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .monarchic.agent_protocol.v1.EvalResult eval_results = 10;</code>
+     * @return RepeatedField<\Monarchic\AgentProtocol\V1\EvalResult>
+     */
+    public function getEvalResults()
+    {
+        return $this->eval_results;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .monarchic.agent_protocol.v1.EvalResult eval_results = 10;</code>
+     * @param \Monarchic\AgentProtocol\V1\EvalResult[] $var
+     * @return $this
+     */
+    public function setEvalResults($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Monarchic\AgentProtocol\V1\EvalResult::class);
+        $this->eval_results = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.ExperimentSpec experiment_spec = 11;</code>
+     * @return \Monarchic\AgentProtocol\V1\ExperimentSpec|null
+     */
+    public function getExperimentSpec()
+    {
+        return $this->experiment_spec;
+    }
+
+    public function hasExperimentSpec()
+    {
+        return isset($this->experiment_spec);
+    }
+
+    public function clearExperimentSpec()
+    {
+        unset($this->experiment_spec);
+    }
+
+    /**
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.ExperimentSpec experiment_spec = 11;</code>
+     * @param \Monarchic\AgentProtocol\V1\ExperimentSpec $var
+     * @return $this
+     */
+    public function setExperimentSpec($var)
+    {
+        GPBUtil::checkMessage($var, \Monarchic\AgentProtocol\V1\ExperimentSpec::class);
+        $this->experiment_spec = $var;
 
         return $this;
     }

@@ -1,47 +1,79 @@
 {
-  "$id": "https://monarchic.ai/schema/v1/artifact.json",
+  "$id": "monarchic.agent_protocol.v1.Artifact.schema.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Artifact",
-  "type": "object",
   "additionalProperties": true,
-  "required": ["version", "artifact_id", "type", "summary", "path", "task_id"],
+  "patternProperties": {
+    "^(artifactId)$": {
+      "default": "",
+      "type": "string"
+    },
+    "^(datasetRefs)$": {
+      "items": {
+        "$ref": "monarchic.agent_protocol.v1.DatasetRef.schema.json"
+      },
+      "type": "array"
+    },
+    "^(evalResults)$": {
+      "items": {
+        "$ref": "monarchic.agent_protocol.v1.EvalResult.schema.json"
+      },
+      "type": "array"
+    },
+    "^(experimentSpec)$": {
+      "$ref": "monarchic.agent_protocol.v1.ExperimentSpec.schema.json"
+    },
+    "^(taskId)$": {
+      "default": "",
+      "type": "string"
+    }
+  },
   "properties": {
-    "version": {
-      "type": "string",
-      "const": "v1"
-    },
     "artifact_id": {
+      "default": "",
       "type": "string"
     },
-    "type": {
-      "type": "string"
+    "dataset_refs": {
+      "items": {
+        "$ref": "monarchic.agent_protocol.v1.DatasetRef.schema.json"
+      },
+      "type": "array"
     },
-    "summary": {
-      "type": "string"
+    "eval_results": {
+      "items": {
+        "$ref": "monarchic.agent_protocol.v1.EvalResult.schema.json"
+      },
+      "type": "array"
+    },
+    "experiment_spec": {
+      "$ref": "monarchic.agent_protocol.v1.ExperimentSpec.schema.json"
+    },
+    "extensions": {
+      "$ref": "google.protobuf.Struct.schema.json"
     },
     "path": {
-      "type": "string"
-    },
-    "task_id": {
+      "default": "",
       "type": "string"
     },
     "provenance": {
-      "$ref": "provenance.json"
+      "$ref": "monarchic.agent_protocol.v1.Provenance.schema.json"
     },
-    "dataset_refs": {
-      "type": "array",
-      "items": {
-        "$ref": "dataset_ref.json"
-      }
+    "summary": {
+      "default": "",
+      "type": "string"
     },
-    "eval_results": {
-      "type": "array",
-      "items": {
-        "$ref": "eval_result.json"
-      }
+    "task_id": {
+      "default": "",
+      "type": "string"
     },
-    "experiment_spec": {
-      "$ref": "experiment_spec.json"
+    "type": {
+      "default": "",
+      "type": "string"
+    },
+    "version": {
+      "default": "",
+      "type": "string"
     }
-  }
+  },
+  "title": "Artifact",
+  "type": "object"
 }

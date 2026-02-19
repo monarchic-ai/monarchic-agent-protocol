@@ -25,7 +25,6 @@ mkdir -p \
   "${tmp_dir}/csharp" \
   "${tmp_dir}/python" \
   "${tmp_dir}/ruby" \
-  "${tmp_dir}/objc" \
   "${tmp_dir}/php" \
   "${tmp_dir}/go" \
   "${tmp_dir}/dart"
@@ -41,7 +40,6 @@ protoc -I "${proto_dir}" \
   --csharp_out="${tmp_dir}/csharp" \
   --python_out="${tmp_dir}/python" \
   --ruby_out="${tmp_dir}/ruby" \
-  --objc_out="${tmp_dir}/objc" \
   --php_out="${tmp_dir}/php" \
   "${proto_file}"
 

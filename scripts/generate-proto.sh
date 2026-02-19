@@ -34,12 +34,7 @@ protoc -I "${proto_dir}" \
   --dart_out=src/dart/lib \
   "${proto_file}"
 
-if command -v protoc-gen-go >/dev/null 2>&1; then
-  echo "Generated Go protobufs in src/go"
-fi
+bash ./scripts/generate-json-schema.sh "${proto_file}"
 
-if command -v protoc-gen-dart >/dev/null 2>&1; then
-  echo "Generated Dart protobufs in src/dart/lib"
-fi
-
-echo "Protobufs generated under src/<lang>"
+echo "Generated: python, go, java, csharp, ruby, php, dart, json-schema"
+echo "Outputs in: src/python, src/go, src/java, src/csharp, src/ruby, src/php, src/dart/lib, schemas/v1"

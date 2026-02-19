@@ -4,7 +4,11 @@
   "title": "EvalResult",
   "type": "object",
   "additionalProperties": true,
-  "required": ["metric", "value", "passed"],
+  "required": [
+    "metric",
+    "value",
+    "passed"
+  ],
   "properties": {
     "metric": {
       "type": "string"

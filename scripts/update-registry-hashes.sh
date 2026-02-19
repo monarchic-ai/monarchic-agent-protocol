@@ -2,12 +2,14 @@
 set -euo pipefail
 
 if ! command -v git >/dev/null 2>&1; then
-  echo "git is required" >&2
-  exit 1
+  repo_root="$PWD"
+else
+  if repo_root="$(git rev-parse --show-toplevel 2>/dev/null)"; then
+    cd "$repo_root"
+  else
+    repo_root="$PWD"
+  fi
 fi
-
-repo_root="$(git rev-parse --show-toplevel)"
-cd "$repo_root"
 
 if [[ ! -f flake.nix || ! -f Cargo.toml ]]; then
   echo "Run from repo root" >&2
@@ -66,6 +68,11 @@ sys.exit(1)" "$1"
 }
 
 echo "Updating registry hashes for version ${version}"
+
+if [[ "${SKIP_NETWORK:-}" == "1" ]]; then
+  echo "SKIP_NETWORK=1 set; skipping registry hash updates"
+  exit 0
+fi
 
 npm_deps_hash="$(python - <<'PY'
 import re
