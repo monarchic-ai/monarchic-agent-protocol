@@ -70,6 +70,22 @@ Schema files live under `schemas/v1/`:
 
 All schemas allow additional properties for forward compatibility.
 
+### Schema index coverage
+
+`schemas/v1/schema.json` is the canonical top-level JSON schema index. Its `oneOf` entries currently cover:
+
+- `schemas/v1/task.json`
+- `schemas/v1/artifact.json`
+- `schemas/v1/event.json`
+- `schemas/v1/gate_result.json`
+- `schemas/v1/run_context.json`
+- `schemas/v1/dataset_ref.json`
+- `schemas/v1/experiment_spec.json`
+- `schemas/v1/eval_result.json`
+- `schemas/v1/provenance.json`
+
+`schemas/v1/agent_role.json` is a shared schema used by `task.json`.
+
 ### AgentRole
 
 Enum values:
@@ -408,7 +424,15 @@ Dart sources live under `src/dart`.
 - `nix develop` provides Rust, Node, jq, Python `jsonschema`, and `protoc`.
 - `nix flake check` validates JSON schemas, protobuf codegen, and package imports (PyPI + Rust + npm + Go).
 - JSON Schema test: `scripts/test-json-schema.sh`.
+- Pre-commit schema JSON parse check: `scripts/pre-commit-schema-json-parse.sh`.
+- Pre-commit schema parse smoke test: `scripts/test-pre-commit-schema-json-parse.sh`.
+- Schema edit changelog: `schemas/SCHEMA_CHANGELOG.md`.
+- Schema changelog format test: `scripts/test-schema-changelog-format.sh`.
+- README schema index coverage test: `scripts/test-readme-schema-index-coverage.sh`.
 - Protobuf codegen test (all languages): `scripts/test-proto.sh`.
+<<<<<<< HEAD
+- Protobuf availability smoke test: `scripts/test-proto-availability-smoke.sh`.
+- Protobuf codegen (write to `src/<lang>`): `scripts/generate-proto.sh`.
 - Protobuf codegen (write to `src/<lang>` and regenerate JSON schemas): `scripts/generate-proto.sh`.
 - JSON Schema regeneration only: `scripts/generate-json-schema.sh`.
 - JSON Schema generation requires `protoc-gen-jsonschema` (install with `go install github.com/chrusty/protoc-gen-jsonschema/cmd/protoc-gen-jsonschema@latest`).
@@ -424,6 +448,15 @@ Use the Nix apps (preferred) or the scripts directly:
 For every schema change, generate protobuf outputs and update local hashes.
 
 For every release, tag the commit, update versions, push, and update registry hashes *after pushing*.
+
+### Schema validation workflow
+
+1. Run full schema lint and semantic checks: `bash scripts/lint-schemas.sh`.
+2. Run direct schema fixture checks: `bash scripts/test-json-schema.sh`.
+3. Validate staged schema JSON before commit: `bash scripts/pre-commit-schema-json-parse.sh`.
+4. Verify pre-commit checker behavior is deterministic: `bash scripts/test-pre-commit-schema-json-parse.sh`.
+5. Verify schema changelog entry format: `bash scripts/test-schema-changelog-format.sh`.
+6. Verify README schema index coverage stays aligned: `bash scripts/test-readme-schema-index-coverage.sh`.
 
 ### Nix packages
 
