@@ -92,6 +92,9 @@
     "run_context": {
       "$ref": "run_context.json"
     },
+    "objective_spec": {
+      "$ref": "objective_spec.json"
+    },
     "experiment_spec": {
       "$ref": "experiment_spec.json"
     }

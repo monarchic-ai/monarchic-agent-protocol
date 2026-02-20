@@ -18,6 +18,7 @@ export interface Task {
   constraints?: Record<string, unknown>;
   gates_required?: string[];
   run_context?: RunContext;
+  objective_spec?: ObjectiveSpec;
   experiment_spec?: ExperimentSpec;
   [key: string]: unknown;
 }
@@ -118,6 +119,19 @@ export interface ExperimentSpec {
   dataset_refs: DatasetRef[];
   acceptance: AcceptanceCriteria;
   constraints?: Record<string, unknown>;
+  [key: string]: unknown;
+}
+
+export interface ObjectiveSpec {
+  metric_key: string;
+  direction: "maximize" | "minimize" | "target";
+  target?: number;
+  min_delta?: number;
+  tolerance?: number;
+  report_file?: string;
+  report_task_id?: string;
+  weight?: number;
+  description?: string;
   [key: string]: unknown;
 }
 
