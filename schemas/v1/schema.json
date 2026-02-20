@@ -10,6 +10,7 @@
     { "$ref": "run_context.json" },
     { "$ref": "dataset_ref.json" },
     { "$ref": "experiment_spec.json" },
+    { "$ref": "objective_spec.json" },
     { "$ref": "eval_result.json" },
     { "$ref": "provenance.json" }
   ]
