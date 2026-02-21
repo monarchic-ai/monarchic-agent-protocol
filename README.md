@@ -58,6 +58,7 @@ Schema files live under `schemas/v1/`:
 - `schemas/v1/event.json`
 - `schemas/v1/gate_result.json`
 - `schemas/v1/run_context.json`
+- `schemas/v1/delivery_contract.json`
 - `schemas/v1/agent_role.json`
 - `schemas/v1/dataset_ref.json`
 - `schemas/v1/experiment_spec.json`
@@ -105,6 +106,7 @@ Optional fields:
 - `constraints`: free-form object
 - `gates_required`: list of gate names to run (ex: `["qa", "security"]`)
 - `run_context`: `RunContext`
+- `delivery_contract`: typed acceptance and risk contract for autonomous delivery loops
 - `experiment_spec`: typed experiment design contract for deterministic in silico runs
 
 Example:
@@ -132,6 +134,19 @@ Example:
   }
 }
 ```
+
+### DeliveryContract
+
+Typed acceptance contract for autonomous delivery execution.
+
+Required fields:
+
+- `objective`: plain-language objective statement
+- `definition_of_done`: ordered completion checklist
+- `required_checks`: required gate/check names for merge readiness
+- `risk_tier`: `low | medium | high | critical`
+
+Optional fields include cycle/turn budgets (`max_cycle_minutes`, `max_agent_turns`) and PR/review/rollback strategy hints.
 
 ### RunContext
 
