@@ -63,12 +63,30 @@ Schema files live under `schemas/v1/`:
 - `schemas/v1/agent_role.json`
 - `schemas/v1/dataset_ref.json`
 - `schemas/v1/experiment_spec.json`
+- `schemas/v1/objective_spec.json`
 - `schemas/v1/eval_result.json`
 - `schemas/v1/provenance.json`
 - `schemas/v1/schema.json` (index)
 - `schemas/v1/monarchic_agent_protocol.proto`
 
 All schemas allow additional properties for forward compatibility.
+
+### Schema index coverage
+
+`schemas/v1/schema.json` is the canonical top-level JSON schema index. Its `oneOf` entries currently cover:
+
+- `schemas/v1/task.json`
+- `schemas/v1/artifact.json`
+- `schemas/v1/event.json`
+- `schemas/v1/gate_result.json`
+- `schemas/v1/run_context.json`
+- `schemas/v1/dataset_ref.json`
+- `schemas/v1/experiment_spec.json`
+- `schemas/v1/objective_spec.json`
+- `schemas/v1/eval_result.json`
+- `schemas/v1/provenance.json`
+
+`schemas/v1/agent_role.json` is a shared schema used by `task.json`.
 
 ### AgentRole
 
@@ -108,6 +126,7 @@ Optional fields:
 - `gates_required`: list of gate names to run (ex: `["qa", "security"]`)
 - `run_context`: `RunContext`
 - `delivery_contract`: typed acceptance and risk contract for autonomous delivery loops
+- `objective_spec`: objective scoring contract for deterministic outcome evaluation
 - `experiment_spec`: typed experiment design contract for deterministic in silico runs
 
 Example:
@@ -294,6 +313,18 @@ Required fields:
 
 Optional fields include `hypothesis`, `model_family`, `seeds`, and free-form `constraints`.
 
+### ObjectiveSpec
+
+Typed objective scoring contract for progress/outcome checks.
+
+Required fields:
+
+- `metric_key`
+- `direction`: `maximize`, `minimize`, or `target`
+
+Optional fields include `target`, `min_delta`, `tolerance`, `report_file`,
+`report_task_id`, `weight`, and `description`.
+
 ### EvalResult
 
 Typed evaluation output row.
@@ -408,7 +439,14 @@ Dart sources live under `src/dart`.
 - `nix develop` provides Rust, Node, jq, Python `jsonschema`, and `protoc`.
 - `nix flake check` validates JSON schemas, protobuf codegen, and package imports (PyPI + Rust + npm + Go).
 - JSON Schema test: `scripts/test-json-schema.sh`.
+- Pre-commit schema JSON parse check: `scripts/pre-commit-schema-json-parse.sh`.
+- Pre-commit schema parse smoke test: `scripts/test-pre-commit-schema-json-parse.sh`.
+- Schema edit changelog: `schemas/SCHEMA_CHANGELOG.md`.
+- Schema changelog format test: `scripts/test-schema-changelog-format.sh`.
+- README schema index coverage test: `scripts/test-readme-schema-index-coverage.sh`.
 - Protobuf codegen test (all languages): `scripts/test-proto.sh`.
+- Protobuf availability smoke test: `scripts/test-proto-availability-smoke.sh`.
+- Protobuf codegen (write to `src/<lang>`): `scripts/generate-proto.sh`.
 - Protobuf codegen (write to `src/<lang>` and regenerate JSON schemas): `scripts/generate-proto.sh`.
 - JSON Schema regeneration only: `scripts/generate-json-schema.sh`.
 - JSON Schema generation requires `protoc-gen-jsonschema` (install with `go install github.com/chrusty/protoc-gen-jsonschema/cmd/protoc-gen-jsonschema@latest`).
@@ -424,6 +462,15 @@ Use the Nix apps (preferred) or the scripts directly:
 For every schema change, generate protobuf outputs and update local hashes.
 
 For every release, tag the commit, update versions, push, and update registry hashes *after pushing*.
+
+### Schema validation workflow
+
+1. Run full schema lint and semantic checks: `bash scripts/lint-schemas.sh`.
+2. Run direct schema fixture checks: `bash scripts/test-json-schema.sh`.
+3. Validate staged schema JSON before commit: `bash scripts/pre-commit-schema-json-parse.sh`.
+4. Verify pre-commit checker behavior is deterministic: `bash scripts/test-pre-commit-schema-json-parse.sh`.
+5. Verify schema changelog entry format: `bash scripts/test-schema-changelog-format.sh`.
+6. Verify README schema index coverage stays aligned: `bash scripts/test-readme-schema-index-coverage.sh`.
 
 ### Nix packages
 

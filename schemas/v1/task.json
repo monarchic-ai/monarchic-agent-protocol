@@ -86,6 +86,9 @@
     "run_context": {
       "$ref": "monarchic.agent_protocol.v1.RunContext.schema.json"
     },
+    "objective_spec": {
+      "$ref": "objective_spec.json"
+    },
     "task_id": {
       "default": "",
       "type": "string"
@@ -95,6 +98,12 @@
       "type": "string"
     }
   },
+  "required": [
+    "version",
+    "task_id",
+    "role",
+    "goal"
+  ],
   "title": "Task",
   "type": "object"
 }
