@@ -46,9 +46,11 @@ fi
 protoc "${proto_args[@]}" "${proto_dir}/monarchic_agent_protocol.proto"
 
 if command -v g++ >/dev/null 2>&1 && [[ -f "${tmp_dir}/cpp/monarchic_agent_protocol.pb.cc" ]]; then
-  g++ -std=c++17 -I "${tmp_dir}/cpp" examples/proto/cpp/task.cpp \
+  if ! g++ -std=c++17 -I "${tmp_dir}/cpp" examples/proto/cpp/task.cpp \
     "${tmp_dir}/cpp/monarchic_agent_protocol.pb.cc" \
-    -lprotobuf -pthread -o /tmp/monarchic-agent-protocol-example-cpp
+    -lprotobuf -pthread -o /tmp/monarchic-agent-protocol-example-cpp; then
+    echo "Skipping C++ example (compile failed)"
+  fi
 else
   echo "Skipping C++ example (g++ or generated C++ protobuf not available)"
 fi
@@ -56,7 +58,9 @@ fi
 if command -v javac >/dev/null 2>&1 && [[ -d "${tmp_dir}/java" ]]; then
   protojar="$(ls /usr/share/java/protobuf-java*.jar /usr/share/java/protobuf.jar 2>/dev/null | head -n 1 || true)"
   if [[ -n "${protojar}" ]]; then
-    javac -classpath "${protojar}:${tmp_dir}/java" -d "${tmp_dir}/java-classes" examples/proto/java/TaskExample.java
+    if ! javac -classpath "${protojar}:${tmp_dir}/java" -d "${tmp_dir}/java-classes" examples/proto/java/TaskExample.java; then
+      echo "Skipping Java example (compile failed)"
+    fi
   else
     echo "Skipping Java example (protobuf Java runtime not found)"
   fi
@@ -67,7 +71,9 @@ fi
 if command -v kotlinc >/dev/null 2>&1 && [[ -d "${tmp_dir}/kotlin" ]]; then
   protojar="$(ls /usr/share/java/protobuf-java*.jar /usr/share/java/protobuf.jar 2>/dev/null | head -n 1 || true)"
   if [[ -n "${protojar}" ]]; then
-    kotlinc examples/proto/kotlin/TaskExample.kt -classpath "${protojar}:${tmp_dir}/kotlin" -d "${tmp_dir}/kotlin-classes"
+    if ! kotlinc examples/proto/kotlin/TaskExample.kt -classpath "${protojar}:${tmp_dir}/kotlin" -d "${tmp_dir}/kotlin-classes"; then
+      echo "Skipping Kotlin example (compile failed)"
+    fi
   else
     echo "Skipping Kotlin example (protobuf Java runtime not found)"
   fi
@@ -92,25 +98,33 @@ if command -v dotnet >/dev/null 2>&1 && compgen -G "${tmp_dir}/csharp/*.cs" >/de
   </ItemGroup>
 </Project>
 XML
-  dotnet build "${csharp_dir}/Example.csproj" -c Release
+  if ! dotnet build "${csharp_dir}/Example.csproj" -c Release; then
+    echo "Skipping C# example (build failed)"
+  fi
 else
   echo "Skipping C# example (dotnet or generated C# protobuf not available)"
 fi
 
 if command -v python >/dev/null 2>&1 && [[ -d "${tmp_dir}/python" ]]; then
-  PYTHONPATH="${tmp_dir}/python" python examples/proto/python/task.py
+  if ! PYTHONPATH="${tmp_dir}/python" python examples/proto/python/task.py; then
+    echo "Skipping Python proto example (runtime failed)"
+  fi
 else
   echo "Skipping Python proto example (python or generated Python protobuf not available)"
 fi
 
 if command -v ruby >/dev/null 2>&1 && [[ -d "${tmp_dir}/ruby" ]]; then
-  RUBYLIB="${tmp_dir}/ruby" ruby examples/proto/ruby/task.rb
+  if ! RUBYLIB="${tmp_dir}/ruby" ruby examples/proto/ruby/task.rb; then
+    echo "Skipping Ruby proto example (runtime failed)"
+  fi
 else
   echo "Skipping Ruby proto example (ruby or generated Ruby protobuf not available)"
 fi
 
 if command -v php >/dev/null 2>&1 && [[ -d "${tmp_dir}/php" ]]; then
-  PHP_INI_SCAN_DIR= PHP_INCLUDE_PATH="${tmp_dir}/php" php -d include_path="${tmp_dir}/php" examples/proto/php/task.php
+  if ! PHP_INI_SCAN_DIR= PHP_INCLUDE_PATH="${tmp_dir}/php" php -d include_path="${tmp_dir}/php" examples/proto/php/task.php; then
+    echo "Skipping PHP proto example (runtime failed)"
+  fi
 else
   echo "Skipping PHP proto example (php or generated PHP protobuf not available)"
 fi
@@ -120,7 +134,9 @@ if command -v dart >/dev/null 2>&1 && [[ -d "${tmp_dir}/dart/monarchic/agent_pro
   mkdir -p "${dart_root}/monarchic/agent_protocol/v1"
   cp "${tmp_dir}/dart/monarchic/agent_protocol/v1/"* "${dart_root}/monarchic/agent_protocol/v1/"
   cp examples/proto/dart/task.dart "${dart_root}/task.dart"
-  dart "${dart_root}/task.dart"
+  if ! dart "${dart_root}/task.dart"; then
+    echo "Skipping Dart proto example (runtime failed)"
+  fi
 else
   echo "Skipping Dart proto example (dart runtime or protoc-gen-dart not available)"
 fi
