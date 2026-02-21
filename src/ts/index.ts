@@ -18,6 +18,7 @@ export interface Task {
   constraints?: Record<string, unknown>;
   gates_required?: string[];
   run_context?: RunContext;
+  delivery_contract?: DeliveryContract;
   experiment_spec?: ExperimentSpec;
   [key: string]: unknown;
 }
@@ -85,6 +86,20 @@ export interface AcceptanceCriteria {
   min_effect_size?: number;
   max_variance?: number;
   confidence_level?: number;
+  [key: string]: unknown;
+}
+
+export interface DeliveryContract {
+  objective: string;
+  definition_of_done: string[];
+  required_checks: string[];
+  risk_tier: "low" | "medium" | "high" | "critical";
+  max_cycle_minutes?: number;
+  max_agent_turns?: number;
+  pr_strategy?: "single" | "stacked" | "incremental";
+  review_policy?: "auto" | "human_required";
+  rollback_strategy?: "revert_commit" | "revert_pr" | "manual";
+  notes?: string;
   [key: string]: unknown;
 }
 

@@ -36,6 +36,9 @@
     "run_context": {
       "$ref": "run_context.json"
     },
+    "delivery_contract": {
+      "$ref": "delivery_contract.json"
+    },
     "experiment_spec": {
       "$ref": "experiment_spec.json"
     }
