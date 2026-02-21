@@ -318,6 +318,91 @@ final $typed_data.Uint8List deliveryContractDescriptor = $convert.base64Decode(
     '1heF9hZ2VudF90dXJuc0IOCgxfcHJfc3RyYXRlZ3lCEAoOX3Jldmlld19wb2xpY3lCFAoSX3Jv'
     'bGxiYWNrX3N0cmF0ZWd5QggKBl9ub3Rlcw==');
 
+@$core.Deprecated('Use objectiveSpecDescriptor instead')
+const ObjectiveSpec$json = {
+  '1': 'ObjectiveSpec',
+  '2': [
+    {'1': 'metric_key', '3': 1, '4': 1, '5': 9, '10': 'metricKey'},
+    {'1': 'direction', '3': 2, '4': 1, '5': 9, '10': 'direction'},
+    {'1': 'target', '3': 3, '4': 1, '5': 1, '9': 0, '10': 'target', '17': true},
+    {
+      '1': 'min_delta',
+      '3': 4,
+      '4': 1,
+      '5': 1,
+      '9': 1,
+      '10': 'minDelta',
+      '17': true
+    },
+    {
+      '1': 'tolerance',
+      '3': 5,
+      '4': 1,
+      '5': 1,
+      '9': 2,
+      '10': 'tolerance',
+      '17': true
+    },
+    {
+      '1': 'report_file',
+      '3': 6,
+      '4': 1,
+      '5': 9,
+      '9': 3,
+      '10': 'reportFile',
+      '17': true
+    },
+    {
+      '1': 'report_task_id',
+      '3': 7,
+      '4': 1,
+      '5': 9,
+      '9': 4,
+      '10': 'reportTaskId',
+      '17': true
+    },
+    {'1': 'weight', '3': 8, '4': 1, '5': 1, '9': 5, '10': 'weight', '17': true},
+    {
+      '1': 'description',
+      '3': 9,
+      '4': 1,
+      '5': 9,
+      '9': 6,
+      '10': 'description',
+      '17': true
+    },
+    {
+      '1': 'extensions',
+      '3': 10,
+      '4': 1,
+      '5': 11,
+      '6': '.google.protobuf.Struct',
+      '10': 'extensions'
+    },
+  ],
+  '8': [
+    {'1': '_target'},
+    {'1': '_min_delta'},
+    {'1': '_tolerance'},
+    {'1': '_report_file'},
+    {'1': '_report_task_id'},
+    {'1': '_weight'},
+    {'1': '_description'},
+  ],
+};
+
+/// Descriptor for `ObjectiveSpec`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List objectiveSpecDescriptor = $convert.base64Decode(
+    'Cg1PYmplY3RpdmVTcGVjEh0KCm1ldHJpY19rZXkYASABKAlSCW1ldHJpY0tleRIcCglkaXJlY3'
+    'Rpb24YAiABKAlSCWRpcmVjdGlvbhIbCgZ0YXJnZXQYAyABKAFIAFIGdGFyZ2V0iAEBEiAKCW1p'
+    'bl9kZWx0YRgEIAEoAUgBUghtaW5EZWx0YYgBARIhCgl0b2xlcmFuY2UYBSABKAFIAlIJdG9sZX'
+    'JhbmNliAEBEiQKC3JlcG9ydF9maWxlGAYgASgJSANSCnJlcG9ydEZpbGWIAQESKQoOcmVwb3J0'
+    'X3Rhc2tfaWQYByABKAlIBFIMcmVwb3J0VGFza0lkiAEBEhsKBndlaWdodBgIIAEoAUgFUgZ3ZW'
+    'lnaHSIAQESJQoLZGVzY3JpcHRpb24YCSABKAlIBlILZGVzY3JpcHRpb26IAQESNwoKZXh0ZW5z'
+    'aW9ucxgKIAEoCzIXLmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3RSCmV4dGVuc2lvbnNCCQoHX3Rhcm'
+    'dldEIMCgpfbWluX2RlbHRhQgwKCl90b2xlcmFuY2VCDgoMX3JlcG9ydF9maWxlQhEKD19yZXBv'
+    'cnRfdGFza19pZEIJCgdfd2VpZ2h0Qg4KDF9kZXNjcmlwdGlvbg==');
+
 @$core.Deprecated('Use evalResultDescriptor instead')
 const EvalResult$json = {
   '1': 'EvalResult',
@@ -536,6 +621,14 @@ const Task$json = {
       '6': '.monarchic.agent_protocol.v1.DeliveryContract',
       '10': 'deliveryContract'
     },
+    {
+      '1': 'objective_spec',
+      '3': 12,
+      '4': 1,
+      '5': 11,
+      '6': '.monarchic.agent_protocol.v1.ObjectiveSpec',
+      '10': 'objectiveSpec'
+    },
   ],
 };
 
@@ -551,7 +644,9 @@ final $typed_data.Uint8List taskDescriptor = $convert.base64Decode(
     'Byb3RvYnVmLlN0cnVjdFIKZXh0ZW5zaW9ucxJUCg9leHBlcmltZW50X3NwZWMYCiABKAsyKy5t'
     'b25hcmNoaWMuYWdlbnRfcHJvdG9jb2wudjEuRXhwZXJpbWVudFNwZWNSDmV4cGVyaW1lbnRTcG'
     'VjEloKEWRlbGl2ZXJ5X2NvbnRyYWN0GAsgASgLMi0ubW9uYXJjaGljLmFnZW50X3Byb3RvY29s'
-    'LnYxLkRlbGl2ZXJ5Q29udHJhY3RSEGRlbGl2ZXJ5Q29udHJhY3Q=');
+    'LnYxLkRlbGl2ZXJ5Q29udHJhY3RSEGRlbGl2ZXJ5Q29udHJhY3QSUQoOb2JqZWN0aXZlX3NwZW'
+    'MYDCABKAsyKi5tb25hcmNoaWMuYWdlbnRfcHJvdG9jb2wudjEuT2JqZWN0aXZlU3BlY1INb2Jq'
+    'ZWN0aXZlU3BlYw==');
 
 @$core.Deprecated('Use artifactDescriptor instead')
 const Artifact$json = {

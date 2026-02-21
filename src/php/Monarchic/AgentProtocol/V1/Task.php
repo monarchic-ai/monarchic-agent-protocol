@@ -58,6 +58,10 @@ class Task extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.monarchic.agent_protocol.v1.DeliveryContract delivery_contract = 11;</code>
      */
     protected $delivery_contract = null;
+    /**
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 12;</code>
+     */
+    protected $objective_spec = null;
 
     /**
      * Constructor.
@@ -76,6 +80,7 @@ class Task extends \Google\Protobuf\Internal\Message
      *     @type \Google\Protobuf\Struct $extensions
      *     @type \Monarchic\AgentProtocol\V1\ExperimentSpec $experiment_spec
      *     @type \Monarchic\AgentProtocol\V1\DeliveryContract $delivery_contract
+     *     @type \Monarchic\AgentProtocol\V1\ObjectiveSpec $objective_spec
      * }
      */
     public function __construct($data = NULL) {
@@ -381,6 +386,38 @@ class Task extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Monarchic\AgentProtocol\V1\DeliveryContract::class);
         $this->delivery_contract = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 12;</code>
+     * @return \Monarchic\AgentProtocol\V1\ObjectiveSpec|null
+     */
+    public function getObjectiveSpec()
+    {
+        return $this->objective_spec;
+    }
+
+    public function hasObjectiveSpec()
+    {
+        return isset($this->objective_spec);
+    }
+
+    public function clearObjectiveSpec()
+    {
+        unset($this->objective_spec);
+    }
+
+    /**
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 12;</code>
+     * @param \Monarchic\AgentProtocol\V1\ObjectiveSpec $var
+     * @return $this
+     */
+    public function setObjectiveSpec($var)
+    {
+        GPBUtil::checkMessage($var, \Monarchic\AgentProtocol\V1\ObjectiveSpec::class);
+        $this->objective_spec = $var;
 
         return $this;
     }

@@ -171,4 +171,19 @@ public interface TaskOrBuilder extends
    * <code>.monarchic.agent_protocol.v1.DeliveryContract delivery_contract = 11;</code>
    */
   ai.monarchic.agent_protocol.v1.DeliveryContractOrBuilder getDeliveryContractOrBuilder();
+
+  /**
+   * <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 12;</code>
+   * @return Whether the objectiveSpec field is set.
+   */
+  boolean hasObjectiveSpec();
+  /**
+   * <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 12;</code>
+   * @return The objectiveSpec.
+   */
+  ai.monarchic.agent_protocol.v1.ObjectiveSpec getObjectiveSpec();
+  /**
+   * <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 12;</code>
+   */
+  ai.monarchic.agent_protocol.v1.ObjectiveSpecOrBuilder getObjectiveSpecOrBuilder();
 }

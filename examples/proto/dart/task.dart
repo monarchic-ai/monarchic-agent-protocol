@@ -1,4 +1,4 @@
-import 'monarchic/agent_protocol/v1/monarchic_agent_protocol.pb.dart';
+import 'monarchic_agent_protocol.pb.dart';
 
 void main() {
   final task = Task()

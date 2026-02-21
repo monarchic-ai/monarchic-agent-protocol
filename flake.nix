@@ -188,6 +188,16 @@
             };
           };
 
+          rb-protobuf = pkgs.buildRubyGem {
+            gemName = "google-protobuf";
+            version = "3.25.3";
+            hardeningDisable = [ "format" ];
+            src = pkgs.fetchurl {
+              url = "https://rubygems.org/downloads/google-protobuf-3.25.3.gem";
+              sha256 = "sha256-Ob2Xy8djGQXnbN+PG/PdocPQUgDX4j9XWs7XiTD73dY=";
+            };
+          };
+
           java-lib =
             let
               protobufJava = pkgs.fetchurl {
@@ -283,6 +293,487 @@
             repo = "monarchic-agent-protocol";
             rev = "v0.1.10";
             sha256 = "1sc6fsf2j2rmlf4aw1glbl7vlw0w4y7vi938ykpsixijqbqzcxfy";
+          };
+
+          example-rust = pkgs.rustPlatform.buildRustPackage {
+            pname = "example-rust";
+            version = "0.1.10";
+            src = pkgs.runCommand "example-rust-src" {} ''
+              set -euo pipefail
+              mkdir -p $out/src
+              cp ${./examples/rust/task.rs} $out/src/main.rs
+              cat > $out/Cargo.toml <<'EOF'
+[package]
+name = "example-rust"
+version = "0.1.10"
+edition = "2021"
+
+[dependencies]
+monarchic-agent-protocol = { path = "${self}" }
+EOF
+              cp ${./Cargo.lock} $out/Cargo.lock
+            '';
+            nativeBuildInputs = [ pkgs.protobuf ];
+            cargoLock = {
+              lockFile = "${self}/Cargo.lock";
+            };
+            doCheck = true;
+            checkPhase = ''
+              runHook preCheck
+              ./target/*/release/example-rust >/dev/null
+              runHook postCheck
+            '';
+          };
+
+          example-ts = pkgs.stdenv.mkDerivation {
+            pname = "example-ts";
+            version = "0.1.10";
+            nativeBuildInputs = [
+              pkgs.nodejs
+              pkgs.nodePackages.typescript
+              pkgs.gnused
+            ];
+            dontUnpack = true;
+            buildPhase = ''
+              runHook preBuild
+            tmp_dir="$(mktemp -d)"
+            trap 'rm -rf "$tmp_dir"' EXIT
+            mkdir -p "$tmp_dir/src/ts"
+            cp ${./src/ts/index.ts} "$tmp_dir/src/ts/index.ts"
+            cp ${./examples/ts/task.ts} "$tmp_dir/task.ts"
+            ${pkgs.gnused}/bin/sed -i 's@../../src/ts/index@./src/ts/index@' "$tmp_dir/task.ts"
+            ${pkgs.nodePackages.typescript}/bin/tsc --noEmit --moduleResolution node --module commonjs --target es2020 "$tmp_dir/task.ts"
+              runHook postBuild
+            '';
+            installPhase = ''
+              runHook preInstall
+              mkdir -p $out
+              runHook postInstall
+            '';
+          };
+
+          example-python =
+            let
+              pythonWithProtobuf = pkgs.python3.withPackages (ps: [ ps.protobuf ]);
+            in
+            pkgs.python3Packages.buildPythonPackage {
+              pname = "example-python";
+              version = "0.1.10";
+              format = "other";
+              dontWrapPythonPrograms = true;
+              nativeBuildInputs = [
+                pkgs.protobuf
+                pythonWithProtobuf
+              ];
+              dontUnpack = true;
+              buildPhase = ''
+                runHook preBuild
+                set -euo pipefail
+                set -x
+                tmp_dir="$(mktemp -d)"
+                trap 'rm -rf "$tmp_dir"' EXIT
+                ${pkgs.protobuf}/bin/protoc -I ${./schemas/v1} \
+                  --python_out="$tmp_dir" \
+                  monarchic_agent_protocol.proto
+                PYTHONPATH="$tmp_dir" ${pythonWithProtobuf}/bin/python ${./examples/proto/python/task.py}
+                runHook postBuild
+              '';
+              installPhase = ''
+                runHook preInstall
+                mkdir -p $out
+                runHook postInstall
+              '';
+            };
+
+          example-java =
+            let
+              protobufJava = pkgs.fetchurl {
+                url = "https://repo1.maven.org/maven2/com/google/protobuf/protobuf-java/4.32.1/protobuf-java-4.32.1.jar";
+                sha256 = "1jrjm2y2fz2ckq82b77b62bdrcxvn6lwxldin2qaz2rkf7cy96cc";
+              };
+            in
+            pkgs.stdenv.mkDerivation {
+              pname = "example-java";
+              version = "0.1.10";
+              nativeBuildInputs = [
+                pkgs.protobuf
+                pkgs.jdk
+              ];
+              dontUnpack = true;
+              buildPhase = ''
+                runHook preBuild
+                tmp_dir="$(mktemp -d)"
+                trap 'rm -rf "$tmp_dir"' EXIT
+                mkdir -p "$tmp_dir/java"
+                ${pkgs.protobuf}/bin/protoc -I ${./schemas/v1} \
+                  --java_out="$tmp_dir/java" \
+                  monarchic_agent_protocol.proto
+                cp ${./examples/proto/java/TaskExample.java} "$tmp_dir/TaskExample.java"
+                mkdir -p build/classes
+                ${pkgs.jdk}/bin/javac -classpath "${protobufJava}" \
+                  -d build/classes \
+                  $(find "$tmp_dir/java" -name '*.java') \
+                  "$tmp_dir/TaskExample.java"
+                ${pkgs.jdk}/bin/java -classpath "build/classes:${protobufJava}" TaskExample >/dev/null
+                runHook postBuild
+              '';
+              installPhase = ''
+                runHook preInstall
+                mkdir -p $out
+                runHook postInstall
+              '';
+            };
+
+          example-kotlin =
+            let
+              protobufJava = pkgs.fetchurl {
+                url = "https://repo1.maven.org/maven2/com/google/protobuf/protobuf-java/4.32.1/protobuf-java-4.32.1.jar";
+                sha256 = "1jrjm2y2fz2ckq82b77b62bdrcxvn6lwxldin2qaz2rkf7cy96cc";
+              };
+              protobufKotlin = pkgs.fetchurl {
+                url = "https://repo1.maven.org/maven2/com/google/protobuf/protobuf-kotlin/4.32.1/protobuf-kotlin-4.32.1.jar";
+                sha256 = "1lafaxgnkppqxrzdzdfc3863bagmh4v15f5p70i8kfsl9lrf59sr";
+              };
+            in
+            pkgs.stdenv.mkDerivation {
+              pname = "example-kotlin";
+              version = "0.1.10";
+              nativeBuildInputs = [
+                pkgs.protobuf
+                pkgs.jdk
+                pkgs.kotlin
+              ];
+              dontUnpack = true;
+              buildPhase = ''
+                runHook preBuild
+                tmp_dir="$(mktemp -d)"
+                trap 'rm -rf "$tmp_dir"' EXIT
+                mkdir -p "$tmp_dir/kotlin" "$tmp_dir/java"
+                ${pkgs.protobuf}/bin/protoc -I ${./schemas/v1} \
+                  --java_out="$tmp_dir/java" \
+                  --kotlin_out="$tmp_dir/kotlin" \
+                  monarchic_agent_protocol.proto
+                mkdir -p build/java-classes build/classes
+                ${pkgs.jdk}/bin/javac -classpath "${protobufJava}" \
+                  -d build/java-classes \
+                  $(find "$tmp_dir/java" -name '*.java')
+                gen_sources="$(find "$tmp_dir/kotlin" -name '*.kt' | tr '\n' ' ')"
+                ${pkgs.kotlin}/bin/kotlinc ${./examples/proto/kotlin/TaskExample.kt} $gen_sources \
+                  -classpath "${protobufJava}:${protobufKotlin}:build/java-classes" \
+                  -d build/classes
+                runHook postBuild
+              '';
+              installPhase = ''
+                runHook preInstall
+                mkdir -p $out
+                runHook postInstall
+              '';
+            };
+
+          example-cpp = pkgs.stdenv.mkDerivation {
+            pname = "example-cpp";
+            version = "0.1.10";
+            nativeBuildInputs = [
+              pkgs.protobuf
+              pkgs.pkg-config
+            ];
+            dontUnpack = true;
+            buildPhase = ''
+              runHook preBuild
+              tmp_dir="$(mktemp -d)"
+              trap 'rm -rf "$tmp_dir"' EXIT
+              mkdir -p "$tmp_dir/cpp"
+              ${pkgs.protobuf}/bin/protoc -I ${./schemas/v1} \
+                --cpp_out="$tmp_dir/cpp" \
+                monarchic_agent_protocol.proto
+              cflags="$(pkg-config --cflags protobuf)"
+              libs="$(pkg-config --libs protobuf)"
+              ${pkgs.stdenv.cc}/bin/g++ -std=c++17 $cflags \
+                -I "$tmp_dir/cpp" \
+                ${./examples/proto/cpp/task.cpp} \
+                "$tmp_dir/cpp/monarchic_agent_protocol.pb.cc" \
+                $libs -pthread -o example-cpp
+              ./example-cpp >/dev/null
+              runHook postBuild
+            '';
+            installPhase = ''
+              runHook preInstall
+              mkdir -p $out
+              runHook postInstall
+            '';
+          };
+
+          example-dart =
+            let
+              dartProtobuf = pkgs.fetchurl {
+                url = "https://pub.dev/api/archives/protobuf-6.0.0.tar.gz";
+                sha256 = "01mz496n153nli7drynpj720pvp41i9dsf7fg76bsl7948nj9v3m";
+              };
+              dartCollection = pkgs.fetchurl {
+                url = "https://pub.dev/api/archives/collection-1.19.1.tar.gz";
+                sha256 = "0xjf11l5h3ibbmw308f8lvc5fsq44ghb82fkgj7xsn9x9np0jmrg";
+              };
+              dartFixnum = pkgs.fetchurl {
+                url = "https://pub.dev/api/archives/fixnum-1.1.1.tar.gz";
+                sha256 = "1gjkvsbbwdywxkn8a4nswr5pmv34cw50hhziqp3lp5vcwijp1p5n";
+              };
+              dartMeta = pkgs.fetchurl {
+                url = "https://pub.dev/api/archives/meta-1.18.1.tar.gz";
+                sha256 = "0vr9kyb2mn7knc2czbpxpw6r76p9xbh1pl7064d7na7fr2ybjacz";
+              };
+            in
+            pkgs.stdenv.mkDerivation {
+              pname = "example-dart";
+              version = "0.1.10";
+              nativeBuildInputs = [
+                pkgs.protobuf
+                pkgs.protoc-gen-dart
+                pkgs.dart
+              ];
+              dontUnpack = true;
+              buildPhase = ''
+                runHook preBuild
+                tmp_dir="$(mktemp -d)"
+                trap 'rm -rf "$tmp_dir"' EXIT
+                mkdir -p "$tmp_dir/packages/protobuf"
+                mkdir -p "$tmp_dir/packages/collection"
+                mkdir -p "$tmp_dir/packages/fixnum"
+                mkdir -p "$tmp_dir/packages/meta"
+                tar -xzf "${dartProtobuf}" -C "$tmp_dir/packages/protobuf"
+                tar -xzf "${dartCollection}" -C "$tmp_dir/packages/collection"
+                tar -xzf "${dartFixnum}" -C "$tmp_dir/packages/fixnum"
+                tar -xzf "${dartMeta}" -C "$tmp_dir/packages/meta"
+                cat > "$tmp_dir/pubspec.yaml" <<'EOF'
+name: monarchic_agent_protocol_example
+environment:
+  sdk: ">=2.17.0 <4.0.0"
+dependencies:
+  protobuf:
+    path: packages/protobuf
+dependency_overrides:
+  fixnum:
+    path: packages/fixnum
+  collection:
+    path: packages/collection
+  meta:
+    path: packages/meta
+EOF
+                (cd "$tmp_dir" && ${pkgs.dart}/bin/dart pub get --offline >/dev/null)
+                ${pkgs.protobuf}/bin/protoc -I ${./schemas/v1} \
+                  --plugin=protoc-gen-dart=${pkgs.protoc-gen-dart}/bin/protoc-gen-dart \
+                  --dart_out="$tmp_dir" \
+                  monarchic_agent_protocol.proto
+                cp ${./examples/proto/dart/task.dart} "$tmp_dir/task.dart"
+                (cd "$tmp_dir" && ${pkgs.dart}/bin/dart run task.dart >/dev/null)
+                runHook postBuild
+              '';
+              installPhase = ''
+                runHook preInstall
+                mkdir -p $out
+                runHook postInstall
+              '';
+            };
+
+          example-ruby =
+            let
+              rubyWithProtobuf = pkgs.ruby.withPackages (_: [ self.packages.${system}.rb-protobuf ]);
+            in
+            pkgs.stdenv.mkDerivation {
+              pname = "example-ruby";
+              version = "0.1.10";
+              nativeBuildInputs = [
+                pkgs.protobuf
+                rubyWithProtobuf
+              ];
+              dontUnpack = true;
+              buildPhase = ''
+                runHook preBuild
+                tmp_dir="$(mktemp -d)"
+                trap 'rm -rf "$tmp_dir"' EXIT
+                mkdir -p "$tmp_dir/ruby"
+                ${pkgs.protobuf}/bin/protoc -I ${./schemas/v1} \
+                  --ruby_out="$tmp_dir/ruby" \
+                  monarchic_agent_protocol.proto
+                expected="$tmp_dir/ruby/monarchic/agent_protocol/v1/monarchic_agent_protocol_pb.rb"
+                if [[ ! -f "$expected" && -f "$tmp_dir/ruby/monarchic_agent_protocol_pb.rb" ]]; then
+                  mkdir -p "$(dirname "$expected")"
+                  cp "$tmp_dir/ruby/monarchic_agent_protocol_pb.rb" "$expected"
+                fi
+                ${rubyWithProtobuf}/bin/ruby -I "$tmp_dir/ruby" ${./examples/proto/ruby/task.rb} >/dev/null
+                runHook postBuild
+              '';
+              installPhase = ''
+                runHook preInstall
+                mkdir -p $out
+              runHook postInstall
+            '';
+          };
+
+          example-php =
+            let
+              protobufPhpRuntime = pkgs.fetchFromGitHub {
+                owner = "protocolbuffers";
+                repo = "protobuf";
+                rev = "v32.1";
+                sha256 = "0sl3ahj74gpy4dv8xz9sry7kapnh00kpmghz2iqnlw5j40rvbyy1";
+              };
+            in
+            pkgs.stdenv.mkDerivation {
+              pname = "example-php";
+              version = "0.1.10";
+              nativeBuildInputs = [
+                pkgs.protobuf
+                pkgs.php
+              ];
+              dontUnpack = true;
+              buildPhase = ''
+                runHook preBuild
+                tmp_dir="$(mktemp -d)"
+                trap 'rm -rf "$tmp_dir"' EXIT
+                mkdir -p "$tmp_dir/gen" "$tmp_dir/vendor" "$tmp_dir/protobuf"
+                ${pkgs.protobuf}/bin/protoc -I ${./schemas/v1} \
+                  --php_out="$tmp_dir/gen" \
+                  monarchic_agent_protocol.proto
+                cp -r "${protobufPhpRuntime}/php/src/Google" "$tmp_dir/protobuf/"
+                cp -r "${protobufPhpRuntime}/php/src/GPBMetadata" "$tmp_dir/protobuf/"
+                chmod -R u+w "$tmp_dir/protobuf"
+                cat > "$tmp_dir/vendor/autoload.php" <<'PHP'
+<?php
+spl_autoload_register(function ($class) {
+  $prefixes = [
+    'Google\\Protobuf\\' => __DIR__ . '/../protobuf/Google/Protobuf/',
+    'GPBMetadata\\' => __DIR__ . '/../protobuf/GPBMetadata/',
+    'Monarchic\\AgentProtocol\\V1\\' => __DIR__ . '/../gen/Monarchic/AgentProtocol/V1/',
+  ];
+  foreach ($prefixes as $prefix => $baseDir) {
+    if (strncmp($class, $prefix, strlen($prefix)) !== 0) {
+      continue;
+    }
+    $relative = substr($class, strlen($prefix));
+    $file = $baseDir . str_replace('\\', '/', $relative) . '.php';
+    if (file_exists($file)) {
+      require_once $file;
+    }
+    return;
+  }
+});
+PHP
+                cp ${./examples/proto/php/task.php} "$tmp_dir/task.php"
+                (cd "$tmp_dir" && ${pkgs.php}/bin/php task.php >/dev/null)
+                runHook postBuild
+              '';
+              installPhase = ''
+                runHook preInstall
+                mkdir -p $out
+                runHook postInstall
+              '';
+            };
+
+          example-csharp = pkgs.stdenv.mkDerivation {
+            pname = "example-csharp";
+            version = "0.1.10";
+            googleProtobufNupkg = pkgs.fetchurl {
+              url = "https://www.nuget.org/api/v2/package/Google.Protobuf/3.25.3";
+              sha256 = "1c8wykhwqm0wv6db159agw9hzqjl3q87rn54749im4wh7v238vmq";
+            };
+            nativeBuildInputs = [
+              pkgs.protobuf
+              pkgs.dotnet-sdk_8
+            ];
+            dontUnpack = true;
+            buildPhase = ''
+              runHook preBuild
+              tmp_dir="$(mktemp -d)"
+              trap 'rm -rf "$tmp_dir"' EXIT
+              export HOME="$tmp_dir"
+              export DOTNET_CLI_HOME="$tmp_dir/dotnet"
+              mkdir -p "$tmp_dir/csharp"
+              ${pkgs.protobuf}/bin/protoc -I ${./schemas/v1} \
+                --csharp_out="$tmp_dir/csharp" \
+                monarchic_agent_protocol.proto
+              cp ${./examples/proto/csharp/TaskExample.cs} "$tmp_dir/Program.cs"
+              cat > "$tmp_dir/Example.csproj" <<'XML'
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.25.3" />
+  </ItemGroup>
+</Project>
+XML
+              mv "$tmp_dir/csharp/"*.cs "$tmp_dir/"
+              rmdir "$tmp_dir/csharp"
+              mkdir -p "$tmp_dir/nuget"
+              cp "$googleProtobufNupkg" "$tmp_dir/nuget/Google.Protobuf.3.25.3.nupkg"
+              cat > "$tmp_dir/NuGet.Config" <<EOF
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <packageSources>
+    <clear />
+    <add key="local" value="$tmp_dir/nuget" />
+  </packageSources>
+</configuration>
+EOF
+              ${pkgs.dotnet-sdk_8}/bin/dotnet restore "$tmp_dir/Example.csproj" \
+                --configfile "$tmp_dir/NuGet.Config" \
+                --packages "$tmp_dir/nuget-packages"
+              ${pkgs.dotnet-sdk_8}/bin/dotnet build "$tmp_dir/Example.csproj" -c Release --no-restore
+              runHook postBuild
+            '';
+            installPhase = ''
+              runHook preInstall
+              mkdir -p $out
+              runHook postInstall
+            '';
+          };
+
+          example-proto-rust = pkgs.rustPlatform.buildRustPackage {
+            pname = "example-proto-rust";
+            version = "0.1.10";
+            src = pkgs.runCommand "example-proto-rust-src" {} ''
+              set -euo pipefail
+              mkdir -p $out/src $out/schemas/v1
+              cp ${./examples/proto/rust/task.rs} $out/src/main.rs
+              cp ${./schemas/v1/monarchic_agent_protocol.proto} $out/schemas/v1/monarchic_agent_protocol.proto
+              cat > $out/build.rs <<'EOF'
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    prost_build::Config::new()
+        .compile_protos(
+            &["schemas/v1/monarchic_agent_protocol.proto"],
+            &["schemas/v1"],
+        )?;
+    Ok(())
+}
+EOF
+              cat > $out/Cargo.toml <<'EOF'
+[package]
+name = "example-proto-rust"
+version = "0.1.10"
+edition = "2021"
+build = "build.rs"
+
+[dependencies]
+prost = "0.14"
+prost-types = "0.14"
+
+[build-dependencies]
+prost-build = "0.14"
+EOF
+              cp ${./Cargo.lock} $out/Cargo.lock
+            '';
+            nativeBuildInputs = [ pkgs.protobuf ];
+            cargoLock = {
+              lockFile = "${self}/Cargo.lock";
+            };
+            doCheck = true;
+            checkPhase = ''
+              runHook preCheck
+              ./target/*/release/example-proto-rust >/dev/null
+              runHook postCheck
+            '';
           };
         });
 
@@ -512,6 +1003,18 @@ EOF
             bash ${./scripts/test-proto.sh} ${./schemas/v1/monarchic_agent_protocol.proto}
             touch $out
           '';
+
+          example-rust = self.packages.${system}.example-rust;
+          example-ts = self.packages.${system}.example-ts;
+          example-python = self.packages.${system}.example-python;
+          example-java = self.packages.${system}.example-java;
+          example-kotlin = self.packages.${system}.example-kotlin;
+          example-cpp = self.packages.${system}.example-cpp;
+          example-dart = self.packages.${system}.example-dart;
+          example-ruby = self.packages.${system}.example-ruby;
+          example-php = self.packages.${system}.example-php;
+          example-csharp = self.packages.${system}.example-csharp;
+          example-proto-rust = self.packages.${system}.example-proto-rust;
 
           py-import = pkgs.stdenv.mkDerivation {
             pname = "py-import";
@@ -798,10 +1301,10 @@ EOF
             ];
           } ''
             set -euo pipefail
-            cp -R ${self} repo
+            cp -R ${builtins.path { path = ./.; name = "repo-src"; }} repo
             chmod -R u+w repo
             cd repo
-            src_dir="${self}"
+            src_dir="${builtins.path { path = ./.; name = "repo-src"; }}"
             ${pkgs.bash}/bin/bash ./scripts/generate-proto.sh
             diff -r -x result -x "result-*" schemas/v1 "$src_dir/schemas/v1"
             diff -r -x result -x "result-*" src "$src_dir/src"
@@ -828,10 +1331,10 @@ EOF
             ];
           } ''
             set -euo pipefail
-            cp -R ${self} repo
+            cp -R ${builtins.path { path = ./.; name = "repo-src"; }} repo
             chmod -R u+w repo
             cd repo
-            src_dir="${self}"
+            src_dir="${builtins.path { path = ./.; name = "repo-src"; }}"
             ${pkgs.bash}/bin/bash ./scripts/generate-json-schema.sh
             diff -r -x result -x "result-*" schemas/v1 "$src_dir/schemas/v1"
             touch $out

@@ -613,6 +613,172 @@ class DeliveryContract extends $pb.GeneratedMessage {
   $0.Struct ensureExtensions() => $_ensure(10);
 }
 
+class ObjectiveSpec extends $pb.GeneratedMessage {
+  factory ObjectiveSpec({
+    $core.String? metricKey,
+    $core.String? direction,
+    $core.double? target,
+    $core.double? minDelta,
+    $core.double? tolerance,
+    $core.String? reportFile,
+    $core.String? reportTaskId,
+    $core.double? weight,
+    $core.String? description,
+    $0.Struct? extensions,
+  }) {
+    final result = create();
+    if (metricKey != null) result.metricKey = metricKey;
+    if (direction != null) result.direction = direction;
+    if (target != null) result.target = target;
+    if (minDelta != null) result.minDelta = minDelta;
+    if (tolerance != null) result.tolerance = tolerance;
+    if (reportFile != null) result.reportFile = reportFile;
+    if (reportTaskId != null) result.reportTaskId = reportTaskId;
+    if (weight != null) result.weight = weight;
+    if (description != null) result.description = description;
+    if (extensions != null) result.extensions = extensions;
+    return result;
+  }
+
+  ObjectiveSpec._();
+
+  factory ObjectiveSpec.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory ObjectiveSpec.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ObjectiveSpec',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'metricKey')
+    ..aOS(2, _omitFieldNames ? '' : 'direction')
+    ..aD(3, _omitFieldNames ? '' : 'target')
+    ..aD(4, _omitFieldNames ? '' : 'minDelta')
+    ..aD(5, _omitFieldNames ? '' : 'tolerance')
+    ..aOS(6, _omitFieldNames ? '' : 'reportFile')
+    ..aOS(7, _omitFieldNames ? '' : 'reportTaskId')
+    ..aD(8, _omitFieldNames ? '' : 'weight')
+    ..aOS(9, _omitFieldNames ? '' : 'description')
+    ..aOM<$0.Struct>(10, _omitFieldNames ? '' : 'extensions',
+        subBuilder: $0.Struct.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ObjectiveSpec clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ObjectiveSpec copyWith(void Function(ObjectiveSpec) updates) =>
+      super.copyWith((message) => updates(message as ObjectiveSpec))
+          as ObjectiveSpec;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ObjectiveSpec create() => ObjectiveSpec._();
+  @$core.override
+  ObjectiveSpec createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static ObjectiveSpec getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ObjectiveSpec>(create);
+  static ObjectiveSpec? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get metricKey => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set metricKey($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasMetricKey() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearMetricKey() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get direction => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set direction($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasDirection() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearDirection() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.double get target => $_getN(2);
+  @$pb.TagNumber(3)
+  set target($core.double value) => $_setDouble(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasTarget() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearTarget() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.double get minDelta => $_getN(3);
+  @$pb.TagNumber(4)
+  set minDelta($core.double value) => $_setDouble(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasMinDelta() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearMinDelta() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.double get tolerance => $_getN(4);
+  @$pb.TagNumber(5)
+  set tolerance($core.double value) => $_setDouble(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasTolerance() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearTolerance() => $_clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get reportFile => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set reportFile($core.String value) => $_setString(5, value);
+  @$pb.TagNumber(6)
+  $core.bool hasReportFile() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearReportFile() => $_clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.String get reportTaskId => $_getSZ(6);
+  @$pb.TagNumber(7)
+  set reportTaskId($core.String value) => $_setString(6, value);
+  @$pb.TagNumber(7)
+  $core.bool hasReportTaskId() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearReportTaskId() => $_clearField(7);
+
+  @$pb.TagNumber(8)
+  $core.double get weight => $_getN(7);
+  @$pb.TagNumber(8)
+  set weight($core.double value) => $_setDouble(7, value);
+  @$pb.TagNumber(8)
+  $core.bool hasWeight() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearWeight() => $_clearField(8);
+
+  @$pb.TagNumber(9)
+  $core.String get description => $_getSZ(8);
+  @$pb.TagNumber(9)
+  set description($core.String value) => $_setString(8, value);
+  @$pb.TagNumber(9)
+  $core.bool hasDescription() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearDescription() => $_clearField(9);
+
+  @$pb.TagNumber(10)
+  $0.Struct get extensions => $_getN(9);
+  @$pb.TagNumber(10)
+  set extensions($0.Struct value) => $_setField(10, value);
+  @$pb.TagNumber(10)
+  $core.bool hasExtensions() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearExtensions() => $_clearField(10);
+  @$pb.TagNumber(10)
+  $0.Struct ensureExtensions() => $_ensure(9);
+}
+
 class EvalResult extends $pb.GeneratedMessage {
   factory EvalResult({
     $core.String? metric,
@@ -981,6 +1147,7 @@ class Task extends $pb.GeneratedMessage {
     $0.Struct? extensions,
     ExperimentSpec? experimentSpec,
     DeliveryContract? deliveryContract,
+    ObjectiveSpec? objectiveSpec,
   }) {
     final result = create();
     if (version != null) result.version = version;
@@ -994,6 +1161,7 @@ class Task extends $pb.GeneratedMessage {
     if (extensions != null) result.extensions = extensions;
     if (experimentSpec != null) result.experimentSpec = experimentSpec;
     if (deliveryContract != null) result.deliveryContract = deliveryContract;
+    if (objectiveSpec != null) result.objectiveSpec = objectiveSpec;
     return result;
   }
 
@@ -1029,6 +1197,8 @@ class Task extends $pb.GeneratedMessage {
         subBuilder: ExperimentSpec.create)
     ..aOM<DeliveryContract>(11, _omitFieldNames ? '' : 'deliveryContract',
         subBuilder: DeliveryContract.create)
+    ..aOM<ObjectiveSpec>(12, _omitFieldNames ? '' : 'objectiveSpec',
+        subBuilder: ObjectiveSpec.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -1153,6 +1323,17 @@ class Task extends $pb.GeneratedMessage {
   void clearDeliveryContract() => $_clearField(11);
   @$pb.TagNumber(11)
   DeliveryContract ensureDeliveryContract() => $_ensure(10);
+
+  @$pb.TagNumber(12)
+  ObjectiveSpec get objectiveSpec => $_getN(11);
+  @$pb.TagNumber(12)
+  set objectiveSpec(ObjectiveSpec value) => $_setField(12, value);
+  @$pb.TagNumber(12)
+  $core.bool hasObjectiveSpec() => $_has(11);
+  @$pb.TagNumber(12)
+  void clearObjectiveSpec() => $_clearField(12);
+  @$pb.TagNumber(12)
+  ObjectiveSpec ensureObjectiveSpec() => $_ensure(11);
 }
 
 class Artifact extends $pb.GeneratedMessage {
