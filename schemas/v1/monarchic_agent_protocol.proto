@@ -71,6 +71,19 @@ message DeliveryContract {
   google.protobuf.Struct extensions = 11;
 }
 
+message ObjectiveSpec {
+  string metric_key = 1;
+  string direction = 2;
+  optional double target = 3;
+  optional double min_delta = 4;
+  optional double tolerance = 5;
+  optional string report_file = 6;
+  optional string report_task_id = 7;
+  optional double weight = 8;
+  optional string description = 9;
+  google.protobuf.Struct extensions = 10;
+}
+
 message EvalResult {
   string metric = 1;
   double value = 2;
@@ -112,6 +125,7 @@ message Task {
   google.protobuf.Struct extensions = 9;
   ExperimentSpec experiment_spec = 10;
   DeliveryContract delivery_contract = 11;
+  ObjectiveSpec objective_spec = 12;
 }
 
 message Artifact {

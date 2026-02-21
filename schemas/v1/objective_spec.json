@@ -1,0 +1,51 @@
+{
+  "$id": "https://monarchic.ai/schema/v1/objective_spec.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ObjectiveSpec",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["metric_key", "direction"],
+  "properties": {
+    "metric_key": {
+      "type": "string",
+      "minLength": 1
+    },
+    "direction": {
+      "type": "string",
+      "enum": ["maximize", "minimize", "target"]
+    },
+    "target": {
+      "type": "number"
+    },
+    "min_delta": {
+      "type": "number"
+    },
+    "tolerance": {
+      "type": "number",
+      "minimum": 0
+    },
+    "report_file": {
+      "type": "string",
+      "minLength": 1
+    },
+    "report_task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "weight": {
+      "type": "number",
+      "minimum": 0
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "anyOf": [
+    {
+      "required": ["target"]
+    },
+    {
+      "required": ["min_delta"]
+    }
+  ]
+}

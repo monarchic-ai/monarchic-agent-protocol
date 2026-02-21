@@ -19,6 +19,7 @@ fn main() {
             labels: vec!["linux".to_string(), "rust".to_string()],
             extensions: Some(Struct::default()),
         }),
+        objective_spec: None,
         extensions: Some(Struct::default()),
         experiment_spec: None,
         delivery_contract: None,
