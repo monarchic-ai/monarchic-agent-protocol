@@ -7,37 +7,53 @@ rust_lib="$(ls target/debug/deps/libmonarchic_agent_protocol-*.rlib | head -n 1)
 prost_lib="$(ls target/debug/deps/libprost_types-*.rlib | head -n 1)"
 
 rustc examples/rust/task.rs \
+  --edition=2021 \
   -L target/debug/deps \
   --extern monarchic_agent_protocol="${rust_lib}" \
   --extern prost_types="${prost_lib}" \
   -o /tmp/monarchic-agent-protocol-example-rust
 
-npx tsc --noEmit --moduleResolution node --module commonjs --target es2020 examples/ts/task.ts
+npx --yes --package typescript tsc --noEmit --moduleResolution node --module commonjs --target es2020 examples/ts/task.ts
 
 tmp_dir="$(mktemp -d)"
 trap 'rm -rf "${tmp_dir}"' EXIT
 
 proto_dir="$(cd schemas/v1 && pwd)"
-protoc -I "${proto_dir}" \
-  --cpp_out="${tmp_dir}/cpp" \
-  --java_out="${tmp_dir}/java" \
-  --kotlin_out="${tmp_dir}/kotlin" \
-  --csharp_out="${tmp_dir}/csharp" \
-  --python_out="${tmp_dir}/python" \
-  --ruby_out="${tmp_dir}/ruby" \
-  --php_out="${tmp_dir}/php" \
-  --dart_out="${tmp_dir}/dart" \
-  "${proto_dir}/monarchic_agent_protocol.proto"
+mkdir -p \
+  "${tmp_dir}/cpp" \
+  "${tmp_dir}/java" \
+  "${tmp_dir}/kotlin" \
+  "${tmp_dir}/csharp" \
+  "${tmp_dir}/python" \
+  "${tmp_dir}/ruby" \
+  "${tmp_dir}/php" \
+  "${tmp_dir}/dart"
+proto_args=(
+  -I "${proto_dir}"
+  --cpp_out="${tmp_dir}/cpp"
+  --java_out="${tmp_dir}/java"
+  --kotlin_out="${tmp_dir}/kotlin"
+  --csharp_out="${tmp_dir}/csharp"
+  --python_out="${tmp_dir}/python"
+  --ruby_out="${tmp_dir}/ruby"
+  --php_out="${tmp_dir}/php"
+)
+if command -v protoc-gen-dart >/dev/null 2>&1; then
+  proto_args+=( --dart_out="${tmp_dir}/dart" )
+else
+  echo "Skipping Dart proto generation (protoc-gen-dart not available)"
+fi
+protoc "${proto_args[@]}" "${proto_dir}/monarchic_agent_protocol.proto"
 
-if command -v g++ >/dev/null 2>&1; then
+if command -v g++ >/dev/null 2>&1 && [[ -f "${tmp_dir}/cpp/monarchic_agent_protocol.pb.cc" ]]; then
   g++ -std=c++17 -I "${tmp_dir}/cpp" examples/proto/cpp/task.cpp \
     "${tmp_dir}/cpp/monarchic_agent_protocol.pb.cc" \
     -lprotobuf -pthread -o /tmp/monarchic-agent-protocol-example-cpp
 else
-  echo "Skipping C++ example (g++ not available)"
+  echo "Skipping C++ example (g++ or generated C++ protobuf not available)"
 fi
 
-if command -v javac >/dev/null 2>&1; then
+if command -v javac >/dev/null 2>&1 && [[ -d "${tmp_dir}/java" ]]; then
   protojar="$(ls /usr/share/java/protobuf-java*.jar /usr/share/java/protobuf.jar 2>/dev/null | head -n 1 || true)"
   if [[ -n "${protojar}" ]]; then
     javac -classpath "${protojar}:${tmp_dir}/java" -d "${tmp_dir}/java-classes" examples/proto/java/TaskExample.java
@@ -45,10 +61,10 @@ if command -v javac >/dev/null 2>&1; then
     echo "Skipping Java example (protobuf Java runtime not found)"
   fi
 else
-  echo "Skipping Java example (javac not available)"
+  echo "Skipping Java example (javac or generated Java protobuf not available)"
 fi
 
-if command -v kotlinc >/dev/null 2>&1; then
+if command -v kotlinc >/dev/null 2>&1 && [[ -d "${tmp_dir}/kotlin" ]]; then
   protojar="$(ls /usr/share/java/protobuf-java*.jar /usr/share/java/protobuf.jar 2>/dev/null | head -n 1 || true)"
   if [[ -n "${protojar}" ]]; then
     kotlinc examples/proto/kotlin/TaskExample.kt -classpath "${protojar}:${tmp_dir}/kotlin" -d "${tmp_dir}/kotlin-classes"
@@ -56,10 +72,10 @@ if command -v kotlinc >/dev/null 2>&1; then
     echo "Skipping Kotlin example (protobuf Java runtime not found)"
   fi
 else
-  echo "Skipping Kotlin example (kotlinc not available)"
+  echo "Skipping Kotlin example (kotlinc or generated Kotlin protobuf not available)"
 fi
 
-if command -v dotnet >/dev/null 2>&1; then
+if command -v dotnet >/dev/null 2>&1 && compgen -G "${tmp_dir}/csharp/*.cs" >/dev/null; then
   csharp_dir="${tmp_dir}/csharp-build"
   mkdir -p "${csharp_dir}"
   cp examples/proto/csharp/TaskExample.cs "${csharp_dir}/Program.cs"
@@ -78,35 +94,35 @@ if command -v dotnet >/dev/null 2>&1; then
 XML
   dotnet build "${csharp_dir}/Example.csproj" -c Release
 else
-  echo "Skipping C# example (dotnet not available)"
+  echo "Skipping C# example (dotnet or generated C# protobuf not available)"
 fi
 
-if command -v python >/dev/null 2>&1; then
+if command -v python >/dev/null 2>&1 && [[ -d "${tmp_dir}/python" ]]; then
   PYTHONPATH="${tmp_dir}/python" python examples/proto/python/task.py
 else
-  echo "Skipping Python proto example (python not available)"
+  echo "Skipping Python proto example (python or generated Python protobuf not available)"
 fi
 
-if command -v ruby >/dev/null 2>&1; then
+if command -v ruby >/dev/null 2>&1 && [[ -d "${tmp_dir}/ruby" ]]; then
   RUBYLIB="${tmp_dir}/ruby" ruby examples/proto/ruby/task.rb
 else
-  echo "Skipping Ruby proto example (ruby not available)"
+  echo "Skipping Ruby proto example (ruby or generated Ruby protobuf not available)"
 fi
 
-if command -v php >/dev/null 2>&1; then
+if command -v php >/dev/null 2>&1 && [[ -d "${tmp_dir}/php" ]]; then
   PHP_INI_SCAN_DIR= PHP_INCLUDE_PATH="${tmp_dir}/php" php -d include_path="${tmp_dir}/php" examples/proto/php/task.php
 else
-  echo "Skipping PHP proto example (php not available)"
+  echo "Skipping PHP proto example (php or generated PHP protobuf not available)"
 fi
 
-if command -v dart >/dev/null 2>&1; then
+if command -v dart >/dev/null 2>&1 && [[ -d "${tmp_dir}/dart/monarchic/agent_protocol/v1" ]]; then
   dart_root="${tmp_dir}/dart-run"
   mkdir -p "${dart_root}/monarchic/agent_protocol/v1"
   cp "${tmp_dir}/dart/monarchic/agent_protocol/v1/"* "${dart_root}/monarchic/agent_protocol/v1/"
   cp examples/proto/dart/task.dart "${dart_root}/task.dart"
   dart "${dart_root}/task.dart"
 else
-  echo "Skipping Dart proto example (dart not available)"
+  echo "Skipping Dart proto example (dart runtime or protoc-gen-dart not available)"
 fi
 
 echo "Examples compiled successfully"
