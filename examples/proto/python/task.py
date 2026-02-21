@@ -1,4 +1,4 @@
-from monarchic_agent_protocol import monarchic_agent_protocol_pb2 as map_pb2
+import monarchic_agent_protocol_pb2 as map_pb2
 
 
 def main() -> None:

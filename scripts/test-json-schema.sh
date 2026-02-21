@@ -138,11 +138,11 @@ def validate_invalid_task_fixture(schemas, fixture_path):
         )
         raise SystemExit(1)
     if not any(
-        error.validator == "required" and "goal" in error.message
+        error.validator in {"anyOf", "type"} and list(error.path) == ["role"]
         for error in validation_errors
     ):
         print(
-            "Invalid task fixture check failed: expected a missing 'goal' required-field error.",
+            "Invalid task fixture check failed: expected a type error for role.",
             file=sys.stderr,
         )
         for error in validation_errors:

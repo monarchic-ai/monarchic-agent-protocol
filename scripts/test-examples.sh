@@ -1,34 +1,39 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cargo build
+repo_root="$(cd "$(dirname "$0")/.." && pwd)"
+tmp_rust_dir="$(mktemp -d)"
+mkdir -p "$tmp_rust_dir/src"
+cp examples/rust/task.rs "$tmp_rust_dir/src/main.rs"
+cat >"$tmp_rust_dir/Cargo.toml" <<'TOML'
+[package]
+name = "monarchic-example"
+version = "0.1.0"
+edition = "2021"
 
-rust_lib="$(ls target/debug/deps/libmonarchic_agent_protocol-*.rlib | head -n 1)"
-prost_lib="$(ls target/debug/deps/libprost_types-*.rlib | head -n 1)"
+[dependencies]
+monarchic-agent-protocol = { path = "__REPO_ROOT__" }
+prost-types = "0.14"
+TOML
+(python - <<PY
+from pathlib import Path
+path = Path("$tmp_rust_dir/Cargo.toml")
+text = path.read_text(encoding="utf-8")
+path.write_text(text.replace("__REPO_ROOT__", "$repo_root"), encoding="utf-8")
+PY
+)
+(cd "$tmp_rust_dir" && cargo run --quiet >/dev/null)
+rm -rf "$tmp_rust_dir"
 
-rustc examples/rust/task.rs \
-  --edition=2021 \
-  -L target/debug/deps \
-  --extern monarchic_agent_protocol="${rust_lib}" \
-  --extern prost_types="${prost_lib}" \
-  -o /tmp/monarchic-agent-protocol-example-rust
-
-npx --yes --package typescript tsc --noEmit --moduleResolution node --module commonjs --target es2020 examples/ts/task.ts
+npx -y -p typescript tsc --noEmit --moduleResolution node --module commonjs --target es2020 examples/ts/task.ts
 
 tmp_dir="$(mktemp -d)"
 trap 'rm -rf "${tmp_dir}"' EXIT
 
 proto_dir="$(cd schemas/v1 && pwd)"
-mkdir -p \
-  "${tmp_dir}/cpp" \
-  "${tmp_dir}/java" \
-  "${tmp_dir}/kotlin" \
-  "${tmp_dir}/csharp" \
-  "${tmp_dir}/python" \
-  "${tmp_dir}/ruby" \
-  "${tmp_dir}/php" \
-  "${tmp_dir}/dart"
-proto_args=(
+mkdir -p "${tmp_dir}/cpp" "${tmp_dir}/java" "${tmp_dir}/kotlin" "${tmp_dir}/csharp" \
+  "${tmp_dir}/python" "${tmp_dir}/ruby" "${tmp_dir}/php"
+protoc_args=(
   -I "${proto_dir}"
   --cpp_out="${tmp_dir}/cpp"
   --java_out="${tmp_dir}/java"
@@ -39,20 +44,32 @@ proto_args=(
   --php_out="${tmp_dir}/php"
 )
 if command -v protoc-gen-dart >/dev/null 2>&1; then
-  proto_args+=( --dart_out="${tmp_dir}/dart" )
+  protoc_args+=(--dart_out="${tmp_dir}/dart")
+  have_dart_proto=1
 else
-  echo "Skipping Dart proto generation (protoc-gen-dart not available)"
+  have_dart_proto=0
 fi
-protoc "${proto_args[@]}" "${proto_dir}/monarchic_agent_protocol.proto"
+protoc "${protoc_args[@]}" "${proto_dir}/monarchic_agent_protocol.proto"
+if [[ -d "${tmp_dir}/csharp" ]] && find "${tmp_dir}/csharp" -maxdepth 1 -name '*.cs' -print -quit | grep -q .; then
+  have_csharp_proto=1
+else
+  have_csharp_proto=0
+fi
 
-if command -v g++ >/dev/null 2>&1 && [[ -f "${tmp_dir}/cpp/monarchic_agent_protocol.pb.cc" ]]; then
+if command -v g++ >/dev/null 2>&1; then
+  cpp_flags=()
+  if command -v pkg-config >/dev/null 2>&1 && pkg-config --exists protobuf; then
+    read -r -a cpp_flags <<<"$(pkg-config --cflags --libs protobuf)"
+  else
+    cpp_flags=(-lprotobuf)
+  fi
   if ! g++ -std=c++17 -I "${tmp_dir}/cpp" examples/proto/cpp/task.cpp \
     "${tmp_dir}/cpp/monarchic_agent_protocol.pb.cc" \
-    -lprotobuf -pthread -o /tmp/monarchic-agent-protocol-example-cpp; then
-    echo "Skipping C++ example (compile failed)"
+    "${cpp_flags[@]}" -pthread -o /tmp/monarchic-agent-protocol-example-cpp; then
+    echo "Skipping C++ example (link failed)"
   fi
 else
-  echo "Skipping C++ example (g++ or generated C++ protobuf not available)"
+  echo "Skipping C++ example (g++ not available)"
 fi
 
 if command -v javac >/dev/null 2>&1 && [[ -d "${tmp_dir}/java" ]]; then
@@ -81,7 +98,7 @@ else
   echo "Skipping Kotlin example (kotlinc or generated Kotlin protobuf not available)"
 fi
 
-if command -v dotnet >/dev/null 2>&1 && compgen -G "${tmp_dir}/csharp/*.cs" >/dev/null; then
+if [[ "${have_csharp_proto}" -eq 1 ]] && command -v dotnet >/dev/null 2>&1; then
   csharp_dir="${tmp_dir}/csharp-build"
   mkdir -p "${csharp_dir}"
   cp examples/proto/csharp/TaskExample.cs "${csharp_dir}/Program.cs"
@@ -102,7 +119,7 @@ XML
     echo "Skipping C# example (build failed)"
   fi
 else
-  echo "Skipping C# example (dotnet or generated C# protobuf not available)"
+  echo "Skipping C# example (C# proto output or dotnet not available)"
 fi
 
 if command -v python >/dev/null 2>&1 && [[ -d "${tmp_dir}/python" ]]; then
@@ -129,7 +146,7 @@ else
   echo "Skipping PHP proto example (php or generated PHP protobuf not available)"
 fi
 
-if command -v dart >/dev/null 2>&1 && [[ -d "${tmp_dir}/dart/monarchic/agent_protocol/v1" ]]; then
+if [[ "${have_dart_proto}" -eq 1 ]] && command -v dart >/dev/null 2>&1; then
   dart_root="${tmp_dir}/dart-run"
   mkdir -p "${dart_root}/monarchic/agent_protocol/v1"
   cp "${tmp_dir}/dart/monarchic/agent_protocol/v1/"* "${dart_root}/monarchic/agent_protocol/v1/"

@@ -11,4 +11,4 @@ $task->setTaskId("task-123");
 $task->setRole(AgentRole::DEV);
 $task->setGoal("Implement protocol");
 
-echo $task, PHP_EOL;
+echo $task->serializeToJsonString(), PHP_EOL;
