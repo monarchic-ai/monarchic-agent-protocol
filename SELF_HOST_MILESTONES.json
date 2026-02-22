@@ -51,9 +51,9 @@
   {
     "id": "M08",
     "title": "Add self-host artifact command log schema check",
-    "status": "pending",
-    "completed_at": null,
-    "notes": "pending: Define and validate command log artifact format for reproducible verification records."
+    "status": "done",
+    "completed_at": "2026-02-22T00:35:39Z",
+    "notes": "done: Enforced deterministic '<command> -> <PASS|FAIL|BLOCKED>' schema checks for verification command logs in update and implementation artifacts."
   },
   {
     "id": "M09",

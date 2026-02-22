@@ -1,27 +1,27 @@
 {
   "status": "pass",
-  "headline": "Self-host regression coverage now catches milestone key-order drift",
-  "current_focus": "Keeping self-host artifact validation deterministic and maintainable by encoding structural JSON contracts as dedicated regression tests and synchronized tracking artifacts.",
-  "milestone_target": "M08: Add self-host artifact command log schema check.",
-  "milestones_done": 7,
+  "headline": "Verification command logs now enforce a deterministic schema",
+  "current_focus": "Actively hardening self-host artifact reliability by validating reproducible command-log entries and keeping the validator plus regression fixtures aligned.",
+  "milestone_target": "M09: Add validator coverage for NEXT_PRIORITY_TASK-driven recovery mode.",
+  "milestones_done": 8,
   "total_milestones": 12,
   "completed_work": [
-    "Added scripts/test-self-host-artifact-milestone-key-order.sh to assert baseline fixtures pass and reordered milestone keys fail deterministically.",
-    "Verified the new regression script against scripts/test-self-host-artifacts.sh to ensure key-order validation remains enforced.",
-    "Ran focused self-host verification commands and confirmed all pass after adding milestone key-order drift coverage.",
-    "Marked milestone M07 done and synchronized SELF_HOST_MILESTONES.json, SELF_HOST_IMPLEMENTATION_LOG.json, SELF_HOST_REPORT.json, and SELF_HOST_UPDATE.json for this run."
+    "Added deterministic command-log schema validation in scripts/test-self-host-artifacts.sh requiring verification entries to match '<command> -> <PASS|FAIL|BLOCKED>'.",
+    "Added scripts/test-self-host-artifact-command-log-schema.sh to prove malformed verification command-log entries fail for both SELF_HOST_UPDATE.json and SELF_HOST_IMPLEMENTATION_LOG.json.",
+    "Ran focused self-host verification commands and confirmed all pass with the new command-log schema checks enabled.",
+    "Marked milestone M08 done and synchronized SELF_HOST_MILESTONES.json, SELF_HOST_IMPLEMENTATION_LOG.json, SELF_HOST_REPORT.json, and SELF_HOST_UPDATE.json for this run."
   ],
   "verification": [
     "bash scripts/test-self-host-artifacts.sh -> PASS",
-    "bash scripts/test-self-host-artifact-milestone-key-order.sh -> PASS",
+    "bash scripts/test-self-host-artifact-command-log-schema.sh -> PASS",
     "bash scripts/test-self-host-artifact-text-fields.sh -> PASS"
   ],
   "blockers": [
     "None."
   ],
   "next_steps": [
-    "Implement M08 by defining and validating a dedicated command log artifact schema for reproducible verification records.",
-    "Continue incremental self-host hardening with one small, deterministic validator or regression-test improvement per run."
+    "Implement M09 by validating behavior when NEXT_PRIORITY_TASK.md recovery guidance is present.",
+    "Continue incremental self-host hardening with one small deterministic validator or regression-test improvement per run."
   ],
-  "note": "This run completed one low-risk reliability improvement by adding deterministic milestone key-order drift regression coverage."
+  "note": "This run completed one low-risk reliability improvement by enforcing deterministic command-log schema validation with targeted regression coverage."
 }

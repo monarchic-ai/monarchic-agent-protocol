@@ -145,5 +145,25 @@
       "bash scripts/test-self-host-artifact-text-fields.sh -> PASS"
     ],
     "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-02-22T00:35:39Z",
+    "task_id": "task-self-host-001",
+    "summary": "Completed M08 by enforcing deterministic command-log schema checks for verification entries.",
+    "milestone_completed": "M08",
+    "files": [
+      "scripts/test-self-host-artifacts.sh",
+      "scripts/test-self-host-artifact-command-log-schema.sh",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-artifacts.sh -> PASS",
+      "bash scripts/test-self-host-artifact-command-log-schema.sh -> PASS",
+      "bash scripts/test-self-host-artifact-text-fields.sh -> PASS"
+    ],
+    "gate": "ready-for-review"
   }
 ]

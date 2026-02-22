@@ -82,6 +82,17 @@ def to_canonical_json_text(value: object) -> str:
     return f"{json.dumps(value, indent=2)}\n"
 
 
+def validate_command_log_entries(entries: list[str], context: str) -> None:
+    command_log_pattern = re.compile(r"^.+\s->\s(PASS|FAIL|BLOCKED)$")
+    for index, entry in enumerate(entries):
+        if not command_log_pattern.fullmatch(entry):
+            fail(
+                f"{context} entry at index {index} must match "
+                "'<command> -> <PASS|FAIL|BLOCKED>', "
+                f"found {entry!r}."
+            )
+
+
 for path in (milestones_path, report_path, update_path, log_path):
     if not path.is_file():
         fail(f"Missing required file: {path}")
@@ -362,6 +373,10 @@ for key in ("completed_work", "verification", "blockers", "next_steps"):
         fail(f"SELF_HOST_UPDATE.json field {key} must be an array of non-empty strings.")
 if not update["verification"]:
     fail("SELF_HOST_UPDATE.json field verification must include at least one entry.")
+validate_command_log_entries(
+    update["verification"],
+    "SELF_HOST_UPDATE.json field verification",
+)
 
 if not isinstance(implementation_log, list):
     fail("SELF_HOST_IMPLEMENTATION_LOG.json must be a JSON array.")
@@ -408,6 +423,10 @@ for key in ("files", "verification"):
         fail(f"Latest implementation log entry field {key} must be an array of non-empty strings.")
 if not latest_entry["verification"]:
     fail("Latest implementation log entry field verification must include at least one entry.")
+validate_command_log_entries(
+    latest_entry["verification"],
+    "Latest implementation log entry field verification",
+)
 
 if latest_entry["milestone_completed"] != milestone_completed:
     fail(
