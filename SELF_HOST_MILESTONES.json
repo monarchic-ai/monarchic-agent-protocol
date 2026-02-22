@@ -44,9 +44,9 @@
   {
     "id": "M07",
     "title": "Add test for milestone object key-order drift regression",
-    "status": "pending",
-    "completed_at": null,
-    "notes": "pending: Catch accidental milestone key reordering with explicit failure assertion."
+    "status": "done",
+    "completed_at": "2026-02-22T00:32:36Z",
+    "notes": "done: Added deterministic regression coverage that fails when milestone object key order drifts from the required schema order."
   },
   {
     "id": "M08",

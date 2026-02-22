@@ -1,18 +1,17 @@
 {
   "status": "pass",
-  "milestone_completed": "M06",
-  "milestones_done": 6,
+  "milestone_completed": "M07",
+  "milestones_done": 7,
   "total_milestones": 12,
   "new_files": [
-    "scripts/test-self-host-artifact-milestone-title-uniqueness.sh"
+    "scripts/test-self-host-artifact-milestone-key-order.sh"
   ],
   "changed_files": [
-    "scripts/test-self-host-artifacts.sh",
     "SELF_HOST_MILESTONES.json",
     "SELF_HOST_IMPLEMENTATION_LOG.json",
     "SELF_HOST_REPORT.json",
     "SELF_HOST_UPDATE.json"
   ],
-  "test_command": "bash scripts/test-self-host-artifacts.sh && bash scripts/test-self-host-artifact-milestone-title-uniqueness.sh && bash scripts/test-self-host-artifact-text-fields.sh",
-  "note": "Completed one low-risk reliability improvement by requiring unique milestone titles and adding deterministic duplicate-title regression coverage."
+  "test_command": "bash scripts/test-self-host-artifacts.sh && bash scripts/test-self-host-artifact-milestone-key-order.sh && bash scripts/test-self-host-artifact-text-fields.sh",
+  "note": "Completed one low-risk reliability improvement by adding deterministic milestone key-order drift regression coverage."
 }

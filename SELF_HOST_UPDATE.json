@@ -1,27 +1,27 @@
 {
   "status": "pass",
-  "headline": "Self-host validation now rejects duplicate milestone titles",
-  "current_focus": "Keeping self-host milestone tracking deterministic and reviewable by preventing ambiguous duplicate milestone titles in SELF_HOST_MILESTONES.json.",
-  "milestone_target": "M07: Add test for milestone object key-order drift regression.",
-  "milestones_done": 6,
+  "headline": "Self-host regression coverage now catches milestone key-order drift",
+  "current_focus": "Keeping self-host artifact validation deterministic and maintainable by encoding structural JSON contracts as dedicated regression tests and synchronized tracking artifacts.",
+  "milestone_target": "M08: Add self-host artifact command log schema check.",
+  "milestones_done": 7,
   "total_milestones": 12,
   "completed_work": [
-    "Updated scripts/test-self-host-artifacts.sh to enforce milestone title uniqueness with an explicit duplicate-title failure check.",
-    "Added scripts/test-self-host-artifact-milestone-title-uniqueness.sh to verify baseline fixtures pass and duplicate milestone titles fail deterministically.",
-    "Ran targeted self-host artifact verification commands and confirmed all pass after the uniqueness guardrail change.",
-    "Marked milestone M06 done and synchronized SELF_HOST_MILESTONES.json, SELF_HOST_IMPLEMENTATION_LOG.json, SELF_HOST_REPORT.json, and SELF_HOST_UPDATE.json for this run."
+    "Added scripts/test-self-host-artifact-milestone-key-order.sh to assert baseline fixtures pass and reordered milestone keys fail deterministically.",
+    "Verified the new regression script against scripts/test-self-host-artifacts.sh to ensure key-order validation remains enforced.",
+    "Ran focused self-host verification commands and confirmed all pass after adding milestone key-order drift coverage.",
+    "Marked milestone M07 done and synchronized SELF_HOST_MILESTONES.json, SELF_HOST_IMPLEMENTATION_LOG.json, SELF_HOST_REPORT.json, and SELF_HOST_UPDATE.json for this run."
   ],
   "verification": [
     "bash scripts/test-self-host-artifacts.sh -> PASS",
-    "bash scripts/test-self-host-artifact-milestone-title-uniqueness.sh -> PASS",
+    "bash scripts/test-self-host-artifact-milestone-key-order.sh -> PASS",
     "bash scripts/test-self-host-artifact-text-fields.sh -> PASS"
   ],
   "blockers": [
     "None."
   ],
   "next_steps": [
-    "Implement M07 by adding deterministic regression coverage that fails when milestone object key order drifts.",
-    "Continue incremental self-host artifact hardening with one small, reviewable validator or regression-test improvement per run."
+    "Implement M08 by defining and validating a dedicated command log artifact schema for reproducible verification records.",
+    "Continue incremental self-host hardening with one small, deterministic validator or regression-test improvement per run."
   ],
-  "note": "This run completed one low-risk reliability improvement by eliminating duplicate milestone titles from self-host milestone metadata."
+  "note": "This run completed one low-risk reliability improvement by adding deterministic milestone key-order drift regression coverage."
 }
