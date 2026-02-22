@@ -78,6 +78,10 @@ def is_strict_int(value: object) -> bool:
     return isinstance(value, int) and not isinstance(value, bool)
 
 
+def to_canonical_json_text(value: object) -> str:
+    return f"{json.dumps(value, indent=2)}\n"
+
+
 for path in (milestones_path, report_path, update_path, log_path):
     if not path.is_file():
         fail(f"Missing required file: {path}")
@@ -90,6 +94,19 @@ with update_path.open("r", encoding="utf-8") as handle:
     update = json.load(handle)
 with log_path.open("r", encoding="utf-8") as handle:
     implementation_log = json.load(handle)
+
+canonical_targets = (
+    (milestones_path, milestones),
+    (report_path, report),
+    (update_path, update),
+    (log_path, implementation_log),
+)
+for path, payload in canonical_targets:
+    if path.read_text(encoding="utf-8") != to_canonical_json_text(payload):
+        fail(
+            f"{path.name} must use canonical JSON formatting with two-space indentation "
+            "and trailing newline."
+        )
 
 prior_report = None
 if prior_report_path.is_file():

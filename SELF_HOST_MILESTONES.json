@@ -29,17 +29,17 @@
   },
   {
     "id": "M05",
-    "title": "Add deterministic test for duplicate milestone title handling",
-    "status": "pending",
-    "completed_at": null,
-    "notes": "pending: Decide whether title uniqueness is required and encode as validator rule."
+    "title": "Add JSON formatting consistency check for self-host artifacts",
+    "status": "done",
+    "completed_at": "2026-02-22T00:25:46Z",
+    "notes": "done: Enforced canonical JSON formatting (two-space indentation and trailing newline) for self-host artifacts with deterministic regression coverage."
   },
   {
     "id": "M06",
-    "title": "Add JSON formatting consistency check for self-host artifacts",
+    "title": "Add deterministic test for duplicate milestone title handling",
     "status": "pending",
     "completed_at": null,
-    "notes": "pending: Ensure normalized indentation and trailing newline across run artifacts."
+    "notes": "pending: Decide whether title uniqueness is required and encode the decision as validator behavior with deterministic tests."
   },
   {
     "id": "M07",

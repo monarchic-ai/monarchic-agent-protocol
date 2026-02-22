@@ -86,5 +86,25 @@
       "bash scripts/test-self-host-fixture-helpers.sh -> PASS"
     ],
     "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-02-22T00:25:46Z",
+    "task_id": "task-self-host-001",
+    "summary": "Completed M05 by enforcing canonical JSON formatting across self-host artifacts and adding deterministic formatting regression checks.",
+    "milestone_completed": "M05",
+    "files": [
+      "scripts/test-self-host-artifact-json-formatting.sh",
+      "scripts/test-self-host-artifacts.sh",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-artifacts.sh -> PASS",
+      "bash scripts/test-self-host-artifact-json-formatting.sh -> PASS",
+      "bash scripts/test-self-host-artifact-text-fields.sh -> PASS"
+    ],
+    "gate": "ready-for-review"
   }
 ]
