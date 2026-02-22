@@ -38,5 +38,26 @@
       "bash scripts/test-self-host-artifact-text-fields.sh -> PASS"
     ],
     "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-02-22T00:17:00Z",
+    "task_id": "task-self-host-001",
+    "summary": "Completed M03 by enforcing prior-report milestone progression guardrails for pass status and adding deterministic regression coverage.",
+    "milestone_completed": "M03",
+    "files": [
+      "scripts/test-self-host-artifacts.sh",
+      "scripts/test-self-host-artifact-status-progression.sh",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-artifacts.sh -> PASS",
+      "bash scripts/test-self-host-artifact-status-progression.sh -> PASS",
+      "bash scripts/test-self-host-artifact-gate-values.sh -> PASS",
+      "bash scripts/test-self-host-artifact-text-fields.sh -> PASS"
+    ],
+    "gate": "ready-for-review"
   }
 ]

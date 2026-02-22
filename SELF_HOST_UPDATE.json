@@ -1,17 +1,18 @@
 {
   "status": "pass",
-  "headline": "Self-host artifact checks now enforce approved implementation-log gate tokens",
-  "current_focus": "Keeping self-host artifact validation deterministic while preparing the next reliability increment for report status transition guardrails.",
-  "milestone_target": "M03: Validate report status transitions against prior report snapshot.",
-  "milestones_done": 2,
+  "headline": "Pass-status validation now enforces milestone progression against prior report snapshots",
+  "current_focus": "Maintaining deterministic self-host artifact validation while moving to the next maintainability task around shared fixture-reset helpers.",
+  "milestone_target": "M04: Add helper for self-host fixture reset reuse.",
+  "milestones_done": 3,
   "total_milestones": 12,
   "completed_work": [
-    "Updated scripts/test-self-host-artifacts.sh to validate the latest SELF_HOST_IMPLEMENTATION_LOG.json gate value against an approved token list.",
-    "Added scripts/test-self-host-artifact-gate-values.sh to assert approved gate values pass and unapproved values fail deterministically.",
-    "Marked milestone M02 done in SELF_HOST_MILESTONES.json and synchronized run metadata across report/update/log artifacts."
+    "Updated scripts/test-self-host-artifacts.sh to read an optional prior report snapshot and require milestones_done progression whenever report status is pass.",
+    "Added scripts/test-self-host-artifact-status-progression.sh to verify baseline behavior, non-incrementing failure behavior, and incrementing pass behavior deterministically.",
+    "Marked milestone M03 done in SELF_HOST_MILESTONES.json and synchronized report/update/log artifacts to the completed change."
   ],
   "verification": [
     "bash scripts/test-self-host-artifacts.sh -> PASS",
+    "bash scripts/test-self-host-artifact-status-progression.sh -> PASS",
     "bash scripts/test-self-host-artifact-gate-values.sh -> PASS",
     "bash scripts/test-self-host-artifact-text-fields.sh -> PASS"
   ],
@@ -19,8 +20,8 @@
     "None."
   ],
   "next_steps": [
-    "Implement M03 by checking that pass status requires milestone progress versus a prior report snapshot when one is present.",
-    "Consider M04 to extract shared fixture-reset logic used by deterministic self-host regression scripts."
+    "Implement M04 by extracting shared fixture-reset setup used across self-host artifact regression scripts.",
+    "After fixture helper extraction, re-run the full self-host artifact regression set to confirm no behavior drift."
   ],
-  "note": "This run completed one low-risk reliability improvement by enforcing approved gate tokens and recording deterministic verification evidence."
+  "note": "This run completed one low-risk reliability improvement by preventing pass status without milestone progress when a prior report snapshot exists."
 }

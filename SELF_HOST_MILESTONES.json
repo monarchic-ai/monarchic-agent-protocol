@@ -16,9 +16,9 @@
   {
     "id": "M03",
     "title": "Validate report status transitions against prior report snapshot",
-    "status": "pending",
-    "completed_at": null,
-    "notes": "pending: Add guardrails that prevent pass status without milestone progress when prior report exists."
+    "status": "done",
+    "completed_at": "2026-02-22T00:17:00Z",
+    "notes": "done: Added prior-report progression guardrails so pass status now requires milestones_done to increase when a prior report snapshot is provided."
   },
   {
     "id": "M04",

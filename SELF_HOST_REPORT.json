@@ -1,10 +1,10 @@
 {
   "status": "pass",
-  "milestone_completed": "M02",
-  "milestones_done": 2,
+  "milestone_completed": "M03",
+  "milestones_done": 3,
   "total_milestones": 12,
   "new_files": [
-    "scripts/test-self-host-artifact-gate-values.sh"
+    "scripts/test-self-host-artifact-status-progression.sh"
   ],
   "changed_files": [
     "scripts/test-self-host-artifacts.sh",
@@ -13,6 +13,6 @@
     "SELF_HOST_REPORT.json",
     "SELF_HOST_UPDATE.json"
   ],
-  "test_command": "bash scripts/test-self-host-artifacts.sh && bash scripts/test-self-host-artifact-gate-values.sh && bash scripts/test-self-host-artifact-text-fields.sh",
-  "note": "Completed one low-risk reliability improvement by enforcing approved gate values in latest self-host implementation log artifacts."
+  "test_command": "bash scripts/test-self-host-artifacts.sh && bash scripts/test-self-host-artifact-status-progression.sh && bash scripts/test-self-host-artifact-gate-values.sh && bash scripts/test-self-host-artifact-text-fields.sh",
+  "note": "Completed one low-risk reliability improvement by requiring pass status milestone progress versus a prior report snapshot when present."
 }

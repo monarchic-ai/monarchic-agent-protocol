@@ -6,6 +6,7 @@ milestones_path="${repo_root}/SELF_HOST_MILESTONES.json"
 report_path="${repo_root}/SELF_HOST_REPORT.json"
 update_path="${repo_root}/SELF_HOST_UPDATE.json"
 log_path="${repo_root}/SELF_HOST_IMPLEMENTATION_LOG.json"
+prior_report_path="${SELF_HOST_PRIOR_REPORT_PATH:-${repo_root}/SELF_HOST_REPORT.previous.json}"
 
 python_cmd=""
 if command -v python >/dev/null 2>&1; then
@@ -17,7 +18,7 @@ else
   exit 1
 fi
 
-"${python_cmd}" - "${milestones_path}" "${report_path}" "${update_path}" "${log_path}" <<'PY'
+"${python_cmd}" - "${milestones_path}" "${report_path}" "${update_path}" "${log_path}" "${prior_report_path}" <<'PY'
 import json
 import re
 import sys
@@ -27,6 +28,7 @@ milestones_path = Path(sys.argv[1])
 report_path = Path(sys.argv[2])
 update_path = Path(sys.argv[3])
 log_path = Path(sys.argv[4])
+prior_report_path = Path(sys.argv[5])
 
 required_milestone_keys = ["id", "title", "status", "completed_at", "notes"]
 required_report_keys = [
@@ -88,6 +90,11 @@ with update_path.open("r", encoding="utf-8") as handle:
     update = json.load(handle)
 with log_path.open("r", encoding="utf-8") as handle:
     implementation_log = json.load(handle)
+
+prior_report = None
+if prior_report_path.is_file():
+    with prior_report_path.open("r", encoding="utf-8") as handle:
+        prior_report = json.load(handle)
 
 iso_utc_timestamp_pattern = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$")
 
@@ -200,6 +207,22 @@ if report_milestones_done != milestones_done:
         "SELF_HOST_REPORT.json milestones_done must equal done milestone count "
         f"({milestones_done}), found {report_milestones_done}."
     )
+
+prior_report_milestones_done = None
+if prior_report is not None:
+    if not isinstance(prior_report, dict):
+        fail("Prior report snapshot must be a JSON object when present.")
+    prior_report_milestones_done = prior_report.get("milestones_done")
+    if not is_strict_int(prior_report_milestones_done):
+        fail("Prior report snapshot milestones_done must be an integer when present.")
+    if prior_report_milestones_done < 0:
+        fail("Prior report snapshot milestones_done must be >= 0 when present.")
+    if report_status == "pass" and report_milestones_done <= prior_report_milestones_done:
+        fail(
+            "SELF_HOST_REPORT.json status 'pass' requires milestones_done to increase "
+            "compared with prior report snapshot "
+            f"({prior_report_milestones_done} -> {report_milestones_done})."
+        )
 
 milestone_completed = report["milestone_completed"]
 if not isinstance(milestone_completed, str) or not milestone_completed:
