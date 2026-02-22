@@ -79,8 +79,8 @@
   {
     "id": "M12",
     "title": "Add single-command smoke wrapper for all self-host artifact regression checks",
-    "status": "pending",
-    "completed_at": null,
-    "notes": "pending: Improve local ergonomics for running artifact checks together."
+    "status": "done",
+    "completed_at": "2026-02-22T00:51:40Z",
+    "notes": "done: Added a deterministic single-command smoke wrapper that runs all self-host artifact regression checks, plus dry-run command discovery validation."
   }
 ]

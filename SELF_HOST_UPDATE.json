@@ -1,28 +1,26 @@
 {
   "status": "pass",
-  "headline": "Blocked-status notes now require actionable and specific traceability text",
-  "current_focus": "Actively improving developer ergonomics by preparing M12, a single-command smoke wrapper for self-host artifact regression checks.",
-  "milestone_target": "M12: Add single-command smoke wrapper for all self-host artifact regression checks.",
-  "milestones_done": 11,
+  "headline": "Single-command self-host artifact smoke runner is now available",
+  "current_focus": "Actively maintaining self-host artifact reliability by keeping the new smoke runner deterministic and using it as the default local regression entry point.",
+  "milestone_target": "Next target: define M13 for the next incremental self-host reliability or maintainability hardening step.",
+  "milestones_done": 12,
   "total_milestones": 12,
   "completed_work": [
-    "Added blocked-status note quality validation in scripts/test-self-host-artifacts.sh, requiring blocked notes to include specific cause and next-action detail.",
-    "Added scripts/test-self-host-artifact-blocked-note-quality.sh with deterministic failure and success scenarios for blocked-status note validation.",
-    "Ran focused self-host validation commands and confirmed they pass with the new reliability check.",
-    "Marked milestone M11 done and synchronized SELF_HOST_MILESTONES.json, SELF_HOST_IMPLEMENTATION_LOG.json, SELF_HOST_REPORT.json, and SELF_HOST_UPDATE.json for this run."
+    "Added scripts/test-self-host-artifact-smoke.sh to run test-self-host-artifacts.sh and every test-self-host-artifact-*.sh regression script via one deterministic command.",
+    "Added scripts/test-self-host-smoke-wrapper.sh to validate dry-run command discovery and ordering for the smoke wrapper.",
+    "Ran the new wrapper-validation command and the full smoke wrapper suite and confirmed they pass.",
+    "Marked M12 done and synchronized SELF_HOST_MILESTONES.json, SELF_HOST_IMPLEMENTATION_LOG.json, SELF_HOST_REPORT.json, and SELF_HOST_UPDATE.json for this run."
   ],
   "verification": [
-    "bash scripts/test-self-host-artifacts.sh -> PASS",
-    "bash scripts/test-self-host-artifact-blocked-note-quality.sh -> PASS",
-    "bash scripts/test-self-host-artifact-text-fields.sh -> PASS",
-    "bash scripts/test-self-host-artifact-status-progression.sh -> PASS"
+    "bash scripts/test-self-host-smoke-wrapper.sh -> PASS",
+    "bash scripts/test-self-host-artifact-smoke.sh -> PASS"
   ],
   "blockers": [
     "None."
   ],
   "next_steps": [
-    "Implement M12 by adding a single command wrapper that runs all self-host artifact regression checks together.",
-    "Continue incremental self-host hardening with one focused maintainability or reliability improvement per run."
+    "Define and add milestone M13 for the next incremental self-host hardening task.",
+    "Continue using bash scripts/test-self-host-artifact-smoke.sh as the primary one-command self-host artifact regression check."
   ],
-  "note": "This run completed one low-risk reliability improvement by hardening blocked-status traceability note quality with deterministic tests."
+  "note": "This run completed M12 by delivering a deterministic single-command smoke runner plus validation coverage for command discovery order."
 }

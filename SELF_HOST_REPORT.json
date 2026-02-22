@@ -1,18 +1,18 @@
 {
   "status": "pass",
-  "milestone_completed": "M11",
-  "milestones_done": 11,
+  "milestone_completed": "M12",
+  "milestones_done": 12,
   "total_milestones": 12,
   "new_files": [
-    "scripts/test-self-host-artifact-blocked-note-quality.sh"
+    "scripts/test-self-host-artifact-smoke.sh",
+    "scripts/test-self-host-smoke-wrapper.sh"
   ],
   "changed_files": [
-    "scripts/test-self-host-artifacts.sh",
     "SELF_HOST_MILESTONES.json",
     "SELF_HOST_IMPLEMENTATION_LOG.json",
     "SELF_HOST_REPORT.json",
     "SELF_HOST_UPDATE.json"
   ],
-  "test_command": "bash scripts/test-self-host-artifacts.sh && bash scripts/test-self-host-artifact-blocked-note-quality.sh && bash scripts/test-self-host-artifact-text-fields.sh && bash scripts/test-self-host-artifact-status-progression.sh",
-  "note": "Completed one low-risk reliability improvement by enforcing actionable blocked-status note quality checks with deterministic regression coverage."
+  "test_command": "bash scripts/test-self-host-smoke-wrapper.sh && bash scripts/test-self-host-artifact-smoke.sh",
+  "note": "Completed one low-risk developer ergonomics improvement by adding a single-command smoke wrapper for self-host artifact regression checks with deterministic wrapper validation."
 }

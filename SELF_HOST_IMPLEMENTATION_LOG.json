@@ -227,5 +227,24 @@
       "bash scripts/test-self-host-artifact-status-progression.sh -> PASS"
     ],
     "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-02-22T00:51:40Z",
+    "task_id": "task-self-host-001",
+    "summary": "Completed M12 by adding a deterministic single-command smoke wrapper for self-host artifact regression checks with wrapper validation coverage.",
+    "milestone_completed": "M12",
+    "files": [
+      "scripts/test-self-host-artifact-smoke.sh",
+      "scripts/test-self-host-smoke-wrapper.sh",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-smoke-wrapper.sh -> PASS",
+      "bash scripts/test-self-host-artifact-smoke.sh -> PASS"
+    ],
+    "gate": "ready-for-review"
   }
 ]
