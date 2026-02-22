@@ -1,27 +1,27 @@
 {
   "status": "pass",
-  "headline": "Verification command logs now enforce a deterministic schema",
-  "current_focus": "Actively hardening self-host artifact reliability by validating reproducible command-log entries and keeping the validator plus regression fixtures aligned.",
-  "milestone_target": "M09: Add validator coverage for NEXT_PRIORITY_TASK-driven recovery mode.",
-  "milestones_done": 8,
+  "headline": "Recovery-mode runs now require explicit NEXT_PRIORITY_TASK.md target alignment",
+  "current_focus": "Actively hardening self-host artifact reliability by keeping recovery guidance traceable, then advancing to strict report path-normalization checks.",
+  "milestone_target": "M10: Add strict path normalization check for report file lists.",
+  "milestones_done": 9,
   "total_milestones": 12,
   "completed_work": [
-    "Added deterministic command-log schema validation in scripts/test-self-host-artifacts.sh requiring verification entries to match '<command> -> <PASS|FAIL|BLOCKED>'.",
-    "Added scripts/test-self-host-artifact-command-log-schema.sh to prove malformed verification command-log entries fail for both SELF_HOST_UPDATE.json and SELF_HOST_IMPLEMENTATION_LOG.json.",
-    "Ran focused self-host verification commands and confirmed all pass with the new command-log schema checks enabled.",
-    "Marked milestone M08 done and synchronized SELF_HOST_MILESTONES.json, SELF_HOST_IMPLEMENTATION_LOG.json, SELF_HOST_REPORT.json, and SELF_HOST_UPDATE.json for this run."
+    "Added recovery-mode validation in scripts/test-self-host-artifacts.sh so when NEXT_PRIORITY_TASK.md exists, SELF_HOST_UPDATE.json milestone_target must reference the guidance file and include its first concrete recovery task line.",
+    "Added scripts/test-self-host-artifact-next-priority-task.sh to deterministically verify failure when milestone_target ignores NEXT_PRIORITY_TASK.md and success after alignment.",
+    "Ran focused self-host verification commands and confirmed the updated validator and regression checks pass.",
+    "Marked milestone M09 done and synchronized SELF_HOST_MILESTONES.json, SELF_HOST_IMPLEMENTATION_LOG.json, SELF_HOST_REPORT.json, and SELF_HOST_UPDATE.json for this run."
   ],
   "verification": [
     "bash scripts/test-self-host-artifacts.sh -> PASS",
-    "bash scripts/test-self-host-artifact-command-log-schema.sh -> PASS",
+    "bash scripts/test-self-host-artifact-next-priority-task.sh -> PASS",
     "bash scripts/test-self-host-artifact-text-fields.sh -> PASS"
   ],
   "blockers": [
     "None."
   ],
   "next_steps": [
-    "Implement M09 by validating behavior when NEXT_PRIORITY_TASK.md recovery guidance is present.",
+    "Implement M10 by enforcing strict path normalization for SELF_HOST_REPORT.json new_files and changed_files entries.",
     "Continue incremental self-host hardening with one small deterministic validator or regression-test improvement per run."
   ],
-  "note": "This run completed one low-risk reliability improvement by enforcing deterministic command-log schema validation with targeted regression coverage."
+  "note": "This run completed one low-risk reliability improvement by enforcing NEXT_PRIORITY_TASK.md recovery-mode target alignment with deterministic coverage."
 }

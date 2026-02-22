@@ -29,6 +29,7 @@ report_path = Path(sys.argv[2])
 update_path = Path(sys.argv[3])
 log_path = Path(sys.argv[4])
 prior_report_path = Path(sys.argv[5])
+next_priority_task_path = milestones_path.parent / "NEXT_PRIORITY_TASK.md"
 
 required_milestone_keys = ["id", "title", "status", "completed_at", "notes"]
 required_report_keys = [
@@ -91,6 +92,15 @@ def validate_command_log_entries(entries: list[str], context: str) -> None:
                 "'<command> -> <PASS|FAIL|BLOCKED>', "
                 f"found {entry!r}."
             )
+
+
+def read_next_priority_task_target(path: Path) -> str | None:
+    for raw_line in path.read_text(encoding="utf-8").splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#"):
+            continue
+        return line
+    return None
 
 
 for path in (milestones_path, report_path, update_path, log_path):
@@ -377,6 +387,25 @@ validate_command_log_entries(
     update["verification"],
     "SELF_HOST_UPDATE.json field verification",
 )
+
+if next_priority_task_path.is_file():
+    recovery_target = read_next_priority_task_target(next_priority_task_path)
+    if recovery_target is None:
+        fail(
+            "NEXT_PRIORITY_TASK.md exists but does not contain a non-empty "
+            "recovery task line."
+        )
+    milestone_target_value = update["milestone_target"]
+    if "NEXT_PRIORITY_TASK.md" not in milestone_target_value:
+        fail(
+            "SELF_HOST_UPDATE.json milestone_target must reference "
+            "NEXT_PRIORITY_TASK.md when recovery guidance exists."
+        )
+    if recovery_target not in milestone_target_value:
+        fail(
+            "SELF_HOST_UPDATE.json milestone_target must include the "
+            f"NEXT_PRIORITY_TASK.md recovery target {recovery_target!r}."
+        )
 
 if not isinstance(implementation_log, list):
     fail("SELF_HOST_IMPLEMENTATION_LOG.json must be a JSON array.")

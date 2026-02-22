@@ -58,9 +58,9 @@
   {
     "id": "M09",
     "title": "Add validator coverage for NEXT_PRIORITY_TASK-driven recovery mode",
-    "status": "pending",
-    "completed_at": null,
-    "notes": "pending: Encode behavior when recovery guidance file is present."
+    "status": "done",
+    "completed_at": "2026-02-22T00:39:05Z",
+    "notes": "done: Added recovery-mode validator checks requiring NEXT_PRIORITY_TASK.md alignment and deterministic regression coverage."
   },
   {
     "id": "M10",

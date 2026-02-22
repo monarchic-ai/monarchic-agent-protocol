@@ -165,5 +165,25 @@
       "bash scripts/test-self-host-artifact-text-fields.sh -> PASS"
     ],
     "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-02-22T00:39:05Z",
+    "task_id": "task-self-host-001",
+    "summary": "Completed M09 by enforcing NEXT_PRIORITY_TASK.md recovery-target alignment and adding deterministic regression coverage.",
+    "milestone_completed": "M09",
+    "files": [
+      "scripts/test-self-host-artifacts.sh",
+      "scripts/test-self-host-artifact-next-priority-task.sh",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-artifacts.sh -> PASS",
+      "bash scripts/test-self-host-artifact-next-priority-task.sh -> PASS",
+      "bash scripts/test-self-host-artifact-text-fields.sh -> PASS"
+    ],
+    "gate": "ready-for-review"
   }
 ]
