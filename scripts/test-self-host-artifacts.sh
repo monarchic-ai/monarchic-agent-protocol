@@ -121,6 +121,59 @@ def validate_repo_relative_report_paths(paths: list[str], key: str) -> None:
             )
 
 
+def validate_blocked_note_quality(note: str, context: str) -> None:
+    normalized = " ".join(note.strip().split())
+    normalized_lower = normalized.lower()
+
+    if len(normalized) < 30:
+        fail(
+            f"{context} must include actionable blocked-status detail with at least 30 characters."
+        )
+
+    generic_values = {"blocked", "n/a", "na", "none", "unknown", "tbd", "todo"}
+    if normalized_lower in generic_values:
+        fail(
+            f"{context} must be specific and actionable for blocked status; "
+            f"found generic note {note!r}."
+        )
+
+    reason_markers = (
+        "because",
+        "due to",
+        "blocked by",
+        "waiting on",
+        "missing",
+        "failed",
+        "failure",
+        "error",
+    )
+    action_markers = (
+        "next",
+        "will ",
+        "need to",
+        "requires",
+        "retry",
+        "fix",
+        "update",
+        "add",
+        "investigate",
+        "resolve",
+        "unblock",
+    )
+
+    if not any(marker in normalized_lower for marker in reason_markers):
+        fail(
+            f"{context} must explain why work is blocked using a clear cause marker "
+            f"(for example: because, due to, missing, waiting on)."
+        )
+
+    if not any(marker in normalized_lower for marker in action_markers):
+        fail(
+            f"{context} must include a clear next action for unblocking work "
+            f"(for example: next, need to, retry, investigate, resolve)."
+        )
+
+
 def read_next_priority_task_target(path: Path) -> str | None:
     for raw_line in path.read_text(encoding="utf-8").splitlines():
         line = raw_line.strip()
@@ -366,6 +419,12 @@ for key in ("test_command", "note"):
     if not isinstance(value, str) or not value.strip():
         fail(f"SELF_HOST_REPORT.json field {key} must be a non-empty string.")
 
+if report_status == "blocked":
+    validate_blocked_note_quality(
+        report["note"],
+        "SELF_HOST_REPORT.json field note",
+    )
+
 if not isinstance(update, dict):
     fail("SELF_HOST_UPDATE.json must be a JSON object.")
 if list(update.keys()) != required_update_keys:
@@ -406,6 +465,12 @@ for key in ("headline", "current_focus", "milestone_target", "note"):
     value = update[key]
     if not isinstance(value, str) or not value.strip():
         fail(f"SELF_HOST_UPDATE.json field {key} must be a non-empty string.")
+
+if report_status == "blocked":
+    validate_blocked_note_quality(
+        update["note"],
+        "SELF_HOST_UPDATE.json field note",
+    )
 
 for key in ("completed_work", "verification", "blockers", "next_steps"):
     value = update[key]

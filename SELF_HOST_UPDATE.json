@@ -1,28 +1,28 @@
 {
   "status": "pass",
-  "headline": "Self-host report file lists now reject absolute and traversal-style paths",
-  "current_focus": "Actively improving self-host artifact reliability by hardening path safety and traceability checks, then moving to blocked-status note quality coverage.",
-  "milestone_target": "M11: Add deterministic test for status blocked traceability note quality.",
-  "milestones_done": 10,
+  "headline": "Blocked-status notes now require actionable and specific traceability text",
+  "current_focus": "Actively improving developer ergonomics by preparing M12, a single-command smoke wrapper for self-host artifact regression checks.",
+  "milestone_target": "M12: Add single-command smoke wrapper for all self-host artifact regression checks.",
+  "milestones_done": 11,
   "total_milestones": 12,
   "completed_work": [
-    "Added strict normalized repo-relative path validation in scripts/test-self-host-artifacts.sh for SELF_HOST_REPORT.json new_files/changed_files, rejecting absolute paths, traversal segments, backslashes, and malformed segments.",
-    "Added scripts/test-self-host-artifact-report-path-normalization.sh to deterministically verify rejection of traversal and absolute report paths while preserving baseline pass behavior.",
-    "Ran focused self-host validation commands and confirmed updated checks pass.",
-    "Marked milestone M10 done and synchronized SELF_HOST_MILESTONES.json, SELF_HOST_IMPLEMENTATION_LOG.json, SELF_HOST_REPORT.json, and SELF_HOST_UPDATE.json for this run."
+    "Added blocked-status note quality validation in scripts/test-self-host-artifacts.sh, requiring blocked notes to include specific cause and next-action detail.",
+    "Added scripts/test-self-host-artifact-blocked-note-quality.sh with deterministic failure and success scenarios for blocked-status note validation.",
+    "Ran focused self-host validation commands and confirmed they pass with the new reliability check.",
+    "Marked milestone M11 done and synchronized SELF_HOST_MILESTONES.json, SELF_HOST_IMPLEMENTATION_LOG.json, SELF_HOST_REPORT.json, and SELF_HOST_UPDATE.json for this run."
   ],
   "verification": [
     "bash scripts/test-self-host-artifacts.sh -> PASS",
-    "bash scripts/test-self-host-artifact-report-path-normalization.sh -> PASS",
-    "bash scripts/test-self-host-artifact-report-file-path-existence.sh -> PASS",
-    "bash scripts/test-self-host-artifact-text-fields.sh -> PASS"
+    "bash scripts/test-self-host-artifact-blocked-note-quality.sh -> PASS",
+    "bash scripts/test-self-host-artifact-text-fields.sh -> PASS",
+    "bash scripts/test-self-host-artifact-status-progression.sh -> PASS"
   ],
   "blockers": [
     "None."
   ],
   "next_steps": [
-    "Implement M11 by adding deterministic validation coverage for blocked-status note quality requirements.",
-    "Continue incremental self-host hardening with one focused validator/test improvement per run."
+    "Implement M12 by adding a single command wrapper that runs all self-host artifact regression checks together.",
+    "Continue incremental self-host hardening with one focused maintainability or reliability improvement per run."
   ],
-  "note": "This run completed one low-risk reliability improvement by enforcing normalized report file paths with deterministic regression coverage."
+  "note": "This run completed one low-risk reliability improvement by hardening blocked-status traceability note quality with deterministic tests."
 }

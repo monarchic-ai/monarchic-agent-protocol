@@ -72,9 +72,9 @@
   {
     "id": "M11",
     "title": "Add deterministic test for status blocked traceability note quality",
-    "status": "pending",
-    "completed_at": null,
-    "notes": "pending: Ensure blocked status includes actionable and specific note text."
+    "status": "done",
+    "completed_at": "2026-02-22T00:47:45Z",
+    "notes": "done: Enforced actionable blocked-status note quality checks in self-host artifact validation and added deterministic regression coverage."
   },
   {
     "id": "M12",
