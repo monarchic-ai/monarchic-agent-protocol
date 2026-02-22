@@ -2,57 +2,27 @@
 set -euo pipefail
 
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-check_script="${repo_root}/scripts/test-self-host-artifacts.sh"
+helper_script="${repo_root}/scripts/self-host-fixture-helpers.sh"
+test_name="test-self-host-artifact-text-fields"
 
-if [[ ! -x "${check_script}" ]]; then
-  echo "[test-self-host-artifact-text-fields] Missing executable: ${check_script}" >&2
+if [[ ! -f "${helper_script}" ]]; then
+  echo "[${test_name}] Missing helper script: ${helper_script}" >&2
   exit 1
 fi
 
-python_cmd=""
-if command -v python >/dev/null 2>&1; then
-  python_cmd="python"
-elif command -v python3 >/dev/null 2>&1; then
-  python_cmd="python3"
-else
-  echo "[test-self-host-artifact-text-fields] python or python3 is required" >&2
-  exit 1
-fi
+# shellcheck source=./self-host-fixture-helpers.sh
+source "${helper_script}"
+
+python_cmd="$(self_host_select_python "${test_name}")"
 
 tmp_repo="$(mktemp -d)"
 stderr_log="$(mktemp)"
 trap 'rm -rf "${tmp_repo}" "${stderr_log}"' EXIT
 
-mkdir -p "${tmp_repo}/scripts"
-cp "${check_script}" "${tmp_repo}/scripts/test-self-host-artifacts.sh"
-chmod +x "${tmp_repo}/scripts/test-self-host-artifacts.sh"
+self_host_prepare_temp_repo "${repo_root}" "${tmp_repo}" "${test_name}"
 
 reset_fixtures() {
-  cp "${repo_root}/SELF_HOST_MILESTONES.json" "${tmp_repo}/SELF_HOST_MILESTONES.json"
-  cp "${repo_root}/SELF_HOST_REPORT.json" "${tmp_repo}/SELF_HOST_REPORT.json"
-  cp "${repo_root}/SELF_HOST_UPDATE.json" "${tmp_repo}/SELF_HOST_UPDATE.json"
-  cp "${repo_root}/SELF_HOST_IMPLEMENTATION_LOG.json" "${tmp_repo}/SELF_HOST_IMPLEMENTATION_LOG.json"
-  while IFS= read -r relative_path; do
-    [[ -z "${relative_path}" ]] && continue
-    source_path="${repo_root}/${relative_path}"
-    if [[ ! -f "${source_path}" ]]; then
-      continue
-    fi
-    mkdir -p "$(dirname "${tmp_repo}/${relative_path}")"
-    cp "${source_path}" "${tmp_repo}/${relative_path}"
-  done < <("${python_cmd}" - "${tmp_repo}/SELF_HOST_REPORT.json" <<'PY'
-import json
-import sys
-
-with open(sys.argv[1], "r", encoding="utf-8") as handle:
-    report = json.load(handle)
-
-for key in ("new_files", "changed_files"):
-    for path in report.get(key, []):
-        if isinstance(path, str) and path:
-            print(path)
-PY
-  )
+  self_host_reset_fixtures "${repo_root}" "${tmp_repo}" "${python_cmd}"
 }
 
 reset_fixtures

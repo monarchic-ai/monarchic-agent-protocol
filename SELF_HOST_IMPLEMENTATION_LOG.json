@@ -59,5 +59,32 @@
       "bash scripts/test-self-host-artifact-text-fields.sh -> PASS"
     ],
     "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-02-22T00:22:02Z",
+    "task_id": "task-self-host-001",
+    "summary": "Completed M04 by adding shared self-host fixture helper functions, refactoring targeted regression scripts to reuse them, and adding deterministic helper coverage.",
+    "milestone_completed": "M04",
+    "files": [
+      "scripts/self-host-fixture-helpers.sh",
+      "scripts/test-self-host-fixture-helpers.sh",
+      "scripts/test-self-host-artifact-gate-values.sh",
+      "scripts/test-self-host-artifact-status-progression.sh",
+      "scripts/test-self-host-artifact-text-fields.sh",
+      "scripts/test-self-host-artifact-verification-evidence.sh",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-artifacts.sh -> PASS",
+      "bash scripts/test-self-host-artifact-status-progression.sh -> PASS",
+      "bash scripts/test-self-host-artifact-gate-values.sh -> PASS",
+      "bash scripts/test-self-host-artifact-text-fields.sh -> PASS",
+      "bash scripts/test-self-host-artifact-verification-evidence.sh -> PASS",
+      "bash scripts/test-self-host-fixture-helpers.sh -> PASS"
+    ],
+    "gate": "ready-for-review"
   }
 ]

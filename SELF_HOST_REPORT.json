@@ -1,18 +1,22 @@
 {
   "status": "pass",
-  "milestone_completed": "M03",
-  "milestones_done": 3,
+  "milestone_completed": "M04",
+  "milestones_done": 4,
   "total_milestones": 12,
   "new_files": [
-    "scripts/test-self-host-artifact-status-progression.sh"
+    "scripts/self-host-fixture-helpers.sh",
+    "scripts/test-self-host-fixture-helpers.sh"
   ],
   "changed_files": [
-    "scripts/test-self-host-artifacts.sh",
+    "scripts/test-self-host-artifact-gate-values.sh",
+    "scripts/test-self-host-artifact-status-progression.sh",
+    "scripts/test-self-host-artifact-text-fields.sh",
+    "scripts/test-self-host-artifact-verification-evidence.sh",
     "SELF_HOST_MILESTONES.json",
     "SELF_HOST_IMPLEMENTATION_LOG.json",
     "SELF_HOST_REPORT.json",
     "SELF_HOST_UPDATE.json"
   ],
-  "test_command": "bash scripts/test-self-host-artifacts.sh && bash scripts/test-self-host-artifact-status-progression.sh && bash scripts/test-self-host-artifact-gate-values.sh && bash scripts/test-self-host-artifact-text-fields.sh",
-  "note": "Completed one low-risk reliability improvement by requiring pass status milestone progress versus a prior report snapshot when present."
+  "test_command": "bash scripts/test-self-host-artifacts.sh && bash scripts/test-self-host-artifact-status-progression.sh && bash scripts/test-self-host-artifact-gate-values.sh && bash scripts/test-self-host-artifact-text-fields.sh && bash scripts/test-self-host-artifact-verification-evidence.sh && bash scripts/test-self-host-fixture-helpers.sh",
+  "note": "Completed one low-risk maintainability improvement by extracting reusable self-host fixture setup/reset helpers and covering helper behavior with deterministic regression checks."
 }

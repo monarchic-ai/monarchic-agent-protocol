@@ -23,9 +23,9 @@
   {
     "id": "M04",
     "title": "Add helper for self-host fixture reset reuse",
-    "status": "pending",
-    "completed_at": null,
-    "notes": "pending: Reduce duplication across self-host regression test scripts."
+    "status": "done",
+    "completed_at": "2026-02-22T00:22:02Z",
+    "notes": "done: Added shared fixture helper functions and migrated a focused set of self-host regression scripts to reuse them with deterministic coverage."
   },
   {
     "id": "M05",
