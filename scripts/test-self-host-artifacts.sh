@@ -310,6 +310,8 @@ for key in ("completed_work", "verification", "blockers", "next_steps"):
     value = update[key]
     if not isinstance(value, list) or not all(isinstance(item, str) and item for item in value):
         fail(f"SELF_HOST_UPDATE.json field {key} must be an array of non-empty strings.")
+if not update["verification"]:
+    fail("SELF_HOST_UPDATE.json field verification must include at least one entry.")
 
 if not isinstance(implementation_log, list):
     fail("SELF_HOST_IMPLEMENTATION_LOG.json must be a JSON array.")
@@ -347,6 +349,8 @@ for key in ("files", "verification"):
     value = latest_entry[key]
     if not isinstance(value, list) or not all(isinstance(item, str) and item for item in value):
         fail(f"Latest implementation log entry field {key} must be an array of non-empty strings.")
+if not latest_entry["verification"]:
+    fail("Latest implementation log entry field verification must include at least one entry.")
 
 if latest_entry["milestone_completed"] != milestone_completed:
     fail(

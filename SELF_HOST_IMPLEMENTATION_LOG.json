@@ -1,0 +1,22 @@
+[
+  {
+    "timestamp": "2026-02-22T00:08:51Z",
+    "task_id": "task-self-host-001",
+    "summary": "Completed M01 by enforcing non-empty verification evidence arrays and adding deterministic regression coverage.",
+    "milestone_completed": "M01",
+    "files": [
+      "scripts/test-self-host-artifacts.sh",
+      "scripts/test-self-host-artifact-verification-evidence.sh",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-artifacts.sh -> PASS",
+      "bash scripts/test-self-host-artifact-verification-evidence.sh -> PASS",
+      "bash scripts/test-self-host-artifact-text-fields.sh -> PASS"
+    ],
+    "gate": "ready-for-review"
+  }
+]

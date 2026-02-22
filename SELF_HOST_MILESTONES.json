@@ -1,0 +1,86 @@
+[
+  {
+    "id": "M01",
+    "title": "Require non-empty verification evidence for self-host artifacts",
+    "status": "done",
+    "completed_at": "2026-02-22T00:08:51Z",
+    "notes": "done: Enforced non-empty verification arrays in update and implementation log checks, plus regression coverage."
+  },
+  {
+    "id": "M02",
+    "title": "Validate gate token against approved checklist values",
+    "status": "pending",
+    "completed_at": null,
+    "notes": "pending: Add strict gate-value validation and deterministic failure test."
+  },
+  {
+    "id": "M03",
+    "title": "Validate report status transitions against prior report snapshot",
+    "status": "pending",
+    "completed_at": null,
+    "notes": "pending: Add guardrails that prevent pass status without milestone progress when prior report exists."
+  },
+  {
+    "id": "M04",
+    "title": "Add helper for self-host fixture reset reuse",
+    "status": "pending",
+    "completed_at": null,
+    "notes": "pending: Reduce duplication across self-host regression test scripts."
+  },
+  {
+    "id": "M05",
+    "title": "Add deterministic test for duplicate milestone title handling",
+    "status": "pending",
+    "completed_at": null,
+    "notes": "pending: Decide whether title uniqueness is required and encode as validator rule."
+  },
+  {
+    "id": "M06",
+    "title": "Add JSON formatting consistency check for self-host artifacts",
+    "status": "pending",
+    "completed_at": null,
+    "notes": "pending: Ensure normalized indentation and trailing newline across run artifacts."
+  },
+  {
+    "id": "M07",
+    "title": "Add test for milestone object key-order drift regression",
+    "status": "pending",
+    "completed_at": null,
+    "notes": "pending: Catch accidental milestone key reordering with explicit failure assertion."
+  },
+  {
+    "id": "M08",
+    "title": "Add self-host artifact command log schema check",
+    "status": "pending",
+    "completed_at": null,
+    "notes": "pending: Define and validate command log artifact format for reproducible verification records."
+  },
+  {
+    "id": "M09",
+    "title": "Add validator coverage for NEXT_PRIORITY_TASK-driven recovery mode",
+    "status": "pending",
+    "completed_at": null,
+    "notes": "pending: Encode behavior when recovery guidance file is present."
+  },
+  {
+    "id": "M10",
+    "title": "Add strict path normalization check for report file lists",
+    "status": "pending",
+    "completed_at": null,
+    "notes": "pending: Disallow path traversal and absolute paths in new_files/changed_files."
+  },
+  {
+    "id": "M11",
+    "title": "Add deterministic test for status blocked traceability note quality",
+    "status": "pending",
+    "completed_at": null,
+    "notes": "pending: Ensure blocked status includes actionable and specific note text."
+  },
+  {
+    "id": "M12",
+    "title": "Add single-command smoke wrapper for all self-host artifact regression checks",
+    "status": "pending",
+    "completed_at": null,
+    "notes": "pending: Improve local ergonomics for running artifact checks together."
+  }
+]
