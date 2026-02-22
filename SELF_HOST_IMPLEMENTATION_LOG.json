@@ -18,5 +18,25 @@
       "bash scripts/test-self-host-artifact-text-fields.sh -> PASS"
     ],
     "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-02-22T00:12:44Z",
+    "task_id": "task-self-host-001",
+    "summary": "Completed M02 by enforcing approved gate tokens on the latest self-host implementation log entry and adding deterministic gate-value regression checks.",
+    "milestone_completed": "M02",
+    "files": [
+      "scripts/test-self-host-artifacts.sh",
+      "scripts/test-self-host-artifact-gate-values.sh",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-artifacts.sh -> PASS",
+      "bash scripts/test-self-host-artifact-gate-values.sh -> PASS",
+      "bash scripts/test-self-host-artifact-text-fields.sh -> PASS"
+    ],
+    "gate": "ready-for-review"
   }
 ]

@@ -1,18 +1,18 @@
 {
   "status": "pass",
-  "milestone_completed": "M01",
-  "milestones_done": 1,
+  "milestone_completed": "M02",
+  "milestones_done": 2,
   "total_milestones": 12,
   "new_files": [
-    "SELF_HOST_IMPLEMENTATION_LOG.json",
-    "SELF_HOST_MILESTONES.json",
-    "SELF_HOST_REPORT.json",
-    "SELF_HOST_UPDATE.json",
-    "scripts/test-self-host-artifact-verification-evidence.sh"
+    "scripts/test-self-host-artifact-gate-values.sh"
   ],
   "changed_files": [
-    "scripts/test-self-host-artifacts.sh"
+    "scripts/test-self-host-artifacts.sh",
+    "SELF_HOST_MILESTONES.json",
+    "SELF_HOST_IMPLEMENTATION_LOG.json",
+    "SELF_HOST_REPORT.json",
+    "SELF_HOST_UPDATE.json"
   ],
-  "test_command": "bash scripts/test-self-host-artifacts.sh && bash scripts/test-self-host-artifact-verification-evidence.sh && bash scripts/test-self-host-artifact-text-fields.sh",
-  "note": "Added one reliability improvement by requiring non-empty verification evidence arrays in self-host artifacts."
+  "test_command": "bash scripts/test-self-host-artifacts.sh && bash scripts/test-self-host-artifact-gate-values.sh && bash scripts/test-self-host-artifact-text-fields.sh",
+  "note": "Completed one low-risk reliability improvement by enforcing approved gate values in latest self-host implementation log artifacts."
 }

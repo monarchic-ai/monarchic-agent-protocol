@@ -53,6 +53,7 @@ required_update_keys = [
     "note",
 ]
 allowed_artifact_statuses = {"pass", "fail", "blocked"}
+allowed_gate_values = {"ready-for-review", "ready-for-qa"}
 
 
 def fail(message: str) -> None:
@@ -338,6 +339,13 @@ for key in ("timestamp", "task_id", "summary", "milestone_completed", "gate"):
     value = latest_entry[key]
     if not isinstance(value, str) or not value.strip():
         fail(f"Latest implementation log entry field {key} must be a non-empty string.")
+
+gate_value = latest_entry["gate"]
+if gate_value not in allowed_gate_values:
+    fail(
+        "Latest implementation log entry field gate must be one of "
+        f"{sorted(allowed_gate_values)}, found {gate_value!r}."
+    )
 
 if not iso_utc_timestamp_pattern.fullmatch(latest_entry["timestamp"]):
     fail(

@@ -9,9 +9,9 @@
   {
     "id": "M02",
     "title": "Validate gate token against approved checklist values",
-    "status": "pending",
-    "completed_at": null,
-    "notes": "pending: Add strict gate-value validation and deterministic failure test."
+    "status": "done",
+    "completed_at": "2026-02-22T00:12:44Z",
+    "notes": "done: Added strict gate-value validation and deterministic regression coverage for approved readiness tokens."
   },
   {
     "id": "M03",

@@ -1,27 +1,26 @@
 {
   "status": "pass",
-  "headline": "Self-host checks now require explicit verification evidence",
-  "current_focus": "Maintaining deterministic self-host artifact validation while improving traceability for verification commands.",
-  "milestone_target": "M02: Validate gate token against approved checklist values.",
-  "milestones_done": 1,
+  "headline": "Self-host artifact checks now enforce approved implementation-log gate tokens",
+  "current_focus": "Keeping self-host artifact validation deterministic while preparing the next reliability increment for report status transition guardrails.",
+  "milestone_target": "M03: Validate report status transitions against prior report snapshot.",
+  "milestones_done": 2,
   "total_milestones": 12,
   "completed_work": [
-    "Updated scripts/test-self-host-artifacts.sh to fail when SELF_HOST_UPDATE.json verification is an empty array.",
-    "Updated scripts/test-self-host-artifacts.sh to fail when latest implementation log verification is an empty array.",
-    "Added scripts/test-self-host-artifact-verification-evidence.sh as a deterministic regression script for both checks.",
-    "Created required SELF_HOST_MILESTONES.json, SELF_HOST_REPORT.json, SELF_HOST_UPDATE.json, and SELF_HOST_IMPLEMENTATION_LOG.json artifacts for this run."
+    "Updated scripts/test-self-host-artifacts.sh to validate the latest SELF_HOST_IMPLEMENTATION_LOG.json gate value against an approved token list.",
+    "Added scripts/test-self-host-artifact-gate-values.sh to assert approved gate values pass and unapproved values fail deterministically.",
+    "Marked milestone M02 done in SELF_HOST_MILESTONES.json and synchronized run metadata across report/update/log artifacts."
   ],
   "verification": [
     "bash scripts/test-self-host-artifacts.sh -> PASS",
-    "bash scripts/test-self-host-artifact-verification-evidence.sh -> PASS",
+    "bash scripts/test-self-host-artifact-gate-values.sh -> PASS",
     "bash scripts/test-self-host-artifact-text-fields.sh -> PASS"
   ],
   "blockers": [
     "None."
   ],
   "next_steps": [
-    "Run a follow-up improvement for M02 to validate allowed gate values in implementation logs.",
-    "Consider consolidating repeated regression-fixture setup into a shared shell helper."
+    "Implement M03 by checking that pass status requires milestone progress versus a prior report snapshot when one is present.",
+    "Consider M04 to extract shared fixture-reset logic used by deterministic self-host regression scripts."
   ],
-  "note": "This run completed one low-risk reliability improvement and recorded verification evidence in both report and update artifacts."
+  "note": "This run completed one low-risk reliability improvement by enforcing approved gate tokens and recording deterministic verification evidence."
 }
