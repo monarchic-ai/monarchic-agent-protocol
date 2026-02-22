@@ -94,6 +94,33 @@ def validate_command_log_entries(entries: list[str], context: str) -> None:
             )
 
 
+def validate_repo_relative_report_paths(paths: list[str], key: str) -> None:
+    windows_drive_pattern = re.compile(r"^[A-Za-z]:[\\/]")
+    for index, raw_path in enumerate(paths):
+        if raw_path != raw_path.strip():
+            fail(
+                f"SELF_HOST_REPORT.json field {key} has invalid path at index {index}: "
+                f"{raw_path!r}. Paths must not include leading/trailing whitespace."
+            )
+        if "\\" in raw_path:
+            fail(
+                f"SELF_HOST_REPORT.json field {key} has invalid path at index {index}: "
+                f"{raw_path!r}. Paths must use forward slashes."
+            )
+        if raw_path.startswith("/") or windows_drive_pattern.match(raw_path):
+            fail(
+                f"SELF_HOST_REPORT.json field {key} has invalid path at index {index}: "
+                f"{raw_path!r}. Paths must be repo-relative, not absolute."
+            )
+
+        path_segments = raw_path.split("/")
+        if any(segment in ("", ".", "..") for segment in path_segments):
+            fail(
+                f"SELF_HOST_REPORT.json field {key} has invalid path at index {index}: "
+                f"{raw_path!r}. Paths must be normalized without empty, '.', or '..' segments."
+            )
+
+
 def read_next_priority_task_target(path: Path) -> str | None:
     for raw_line in path.read_text(encoding="utf-8").splitlines():
         line = raw_line.strip()
@@ -312,6 +339,9 @@ if file_list_overlap:
         "SELF_HOST_REPORT.json new_files and changed_files must be disjoint, "
         f"overlap found: {file_list_overlap}."
     )
+
+for key in ("new_files", "changed_files"):
+    validate_repo_relative_report_paths(report[key], key)
 
 missing_report_paths = sorted(
     path for path in report["changed_files"] if not (milestones_path.parent / path).is_file()

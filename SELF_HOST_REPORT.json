@@ -1,10 +1,10 @@
 {
   "status": "pass",
-  "milestone_completed": "M09",
-  "milestones_done": 9,
+  "milestone_completed": "M10",
+  "milestones_done": 10,
   "total_milestones": 12,
   "new_files": [
-    "scripts/test-self-host-artifact-next-priority-task.sh"
+    "scripts/test-self-host-artifact-report-path-normalization.sh"
   ],
   "changed_files": [
     "scripts/test-self-host-artifacts.sh",
@@ -13,6 +13,6 @@
     "SELF_HOST_REPORT.json",
     "SELF_HOST_UPDATE.json"
   ],
-  "test_command": "bash scripts/test-self-host-artifacts.sh && bash scripts/test-self-host-artifact-next-priority-task.sh && bash scripts/test-self-host-artifact-text-fields.sh",
-  "note": "Completed one low-risk reliability improvement by enforcing NEXT_PRIORITY_TASK.md recovery-target alignment when recovery guidance exists."
+  "test_command": "bash scripts/test-self-host-artifacts.sh && bash scripts/test-self-host-artifact-report-path-normalization.sh && bash scripts/test-self-host-artifact-report-file-path-existence.sh && bash scripts/test-self-host-artifact-text-fields.sh",
+  "note": "Completed one low-risk reliability improvement by enforcing strict normalized repo-relative report path validation with deterministic tests."
 }

@@ -65,9 +65,9 @@
   {
     "id": "M10",
     "title": "Add strict path normalization check for report file lists",
-    "status": "pending",
-    "completed_at": null,
-    "notes": "pending: Disallow path traversal and absolute paths in new_files/changed_files."
+    "status": "done",
+    "completed_at": "2026-02-22T00:43:15Z",
+    "notes": "done: Enforced normalized repo-relative path validation for SELF_HOST_REPORT.json file lists and added deterministic regression coverage for traversal/absolute path drift."
   },
   {
     "id": "M11",
