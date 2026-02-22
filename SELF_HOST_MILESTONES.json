@@ -37,9 +37,9 @@
   {
     "id": "M06",
     "title": "Add deterministic test for duplicate milestone title handling",
-    "status": "pending",
-    "completed_at": null,
-    "notes": "pending: Decide whether title uniqueness is required and encode the decision as validator behavior with deterministic tests."
+    "status": "done",
+    "completed_at": "2026-02-22T00:29:30Z",
+    "notes": "done: Enforced unique milestone titles in the self-host artifact validator and added deterministic regression coverage for duplicate-title drift."
   },
   {
     "id": "M07",

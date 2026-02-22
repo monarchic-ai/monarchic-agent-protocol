@@ -126,6 +126,7 @@ milestones_done = 0
 done_ids = set()
 seen_pending_milestone = False
 latest_done_milestone_id = None
+milestone_titles: list[str] = []
 
 for index, milestone in enumerate(milestones):
     if not isinstance(milestone, dict):
@@ -160,6 +161,7 @@ for index, milestone in enumerate(milestones):
     title = milestone["title"]
     if not isinstance(title, str) or not title.strip():
         fail(f"Milestone {milestone_id} has an empty title.")
+    milestone_titles.append(title)
 
     status = milestone["status"]
     if status not in {"pending", "done"}:
@@ -192,6 +194,13 @@ for index, milestone in enumerate(milestones):
     notes = milestone["notes"]
     if not isinstance(notes, str) or not notes.strip():
         fail(f"Milestone {milestone_id} has empty notes.")
+
+duplicate_milestone_titles = find_duplicates(milestone_titles)
+if duplicate_milestone_titles:
+    fail(
+        "Milestone titles must be unique, "
+        f"found duplicates: {duplicate_milestone_titles}."
+    )
 
 if not isinstance(report, dict):
     fail("SELF_HOST_REPORT.json must be a JSON object.")
