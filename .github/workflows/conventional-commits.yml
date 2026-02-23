@@ -1,0 +1,61 @@
+name: Conventional Commits
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - ready_for_review
+      - edited
+  workflow_dispatch:
+
+jobs:
+  conventional-commits:
+    name: Conventional Commits
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Determine Revision Range
+        id: range
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "${GITHUB_EVENT_NAME}" == "pull_request" ]]; then
+            range="${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}"
+          elif git rev-parse --verify HEAD~1 >/dev/null 2>&1; then
+            range="HEAD~1..HEAD"
+          else
+            range="HEAD"
+          fi
+          echo "range=$range" >> "$GITHUB_OUTPUT"
+
+      - name: Validate Commit Subjects
+        run: |
+          set -euo pipefail
+          ./scripts/conventional-commit-check.sh \
+            --rev-range "${{ steps.range.outputs.range }}" \
+            --output out/conventional-commits-summary.json \
+            --allow-merge-commits \
+            --allow-git-revert
+
+      - name: Upload Conventional Commit Summary
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: conventional-commits-${{ github.run_id }}-${{ github.run_attempt }}
+          path: out/conventional-commits-summary.json
+          if-no-files-found: warn
