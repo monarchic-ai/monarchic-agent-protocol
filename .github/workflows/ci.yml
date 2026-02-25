@@ -39,6 +39,19 @@ jobs:
       - name: Compile examples
         run: nix build .#example-rust .#example-ts .#example-python .#example-java .#example-kotlin .#example-cpp .#example-ruby .#example-csharp
 
+      - name: Validate generated root JSON schema
+        run: |
+          set -euo pipefail
+          bash scripts/generate-json-schema.sh
+          git diff --exit-code -- schemas/v1/schema.json
+
+      - name: Validate local hash manifest
+        run: |
+          set -euo pipefail
+          bash scripts/update-local-hashes.sh
+          git diff --exit-code -- hashes/local-hashes.json
+
+
       - name: Cargo test
         run: nix develop -c cargo test
 
