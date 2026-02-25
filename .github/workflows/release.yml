@@ -7,7 +7,6 @@ permissions:
 
 on:
   push:
-    branches: ["main"]
     tags: ["v*"]
   workflow_dispatch:
 
@@ -210,7 +209,7 @@ jobs:
           VERSION="${TAG_REF#v}"
           urls=(
             "npm|https://registry.npmjs.org/@monarchic-ai/monarchic-agent-protocol/-/monarchic-agent-protocol-${VERSION}.tgz"
-            "crates|https://crates.io/api/v1/crates/monarchic-agent-protocol/${VERSION}/download"
+            "crates|https://crates.io/api/v1/crates/monarchic-agent-protocol/${VERSION}"
             "pypi|https://files.pythonhosted.org/packages/source/m/monarchic_agent_protocol/monarchic_agent_protocol-${VERSION}.tar.gz"
             "rubygems|https://rubygems.org/downloads/monarchic-agent-protocol-${VERSION}.gem"
             "nuget|https://api.nuget.org/v3-flatcontainer/monarchic.agentprotocol/${VERSION}/monarchic.agentprotocol.${VERSION}.nupkg"
@@ -225,7 +224,7 @@ jobs:
             for item in "${urls[@]}"; do
               name="${item%%|*}"
               url="${item#*|}"
-              if curl -fsSL -o /dev/null "$url"; then
+              if curl -fsSL -H "User-Agent: github-actions" -o /dev/null "$url"; then
                 echo "  ok: ${name}"
               else
                 echo "  waiting: ${name}"
