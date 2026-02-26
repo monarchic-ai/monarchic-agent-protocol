@@ -258,6 +258,7 @@ jobs:
       - name: Create PR for updated hashes
         uses: peter-evans/create-pull-request@v6
         with:
+          token: ${{ secrets.PR_BOT_TOKEN }}
           commit-message: "ci: update registry hashes [ci skip]"
           title: "ci: update registry hashes"
           body: "Automated registry hash updates after publishing."
