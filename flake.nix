@@ -1149,7 +1149,7 @@ EOF
               pname = "go-import";
               version = "0.1.14";
               src = goModImport;
-              vendorHash = "sha256-++bomu6mpFakJyEVZi7VY+shJF0pdvO3XVhMDdTevss=";
+              vendorHash = "sha256-VRoqKI2WLrouZ1AeinRkghEUnvy18xhGav5S0pe7Ov8=";
               subPackages = [ "." ];
               doCheck = true;
               checkPhase = ''
