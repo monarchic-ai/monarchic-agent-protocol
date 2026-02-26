@@ -131,7 +131,7 @@ jobs:
           commit-message: "ci: update generated artifacts [ci skip]"
           title: "ci: update generated artifacts"
           body: "Automated updates from generate-proto, generate-json-schema, and update-local-hashes."
-          branch: "ci/generated-${{ github.run_id }}"
+          branch: "ci/update-generated-artifacts-${{ github.run_id }}"
           base: main
           add-paths: |
             flake.nix
