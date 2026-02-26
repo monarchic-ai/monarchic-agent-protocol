@@ -262,7 +262,7 @@ jobs:
           commit-message: "ci: update registry hashes [ci skip]"
           title: "ci: update registry hashes"
           body: "Automated registry hash updates after publishing."
-          branch: "release/registry-hashes-${{ github.run_id }}"
+          branch: "ci/update-registry-hashes-${{ github.run_id }}"
           base: main
           add-paths: |
             flake.nix
