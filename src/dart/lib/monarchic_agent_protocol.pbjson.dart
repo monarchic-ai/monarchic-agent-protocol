@@ -36,6 +36,23 @@ final $typed_data.Uint8List agentRoleDescriptor = $convert.base64Decode(
     'IQARITCg9QUk9KRUNUX01BTkFHRVIQAhIHCgNERVYQAxIGCgJRQRAEEgwKCFJFVklFV0VSEAUS'
     'DAoIU0VDVVJJVFkQBhIHCgNPUFMQBw==');
 
+@$core.Deprecated('Use outcomeDecisionDescriptor instead')
+const OutcomeDecision$json = {
+  '1': 'OutcomeDecision',
+  '2': [
+    {'1': 'OUTCOME_DECISION_UNSPECIFIED', '2': 0},
+    {'1': 'ACCEPT', '2': 1},
+    {'1': 'ITERATE', '2': 2},
+    {'1': 'REJECT', '2': 3},
+    {'1': 'ESCALATE', '2': 4},
+  ],
+};
+
+/// Descriptor for `OutcomeDecision`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List outcomeDecisionDescriptor = $convert.base64Decode(
+    'Cg9PdXRjb21lRGVjaXNpb24SIAocT1VUQ09NRV9ERUNJU0lPTl9VTlNQRUNJRklFRBAAEgoKBk'
+    'FDQ0VQVBABEgsKB0lURVJBVEUQAhIKCgZSRUpFQ1QQAxIMCghFU0NBTEFURRAE');
+
 @$core.Deprecated('Use datasetRefDescriptor instead')
 const DatasetRef$json = {
   '1': 'DatasetRef',
@@ -810,6 +827,158 @@ final $typed_data.Uint8List gateResultDescriptor = $convert.base64Decode(
     'EjMKCGV2aWRlbmNlGAUgASgLMhcuZ29vZ2xlLnByb3RvYnVmLlN0cnVjdFIIZXZpZGVuY2USNw'
     'oKZXh0ZW5zaW9ucxgGIAEoCzIXLmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3RSCmV4dGVuc2lvbnNC'
     'CQoHX3JlYXNvbg==');
+
+@$core.Deprecated('Use runOutcomeDescriptor instead')
+const RunOutcome$json = {
+  '1': 'RunOutcome',
+  '2': [
+    {'1': 'version', '3': 1, '4': 1, '5': 9, '10': 'version'},
+    {'1': 'task_id', '3': 2, '4': 1, '5': 9, '10': 'taskId'},
+    {'1': 'run_id', '3': 3, '4': 1, '5': 9, '9': 0, '10': 'runId', '17': true},
+    {
+      '1': 'objective_metric',
+      '3': 4,
+      '4': 1,
+      '5': 9,
+      '9': 1,
+      '10': 'objectiveMetric',
+      '17': true
+    },
+    {
+      '1': 'objective_score',
+      '3': 5,
+      '4': 1,
+      '5': 1,
+      '9': 2,
+      '10': 'objectiveScore',
+      '17': true
+    },
+    {
+      '1': 'objective_decision',
+      '3': 6,
+      '4': 1,
+      '5': 14,
+      '6': '.monarchic.agent_protocol.v1.OutcomeDecision',
+      '10': 'objectiveDecision'
+    },
+    {
+      '1': 'estimated_cost_usd',
+      '3': 7,
+      '4': 1,
+      '5': 1,
+      '9': 3,
+      '10': 'estimatedCostUsd',
+      '17': true
+    },
+    {
+      '1': 'budget_limit_usd',
+      '3': 8,
+      '4': 1,
+      '5': 1,
+      '9': 4,
+      '10': 'budgetLimitUsd',
+      '17': true
+    },
+    {
+      '1': 'cost_decision',
+      '3': 9,
+      '4': 1,
+      '5': 14,
+      '6': '.monarchic.agent_protocol.v1.OutcomeDecision',
+      '10': 'costDecision'
+    },
+    {
+      '1': 'risk_level',
+      '3': 10,
+      '4': 1,
+      '5': 9,
+      '9': 5,
+      '10': 'riskLevel',
+      '17': true
+    },
+    {
+      '1': 'risk_summary',
+      '3': 11,
+      '4': 1,
+      '5': 9,
+      '9': 6,
+      '10': 'riskSummary',
+      '17': true
+    },
+    {
+      '1': 'risk_decision',
+      '3': 12,
+      '4': 1,
+      '5': 14,
+      '6': '.monarchic.agent_protocol.v1.OutcomeDecision',
+      '10': 'riskDecision'
+    },
+    {
+      '1': 'final_decision',
+      '3': 13,
+      '4': 1,
+      '5': 14,
+      '6': '.monarchic.agent_protocol.v1.OutcomeDecision',
+      '10': 'finalDecision'
+    },
+    {
+      '1': 'summary',
+      '3': 14,
+      '4': 1,
+      '5': 9,
+      '9': 7,
+      '10': 'summary',
+      '17': true
+    },
+    {
+      '1': 'evidence',
+      '3': 15,
+      '4': 1,
+      '5': 11,
+      '6': '.google.protobuf.Struct',
+      '10': 'evidence'
+    },
+    {
+      '1': 'extensions',
+      '3': 16,
+      '4': 1,
+      '5': 11,
+      '6': '.google.protobuf.Struct',
+      '10': 'extensions'
+    },
+  ],
+  '8': [
+    {'1': '_run_id'},
+    {'1': '_objective_metric'},
+    {'1': '_objective_score'},
+    {'1': '_estimated_cost_usd'},
+    {'1': '_budget_limit_usd'},
+    {'1': '_risk_level'},
+    {'1': '_risk_summary'},
+    {'1': '_summary'},
+  ],
+};
+
+/// Descriptor for `RunOutcome`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List runOutcomeDescriptor = $convert.base64Decode(
+    'CgpSdW5PdXRjb21lEhgKB3ZlcnNpb24YASABKAlSB3ZlcnNpb24SFwoHdGFza19pZBgCIAEoCV'
+    'IGdGFza0lkEhoKBnJ1bl9pZBgDIAEoCUgAUgVydW5JZIgBARIuChBvYmplY3RpdmVfbWV0cmlj'
+    'GAQgASgJSAFSD29iamVjdGl2ZU1ldHJpY4gBARIsCg9vYmplY3RpdmVfc2NvcmUYBSABKAFIAl'
+    'IOb2JqZWN0aXZlU2NvcmWIAQESWwoSb2JqZWN0aXZlX2RlY2lzaW9uGAYgASgOMiwubW9uYXJj'
+    'aGljLmFnZW50X3Byb3RvY29sLnYxLk91dGNvbWVEZWNpc2lvblIRb2JqZWN0aXZlRGVjaXNpb2'
+    '4SMQoSZXN0aW1hdGVkX2Nvc3RfdXNkGAcgASgBSANSEGVzdGltYXRlZENvc3RVc2SIAQESLQoQ'
+    'YnVkZ2V0X2xpbWl0X3VzZBgIIAEoAUgEUg5idWRnZXRMaW1pdFVzZIgBARJRCg1jb3N0X2RlY2'
+    'lzaW9uGAkgASgOMiwubW9uYXJjaGljLmFnZW50X3Byb3RvY29sLnYxLk91dGNvbWVEZWNpc2lv'
+    'blIMY29zdERlY2lzaW9uEiIKCnJpc2tfbGV2ZWwYCiABKAlIBVIJcmlza0xldmVsiAEBEiYKDH'
+    'Jpc2tfc3VtbWFyeRgLIAEoCUgGUgtyaXNrU3VtbWFyeYgBARJRCg1yaXNrX2RlY2lzaW9uGAwg'
+    'ASgOMiwubW9uYXJjaGljLmFnZW50X3Byb3RvY29sLnYxLk91dGNvbWVEZWNpc2lvblIMcmlza0'
+    'RlY2lzaW9uElMKDmZpbmFsX2RlY2lzaW9uGA0gASgOMiwubW9uYXJjaGljLmFnZW50X3Byb3Rv'
+    'Y29sLnYxLk91dGNvbWVEZWNpc2lvblINZmluYWxEZWNpc2lvbhIdCgdzdW1tYXJ5GA4gASgJSA'
+    'dSB3N1bW1hcnmIAQESMwoIZXZpZGVuY2UYDyABKAsyFy5nb29nbGUucHJvdG9idWYuU3RydWN0'
+    'UghldmlkZW5jZRI3CgpleHRlbnNpb25zGBAgASgLMhcuZ29vZ2xlLnByb3RvYnVmLlN0cnVjdF'
+    'IKZXh0ZW5zaW9uc0IJCgdfcnVuX2lkQhMKEV9vYmplY3RpdmVfbWV0cmljQhIKEF9vYmplY3Rp'
+    'dmVfc2NvcmVCFQoTX2VzdGltYXRlZF9jb3N0X3VzZEITChFfYnVkZ2V0X2xpbWl0X3VzZEINCg'
+    'tfcmlza19sZXZlbEIPCg1fcmlza19zdW1tYXJ5QgoKCF9zdW1tYXJ5');
 
 @$core.Deprecated('Use runContextDescriptor instead')
 const RunContext$json = {

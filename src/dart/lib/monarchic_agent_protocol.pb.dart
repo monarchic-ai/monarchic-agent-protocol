@@ -1780,6 +1780,250 @@ class GateResult extends $pb.GeneratedMessage {
   $0.Struct ensureExtensions() => $_ensure(5);
 }
 
+class RunOutcome extends $pb.GeneratedMessage {
+  factory RunOutcome({
+    $core.String? version,
+    $core.String? taskId,
+    $core.String? runId,
+    $core.String? objectiveMetric,
+    $core.double? objectiveScore,
+    OutcomeDecision? objectiveDecision,
+    $core.double? estimatedCostUsd,
+    $core.double? budgetLimitUsd,
+    OutcomeDecision? costDecision,
+    $core.String? riskLevel,
+    $core.String? riskSummary,
+    OutcomeDecision? riskDecision,
+    OutcomeDecision? finalDecision,
+    $core.String? summary,
+    $0.Struct? evidence,
+    $0.Struct? extensions,
+  }) {
+    final result = create();
+    if (version != null) result.version = version;
+    if (taskId != null) result.taskId = taskId;
+    if (runId != null) result.runId = runId;
+    if (objectiveMetric != null) result.objectiveMetric = objectiveMetric;
+    if (objectiveScore != null) result.objectiveScore = objectiveScore;
+    if (objectiveDecision != null) result.objectiveDecision = objectiveDecision;
+    if (estimatedCostUsd != null) result.estimatedCostUsd = estimatedCostUsd;
+    if (budgetLimitUsd != null) result.budgetLimitUsd = budgetLimitUsd;
+    if (costDecision != null) result.costDecision = costDecision;
+    if (riskLevel != null) result.riskLevel = riskLevel;
+    if (riskSummary != null) result.riskSummary = riskSummary;
+    if (riskDecision != null) result.riskDecision = riskDecision;
+    if (finalDecision != null) result.finalDecision = finalDecision;
+    if (summary != null) result.summary = summary;
+    if (evidence != null) result.evidence = evidence;
+    if (extensions != null) result.extensions = extensions;
+    return result;
+  }
+
+  RunOutcome._();
+
+  factory RunOutcome.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory RunOutcome.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'RunOutcome',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'version')
+    ..aOS(2, _omitFieldNames ? '' : 'taskId')
+    ..aOS(3, _omitFieldNames ? '' : 'runId')
+    ..aOS(4, _omitFieldNames ? '' : 'objectiveMetric')
+    ..aD(5, _omitFieldNames ? '' : 'objectiveScore')
+    ..aE<OutcomeDecision>(6, _omitFieldNames ? '' : 'objectiveDecision',
+        enumValues: OutcomeDecision.values)
+    ..aD(7, _omitFieldNames ? '' : 'estimatedCostUsd')
+    ..aD(8, _omitFieldNames ? '' : 'budgetLimitUsd')
+    ..aE<OutcomeDecision>(9, _omitFieldNames ? '' : 'costDecision',
+        enumValues: OutcomeDecision.values)
+    ..aOS(10, _omitFieldNames ? '' : 'riskLevel')
+    ..aOS(11, _omitFieldNames ? '' : 'riskSummary')
+    ..aE<OutcomeDecision>(12, _omitFieldNames ? '' : 'riskDecision',
+        enumValues: OutcomeDecision.values)
+    ..aE<OutcomeDecision>(13, _omitFieldNames ? '' : 'finalDecision',
+        enumValues: OutcomeDecision.values)
+    ..aOS(14, _omitFieldNames ? '' : 'summary')
+    ..aOM<$0.Struct>(15, _omitFieldNames ? '' : 'evidence',
+        subBuilder: $0.Struct.create)
+    ..aOM<$0.Struct>(16, _omitFieldNames ? '' : 'extensions',
+        subBuilder: $0.Struct.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  RunOutcome clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  RunOutcome copyWith(void Function(RunOutcome) updates) =>
+      super.copyWith((message) => updates(message as RunOutcome)) as RunOutcome;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static RunOutcome create() => RunOutcome._();
+  @$core.override
+  RunOutcome createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static RunOutcome getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<RunOutcome>(create);
+  static RunOutcome? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get version => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set version($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasVersion() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearVersion() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get taskId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set taskId($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasTaskId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearTaskId() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get runId => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set runId($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasRunId() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearRunId() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get objectiveMetric => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set objectiveMetric($core.String value) => $_setString(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasObjectiveMetric() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearObjectiveMetric() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.double get objectiveScore => $_getN(4);
+  @$pb.TagNumber(5)
+  set objectiveScore($core.double value) => $_setDouble(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasObjectiveScore() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearObjectiveScore() => $_clearField(5);
+
+  @$pb.TagNumber(6)
+  OutcomeDecision get objectiveDecision => $_getN(5);
+  @$pb.TagNumber(6)
+  set objectiveDecision(OutcomeDecision value) => $_setField(6, value);
+  @$pb.TagNumber(6)
+  $core.bool hasObjectiveDecision() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearObjectiveDecision() => $_clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.double get estimatedCostUsd => $_getN(6);
+  @$pb.TagNumber(7)
+  set estimatedCostUsd($core.double value) => $_setDouble(6, value);
+  @$pb.TagNumber(7)
+  $core.bool hasEstimatedCostUsd() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearEstimatedCostUsd() => $_clearField(7);
+
+  @$pb.TagNumber(8)
+  $core.double get budgetLimitUsd => $_getN(7);
+  @$pb.TagNumber(8)
+  set budgetLimitUsd($core.double value) => $_setDouble(7, value);
+  @$pb.TagNumber(8)
+  $core.bool hasBudgetLimitUsd() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearBudgetLimitUsd() => $_clearField(8);
+
+  @$pb.TagNumber(9)
+  OutcomeDecision get costDecision => $_getN(8);
+  @$pb.TagNumber(9)
+  set costDecision(OutcomeDecision value) => $_setField(9, value);
+  @$pb.TagNumber(9)
+  $core.bool hasCostDecision() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearCostDecision() => $_clearField(9);
+
+  @$pb.TagNumber(10)
+  $core.String get riskLevel => $_getSZ(9);
+  @$pb.TagNumber(10)
+  set riskLevel($core.String value) => $_setString(9, value);
+  @$pb.TagNumber(10)
+  $core.bool hasRiskLevel() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearRiskLevel() => $_clearField(10);
+
+  @$pb.TagNumber(11)
+  $core.String get riskSummary => $_getSZ(10);
+  @$pb.TagNumber(11)
+  set riskSummary($core.String value) => $_setString(10, value);
+  @$pb.TagNumber(11)
+  $core.bool hasRiskSummary() => $_has(10);
+  @$pb.TagNumber(11)
+  void clearRiskSummary() => $_clearField(11);
+
+  @$pb.TagNumber(12)
+  OutcomeDecision get riskDecision => $_getN(11);
+  @$pb.TagNumber(12)
+  set riskDecision(OutcomeDecision value) => $_setField(12, value);
+  @$pb.TagNumber(12)
+  $core.bool hasRiskDecision() => $_has(11);
+  @$pb.TagNumber(12)
+  void clearRiskDecision() => $_clearField(12);
+
+  @$pb.TagNumber(13)
+  OutcomeDecision get finalDecision => $_getN(12);
+  @$pb.TagNumber(13)
+  set finalDecision(OutcomeDecision value) => $_setField(13, value);
+  @$pb.TagNumber(13)
+  $core.bool hasFinalDecision() => $_has(12);
+  @$pb.TagNumber(13)
+  void clearFinalDecision() => $_clearField(13);
+
+  @$pb.TagNumber(14)
+  $core.String get summary => $_getSZ(13);
+  @$pb.TagNumber(14)
+  set summary($core.String value) => $_setString(13, value);
+  @$pb.TagNumber(14)
+  $core.bool hasSummary() => $_has(13);
+  @$pb.TagNumber(14)
+  void clearSummary() => $_clearField(14);
+
+  @$pb.TagNumber(15)
+  $0.Struct get evidence => $_getN(14);
+  @$pb.TagNumber(15)
+  set evidence($0.Struct value) => $_setField(15, value);
+  @$pb.TagNumber(15)
+  $core.bool hasEvidence() => $_has(14);
+  @$pb.TagNumber(15)
+  void clearEvidence() => $_clearField(15);
+  @$pb.TagNumber(15)
+  $0.Struct ensureEvidence() => $_ensure(14);
+
+  @$pb.TagNumber(16)
+  $0.Struct get extensions => $_getN(15);
+  @$pb.TagNumber(16)
+  set extensions($0.Struct value) => $_setField(16, value);
+  @$pb.TagNumber(16)
+  $core.bool hasExtensions() => $_has(15);
+  @$pb.TagNumber(16)
+  void clearExtensions() => $_clearField(16);
+  @$pb.TagNumber(16)
+  $0.Struct ensureExtensions() => $_ensure(15);
+}
+
 class RunContext extends $pb.GeneratedMessage {
   factory RunContext({
     $core.String? version,

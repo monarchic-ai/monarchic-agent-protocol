@@ -82,6 +82,11 @@ public final class MonarchicAgentProtocolV1 extends com.google.protobuf.Generate
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_monarchic_agent_protocol_v1_GateResult_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_monarchic_agent_protocol_v1_RunOutcome_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_monarchic_agent_protocol_v1_RunOutcome_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_monarchic_agent_protocol_v1_RunContext_descriptor;
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -195,21 +200,43 @@ public final class MonarchicAgentProtocolV1 extends com.google.protobuf.Generate
       "\030\003 \001(\t\022\023\n\006reason\030\004 \001(\tH\000\210\001\001\022)\n\010evidence\030" +
       "\005 \001(\0132\027.google.protobuf.Struct\022+\n\nextens" +
       "ions\030\006 \001(\0132\027.google.protobuf.StructB\t\n\007_" +
-      "reason\"\231\001\n\nRunContext\022\017\n\007version\030\001 \001(\t\022\014" +
-      "\n\004repo\030\002 \001(\t\022\020\n\010worktree\030\003 \001(\t\022\r\n\005image\030" +
-      "\004 \001(\t\022\016\n\006runner\030\005 \001(\t\022\016\n\006labels\030\006 \003(\t\022+\n" +
-      "\nextensions\030\007 \001(\0132\027.google.protobuf.Stru" +
-      "ct*\205\001\n\tAgentRole\022\032\n\026AGENT_ROLE_UNSPECIFI" +
-      "ED\020\000\022\021\n\rPRODUCT_OWNER\020\001\022\023\n\017PROJECT_MANAG" +
-      "ER\020\002\022\007\n\003DEV\020\003\022\006\n\002QA\020\004\022\014\n\010REVIEWER\020\005\022\014\n\010S" +
-      "ECURITY\020\006\022\007\n\003OPS\020\007B\210\002\n\036ai.monarchic.agen" +
-      "t_protocol.v1B\030MonarchicAgentProtocolV1P" +
-      "\001Zdgithub.com/monarchic-ai/monarchic-age" +
-      "nt-protocol/src/go/monarchic/agent_proto" +
-      "col/v1;agent_protocolv1\242\002\003MAP\252\002\032Monarchi" +
-      "c.AgentProtocol.V1\312\002\032Monarchic\\AgentProt" +
-      "ocol\\V1\342\002#Monarchic\\AgentProtocol\\V1\\Met" +
-      "adatab\006proto3"
+      "reason\"\210\006\n\nRunOutcome\022\017\n\007version\030\001 \001(\t\022\017" +
+      "\n\007task_id\030\002 \001(\t\022\023\n\006run_id\030\003 \001(\tH\000\210\001\001\022\035\n\020" +
+      "objective_metric\030\004 \001(\tH\001\210\001\001\022\034\n\017objective" +
+      "_score\030\005 \001(\001H\002\210\001\001\022H\n\022objective_decision\030" +
+      "\006 \001(\0162,.monarchic.agent_protocol.v1.Outc" +
+      "omeDecision\022\037\n\022estimated_cost_usd\030\007 \001(\001H" +
+      "\003\210\001\001\022\035\n\020budget_limit_usd\030\010 \001(\001H\004\210\001\001\022C\n\rc" +
+      "ost_decision\030\t \001(\0162,.monarchic.agent_pro" +
+      "tocol.v1.OutcomeDecision\022\027\n\nrisk_level\030\n" +
+      " \001(\tH\005\210\001\001\022\031\n\014risk_summary\030\013 \001(\tH\006\210\001\001\022C\n\r" +
+      "risk_decision\030\014 \001(\0162,.monarchic.agent_pr" +
+      "otocol.v1.OutcomeDecision\022D\n\016final_decis" +
+      "ion\030\r \001(\0162,.monarchic.agent_protocol.v1." +
+      "OutcomeDecision\022\024\n\007summary\030\016 \001(\tH\007\210\001\001\022)\n" +
+      "\010evidence\030\017 \001(\0132\027.google.protobuf.Struct" +
+      "\022+\n\nextensions\030\020 \001(\0132\027.google.protobuf.S" +
+      "tructB\t\n\007_run_idB\023\n\021_objective_metricB\022\n" +
+      "\020_objective_scoreB\025\n\023_estimated_cost_usd" +
+      "B\023\n\021_budget_limit_usdB\r\n\013_risk_levelB\017\n\r" +
+      "_risk_summaryB\n\n\010_summary\"\231\001\n\nRunContext" +
+      "\022\017\n\007version\030\001 \001(\t\022\014\n\004repo\030\002 \001(\t\022\020\n\010workt" +
+      "ree\030\003 \001(\t\022\r\n\005image\030\004 \001(\t\022\016\n\006runner\030\005 \001(\t" +
+      "\022\016\n\006labels\030\006 \003(\t\022+\n\nextensions\030\007 \001(\0132\027.g" +
+      "oogle.protobuf.Struct*\205\001\n\tAgentRole\022\032\n\026A" +
+      "GENT_ROLE_UNSPECIFIED\020\000\022\021\n\rPRODUCT_OWNER" +
+      "\020\001\022\023\n\017PROJECT_MANAGER\020\002\022\007\n\003DEV\020\003\022\006\n\002QA\020\004" +
+      "\022\014\n\010REVIEWER\020\005\022\014\n\010SECURITY\020\006\022\007\n\003OPS\020\007*f\n" +
+      "\017OutcomeDecision\022 \n\034OUTCOME_DECISION_UNS" +
+      "PECIFIED\020\000\022\n\n\006ACCEPT\020\001\022\013\n\007ITERATE\020\002\022\n\n\006R" +
+      "EJECT\020\003\022\014\n\010ESCALATE\020\004B\210\002\n\036ai.monarchic.a" +
+      "gent_protocol.v1B\030MonarchicAgentProtocol" +
+      "V1P\001Zdgithub.com/monarchic-ai/monarchic-" +
+      "agent-protocol/src/go/monarchic/agent_pr" +
+      "otocol/v1;agent_protocolv1\242\002\003MAP\252\002\032Monar" +
+      "chic.AgentProtocol.V1\312\002\032Monarchic\\AgentP" +
+      "rotocol\\V1\342\002#Monarchic\\AgentProtocol\\V1\\" +
+      "Metadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -282,8 +309,14 @@ public final class MonarchicAgentProtocolV1 extends com.google.protobuf.Generate
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_GateResult_descriptor,
         new java.lang.String[] { "Version", "Gate", "Status", "Reason", "Evidence", "Extensions", });
-    internal_static_monarchic_agent_protocol_v1_RunContext_descriptor =
+    internal_static_monarchic_agent_protocol_v1_RunOutcome_descriptor =
       getDescriptor().getMessageTypes().get(11);
+    internal_static_monarchic_agent_protocol_v1_RunOutcome_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_monarchic_agent_protocol_v1_RunOutcome_descriptor,
+        new java.lang.String[] { "Version", "TaskId", "RunId", "ObjectiveMetric", "ObjectiveScore", "ObjectiveDecision", "EstimatedCostUsd", "BudgetLimitUsd", "CostDecision", "RiskLevel", "RiskSummary", "RiskDecision", "FinalDecision", "Summary", "Evidence", "Extensions", });
+    internal_static_monarchic_agent_protocol_v1_RunContext_descriptor =
+      getDescriptor().getMessageTypes().get(12);
     internal_static_monarchic_agent_protocol_v1_RunContext_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_RunContext_descriptor,

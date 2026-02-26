@@ -113,22 +113,42 @@ namespace Monarchic.AgentProtocol.V1 {
             "Eg4KBnN0YXR1cxgDIAEoCRITCgZyZWFzb24YBCABKAlIAIgBARIpCghldmlk",
             "ZW5jZRgFIAEoCzIXLmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3QSKwoKZXh0ZW5z",
             "aW9ucxgGIAEoCzIXLmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3RCCQoHX3JlYXNv",
-            "biKZAQoKUnVuQ29udGV4dBIPCgd2ZXJzaW9uGAEgASgJEgwKBHJlcG8YAiAB",
-            "KAkSEAoId29ya3RyZWUYAyABKAkSDQoFaW1hZ2UYBCABKAkSDgoGcnVubmVy",
-            "GAUgASgJEg4KBmxhYmVscxgGIAMoCRIrCgpleHRlbnNpb25zGAcgASgLMhcu",
-            "Z29vZ2xlLnByb3RvYnVmLlN0cnVjdCqFAQoJQWdlbnRSb2xlEhoKFkFHRU5U",
-            "X1JPTEVfVU5TUEVDSUZJRUQQABIRCg1QUk9EVUNUX09XTkVSEAESEwoPUFJP",
-            "SkVDVF9NQU5BR0VSEAISBwoDREVWEAMSBgoCUUEQBBIMCghSRVZJRVdFUhAF",
-            "EgwKCFNFQ1VSSVRZEAYSBwoDT1BTEAdCiAIKHmFpLm1vbmFyY2hpYy5hZ2Vu",
-            "dF9wcm90b2NvbC52MUIYTW9uYXJjaGljQWdlbnRQcm90b2NvbFYxUAFaZGdp",
-            "dGh1Yi5jb20vbW9uYXJjaGljLWFpL21vbmFyY2hpYy1hZ2VudC1wcm90b2Nv",
-            "bC9zcmMvZ28vbW9uYXJjaGljL2FnZW50X3Byb3RvY29sL3YxO2FnZW50X3By",
-            "b3RvY29sdjGiAgNNQVCqAhpNb25hcmNoaWMuQWdlbnRQcm90b2NvbC5WMcoC",
-            "Gk1vbmFyY2hpY1xBZ2VudFByb3RvY29sXFYx4gIjTW9uYXJjaGljXEFnZW50",
-            "UHJvdG9jb2xcVjFcTWV0YWRhdGFiBnByb3RvMw=="));
+            "biKIBgoKUnVuT3V0Y29tZRIPCgd2ZXJzaW9uGAEgASgJEg8KB3Rhc2tfaWQY",
+            "AiABKAkSEwoGcnVuX2lkGAMgASgJSACIAQESHQoQb2JqZWN0aXZlX21ldHJp",
+            "YxgEIAEoCUgBiAEBEhwKD29iamVjdGl2ZV9zY29yZRgFIAEoAUgCiAEBEkgK",
+            "Em9iamVjdGl2ZV9kZWNpc2lvbhgGIAEoDjIsLm1vbmFyY2hpYy5hZ2VudF9w",
+            "cm90b2NvbC52MS5PdXRjb21lRGVjaXNpb24SHwoSZXN0aW1hdGVkX2Nvc3Rf",
+            "dXNkGAcgASgBSAOIAQESHQoQYnVkZ2V0X2xpbWl0X3VzZBgIIAEoAUgEiAEB",
+            "EkMKDWNvc3RfZGVjaXNpb24YCSABKA4yLC5tb25hcmNoaWMuYWdlbnRfcHJv",
+            "dG9jb2wudjEuT3V0Y29tZURlY2lzaW9uEhcKCnJpc2tfbGV2ZWwYCiABKAlI",
+            "BYgBARIZCgxyaXNrX3N1bW1hcnkYCyABKAlIBogBARJDCg1yaXNrX2RlY2lz",
+            "aW9uGAwgASgOMiwubW9uYXJjaGljLmFnZW50X3Byb3RvY29sLnYxLk91dGNv",
+            "bWVEZWNpc2lvbhJECg5maW5hbF9kZWNpc2lvbhgNIAEoDjIsLm1vbmFyY2hp",
+            "Yy5hZ2VudF9wcm90b2NvbC52MS5PdXRjb21lRGVjaXNpb24SFAoHc3VtbWFy",
+            "eRgOIAEoCUgHiAEBEikKCGV2aWRlbmNlGA8gASgLMhcuZ29vZ2xlLnByb3Rv",
+            "YnVmLlN0cnVjdBIrCgpleHRlbnNpb25zGBAgASgLMhcuZ29vZ2xlLnByb3Rv",
+            "YnVmLlN0cnVjdEIJCgdfcnVuX2lkQhMKEV9vYmplY3RpdmVfbWV0cmljQhIK",
+            "EF9vYmplY3RpdmVfc2NvcmVCFQoTX2VzdGltYXRlZF9jb3N0X3VzZEITChFf",
+            "YnVkZ2V0X2xpbWl0X3VzZEINCgtfcmlza19sZXZlbEIPCg1fcmlza19zdW1t",
+            "YXJ5QgoKCF9zdW1tYXJ5IpkBCgpSdW5Db250ZXh0Eg8KB3ZlcnNpb24YASAB",
+            "KAkSDAoEcmVwbxgCIAEoCRIQCgh3b3JrdHJlZRgDIAEoCRINCgVpbWFnZRgE",
+            "IAEoCRIOCgZydW5uZXIYBSABKAkSDgoGbGFiZWxzGAYgAygJEisKCmV4dGVu",
+            "c2lvbnMYByABKAsyFy5nb29nbGUucHJvdG9idWYuU3RydWN0KoUBCglBZ2Vu",
+            "dFJvbGUSGgoWQUdFTlRfUk9MRV9VTlNQRUNJRklFRBAAEhEKDVBST0RVQ1Rf",
+            "T1dORVIQARITCg9QUk9KRUNUX01BTkFHRVIQAhIHCgNERVYQAxIGCgJRQRAE",
+            "EgwKCFJFVklFV0VSEAUSDAoIU0VDVVJJVFkQBhIHCgNPUFMQBypmCg9PdXRj",
+            "b21lRGVjaXNpb24SIAocT1VUQ09NRV9ERUNJU0lPTl9VTlNQRUNJRklFRBAA",
+            "EgoKBkFDQ0VQVBABEgsKB0lURVJBVEUQAhIKCgZSRUpFQ1QQAxIMCghFU0NB",
+            "TEFURRAEQogCCh5haS5tb25hcmNoaWMuYWdlbnRfcHJvdG9jb2wudjFCGE1v",
+            "bmFyY2hpY0FnZW50UHJvdG9jb2xWMVABWmRnaXRodWIuY29tL21vbmFyY2hp",
+            "Yy1haS9tb25hcmNoaWMtYWdlbnQtcHJvdG9jb2wvc3JjL2dvL21vbmFyY2hp",
+            "Yy9hZ2VudF9wcm90b2NvbC92MTthZ2VudF9wcm90b2NvbHYxogIDTUFQqgIa",
+            "TW9uYXJjaGljLkFnZW50UHJvdG9jb2wuVjHKAhpNb25hcmNoaWNcQWdlbnRQ",
+            "cm90b2NvbFxWMeICI01vbmFyY2hpY1xBZ2VudFByb3RvY29sXFYxXE1ldGFk",
+            "YXRhYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Monarchic.AgentProtocol.V1.AgentRole), }, null, new pbr::GeneratedClrTypeInfo[] {
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Monarchic.AgentProtocol.V1.AgentRole), typeof(global::Monarchic.AgentProtocol.V1.OutcomeDecision), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Monarchic.AgentProtocol.V1.DatasetRef), global::Monarchic.AgentProtocol.V1.DatasetRef.Parser, new[]{ "DatasetId", "Uri", "Sha256", "Format", "Split", "SizeBytes", "Description", "Extensions" }, new[]{ "Uri", "Split", "SizeBytes", "Description" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Monarchic.AgentProtocol.V1.AcceptanceCriteria), global::Monarchic.AgentProtocol.V1.AcceptanceCriteria.Parser, new[]{ "Metric", "Direction", "Threshold", "MinEffectSize", "MaxVariance", "ConfidenceLevel", "Extensions" }, new[]{ "MinEffectSize", "MaxVariance", "ConfidenceLevel" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Monarchic.AgentProtocol.V1.ExperimentSpec), global::Monarchic.AgentProtocol.V1.ExperimentSpec.Parser, new[]{ "ExperimentId", "Objective", "Hypothesis", "ModelFamily", "Seeds", "DatasetRefs", "Acceptance", "Constraints", "Extensions" }, new[]{ "Hypothesis", "ModelFamily" }, null, null, null),
@@ -140,6 +160,7 @@ namespace Monarchic.AgentProtocol.V1 {
             new pbr::GeneratedClrTypeInfo(typeof(global::Monarchic.AgentProtocol.V1.Artifact), global::Monarchic.AgentProtocol.V1.Artifact.Parser, new[]{ "Version", "ArtifactId", "Type", "Summary", "Path", "TaskId", "Extensions", "Provenance", "DatasetRefs", "EvalResults", "ExperimentSpec" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Monarchic.AgentProtocol.V1.Event), global::Monarchic.AgentProtocol.V1.Event.Parser, new[]{ "Version", "EventType", "Timestamp", "TaskId", "Status", "Message", "Extensions", "Provenance", "EvalResults" }, new[]{ "Message" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Monarchic.AgentProtocol.V1.GateResult), global::Monarchic.AgentProtocol.V1.GateResult.Parser, new[]{ "Version", "Gate", "Status", "Reason", "Evidence", "Extensions" }, new[]{ "Reason" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Monarchic.AgentProtocol.V1.RunOutcome), global::Monarchic.AgentProtocol.V1.RunOutcome.Parser, new[]{ "Version", "TaskId", "RunId", "ObjectiveMetric", "ObjectiveScore", "ObjectiveDecision", "EstimatedCostUsd", "BudgetLimitUsd", "CostDecision", "RiskLevel", "RiskSummary", "RiskDecision", "FinalDecision", "Summary", "Evidence", "Extensions" }, new[]{ "RunId", "ObjectiveMetric", "ObjectiveScore", "EstimatedCostUsd", "BudgetLimitUsd", "RiskLevel", "RiskSummary", "Summary" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Monarchic.AgentProtocol.V1.RunContext), global::Monarchic.AgentProtocol.V1.RunContext.Parser, new[]{ "Version", "Repo", "Worktree", "Image", "Runner", "Labels", "Extensions" }, null, null, null, null)
           }));
     }
@@ -156,6 +177,14 @@ namespace Monarchic.AgentProtocol.V1 {
     [pbr::OriginalName("REVIEWER")] Reviewer = 5,
     [pbr::OriginalName("SECURITY")] Security = 6,
     [pbr::OriginalName("OPS")] Ops = 7,
+  }
+
+  public enum OutcomeDecision {
+    [pbr::OriginalName("OUTCOME_DECISION_UNSPECIFIED")] Unspecified = 0,
+    [pbr::OriginalName("ACCEPT")] Accept = 1,
+    [pbr::OriginalName("ITERATE")] Iterate = 2,
+    [pbr::OriginalName("REJECT")] Reject = 3,
+    [pbr::OriginalName("ESCALATE")] Escalate = 4,
   }
 
   #endregion
@@ -6454,6 +6483,894 @@ namespace Monarchic.AgentProtocol.V1 {
   }
 
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class RunOutcome : pb::IMessage<RunOutcome>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<RunOutcome> _parser = new pb::MessageParser<RunOutcome>(() => new RunOutcome());
+    private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<RunOutcome> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Monarchic.AgentProtocol.V1.MonarchicAgentProtocolReflection.Descriptor.MessageTypes[11]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public RunOutcome() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public RunOutcome(RunOutcome other) : this() {
+      _hasBits0 = other._hasBits0;
+      version_ = other.version_;
+      taskId_ = other.taskId_;
+      runId_ = other.runId_;
+      objectiveMetric_ = other.objectiveMetric_;
+      objectiveScore_ = other.objectiveScore_;
+      objectiveDecision_ = other.objectiveDecision_;
+      estimatedCostUsd_ = other.estimatedCostUsd_;
+      budgetLimitUsd_ = other.budgetLimitUsd_;
+      costDecision_ = other.costDecision_;
+      riskLevel_ = other.riskLevel_;
+      riskSummary_ = other.riskSummary_;
+      riskDecision_ = other.riskDecision_;
+      finalDecision_ = other.finalDecision_;
+      summary_ = other.summary_;
+      evidence_ = other.evidence_ != null ? other.evidence_.Clone() : null;
+      extensions_ = other.extensions_ != null ? other.extensions_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public RunOutcome Clone() {
+      return new RunOutcome(this);
+    }
+
+    /// <summary>Field number for the "version" field.</summary>
+    public const int VersionFieldNumber = 1;
+    private string version_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Version {
+      get { return version_; }
+      set {
+        version_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "task_id" field.</summary>
+    public const int TaskIdFieldNumber = 2;
+    private string taskId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string TaskId {
+      get { return taskId_; }
+      set {
+        taskId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "run_id" field.</summary>
+    public const int RunIdFieldNumber = 3;
+    private readonly static string RunIdDefaultValue = "";
+
+    private string runId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string RunId {
+      get { return runId_ ?? RunIdDefaultValue; }
+      set {
+        runId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "run_id" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasRunId {
+      get { return runId_ != null; }
+    }
+    /// <summary>Clears the value of the "run_id" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearRunId() {
+      runId_ = null;
+    }
+
+    /// <summary>Field number for the "objective_metric" field.</summary>
+    public const int ObjectiveMetricFieldNumber = 4;
+    private readonly static string ObjectiveMetricDefaultValue = "";
+
+    private string objectiveMetric_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string ObjectiveMetric {
+      get { return objectiveMetric_ ?? ObjectiveMetricDefaultValue; }
+      set {
+        objectiveMetric_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "objective_metric" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasObjectiveMetric {
+      get { return objectiveMetric_ != null; }
+    }
+    /// <summary>Clears the value of the "objective_metric" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearObjectiveMetric() {
+      objectiveMetric_ = null;
+    }
+
+    /// <summary>Field number for the "objective_score" field.</summary>
+    public const int ObjectiveScoreFieldNumber = 5;
+    private readonly static double ObjectiveScoreDefaultValue = 0D;
+
+    private double objectiveScore_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double ObjectiveScore {
+      get { if ((_hasBits0 & 1) != 0) { return objectiveScore_; } else { return ObjectiveScoreDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        objectiveScore_ = value;
+      }
+    }
+    /// <summary>Gets whether the "objective_score" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasObjectiveScore {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "objective_score" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearObjectiveScore() {
+      _hasBits0 &= ~1;
+    }
+
+    /// <summary>Field number for the "objective_decision" field.</summary>
+    public const int ObjectiveDecisionFieldNumber = 6;
+    private global::Monarchic.AgentProtocol.V1.OutcomeDecision objectiveDecision_ = global::Monarchic.AgentProtocol.V1.OutcomeDecision.Unspecified;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Monarchic.AgentProtocol.V1.OutcomeDecision ObjectiveDecision {
+      get { return objectiveDecision_; }
+      set {
+        objectiveDecision_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "estimated_cost_usd" field.</summary>
+    public const int EstimatedCostUsdFieldNumber = 7;
+    private readonly static double EstimatedCostUsdDefaultValue = 0D;
+
+    private double estimatedCostUsd_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double EstimatedCostUsd {
+      get { if ((_hasBits0 & 2) != 0) { return estimatedCostUsd_; } else { return EstimatedCostUsdDefaultValue; } }
+      set {
+        _hasBits0 |= 2;
+        estimatedCostUsd_ = value;
+      }
+    }
+    /// <summary>Gets whether the "estimated_cost_usd" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasEstimatedCostUsd {
+      get { return (_hasBits0 & 2) != 0; }
+    }
+    /// <summary>Clears the value of the "estimated_cost_usd" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearEstimatedCostUsd() {
+      _hasBits0 &= ~2;
+    }
+
+    /// <summary>Field number for the "budget_limit_usd" field.</summary>
+    public const int BudgetLimitUsdFieldNumber = 8;
+    private readonly static double BudgetLimitUsdDefaultValue = 0D;
+
+    private double budgetLimitUsd_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double BudgetLimitUsd {
+      get { if ((_hasBits0 & 4) != 0) { return budgetLimitUsd_; } else { return BudgetLimitUsdDefaultValue; } }
+      set {
+        _hasBits0 |= 4;
+        budgetLimitUsd_ = value;
+      }
+    }
+    /// <summary>Gets whether the "budget_limit_usd" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasBudgetLimitUsd {
+      get { return (_hasBits0 & 4) != 0; }
+    }
+    /// <summary>Clears the value of the "budget_limit_usd" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearBudgetLimitUsd() {
+      _hasBits0 &= ~4;
+    }
+
+    /// <summary>Field number for the "cost_decision" field.</summary>
+    public const int CostDecisionFieldNumber = 9;
+    private global::Monarchic.AgentProtocol.V1.OutcomeDecision costDecision_ = global::Monarchic.AgentProtocol.V1.OutcomeDecision.Unspecified;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Monarchic.AgentProtocol.V1.OutcomeDecision CostDecision {
+      get { return costDecision_; }
+      set {
+        costDecision_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "risk_level" field.</summary>
+    public const int RiskLevelFieldNumber = 10;
+    private readonly static string RiskLevelDefaultValue = "";
+
+    private string riskLevel_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string RiskLevel {
+      get { return riskLevel_ ?? RiskLevelDefaultValue; }
+      set {
+        riskLevel_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "risk_level" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasRiskLevel {
+      get { return riskLevel_ != null; }
+    }
+    /// <summary>Clears the value of the "risk_level" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearRiskLevel() {
+      riskLevel_ = null;
+    }
+
+    /// <summary>Field number for the "risk_summary" field.</summary>
+    public const int RiskSummaryFieldNumber = 11;
+    private readonly static string RiskSummaryDefaultValue = "";
+
+    private string riskSummary_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string RiskSummary {
+      get { return riskSummary_ ?? RiskSummaryDefaultValue; }
+      set {
+        riskSummary_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "risk_summary" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasRiskSummary {
+      get { return riskSummary_ != null; }
+    }
+    /// <summary>Clears the value of the "risk_summary" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearRiskSummary() {
+      riskSummary_ = null;
+    }
+
+    /// <summary>Field number for the "risk_decision" field.</summary>
+    public const int RiskDecisionFieldNumber = 12;
+    private global::Monarchic.AgentProtocol.V1.OutcomeDecision riskDecision_ = global::Monarchic.AgentProtocol.V1.OutcomeDecision.Unspecified;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Monarchic.AgentProtocol.V1.OutcomeDecision RiskDecision {
+      get { return riskDecision_; }
+      set {
+        riskDecision_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "final_decision" field.</summary>
+    public const int FinalDecisionFieldNumber = 13;
+    private global::Monarchic.AgentProtocol.V1.OutcomeDecision finalDecision_ = global::Monarchic.AgentProtocol.V1.OutcomeDecision.Unspecified;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Monarchic.AgentProtocol.V1.OutcomeDecision FinalDecision {
+      get { return finalDecision_; }
+      set {
+        finalDecision_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "summary" field.</summary>
+    public const int SummaryFieldNumber = 14;
+    private readonly static string SummaryDefaultValue = "";
+
+    private string summary_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Summary {
+      get { return summary_ ?? SummaryDefaultValue; }
+      set {
+        summary_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "summary" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasSummary {
+      get { return summary_ != null; }
+    }
+    /// <summary>Clears the value of the "summary" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearSummary() {
+      summary_ = null;
+    }
+
+    /// <summary>Field number for the "evidence" field.</summary>
+    public const int EvidenceFieldNumber = 15;
+    private global::Google.Protobuf.WellKnownTypes.Struct evidence_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Struct Evidence {
+      get { return evidence_; }
+      set {
+        evidence_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "extensions" field.</summary>
+    public const int ExtensionsFieldNumber = 16;
+    private global::Google.Protobuf.WellKnownTypes.Struct extensions_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Struct Extensions {
+      get { return extensions_; }
+      set {
+        extensions_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as RunOutcome);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(RunOutcome other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Version != other.Version) return false;
+      if (TaskId != other.TaskId) return false;
+      if (RunId != other.RunId) return false;
+      if (ObjectiveMetric != other.ObjectiveMetric) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(ObjectiveScore, other.ObjectiveScore)) return false;
+      if (ObjectiveDecision != other.ObjectiveDecision) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(EstimatedCostUsd, other.EstimatedCostUsd)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(BudgetLimitUsd, other.BudgetLimitUsd)) return false;
+      if (CostDecision != other.CostDecision) return false;
+      if (RiskLevel != other.RiskLevel) return false;
+      if (RiskSummary != other.RiskSummary) return false;
+      if (RiskDecision != other.RiskDecision) return false;
+      if (FinalDecision != other.FinalDecision) return false;
+      if (Summary != other.Summary) return false;
+      if (!object.Equals(Evidence, other.Evidence)) return false;
+      if (!object.Equals(Extensions, other.Extensions)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Version.Length != 0) hash ^= Version.GetHashCode();
+      if (TaskId.Length != 0) hash ^= TaskId.GetHashCode();
+      if (HasRunId) hash ^= RunId.GetHashCode();
+      if (HasObjectiveMetric) hash ^= ObjectiveMetric.GetHashCode();
+      if (HasObjectiveScore) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(ObjectiveScore);
+      if (ObjectiveDecision != global::Monarchic.AgentProtocol.V1.OutcomeDecision.Unspecified) hash ^= ObjectiveDecision.GetHashCode();
+      if (HasEstimatedCostUsd) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(EstimatedCostUsd);
+      if (HasBudgetLimitUsd) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(BudgetLimitUsd);
+      if (CostDecision != global::Monarchic.AgentProtocol.V1.OutcomeDecision.Unspecified) hash ^= CostDecision.GetHashCode();
+      if (HasRiskLevel) hash ^= RiskLevel.GetHashCode();
+      if (HasRiskSummary) hash ^= RiskSummary.GetHashCode();
+      if (RiskDecision != global::Monarchic.AgentProtocol.V1.OutcomeDecision.Unspecified) hash ^= RiskDecision.GetHashCode();
+      if (FinalDecision != global::Monarchic.AgentProtocol.V1.OutcomeDecision.Unspecified) hash ^= FinalDecision.GetHashCode();
+      if (HasSummary) hash ^= Summary.GetHashCode();
+      if (evidence_ != null) hash ^= Evidence.GetHashCode();
+      if (extensions_ != null) hash ^= Extensions.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Version.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Version);
+      }
+      if (TaskId.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(TaskId);
+      }
+      if (HasRunId) {
+        output.WriteRawTag(26);
+        output.WriteString(RunId);
+      }
+      if (HasObjectiveMetric) {
+        output.WriteRawTag(34);
+        output.WriteString(ObjectiveMetric);
+      }
+      if (HasObjectiveScore) {
+        output.WriteRawTag(41);
+        output.WriteDouble(ObjectiveScore);
+      }
+      if (ObjectiveDecision != global::Monarchic.AgentProtocol.V1.OutcomeDecision.Unspecified) {
+        output.WriteRawTag(48);
+        output.WriteEnum((int) ObjectiveDecision);
+      }
+      if (HasEstimatedCostUsd) {
+        output.WriteRawTag(57);
+        output.WriteDouble(EstimatedCostUsd);
+      }
+      if (HasBudgetLimitUsd) {
+        output.WriteRawTag(65);
+        output.WriteDouble(BudgetLimitUsd);
+      }
+      if (CostDecision != global::Monarchic.AgentProtocol.V1.OutcomeDecision.Unspecified) {
+        output.WriteRawTag(72);
+        output.WriteEnum((int) CostDecision);
+      }
+      if (HasRiskLevel) {
+        output.WriteRawTag(82);
+        output.WriteString(RiskLevel);
+      }
+      if (HasRiskSummary) {
+        output.WriteRawTag(90);
+        output.WriteString(RiskSummary);
+      }
+      if (RiskDecision != global::Monarchic.AgentProtocol.V1.OutcomeDecision.Unspecified) {
+        output.WriteRawTag(96);
+        output.WriteEnum((int) RiskDecision);
+      }
+      if (FinalDecision != global::Monarchic.AgentProtocol.V1.OutcomeDecision.Unspecified) {
+        output.WriteRawTag(104);
+        output.WriteEnum((int) FinalDecision);
+      }
+      if (HasSummary) {
+        output.WriteRawTag(114);
+        output.WriteString(Summary);
+      }
+      if (evidence_ != null) {
+        output.WriteRawTag(122);
+        output.WriteMessage(Evidence);
+      }
+      if (extensions_ != null) {
+        output.WriteRawTag(130, 1);
+        output.WriteMessage(Extensions);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Version.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Version);
+      }
+      if (TaskId.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(TaskId);
+      }
+      if (HasRunId) {
+        output.WriteRawTag(26);
+        output.WriteString(RunId);
+      }
+      if (HasObjectiveMetric) {
+        output.WriteRawTag(34);
+        output.WriteString(ObjectiveMetric);
+      }
+      if (HasObjectiveScore) {
+        output.WriteRawTag(41);
+        output.WriteDouble(ObjectiveScore);
+      }
+      if (ObjectiveDecision != global::Monarchic.AgentProtocol.V1.OutcomeDecision.Unspecified) {
+        output.WriteRawTag(48);
+        output.WriteEnum((int) ObjectiveDecision);
+      }
+      if (HasEstimatedCostUsd) {
+        output.WriteRawTag(57);
+        output.WriteDouble(EstimatedCostUsd);
+      }
+      if (HasBudgetLimitUsd) {
+        output.WriteRawTag(65);
+        output.WriteDouble(BudgetLimitUsd);
+      }
+      if (CostDecision != global::Monarchic.AgentProtocol.V1.OutcomeDecision.Unspecified) {
+        output.WriteRawTag(72);
+        output.WriteEnum((int) CostDecision);
+      }
+      if (HasRiskLevel) {
+        output.WriteRawTag(82);
+        output.WriteString(RiskLevel);
+      }
+      if (HasRiskSummary) {
+        output.WriteRawTag(90);
+        output.WriteString(RiskSummary);
+      }
+      if (RiskDecision != global::Monarchic.AgentProtocol.V1.OutcomeDecision.Unspecified) {
+        output.WriteRawTag(96);
+        output.WriteEnum((int) RiskDecision);
+      }
+      if (FinalDecision != global::Monarchic.AgentProtocol.V1.OutcomeDecision.Unspecified) {
+        output.WriteRawTag(104);
+        output.WriteEnum((int) FinalDecision);
+      }
+      if (HasSummary) {
+        output.WriteRawTag(114);
+        output.WriteString(Summary);
+      }
+      if (evidence_ != null) {
+        output.WriteRawTag(122);
+        output.WriteMessage(Evidence);
+      }
+      if (extensions_ != null) {
+        output.WriteRawTag(130, 1);
+        output.WriteMessage(Extensions);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Version.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Version);
+      }
+      if (TaskId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(TaskId);
+      }
+      if (HasRunId) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RunId);
+      }
+      if (HasObjectiveMetric) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ObjectiveMetric);
+      }
+      if (HasObjectiveScore) {
+        size += 1 + 8;
+      }
+      if (ObjectiveDecision != global::Monarchic.AgentProtocol.V1.OutcomeDecision.Unspecified) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ObjectiveDecision);
+      }
+      if (HasEstimatedCostUsd) {
+        size += 1 + 8;
+      }
+      if (HasBudgetLimitUsd) {
+        size += 1 + 8;
+      }
+      if (CostDecision != global::Monarchic.AgentProtocol.V1.OutcomeDecision.Unspecified) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) CostDecision);
+      }
+      if (HasRiskLevel) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RiskLevel);
+      }
+      if (HasRiskSummary) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RiskSummary);
+      }
+      if (RiskDecision != global::Monarchic.AgentProtocol.V1.OutcomeDecision.Unspecified) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) RiskDecision);
+      }
+      if (FinalDecision != global::Monarchic.AgentProtocol.V1.OutcomeDecision.Unspecified) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) FinalDecision);
+      }
+      if (HasSummary) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Summary);
+      }
+      if (evidence_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Evidence);
+      }
+      if (extensions_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(Extensions);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(RunOutcome other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Version.Length != 0) {
+        Version = other.Version;
+      }
+      if (other.TaskId.Length != 0) {
+        TaskId = other.TaskId;
+      }
+      if (other.HasRunId) {
+        RunId = other.RunId;
+      }
+      if (other.HasObjectiveMetric) {
+        ObjectiveMetric = other.ObjectiveMetric;
+      }
+      if (other.HasObjectiveScore) {
+        ObjectiveScore = other.ObjectiveScore;
+      }
+      if (other.ObjectiveDecision != global::Monarchic.AgentProtocol.V1.OutcomeDecision.Unspecified) {
+        ObjectiveDecision = other.ObjectiveDecision;
+      }
+      if (other.HasEstimatedCostUsd) {
+        EstimatedCostUsd = other.EstimatedCostUsd;
+      }
+      if (other.HasBudgetLimitUsd) {
+        BudgetLimitUsd = other.BudgetLimitUsd;
+      }
+      if (other.CostDecision != global::Monarchic.AgentProtocol.V1.OutcomeDecision.Unspecified) {
+        CostDecision = other.CostDecision;
+      }
+      if (other.HasRiskLevel) {
+        RiskLevel = other.RiskLevel;
+      }
+      if (other.HasRiskSummary) {
+        RiskSummary = other.RiskSummary;
+      }
+      if (other.RiskDecision != global::Monarchic.AgentProtocol.V1.OutcomeDecision.Unspecified) {
+        RiskDecision = other.RiskDecision;
+      }
+      if (other.FinalDecision != global::Monarchic.AgentProtocol.V1.OutcomeDecision.Unspecified) {
+        FinalDecision = other.FinalDecision;
+      }
+      if (other.HasSummary) {
+        Summary = other.Summary;
+      }
+      if (other.evidence_ != null) {
+        if (evidence_ == null) {
+          Evidence = new global::Google.Protobuf.WellKnownTypes.Struct();
+        }
+        Evidence.MergeFrom(other.Evidence);
+      }
+      if (other.extensions_ != null) {
+        if (extensions_ == null) {
+          Extensions = new global::Google.Protobuf.WellKnownTypes.Struct();
+        }
+        Extensions.MergeFrom(other.Extensions);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Version = input.ReadString();
+            break;
+          }
+          case 18: {
+            TaskId = input.ReadString();
+            break;
+          }
+          case 26: {
+            RunId = input.ReadString();
+            break;
+          }
+          case 34: {
+            ObjectiveMetric = input.ReadString();
+            break;
+          }
+          case 41: {
+            ObjectiveScore = input.ReadDouble();
+            break;
+          }
+          case 48: {
+            ObjectiveDecision = (global::Monarchic.AgentProtocol.V1.OutcomeDecision) input.ReadEnum();
+            break;
+          }
+          case 57: {
+            EstimatedCostUsd = input.ReadDouble();
+            break;
+          }
+          case 65: {
+            BudgetLimitUsd = input.ReadDouble();
+            break;
+          }
+          case 72: {
+            CostDecision = (global::Monarchic.AgentProtocol.V1.OutcomeDecision) input.ReadEnum();
+            break;
+          }
+          case 82: {
+            RiskLevel = input.ReadString();
+            break;
+          }
+          case 90: {
+            RiskSummary = input.ReadString();
+            break;
+          }
+          case 96: {
+            RiskDecision = (global::Monarchic.AgentProtocol.V1.OutcomeDecision) input.ReadEnum();
+            break;
+          }
+          case 104: {
+            FinalDecision = (global::Monarchic.AgentProtocol.V1.OutcomeDecision) input.ReadEnum();
+            break;
+          }
+          case 114: {
+            Summary = input.ReadString();
+            break;
+          }
+          case 122: {
+            if (evidence_ == null) {
+              Evidence = new global::Google.Protobuf.WellKnownTypes.Struct();
+            }
+            input.ReadMessage(Evidence);
+            break;
+          }
+          case 130: {
+            if (extensions_ == null) {
+              Extensions = new global::Google.Protobuf.WellKnownTypes.Struct();
+            }
+            input.ReadMessage(Extensions);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Version = input.ReadString();
+            break;
+          }
+          case 18: {
+            TaskId = input.ReadString();
+            break;
+          }
+          case 26: {
+            RunId = input.ReadString();
+            break;
+          }
+          case 34: {
+            ObjectiveMetric = input.ReadString();
+            break;
+          }
+          case 41: {
+            ObjectiveScore = input.ReadDouble();
+            break;
+          }
+          case 48: {
+            ObjectiveDecision = (global::Monarchic.AgentProtocol.V1.OutcomeDecision) input.ReadEnum();
+            break;
+          }
+          case 57: {
+            EstimatedCostUsd = input.ReadDouble();
+            break;
+          }
+          case 65: {
+            BudgetLimitUsd = input.ReadDouble();
+            break;
+          }
+          case 72: {
+            CostDecision = (global::Monarchic.AgentProtocol.V1.OutcomeDecision) input.ReadEnum();
+            break;
+          }
+          case 82: {
+            RiskLevel = input.ReadString();
+            break;
+          }
+          case 90: {
+            RiskSummary = input.ReadString();
+            break;
+          }
+          case 96: {
+            RiskDecision = (global::Monarchic.AgentProtocol.V1.OutcomeDecision) input.ReadEnum();
+            break;
+          }
+          case 104: {
+            FinalDecision = (global::Monarchic.AgentProtocol.V1.OutcomeDecision) input.ReadEnum();
+            break;
+          }
+          case 114: {
+            Summary = input.ReadString();
+            break;
+          }
+          case 122: {
+            if (evidence_ == null) {
+              Evidence = new global::Google.Protobuf.WellKnownTypes.Struct();
+            }
+            input.ReadMessage(Evidence);
+            break;
+          }
+          case 130: {
+            if (extensions_ == null) {
+              Extensions = new global::Google.Protobuf.WellKnownTypes.Struct();
+            }
+            input.ReadMessage(Extensions);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class RunContext : pb::IMessage<RunContext>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -6468,7 +7385,7 @@ namespace Monarchic.AgentProtocol.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Monarchic.AgentProtocol.V1.MonarchicAgentProtocolReflection.Descriptor.MessageTypes[11]; }
+      get { return global::Monarchic.AgentProtocol.V1.MonarchicAgentProtocolReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
