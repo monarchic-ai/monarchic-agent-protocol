@@ -1,102 +1,388 @@
 {
-  "$id": "https://monarchic.ai/schema/v1/run_outcome.json",
+  "$id": "monarchic.agent_protocol.v1.RunOutcome.schema.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "RunOutcome",
-  "type": "object",
   "additionalProperties": true,
-  "required": [
-    "version",
-    "task_id",
-    "objective_decision",
-    "cost_decision",
-    "risk_decision",
-    "final_decision"
-  ],
-  "properties": {
-    "version": {
-      "type": "string",
-      "minLength": 1
-    },
-    "task_id": {
-      "type": "string",
-      "minLength": 1
-    },
-    "run_id": {
-      "type": "string",
-      "minLength": 1
-    },
-    "objective_metric": {
-      "type": "string",
-      "minLength": 1
-    },
-    "objective_score": {
-      "type": "number"
-    },
-    "objective_decision": {
-      "type": "string",
-      "enum": [
-        "accept",
-        "iterate",
-        "reject",
-        "escalate"
+  "patternProperties": {
+    "^(budgetLimitUsd)$": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "enum": [
+            "Infinity",
+            "-Infinity",
+            "NaN"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "string"
+        }
       ]
     },
-    "estimated_cost_usd": {
-      "type": "number",
-      "minimum": 0
+    "^(costDecision)$": {
+      "anyOf": [
+        {
+          "pattern": "^OUTCOME_DECISION_UNSPECIFIED$",
+          "type": "string"
+        },
+        {
+          "enum": [
+            "ACCEPT",
+            "ITERATE",
+            "REJECT",
+            "ESCALATE",
+            "accept",
+            "iterate",
+            "reject",
+            "escalate"
+          ],
+          "type": "string"
+        },
+        {
+          "maximum": 2147483647,
+          "minimum": -2147483648,
+          "type": "integer"
+        }
+      ],
+      "default": 0,
+      "title": "Outcome Decision"
     },
+    "^(estimatedCostUsd)$": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "enum": [
+            "Infinity",
+            "-Infinity",
+            "NaN"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "^(finalDecision)$": {
+      "anyOf": [
+        {
+          "pattern": "^OUTCOME_DECISION_UNSPECIFIED$",
+          "type": "string"
+        },
+        {
+          "enum": [
+            "ACCEPT",
+            "ITERATE",
+            "REJECT",
+            "ESCALATE",
+            "accept",
+            "iterate",
+            "reject",
+            "escalate"
+          ],
+          "type": "string"
+        },
+        {
+          "maximum": 2147483647,
+          "minimum": -2147483648,
+          "type": "integer"
+        }
+      ],
+      "default": 0,
+      "title": "Outcome Decision"
+    },
+    "^(objectiveDecision)$": {
+      "anyOf": [
+        {
+          "pattern": "^OUTCOME_DECISION_UNSPECIFIED$",
+          "type": "string"
+        },
+        {
+          "enum": [
+            "ACCEPT",
+            "ITERATE",
+            "REJECT",
+            "ESCALATE",
+            "accept",
+            "iterate",
+            "reject",
+            "escalate"
+          ],
+          "type": "string"
+        },
+        {
+          "maximum": 2147483647,
+          "minimum": -2147483648,
+          "type": "integer"
+        }
+      ],
+      "default": 0,
+      "title": "Outcome Decision"
+    },
+    "^(objectiveMetric)$": {
+      "type": "string"
+    },
+    "^(objectiveScore)$": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "enum": [
+            "Infinity",
+            "-Infinity",
+            "NaN"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "^(riskDecision)$": {
+      "anyOf": [
+        {
+          "pattern": "^OUTCOME_DECISION_UNSPECIFIED$",
+          "type": "string"
+        },
+        {
+          "enum": [
+            "ACCEPT",
+            "ITERATE",
+            "REJECT",
+            "ESCALATE",
+            "accept",
+            "iterate",
+            "reject",
+            "escalate"
+          ],
+          "type": "string"
+        },
+        {
+          "maximum": 2147483647,
+          "minimum": -2147483648,
+          "type": "integer"
+        }
+      ],
+      "default": 0,
+      "title": "Outcome Decision"
+    },
+    "^(riskLevel)$": {
+      "type": "string"
+    },
+    "^(riskSummary)$": {
+      "type": "string"
+    },
+    "^(runId)$": {
+      "type": "string"
+    },
+    "^(taskId)$": {
+      "default": "",
+      "type": "string"
+    }
+  },
+  "properties": {
     "budget_limit_usd": {
-      "type": "number",
-      "minimum": 0
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "enum": [
+            "Infinity",
+            "-Infinity",
+            "NaN"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "string"
+        }
+      ]
     },
     "cost_decision": {
-      "type": "string",
-      "enum": [
-        "accept",
-        "iterate",
-        "reject",
-        "escalate"
+      "anyOf": [
+        {
+          "pattern": "^OUTCOME_DECISION_UNSPECIFIED$",
+          "type": "string"
+        },
+        {
+          "enum": [
+            "ACCEPT",
+            "ITERATE",
+            "REJECT",
+            "ESCALATE",
+            "accept",
+            "iterate",
+            "reject",
+            "escalate"
+          ],
+          "type": "string"
+        },
+        {
+          "maximum": 2147483647,
+          "minimum": -2147483648,
+          "type": "integer"
+        }
+      ],
+      "default": 0,
+      "title": "Outcome Decision"
+    },
+    "estimated_cost_usd": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "enum": [
+            "Infinity",
+            "-Infinity",
+            "NaN"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "string"
+        }
       ]
-    },
-    "risk_level": {
-      "type": "string",
-      "enum": [
-        "low",
-        "medium",
-        "high",
-        "critical",
-        "unknown"
-      ]
-    },
-    "risk_summary": {
-      "type": "string"
-    },
-    "risk_decision": {
-      "type": "string",
-      "enum": [
-        "accept",
-        "iterate",
-        "reject",
-        "escalate"
-      ]
-    },
-    "final_decision": {
-      "type": "string",
-      "enum": [
-        "accept",
-        "iterate",
-        "reject",
-        "escalate"
-      ]
-    },
-    "summary": {
-      "type": "string"
     },
     "evidence": {
       "$ref": "google.protobuf.Struct.schema.json"
     },
     "extensions": {
       "$ref": "google.protobuf.Struct.schema.json"
+    },
+    "final_decision": {
+      "anyOf": [
+        {
+          "pattern": "^OUTCOME_DECISION_UNSPECIFIED$",
+          "type": "string"
+        },
+        {
+          "enum": [
+            "ACCEPT",
+            "ITERATE",
+            "REJECT",
+            "ESCALATE",
+            "accept",
+            "iterate",
+            "reject",
+            "escalate"
+          ],
+          "type": "string"
+        },
+        {
+          "maximum": 2147483647,
+          "minimum": -2147483648,
+          "type": "integer"
+        }
+      ],
+      "default": 0,
+      "title": "Outcome Decision"
+    },
+    "objective_decision": {
+      "anyOf": [
+        {
+          "pattern": "^OUTCOME_DECISION_UNSPECIFIED$",
+          "type": "string"
+        },
+        {
+          "enum": [
+            "ACCEPT",
+            "ITERATE",
+            "REJECT",
+            "ESCALATE",
+            "accept",
+            "iterate",
+            "reject",
+            "escalate"
+          ],
+          "type": "string"
+        },
+        {
+          "maximum": 2147483647,
+          "minimum": -2147483648,
+          "type": "integer"
+        }
+      ],
+      "default": 0,
+      "title": "Outcome Decision"
+    },
+    "objective_metric": {
+      "type": "string"
+    },
+    "objective_score": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "enum": [
+            "Infinity",
+            "-Infinity",
+            "NaN"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "risk_decision": {
+      "anyOf": [
+        {
+          "pattern": "^OUTCOME_DECISION_UNSPECIFIED$",
+          "type": "string"
+        },
+        {
+          "enum": [
+            "ACCEPT",
+            "ITERATE",
+            "REJECT",
+            "ESCALATE",
+            "accept",
+            "iterate",
+            "reject",
+            "escalate"
+          ],
+          "type": "string"
+        },
+        {
+          "maximum": 2147483647,
+          "minimum": -2147483648,
+          "type": "integer"
+        }
+      ],
+      "default": 0,
+      "title": "Outcome Decision"
+    },
+    "risk_level": {
+      "type": "string"
+    },
+    "risk_summary": {
+      "type": "string"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "task_id": {
+      "default": "",
+      "type": "string"
+    },
+    "version": {
+      "default": "",
+      "type": "string"
     }
-  }
+  },
+  "title": "Run Outcome",
+  "type": "object"
 }
