@@ -11,6 +11,10 @@ on:
       - ready_for_review
       - edited
   workflow_dispatch:
+    inputs:
+      ref:
+        description: "Git ref (branch or SHA) to check"
+        required: true
 
 jobs:
   conventional-commits:
@@ -22,6 +26,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          ref: ${{ inputs.ref || github.ref }}
           fetch-depth: 0
 
       - name: Setup Python
@@ -36,6 +41,9 @@ jobs:
           set -euo pipefail
           if [[ "${GITHUB_EVENT_NAME}" == "pull_request" ]]; then
             range="${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}"
+          elif [[ "${GITHUB_EVENT_NAME}" == "workflow_dispatch" ]]; then
+            git fetch origin main:refs/remotes/origin/main
+            range="origin/main..HEAD"
           elif git rev-parse --verify HEAD~1 >/dev/null 2>&1; then
             range="HEAD~1..HEAD"
           else

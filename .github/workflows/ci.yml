@@ -4,6 +4,11 @@ on:
   pull_request:
   push:
     branches: [main]
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: "Git ref (branch or SHA) to check"
+        required: true
 
 permissions:
   contents: write
@@ -16,7 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.head.ref || github.ref }}
+          ref: ${{ inputs.ref || github.event.pull_request.head.ref || github.ref }}
           fetch-depth: 0
 
       - uses: cachix/install-nix-action@v27
