@@ -40,7 +40,7 @@
             src = pkgs.fetchCrate {
               pname = "monarchic-agent-protocol";
               version = "0.1.15";
-              sha256 = "sha256-QKb9SOEzrBBdErov4Rm3pmm8Nlsr8pfNYw4dhHVqBv8=";
+              sha256 = "sha256-sqE6gdS+RcfJF8wAU7H8j/tAurmaWbc05HQYhwiMKWU=";
             };
             nativeBuildInputs = [ pkgs.protobuf ];
             cargoLock = {
@@ -83,7 +83,7 @@
             src = pkgs.fetchPypi {
               pname = "monarchic_agent_protocol";
               version = "0.1.15";
-              sha256 = "1h9aiybm2873fqwyh13i5bvq012mvgigpilmvc5rk3djzh9jpvba";
+              sha256 = "0djf2iv9cs83icjg9xyxl8q8hg8mjkg25ba7banmk5qld42hfwbp";
             };
             nativeBuildInputs = [
               pkgs.python3Packages.setuptools
@@ -116,7 +116,7 @@
             version = "0.1.15";
             src = pkgs.fetchurl {
               url = "https://registry.npmjs.org/@monarchic-ai/monarchic-agent-protocol/-/monarchic-agent-protocol-0.1.15.tgz";
-              sha256 = "1m9najm3i0yqxs0rkanfknshlw6jvma6lizs0hpbrsmv6fprgylm";
+              sha256 = "092xlw6q90qn17f24l3axskf6wy5ibpc038b9z01gvb560ciglwa";
             };
             npmDepsHash = "sha256-Vsyu0Io9NVCJ9VaR4V6aSGoUNPyQ9EqW0SuKOP7iTuI=";
             npmPackFlags = [ "--ignore-scripts" ];
@@ -167,7 +167,7 @@
               owner = "monarchic-ai";
               repo = "monarchic-agent-protocol";
               rev = "v0.1.15";
-              sha256 = "1sc6fsf2j2rmlf4aw1glbl7vlw0w4y7vi938ykpsixijqbqzcxfy";
+              sha256 = "13df6s62c6v7222cxp56s6j42rxls1awllni3lz24x2j597lzbxq";
             };
             modRoot = "src/go";
             vendorHash = "sha256-xj9DXJyfqpCcYXRc6Yr6X4s0F2o3mUQ3HWSNLjlKxWc=";
@@ -184,7 +184,7 @@
             version = "0.1.15";
             src = pkgs.fetchurl {
               url = "https://rubygems.org/downloads/monarchic-agent-protocol-0.1.15.gem";
-              sha256 = "1r35nx1y2gy0z2zz8kdfckh3m3jigrk8pkmgryp31smi1yp4lzz5";
+              sha256 = "1d050vp0agnji7sia66s13dmzgcrd67s73amyf80jaybab689b9a";
             };
           };
 
@@ -229,7 +229,7 @@
 
           java-registry-lib = pkgs.fetchurl {
             url = "https://jitpack.io/com/github/monarchic-ai/monarchic-agent-protocol/v0.1.15/monarchic-agent-protocol-v0.1.15.jar";
-            sha256 = "1bzb4xx1c800g06n1869mpajlszld55i4g7f1jkfkfymck8jqprz";
+            sha256 = "1pswhgbnc6dh8l8g2b9d6mrv2fccb5clx9vf2hr9fgxjddf4ck6k";
           };
 
           dart-lib = pkgs.stdenv.mkDerivation {
@@ -269,7 +269,7 @@
 
           csharp-registry-lib = pkgs.fetchurl {
             url = "https://api.nuget.org/v3-flatcontainer/monarchic.agentprotocol/0.1.15/monarchic.agentprotocol.0.1.15.nupkg";
-            sha256 = "1ij5w24pphnbpkz6i8jkgczqr7va7jyyw84rgkrz8d6019xcam10";
+            sha256 = "041hy93xq8376fipnynacdzajpr8qcnjabfxv4pa6lgnb14k9qbc";
           };
 
           php-lib = pkgs.stdenv.mkDerivation {
@@ -292,7 +292,7 @@
             owner = "monarchic-ai";
             repo = "monarchic-agent-protocol";
             rev = "v0.1.15";
-            sha256 = "1sc6fsf2j2rmlf4aw1glbl7vlw0w4y7vi938ykpsixijqbqzcxfy";
+            sha256 = "13df6s62c6v7222cxp56s6j42rxls1awllni3lz24x2j597lzbxq";
           };
 
           example-rust = pkgs.rustPlatform.buildRustPackage {
@@ -920,7 +920,7 @@ EOF
             owner = "monarchic-ai";
             repo = "monarchic-agent-protocol";
             rev = "v0.1.15";
-            sha256 = "1sc6fsf2j2rmlf4aw1glbl7vlw0w4y7vi938ykpsixijqbqzcxfy";
+            sha256 = "13df6s62c6v7222cxp56s6j42rxls1awllni3lz24x2j597lzbxq";
           };
           rbProtobuf = pkgs.buildRubyGem {
             gemName = "google-protobuf";
@@ -951,7 +951,7 @@ edition = "2021"
 monarchic-agent-protocol = { path = "${pkgs.fetchCrate {
   pname = "monarchic-agent-protocol";
   version = "0.1.15";
-  sha256 = "sha256-QKb9SOEzrBBdErov4Rm3pmm8Nlsr8pfNYw4dhHVqBv8=";
+  sha256 = "sha256-sqE6gdS+RcfJF8wAU7H8j/tAurmaWbc05HQYhwiMKWU=";
 }}" }
 EOF
               cat > $out/src/main.rs <<'EOF'
