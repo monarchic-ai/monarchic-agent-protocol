@@ -1,17 +1,18 @@
 name: release
 
 permissions:
-  contents: read
+  contents: write
   id-token: write
+  pull-requests: write
 
 on:
   push:
-    branches: ["main"]
     tags: ["v*"]
   workflow_dispatch:
 
 jobs:
   publish-rust:
+    name: Publish Rust (crates.io)
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/v')
     steps:
@@ -48,6 +49,7 @@ jobs:
         run: cargo publish
 
   publish-python:
+    name: Publish Python (PyPI)
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/v')
     steps:
@@ -85,6 +87,7 @@ jobs:
           python -m twine upload dist/*
 
   publish-npm:
+    name: Publish TypeScript (npm)
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/v')
     permissions:
@@ -124,6 +127,7 @@ jobs:
         run: npm publish --access public --provenance
 
   publish-dotnet:
+    name: Publish C# (NuGet)
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/v')
     steps:
@@ -141,6 +145,7 @@ jobs:
           dotnet nuget push ./nupkg/*.nupkg --api-key "$NUGET_API_KEY" --source https://api.nuget.org/v3/index.json
 
   publish-ruby:
+    name: Publish Ruby (RubyGems)
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/v')
     steps:
@@ -156,6 +161,7 @@ jobs:
           gem push monarchic-agent-protocol-*.gem
 
   publish-php:
+    name: Publish PHP (Packagist)
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/v')
     steps:
@@ -185,6 +191,7 @@ jobs:
   #         dart pub publish --force
 
   update-registry-hashes:
+    name: Update registry hashes
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/v')
     needs:
@@ -209,7 +216,7 @@ jobs:
           VERSION="${TAG_REF#v}"
           urls=(
             "npm|https://registry.npmjs.org/@monarchic-ai/monarchic-agent-protocol/-/monarchic-agent-protocol-${VERSION}.tgz"
-            "crates|https://crates.io/api/v1/crates/monarchic-agent-protocol/${VERSION}/download"
+            "crates|https://crates.io/api/v1/crates/monarchic-agent-protocol/${VERSION}"
             "pypi|https://files.pythonhosted.org/packages/source/m/monarchic_agent_protocol/monarchic_agent_protocol-${VERSION}.tar.gz"
             "rubygems|https://rubygems.org/downloads/monarchic-agent-protocol-${VERSION}.gem"
             "nuget|https://api.nuget.org/v3-flatcontainer/monarchic.agentprotocol/${VERSION}/monarchic.agentprotocol.${VERSION}.nupkg"
@@ -224,7 +231,7 @@ jobs:
             for item in "${urls[@]}"; do
               name="${item%%|*}"
               url="${item#*|}"
-              if curl -fsSL -o /dev/null "$url"; then
+              if curl -fsSL -H "User-Agent: github-actions" -o /dev/null "$url"; then
                 echo "  ok: ${name}"
               else
                 echo "  waiting: ${name}"
@@ -247,16 +254,13 @@ jobs:
           done
       - name: Update registry hashes
         run: nix run .#update-registry-hashes
-      - name: Commit updated hashes
-        run: |
-          set -euo pipefail
-          if git diff --quiet; then
-            echo "No changes to commit"
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add flake.nix
-          git commit -m "chore: update registry hashes [ci skip]"
-          git push origin HEAD:main
-
+      - name: Create PR for updated hashes
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "ci: update registry hashes [ci skip]"
+          title: "ci: update registry hashes"
+          body: "Automated registry hash updates after publishing."
+          branch: "release/registry-hashes-${{ github.run_id }}"
+          base: main
+          add-paths: |
+            flake.nix
