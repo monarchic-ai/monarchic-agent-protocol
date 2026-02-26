@@ -34,6 +34,7 @@ declare -A outputs=(
   [Event]="event.json"
   [GateResult]="gate_result.json"
   [RunContext]="run_context.json"
+  [RunOutcome]="run_outcome.json"
 )
 
 for msg in "${!outputs[@]}"; do
@@ -103,7 +104,8 @@ cat > schemas/v1/schema.json <<'JSON'
     { "$ref": "artifact.json" },
     { "$ref": "event.json" },
     { "$ref": "gate_result.json" },
-    { "$ref": "run_context.json" }
+    { "$ref": "run_context.json" },
+    { "$ref": "run_outcome.json" }
   ]
 }
 JSON
