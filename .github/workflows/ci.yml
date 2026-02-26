@@ -7,9 +7,11 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   validate:
+    name: Validate and generate artifacts
     if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
@@ -77,11 +79,10 @@ jobs:
       - name: Update local hashes
         run: nix run .#update-local-hashes
 
-      - name: Commit generated changes
+      - name: Commit generated changes to PR branch
         if: >
-          (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
-          (github.event_name == 'pull_request' &&
-            github.event.pull_request.head.repo.full_name == github.repository)
+          github.event_name == 'pull_request' &&
+          github.event.pull_request.head.repo.full_name == github.repository
         run: |
           set -euo pipefail
           if git diff --quiet; then
@@ -102,9 +103,19 @@ jobs:
           fi
 
           if git log -1 --pretty=%B | rg -q "ci: (generate schema|update local hashes)"; then
-            if [ "${GITHUB_EVENT_NAME}" = "pull_request" ]; then
-              git push origin "HEAD:${GITHUB_HEAD_REF}"
-            else
-              git push origin HEAD:main
-            fi
+            git push origin "HEAD:${GITHUB_HEAD_REF}"
           fi
+
+      - name: Create PR for generated changes
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "ci: update generated artifacts [ci skip]"
+          title: "ci: update generated artifacts"
+          body: "Automated updates from generate-proto, generate-json-schema, and update-local-hashes."
+          branch: "ci/generated-${{ github.run_id }}"
+          base: main
+          add-paths: |
+            flake.nix
+            schemas/v1
+            src

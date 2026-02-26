@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name = "monarchic-agent-protocol"
-  spec.version = "0.1.10"
+  spec.version = "0.1.11"
   spec.license = "LGPL-3.0-only"
   spec.summary = "Monarchic Agent Protocol protobuf types"
   spec.description = "Ruby bindings and protobuf types for the Monarchic Agent Protocol."
