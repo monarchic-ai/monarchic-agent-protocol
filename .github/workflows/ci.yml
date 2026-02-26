@@ -84,6 +84,18 @@ jobs:
       - name: Update local hashes
         run: nix run .#update-local-hashes
 
+      - name: Fail on fork when generated changes exist
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository
+        run: |
+          set -euo pipefail
+          if git diff --quiet; then
+            echo "No generated changes on fork PR."
+            exit 0
+          fi
+          echo "Generated changes detected on fork PR; please run generators locally."
+          git status --porcelain
+          exit 1
+
       - name: Commit generated changes to PR branch
         if: >
           github.event_name == 'pull_request' &&
