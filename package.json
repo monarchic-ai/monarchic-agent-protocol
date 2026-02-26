@@ -1,6 +1,6 @@
 {
   "name": "@monarchic-ai/monarchic-agent-protocol",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "Shared protocol types for Monarchic AI (TypeScript)",
   "license": "LGPL-3.0-only",
   "repository": {
