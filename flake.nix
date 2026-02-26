@@ -97,7 +97,7 @@
             pname = "monarchic-agent-protocol-ts";
             version = "0.1.15";
             src = ./.;
-            npmDepsHash = "sha256-kwhHd9Ad3IzuC7c1urQ01Gupayj39c+xACgAP0Oc73w=";
+            npmDepsHash = "sha256-Vsyu0Io9NVCJ9VaR4V6aSGoUNPyQ9EqW0SuKOP7iTuI=";
             npmPackFlags = [ "--ignore-scripts" ];
             forceEmptyCache = true;
             dontNpmBuild = true;
@@ -118,7 +118,7 @@
               url = "https://registry.npmjs.org/@monarchic-ai/monarchic-agent-protocol/-/monarchic-agent-protocol-0.1.15.tgz";
               sha256 = "1m9najm3i0yqxs0rkanfknshlw6jvma6lizs0hpbrsmv6fprgylm";
             };
-            npmDepsHash = "sha256-kwhHd9Ad3IzuC7c1urQ01Gupayj39c+xACgAP0Oc73w=";
+            npmDepsHash = "sha256-Vsyu0Io9NVCJ9VaR4V6aSGoUNPyQ9EqW0SuKOP7iTuI=";
             npmPackFlags = [ "--ignore-scripts" ];
             forceEmptyCache = true;
             dontNpmBuild = true;
@@ -1149,7 +1149,7 @@ EOF
               pname = "go-import";
               version = "0.1.15";
               src = goModImport;
-              vendorHash = "sha256-VRoqKI2WLrouZ1AeinRkghEUnvy18xhGav5S0pe7Ov8=";
+              vendorHash = "sha256-uK9PTypSdCI+HdFSylXQtGdBpNGm3M6EEGcbJow2ro0=";
               subPackages = [ "." ];
               doCheck = true;
               checkPhase = ''
