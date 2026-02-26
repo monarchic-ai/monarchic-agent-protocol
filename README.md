@@ -59,6 +59,7 @@ Schema files live under `schemas/v1/`:
 - `schemas/v1/event.json`
 - `schemas/v1/gate_result.json`
 - `schemas/v1/run_context.json`
+- `schemas/v1/run_outcome.json`
 - `schemas/v1/delivery_contract.json`
 - `schemas/v1/agent_role.json`
 - `schemas/v1/dataset_ref.json`
@@ -80,13 +81,11 @@ All schemas allow additional properties for forward compatibility.
 - `schemas/v1/event.json`
 - `schemas/v1/gate_result.json`
 - `schemas/v1/run_context.json`
-- `schemas/v1/dataset_ref.json`
-- `schemas/v1/experiment_spec.json`
-- `schemas/v1/objective_spec.json`
-- `schemas/v1/eval_result.json`
-- `schemas/v1/provenance.json`
+- `schemas/v1/run_outcome.json`
 
 `schemas/v1/agent_role.json` is a shared schema used by `task.json`.
+`schemas/v1/dataset_ref.json`, `schemas/v1/experiment_spec.json`, `schemas/v1/objective_spec.json`,
+`schemas/v1/eval_result.json`, and `schemas/v1/provenance.json` are referenced by top-level schemas.
 
 ### AgentRole
 
@@ -287,6 +286,22 @@ Example:
   }
 }
 ```
+
+### RunOutcome
+
+Typed summary contract for objective/cost/risk decisions captured at the end of a run.
+
+Required fields:
+
+- `version`: `"v1"`
+- `task_id`: task identifier
+- `objective_decision`: objective decision label
+- `cost_decision`: cost decision label
+- `risk_decision`: risk decision label
+- `final_decision`: aggregate decision label
+
+Optional fields include `run_id`, `objective_metric`, `objective_score`, cost budget metrics,
+risk detail fields, `summary`, and `evidence`.
 
 ### DatasetRef
 
