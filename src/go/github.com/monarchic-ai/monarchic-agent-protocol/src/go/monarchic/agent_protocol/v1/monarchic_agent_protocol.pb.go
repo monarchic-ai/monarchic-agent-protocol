@@ -86,6 +86,61 @@ func (AgentRole) EnumDescriptor() ([]byte, []int) {
 	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{0}
 }
 
+type OutcomeDecision int32
+
+const (
+	OutcomeDecision_OUTCOME_DECISION_UNSPECIFIED OutcomeDecision = 0
+	OutcomeDecision_ACCEPT                       OutcomeDecision = 1
+	OutcomeDecision_ITERATE                      OutcomeDecision = 2
+	OutcomeDecision_REJECT                       OutcomeDecision = 3
+	OutcomeDecision_ESCALATE                     OutcomeDecision = 4
+)
+
+// Enum value maps for OutcomeDecision.
+var (
+	OutcomeDecision_name = map[int32]string{
+		0: "OUTCOME_DECISION_UNSPECIFIED",
+		1: "ACCEPT",
+		2: "ITERATE",
+		3: "REJECT",
+		4: "ESCALATE",
+	}
+	OutcomeDecision_value = map[string]int32{
+		"OUTCOME_DECISION_UNSPECIFIED": 0,
+		"ACCEPT":                       1,
+		"ITERATE":                      2,
+		"REJECT":                       3,
+		"ESCALATE":                     4,
+	}
+)
+
+func (x OutcomeDecision) Enum() *OutcomeDecision {
+	p := new(OutcomeDecision)
+	*p = x
+	return p
+}
+
+func (x OutcomeDecision) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (OutcomeDecision) Descriptor() protoreflect.EnumDescriptor {
+	return file_monarchic_agent_protocol_proto_enumTypes[1].Descriptor()
+}
+
+func (OutcomeDecision) Type() protoreflect.EnumType {
+	return &file_monarchic_agent_protocol_proto_enumTypes[1]
+}
+
+func (x OutcomeDecision) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use OutcomeDecision.Descriptor instead.
+func (OutcomeDecision) EnumDescriptor() ([]byte, []int) {
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{1}
+}
+
 type DatasetRef struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	DatasetId     string                 `protobuf:"bytes,1,opt,name=dataset_id,json=datasetId,proto3" json:"dataset_id,omitempty"`
@@ -1330,6 +1385,170 @@ func (x *GateResult) GetExtensions() *structpb.Struct {
 	return nil
 }
 
+type RunOutcome struct {
+	state             protoimpl.MessageState `protogen:"open.v1"`
+	Version           string                 `protobuf:"bytes,1,opt,name=version,proto3" json:"version,omitempty"`
+	TaskId            string                 `protobuf:"bytes,2,opt,name=task_id,json=taskId,proto3" json:"task_id,omitempty"`
+	RunId             *string                `protobuf:"bytes,3,opt,name=run_id,json=runId,proto3,oneof" json:"run_id,omitempty"`
+	ObjectiveMetric   *string                `protobuf:"bytes,4,opt,name=objective_metric,json=objectiveMetric,proto3,oneof" json:"objective_metric,omitempty"`
+	ObjectiveScore    *float64               `protobuf:"fixed64,5,opt,name=objective_score,json=objectiveScore,proto3,oneof" json:"objective_score,omitempty"`
+	ObjectiveDecision OutcomeDecision        `protobuf:"varint,6,opt,name=objective_decision,json=objectiveDecision,proto3,enum=monarchic.agent_protocol.v1.OutcomeDecision" json:"objective_decision,omitempty"`
+	EstimatedCostUsd  *float64               `protobuf:"fixed64,7,opt,name=estimated_cost_usd,json=estimatedCostUsd,proto3,oneof" json:"estimated_cost_usd,omitempty"`
+	BudgetLimitUsd    *float64               `protobuf:"fixed64,8,opt,name=budget_limit_usd,json=budgetLimitUsd,proto3,oneof" json:"budget_limit_usd,omitempty"`
+	CostDecision      OutcomeDecision        `protobuf:"varint,9,opt,name=cost_decision,json=costDecision,proto3,enum=monarchic.agent_protocol.v1.OutcomeDecision" json:"cost_decision,omitempty"`
+	RiskLevel         *string                `protobuf:"bytes,10,opt,name=risk_level,json=riskLevel,proto3,oneof" json:"risk_level,omitempty"`
+	RiskSummary       *string                `protobuf:"bytes,11,opt,name=risk_summary,json=riskSummary,proto3,oneof" json:"risk_summary,omitempty"`
+	RiskDecision      OutcomeDecision        `protobuf:"varint,12,opt,name=risk_decision,json=riskDecision,proto3,enum=monarchic.agent_protocol.v1.OutcomeDecision" json:"risk_decision,omitempty"`
+	FinalDecision     OutcomeDecision        `protobuf:"varint,13,opt,name=final_decision,json=finalDecision,proto3,enum=monarchic.agent_protocol.v1.OutcomeDecision" json:"final_decision,omitempty"`
+	Summary           *string                `protobuf:"bytes,14,opt,name=summary,proto3,oneof" json:"summary,omitempty"`
+	Evidence          *structpb.Struct       `protobuf:"bytes,15,opt,name=evidence,proto3" json:"evidence,omitempty"`
+	Extensions        *structpb.Struct       `protobuf:"bytes,16,opt,name=extensions,proto3" json:"extensions,omitempty"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
+}
+
+func (x *RunOutcome) Reset() {
+	*x = RunOutcome{}
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RunOutcome) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RunOutcome) ProtoMessage() {}
+
+func (x *RunOutcome) ProtoReflect() protoreflect.Message {
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RunOutcome.ProtoReflect.Descriptor instead.
+func (*RunOutcome) Descriptor() ([]byte, []int) {
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *RunOutcome) GetVersion() string {
+	if x != nil {
+		return x.Version
+	}
+	return ""
+}
+
+func (x *RunOutcome) GetTaskId() string {
+	if x != nil {
+		return x.TaskId
+	}
+	return ""
+}
+
+func (x *RunOutcome) GetRunId() string {
+	if x != nil && x.RunId != nil {
+		return *x.RunId
+	}
+	return ""
+}
+
+func (x *RunOutcome) GetObjectiveMetric() string {
+	if x != nil && x.ObjectiveMetric != nil {
+		return *x.ObjectiveMetric
+	}
+	return ""
+}
+
+func (x *RunOutcome) GetObjectiveScore() float64 {
+	if x != nil && x.ObjectiveScore != nil {
+		return *x.ObjectiveScore
+	}
+	return 0
+}
+
+func (x *RunOutcome) GetObjectiveDecision() OutcomeDecision {
+	if x != nil {
+		return x.ObjectiveDecision
+	}
+	return OutcomeDecision_OUTCOME_DECISION_UNSPECIFIED
+}
+
+func (x *RunOutcome) GetEstimatedCostUsd() float64 {
+	if x != nil && x.EstimatedCostUsd != nil {
+		return *x.EstimatedCostUsd
+	}
+	return 0
+}
+
+func (x *RunOutcome) GetBudgetLimitUsd() float64 {
+	if x != nil && x.BudgetLimitUsd != nil {
+		return *x.BudgetLimitUsd
+	}
+	return 0
+}
+
+func (x *RunOutcome) GetCostDecision() OutcomeDecision {
+	if x != nil {
+		return x.CostDecision
+	}
+	return OutcomeDecision_OUTCOME_DECISION_UNSPECIFIED
+}
+
+func (x *RunOutcome) GetRiskLevel() string {
+	if x != nil && x.RiskLevel != nil {
+		return *x.RiskLevel
+	}
+	return ""
+}
+
+func (x *RunOutcome) GetRiskSummary() string {
+	if x != nil && x.RiskSummary != nil {
+		return *x.RiskSummary
+	}
+	return ""
+}
+
+func (x *RunOutcome) GetRiskDecision() OutcomeDecision {
+	if x != nil {
+		return x.RiskDecision
+	}
+	return OutcomeDecision_OUTCOME_DECISION_UNSPECIFIED
+}
+
+func (x *RunOutcome) GetFinalDecision() OutcomeDecision {
+	if x != nil {
+		return x.FinalDecision
+	}
+	return OutcomeDecision_OUTCOME_DECISION_UNSPECIFIED
+}
+
+func (x *RunOutcome) GetSummary() string {
+	if x != nil && x.Summary != nil {
+		return *x.Summary
+	}
+	return ""
+}
+
+func (x *RunOutcome) GetEvidence() *structpb.Struct {
+	if x != nil {
+		return x.Evidence
+	}
+	return nil
+}
+
+func (x *RunOutcome) GetExtensions() *structpb.Struct {
+	if x != nil {
+		return x.Extensions
+	}
+	return nil
+}
+
 type RunContext struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Version       string                 `protobuf:"bytes,1,opt,name=version,proto3" json:"version,omitempty"`
@@ -1345,7 +1564,7 @@ type RunContext struct {
 
 func (x *RunContext) Reset() {
 	*x = RunContext{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[11]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1357,7 +1576,7 @@ func (x *RunContext) String() string {
 func (*RunContext) ProtoMessage() {}
 
 func (x *RunContext) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[11]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1370,7 +1589,7 @@ func (x *RunContext) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RunContext.ProtoReflect.Descriptor instead.
 func (*RunContext) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{11}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *RunContext) GetVersion() string {
@@ -1629,7 +1848,38 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"\n" +
 	"extensions\x18\x06 \x01(\v2\x17.google.protobuf.StructR\n" +
 	"extensionsB\t\n" +
-	"\a_reason\"\xd5\x01\n" +
+	"\a_reason\"\xd8\a\n" +
+	"\n" +
+	"RunOutcome\x12\x18\n" +
+	"\aversion\x18\x01 \x01(\tR\aversion\x12\x17\n" +
+	"\atask_id\x18\x02 \x01(\tR\x06taskId\x12\x1a\n" +
+	"\x06run_id\x18\x03 \x01(\tH\x00R\x05runId\x88\x01\x01\x12.\n" +
+	"\x10objective_metric\x18\x04 \x01(\tH\x01R\x0fobjectiveMetric\x88\x01\x01\x12,\n" +
+	"\x0fobjective_score\x18\x05 \x01(\x01H\x02R\x0eobjectiveScore\x88\x01\x01\x12[\n" +
+	"\x12objective_decision\x18\x06 \x01(\x0e2,.monarchic.agent_protocol.v1.OutcomeDecisionR\x11objectiveDecision\x121\n" +
+	"\x12estimated_cost_usd\x18\a \x01(\x01H\x03R\x10estimatedCostUsd\x88\x01\x01\x12-\n" +
+	"\x10budget_limit_usd\x18\b \x01(\x01H\x04R\x0ebudgetLimitUsd\x88\x01\x01\x12Q\n" +
+	"\rcost_decision\x18\t \x01(\x0e2,.monarchic.agent_protocol.v1.OutcomeDecisionR\fcostDecision\x12\"\n" +
+	"\n" +
+	"risk_level\x18\n" +
+	" \x01(\tH\x05R\triskLevel\x88\x01\x01\x12&\n" +
+	"\frisk_summary\x18\v \x01(\tH\x06R\vriskSummary\x88\x01\x01\x12Q\n" +
+	"\rrisk_decision\x18\f \x01(\x0e2,.monarchic.agent_protocol.v1.OutcomeDecisionR\friskDecision\x12S\n" +
+	"\x0efinal_decision\x18\r \x01(\x0e2,.monarchic.agent_protocol.v1.OutcomeDecisionR\rfinalDecision\x12\x1d\n" +
+	"\asummary\x18\x0e \x01(\tH\aR\asummary\x88\x01\x01\x123\n" +
+	"\bevidence\x18\x0f \x01(\v2\x17.google.protobuf.StructR\bevidence\x127\n" +
+	"\n" +
+	"extensions\x18\x10 \x01(\v2\x17.google.protobuf.StructR\n" +
+	"extensionsB\t\n" +
+	"\a_run_idB\x13\n" +
+	"\x11_objective_metricB\x12\n" +
+	"\x10_objective_scoreB\x15\n" +
+	"\x13_estimated_cost_usdB\x13\n" +
+	"\x11_budget_limit_usdB\r\n" +
+	"\v_risk_levelB\x0f\n" +
+	"\r_risk_summaryB\n" +
+	"\n" +
+	"\b_summary\"\xd5\x01\n" +
 	"\n" +
 	"RunContext\x12\x18\n" +
 	"\aversion\x18\x01 \x01(\tR\aversion\x12\x12\n" +
@@ -1649,7 +1899,15 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"\x02QA\x10\x04\x12\f\n" +
 	"\bREVIEWER\x10\x05\x12\f\n" +
 	"\bSECURITY\x10\x06\x12\a\n" +
-	"\x03OPS\x10\aB\x88\x02\n" +
+	"\x03OPS\x10\a*f\n" +
+	"\x0fOutcomeDecision\x12 \n" +
+	"\x1cOUTCOME_DECISION_UNSPECIFIED\x10\x00\x12\n" +
+	"\n" +
+	"\x06ACCEPT\x10\x01\x12\v\n" +
+	"\aITERATE\x10\x02\x12\n" +
+	"\n" +
+	"\x06REJECT\x10\x03\x12\f\n" +
+	"\bESCALATE\x10\x04B\x88\x02\n" +
 	"\x1eai.monarchic.agent_protocol.v1B\x18MonarchicAgentProtocolV1P\x01Zdgithub.com/monarchic-ai/monarchic-agent-protocol/src/go/monarchic/agent_protocol/v1;agent_protocolv1\xa2\x02\x03MAP\xaa\x02\x1aMonarchic.AgentProtocol.V1\xca\x02\x1aMonarchic\\AgentProtocol\\V1\xe2\x02#Monarchic\\AgentProtocol\\V1\\Metadatab\x06proto3"
 
 var (
@@ -1664,60 +1922,68 @@ func file_monarchic_agent_protocol_proto_rawDescGZIP() []byte {
 	return file_monarchic_agent_protocol_proto_rawDescData
 }
 
-var file_monarchic_agent_protocol_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_monarchic_agent_protocol_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
+var file_monarchic_agent_protocol_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
+var file_monarchic_agent_protocol_proto_msgTypes = make([]protoimpl.MessageInfo, 13)
 var file_monarchic_agent_protocol_proto_goTypes = []any{
 	(AgentRole)(0),             // 0: monarchic.agent_protocol.v1.AgentRole
-	(*DatasetRef)(nil),         // 1: monarchic.agent_protocol.v1.DatasetRef
-	(*AcceptanceCriteria)(nil), // 2: monarchic.agent_protocol.v1.AcceptanceCriteria
-	(*ExperimentSpec)(nil),     // 3: monarchic.agent_protocol.v1.ExperimentSpec
-	(*DeliveryContract)(nil),   // 4: monarchic.agent_protocol.v1.DeliveryContract
-	(*ObjectiveSpec)(nil),      // 5: monarchic.agent_protocol.v1.ObjectiveSpec
-	(*EvalResult)(nil),         // 6: monarchic.agent_protocol.v1.EvalResult
-	(*Provenance)(nil),         // 7: monarchic.agent_protocol.v1.Provenance
-	(*Task)(nil),               // 8: monarchic.agent_protocol.v1.Task
-	(*Artifact)(nil),           // 9: monarchic.agent_protocol.v1.Artifact
-	(*Event)(nil),              // 10: monarchic.agent_protocol.v1.Event
-	(*GateResult)(nil),         // 11: monarchic.agent_protocol.v1.GateResult
-	(*RunContext)(nil),         // 12: monarchic.agent_protocol.v1.RunContext
-	(*structpb.Struct)(nil),    // 13: google.protobuf.Struct
+	(OutcomeDecision)(0),       // 1: monarchic.agent_protocol.v1.OutcomeDecision
+	(*DatasetRef)(nil),         // 2: monarchic.agent_protocol.v1.DatasetRef
+	(*AcceptanceCriteria)(nil), // 3: monarchic.agent_protocol.v1.AcceptanceCriteria
+	(*ExperimentSpec)(nil),     // 4: monarchic.agent_protocol.v1.ExperimentSpec
+	(*DeliveryContract)(nil),   // 5: monarchic.agent_protocol.v1.DeliveryContract
+	(*ObjectiveSpec)(nil),      // 6: monarchic.agent_protocol.v1.ObjectiveSpec
+	(*EvalResult)(nil),         // 7: monarchic.agent_protocol.v1.EvalResult
+	(*Provenance)(nil),         // 8: monarchic.agent_protocol.v1.Provenance
+	(*Task)(nil),               // 9: monarchic.agent_protocol.v1.Task
+	(*Artifact)(nil),           // 10: monarchic.agent_protocol.v1.Artifact
+	(*Event)(nil),              // 11: monarchic.agent_protocol.v1.Event
+	(*GateResult)(nil),         // 12: monarchic.agent_protocol.v1.GateResult
+	(*RunOutcome)(nil),         // 13: monarchic.agent_protocol.v1.RunOutcome
+	(*RunContext)(nil),         // 14: monarchic.agent_protocol.v1.RunContext
+	(*structpb.Struct)(nil),    // 15: google.protobuf.Struct
 }
 var file_monarchic_agent_protocol_proto_depIdxs = []int32{
-	13, // 0: monarchic.agent_protocol.v1.DatasetRef.extensions:type_name -> google.protobuf.Struct
-	13, // 1: monarchic.agent_protocol.v1.AcceptanceCriteria.extensions:type_name -> google.protobuf.Struct
-	1,  // 2: monarchic.agent_protocol.v1.ExperimentSpec.dataset_refs:type_name -> monarchic.agent_protocol.v1.DatasetRef
-	2,  // 3: monarchic.agent_protocol.v1.ExperimentSpec.acceptance:type_name -> monarchic.agent_protocol.v1.AcceptanceCriteria
-	13, // 4: monarchic.agent_protocol.v1.ExperimentSpec.constraints:type_name -> google.protobuf.Struct
-	13, // 5: monarchic.agent_protocol.v1.ExperimentSpec.extensions:type_name -> google.protobuf.Struct
-	13, // 6: monarchic.agent_protocol.v1.DeliveryContract.extensions:type_name -> google.protobuf.Struct
-	13, // 7: monarchic.agent_protocol.v1.ObjectiveSpec.extensions:type_name -> google.protobuf.Struct
-	13, // 8: monarchic.agent_protocol.v1.EvalResult.extensions:type_name -> google.protobuf.Struct
-	1,  // 9: monarchic.agent_protocol.v1.Provenance.dataset_refs:type_name -> monarchic.agent_protocol.v1.DatasetRef
-	13, // 10: monarchic.agent_protocol.v1.Provenance.extensions:type_name -> google.protobuf.Struct
+	15, // 0: monarchic.agent_protocol.v1.DatasetRef.extensions:type_name -> google.protobuf.Struct
+	15, // 1: monarchic.agent_protocol.v1.AcceptanceCriteria.extensions:type_name -> google.protobuf.Struct
+	2,  // 2: monarchic.agent_protocol.v1.ExperimentSpec.dataset_refs:type_name -> monarchic.agent_protocol.v1.DatasetRef
+	3,  // 3: monarchic.agent_protocol.v1.ExperimentSpec.acceptance:type_name -> monarchic.agent_protocol.v1.AcceptanceCriteria
+	15, // 4: monarchic.agent_protocol.v1.ExperimentSpec.constraints:type_name -> google.protobuf.Struct
+	15, // 5: monarchic.agent_protocol.v1.ExperimentSpec.extensions:type_name -> google.protobuf.Struct
+	15, // 6: monarchic.agent_protocol.v1.DeliveryContract.extensions:type_name -> google.protobuf.Struct
+	15, // 7: monarchic.agent_protocol.v1.ObjectiveSpec.extensions:type_name -> google.protobuf.Struct
+	15, // 8: monarchic.agent_protocol.v1.EvalResult.extensions:type_name -> google.protobuf.Struct
+	2,  // 9: monarchic.agent_protocol.v1.Provenance.dataset_refs:type_name -> monarchic.agent_protocol.v1.DatasetRef
+	15, // 10: monarchic.agent_protocol.v1.Provenance.extensions:type_name -> google.protobuf.Struct
 	0,  // 11: monarchic.agent_protocol.v1.Task.role:type_name -> monarchic.agent_protocol.v1.AgentRole
-	13, // 12: monarchic.agent_protocol.v1.Task.inputs:type_name -> google.protobuf.Struct
-	13, // 13: monarchic.agent_protocol.v1.Task.constraints:type_name -> google.protobuf.Struct
-	12, // 14: monarchic.agent_protocol.v1.Task.run_context:type_name -> monarchic.agent_protocol.v1.RunContext
-	13, // 15: monarchic.agent_protocol.v1.Task.extensions:type_name -> google.protobuf.Struct
-	3,  // 16: monarchic.agent_protocol.v1.Task.experiment_spec:type_name -> monarchic.agent_protocol.v1.ExperimentSpec
-	4,  // 17: monarchic.agent_protocol.v1.Task.delivery_contract:type_name -> monarchic.agent_protocol.v1.DeliveryContract
-	5,  // 18: monarchic.agent_protocol.v1.Task.objective_spec:type_name -> monarchic.agent_protocol.v1.ObjectiveSpec
-	13, // 19: monarchic.agent_protocol.v1.Artifact.extensions:type_name -> google.protobuf.Struct
-	7,  // 20: monarchic.agent_protocol.v1.Artifact.provenance:type_name -> monarchic.agent_protocol.v1.Provenance
-	1,  // 21: monarchic.agent_protocol.v1.Artifact.dataset_refs:type_name -> monarchic.agent_protocol.v1.DatasetRef
-	6,  // 22: monarchic.agent_protocol.v1.Artifact.eval_results:type_name -> monarchic.agent_protocol.v1.EvalResult
-	3,  // 23: monarchic.agent_protocol.v1.Artifact.experiment_spec:type_name -> monarchic.agent_protocol.v1.ExperimentSpec
-	13, // 24: monarchic.agent_protocol.v1.Event.extensions:type_name -> google.protobuf.Struct
-	7,  // 25: monarchic.agent_protocol.v1.Event.provenance:type_name -> monarchic.agent_protocol.v1.Provenance
-	6,  // 26: monarchic.agent_protocol.v1.Event.eval_results:type_name -> monarchic.agent_protocol.v1.EvalResult
-	13, // 27: monarchic.agent_protocol.v1.GateResult.evidence:type_name -> google.protobuf.Struct
-	13, // 28: monarchic.agent_protocol.v1.GateResult.extensions:type_name -> google.protobuf.Struct
-	13, // 29: monarchic.agent_protocol.v1.RunContext.extensions:type_name -> google.protobuf.Struct
-	30, // [30:30] is the sub-list for method output_type
-	30, // [30:30] is the sub-list for method input_type
-	30, // [30:30] is the sub-list for extension type_name
-	30, // [30:30] is the sub-list for extension extendee
-	0,  // [0:30] is the sub-list for field type_name
+	15, // 12: monarchic.agent_protocol.v1.Task.inputs:type_name -> google.protobuf.Struct
+	15, // 13: monarchic.agent_protocol.v1.Task.constraints:type_name -> google.protobuf.Struct
+	14, // 14: monarchic.agent_protocol.v1.Task.run_context:type_name -> monarchic.agent_protocol.v1.RunContext
+	15, // 15: monarchic.agent_protocol.v1.Task.extensions:type_name -> google.protobuf.Struct
+	4,  // 16: monarchic.agent_protocol.v1.Task.experiment_spec:type_name -> monarchic.agent_protocol.v1.ExperimentSpec
+	5,  // 17: monarchic.agent_protocol.v1.Task.delivery_contract:type_name -> monarchic.agent_protocol.v1.DeliveryContract
+	6,  // 18: monarchic.agent_protocol.v1.Task.objective_spec:type_name -> monarchic.agent_protocol.v1.ObjectiveSpec
+	15, // 19: monarchic.agent_protocol.v1.Artifact.extensions:type_name -> google.protobuf.Struct
+	8,  // 20: monarchic.agent_protocol.v1.Artifact.provenance:type_name -> monarchic.agent_protocol.v1.Provenance
+	2,  // 21: monarchic.agent_protocol.v1.Artifact.dataset_refs:type_name -> monarchic.agent_protocol.v1.DatasetRef
+	7,  // 22: monarchic.agent_protocol.v1.Artifact.eval_results:type_name -> monarchic.agent_protocol.v1.EvalResult
+	4,  // 23: monarchic.agent_protocol.v1.Artifact.experiment_spec:type_name -> monarchic.agent_protocol.v1.ExperimentSpec
+	15, // 24: monarchic.agent_protocol.v1.Event.extensions:type_name -> google.protobuf.Struct
+	8,  // 25: monarchic.agent_protocol.v1.Event.provenance:type_name -> monarchic.agent_protocol.v1.Provenance
+	7,  // 26: monarchic.agent_protocol.v1.Event.eval_results:type_name -> monarchic.agent_protocol.v1.EvalResult
+	15, // 27: monarchic.agent_protocol.v1.GateResult.evidence:type_name -> google.protobuf.Struct
+	15, // 28: monarchic.agent_protocol.v1.GateResult.extensions:type_name -> google.protobuf.Struct
+	1,  // 29: monarchic.agent_protocol.v1.RunOutcome.objective_decision:type_name -> monarchic.agent_protocol.v1.OutcomeDecision
+	1,  // 30: monarchic.agent_protocol.v1.RunOutcome.cost_decision:type_name -> monarchic.agent_protocol.v1.OutcomeDecision
+	1,  // 31: monarchic.agent_protocol.v1.RunOutcome.risk_decision:type_name -> monarchic.agent_protocol.v1.OutcomeDecision
+	1,  // 32: monarchic.agent_protocol.v1.RunOutcome.final_decision:type_name -> monarchic.agent_protocol.v1.OutcomeDecision
+	15, // 33: monarchic.agent_protocol.v1.RunOutcome.evidence:type_name -> google.protobuf.Struct
+	15, // 34: monarchic.agent_protocol.v1.RunOutcome.extensions:type_name -> google.protobuf.Struct
+	15, // 35: monarchic.agent_protocol.v1.RunContext.extensions:type_name -> google.protobuf.Struct
+	36, // [36:36] is the sub-list for method output_type
+	36, // [36:36] is the sub-list for method input_type
+	36, // [36:36] is the sub-list for extension type_name
+	36, // [36:36] is the sub-list for extension extendee
+	0,  // [0:36] is the sub-list for field type_name
 }
 
 func init() { file_monarchic_agent_protocol_proto_init() }
@@ -1734,13 +2000,14 @@ func file_monarchic_agent_protocol_proto_init() {
 	file_monarchic_agent_protocol_proto_msgTypes[6].OneofWrappers = []any{}
 	file_monarchic_agent_protocol_proto_msgTypes[9].OneofWrappers = []any{}
 	file_monarchic_agent_protocol_proto_msgTypes[10].OneofWrappers = []any{}
+	file_monarchic_agent_protocol_proto_msgTypes[11].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_monarchic_agent_protocol_proto_rawDesc), len(file_monarchic_agent_protocol_proto_rawDesc)),
-			NumEnums:      1,
-			NumMessages:   12,
+			NumEnums:      2,
+			NumMessages:   13,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
