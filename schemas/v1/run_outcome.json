@@ -1,0 +1,102 @@
+{
+  "$id": "https://monarchic.ai/schema/v1/run_outcome.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RunOutcome",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "version",
+    "task_id",
+    "objective_decision",
+    "cost_decision",
+    "risk_decision",
+    "final_decision"
+  ],
+  "properties": {
+    "version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "objective_metric": {
+      "type": "string",
+      "minLength": 1
+    },
+    "objective_score": {
+      "type": "number"
+    },
+    "objective_decision": {
+      "type": "string",
+      "enum": [
+        "accept",
+        "iterate",
+        "reject",
+        "escalate"
+      ]
+    },
+    "estimated_cost_usd": {
+      "type": "number",
+      "minimum": 0
+    },
+    "budget_limit_usd": {
+      "type": "number",
+      "minimum": 0
+    },
+    "cost_decision": {
+      "type": "string",
+      "enum": [
+        "accept",
+        "iterate",
+        "reject",
+        "escalate"
+      ]
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical",
+        "unknown"
+      ]
+    },
+    "risk_summary": {
+      "type": "string"
+    },
+    "risk_decision": {
+      "type": "string",
+      "enum": [
+        "accept",
+        "iterate",
+        "reject",
+        "escalate"
+      ]
+    },
+    "final_decision": {
+      "type": "string",
+      "enum": [
+        "accept",
+        "iterate",
+        "reject",
+        "escalate"
+      ]
+    },
+    "summary": {
+      "type": "string"
+    },
+    "evidence": {
+      "$ref": "google.protobuf.Struct.schema.json"
+    },
+    "extensions": {
+      "$ref": "google.protobuf.Struct.schema.json"
+    }
+  }
+}

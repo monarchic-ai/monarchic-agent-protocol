@@ -59,6 +59,27 @@ export interface GateResult {
   [key: string]: unknown;
 }
 
+export type OutcomeDecision = "accept" | "iterate" | "reject" | "escalate";
+
+export interface RunOutcome {
+  version: ProtocolVersion;
+  task_id: string;
+  run_id?: string;
+  objective_metric?: string;
+  objective_score?: number;
+  objective_decision: OutcomeDecision;
+  estimated_cost_usd?: number;
+  budget_limit_usd?: number;
+  cost_decision: OutcomeDecision;
+  risk_level?: "low" | "medium" | "high" | "critical" | "unknown";
+  risk_summary?: string;
+  risk_decision: OutcomeDecision;
+  final_decision: OutcomeDecision;
+  summary?: string;
+  evidence?: Record<string, unknown>;
+  [key: string]: unknown;
+}
+
 export interface RunContext {
   version: ProtocolVersion;
   repo: string;
