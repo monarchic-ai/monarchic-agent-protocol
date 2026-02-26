@@ -21,7 +21,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ inputs.ref || github.event.pull_request.head.ref || github.ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name || github.repository }}
+          ref: ${{ inputs.ref || github.event.pull_request.head.sha || github.ref }}
           fetch-depth: 0
 
       - uses: cachix/install-nix-action@v27
