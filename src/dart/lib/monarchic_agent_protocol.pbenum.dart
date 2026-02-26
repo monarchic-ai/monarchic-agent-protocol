@@ -48,5 +48,33 @@ class AgentRole extends $pb.ProtobufEnum {
   const AgentRole._(super.value, super.name);
 }
 
+class OutcomeDecision extends $pb.ProtobufEnum {
+  static const OutcomeDecision OUTCOME_DECISION_UNSPECIFIED = OutcomeDecision._(
+      0, _omitEnumNames ? '' : 'OUTCOME_DECISION_UNSPECIFIED');
+  static const OutcomeDecision ACCEPT =
+      OutcomeDecision._(1, _omitEnumNames ? '' : 'ACCEPT');
+  static const OutcomeDecision ITERATE =
+      OutcomeDecision._(2, _omitEnumNames ? '' : 'ITERATE');
+  static const OutcomeDecision REJECT =
+      OutcomeDecision._(3, _omitEnumNames ? '' : 'REJECT');
+  static const OutcomeDecision ESCALATE =
+      OutcomeDecision._(4, _omitEnumNames ? '' : 'ESCALATE');
+
+  static const $core.List<OutcomeDecision> values = <OutcomeDecision>[
+    OUTCOME_DECISION_UNSPECIFIED,
+    ACCEPT,
+    ITERATE,
+    REJECT,
+    ESCALATE,
+  ];
+
+  static final $core.List<OutcomeDecision?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 4);
+  static OutcomeDecision? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const OutcomeDecision._(super.value, super.name);
+}
+
 const $core.bool _omitEnumNames =
     $core.bool.fromEnvironment('protobuf.omit_enum_names');
