@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-repo_root="$(cd "$(dirname "$0")/.." && pwd)"
+repo_root="${REPO_ROOT:-}"
+if [[ -z "${repo_root}" ]]; then
+  repo_root="$(cd "$(dirname "$0")/.." && pwd)"
+fi
 tmp_rust_dir="$(mktemp -d)"
 mkdir -p "$tmp_rust_dir/src"
 cp examples/rust/task.rs "$tmp_rust_dir/src/main.rs"
@@ -44,6 +47,7 @@ protoc_args=(
   --php_out="${tmp_dir}/php"
 )
 if command -v protoc-gen-dart >/dev/null 2>&1; then
+  mkdir -p "${tmp_dir}/dart"
   protoc_args+=(--dart_out="${tmp_dir}/dart")
   have_dart_proto=1
 else
@@ -123,7 +127,11 @@ else
 fi
 
 if command -v python >/dev/null 2>&1 && [[ -d "${tmp_dir}/python" ]]; then
-  if ! PYTHONPATH="${tmp_dir}/python" python examples/proto/python/task.py; then
+  if ! python - <<'PY' >/dev/null 2>&1; then
+import google.protobuf  # noqa: F401
+PY
+    echo "Skipping Python proto example (protobuf runtime missing)"
+  elif ! PYTHONPATH="${tmp_dir}/python" python examples/proto/python/task.py; then
     echo "Skipping Python proto example (runtime failed)"
   fi
 else
@@ -131,7 +139,9 @@ else
 fi
 
 if command -v ruby >/dev/null 2>&1 && [[ -d "${tmp_dir}/ruby" ]]; then
-  if ! RUBYLIB="${tmp_dir}/ruby" ruby examples/proto/ruby/task.rb; then
+  if ! ruby -e "require 'google/protobuf'" >/dev/null 2>&1; then
+    echo "Skipping Ruby proto example (protobuf runtime missing)"
+  elif ! RUBYLIB="${tmp_dir}/ruby" ruby examples/proto/ruby/task.rb; then
     echo "Skipping Ruby proto example (runtime failed)"
   fi
 else
@@ -139,7 +149,9 @@ else
 fi
 
 if command -v php >/dev/null 2>&1 && [[ -d "${tmp_dir}/php" ]]; then
-  if ! PHP_INI_SCAN_DIR= PHP_INCLUDE_PATH="${tmp_dir}/php" php -d include_path="${tmp_dir}/php" examples/proto/php/task.php; then
+  if [[ ! -f examples/proto/php/vendor/autoload.php ]]; then
+    echo "Skipping PHP proto example (composer autoload missing)"
+  elif ! PHP_INI_SCAN_DIR= PHP_INCLUDE_PATH="${tmp_dir}/php" php -d include_path="${tmp_dir}/php" examples/proto/php/task.php; then
     echo "Skipping PHP proto example (runtime failed)"
   fi
 else
@@ -149,10 +161,15 @@ fi
 if [[ "${have_dart_proto}" -eq 1 ]] && command -v dart >/dev/null 2>&1; then
   dart_root="${tmp_dir}/dart-run"
   mkdir -p "${dart_root}/monarchic/agent_protocol/v1"
-  cp "${tmp_dir}/dart/monarchic/agent_protocol/v1/"* "${dart_root}/monarchic/agent_protocol/v1/"
-  cp examples/proto/dart/task.dart "${dart_root}/task.dart"
-  if ! dart "${dart_root}/task.dart"; then
-    echo "Skipping Dart proto example (runtime failed)"
+  if [[ -d "${tmp_dir}/dart/monarchic/agent_protocol/v1" ]] && \
+    find "${tmp_dir}/dart/monarchic/agent_protocol/v1" -type f -print -quit | grep -q .; then
+    cp "${tmp_dir}/dart/monarchic/agent_protocol/v1/"* "${dart_root}/monarchic/agent_protocol/v1/"
+    cp examples/proto/dart/task.dart "${dart_root}/task.dart"
+    if ! dart "${dart_root}/task.dart"; then
+      echo "Skipping Dart proto example (runtime failed)"
+    fi
+  else
+    echo "Skipping Dart proto example (generated Dart files missing)"
   fi
 else
   echo "Skipping Dart proto example (dart runtime or protoc-gen-dart not available)"
