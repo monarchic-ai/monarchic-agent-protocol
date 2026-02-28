@@ -27,53 +27,17 @@ jobs:
 
       - uses: cachix/install-nix-action@v27
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - uses: dtolnay/rust-toolchain@stable
-
-      - uses: actions/setup-go@v5
-        with:
-          go-version: "1.22"
-
-      - uses: dart-lang/setup-dart@v1
-        with:
-          sdk: stable
-
-      - name: Install protobuf compiler
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y protobuf-compiler libprotobuf-dev g++ default-jdk libprotobuf-java ruby php kotlin
-
-      - name: Install TypeScript compiler
-        run: npm install -g typescript
-
-      - uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: "8.0.x"
-
-      - name: Install protoc plugins
-        run: |
-          go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.34.2
-          dart pub global activate protoc_plugin
-          echo "$HOME/go/bin" >> $GITHUB_PATH
-          echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
-
-      - name: Install schema validation dependencies
-        run: python -m pip install --upgrade pip jsonschema
-
       - name: Validate JSON schemas
-        run: bash scripts/lint-schemas.sh
+        run: nix run .#lint-schemas
 
       - name: Validate protobuf codegen
-        run: bash scripts/test-proto.sh schemas/v1/monarchic_agent_protocol.proto
+        run: nix run .#test-proto -- schemas/v1/monarchic_agent_protocol.proto
 
       - name: Compile examples
         run: nix build .#example-rust .#example-ts .#example-python .#example-java .#example-kotlin .#example-cpp .#example-ruby .#example-csharp
 
       - name: Cargo test
-        run: cargo test
+        run: nix develop -c cargo test
 
       - name: Generate protobuf outputs
         run: nix run .#generate-proto

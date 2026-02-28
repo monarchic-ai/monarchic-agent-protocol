@@ -55,7 +55,7 @@ jobs:
       - name: Validate Commit Subjects
         run: |
           set -euo pipefail
-          ./scripts/conventional-commit-check.sh \
+          nix run .#conventional-commit-check -- \
             --rev-range "${{ steps.range.outputs.range }}" \
             --output out/conventional-commits-summary.json \
             --allow-merge-commits \
