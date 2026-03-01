@@ -881,8 +881,7 @@ EOF
             };
             runtimeInputs = [
               pkgs.bash
-              pkgs.python3
-              pkgs.python3Packages.jsonschema
+              (pkgs.python3.withPackages (ps: [ ps.jsonschema ]))
             ];
             text = ''
               REPO_ROOT="$(pwd)" exec ${pkgs.bash}/bin/bash ${builtins.path { path = ./scripts/lint-schemas.sh; name = "lint-schemas.sh"; }} "$@"
@@ -895,8 +894,7 @@ EOF
             };
             runtimeInputs = [
               pkgs.bash
-              pkgs.python3
-              pkgs.python3Packages.jsonschema
+              (pkgs.python3.withPackages (ps: [ ps.jsonschema ]))
             ];
             text = ''
               REPO_ROOT="$(pwd)" exec ${pkgs.bash}/bin/bash ${builtins.path { path = ./scripts/test-json-schema.sh; name = "test-json-schema.sh"; }} "$@"
