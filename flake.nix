@@ -874,6 +874,86 @@ EOF
             exec ${builtins.path { path = ./scripts/update-local-hashes.sh; name = "update-local-hashes.sh"; }} "$@"
           '';
         };
+          lintSchemas = pkgs.writeShellApplication {
+            name = "lint-schemas";
+            meta = {
+              description = "Validate JSON schema files for syntax and semantics.";
+            };
+            runtimeInputs = [
+              pkgs.bash
+              pkgs.python3
+              pkgs.python3Packages.jsonschema
+            ];
+            text = ''
+              REPO_ROOT="$(pwd)" exec ${pkgs.bash}/bin/bash ${builtins.path { path = ./scripts/lint-schemas.sh; name = "lint-schemas.sh"; }} "$@"
+            '';
+          };
+          testJsonSchema = pkgs.writeShellApplication {
+            name = "test-json-schema";
+            meta = {
+              description = "Run JSON schema validation tests.";
+            };
+            runtimeInputs = [
+              pkgs.bash
+              pkgs.python3
+              pkgs.python3Packages.jsonschema
+            ];
+            text = ''
+              REPO_ROOT="$(pwd)" exec ${pkgs.bash}/bin/bash ${builtins.path { path = ./scripts/test-json-schema.sh; name = "test-json-schema.sh"; }} "$@"
+            '';
+          };
+          testProto = pkgs.writeShellApplication {
+            name = "test-proto";
+            meta = {
+              description = "Validate protobuf schema compilation.";
+            };
+            runtimeInputs = [
+              pkgs.bash
+              pkgs.protobuf
+            ];
+            text = ''
+              REPO_ROOT="$(pwd)" exec ${pkgs.bash}/bin/bash ${builtins.path { path = ./scripts/test-proto.sh; name = "test-proto.sh"; }} "$@"
+            '';
+          };
+          testExamples = pkgs.writeShellApplication {
+            name = "test-examples";
+            meta = {
+              description = "Compile and run language examples.";
+            };
+            runtimeInputs = [
+              pkgs.bash
+              pkgs.cargo
+              pkgs.rustc
+              pkgs.nodejs
+              (pkgs.python3.withPackages (ps: [ ps.protobuf ]))
+              pkgs.protobuf
+              pkgs.protoc-gen-dart
+              pkgs.dart
+              pkgs.php
+              pkgs.jdk
+              pkgs.kotlin
+              pkgs.dotnet-sdk_8
+              pkgs.gcc
+              pkgs.pkg-config
+            ];
+            text = ''
+              REPO_ROOT="$(pwd)" exec ${pkgs.bash}/bin/bash ${builtins.path { path = ./scripts/test-examples.sh; name = "test-examples.sh"; }} "$@"
+            '';
+          };
+          conventionalCommitCheck = pkgs.writeShellApplication {
+            name = "conventional-commit-check";
+            meta = {
+              description = "Validate commit messages against Conventional Commits.";
+            };
+            runtimeInputs = [
+              pkgs.bash
+              pkgs.git
+              pkgs.python3
+            ];
+            text = ''
+              REPO_ROOT="$(pwd)" exec ${pkgs.bash}/bin/bash ${builtins.path { path = ./scripts/conventional-commit-check.sh; name = "conventional-commit-check.sh"; }} "$@"
+            '';
+          };
         in
         {
           generate-proto = {
@@ -909,6 +989,41 @@ EOF
             program = "${updateLocalHashes}/bin/update-local-hashes";
             meta = {
               description = "Update local build hashes in flake.nix.";
+            };
+          };
+          lint-schemas = {
+            type = "app";
+            program = "${lintSchemas}/bin/lint-schemas";
+            meta = {
+              description = "Validate JSON schema files for syntax and semantics.";
+            };
+          };
+          test-json-schema = {
+            type = "app";
+            program = "${testJsonSchema}/bin/test-json-schema";
+            meta = {
+              description = "Run JSON schema validation tests.";
+            };
+          };
+          test-proto = {
+            type = "app";
+            program = "${testProto}/bin/test-proto";
+            meta = {
+              description = "Validate protobuf schema compilation.";
+            };
+          };
+          test-examples = {
+            type = "app";
+            program = "${testExamples}/bin/test-examples";
+            meta = {
+              description = "Compile and run language examples.";
+            };
+          };
+          conventional-commit-check = {
+            type = "app";
+            program = "${conventionalCommitCheck}/bin/conventional-commit-check";
+            meta = {
+              description = "Validate commit messages against Conventional Commits.";
             };
           };
         });
