@@ -1,17 +1,19 @@
 {
   "status": "pass",
-  "headline": "Completed M38 by introducing deterministic SELF_HOST_COMMAND_LOG.json validation in the default self-host gate.",
-  "current_focus": "Current focus is keeping self-host verification command traces deterministic and directly auditable from artifacts.",
-  "milestone_target": "M38 is complete in this run; next milestone target is M39 to add explicit reason-code regression checks for command-log failure modes.",
-  "milestones_done": 38,
-  "total_milestones": 39,
+  "headline": "Completed M39 by adding explicit command-log reason-code regression coverage in self-host validation.",
+  "current_focus": "Current focus is keeping SELF_HOST_COMMAND_LOG validation diagnostics deterministic, explicit, and easy to triage.",
+  "milestone_target": "M39 is complete in this run; next milestone target is M40 to exercise command-log reason-code checks in default self-host gate smoke coverage.",
+  "milestones_done": 39,
+  "total_milestones": 40,
   "completed_work": [
-    "Added SELF_HOST_COMMAND_LOG.json as a deterministic artifact with ordered keys and contiguous command indexing.",
-    "Extended scripts/test-self-host-artifacts.sh to validate command-log schema, status alignment, task_id alignment, and exact verification-string parity with the latest implementation log entry.",
-    "Added scripts/test-self-host-artifact-command-log-format.sh to regression-test deterministic failure on non-contiguous command index values."
+    "Added explicit reason_code markers for SELF_HOST_COMMAND_LOG.json validation failure paths in scripts/test-self-host-artifacts.sh.",
+    "Added scripts/test-self-host-artifact-command-log-reason-codes.sh to verify deterministic reason codes for status mismatch and non-contiguous index failures.",
+    "Updated self-host run artifacts to record M39 completion and synchronized verification command traceability.",
+    "Refreshed SELF_HOST_PROOF.json signatures to match updated command-log and validator artifacts."
   ],
   "verification": [
     "bash scripts/test-self-host-proof-artifacts.sh",
+    "bash scripts/test-self-host-artifact-command-log-reason-codes.sh",
     "bash scripts/test-self-host-artifact-command-log-format.sh",
     "bash scripts/test-self-host-artifacts.sh",
     "python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null",
@@ -22,11 +24,11 @@
     "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null"
   ],
   "blockers": [
-    "No blockers in M38 scope."
+    "No blockers in M39 scope."
   ],
   "next_steps": [
-    "Implement M39 by adding explicit reason-code regression checks for command-log validation failures.",
-    "Keep SELF_HOST_COMMAND_LOG.json synchronized with the latest implementation log verification entries on each pass run."
+    "Implement M40 to ensure command-log reason-code regression checks are exercised in default self-host gate smoke coverage.",
+    "Keep SELF_HOST_COMMAND_LOG.json and latest implementation-log verification entries strictly synchronized on each run."
   ],
-  "note": "Status is pass because verification succeeded and milestones_done increased from 37 to 38."
+  "note": "Status is pass because verification succeeded and milestones_done increased from 38 to 39."
 }

@@ -268,8 +268,15 @@
   {
     "id": "M39",
     "title": "Add explicit reason-code regression checks for command-log failure modes",
+    "status": "done",
+    "completed_at": "2026-03-04T10:24:15Z",
+    "notes": "Added explicit reason_code outputs for SELF_HOST_COMMAND_LOG.json validation failures in scripts/test-self-host-artifacts.sh and regression coverage in scripts/test-self-host-artifact-command-log-reason-codes.sh."
+  },
+  {
+    "id": "M40",
+    "title": "Validate command-log reason-code regressions in default self-host gate smoke coverage",
     "status": "pending",
     "completed_at": null,
-    "notes": "Planned follow-up to add deterministic failure-reason-code coverage for SELF_HOST_COMMAND_LOG.json validation paths."
+    "notes": "Planned follow-up to assert command-log reason-code regressions are exercised alongside default gate smoke checks."
   }
 ]

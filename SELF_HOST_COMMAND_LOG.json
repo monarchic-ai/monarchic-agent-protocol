@@ -9,41 +9,46 @@
     },
     {
       "index": 2,
-      "command": "bash scripts/test-self-host-artifact-command-log-format.sh",
+      "command": "bash scripts/test-self-host-artifact-command-log-reason-codes.sh",
       "status": "pass"
     },
     {
       "index": 3,
-      "command": "bash scripts/test-self-host-artifacts.sh",
+      "command": "bash scripts/test-self-host-artifact-command-log-format.sh",
       "status": "pass"
     },
     {
       "index": 4,
-      "command": "python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null",
+      "command": "bash scripts/test-self-host-artifacts.sh",
       "status": "pass"
     },
     {
       "index": 5,
-      "command": "python3 -m json.tool SELF_HOST_PROOF.json >/dev/null",
+      "command": "python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null",
       "status": "pass"
     },
     {
       "index": 6,
-      "command": "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null",
+      "command": "python3 -m json.tool SELF_HOST_PROOF.json >/dev/null",
       "status": "pass"
     },
     {
       "index": 7,
-      "command": "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null",
+      "command": "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null",
       "status": "pass"
     },
     {
       "index": 8,
-      "command": "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null",
+      "command": "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null",
       "status": "pass"
     },
     {
       "index": 9,
+      "command": "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null",
+      "status": "pass"
+    },
+    {
+      "index": 10,
       "command": "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null",
       "status": "pass"
     }

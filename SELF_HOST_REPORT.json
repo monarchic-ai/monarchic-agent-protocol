@@ -1,20 +1,20 @@
 {
   "status": "pass",
-  "milestone_completed": "M38",
-  "milestones_done": 38,
-  "total_milestones": 39,
+  "milestone_completed": "M39",
+  "milestones_done": 39,
+  "total_milestones": 40,
   "new_files": [
-    "scripts/test-self-host-artifact-command-log-format.sh",
-    "SELF_HOST_COMMAND_LOG.json"
+    "scripts/test-self-host-artifact-command-log-reason-codes.sh"
   ],
   "changed_files": [
     "scripts/test-self-host-artifacts.sh",
+    "SELF_HOST_COMMAND_LOG.json",
     "SELF_HOST_PROOF.json",
     "SELF_HOST_MILESTONES.json",
     "SELF_HOST_IMPLEMENTATION_LOG.json",
     "SELF_HOST_REPORT.json",
     "SELF_HOST_UPDATE.json"
   ],
-  "test_command": "bash scripts/test-self-host-proof-artifacts.sh && bash scripts/test-self-host-artifact-command-log-format.sh && bash scripts/test-self-host-artifacts.sh && python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null && python3 -m json.tool SELF_HOST_PROOF.json >/dev/null && python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null && python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null && python3 -m json.tool SELF_HOST_REPORT.json >/dev/null && python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null",
-  "note": "Status is pass because verification succeeded and milestones_done increased from 37 to 38 versus the prior report."
+  "test_command": "bash scripts/test-self-host-proof-artifacts.sh && bash scripts/test-self-host-artifact-command-log-reason-codes.sh && bash scripts/test-self-host-artifact-command-log-format.sh && bash scripts/test-self-host-artifacts.sh && python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null && python3 -m json.tool SELF_HOST_PROOF.json >/dev/null && python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null && python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null && python3 -m json.tool SELF_HOST_REPORT.json >/dev/null && python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null",
+  "note": "Status is pass because verification succeeded and milestones_done increased from 38 to 39 versus the prior report."
 }
