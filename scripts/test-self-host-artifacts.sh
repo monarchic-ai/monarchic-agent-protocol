@@ -86,6 +86,12 @@ def is_strict_int(value: object) -> bool:
     return isinstance(value, int) and not isinstance(value, bool)
 
 
+def parse_milestone_numeric(value: object, field_name: str) -> int:
+    if not isinstance(value, str) or not re.fullmatch(r"M\d+", value):
+        fail(f"{field_name} must match M<number>, found {value!r}.")
+    return int(value[1:])
+
+
 for path in (milestones_path, report_path, update_path, log_path):
     if not path.is_file():
         fail(f"Missing required file: {path}")
@@ -451,6 +457,29 @@ if milestone_completed not in latest_entry["summary"]:
         "Latest implementation log summary must include milestone_completed id "
         f"{milestone_completed!r} for traceability."
     )
+
+if report_status == "pass" and len(implementation_log) > 1:
+    previous_entry = implementation_log[-2]
+    if not isinstance(previous_entry, dict):
+        fail("Previous implementation log entry must be an object when present.")
+    if "milestone_completed" not in previous_entry:
+        fail("Previous implementation log entry is missing milestone_completed.")
+    previous_milestone_completed = previous_entry["milestone_completed"]
+    previous_milestone_numeric = parse_milestone_numeric(
+        previous_milestone_completed,
+        "Previous implementation log milestone_completed",
+    )
+    latest_milestone_numeric = parse_milestone_numeric(
+        milestone_completed,
+        "SELF_HOST_REPORT.json milestone_completed",
+    )
+    if latest_milestone_numeric <= previous_milestone_numeric:
+        fail(
+            "SELF_HOST_REPORT.json status 'pass' requires milestone progression: latest "
+            f"milestone_completed {milestone_completed!r} must be greater than previous "
+            "implementation log milestone_completed "
+            f"{previous_milestone_completed!r}."
+        )
 
 reported_files = set(report["new_files"] + report["changed_files"])
 missing_logged_files = sorted(reported_files.difference(set(latest_entry["files"])))

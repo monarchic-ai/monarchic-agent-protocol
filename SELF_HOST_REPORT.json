@@ -1,19 +1,19 @@
 {
   "status": "pass",
-  "milestone_completed": "M36",
-  "milestones_done": 36,
-  "total_milestones": 36,
+  "milestone_completed": "M37",
+  "milestones_done": 37,
+  "total_milestones": 38,
   "new_files": [
-    "checks/legacy-unresolved-schema-refs.json",
-    "scripts/test-legacy-unresolved-schema-refs.sh",
-    "scripts/test-legacy-unresolved-schema-refs-manifest.sh"
+    "scripts/test-self-host-artifact-pass-progression.sh"
   ],
   "changed_files": [
+    "scripts/test-self-host-artifacts.sh",
+    "SELF_HOST_PROOF.json",
     "SELF_HOST_MILESTONES.json",
     "SELF_HOST_IMPLEMENTATION_LOG.json",
     "SELF_HOST_REPORT.json",
     "SELF_HOST_UPDATE.json"
   ],
-  "test_command": "bash scripts/test-self-host-proof-artifacts.sh && bash scripts/test-legacy-unresolved-schema-refs.sh && bash scripts/test-legacy-unresolved-schema-refs-manifest.sh && bash scripts/test-self-host-artifacts.sh && python3 -m json.tool checks/legacy-unresolved-schema-refs.json >/dev/null && python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null && python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null && python3 -m json.tool SELF_HOST_REPORT.json >/dev/null && python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null",
-  "note": "Status is pass because verification succeeded and milestones_done increased from 35 to 36 versus the prior report."
+  "test_command": "bash scripts/test-self-host-proof-artifacts.sh && bash scripts/test-self-host-artifact-pass-progression.sh && bash scripts/test-self-host-artifacts.sh && python3 -m json.tool SELF_HOST_PROOF.json >/dev/null && python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null && python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null && python3 -m json.tool SELF_HOST_REPORT.json >/dev/null && python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null",
+  "note": "Status is pass because verification succeeded and milestones_done increased from 36 to 37 versus the prior report."
 }

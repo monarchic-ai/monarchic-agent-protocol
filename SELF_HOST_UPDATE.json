@@ -1,32 +1,31 @@
 {
   "status": "pass",
-  "headline": "Completed M36 by adding deterministic manifest checks for unresolved legacy .schema.json refs.",
-  "current_focus": "Current focus is keeping schema-validation reliability deterministic by explicitly tracking known unresolved legacy local refs until they are retired.",
-  "milestone_target": "M36 is complete in this run; next milestone target is M37 to retire or replace legacy unresolved .schema.json refs without widening this run scope.",
-  "milestones_done": 36,
-  "total_milestones": 36,
+  "headline": "Completed M37 by enforcing pass-run milestone advancement checks in self-host artifact validation.",
+  "current_focus": "Current focus is preserving deterministic self-host traceability by requiring each pass run to advance milestone progression over the prior logged run.",
+  "milestone_target": "M37 is complete in this run; next milestone target is M38 to add deterministic command-log artifact validation coverage.",
+  "milestones_done": 37,
+  "total_milestones": 38,
   "completed_work": [
-    "Added checks/legacy-unresolved-schema-refs.json as the canonical manifest of currently unresolved legacy local refs ending in .schema.json.",
-    "Added scripts/test-legacy-unresolved-schema-refs.sh to deterministically compare observed unresolved refs against the committed manifest.",
-    "Added scripts/test-legacy-unresolved-schema-refs-manifest.sh regression coverage to ensure stale or incomplete manifests fail deterministically."
+    "Updated scripts/test-self-host-artifacts.sh to fail pass-status runs when milestone_completed does not advance beyond the previous implementation log entry.",
+    "Added scripts/test-self-host-artifact-pass-progression.sh to deterministically regression-test the new pass progression rule.",
+    "Updated SELF_HOST_PROOF.json with the new sha256 digest for scripts/test-self-host-artifacts.sh after this reliability-hardening change."
   ],
   "verification": [
     "bash scripts/test-self-host-proof-artifacts.sh",
-    "bash scripts/test-legacy-unresolved-schema-refs.sh",
-    "bash scripts/test-legacy-unresolved-schema-refs-manifest.sh",
+    "bash scripts/test-self-host-artifact-pass-progression.sh",
     "bash scripts/test-self-host-artifacts.sh",
-    "python3 -m json.tool checks/legacy-unresolved-schema-refs.json >/dev/null",
+    "python3 -m json.tool SELF_HOST_PROOF.json >/dev/null",
     "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null",
     "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null",
     "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null",
     "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null"
   ],
   "blockers": [
-    "No blockers within M36 scope."
+    "No blockers within M37 scope."
   ],
   "next_steps": [
-    "Define and execute M37 to migrate away from legacy unresolved .schema.json refs one schema at a time.",
-    "Keep the manifest check strict so any newly introduced unresolved legacy refs are surfaced immediately."
+    "Implement M38 by defining and validating a deterministic command-log artifact format for self-host runs.",
+    "Keep pass-run milestone progression strict so status pass cannot be reported without incremental completion progress."
   ],
-  "note": "Status is pass because verification succeeded and milestones_done increased from 35 to 36."
+  "note": "Status is pass because verification succeeded and milestones_done increased from 36 to 37."
 }

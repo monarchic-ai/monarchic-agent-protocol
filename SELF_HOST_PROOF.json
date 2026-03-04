@@ -7,7 +7,7 @@
   "proofs": [
     {
       "path": "scripts/test-self-host-artifacts.sh",
-      "sha256": "fca073b0240c06c653d08c0cf4a760fffe470ed48fc8741028ebe2f76f383559"
+      "sha256": "806fbae19779536db37c956e3344d3dd282e70a9ecba9d41ba352de1ea6489d6"
     }
   ],
   "note": "Deterministic proof manifest for default self-host artifact gate validation."
