@@ -243,5 +243,12 @@
     "status": "done",
     "completed_at": "2026-03-04T09:28:55Z",
     "notes": "Completed by enforcing schema-index oneOf local $ref file existence in scripts/test-readme-schema-index-coverage.sh and restoring the referenced schemas/v1/task.json for deterministic non-protobuf schema-index reliability."
+  },
+  {
+    "id": "M36",
+    "title": "Track unresolved legacy .schema.json refs with a deterministic manifest check",
+    "status": "done",
+    "completed_at": "2026-03-04T09:44:10Z",
+    "notes": "Added checks/legacy-unresolved-schema-refs.json plus scripts/test-legacy-unresolved-schema-refs.sh and scripts/test-legacy-unresolved-schema-refs-manifest.sh to deterministically track known unresolved legacy .schema.json refs and fail on manifest drift."
   }
 ]

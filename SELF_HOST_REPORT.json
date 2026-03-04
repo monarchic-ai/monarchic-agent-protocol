@@ -1,18 +1,19 @@
 {
   "status": "pass",
-  "milestone_completed": "M35",
-  "milestones_done": 35,
-  "total_milestones": 35,
+  "milestone_completed": "M36",
+  "milestones_done": 36,
+  "total_milestones": 36,
   "new_files": [
-    "schemas/v1/task.json"
+    "checks/legacy-unresolved-schema-refs.json",
+    "scripts/test-legacy-unresolved-schema-refs.sh",
+    "scripts/test-legacy-unresolved-schema-refs-manifest.sh"
   ],
   "changed_files": [
-    "scripts/test-readme-schema-index-coverage.sh",
     "SELF_HOST_MILESTONES.json",
     "SELF_HOST_IMPLEMENTATION_LOG.json",
     "SELF_HOST_REPORT.json",
     "SELF_HOST_UPDATE.json"
   ],
-  "test_command": "bash scripts/test-self-host-proof-artifacts.sh && bash scripts/test-readme-schema-index-coverage.sh && bash scripts/test-self-host-artifacts.sh && python3 -m json.tool schemas/v1/task.json >/dev/null && python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null && python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null && python3 -m json.tool SELF_HOST_REPORT.json >/dev/null && python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null",
-  "note": "Processed NEXT_PRIORITY_TASK.md issue #1 by completing M35 with deterministic schema-index local ref existence checks; status is pass because verification succeeded and milestones_done increased from 34 to 35 versus the prior report."
+  "test_command": "bash scripts/test-self-host-proof-artifacts.sh && bash scripts/test-legacy-unresolved-schema-refs.sh && bash scripts/test-legacy-unresolved-schema-refs-manifest.sh && bash scripts/test-self-host-artifacts.sh && python3 -m json.tool checks/legacy-unresolved-schema-refs.json >/dev/null && python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null && python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null && python3 -m json.tool SELF_HOST_REPORT.json >/dev/null && python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null",
+  "note": "Status is pass because verification succeeded and milestones_done increased from 35 to 36 versus the prior report."
 }

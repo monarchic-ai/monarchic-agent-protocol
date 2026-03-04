@@ -784,5 +784,32 @@
       "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
     ],
     "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-03-04T09:44:10Z",
+    "task_id": "task-self-host-001",
+    "summary": "Completed M36 by adding deterministic manifest validation for unresolved legacy .schema.json refs in schemas/v1.",
+    "milestone_completed": "M36",
+    "files": [
+      "checks/legacy-unresolved-schema-refs.json",
+      "scripts/test-legacy-unresolved-schema-refs.sh",
+      "scripts/test-legacy-unresolved-schema-refs-manifest.sh",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-proof-artifacts.sh -> pass",
+      "bash scripts/test-legacy-unresolved-schema-refs.sh -> pass",
+      "bash scripts/test-legacy-unresolved-schema-refs-manifest.sh -> pass",
+      "bash scripts/test-self-host-artifacts.sh -> pass",
+      "python3 -m json.tool checks/legacy-unresolved-schema-refs.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
+    ],
+    "gate": "ready-for-review"
   }
 ]

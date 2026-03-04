@@ -1,32 +1,32 @@
 {
   "status": "pass",
-  "headline": "Completed M35 by enforcing schema-index local $ref path existence and restoring schemas/v1/task.json for deterministic non-protobuf schema reliability.",
-  "current_focus": "Current focus is keeping non-protobuf JSON-schema workflows deterministic by ensuring schema index entries always resolve to committed local schema files.",
-  "milestone_target": "M35 is complete in this run; next milestone target is to define M36 for the next smallest reliability hardening increment.",
-  "milestones_done": 35,
-  "total_milestones": 35,
+  "headline": "Completed M36 by adding deterministic manifest checks for unresolved legacy .schema.json refs.",
+  "current_focus": "Current focus is keeping schema-validation reliability deterministic by explicitly tracking known unresolved legacy local refs until they are retired.",
+  "milestone_target": "M36 is complete in this run; next milestone target is M37 to retire or replace legacy unresolved .schema.json refs without widening this run scope.",
+  "milestones_done": 36,
+  "total_milestones": 36,
   "completed_work": [
-    "Added schemas/v1/task.json to restore a missing schema file referenced by schemas/v1/schema.json oneOf.",
-    "Strengthened scripts/test-readme-schema-index-coverage.sh to fail if any schema-index oneOf $ref points to a missing local file.",
-    "Completed milestone M35 and synchronized SELF_HOST_MILESTONES, SELF_HOST_IMPLEMENTATION_LOG, SELF_HOST_REPORT, and SELF_HOST_UPDATE."
+    "Added checks/legacy-unresolved-schema-refs.json as the canonical manifest of currently unresolved legacy local refs ending in .schema.json.",
+    "Added scripts/test-legacy-unresolved-schema-refs.sh to deterministically compare observed unresolved refs against the committed manifest.",
+    "Added scripts/test-legacy-unresolved-schema-refs-manifest.sh regression coverage to ensure stale or incomplete manifests fail deterministically."
   ],
   "verification": [
     "bash scripts/test-self-host-proof-artifacts.sh",
-    "bash scripts/test-readme-schema-index-coverage.sh",
+    "bash scripts/test-legacy-unresolved-schema-refs.sh",
+    "bash scripts/test-legacy-unresolved-schema-refs-manifest.sh",
     "bash scripts/test-self-host-artifacts.sh",
-    "python3 -m json.tool schemas/v1/task.json >/dev/null",
+    "python3 -m json.tool checks/legacy-unresolved-schema-refs.json >/dev/null",
     "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null",
     "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null",
     "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null",
     "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null"
   ],
   "blockers": [
-    "No blockers for M35 scope.",
-    "scripts/test-json-schema.sh still reports unresolved legacy .schema.json refs outside this milestone scope."
+    "No blockers within M36 scope."
   ],
   "next_steps": [
-    "Define M36 as the next deterministic reliability increment after M35.",
-    "Address legacy unresolved .schema.json references in a dedicated follow-up milestone without expanding M35 scope."
+    "Define and execute M37 to migrate away from legacy unresolved .schema.json refs one schema at a time.",
+    "Keep the manifest check strict so any newly introduced unresolved legacy refs are surfaced immediately."
   ],
-  "note": "Status is pass because this run completed M35, verification succeeded, and milestones_done increased from 34 to 35."
+  "note": "Status is pass because verification succeeded and milestones_done increased from 35 to 36."
 }
