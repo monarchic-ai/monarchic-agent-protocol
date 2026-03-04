@@ -240,8 +240,8 @@
   {
     "id": "M35",
     "title": "Track schema index references to missing local schema files in deterministic checks",
-    "status": "pending",
-    "completed_at": null,
-    "notes": "Planned reliability hardening to catch schema index entries that reference missing local files before they surface as downstream validation failures."
+    "status": "done",
+    "completed_at": "2026-03-04T09:28:55Z",
+    "notes": "Completed by enforcing schema-index oneOf local $ref file existence in scripts/test-readme-schema-index-coverage.sh and restoring the referenced schemas/v1/task.json for deterministic non-protobuf schema-index reliability."
   }
 ]

@@ -1,35 +1,32 @@
 {
   "status": "pass",
-  "headline": "Completed M34 by adding a canonical non-protobuf JSON example and enforcing deterministic documentation/validation coverage.",
-  "current_focus": "Current focus is M35: adding a deterministic guard that fails when schema index references point to missing local schema files.",
-  "milestone_target": "M34 is complete in this run; the next milestone target is M35 for schema-index reference reliability hardening.",
-  "milestones_done": 34,
+  "headline": "Completed M35 by enforcing schema-index local $ref path existence and restoring schemas/v1/task.json for deterministic non-protobuf schema reliability.",
+  "current_focus": "Current focus is keeping non-protobuf JSON-schema workflows deterministic by ensuring schema index entries always resolve to committed local schema files.",
+  "milestone_target": "M35 is complete in this run; next milestone target is to define M36 for the next smallest reliability hardening increment.",
+  "milestones_done": 35,
   "total_milestones": 35,
   "completed_work": [
-    "Added examples/json/objective_spec.minimal.json as a canonical non-protobuf JSON payload for language-agnostic consumers.",
-    "Updated README.md and examples/README.md to include the new JSON (non-protobuf) example and a matching schema-validation command.",
-    "Strengthened scripts/test-readme-examples-coverage.sh and scripts/test-readme-examples-sync.sh to require the new non-protobuf JSON entry.",
-    "Extended scripts/test-validate-protocol-json.sh to validate the canonical non-protobuf JSON example against schemas/v1/objective_spec.json.",
-    "Completed milestone M34 and appended this run to SELF_HOST_IMPLEMENTATION_LOG.json."
+    "Added schemas/v1/task.json to restore a missing schema file referenced by schemas/v1/schema.json oneOf.",
+    "Strengthened scripts/test-readme-schema-index-coverage.sh to fail if any schema-index oneOf $ref points to a missing local file.",
+    "Completed milestone M35 and synchronized SELF_HOST_MILESTONES, SELF_HOST_IMPLEMENTATION_LOG, SELF_HOST_REPORT, and SELF_HOST_UPDATE."
   ],
   "verification": [
     "bash scripts/test-self-host-proof-artifacts.sh",
-    "bash scripts/test-validate-protocol-json.sh",
-    "bash scripts/test-readme-examples-coverage.sh",
-    "bash scripts/test-readme-examples-sync.sh",
+    "bash scripts/test-readme-schema-index-coverage.sh",
     "bash scripts/test-self-host-artifacts.sh",
+    "python3 -m json.tool schemas/v1/task.json >/dev/null",
     "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null",
     "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null",
     "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null",
     "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null"
   ],
   "blockers": [
-    "No blockers for M34 delivery.",
-    "Observed repository drift: schemas/v1/schema.json references task.json, but schemas/v1/task.json is absent; this is queued as M35 reliability work."
+    "No blockers for M35 scope.",
+    "scripts/test-json-schema.sh still reports unresolved legacy .schema.json refs outside this milestone scope."
   ],
   "next_steps": [
-    "Implement M35 by adding a deterministic check for missing local files referenced by schemas/v1/schema.json oneOf refs.",
-    "Keep non-protobuf documentation and validation checks aligned as schema/example inventory evolves."
+    "Define M36 as the next deterministic reliability increment after M35.",
+    "Address legacy unresolved .schema.json references in a dedicated follow-up milestone without expanding M35 scope."
   ],
-  "note": "Status is pass only because verification succeeded and milestones_done increased from 33 to 34 versus prior SELF_HOST_REPORT.json."
+  "note": "Status is pass because this run completed M35, verification succeeded, and milestones_done increased from 34 to 35."
 }

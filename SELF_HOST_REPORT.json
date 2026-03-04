@@ -1,22 +1,18 @@
 {
   "status": "pass",
-  "milestone_completed": "M34",
-  "milestones_done": 34,
+  "milestone_completed": "M35",
+  "milestones_done": 35,
   "total_milestones": 35,
   "new_files": [
-    "examples/json/objective_spec.minimal.json"
+    "schemas/v1/task.json"
   ],
   "changed_files": [
-    "README.md",
-    "examples/README.md",
-    "scripts/test-readme-examples-coverage.sh",
-    "scripts/test-readme-examples-sync.sh",
-    "scripts/test-validate-protocol-json.sh",
+    "scripts/test-readme-schema-index-coverage.sh",
     "SELF_HOST_MILESTONES.json",
     "SELF_HOST_IMPLEMENTATION_LOG.json",
     "SELF_HOST_REPORT.json",
     "SELF_HOST_UPDATE.json"
   ],
-  "test_command": "bash scripts/test-self-host-proof-artifacts.sh && bash scripts/test-validate-protocol-json.sh && bash scripts/test-readme-examples-coverage.sh && bash scripts/test-readme-examples-sync.sh && bash scripts/test-self-host-artifacts.sh && python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null && python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null && python3 -m json.tool SELF_HOST_REPORT.json >/dev/null && python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null",
-  "note": "Processed NEXT_PRIORITY_TASK.md issue #1 by completing M34 with a canonical non-protobuf JSON example plus deterministic validation checks; status is pass because verification succeeded and milestones_done increased from 33 to 34 versus the prior report."
+  "test_command": "bash scripts/test-self-host-proof-artifacts.sh && bash scripts/test-readme-schema-index-coverage.sh && bash scripts/test-self-host-artifacts.sh && python3 -m json.tool schemas/v1/task.json >/dev/null && python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null && python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null && python3 -m json.tool SELF_HOST_REPORT.json >/dev/null && python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null",
+  "note": "Processed NEXT_PRIORITY_TASK.md issue #1 by completing M35 with deterministic schema-index local ref existence checks; status is pass because verification succeeded and milestones_done increased from 34 to 35 versus the prior report."
 }

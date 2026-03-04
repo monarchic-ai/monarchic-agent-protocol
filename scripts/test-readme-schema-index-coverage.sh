@@ -29,9 +29,11 @@ fi
 import json
 import re
 import sys
+from pathlib import Path
 
 readme_path = sys.argv[1]
 schema_index_path = sys.argv[2]
+schema_dir = Path(schema_index_path).resolve().parent
 
 with open(schema_index_path, "r", encoding="utf-8") as f:
     schema_index = json.load(f)
@@ -63,6 +65,14 @@ for entry in one_of:
     if not ref_path.endswith(".json"):
         print(
             f"[test-readme-schema-index-coverage] Unsupported $ref target in schema index: {ref}",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+    resolved_ref_path = schema_dir / ref_path
+    if not resolved_ref_path.is_file():
+        print(
+            "[test-readme-schema-index-coverage] "
+            f"Schema index $ref points to a missing local file: schemas/v1/{ref_path}",
             file=sys.stderr,
         )
         sys.exit(1)
