@@ -6,6 +6,7 @@ milestones_path="${repo_root}/SELF_HOST_MILESTONES.json"
 report_path="${repo_root}/SELF_HOST_REPORT.json"
 update_path="${repo_root}/SELF_HOST_UPDATE.json"
 log_path="${repo_root}/SELF_HOST_IMPLEMENTATION_LOG.json"
+proof_path="${repo_root}/SELF_HOST_PROOF.json"
 
 python_cmd=""
 if command -v python >/dev/null 2>&1; then
@@ -17,7 +18,7 @@ else
   exit 1
 fi
 
-"${python_cmd}" - "${milestones_path}" "${report_path}" "${update_path}" "${log_path}" <<'PY'
+"${python_cmd}" - "${milestones_path}" "${report_path}" "${update_path}" "${log_path}" "${proof_path}" <<'PY'
 import json
 import re
 import sys
@@ -27,6 +28,7 @@ milestones_path = Path(sys.argv[1])
 report_path = Path(sys.argv[2])
 update_path = Path(sys.argv[3])
 log_path = Path(sys.argv[4])
+proof_path = Path(sys.argv[5])
 
 required_milestone_keys = ["id", "title", "status", "completed_at", "notes"]
 required_report_keys = [
@@ -50,6 +52,15 @@ required_update_keys = [
     "verification",
     "blockers",
     "next_steps",
+    "note",
+]
+required_proof_keys = [
+    "task_id",
+    "status",
+    "reason_code",
+    "signature_count",
+    "sampled_batches",
+    "proofs",
     "note",
 ]
 allowed_artifact_statuses = {"pass", "fail", "blocked"}
@@ -78,6 +89,8 @@ def is_strict_int(value: object) -> bool:
 for path in (milestones_path, report_path, update_path, log_path):
     if not path.is_file():
         fail(f"Missing required file: {path}")
+if not proof_path.is_file():
+    fail(f"reason_code=PROOF_ARTIFACT_MISSING Missing required file: {proof_path}")
 
 with milestones_path.open("r", encoding="utf-8") as handle:
     milestones = json.load(handle)
@@ -87,6 +100,11 @@ with update_path.open("r", encoding="utf-8") as handle:
     update = json.load(handle)
 with log_path.open("r", encoding="utf-8") as handle:
     implementation_log = json.load(handle)
+try:
+    with proof_path.open("r", encoding="utf-8") as handle:
+        proof_manifest = json.load(handle)
+except json.JSONDecodeError as exc:
+    fail(f"reason_code=PROOF_JSON_INVALID SELF_HOST_PROOF.json is not valid JSON: {exc}")
 
 iso_utc_timestamp_pattern = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$")
 
@@ -311,6 +329,72 @@ for key in ("completed_work", "verification", "blockers", "next_steps"):
     if not isinstance(value, list) or not all(isinstance(item, str) and item for item in value):
         fail(f"SELF_HOST_UPDATE.json field {key} must be an array of non-empty strings.")
 
+if not isinstance(proof_manifest, dict):
+    fail("reason_code=PROOF_NOT_OBJECT SELF_HOST_PROOF.json must be a JSON object.")
+if list(proof_manifest.keys()) != required_proof_keys:
+    fail(
+        "reason_code=PROOF_KEY_ORDER_INVALID SELF_HOST_PROOF.json must use keys in this order: "
+        f"{required_proof_keys}, found {list(proof_manifest.keys())}."
+    )
+
+proof_status = proof_manifest["status"]
+if proof_status not in allowed_artifact_statuses:
+    fail(
+        "reason_code=PROOF_STATUS_INVALID SELF_HOST_PROOF.json status must be one of "
+        f"{sorted(allowed_artifact_statuses)}, found {proof_status!r}."
+    )
+
+proof_reason_code = proof_manifest["reason_code"]
+if not isinstance(proof_reason_code, str) or not proof_reason_code.strip():
+    fail(
+        "reason_code=REASON_CODE_MISSING SELF_HOST_PROOF.json reason_code must be a non-empty string."
+    )
+
+proof_task_id = proof_manifest["task_id"]
+if not isinstance(proof_task_id, str) or not proof_task_id.strip():
+    fail(
+        "reason_code=PROOF_TASK_ID_INVALID SELF_HOST_PROOF.json task_id must be a non-empty string."
+    )
+
+signature_count = proof_manifest["signature_count"]
+if not is_strict_int(signature_count) or signature_count < 0:
+    fail(
+        "reason_code=SIGNATURE_COUNT_INVALID SELF_HOST_PROOF.json signature_count must be a non-negative integer."
+    )
+
+sampled_batches = proof_manifest["sampled_batches"]
+if not is_strict_int(sampled_batches) or sampled_batches < 1:
+    fail(
+        "reason_code=SAMPLED_BATCHES_INVALID SELF_HOST_PROOF.json sampled_batches must be a positive integer."
+    )
+
+proofs = proof_manifest["proofs"]
+if not isinstance(proofs, list):
+    fail("reason_code=PROOFS_NOT_ARRAY SELF_HOST_PROOF.json proofs must be an array.")
+if signature_count != len(proofs):
+    fail(
+        "reason_code=SIGNATURE_COUNT_MISMATCH SELF_HOST_PROOF.json signature_count must equal proofs length "
+        f"({len(proofs)}), found {signature_count}."
+    )
+
+if report_status == "pass":
+    if proof_status != "pass":
+        fail(
+            "reason_code=PROOF_STATUS_MISMATCH SELF_HOST_PROOF.json status must be 'pass' when SELF_HOST_REPORT.json status is 'pass'."
+        )
+    if proof_reason_code != "OK":
+        fail(
+            "reason_code=PASS_REASON_CODE_INVALID SELF_HOST_PROOF.json reason_code must be 'OK' when status is 'pass'."
+        )
+    if not proofs:
+        fail(
+            "reason_code=PROOF_LIST_EMPTY SELF_HOST_PROOF.json proofs must include at least one entry when status is 'pass'."
+        )
+    if signature_count < sampled_batches:
+        fail(
+            "reason_code=SIGNATURE_COUNT_BELOW_SAMPLED_BATCHES SELF_HOST_PROOF.json signature_count must be >= sampled_batches when status is 'pass'."
+        )
+
 if not isinstance(implementation_log, list):
     fail("SELF_HOST_IMPLEMENTATION_LOG.json must be a JSON array.")
 if not implementation_log:
@@ -353,6 +437,14 @@ if latest_entry["milestone_completed"] != milestone_completed:
         "Latest implementation log milestone_completed must match SELF_HOST_REPORT.json "
         f"milestone_completed, found {latest_entry['milestone_completed']!r} "
         f"vs {milestone_completed!r}."
+    )
+
+latest_task_id = latest_entry["task_id"]
+if proof_task_id != latest_task_id:
+    fail(
+        "reason_code=PROOF_TASK_ID_MISMATCH SELF_HOST_PROOF.json task_id must match "
+        "latest SELF_HOST_IMPLEMENTATION_LOG.json task_id, found "
+        f"{proof_task_id!r} vs {latest_task_id!r}."
     )
 if milestone_completed not in latest_entry["summary"]:
     fail(

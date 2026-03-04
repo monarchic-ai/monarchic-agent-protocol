@@ -1,0 +1,763 @@
+[
+  {
+    "timestamp": "2026-02-19T18:36:15Z",
+    "task_id": "task-self-host-001",
+    "summary": "Added missing Task JSON Schema and hardened schema validation to catch unresolved local $ref targets with python/python3 compatibility.",
+    "milestone_completed": "M01",
+    "files": [
+      "schemas/v1/task.json",
+      "scripts/test-json-schema.sh"
+    ],
+    "verification": [
+      "bash scripts/test-json-schema.sh -> pass"
+    ],
+    "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-02-19T18:40:24Z",
+    "task_id": "task-self-host-001",
+    "summary": "Added a negative schema fixture for broken local $ref targets and wired a deterministic self-check into schema validation.",
+    "milestone_completed": "M02",
+    "files": [
+      "schemas/fixtures/invalid/broken_local_ref_schema.json",
+      "scripts/test-json-schema.sh",
+      "schemas/v1/task.json"
+    ],
+    "verification": [
+      "bash scripts/test-json-schema.sh -> pass"
+    ],
+    "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-02-19T18:44:09Z",
+    "task_id": "task-self-host-001",
+    "summary": "Added a valid Task fixture and deterministic schema validation for it, restoring task schema coverage in this worktree.",
+    "milestone_completed": "M05",
+    "files": [
+      "schemas/v1/task.json",
+      "schemas/fixtures/valid/task.minimal.json",
+      "scripts/test-json-schema.sh"
+    ],
+    "verification": [
+      "bash scripts/test-json-schema.sh -> pass"
+    ],
+    "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-02-19T18:48:54Z",
+    "task_id": "task-self-host-001",
+    "summary": "Completed invalid Task fixture coverage by adding a missing-goal fixture and deterministic rejection checks in schema validation.",
+    "milestone_completed": "M06",
+    "files": [
+      "schemas/v1/task.json",
+      "schemas/fixtures/invalid/task.missing_goal.json",
+      "scripts/test-json-schema.sh"
+    ],
+    "verification": [
+      "bash scripts/test-json-schema.sh -> pass"
+    ],
+    "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-02-19T18:52:58Z",
+    "task_id": "task-self-host-001",
+    "summary": "Added a deterministic schema lint wrapper script and restored missing Task schema so schema linting runs from one command with stable checks.",
+    "milestone_completed": "M07",
+    "files": [
+      "scripts/lint-schemas.sh",
+      "schemas/v1/task.json"
+    ],
+    "verification": [
+      "bash scripts/lint-schemas.sh -> pass"
+    ],
+    "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-02-19T18:57:09Z",
+    "task_id": "task-self-host-001",
+    "summary": "Added a deterministic smoke test for protoc availability checks and documented the command in README for repeatable local verification.",
+    "milestone_completed": "M11",
+    "files": [
+      "scripts/test-proto-availability-smoke.sh",
+      "README.md"
+    ],
+    "verification": [
+      "bash scripts/test-proto-availability-smoke.sh -> pass"
+    ],
+    "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-02-19T19:02:44Z",
+    "task_id": "task-self-host-001",
+    "summary": "Added a pre-commit schema JSON parse checker with deterministic smoke coverage for invalid JSON rejection.",
+    "milestone_completed": "M09",
+    "files": [
+      "scripts/pre-commit-schema-json-parse.sh",
+      "scripts/test-pre-commit-schema-json-parse.sh",
+      "README.md"
+    ],
+    "verification": [
+      "bash scripts/pre-commit-schema-json-parse.sh -> pass",
+      "bash scripts/test-pre-commit-schema-json-parse.sh -> pass"
+    ],
+    "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-02-19T19:06:19Z",
+    "task_id": "task-self-host-001",
+    "summary": "Documented a step-by-step schema validation workflow in README and added a deterministic check to keep documented commands aligned with executable scripts.",
+    "milestone_completed": "M03",
+    "files": [
+      "README.md",
+      "scripts/test-readme-schema-workflow.sh"
+    ],
+    "verification": [
+      "bash scripts/test-readme-schema-workflow.sh -> pass",
+      "bash scripts/pre-commit-schema-json-parse.sh -> pass",
+      "bash scripts/test-pre-commit-schema-json-parse.sh -> pass"
+    ],
+    "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-02-19T19:09:36Z",
+    "task_id": "task-self-host-001",
+    "summary": "Switched CI schema validation to the repo-local lint wrapper and added a deterministic check to keep the CI hook pinned to scripts/lint-schemas.sh.",
+    "milestone_completed": "M04",
+    "files": [
+      ".github/workflows/ci.yml",
+      "scripts/test-ci-schema-validation-hook.sh"
+    ],
+    "verification": [
+      "bash scripts/test-ci-schema-validation-hook.sh -> pass"
+    ],
+    "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-02-19T19:13:31Z",
+    "task_id": "task-self-host-001",
+    "summary": "Added a lightweight schema edit changelog format and a deterministic validator, then wired README workflow checks to prevent format drift.",
+    "milestone_completed": "M10",
+    "files": [
+      "schemas/SCHEMA_CHANGELOG.md",
+      "scripts/test-schema-changelog-format.sh",
+      "scripts/test-readme-schema-workflow.sh",
+      "README.md"
+    ],
+    "verification": [
+      "bash scripts/test-schema-changelog-format.sh -> pass",
+      "bash scripts/test-readme-schema-workflow.sh -> pass"
+    ],
+    "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-02-19T19:17:11Z",
+    "task_id": "task-self-host-001",
+    "summary": "Added deterministic README/schema index coverage validation so docs stay aligned with schemas/v1/schema.json oneOf refs.",
+    "milestone_completed": "M08",
+    "files": [
+      "scripts/test-readme-schema-index-coverage.sh",
+      "scripts/test-readme-schema-workflow.sh",
+      "README.md"
+    ],
+    "verification": [
+      "bash scripts/test-readme-schema-index-coverage.sh -> pass",
+      "bash scripts/test-readme-schema-workflow.sh -> pass"
+    ],
+    "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-02-19T19:20:08Z",
+    "task_id": "task-self-host-001",
+    "summary": "Added a ready-for-review gate checklist artifact plus a deterministic validator script to keep gate expectations explicit and testable.",
+    "milestone_completed": "M12",
+    "files": [
+      "checks/ready-for-review-gate-checklist.md",
+      "scripts/test-ready-for-review-gate-checklist.sh"
+    ],
+    "verification": [
+      "bash scripts/test-ready-for-review-gate-checklist.sh -> pass"
+    ],
+    "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-02-19T19:23:25Z",
+    "task_id": "task-self-host-001",
+    "summary": "Added deterministic self-host artifact validation to catch malformed milestone/report/update/log files and inconsistent milestone counts before handoff.",
+    "milestone_completed": "M13",
+    "files": [
+      "scripts/test-self-host-artifacts.sh",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-artifacts.sh -> pass",
+      "bash scripts/test-ready-for-review-gate-checklist.sh -> pass"
+    ],
+    "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-02-19T19:26:42Z",
+    "task_id": "task-self-host-001",
+    "summary": "Hardened self-host artifact validation by enforcing contiguous milestone IDs and requiring report milestone_completed to reference a done milestone.",
+    "milestone_completed": "M14",
+    "files": [
+      "scripts/test-self-host-artifacts.sh",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-artifacts.sh -> pass",
+      "bash scripts/test-ready-for-review-gate-checklist.sh -> pass"
+    ],
+    "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-02-19T19:29:34Z",
+    "task_id": "task-self-host-001",
+    "summary": "Added deterministic cross-checks so the latest implementation log entry must align with report milestone and reported file lists.",
+    "milestone_completed": "M15",
+    "files": [
+      "scripts/test-self-host-artifacts.sh",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-artifacts.sh -> pass",
+      "bash scripts/test-ready-for-review-gate-checklist.sh -> pass",
+      "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
+    ],
+    "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-02-19T19:32:37Z",
+    "task_id": "task-self-host-001",
+    "summary": "Hardened self-host artifact reliability by enforcing UTC ISO-8601 timestamp format checks and adding deterministic regression coverage.",
+    "milestone_completed": "M16",
+    "files": [
+      "scripts/test-self-host-artifacts.sh",
+      "scripts/test-self-host-artifact-timestamps.sh",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-artifacts.sh -> pass",
+      "bash scripts/test-self-host-artifact-timestamps.sh -> pass",
+      "bash scripts/test-ready-for-review-gate-checklist.sh -> pass",
+      "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
+    ],
+    "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-02-19T19:36:12Z",
+    "task_id": "task-self-host-001",
+    "summary": "Hardened self-host artifact validation by enforcing allowed status values and report/update status alignment, with deterministic regression coverage.",
+    "milestone_completed": "M17",
+    "files": [
+      "scripts/test-self-host-artifacts.sh",
+      "scripts/test-self-host-artifact-status-alignment.sh",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-artifacts.sh -> pass",
+      "bash scripts/test-self-host-artifact-status-alignment.sh -> pass",
+      "bash scripts/test-self-host-artifact-timestamps.sh -> pass",
+      "bash scripts/test-ready-for-review-gate-checklist.sh -> pass",
+      "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
+    ],
+    "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-02-19T19:38:54Z",
+    "task_id": "task-self-host-001",
+    "summary": "Hardened self-host artifact validation by enforcing deterministic key order for the latest implementation log entry, with a dedicated regression script.",
+    "milestone_completed": "M18",
+    "files": [
+      "scripts/test-self-host-artifacts.sh",
+      "scripts/test-self-host-artifact-log-key-order.sh",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-artifacts.sh -> pass",
+      "bash scripts/test-self-host-artifact-log-key-order.sh -> pass",
+      "bash scripts/test-self-host-artifact-status-alignment.sh -> pass",
+      "bash scripts/test-self-host-artifact-timestamps.sh -> pass",
+      "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
+    ],
+    "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-02-19T19:42:10Z",
+    "task_id": "task-self-host-001",
+    "summary": "Hardened self-host artifact reliability by enforcing contiguous done milestone progression and adding deterministic regression coverage.",
+    "milestone_completed": "M19",
+    "files": [
+      "scripts/test-self-host-artifacts.sh",
+      "scripts/test-self-host-artifact-done-prefix.sh",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-artifacts.sh -> pass",
+      "bash scripts/test-self-host-artifact-done-prefix.sh -> pass",
+      "bash scripts/test-self-host-artifact-log-key-order.sh -> pass",
+      "bash scripts/test-self-host-artifact-status-alignment.sh -> pass",
+      "bash scripts/test-self-host-artifact-timestamps.sh -> pass",
+      "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
+    ],
+    "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-02-19T19:52:11Z",
+    "task_id": "task-self-host-001",
+    "summary": "Hardened self-host artifact validation by requiring report milestone_completed to track the latest done milestone, with deterministic regression coverage.",
+    "milestone_completed": "M20",
+    "files": [
+      "scripts/test-self-host-artifacts.sh",
+      "scripts/test-self-host-artifact-latest-milestone.sh",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-artifacts.sh -> pass",
+      "bash scripts/test-self-host-artifact-latest-milestone.sh -> pass",
+      "bash scripts/test-self-host-artifact-done-prefix.sh -> pass",
+      "bash scripts/test-self-host-artifact-log-key-order.sh -> pass",
+      "bash scripts/test-self-host-artifact-status-alignment.sh -> pass",
+      "bash scripts/test-self-host-artifact-timestamps.sh -> pass",
+      "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
+    ],
+    "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-02-19T19:53:30Z",
+    "task_id": "task-self-host-001",
+    "summary": "Hardened self-host artifact validation by enforcing non-empty scalar text fields in report/update artifacts, with deterministic regression coverage.",
+    "milestone_completed": "M21",
+    "files": [
+      "scripts/test-self-host-artifacts.sh",
+      "scripts/test-self-host-artifact-text-fields.sh",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-artifacts.sh -> pass",
+      "bash scripts/test-self-host-artifact-text-fields.sh -> pass",
+      "bash scripts/test-self-host-artifact-latest-milestone.sh -> pass",
+      "bash scripts/test-self-host-artifact-done-prefix.sh -> pass",
+      "bash scripts/test-self-host-artifact-log-key-order.sh -> pass",
+      "bash scripts/test-self-host-artifact-status-alignment.sh -> pass",
+      "bash scripts/test-self-host-artifact-timestamps.sh -> pass",
+      "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
+    ],
+    "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-02-19T19:51:48Z",
+    "task_id": "task-self-host-001",
+    "summary": "Completed M22 by enforcing implementation-log summary traceability with explicit milestone id tokens and deterministic regression coverage.",
+    "milestone_completed": "M22",
+    "files": [
+      "scripts/test-self-host-artifacts.sh",
+      "scripts/test-self-host-artifact-log-summary-traceability.sh",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-artifacts.sh -> pass",
+      "bash scripts/test-self-host-artifact-log-summary-traceability.sh -> pass",
+      "bash scripts/test-self-host-artifact-text-fields.sh -> pass",
+      "bash scripts/test-self-host-artifact-latest-milestone.sh -> pass",
+      "bash scripts/test-self-host-artifact-done-prefix.sh -> pass",
+      "bash scripts/test-self-host-artifact-log-key-order.sh -> pass",
+      "bash scripts/test-self-host-artifact-status-alignment.sh -> pass",
+      "bash scripts/test-self-host-artifact-timestamps.sh -> pass",
+      "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
+    ],
+    "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-02-19T19:55:23Z",
+    "task_id": "task-self-host-001",
+    "summary": "Completed M23 by enforcing SELF_HOST_REPORT file-list consistency (duplicate and overlap rejection) with deterministic regression coverage.",
+    "milestone_completed": "M23",
+    "files": [
+      "scripts/test-self-host-artifacts.sh",
+      "scripts/test-self-host-artifact-report-file-list-consistency.sh",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-artifacts.sh -> pass",
+      "bash scripts/test-self-host-artifact-report-file-list-consistency.sh -> pass",
+      "bash scripts/test-self-host-artifact-log-summary-traceability.sh -> pass",
+      "bash scripts/test-self-host-artifact-text-fields.sh -> pass",
+      "bash scripts/test-self-host-artifact-latest-milestone.sh -> pass",
+      "bash scripts/test-self-host-artifact-done-prefix.sh -> pass",
+      "bash scripts/test-self-host-artifact-log-key-order.sh -> pass",
+      "bash scripts/test-self-host-artifact-status-alignment.sh -> pass",
+      "bash scripts/test-self-host-artifact-timestamps.sh -> pass",
+      "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
+    ],
+    "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-02-19T19:59:40Z",
+    "task_id": "task-self-host-001",
+    "summary": "Completed M24 by enforcing SELF_HOST_REPORT changed_files path existence checks with deterministic regression coverage.",
+    "milestone_completed": "M24",
+    "files": [
+      "scripts/test-self-host-artifacts.sh",
+      "scripts/test-self-host-artifact-report-file-path-existence.sh",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-artifacts.sh -> pass",
+      "bash scripts/test-self-host-artifact-report-file-path-existence.sh -> pass",
+      "bash scripts/test-self-host-artifact-report-file-list-consistency.sh -> pass",
+      "bash scripts/test-self-host-artifact-log-summary-traceability.sh -> pass",
+      "bash scripts/test-self-host-artifact-text-fields.sh -> pass",
+      "bash scripts/test-self-host-artifact-latest-milestone.sh -> pass",
+      "bash scripts/test-self-host-artifact-done-prefix.sh -> pass",
+      "bash scripts/test-self-host-artifact-log-key-order.sh -> pass",
+      "bash scripts/test-self-host-artifact-status-alignment.sh -> pass",
+      "bash scripts/test-self-host-artifact-timestamps.sh -> pass",
+      "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
+    ],
+    "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-02-19T20:05:51Z",
+    "task_id": "task-self-host-001",
+    "summary": "Completed M25 by enforcing SELF_HOST_REPORT new_files path existence validation and adding deterministic regression coverage for missing new_files paths in isolated temp fixtures.",
+    "milestone_completed": "M25",
+    "files": [
+      "scripts/test-self-host-artifacts.sh",
+      "scripts/test-self-host-artifact-report-new-file-path-existence.sh",
+      "scripts/test-self-host-artifact-done-prefix.sh",
+      "scripts/test-self-host-artifact-latest-milestone.sh",
+      "scripts/test-self-host-artifact-log-key-order.sh",
+      "scripts/test-self-host-artifact-log-summary-traceability.sh",
+      "scripts/test-self-host-artifact-report-file-list-consistency.sh",
+      "scripts/test-self-host-artifact-report-file-path-existence.sh",
+      "scripts/test-self-host-artifact-status-alignment.sh",
+      "scripts/test-self-host-artifact-text-fields.sh",
+      "scripts/test-self-host-artifact-timestamps.sh",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-artifacts.sh -> pass",
+      "bash scripts/test-self-host-artifact-report-new-file-path-existence.sh -> pass",
+      "bash scripts/test-self-host-artifact-report-file-path-existence.sh -> pass",
+      "bash scripts/test-self-host-artifact-report-file-list-consistency.sh -> pass",
+      "bash scripts/test-self-host-artifact-log-summary-traceability.sh -> pass",
+      "bash scripts/test-self-host-artifact-text-fields.sh -> pass",
+      "bash scripts/test-self-host-artifact-latest-milestone.sh -> pass",
+      "bash scripts/test-self-host-artifact-done-prefix.sh -> pass",
+      "bash scripts/test-self-host-artifact-log-key-order.sh -> pass",
+      "bash scripts/test-self-host-artifact-status-alignment.sh -> pass",
+      "bash scripts/test-self-host-artifact-timestamps.sh -> pass",
+      "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
+    ],
+    "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-02-19T20:09:14Z",
+    "task_id": "task-self-host-001",
+    "summary": "Completed M26 by enforcing strict integer milestone counter validation in self-host artifacts with deterministic regression coverage.",
+    "milestone_completed": "M26",
+    "files": [
+      "scripts/test-self-host-artifacts.sh",
+      "scripts/test-self-host-artifact-milestone-count-types.sh",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-artifacts.sh -> pass",
+      "bash scripts/test-self-host-artifact-milestone-count-types.sh -> pass",
+      "bash scripts/test-self-host-artifact-status-alignment.sh -> pass",
+      "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
+    ],
+    "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-03-03T04:56:12Z",
+    "task_id": "task-self-host-001",
+    "summary": "Completed M27 by adding a language-agnostic JSON schema validation helper and deterministic regression coverage for non-protobuf workflow payloads.",
+    "milestone_completed": "M27",
+    "files": [
+      "scripts/validate-protocol-json.sh",
+      "scripts/test-validate-protocol-json.sh",
+      "schemas/fixtures/valid/objective_spec.minimal.json",
+      "schemas/fixtures/invalid/objective_spec.missing_direction.json",
+      "README.md",
+      "scripts/test-readme-schema-workflow.sh",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-artifacts.sh -> pass",
+      "bash scripts/test-validate-protocol-json.sh -> pass",
+      "bash scripts/test-readme-schema-workflow.sh -> pass",
+      "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
+    ],
+    "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-03-03T10:18:42Z",
+    "task_id": "task-self-host-001",
+    "summary": "Completed M28 by adding deterministic README examples coverage validation for required non-protobuf entries and protobuf example paths.",
+    "milestone_completed": "M28",
+    "files": [
+      "scripts/test-readme-examples-coverage.sh",
+      "README.md",
+      "scripts/test-readme-schema-workflow.sh",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-artifacts.sh -> pass",
+      "bash scripts/test-readme-examples-coverage.sh -> pass",
+      "bash scripts/test-readme-schema-workflow.sh -> pass",
+      "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
+    ],
+    "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-03-03T10:29:57Z",
+    "task_id": "task-self-host-001",
+    "summary": "Completed M29 by adding deterministic synchronization checks between README.md and examples/README.md example indexes for non-protobuf and protobuf coverage.",
+    "milestone_completed": "M29",
+    "files": [
+      "scripts/test-readme-examples-sync.sh",
+      "README.md",
+      "scripts/test-readme-schema-workflow.sh",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-artifacts.sh -> pass",
+      "bash scripts/test-readme-examples-sync.sh -> pass",
+      "bash scripts/test-readme-examples-coverage.sh -> pass",
+      "bash scripts/test-readme-schema-workflow.sh -> pass",
+      "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
+    ],
+    "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-03-03T10:43:22Z",
+    "task_id": "task-self-host-001",
+    "summary": "Completed M30 by adding deterministic self-host proof manifest validation with explicit reason codes for missing proofs and signature_count coverage.",
+    "milestone_completed": "M30",
+    "files": [
+      "scripts/test-self-host-proof-artifacts.sh",
+      "scripts/test-self-host-proof-artifact-reason-codes.sh",
+      "SELF_HOST_PROOF.json",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-proof-artifacts.sh -> pass",
+      "bash scripts/test-self-host-proof-artifact-reason-codes.sh -> pass",
+      "bash scripts/test-self-host-artifacts.sh -> pass",
+      "python3 -m json.tool SELF_HOST_PROOF.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
+    ],
+    "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-03-03T10:55:24Z",
+    "task_id": "task-self-host-001",
+    "summary": "Completed M31 by wiring fail-fast proof-manifest validation into the default self-host artifact gate and adding deterministic regression coverage for explicit proof reason codes.",
+    "milestone_completed": "M31",
+    "files": [
+      "scripts/test-self-host-artifacts.sh",
+      "scripts/test-self-host-artifact-proof-gate.sh",
+      "SELF_HOST_PROOF.json",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-artifacts.sh -> pass",
+      "bash scripts/test-self-host-artifact-proof-gate.sh -> pass",
+      "bash scripts/test-self-host-proof-artifacts.sh -> pass",
+      "bash scripts/test-self-host-proof-artifact-reason-codes.sh -> pass",
+      "python3 -m json.tool SELF_HOST_PROOF.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
+    ],
+    "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-03-03T11:08:18Z",
+    "task_id": "task-self-host-001",
+    "summary": "Completed M32 by enforcing deterministic proof path ordering with explicit reason-code coverage for out-of-order manifest entries.",
+    "milestone_completed": "M32",
+    "files": [
+      "scripts/test-self-host-proof-artifacts.sh",
+      "scripts/test-self-host-proof-artifact-reason-codes.sh",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-proof-artifacts.sh -> pass",
+      "bash scripts/test-self-host-proof-artifact-reason-codes.sh -> pass",
+      "bash scripts/test-self-host-artifacts.sh -> pass",
+      "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
+    ],
+    "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-03-03T11:21:23Z",
+    "task_id": "task-self-host-001",
+    "summary": "Completed M33 by adding fail-fast proof task_id-to-run-log alignment validation with deterministic regression coverage for mismatched manifests.",
+    "milestone_completed": "M33",
+    "files": [
+      "scripts/test-self-host-artifacts.sh",
+      "scripts/test-self-host-artifact-proof-gate.sh",
+      "SELF_HOST_PROOF.json",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-proof-artifacts.sh -> pass",
+      "bash scripts/test-self-host-proof-artifact-reason-codes.sh -> pass",
+      "bash scripts/test-self-host-artifact-proof-gate.sh -> pass",
+      "bash scripts/test-self-host-artifacts.sh -> pass",
+      "python3 -m json.tool SELF_HOST_PROOF.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
+    ],
+    "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-03-04T09:14:57Z",
+    "task_id": "task-self-host-001",
+    "summary": "Completed M34 by adding a canonical non-protobuf JSON ObjectiveSpec example and deterministic README/schema validation coverage for issue #1 progress.",
+    "milestone_completed": "M34",
+    "files": [
+      "README.md",
+      "examples/README.md",
+      "examples/json/objective_spec.minimal.json",
+      "scripts/test-readme-examples-coverage.sh",
+      "scripts/test-readme-examples-sync.sh",
+      "scripts/test-validate-protocol-json.sh",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-proof-artifacts.sh -> pass",
+      "bash scripts/test-validate-protocol-json.sh -> pass",
+      "bash scripts/test-readme-examples-coverage.sh -> pass",
+      "bash scripts/test-readme-examples-sync.sh -> pass",
+      "bash scripts/test-self-host-artifacts.sh -> pass",
+      "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
+    ],
+    "gate": "ready-for-review"
+  }
+]

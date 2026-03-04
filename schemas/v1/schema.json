@@ -3,15 +3,38 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Monarchic AI Protocol v1",
   "oneOf": [
-    { "$ref": "task.json" },
-    { "$ref": "artifact.json" },
-    { "$ref": "event.json" },
-    { "$ref": "gate_result.json" },
-    { "$ref": "run_context.json" },
-    { "$ref": "dataset_ref.json" },
-    { "$ref": "experiment_spec.json" },
-    { "$ref": "objective_spec.json" },
-    { "$ref": "eval_result.json" },
-    { "$ref": "provenance.json" }
+    {
+      "$ref": "task.json"
+    },
+    {
+      "$ref": "artifact.json"
+    },
+    {
+      "$ref": "event.json"
+    },
+    {
+      "$ref": "gate_result.json"
+    },
+    {
+      "$ref": "failure_class.json"
+    },
+    {
+      "$ref": "run_context.json"
+    },
+    {
+      "$ref": "dataset_ref.json"
+    },
+    {
+      "$ref": "experiment_spec.json"
+    },
+    {
+      "$ref": "objective_spec.json"
+    },
+    {
+      "$ref": "eval_result.json"
+    },
+    {
+      "$ref": "provenance.json"
+    }
   ]
 }

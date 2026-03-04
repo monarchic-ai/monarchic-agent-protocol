@@ -1,0 +1,14 @@
+{
+  "task_id": "task-self-host-001",
+  "status": "pass",
+  "reason_code": "OK",
+  "signature_count": 1,
+  "sampled_batches": 1,
+  "proofs": [
+    {
+      "path": "scripts/test-self-host-artifacts.sh",
+      "sha256": "fca073b0240c06c653d08c0cf4a760fffe470ed48fc8741028ebe2f76f383559"
+    }
+  ],
+  "note": "Deterministic proof manifest for default self-host artifact gate validation."
+}

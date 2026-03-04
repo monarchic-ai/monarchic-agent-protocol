@@ -1,0 +1,168 @@
+{
+  "version": "v1",
+  "generated_at": "2026-03-04T09:02:10.304299+00:00",
+  "source": "self_host_autoloop_project_manager",
+  "status": "refreshed",
+  "pending_before": null,
+  "pending_after": null,
+  "milestones_done": 33,
+  "current_focus": "Current focus is keeping proof-signal integrity deterministic by tightly coupling SELF_HOST_PROOF.json task identity to the active run trail in SELF_HOST_IMPLEMENTATION_LOG.json.",
+  "headline": "Completed fail-fast proof task_id/run-log alignment validation with deterministic gate regression coverage.",
+  "next_steps": [
+    "Define M34 as the next minimal proof-hardening increment, prioritizing deterministic cross-artifact consistency checks with explicit reason codes.",
+    "Keep proof-manifest validation and default gate validation in the same verification chain for fail-fast reliability."
+  ],
+  "blockers": [
+    "No blockers in this run.",
+    "instructions.md is not present in this worktree; implementation followed AGENTS.md and NEXT_PRIORITY_TASK.md guidance."
+  ],
+  "objective_profile": {
+    "selected_profile": "balanced",
+    "profile_source": "default",
+    "primary_objective": "reliability",
+    "weights": {
+      "revenue": 0.35,
+      "reliability": 0.45,
+      "autonomy": 0.2,
+      "maintainability": 0.12,
+      "security": 0.1,
+      "observability": 0.14,
+      "product_evidence": 0.12,
+      "cost_efficiency": 0.1
+    }
+  },
+  "engineering_steer": null,
+  "steering_task_ranking": {
+    "applied": false
+  },
+  "strict_issue_patch_mode": {
+    "enabled": false,
+    "applied": false,
+    "threshold": 0,
+    "open_issue_count_considered": 2,
+    "reason": "disabled"
+  },
+  "revenue_seed_task_ids": [],
+  "open_issues_considered": [
+    {
+      "number": 3,
+      "title": "feat: delegator field on task packet",
+      "url": "https://github.com/monarchic-ai/monarchic-agent-protocol/issues/3",
+      "labels": [],
+      "repo": "monarchic-ai/monarchic-agent-protocol",
+      "body": "Required fields: version: \"v1\" task_id: stable identifier role: AgentRole goal: human-readable objective delegator: AgentRole"
+    },
+    {
+      "number": 1,
+      "title": "feat: support non-protobuf supported languages",
+      "url": "https://github.com/monarchic-ai/monarchic-agent-protocol/issues/1",
+      "labels": [],
+      "repo": "monarchic-ai/monarchic-agent-protocol",
+      "body": ""
+    }
+  ],
+  "ranked_open_issues": [
+    {
+      "number": 1,
+      "title": "feat: support non-protobuf supported languages",
+      "url": "https://github.com/monarchic-ai/monarchic-agent-protocol/issues/1",
+      "labels": [],
+      "repo": "monarchic-ai/monarchic-agent-protocol",
+      "body": "",
+      "score": 1.0,
+      "objective_signals": {
+        "channels": [],
+        "revenue_hits": [],
+        "reliability_hits": [],
+        "autonomy_hits": [],
+        "maintainability_hits": [],
+        "security_hits": [],
+        "observability_hits": [],
+        "product_evidence_hits": [],
+        "cost_efficiency_hits": [],
+        "steer_focus_hits": [],
+        "steer_avoid_hits": [],
+        "pinned_issue": false,
+        "steering_score_delta": 0.0
+      }
+    },
+    {
+      "number": 3,
+      "title": "feat: delegator field on task packet",
+      "url": "https://github.com/monarchic-ai/monarchic-agent-protocol/issues/3",
+      "labels": [],
+      "repo": "monarchic-ai/monarchic-agent-protocol",
+      "body": "Required fields: version: \"v1\" task_id: stable identifier role: AgentRole goal: human-readable objective delegator: AgentRole",
+      "score": 1.0,
+      "objective_signals": {
+        "channels": [],
+        "revenue_hits": [],
+        "reliability_hits": [],
+        "autonomy_hits": [],
+        "maintainability_hits": [],
+        "security_hits": [],
+        "observability_hits": [],
+        "product_evidence_hits": [],
+        "cost_efficiency_hits": [],
+        "steer_focus_hits": [],
+        "steer_avoid_hits": [],
+        "pinned_issue": false,
+        "steering_score_delta": 0.0
+      }
+    }
+  ],
+  "generated_tasks": [
+    {
+      "task_id": "project-manager-issue-00001",
+      "title": "Issue #1: feat: support non-protobuf supported languages",
+      "why_now": "Open repository issue discovered during automated backlog scan and ranked by objective-weighted scoring; prioritize deterministic software-only progress. Objective score=1.00.",
+      "prompt": "Investigate and advance issue #1 from monarchic-ai/monarchic-agent-protocol: feat: support non-protobuf supported languages. Current focus: Current focus is keeping proof-signal integrity deterministic by tightly coupling SELF_HOST_PROOF.json task identity to the active run trail in SELF_HOST_IMPLEMENTATION_LOG.json.. Issue URL: https://github.com/monarchic-ai/monarchic-agent-protocol/issues/1.",
+      "acceptance": [
+        "Deliver observable progress for issue #1: feat: support non-protobuf supported languages.",
+        "Maintain verification continuity (first expected check: bash scripts/test-self-host-proof-artifacts.sh).",
+        "Address at least one explicit requirement or constraint from issue #1 body context and document the implemented outcome.",
+        "Run deterministic repository verification and keep SELF_HOST_REPORT.json/SELF_HOST_UPDATE.json synchronized."
+      ],
+      "source": "project_manager_eval",
+      "thinking_complexity": "medium"
+    },
+    {
+      "task_id": "project-manager-issue-00003",
+      "title": "Issue #3: feat: delegator field on task packet",
+      "why_now": "Open repository issue discovered during automated backlog scan and ranked by objective-weighted scoring; prioritize deterministic software-only progress. Objective score=1.00.",
+      "prompt": "Investigate and advance issue #3 from monarchic-ai/monarchic-agent-protocol: feat: delegator field on task packet. Current focus: Current focus is keeping proof-signal integrity deterministic by tightly coupling SELF_HOST_PROOF.json task identity to the active run trail in SELF_HOST_IMPLEMENTATION_LOG.json.. Issue URL: https://github.com/monarchic-ai/monarchic-agent-protocol/issues/3. Issue context: Required fields: version: \"v1\" task_id: stable identifier role: AgentRole goal: human-readable objective delegator: AgentRole.",
+      "acceptance": [
+        "Deliver observable progress for issue #3: feat: delegator field on task packet.",
+        "Address at least one explicit requirement or constraint from issue #3 body context and document the implemented outcome.",
+        "Run deterministic repository verification and keep SELF_HOST_REPORT.json/SELF_HOST_UPDATE.json synchronized."
+      ],
+      "source": "project_manager_eval",
+      "thinking_complexity": "medium"
+    },
+    {
+      "task_id": "project-manager-seed-003",
+      "title": "Define M34 as the next minimal proof-hardening increment, prioritizing deterministic cross-artifact consistency check...",
+      "why_now": "Auto-generated from SELF_HOST_UPDATE.next_steps by project-manager evaluator.",
+      "prompt": "Execute this as the next deterministic self-host increment. Current focus: Current focus is keeping proof-signal integrity deterministic by tightly coupling SELF_HOST_PROOF.json task identity to the active run trail in SELF_HOST_IMPLEMENTATION_LOG.json. Primary step: Define M34 as the next minimal proof-hardening increment, prioritizing deterministic cross-artifact consistency checks with explicit reason codes.",
+      "acceptance": [
+        "Deliver observable progress on: Define M34 as the next minimal proof-hardening increment, prioritizing deterministic cross-artifact consistency check....",
+        "Run deterministic verification and keep SELF_HOST_REPORT/SELF_HOST_UPDATE synchronized."
+      ],
+      "source": "project_manager_eval",
+      "thinking_complexity": "medium"
+    },
+    {
+      "task_id": "project-manager-seed-004",
+      "title": "Keep proof-manifest validation and default gate validation in the same verification chain for fail-fast reliability.",
+      "why_now": "Auto-generated from SELF_HOST_UPDATE.next_steps by project-manager evaluator.",
+      "prompt": "Execute this as the next deterministic self-host increment. Current focus: Current focus is keeping proof-signal integrity deterministic by tightly coupling SELF_HOST_PROOF.json task identity to the active run trail in SELF_HOST_IMPLEMENTATION_LOG.json. Primary step: Keep proof-manifest validation and default gate validation in the same verification chain for fail-fast reliability.",
+      "acceptance": [
+        "Deliver observable progress on: Keep proof-manifest validation and default gate validation in the same verification chain for fail-fast reliability..",
+        "Run deterministic verification and keep SELF_HOST_REPORT/SELF_HOST_UPDATE synchronized."
+      ],
+      "source": "project_manager_eval",
+      "thinking_complexity": "medium"
+    }
+  ],
+  "added_milestones": []
+}

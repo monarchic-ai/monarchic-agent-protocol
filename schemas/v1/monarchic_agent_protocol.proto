@@ -82,6 +82,17 @@ message EvalResult {
   google.protobuf.Struct extensions = 9;
 }
 
+message FailureClass {
+  string category = 1;
+  string code = 2;
+  bool retryable = 3;
+  optional string detail = 4;
+  optional string scope = 5;
+  optional string source = 6;
+  optional string next_action = 7;
+  google.protobuf.Struct extensions = 8;
+}
+
 message Provenance {
   string prompt_sha256 = 1;
   string code_sha256 = 2;
@@ -137,6 +148,7 @@ message Event {
   google.protobuf.Struct extensions = 7;
   Provenance provenance = 8;
   repeated EvalResult eval_results = 9;
+  FailureClass failure_class = 10;
 }
 
 message GateResult {
@@ -146,6 +158,7 @@ message GateResult {
   optional string reason = 4;
   google.protobuf.Struct evidence = 5;
   google.protobuf.Struct extensions = 6;
+  FailureClass failure_class = 7;
 }
 
 message RunOutcome {

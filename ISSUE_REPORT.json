@@ -1,0 +1,23 @@
+{
+  "status": "ready-for-review",
+  "issue_id": "PROTO-001",
+  "checks_passed_count": 3,
+  "changed_files": [
+    "README.md",
+    "schemas/SCHEMA_CHANGELOG.md",
+    "schemas/v1/event.json",
+    "schemas/v1/failure_class.json",
+    "schemas/v1/gate_result.json",
+    "schemas/v1/monarchic_agent_protocol.proto",
+    "schemas/v1/schema.json",
+    "src/rust/lib.rs",
+    "src/ts/index.ts",
+    "ISSUE_REPORT.json"
+  ],
+  "test_commands": [
+    "bash scripts/lint-schemas.sh",
+    "bash scripts/test-json-schema.sh",
+    "cargo test -q"
+  ],
+  "note": "Implemented PROTO-001 Failure Taxonomy Contract v1 with schema/protobuf additions, TS/Rust bindings, README/schema index updates, and passing required acceptance checks. Gate: ready-for-review. Next role: qa."
+}

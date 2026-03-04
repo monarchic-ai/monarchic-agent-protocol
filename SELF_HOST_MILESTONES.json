@@ -1,0 +1,247 @@
+[
+  {
+    "id": "M01",
+    "title": "Restore Task schema coverage and local $ref validation",
+    "status": "done",
+    "completed_at": "2026-02-19T18:36:15Z",
+    "notes": "Added schemas/v1/task.json and strengthened scripts/test-json-schema.sh to fail when local $ref targets are missing, with python/python3 fallback."
+  },
+  {
+    "id": "M02",
+    "title": "Add a negative fixture for broken local schema references",
+    "status": "done",
+    "completed_at": "2026-02-19T18:40:24Z",
+    "notes": "Added schemas/fixtures/invalid/broken_local_ref_schema.json and extended scripts/test-json-schema.sh to assert missing local $ref detection using the negative fixture."
+  },
+  {
+    "id": "M03",
+    "title": "Document schema validation workflow in README",
+    "status": "done",
+    "completed_at": "2026-02-19T19:06:19Z",
+    "notes": "Added a dedicated README schema validation workflow with explicit command sequence and added scripts/test-readme-schema-workflow.sh to keep documented commands aligned with executable scripts."
+  },
+  {
+    "id": "M04",
+    "title": "Add CI hook for schema validation script",
+    "status": "done",
+    "completed_at": "2026-02-19T19:09:36Z",
+    "notes": "Updated .github/workflows/ci.yml to run scripts/lint-schemas.sh for schema validation and added scripts/test-ci-schema-validation-hook.sh for deterministic CI hook verification."
+  },
+  {
+    "id": "M05",
+    "title": "Add sample valid Task payload fixture",
+    "status": "done",
+    "completed_at": "2026-02-19T18:44:09Z",
+    "notes": "Added schemas/fixtures/valid/task.minimal.json and extended scripts/test-json-schema.sh to validate the fixture against schemas/v1/task.json."
+  },
+  {
+    "id": "M06",
+    "title": "Add sample invalid Task payload fixture",
+    "status": "done",
+    "completed_at": "2026-02-19T18:48:54Z",
+    "notes": "Added schemas/fixtures/invalid/task.missing_goal.json and extended scripts/test-json-schema.sh to assert deterministic Task schema rejection for missing required goal."
+  },
+  {
+    "id": "M07",
+    "title": "Add deterministic schema lint command wrapper",
+    "status": "done",
+    "completed_at": "2026-02-19T18:52:58Z",
+    "notes": "Added scripts/lint-schemas.sh to deterministically parse all schemas JSON files and run scripts/test-json-schema.sh as a single repo-local lint command."
+  },
+  {
+    "id": "M08",
+    "title": "Align protocol docs with schema index coverage",
+    "status": "done",
+    "completed_at": "2026-02-19T19:17:11Z",
+    "notes": "Added scripts/test-readme-schema-index-coverage.sh to verify README schema index coverage matches schemas/v1/schema.json oneOf refs, updated README with an explicit index coverage section, and wired the check into scripts/test-readme-schema-workflow.sh."
+  },
+  {
+    "id": "M09",
+    "title": "Add pre-commit check for schema JSON parse errors",
+    "status": "done",
+    "completed_at": "2026-02-19T19:02:44Z",
+    "notes": "Added scripts/pre-commit-schema-json-parse.sh to validate staged schema JSON files and scripts/test-pre-commit-schema-json-parse.sh for deterministic pass/fail smoke coverage."
+  },
+  {
+    "id": "M10",
+    "title": "Add lightweight changelog entry format for schema edits",
+    "status": "done",
+    "completed_at": "2026-02-19T19:13:31Z",
+    "notes": "Added schemas/SCHEMA_CHANGELOG.md with required entry fields and scripts/test-schema-changelog-format.sh plus README workflow wiring to keep the format deterministic."
+  },
+  {
+    "id": "M11",
+    "title": "Add script smoke test for protoc availability checks",
+    "status": "done",
+    "completed_at": "2026-02-19T18:57:09Z",
+    "notes": "Added scripts/test-proto-availability-smoke.sh to deterministically assert the protoc availability guard in scripts/test-proto.sh and documented the command in README."
+  },
+  {
+    "id": "M12",
+    "title": "Define gate checklist for ready-for-review protocol changes",
+    "status": "done",
+    "completed_at": "2026-02-19T19:20:08Z",
+    "notes": "Added checks/ready-for-review-gate-checklist.md and scripts/test-ready-for-review-gate-checklist.sh to define and deterministically validate ready-for-review gate checklist content."
+  },
+  {
+    "id": "M13",
+    "title": "Add deterministic validation for self-host run artifacts",
+    "status": "done",
+    "completed_at": "2026-02-19T19:23:25Z",
+    "notes": "Added scripts/test-self-host-artifacts.sh to validate SELF_HOST_MILESTONES/REPORT/UPDATE/IMPLEMENTATION_LOG JSON structure, key order, milestone ordering, and count consistency."
+  },
+  {
+    "id": "M14",
+    "title": "Harden self-host artifact checks for milestone continuity",
+    "status": "done",
+    "completed_at": "2026-02-19T19:26:42Z",
+    "notes": "Strengthened scripts/test-self-host-artifacts.sh to enforce contiguous milestone IDs and verify report milestone_completed references an existing done milestone."
+  },
+  {
+    "id": "M15",
+    "title": "Cross-check latest self-host implementation log against report files",
+    "status": "done",
+    "completed_at": "2026-02-19T19:29:34Z",
+    "notes": "Extended scripts/test-self-host-artifacts.sh to validate latest implementation log field types, require milestone_completed alignment with SELF_HOST_REPORT.json, and require report file lists to be represented in latest log files."
+  },
+  {
+    "id": "M16",
+    "title": "Enforce UTC ISO-8601 timestamps in self-host artifacts",
+    "status": "done",
+    "completed_at": "2026-02-19T19:32:17Z",
+    "notes": "Hardened scripts/test-self-host-artifacts.sh to require UTC ISO-8601 timestamps for done milestone completed_at values and latest implementation log timestamp, and added scripts/test-self-host-artifact-timestamps.sh for deterministic regression coverage."
+  },
+  {
+    "id": "M17",
+    "title": "Enforce self-host report/update status alignment",
+    "status": "done",
+    "completed_at": "2026-02-19T19:36:12Z",
+    "notes": "Extended scripts/test-self-host-artifacts.sh to require report/update status values from pass|fail|blocked and to enforce status equality across both artifacts, with deterministic regression coverage in scripts/test-self-host-artifact-status-alignment.sh."
+  },
+  {
+    "id": "M18",
+    "title": "Enforce deterministic implementation log key order validation",
+    "status": "done",
+    "completed_at": "2026-02-19T19:38:54Z",
+    "notes": "Extended scripts/test-self-host-artifacts.sh to enforce the latest SELF_HOST_IMPLEMENTATION_LOG.json entry key order and added scripts/test-self-host-artifact-log-key-order.sh for deterministic regression coverage."
+  },
+  {
+    "id": "M19",
+    "title": "Enforce contiguous done milestone progression",
+    "status": "done",
+    "completed_at": "2026-02-19T19:42:10Z",
+    "notes": "Extended scripts/test-self-host-artifacts.sh to fail when any done milestone appears after a pending milestone, and added scripts/test-self-host-artifact-done-prefix.sh for deterministic regression coverage."
+  },
+  {
+    "id": "M20",
+    "title": "Require report milestone_completed to match latest done milestone",
+    "status": "done",
+    "completed_at": "2026-02-19T19:52:11Z",
+    "notes": "Hardened scripts/test-self-host-artifacts.sh to require SELF_HOST_REPORT.json milestone_completed to reference the latest done milestone and added deterministic regression coverage in scripts/test-self-host-artifact-latest-milestone.sh."
+  },
+  {
+    "id": "M21",
+    "title": "Validate non-empty scalar text fields in self-host report/update artifacts",
+    "status": "done",
+    "completed_at": "2026-02-19T19:53:30Z",
+    "notes": "Hardened scripts/test-self-host-artifacts.sh to require non-empty strings for SELF_HOST_REPORT test_command/note and SELF_HOST_UPDATE headline/current_focus/milestone_target/note, and added scripts/test-self-host-artifact-text-fields.sh for deterministic regression coverage."
+  },
+  {
+    "id": "M22",
+    "title": "Enforce summary traceability in latest self-host implementation log entry",
+    "status": "done",
+    "completed_at": "2026-02-19T19:51:48Z",
+    "notes": "Completed by enforcing that the latest SELF_HOST_IMPLEMENTATION_LOG summary explicitly includes milestone_completed id and adding deterministic regression coverage."
+  },
+  {
+    "id": "M23",
+    "title": "Enforce report file-list consistency in self-host artifact validation",
+    "status": "done",
+    "completed_at": "2026-02-19T19:55:23Z",
+    "notes": "Extended scripts/test-self-host-artifacts.sh to reject duplicate SELF_HOST_REPORT new_files/changed_files entries and overlapping paths, and added deterministic regression coverage in scripts/test-self-host-artifact-report-file-list-consistency.sh."
+  },
+  {
+    "id": "M24",
+    "title": "Validate SELF_HOST_REPORT changed_files path existence",
+    "status": "done",
+    "completed_at": "2026-02-19T19:59:40Z",
+    "notes": "Extended scripts/test-self-host-artifacts.sh to fail when SELF_HOST_REPORT changed_files includes a missing path, and added deterministic regression coverage in scripts/test-self-host-artifact-report-file-path-existence.sh."
+  },
+  {
+    "id": "M25",
+    "title": "Validate SELF_HOST_REPORT new_files path existence",
+    "status": "done",
+    "completed_at": "2026-02-19T20:05:51Z",
+    "notes": "Extended scripts/test-self-host-artifacts.sh to fail when SELF_HOST_REPORT new_files includes missing paths, and hardened self-host artifact regression fixtures to stage report-listed files. Added scripts/test-self-host-artifact-report-new-file-path-existence.sh for deterministic regression coverage."
+  },
+  {
+    "id": "M26",
+    "title": "Enforce strict integer milestone-count fields in self-host artifacts",
+    "status": "done",
+    "completed_at": "2026-02-19T20:09:14Z",
+    "notes": "Extended scripts/test-self-host-artifacts.sh to require strict integer types for SELF_HOST_REPORT/SELF_HOST_UPDATE milestone counters and added deterministic regression coverage in scripts/test-self-host-artifact-milestone-count-types.sh."
+  },
+  {
+    "id": "M27",
+    "title": "Add language-agnostic JSON schema validation helper for non-protobuf workflows",
+    "status": "done",
+    "completed_at": "2026-03-03T04:56:12Z",
+    "notes": "Added scripts/validate-protocol-json.sh and scripts/test-validate-protocol-json.sh plus objective_spec fixtures and README workflow coverage so non-protobuf language users can deterministically validate protocol JSON payloads."
+  },
+  {
+    "id": "M28",
+    "title": "Enforce deterministic README examples coverage for non-protobuf and protobuf entries",
+    "status": "done",
+    "completed_at": "2026-03-03T10:18:42Z",
+    "notes": "Added scripts/test-readme-examples-coverage.sh and wired it into README workflow validation to deterministically enforce required non-protobuf example entries and protobuf example path coverage."
+  },
+  {
+    "id": "M29",
+    "title": "Enforce deterministic synchronization between README example indexes",
+    "status": "done",
+    "completed_at": "2026-03-03T10:29:57Z",
+    "notes": "Added scripts/test-readme-examples-sync.sh and workflow wiring so README.md and examples/README.md stay aligned for required non-protobuf and protobuf example entries."
+  },
+  {
+    "id": "M30",
+    "title": "Add deterministic self-host proof manifest validation with explicit reason codes",
+    "status": "done",
+    "completed_at": "2026-03-03T10:43:22Z",
+    "notes": "Added scripts/test-self-host-proof-artifacts.sh and scripts/test-self-host-proof-artifact-reason-codes.sh plus SELF_HOST_PROOF.json to enforce deterministic proof hashes, signature_count checks, and explicit reason codes when proofs are missing."
+  },
+  {
+    "id": "M31",
+    "title": "Wire proof manifest validation into the default self-host artifact gate",
+    "status": "done",
+    "completed_at": "2026-03-03T10:55:24Z",
+    "notes": "Integrated fail-fast SELF_HOST_PROOF.json checks into scripts/test-self-host-artifacts.sh and added scripts/test-self-host-artifact-proof-gate.sh for deterministic regression coverage of missing/empty proof reason codes in the default gate path."
+  },
+  {
+    "id": "M32",
+    "title": "Enforce deterministic proof path ordering in self-host proof manifests",
+    "status": "done",
+    "completed_at": "2026-03-03T11:08:18Z",
+    "notes": "Extended scripts/test-self-host-proof-artifacts.sh to require ascending proofs[].path order with reason_code PROOF_PATH_ORDER_INVALID, and expanded scripts/test-self-host-proof-artifact-reason-codes.sh with an unsorted-manifest regression check."
+  },
+  {
+    "id": "M33",
+    "title": "Fail fast when proof manifest task_id does not match active run log task_id",
+    "status": "done",
+    "completed_at": "2026-03-03T11:21:23Z",
+    "notes": "Extended scripts/test-self-host-artifacts.sh with reason_code PROOF_TASK_ID_MISMATCH and expanded scripts/test-self-host-artifact-proof-gate.sh regression coverage for mismatched SELF_HOST_PROOF.json task_id."
+  },
+  {
+    "id": "M34",
+    "title": "Add a canonical non-protobuf JSON example and enforce deterministic README/schema validation coverage",
+    "status": "done",
+    "completed_at": "2026-03-04T09:14:45Z",
+    "notes": "Added examples/json/objective_spec.minimal.json, updated README.md and examples/README.md example indexes, and strengthened scripts/test-validate-protocol-json.sh plus README example coverage checks to require this non-protobuf JSON path."
+  },
+  {
+    "id": "M35",
+    "title": "Track schema index references to missing local schema files in deterministic checks",
+    "status": "pending",
+    "completed_at": null,
+    "notes": "Planned reliability hardening to catch schema index entries that reference missing local files before they surface as downstream validation failures."
+  }
+]

@@ -32,6 +32,7 @@ Install the published package for your language, then use the generated bindings
 
 - Rust: `examples/rust/task.rs`
 - TypeScript: `examples/ts/task.ts`
+- JSON (non-protobuf): `examples/json/objective_spec.minimal.json`
 - Protobuf C++: `examples/proto/cpp/task.cpp`
 - Protobuf Java: `examples/proto/java/TaskExample.java`
 - Protobuf Kotlin: `examples/proto/kotlin/TaskExample.kt`
@@ -41,6 +42,14 @@ Install the published package for your language, then use the generated bindings
 - Protobuf PHP: `examples/proto/php/task.php`
 - Protobuf Dart: `examples/proto/dart/task.dart`
 - Protobuf Rust: `examples/proto/rust/task.rs`
+
+### Non-protobuf language support
+
+For languages that do not use protobuf bindings, exchange protocol objects as JSON and validate payloads against the versioned schemas before handoff.
+
+- Canonical JSON example for non-protobuf consumers: `examples/json/objective_spec.minimal.json`
+- Validate a typed payload against a specific schema: `bash scripts/validate-protocol-json.sh schemas/v1/objective_spec.json schemas/fixtures/valid/objective_spec.minimal.json`
+- Validate the canonical non-protobuf JSON example: `bash scripts/validate-protocol-json.sh schemas/v1/objective_spec.json examples/json/objective_spec.minimal.json`
 
 ### Versioning
 
@@ -58,6 +67,7 @@ Schema files live under `schemas/v1/`:
 - `schemas/v1/artifact.json`
 - `schemas/v1/event.json`
 - `schemas/v1/gate_result.json`
+- `schemas/v1/failure_class.json`
 - `schemas/v1/run_context.json`
 - `schemas/v1/run_outcome.json`
 - `schemas/v1/delivery_contract.json`
@@ -80,6 +90,7 @@ All schemas allow additional properties for forward compatibility.
 - `schemas/v1/artifact.json`
 - `schemas/v1/event.json`
 - `schemas/v1/gate_result.json`
+- `schemas/v1/failure_class.json`
 - `schemas/v1/run_context.json`
 - `schemas/v1/dataset_ref.json`
 - `schemas/v1/experiment_spec.json`
@@ -88,6 +99,7 @@ All schemas allow additional properties for forward compatibility.
 - `schemas/v1/provenance.json`
 
 `schemas/v1/agent_role.json` is a shared schema used by `task.json`.
+`schemas/v1/failure_class.json` is a shared schema used by `event.json` and `gate_result.json`.
 
 ### AgentRole
 
@@ -244,6 +256,7 @@ Optional fields:
 - `message`: human-readable details
 - `provenance`: typed runtime/source hashes for event attribution
 - `eval_results`: optional metric snapshot payloads
+- `failure_class`: typed failure taxonomy payload for machine-actionable triage
 
 Example:
 
@@ -271,6 +284,7 @@ Required fields:
 Optional fields:
 
 - `reason`: short explanation
+- `failure_class`: typed failure taxonomy payload for deterministic failure routing
 - `evidence`: free-form object with supporting data
 
 Example:
@@ -287,6 +301,18 @@ Example:
   }
 }
 ```
+
+### FailureClass
+
+Typed taxonomy payload for classifying protocol failures.
+
+Required fields:
+
+- `category`: `validation`, `dependency`, `environment`, `timeout`, `conflict`, `permission`, `resource`, `internal`, or `unknown`
+- `code`: stable machine-readable failure code
+- `retryable`: whether automated retry is expected to be useful
+
+Optional fields include `detail`, `scope`, `source`, and `next_action`.
 
 ### DatasetRef
 
@@ -436,11 +462,15 @@ Dart sources live under `src/dart`.
 - `nix develop` provides Rust, Node, jq, Python `jsonschema`, and `protoc`.
 - `nix flake check` validates JSON schemas, protobuf codegen, and package imports (PyPI + Rust + npm + Go).
 - JSON Schema test: `scripts/test-json-schema.sh`.
+- Language-agnostic schema validation helper: `scripts/validate-protocol-json.sh`.
+- Language-agnostic schema validator regression test: `scripts/test-validate-protocol-json.sh`.
 - Pre-commit schema JSON parse check: `scripts/pre-commit-schema-json-parse.sh`.
 - Pre-commit schema parse smoke test: `scripts/test-pre-commit-schema-json-parse.sh`.
 - Schema edit changelog: `schemas/SCHEMA_CHANGELOG.md`.
 - Schema changelog format test: `scripts/test-schema-changelog-format.sh`.
 - README schema index coverage test: `scripts/test-readme-schema-index-coverage.sh`.
+- README examples coverage test: `scripts/test-readme-examples-coverage.sh`.
+- README/examples examples synchronization test: `scripts/test-readme-examples-sync.sh`.
 - Protobuf codegen test (all languages): `scripts/test-proto.sh`.
 - Protobuf availability smoke test: `scripts/test-proto-availability-smoke.sh`.
 - Protobuf codegen (write to `src/<lang>`): `scripts/generate-proto.sh`.
@@ -452,10 +482,14 @@ Dart sources live under `src/dart`.
 
 1. Run full schema lint and semantic checks: `bash scripts/lint-schemas.sh`.
 2. Run direct schema fixture checks: `bash scripts/test-json-schema.sh`.
-3. Validate staged schema JSON before commit: `bash scripts/pre-commit-schema-json-parse.sh`.
-4. Verify pre-commit checker behavior is deterministic: `bash scripts/test-pre-commit-schema-json-parse.sh`.
-5. Verify schema changelog entry format: `bash scripts/test-schema-changelog-format.sh`.
-6. Verify README schema index coverage stays aligned: `bash scripts/test-readme-schema-index-coverage.sh`.
+3. Validate language-agnostic payloads through JSON schema: `bash scripts/validate-protocol-json.sh schemas/v1/objective_spec.json schemas/fixtures/valid/objective_spec.minimal.json`.
+4. Verify schema validator behavior is deterministic: `bash scripts/test-validate-protocol-json.sh`.
+5. Validate staged schema JSON before commit: `bash scripts/pre-commit-schema-json-parse.sh`.
+6. Verify pre-commit checker behavior is deterministic: `bash scripts/test-pre-commit-schema-json-parse.sh`.
+7. Verify schema changelog entry format: `bash scripts/test-schema-changelog-format.sh`.
+8. Verify README schema index coverage stays aligned: `bash scripts/test-readme-schema-index-coverage.sh`.
+9. Verify README examples coverage for non-protobuf and protobuf paths: `bash scripts/test-readme-examples-coverage.sh`.
+10. Verify README and examples/README example entries stay synchronized: `bash scripts/test-readme-examples-sync.sh`.
 
 ## Nix packages
 
