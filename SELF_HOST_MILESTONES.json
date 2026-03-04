@@ -261,8 +261,15 @@
   {
     "id": "M38",
     "title": "Add deterministic self-host command log artifact validation",
+    "status": "done",
+    "completed_at": "2026-03-04T10:09:19Z",
+    "notes": "Added SELF_HOST_COMMAND_LOG.json with deterministic format rules and enforced command-log/implementation-log consistency in scripts/test-self-host-artifacts.sh with dedicated regression coverage."
+  },
+  {
+    "id": "M39",
+    "title": "Add explicit reason-code regression checks for command-log failure modes",
     "status": "pending",
     "completed_at": null,
-    "notes": "Planned follow-up to formalize command-log artifact structure and verification coverage for reproducible self-host runs."
+    "notes": "Planned follow-up to add deterministic failure-reason-code coverage for SELF_HOST_COMMAND_LOG.json validation paths."
   }
 ]

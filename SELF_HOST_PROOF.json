@@ -2,12 +2,20 @@
   "task_id": "task-self-host-001",
   "status": "pass",
   "reason_code": "OK",
-  "signature_count": 1,
+  "signature_count": 3,
   "sampled_batches": 1,
   "proofs": [
     {
+      "path": "SELF_HOST_COMMAND_LOG.json",
+      "sha256": "4772ca63a355735e0e9fe4e631b6c05035c3b0ec06889980d1da27b3247378f1"
+    },
+    {
+      "path": "scripts/test-self-host-artifact-command-log-format.sh",
+      "sha256": "e253fe0ca028b61c226a13f53a890feb2f6217d1a9f89b7b80c9eeaa016d644f"
+    },
+    {
       "path": "scripts/test-self-host-artifacts.sh",
-      "sha256": "806fbae19779536db37c956e3344d3dd282e70a9ecba9d41ba352de1ea6489d6"
+      "sha256": "6ba01b3771d65cf039678374e26873108d7b6ebe25a0b88c659ed659f2a3f328"
     }
   ],
   "note": "Deterministic proof manifest for default self-host artifact gate validation."

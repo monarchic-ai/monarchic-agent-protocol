@@ -1,19 +1,20 @@
 {
   "status": "pass",
-  "headline": "Completed M37 by enforcing pass-run milestone advancement checks in self-host artifact validation.",
-  "current_focus": "Current focus is preserving deterministic self-host traceability by requiring each pass run to advance milestone progression over the prior logged run.",
-  "milestone_target": "M37 is complete in this run; next milestone target is M38 to add deterministic command-log artifact validation coverage.",
-  "milestones_done": 37,
-  "total_milestones": 38,
+  "headline": "Completed M38 by introducing deterministic SELF_HOST_COMMAND_LOG.json validation in the default self-host gate.",
+  "current_focus": "Current focus is keeping self-host verification command traces deterministic and directly auditable from artifacts.",
+  "milestone_target": "M38 is complete in this run; next milestone target is M39 to add explicit reason-code regression checks for command-log failure modes.",
+  "milestones_done": 38,
+  "total_milestones": 39,
   "completed_work": [
-    "Updated scripts/test-self-host-artifacts.sh to fail pass-status runs when milestone_completed does not advance beyond the previous implementation log entry.",
-    "Added scripts/test-self-host-artifact-pass-progression.sh to deterministically regression-test the new pass progression rule.",
-    "Updated SELF_HOST_PROOF.json with the new sha256 digest for scripts/test-self-host-artifacts.sh after this reliability-hardening change."
+    "Added SELF_HOST_COMMAND_LOG.json as a deterministic artifact with ordered keys and contiguous command indexing.",
+    "Extended scripts/test-self-host-artifacts.sh to validate command-log schema, status alignment, task_id alignment, and exact verification-string parity with the latest implementation log entry.",
+    "Added scripts/test-self-host-artifact-command-log-format.sh to regression-test deterministic failure on non-contiguous command index values."
   ],
   "verification": [
     "bash scripts/test-self-host-proof-artifacts.sh",
-    "bash scripts/test-self-host-artifact-pass-progression.sh",
+    "bash scripts/test-self-host-artifact-command-log-format.sh",
     "bash scripts/test-self-host-artifacts.sh",
+    "python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null",
     "python3 -m json.tool SELF_HOST_PROOF.json >/dev/null",
     "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null",
     "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null",
@@ -21,11 +22,11 @@
     "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null"
   ],
   "blockers": [
-    "No blockers within M37 scope."
+    "No blockers in M38 scope."
   ],
   "next_steps": [
-    "Implement M38 by defining and validating a deterministic command-log artifact format for self-host runs.",
-    "Keep pass-run milestone progression strict so status pass cannot be reported without incremental completion progress."
+    "Implement M39 by adding explicit reason-code regression checks for command-log validation failures.",
+    "Keep SELF_HOST_COMMAND_LOG.json synchronized with the latest implementation log verification entries on each pass run."
   ],
-  "note": "Status is pass because verification succeeded and milestones_done increased from 36 to 37."
+  "note": "Status is pass because verification succeeded and milestones_done increased from 37 to 38."
 }

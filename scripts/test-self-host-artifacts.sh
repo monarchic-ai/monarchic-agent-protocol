@@ -7,6 +7,7 @@ report_path="${repo_root}/SELF_HOST_REPORT.json"
 update_path="${repo_root}/SELF_HOST_UPDATE.json"
 log_path="${repo_root}/SELF_HOST_IMPLEMENTATION_LOG.json"
 proof_path="${repo_root}/SELF_HOST_PROOF.json"
+command_log_path="${repo_root}/SELF_HOST_COMMAND_LOG.json"
 
 python_cmd=""
 if command -v python >/dev/null 2>&1; then
@@ -18,7 +19,7 @@ else
   exit 1
 fi
 
-"${python_cmd}" - "${milestones_path}" "${report_path}" "${update_path}" "${log_path}" "${proof_path}" <<'PY'
+"${python_cmd}" - "${milestones_path}" "${report_path}" "${update_path}" "${log_path}" "${proof_path}" "${command_log_path}" <<'PY'
 import json
 import re
 import sys
@@ -29,6 +30,7 @@ report_path = Path(sys.argv[2])
 update_path = Path(sys.argv[3])
 log_path = Path(sys.argv[4])
 proof_path = Path(sys.argv[5])
+command_log_path = Path(sys.argv[6])
 
 required_milestone_keys = ["id", "title", "status", "completed_at", "notes"]
 required_report_keys = [
@@ -63,6 +65,13 @@ required_proof_keys = [
     "proofs",
     "note",
 ]
+required_command_log_keys = [
+    "task_id",
+    "status",
+    "commands",
+    "note",
+]
+required_command_log_entry_keys = ["index", "command", "status"]
 allowed_artifact_statuses = {"pass", "fail", "blocked"}
 
 
@@ -97,6 +106,8 @@ for path in (milestones_path, report_path, update_path, log_path):
         fail(f"Missing required file: {path}")
 if not proof_path.is_file():
     fail(f"reason_code=PROOF_ARTIFACT_MISSING Missing required file: {proof_path}")
+if not command_log_path.is_file():
+    fail(f"Missing required file: {command_log_path}")
 
 with milestones_path.open("r", encoding="utf-8") as handle:
     milestones = json.load(handle)
@@ -111,6 +122,11 @@ try:
         proof_manifest = json.load(handle)
 except json.JSONDecodeError as exc:
     fail(f"reason_code=PROOF_JSON_INVALID SELF_HOST_PROOF.json is not valid JSON: {exc}")
+try:
+    with command_log_path.open("r", encoding="utf-8") as handle:
+        command_log = json.load(handle)
+except json.JSONDecodeError as exc:
+    fail(f"SELF_HOST_COMMAND_LOG.json is not valid JSON: {exc}")
 
 iso_utc_timestamp_pattern = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$")
 
@@ -401,6 +417,83 @@ if report_status == "pass":
             "reason_code=SIGNATURE_COUNT_BELOW_SAMPLED_BATCHES SELF_HOST_PROOF.json signature_count must be >= sampled_batches when status is 'pass'."
         )
 
+if not isinstance(command_log, dict):
+    fail("SELF_HOST_COMMAND_LOG.json must be a JSON object.")
+if list(command_log.keys()) != required_command_log_keys:
+    fail(
+        "SELF_HOST_COMMAND_LOG.json must use keys in this order: "
+        f"{required_command_log_keys}, found {list(command_log.keys())}."
+    )
+
+command_log_task_id = command_log["task_id"]
+if not isinstance(command_log_task_id, str) or not command_log_task_id.strip():
+    fail("SELF_HOST_COMMAND_LOG.json task_id must be a non-empty string.")
+
+command_log_status = command_log["status"]
+if command_log_status not in allowed_artifact_statuses:
+    fail(
+        "SELF_HOST_COMMAND_LOG.json status must be one of "
+        f"{sorted(allowed_artifact_statuses)}, found {command_log_status!r}."
+    )
+if command_log_status != report_status:
+    fail(
+        "SELF_HOST_COMMAND_LOG.json status must match SELF_HOST_REPORT.json status, "
+        f"found {command_log_status!r} vs {report_status!r}."
+    )
+
+command_log_commands = command_log["commands"]
+if not isinstance(command_log_commands, list) or not command_log_commands:
+    fail("SELF_HOST_COMMAND_LOG.json commands must be a non-empty array.")
+for index, command_entry in enumerate(command_log_commands):
+    if not isinstance(command_entry, dict):
+        fail(f"SELF_HOST_COMMAND_LOG.json command entry at index {index} must be an object.")
+    entry_keys = list(command_entry.keys())
+    if entry_keys != required_command_log_entry_keys:
+        fail(
+            "SELF_HOST_COMMAND_LOG.json command entry at index "
+            f"{index} must use keys in this order {required_command_log_entry_keys}, found {entry_keys}."
+        )
+
+    command_index = command_entry["index"]
+    if not is_strict_int(command_index) or command_index != index + 1:
+        fail(
+            "SELF_HOST_COMMAND_LOG.json command index must be a contiguous integer sequence "
+            f"starting at 1; entry {index} has index {command_index!r}."
+        )
+
+    command_value = command_entry["command"]
+    if not isinstance(command_value, str) or not command_value.strip():
+        fail(f"SELF_HOST_COMMAND_LOG.json command entry {index} command must be a non-empty string.")
+
+    command_status = command_entry["status"]
+    if command_status not in allowed_artifact_statuses:
+        fail(
+            "SELF_HOST_COMMAND_LOG.json command entry "
+            f"{index} status must be one of {sorted(allowed_artifact_statuses)}, found {command_status!r}."
+        )
+
+if report_status == "pass":
+    non_pass_commands = [
+        entry["command"] for entry in command_log_commands if entry["status"] != "pass"
+    ]
+    if non_pass_commands:
+        fail(
+            "SELF_HOST_COMMAND_LOG.json command entries must all be 'pass' when report status is 'pass', "
+            f"found {non_pass_commands}."
+        )
+
+command_values = [entry["command"] for entry in command_log_commands]
+duplicate_commands = find_duplicates(command_values)
+if duplicate_commands:
+    fail(
+        "SELF_HOST_COMMAND_LOG.json commands must not contain duplicates, "
+        f"found {duplicate_commands}."
+    )
+
+command_log_note = command_log["note"]
+if not isinstance(command_log_note, str) or not command_log_note.strip():
+    fail("SELF_HOST_COMMAND_LOG.json note must be a non-empty string.")
+
 if not isinstance(implementation_log, list):
     fail("SELF_HOST_IMPLEMENTATION_LOG.json must be a JSON array.")
 if not implementation_log:
@@ -456,6 +549,19 @@ if milestone_completed not in latest_entry["summary"]:
     fail(
         "Latest implementation log summary must include milestone_completed id "
         f"{milestone_completed!r} for traceability."
+    )
+if command_log_task_id != latest_task_id:
+    fail(
+        "SELF_HOST_COMMAND_LOG.json task_id must match latest SELF_HOST_IMPLEMENTATION_LOG.json task_id, "
+        f"found {command_log_task_id!r} vs {latest_task_id!r}."
+    )
+expected_verification = [
+    f"{entry['command']} -> {entry['status']}" for entry in command_log_commands
+]
+if latest_entry["verification"] != expected_verification:
+    fail(
+        "Latest implementation log verification must exactly match "
+        "SELF_HOST_COMMAND_LOG.json commands/status entries."
     )
 
 if report_status == "pass" and len(implementation_log) > 1:
