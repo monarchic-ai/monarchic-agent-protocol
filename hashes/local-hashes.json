@@ -1,44 +1,44 @@
 {
   "version": "v1",
   "scope": "local",
-  "artifact_count": 57,
-  "combined_sha256": "7882470822a649b1929693f68d47db5c049e728ca52d374fabc9e7611306be88",
+  "artifact_count": 85,
+  "combined_sha256": "238e81acb1e370266ad95fd33cf580d955a40446749d0956b50d424a2c71cd50",
   "artifacts": [
     {
       "path": "Cargo.lock",
-      "sha256": "cc752f4d3ceb4f6021f7b195f6364bf00f801d81e0cd65b3cf185deb11d0c5d5"
+      "sha256": "115833e4ca343fcaddae90aab64ceb2a500ea9af924f11416b62b65a64fba970"
     },
     {
       "path": "Cargo.toml",
-      "sha256": "3e36797c9a7bd7299e592ba8937a700f3b2f1bba3a74b4b376de4deee2a4a90e"
+      "sha256": "20eb92c0f6cf19b73f11f1f705ff82fd3e35b207d28572f5844a8ec7a41d685d"
     },
     {
       "path": "Monarchic.AgentProtocol.csproj",
-      "sha256": "2f9f349e45b546c1e24ba0c249fb2cc46820c0c0c68ff4b22c57665776d921cf"
+      "sha256": "bc0809e8e6e5ba60b51d6a224172c30cb3a96a4303b64259d85551333aa88f7c"
     },
     {
       "path": "build.gradle.kts",
-      "sha256": "fa6d95489b89d66ac7d43e82a5e9cb39415266da2e1b1158d57c7ccc381b5300"
+      "sha256": "5bba4355c7afd97dccdec9a687660ed3e291ab7b04f3ade5b1642312392556e2"
     },
     {
       "path": "composer.json",
-      "sha256": "f8f81a35f86a9924b97fb03bbc4047b82013dcec17ebe2372c28063d851cf298"
+      "sha256": "013d0dcef8c672ae925693f25653a05d60b8f11bf3cb54de3223f84b1b17fde4"
     },
     {
       "path": "monarchic-agent-protocol.gemspec",
-      "sha256": "eaf276abae8387f4045e904c4ec6e10bf46a3811a0174634104500ca3466253b"
+      "sha256": "c3422aba938830e0f7d05e26ec5031bb4c6ad3715e77e41b4c3e18167f4c81a2"
     },
     {
       "path": "package-lock.json",
-      "sha256": "a3f5e7a0cc4616f9e1abe8b86221e0cf11effc730fba8ceb0a58a859bcdd1a4d"
+      "sha256": "949748d914b5f9ad18359c8192313bd3e5e3e106884380bab9dbe2310d2ab581"
     },
     {
       "path": "package.json",
-      "sha256": "dd411911c35ef0b4d32e26cffb2d07bdc93aa76102e2e1dceabc3b294c96c70e"
+      "sha256": "be1de3f01b7391c9f11217f589bcec93a48ffdc10818d9f099bffd2b7f51e0a0"
     },
     {
       "path": "pubspec.yaml",
-      "sha256": "ac54d3ebdddd6a2c5e8562380420c64521e6fbe70dcea0b17d33df7f5a853609"
+      "sha256": "9d621c1afa478dfe084b6772abcabc28139b4d3cd763c71a6821da34dbc7201f"
     },
     {
       "path": "pyproject.toml",
@@ -50,11 +50,15 @@
     },
     {
       "path": "schemas/v1/artifact.json",
-      "sha256": "4c3c1c124226cfb01cdc3dfb17024160bf1cb4828a41a2af18ddf0a8c8dd6916"
+      "sha256": "2709b1dd4e01e11519e02890d8f3d59a1fbc513bb3ae541bf9ff8f7e6edf5850"
     },
     {
       "path": "schemas/v1/dataset_ref.json",
       "sha256": "c9fa081b829499712c0cf436892101efd5a9f9fbdce7784242dd7c5167385382"
+    },
+    {
+      "path": "schemas/v1/delivery_contract.json",
+      "sha256": "4cd0bbfbf57862e24bce59bba5b4532d35927e2c13a1f7eb16ac2f149239c507"
     },
     {
       "path": "schemas/v1/eval_result.json",
@@ -78,7 +82,7 @@
     },
     {
       "path": "schemas/v1/monarchic_agent_protocol.proto",
-      "sha256": "b5dd7cb8ce5a797cf37b1f34e56965dd58cb4f40d7cfd0f63e5c664e869e1f10"
+      "sha256": "2af5a9716b902eb47bafedd5629b918c3cfaa3c64fd00b805b0c12ec04b76ab4"
     },
     {
       "path": "schemas/v1/objective_spec.json",
@@ -90,7 +94,11 @@
     },
     {
       "path": "schemas/v1/run_context.json",
-      "sha256": "057f2db5051c149ba6afcc24404f7831f5209d7a933166cfd89ced105c2f3876"
+      "sha256": "c26b8999f8bd18748965eb975930ebdd391730fc51e119926d05add72b6dc005"
+    },
+    {
+      "path": "schemas/v1/run_outcome.json",
+      "sha256": "f8938f898ec1fff71c57c01ca82ad7b964c80c03fb3e07b5b025353b24cd180e"
     },
     {
       "path": "schemas/v1/schema.json",
@@ -98,15 +106,15 @@
     },
     {
       "path": "schemas/v1/task.json",
-      "sha256": "161e5b4d77feb262c870435576cbb59e0858be118c758149e998ac74f987df83"
+      "sha256": "e3613e83e94b012ed04216b7a2eaf5eb327211eb8b059ed4ea561fc68af9a58b"
     },
     {
       "path": "setup.cfg",
-      "sha256": "ad271266c4520430c4851b136133aa85143ce6cafb59e9dafeaf17a3f7ffe53b"
+      "sha256": "565ac5bd3b3ee4d48dab0c00802617de47a2fa3585c5da34682b55a518489723"
     },
     {
       "path": "src/csharp/MonarchicAgentProtocol.cs",
-      "sha256": "c08cb177f877db8155a2b2bce5638529229f405f1f25f3ec81d59cb05628f2a0"
+      "sha256": "d69bb32f71ccc80c8d7010bc9968f220a9bedd4db2d477ca0661b3a55cff17b6"
     },
     {
       "path": "src/dart/lib/monarchic_agent_protocol.dart",
@@ -114,71 +122,143 @@
     },
     {
       "path": "src/dart/lib/monarchic_agent_protocol.pb.dart",
-      "sha256": "1eaf83edde61404bddd35008aa1a2b0305c76164fb4083bac4319a3d69aa0b82"
+      "sha256": "03ca9fba88252f4507bda68eeacf2214a4b59a2152b7f515aed99f175f165d45"
     },
     {
       "path": "src/dart/lib/monarchic_agent_protocol.pbenum.dart",
-      "sha256": "f2b7bf5707c730449750177267d477575155ae9e929f59730a058deaffee84ce"
+      "sha256": "351e8377814abf20d54c1e97182946294b277fbe798dc2a29b357bba6118b026"
     },
     {
       "path": "src/dart/lib/monarchic_agent_protocol.pbjson.dart",
-      "sha256": "1507924e1b19ea20288232dfdc7ff7a0f4b3af0c7e638cd3ebecf211d53d8099"
+      "sha256": "eb50d8855e4df8e374e1e010d7a821a9dcba06d76a1cb5bfe37a55f32634f71a"
     },
     {
       "path": "src/go/github.com/monarchic-ai/monarchic-agent-protocol/src/go/monarchic/agent_protocol/v1/monarchic_agent_protocol.pb.go",
-      "sha256": "e35ef4d34f05c93ab676d37cf13ec70c31c641886a31a502fbc9a6489a80b146"
+      "sha256": "654798f161436e94f4c082e6d1d96e05f0ba6380a5cf11b9fd487f294507bcbf"
     },
     {
       "path": "src/go/monarchic/agent_protocol/v1/monarchic_agent_protocol.pb.go",
       "sha256": "cc5cf6c36669aea561ec6af8ceda3d83561cbac3b5527327b4103a39eccac586"
     },
     {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/AcceptanceCriteria.java",
+      "sha256": "98c695a7d79ba9f857d28e459eb79acb3009cb293dd55167b3afbd5abb218055"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/AcceptanceCriteriaOrBuilder.java",
+      "sha256": "6b3521459fe992c8d2a92acf437b92b9fd685c4fd102d4b3d07c5a342571e652"
+    },
+    {
       "path": "src/java/ai/monarchic/agent_protocol/v1/AgentRole.java",
-      "sha256": "a647db9162ebc358c47cd397df9b9f89223737af83d60f5fe1ca753d85c18b61"
+      "sha256": "688d77a22b51c17962c47b04ac33bf6f194cc9af3e467d15d82c3a46241cd901"
     },
     {
       "path": "src/java/ai/monarchic/agent_protocol/v1/Artifact.java",
-      "sha256": "f0fe2292bfa7cf36594f0305e638b173e5e99b029e6b95bf47f2f07d761650ce"
+      "sha256": "91cc8a44b9fbc4f712d10eb74925b751760bef3b2187e24fb0bf7d9fdedb6ad7"
     },
     {
       "path": "src/java/ai/monarchic/agent_protocol/v1/ArtifactOrBuilder.java",
-      "sha256": "ad5e7e6f3746bed811145b40eb87f5f7cd1ebcccd9b6efdc92540e53f10c4a76"
+      "sha256": "4f37e1e720ad115770bc0ec8972b16abc2f92650601563682e7fe1ba6a214bad"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/DatasetRef.java",
+      "sha256": "3a9ff28d1f895a01d849e958256ccf40e9c0256eb75ff50965076683f30f312b"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/DatasetRefOrBuilder.java",
+      "sha256": "a965a569fb5a7244fb6772a59bf647bfecf3c51687078b2fdc3dc738091d42ce"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/DeliveryContract.java",
+      "sha256": "4987eaebc607e3a006f058282130ea58e4ba52883537e77b86bba136e4966f8e"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/DeliveryContractOrBuilder.java",
+      "sha256": "33ce739ae84e882d4b87286ea07d93bbbc402880b0d221766068995ec28338bc"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/EvalResult.java",
+      "sha256": "258ad2301709c9bdb93a589a1b5bf0b88ff22e32b778e4173f30af0a9a7d62aa"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/EvalResultOrBuilder.java",
+      "sha256": "22087c48f24aaf26140c3d5839e1bde6ef2499099776b5a6eb8ff779728e6dd2"
     },
     {
       "path": "src/java/ai/monarchic/agent_protocol/v1/Event.java",
-      "sha256": "da8b4c26aa76c12c3587cb956d6ac5fb0b656a76b3f61be2d0c926e16d8249d6"
+      "sha256": "80fa30d47ba8643766a785cf91525ff07083fcc925a1b604f8c1f9ede5f58565"
     },
     {
       "path": "src/java/ai/monarchic/agent_protocol/v1/EventOrBuilder.java",
-      "sha256": "05051407121626f34d212b34bed870f787f386de587c2b43a57cac7b845efc7c"
+      "sha256": "17b362d07d9f6943715fb2d03b3812d124a7bd676c615bdfc6889b04e021ef6c"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/ExperimentSpec.java",
+      "sha256": "02ac8741d6b1b384dabbeb869c11cbf58c31ea5eecb6f45a18ac29cb31c6f03a"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/ExperimentSpecOrBuilder.java",
+      "sha256": "da4afd9f2e7b1bd41cd22ba2156d79e5aba63858c1aa9467c5f5557d21cc6ee9"
     },
     {
       "path": "src/java/ai/monarchic/agent_protocol/v1/GateResult.java",
-      "sha256": "6f1ece72fd49ea6fcb4716885a8919672dc4003c09b9c9e374c887ca2673a488"
+      "sha256": "d4363551d69fa557997541c8f1e577a86ec5dc6f61b1a1a76e3479432211d05c"
     },
     {
       "path": "src/java/ai/monarchic/agent_protocol/v1/GateResultOrBuilder.java",
-      "sha256": "64a623f75f726f729db454d1ae9ba683e9d48b203a01b6305d1f170a1845fce1"
+      "sha256": "2332c20cc92ef9e25d04cbd4118c06eeb14f7179bda01bad2a6748b6fc2f8020"
     },
     {
       "path": "src/java/ai/monarchic/agent_protocol/v1/MonarchicAgentProtocolV1.java",
-      "sha256": "8d4d9d5ebdf58982529747e42ded5a358ef88006c3c294b35e53a544af2d747c"
+      "sha256": "ad0f0a0db1e22af8c353e33dcb02c806a5e21d5c1b6b10124b04e9bd7a254fb4"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/ObjectiveSpec.java",
+      "sha256": "0a8432bda33528ffcf1cd20945a2fc6bb235e61acbeeb9cc2a385f2d556ee3ed"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/ObjectiveSpecOrBuilder.java",
+      "sha256": "863d451b6e0c040693a1fa0e03fdd3fcb4c30e2f32b7117ff43f956cfdfd56db"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/OutcomeDecision.java",
+      "sha256": "4440466406a6ce8082a0ae9184fcda35e02010b01438ff184a3f550be39d3bdc"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/Provenance.java",
+      "sha256": "d37670c11c82b05757cd7f9882083f43f491b124e8ce48dc1546f96a57e58620"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/ProvenanceOrBuilder.java",
+      "sha256": "48c7268b6e326d37eeb9f9fd228f408e23386c94f1666b7f839bbe0c7a8de7ea"
     },
     {
       "path": "src/java/ai/monarchic/agent_protocol/v1/RunContext.java",
-      "sha256": "3fdbb2177decf826601ec496993d8bd1de29bfdf40387038414f0b636a664824"
+      "sha256": "89f05985adf9e9138f2bb60e463711b582b0a7b98606a1f1e1bbdceb24a950c8"
     },
     {
       "path": "src/java/ai/monarchic/agent_protocol/v1/RunContextOrBuilder.java",
-      "sha256": "9bccdface3631537a7e2ee5d691e69b4f40e04c0dfaab34b041b9c89d2e285d9"
+      "sha256": "089e3e79816c3f0cd09c56f63c942d9c65a28101d137aadf98782bd008b094c5"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/RunOutcome.java",
+      "sha256": "3f34988cbe5570a3994d1faf575e57b3c505f985340b5e3e0bbea071bda70d04"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/RunOutcomeOrBuilder.java",
+      "sha256": "43fb9fe7ab504de5bdd8f3b4856ae661d1846c03003c17eb074560112e746073"
     },
     {
       "path": "src/java/ai/monarchic/agent_protocol/v1/Task.java",
-      "sha256": "bef8f32238e75b9da3e68016cda597f54ff77f396c21c19558aa916659593209"
+      "sha256": "a7d5cd8a1d7d2dad50c61a83a6e56fbd44b47420145071724de8d41044fea178"
     },
     {
       "path": "src/java/ai/monarchic/agent_protocol/v1/TaskOrBuilder.java",
-      "sha256": "9e9d2c3da48753b52ddcf1dc069703913ddb9dd65b980b6fcfea6b5c77b926e6"
+      "sha256": "966eed0aabc40942f98675a9fe6fac7c80dfbf053b94777a05dfdc4e944e5f9d"
+    },
+    {
+      "path": "src/php/Monarchic/AgentProtocol/V1/AcceptanceCriteria.php",
+      "sha256": "0819a14fa8def7e5c3a26e94c55cf833029325c35d4a62d7ca7c40cf16d9e6d1"
     },
     {
       "path": "src/php/Monarchic/AgentProtocol/V1/AgentRole.php",
@@ -186,11 +266,27 @@
     },
     {
       "path": "src/php/Monarchic/AgentProtocol/V1/Artifact.php",
-      "sha256": "aedbff106a5a6389ed6c2b69b99444d2dd12fb839db263198b86af7673424050"
+      "sha256": "8b9f16a06869465d9a979e526c8a9f273130b997d943d52a478adc28a644fc5d"
+    },
+    {
+      "path": "src/php/Monarchic/AgentProtocol/V1/DatasetRef.php",
+      "sha256": "26dcc0b20a65462dfa970162b0ab32ddae41f3f87ffa5410b9044303674298d5"
+    },
+    {
+      "path": "src/php/Monarchic/AgentProtocol/V1/DeliveryContract.php",
+      "sha256": "a7791d3b5d794b647a97d0402540d53fba48199f19f273884d291f36381e681e"
+    },
+    {
+      "path": "src/php/Monarchic/AgentProtocol/V1/EvalResult.php",
+      "sha256": "26e2baa87f132cbfe91f0449c49bbd8001a6fbd5004642a5cf3fa0c67a15e128"
     },
     {
       "path": "src/php/Monarchic/AgentProtocol/V1/Event.php",
-      "sha256": "479b080adc85235d7a777c9798fa85c2bc608e3fa16d2c0e8d0e3014d76d2930"
+      "sha256": "2b5226ebdd6541d717227ece95b62502ed986c72612eff455ae7b9afc51c2111"
+    },
+    {
+      "path": "src/php/Monarchic/AgentProtocol/V1/ExperimentSpec.php",
+      "sha256": "4576c0a04c93120135c837bce38bb838ce994bb6739398443c3cfbb6c25a5e9b"
     },
     {
       "path": "src/php/Monarchic/AgentProtocol/V1/GateResult.php",
@@ -198,15 +294,31 @@
     },
     {
       "path": "src/php/Monarchic/AgentProtocol/V1/Metadata/MonarchicAgentProtocol.php",
-      "sha256": "06b5bb18b9c893b95867f3416e2a1dbbe56b5e92fde059d2941861382db84d01"
+      "sha256": "3d5abe270b4a95234e84f86b332ef60efb2d8853bd18f8a7f3db8fe2e72bb5b0"
+    },
+    {
+      "path": "src/php/Monarchic/AgentProtocol/V1/ObjectiveSpec.php",
+      "sha256": "14f6846659ad21f0bc0648ccca9678d49049392fb11f8cefe8c426d473671173"
+    },
+    {
+      "path": "src/php/Monarchic/AgentProtocol/V1/OutcomeDecision.php",
+      "sha256": "372ceb7d4077682f177d68d8d8d358abb42110681e48872e7b0a6fc15768f6c2"
+    },
+    {
+      "path": "src/php/Monarchic/AgentProtocol/V1/Provenance.php",
+      "sha256": "1651c9c4ff384f67b6852107f6b968a5554c95052b1017c59b93de2307016f30"
     },
     {
       "path": "src/php/Monarchic/AgentProtocol/V1/RunContext.php",
       "sha256": "8429502b3a09db04a6f7e5c1a32828f6a06ef7963a8ec6945bd7435ae9257b89"
     },
     {
+      "path": "src/php/Monarchic/AgentProtocol/V1/RunOutcome.php",
+      "sha256": "1930df36d2c42f2fb3efb98f6914ebc0b427db01350e6f1448efbf49b62f9610"
+    },
+    {
       "path": "src/php/Monarchic/AgentProtocol/V1/Task.php",
-      "sha256": "620737419b29ffacae4aec029e186d9b5cb7cc032f0a5df9c2f03e651f615fdb"
+      "sha256": "546705231a209673c9131bc558873a23c537483a8a3fcf9aabac654bf6549465"
     },
     {
       "path": "src/python/monarchic_agent_protocol/__init__.py",
@@ -214,7 +326,7 @@
     },
     {
       "path": "src/python/monarchic_agent_protocol/monarchic_agent_protocol_pb2.py",
-      "sha256": "228dbfd36c1a392d595fa4aa3e1eed51863cc48793884029215762950831fc4a"
+      "sha256": "3eff90edbc987e008e8a5345c98b4283f99ca12c1ade5b77454fa5e0c0c6fb5c"
     },
     {
       "path": "src/ruby/monarchic_agent_protocol.rb",
@@ -222,7 +334,7 @@
     },
     {
       "path": "src/ruby/monarchic_agent_protocol_pb.rb",
-      "sha256": "5211bd772da7cd0e369d2211de3efd6e4b010a68a430af3c96a57252c3235833"
+      "sha256": "5d4127794a2273056b6267e5b4c85449def1636c82138e38251c3af935ded584"
     },
     {
       "path": "src/rust/lib.rs",
