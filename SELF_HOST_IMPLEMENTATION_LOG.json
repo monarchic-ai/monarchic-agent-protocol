@@ -1157,5 +1157,38 @@
       "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
     ],
     "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-03-06T22:06:26Z",
+    "task_id": "task-self-host-001",
+    "summary": "Completed M47 by exposing self_host_command_log_seed_source_repo_with_empty_report_lists in scripts/self-host-command-log-test-lib.sh, routing the command-log shared-fixture regression through the wrapper, and adding direct wrapper-seeding coverage so shell-based non-protobuf regressions no longer call artifact-lib setup directly.",
+    "milestone_completed": "M47",
+    "files": [
+      "scripts/self-host-command-log-test-lib.sh",
+      "scripts/test-self-host-artifact-command-log-shared-fixtures.sh",
+      "scripts/test-self-host-artifact-command-log-source-repo-seeding.sh",
+      "SELF_HOST_COMMAND_LOG.json",
+      "SELF_HOST_PROOF.json",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-proof-artifacts.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-source-repo-seeding.sh -> pass",
+      "bash scripts/test-self-host-artifact-source-repo-seeding.sh -> pass",
+      "bash scripts/test-self-host-artifact-shared-fixtures.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-shared-fixtures.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-gate.sh -> pass",
+      "bash scripts/test-self-host-artifacts.sh -> pass",
+      "python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_PROOF.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
+    ],
+    "gate": "ready-for-review"
   }
 ]

@@ -324,8 +324,8 @@
   {
     "id": "M47",
     "title": "Evaluate wrapper-level source-repo seeding exposure for future self-host regressions",
-    "status": "pending",
-    "completed_at": null,
-    "notes": "Pending follow-up after M46; only add wrapper-specific source-repo seeding shims if another self-host regression needs helper-owned setup without calling artifact-lib functions directly."
+    "status": "done",
+    "completed_at": "2026-03-06T22:06:26Z",
+    "notes": "Exposed self_host_command_log_seed_source_repo_with_empty_report_lists in scripts/self-host-command-log-test-lib.sh, routed the shared command-log fixture regression through the wrapper, and added direct wrapper-seeding coverage so shell-based non-protobuf regressions no longer call artifact-lib seeding directly."
   }
 ]
