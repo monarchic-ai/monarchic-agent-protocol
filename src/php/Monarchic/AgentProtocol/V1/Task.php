@@ -55,11 +55,7 @@ class Task extends \Google\Protobuf\Internal\Message
      */
     protected $experiment_spec = null;
     /**
-     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.DeliveryContract delivery_contract = 11;</code>
-     */
-    protected $delivery_contract = null;
-    /**
-     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 12;</code>
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 11;</code>
      */
     protected $objective_spec = null;
 
@@ -79,7 +75,6 @@ class Task extends \Google\Protobuf\Internal\Message
      *     @type \Monarchic\AgentProtocol\V1\RunContext $run_context
      *     @type \Google\Protobuf\Struct $extensions
      *     @type \Monarchic\AgentProtocol\V1\ExperimentSpec $experiment_spec
-     *     @type \Monarchic\AgentProtocol\V1\DeliveryContract $delivery_contract
      *     @type \Monarchic\AgentProtocol\V1\ObjectiveSpec $objective_spec
      * }
      */
@@ -359,39 +354,7 @@ class Task extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.DeliveryContract delivery_contract = 11;</code>
-     * @return \Monarchic\AgentProtocol\V1\DeliveryContract|null
-     */
-    public function getDeliveryContract()
-    {
-        return $this->delivery_contract;
-    }
-
-    public function hasDeliveryContract()
-    {
-        return isset($this->delivery_contract);
-    }
-
-    public function clearDeliveryContract()
-    {
-        unset($this->delivery_contract);
-    }
-
-    /**
-     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.DeliveryContract delivery_contract = 11;</code>
-     * @param \Monarchic\AgentProtocol\V1\DeliveryContract $var
-     * @return $this
-     */
-    public function setDeliveryContract($var)
-    {
-        GPBUtil::checkMessage($var, \Monarchic\AgentProtocol\V1\DeliveryContract::class);
-        $this->delivery_contract = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 12;</code>
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 11;</code>
      * @return \Monarchic\AgentProtocol\V1\ObjectiveSpec|null
      */
     public function getObjectiveSpec()
@@ -410,7 +373,7 @@ class Task extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 12;</code>
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 11;</code>
      * @param \Monarchic\AgentProtocol\V1\ObjectiveSpec $var
      * @return $this
      */

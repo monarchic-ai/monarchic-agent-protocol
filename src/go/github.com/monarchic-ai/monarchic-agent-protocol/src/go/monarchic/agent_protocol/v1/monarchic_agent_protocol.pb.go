@@ -441,130 +441,6 @@ func (x *ExperimentSpec) GetExtensions() *structpb.Struct {
 	return nil
 }
 
-type DeliveryContract struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Objective        string                 `protobuf:"bytes,1,opt,name=objective,proto3" json:"objective,omitempty"`
-	DefinitionOfDone []string               `protobuf:"bytes,2,rep,name=definition_of_done,json=definitionOfDone,proto3" json:"definition_of_done,omitempty"`
-	RequiredChecks   []string               `protobuf:"bytes,3,rep,name=required_checks,json=requiredChecks,proto3" json:"required_checks,omitempty"`
-	RiskTier         string                 `protobuf:"bytes,4,opt,name=risk_tier,json=riskTier,proto3" json:"risk_tier,omitempty"`
-	MaxCycleMinutes  *uint32                `protobuf:"varint,5,opt,name=max_cycle_minutes,json=maxCycleMinutes,proto3,oneof" json:"max_cycle_minutes,omitempty"`
-	MaxAgentTurns    *uint32                `protobuf:"varint,6,opt,name=max_agent_turns,json=maxAgentTurns,proto3,oneof" json:"max_agent_turns,omitempty"`
-	PrStrategy       *string                `protobuf:"bytes,7,opt,name=pr_strategy,json=prStrategy,proto3,oneof" json:"pr_strategy,omitempty"`
-	ReviewPolicy     *string                `protobuf:"bytes,8,opt,name=review_policy,json=reviewPolicy,proto3,oneof" json:"review_policy,omitempty"`
-	RollbackStrategy *string                `protobuf:"bytes,9,opt,name=rollback_strategy,json=rollbackStrategy,proto3,oneof" json:"rollback_strategy,omitempty"`
-	Notes            *string                `protobuf:"bytes,10,opt,name=notes,proto3,oneof" json:"notes,omitempty"`
-	Extensions       *structpb.Struct       `protobuf:"bytes,11,opt,name=extensions,proto3" json:"extensions,omitempty"`
-	unknownFields    protoimpl.UnknownFields
-	sizeCache        protoimpl.SizeCache
-}
-
-func (x *DeliveryContract) Reset() {
-	*x = DeliveryContract{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[3]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DeliveryContract) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DeliveryContract) ProtoMessage() {}
-
-func (x *DeliveryContract) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[3]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DeliveryContract.ProtoReflect.Descriptor instead.
-func (*DeliveryContract) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{3}
-}
-
-func (x *DeliveryContract) GetObjective() string {
-	if x != nil {
-		return x.Objective
-	}
-	return ""
-}
-
-func (x *DeliveryContract) GetDefinitionOfDone() []string {
-	if x != nil {
-		return x.DefinitionOfDone
-	}
-	return nil
-}
-
-func (x *DeliveryContract) GetRequiredChecks() []string {
-	if x != nil {
-		return x.RequiredChecks
-	}
-	return nil
-}
-
-func (x *DeliveryContract) GetRiskTier() string {
-	if x != nil {
-		return x.RiskTier
-	}
-	return ""
-}
-
-func (x *DeliveryContract) GetMaxCycleMinutes() uint32 {
-	if x != nil && x.MaxCycleMinutes != nil {
-		return *x.MaxCycleMinutes
-	}
-	return 0
-}
-
-func (x *DeliveryContract) GetMaxAgentTurns() uint32 {
-	if x != nil && x.MaxAgentTurns != nil {
-		return *x.MaxAgentTurns
-	}
-	return 0
-}
-
-func (x *DeliveryContract) GetPrStrategy() string {
-	if x != nil && x.PrStrategy != nil {
-		return *x.PrStrategy
-	}
-	return ""
-}
-
-func (x *DeliveryContract) GetReviewPolicy() string {
-	if x != nil && x.ReviewPolicy != nil {
-		return *x.ReviewPolicy
-	}
-	return ""
-}
-
-func (x *DeliveryContract) GetRollbackStrategy() string {
-	if x != nil && x.RollbackStrategy != nil {
-		return *x.RollbackStrategy
-	}
-	return ""
-}
-
-func (x *DeliveryContract) GetNotes() string {
-	if x != nil && x.Notes != nil {
-		return *x.Notes
-	}
-	return ""
-}
-
-func (x *DeliveryContract) GetExtensions() *structpb.Struct {
-	if x != nil {
-		return x.Extensions
-	}
-	return nil
-}
-
 type ObjectiveSpec struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	MetricKey     string                 `protobuf:"bytes,1,opt,name=metric_key,json=metricKey,proto3" json:"metric_key,omitempty"`
@@ -583,7 +459,7 @@ type ObjectiveSpec struct {
 
 func (x *ObjectiveSpec) Reset() {
 	*x = ObjectiveSpec{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[4]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -595,7 +471,7 @@ func (x *ObjectiveSpec) String() string {
 func (*ObjectiveSpec) ProtoMessage() {}
 
 func (x *ObjectiveSpec) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[4]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -608,7 +484,7 @@ func (x *ObjectiveSpec) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ObjectiveSpec.ProtoReflect.Descriptor instead.
 func (*ObjectiveSpec) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{4}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *ObjectiveSpec) GetMetricKey() string {
@@ -698,7 +574,7 @@ type EvalResult struct {
 
 func (x *EvalResult) Reset() {
 	*x = EvalResult{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[5]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -710,7 +586,7 @@ func (x *EvalResult) String() string {
 func (*EvalResult) ProtoMessage() {}
 
 func (x *EvalResult) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[5]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -723,7 +599,7 @@ func (x *EvalResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EvalResult.ProtoReflect.Descriptor instead.
 func (*EvalResult) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{5}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *EvalResult) GetMetric() string {
@@ -783,6 +659,106 @@ func (x *EvalResult) GetNotes() string {
 }
 
 func (x *EvalResult) GetExtensions() *structpb.Struct {
+	if x != nil {
+		return x.Extensions
+	}
+	return nil
+}
+
+type FailureClass struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Category      string                 `protobuf:"bytes,1,opt,name=category,proto3" json:"category,omitempty"`
+	Code          string                 `protobuf:"bytes,2,opt,name=code,proto3" json:"code,omitempty"`
+	Retryable     bool                   `protobuf:"varint,3,opt,name=retryable,proto3" json:"retryable,omitempty"`
+	Detail        *string                `protobuf:"bytes,4,opt,name=detail,proto3,oneof" json:"detail,omitempty"`
+	Scope         *string                `protobuf:"bytes,5,opt,name=scope,proto3,oneof" json:"scope,omitempty"`
+	Source        *string                `protobuf:"bytes,6,opt,name=source,proto3,oneof" json:"source,omitempty"`
+	NextAction    *string                `protobuf:"bytes,7,opt,name=next_action,json=nextAction,proto3,oneof" json:"next_action,omitempty"`
+	Extensions    *structpb.Struct       `protobuf:"bytes,8,opt,name=extensions,proto3" json:"extensions,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FailureClass) Reset() {
+	*x = FailureClass{}
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FailureClass) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FailureClass) ProtoMessage() {}
+
+func (x *FailureClass) ProtoReflect() protoreflect.Message {
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FailureClass.ProtoReflect.Descriptor instead.
+func (*FailureClass) Descriptor() ([]byte, []int) {
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *FailureClass) GetCategory() string {
+	if x != nil {
+		return x.Category
+	}
+	return ""
+}
+
+func (x *FailureClass) GetCode() string {
+	if x != nil {
+		return x.Code
+	}
+	return ""
+}
+
+func (x *FailureClass) GetRetryable() bool {
+	if x != nil {
+		return x.Retryable
+	}
+	return false
+}
+
+func (x *FailureClass) GetDetail() string {
+	if x != nil && x.Detail != nil {
+		return *x.Detail
+	}
+	return ""
+}
+
+func (x *FailureClass) GetScope() string {
+	if x != nil && x.Scope != nil {
+		return *x.Scope
+	}
+	return ""
+}
+
+func (x *FailureClass) GetSource() string {
+	if x != nil && x.Source != nil {
+		return *x.Source
+	}
+	return ""
+}
+
+func (x *FailureClass) GetNextAction() string {
+	if x != nil && x.NextAction != nil {
+		return *x.NextAction
+	}
+	return ""
+}
+
+func (x *FailureClass) GetExtensions() *structpb.Struct {
 	if x != nil {
 		return x.Extensions
 	}
@@ -938,21 +914,20 @@ func (x *Provenance) GetExtensions() *structpb.Struct {
 }
 
 type Task struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Version          string                 `protobuf:"bytes,1,opt,name=version,proto3" json:"version,omitempty"`
-	TaskId           string                 `protobuf:"bytes,2,opt,name=task_id,json=taskId,proto3" json:"task_id,omitempty"`
-	Role             AgentRole              `protobuf:"varint,3,opt,name=role,proto3,enum=monarchic.agent_protocol.v1.AgentRole" json:"role,omitempty"`
-	Goal             string                 `protobuf:"bytes,4,opt,name=goal,proto3" json:"goal,omitempty"`
-	Inputs           *structpb.Struct       `protobuf:"bytes,5,opt,name=inputs,proto3" json:"inputs,omitempty"`
-	Constraints      *structpb.Struct       `protobuf:"bytes,6,opt,name=constraints,proto3" json:"constraints,omitempty"`
-	GatesRequired    []string               `protobuf:"bytes,7,rep,name=gates_required,json=gatesRequired,proto3" json:"gates_required,omitempty"`
-	RunContext       *RunContext            `protobuf:"bytes,8,opt,name=run_context,json=runContext,proto3" json:"run_context,omitempty"`
-	Extensions       *structpb.Struct       `protobuf:"bytes,9,opt,name=extensions,proto3" json:"extensions,omitempty"`
-	ExperimentSpec   *ExperimentSpec        `protobuf:"bytes,10,opt,name=experiment_spec,json=experimentSpec,proto3" json:"experiment_spec,omitempty"`
-	DeliveryContract *DeliveryContract      `protobuf:"bytes,11,opt,name=delivery_contract,json=deliveryContract,proto3" json:"delivery_contract,omitempty"`
-	ObjectiveSpec    *ObjectiveSpec         `protobuf:"bytes,12,opt,name=objective_spec,json=objectiveSpec,proto3" json:"objective_spec,omitempty"`
-	unknownFields    protoimpl.UnknownFields
-	sizeCache        protoimpl.SizeCache
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	Version        string                 `protobuf:"bytes,1,opt,name=version,proto3" json:"version,omitempty"`
+	TaskId         string                 `protobuf:"bytes,2,opt,name=task_id,json=taskId,proto3" json:"task_id,omitempty"`
+	Role           AgentRole              `protobuf:"varint,3,opt,name=role,proto3,enum=monarchic.agent_protocol.v1.AgentRole" json:"role,omitempty"`
+	Goal           string                 `protobuf:"bytes,4,opt,name=goal,proto3" json:"goal,omitempty"`
+	Inputs         *structpb.Struct       `protobuf:"bytes,5,opt,name=inputs,proto3" json:"inputs,omitempty"`
+	Constraints    *structpb.Struct       `protobuf:"bytes,6,opt,name=constraints,proto3" json:"constraints,omitempty"`
+	GatesRequired  []string               `protobuf:"bytes,7,rep,name=gates_required,json=gatesRequired,proto3" json:"gates_required,omitempty"`
+	RunContext     *RunContext            `protobuf:"bytes,8,opt,name=run_context,json=runContext,proto3" json:"run_context,omitempty"`
+	Extensions     *structpb.Struct       `protobuf:"bytes,9,opt,name=extensions,proto3" json:"extensions,omitempty"`
+	ExperimentSpec *ExperimentSpec        `protobuf:"bytes,10,opt,name=experiment_spec,json=experimentSpec,proto3" json:"experiment_spec,omitempty"`
+	ObjectiveSpec  *ObjectiveSpec         `protobuf:"bytes,11,opt,name=objective_spec,json=objectiveSpec,proto3" json:"objective_spec,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *Task) Reset() {
@@ -1051,13 +1026,6 @@ func (x *Task) GetExtensions() *structpb.Struct {
 func (x *Task) GetExperimentSpec() *ExperimentSpec {
 	if x != nil {
 		return x.ExperimentSpec
-	}
-	return nil
-}
-
-func (x *Task) GetDeliveryContract() *DeliveryContract {
-	if x != nil {
-		return x.DeliveryContract
 	}
 	return nil
 }
@@ -1204,6 +1172,7 @@ type Event struct {
 	Extensions    *structpb.Struct       `protobuf:"bytes,7,opt,name=extensions,proto3" json:"extensions,omitempty"`
 	Provenance    *Provenance            `protobuf:"bytes,8,opt,name=provenance,proto3" json:"provenance,omitempty"`
 	EvalResults   []*EvalResult          `protobuf:"bytes,9,rep,name=eval_results,json=evalResults,proto3" json:"eval_results,omitempty"`
+	FailureClass  *FailureClass          `protobuf:"bytes,10,opt,name=failure_class,json=failureClass,proto3" json:"failure_class,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1301,6 +1270,13 @@ func (x *Event) GetEvalResults() []*EvalResult {
 	return nil
 }
 
+func (x *Event) GetFailureClass() *FailureClass {
+	if x != nil {
+		return x.FailureClass
+	}
+	return nil
+}
+
 type GateResult struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Version       string                 `protobuf:"bytes,1,opt,name=version,proto3" json:"version,omitempty"`
@@ -1309,6 +1285,7 @@ type GateResult struct {
 	Reason        *string                `protobuf:"bytes,4,opt,name=reason,proto3,oneof" json:"reason,omitempty"`
 	Evidence      *structpb.Struct       `protobuf:"bytes,5,opt,name=evidence,proto3" json:"evidence,omitempty"`
 	Extensions    *structpb.Struct       `protobuf:"bytes,6,opt,name=extensions,proto3" json:"extensions,omitempty"`
+	FailureClass  *FailureClass          `protobuf:"bytes,7,opt,name=failure_class,json=failureClass,proto3" json:"failure_class,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1381,6 +1358,13 @@ func (x *GateResult) GetEvidence() *structpb.Struct {
 func (x *GateResult) GetExtensions() *structpb.Struct {
 	if x != nil {
 		return x.Extensions
+	}
+	return nil
+}
+
+func (x *GateResult) GetFailureClass() *FailureClass {
+	if x != nil {
+		return x.FailureClass
 	}
 	return nil
 }
@@ -1694,29 +1678,7 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"extensions\x18\t \x01(\v2\x17.google.protobuf.StructR\n" +
 	"extensionsB\r\n" +
 	"\v_hypothesisB\x0f\n" +
-	"\r_model_family\"\xc4\x04\n" +
-	"\x10DeliveryContract\x12\x1c\n" +
-	"\tobjective\x18\x01 \x01(\tR\tobjective\x12,\n" +
-	"\x12definition_of_done\x18\x02 \x03(\tR\x10definitionOfDone\x12'\n" +
-	"\x0frequired_checks\x18\x03 \x03(\tR\x0erequiredChecks\x12\x1b\n" +
-	"\trisk_tier\x18\x04 \x01(\tR\briskTier\x12/\n" +
-	"\x11max_cycle_minutes\x18\x05 \x01(\rH\x00R\x0fmaxCycleMinutes\x88\x01\x01\x12+\n" +
-	"\x0fmax_agent_turns\x18\x06 \x01(\rH\x01R\rmaxAgentTurns\x88\x01\x01\x12$\n" +
-	"\vpr_strategy\x18\a \x01(\tH\x02R\n" +
-	"prStrategy\x88\x01\x01\x12(\n" +
-	"\rreview_policy\x18\b \x01(\tH\x03R\freviewPolicy\x88\x01\x01\x120\n" +
-	"\x11rollback_strategy\x18\t \x01(\tH\x04R\x10rollbackStrategy\x88\x01\x01\x12\x19\n" +
-	"\x05notes\x18\n" +
-	" \x01(\tH\x05R\x05notes\x88\x01\x01\x127\n" +
-	"\n" +
-	"extensions\x18\v \x01(\v2\x17.google.protobuf.StructR\n" +
-	"extensionsB\x14\n" +
-	"\x12_max_cycle_minutesB\x12\n" +
-	"\x10_max_agent_turnsB\x0e\n" +
-	"\f_pr_strategyB\x10\n" +
-	"\x0e_review_policyB\x14\n" +
-	"\x12_rollback_strategyB\b\n" +
-	"\x06_notes\"\xe1\x03\n" +
+	"\r_model_family\"\xe1\x03\n" +
 	"\rObjectiveSpec\x12\x1d\n" +
 	"\n" +
 	"metric_key\x18\x01 \x01(\tR\tmetricKey\x12\x1c\n" +
@@ -1759,7 +1721,23 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"\t_upper_ciB\v\n" +
 	"\t_varianceB\a\n" +
 	"\x05_seedB\b\n" +
-	"\x06_notes\"\x9b\x05\n" +
+	"\x06_notes\"\xc0\x02\n" +
+	"\fFailureClass\x12\x1a\n" +
+	"\bcategory\x18\x01 \x01(\tR\bcategory\x12\x12\n" +
+	"\x04code\x18\x02 \x01(\tR\x04code\x12\x1c\n" +
+	"\tretryable\x18\x03 \x01(\bR\tretryable\x12\x1b\n" +
+	"\x06detail\x18\x04 \x01(\tH\x00R\x06detail\x88\x01\x01\x12\x19\n" +
+	"\x05scope\x18\x05 \x01(\tH\x01R\x05scope\x88\x01\x01\x12\x1b\n" +
+	"\x06source\x18\x06 \x01(\tH\x02R\x06source\x88\x01\x01\x12$\n" +
+	"\vnext_action\x18\a \x01(\tH\x03R\n" +
+	"nextAction\x88\x01\x01\x127\n" +
+	"\n" +
+	"extensions\x18\b \x01(\v2\x17.google.protobuf.StructR\n" +
+	"extensionsB\t\n" +
+	"\a_detailB\b\n" +
+	"\x06_scopeB\t\n" +
+	"\a_sourceB\x0e\n" +
+	"\f_next_action\"\x9b\x05\n" +
 	"\n" +
 	"Provenance\x12#\n" +
 	"\rprompt_sha256\x18\x01 \x01(\tR\fpromptSha256\x12\x1f\n" +
@@ -1785,7 +1763,7 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"\x11_task_spec_sha256B\x12\n" +
 	"\x10_pipeline_sha256B\x11\n" +
 	"\x0f_command_sha256B\x11\n" +
-	"\x0f_source_task_id\"\xa4\x05\n" +
+	"\x0f_source_task_id\"\xc8\x04\n" +
 	"\x04Task\x12\x18\n" +
 	"\aversion\x18\x01 \x01(\tR\aversion\x12\x17\n" +
 	"\atask_id\x18\x02 \x01(\tR\x06taskId\x12:\n" +
@@ -1800,9 +1778,8 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"extensions\x18\t \x01(\v2\x17.google.protobuf.StructR\n" +
 	"extensions\x12T\n" +
 	"\x0fexperiment_spec\x18\n" +
-	" \x01(\v2+.monarchic.agent_protocol.v1.ExperimentSpecR\x0eexperimentSpec\x12Z\n" +
-	"\x11delivery_contract\x18\v \x01(\v2-.monarchic.agent_protocol.v1.DeliveryContractR\x10deliveryContract\x12Q\n" +
-	"\x0eobjective_spec\x18\f \x01(\v2*.monarchic.agent_protocol.v1.ObjectiveSpecR\robjectiveSpec\"\x90\x04\n" +
+	" \x01(\v2+.monarchic.agent_protocol.v1.ExperimentSpecR\x0eexperimentSpec\x12Q\n" +
+	"\x0eobjective_spec\x18\v \x01(\v2*.monarchic.agent_protocol.v1.ObjectiveSpecR\robjectiveSpec\"\x90\x04\n" +
 	"\bArtifact\x12\x18\n" +
 	"\aversion\x18\x01 \x01(\tR\aversion\x12\x1f\n" +
 	"\vartifact_id\x18\x02 \x01(\tR\n" +
@@ -1820,7 +1797,7 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"\fdataset_refs\x18\t \x03(\v2'.monarchic.agent_protocol.v1.DatasetRefR\vdatasetRefs\x12J\n" +
 	"\feval_results\x18\n" +
 	" \x03(\v2'.monarchic.agent_protocol.v1.EvalResultR\vevalResults\x12T\n" +
-	"\x0fexperiment_spec\x18\v \x01(\v2+.monarchic.agent_protocol.v1.ExperimentSpecR\x0eexperimentSpec\"\x88\x03\n" +
+	"\x0fexperiment_spec\x18\v \x01(\v2+.monarchic.agent_protocol.v1.ExperimentSpecR\x0eexperimentSpec\"\xd8\x03\n" +
 	"\x05Event\x12\x18\n" +
 	"\aversion\x18\x01 \x01(\tR\aversion\x12\x1d\n" +
 	"\n" +
@@ -1835,9 +1812,11 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"\n" +
 	"provenance\x18\b \x01(\v2'.monarchic.agent_protocol.v1.ProvenanceR\n" +
 	"provenance\x12J\n" +
-	"\feval_results\x18\t \x03(\v2'.monarchic.agent_protocol.v1.EvalResultR\vevalResultsB\n" +
+	"\feval_results\x18\t \x03(\v2'.monarchic.agent_protocol.v1.EvalResultR\vevalResults\x12N\n" +
+	"\rfailure_class\x18\n" +
+	" \x01(\v2).monarchic.agent_protocol.v1.FailureClassR\ffailureClassB\n" +
 	"\n" +
-	"\b_message\"\xe8\x01\n" +
+	"\b_message\"\xb8\x02\n" +
 	"\n" +
 	"GateResult\x12\x18\n" +
 	"\aversion\x18\x01 \x01(\tR\aversion\x12\x12\n" +
@@ -1847,7 +1826,8 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"\bevidence\x18\x05 \x01(\v2\x17.google.protobuf.StructR\bevidence\x127\n" +
 	"\n" +
 	"extensions\x18\x06 \x01(\v2\x17.google.protobuf.StructR\n" +
-	"extensionsB\t\n" +
+	"extensions\x12N\n" +
+	"\rfailure_class\x18\a \x01(\v2).monarchic.agent_protocol.v1.FailureClassR\ffailureClassB\t\n" +
 	"\a_reason\"\xd8\a\n" +
 	"\n" +
 	"RunOutcome\x12\x18\n" +
@@ -1930,9 +1910,9 @@ var file_monarchic_agent_protocol_proto_goTypes = []any{
 	(*DatasetRef)(nil),         // 2: monarchic.agent_protocol.v1.DatasetRef
 	(*AcceptanceCriteria)(nil), // 3: monarchic.agent_protocol.v1.AcceptanceCriteria
 	(*ExperimentSpec)(nil),     // 4: monarchic.agent_protocol.v1.ExperimentSpec
-	(*DeliveryContract)(nil),   // 5: monarchic.agent_protocol.v1.DeliveryContract
-	(*ObjectiveSpec)(nil),      // 6: monarchic.agent_protocol.v1.ObjectiveSpec
-	(*EvalResult)(nil),         // 7: monarchic.agent_protocol.v1.EvalResult
+	(*ObjectiveSpec)(nil),      // 5: monarchic.agent_protocol.v1.ObjectiveSpec
+	(*EvalResult)(nil),         // 6: monarchic.agent_protocol.v1.EvalResult
+	(*FailureClass)(nil),       // 7: monarchic.agent_protocol.v1.FailureClass
 	(*Provenance)(nil),         // 8: monarchic.agent_protocol.v1.Provenance
 	(*Task)(nil),               // 9: monarchic.agent_protocol.v1.Task
 	(*Artifact)(nil),           // 10: monarchic.agent_protocol.v1.Artifact
@@ -1949,9 +1929,9 @@ var file_monarchic_agent_protocol_proto_depIdxs = []int32{
 	3,  // 3: monarchic.agent_protocol.v1.ExperimentSpec.acceptance:type_name -> monarchic.agent_protocol.v1.AcceptanceCriteria
 	15, // 4: monarchic.agent_protocol.v1.ExperimentSpec.constraints:type_name -> google.protobuf.Struct
 	15, // 5: monarchic.agent_protocol.v1.ExperimentSpec.extensions:type_name -> google.protobuf.Struct
-	15, // 6: monarchic.agent_protocol.v1.DeliveryContract.extensions:type_name -> google.protobuf.Struct
-	15, // 7: monarchic.agent_protocol.v1.ObjectiveSpec.extensions:type_name -> google.protobuf.Struct
-	15, // 8: monarchic.agent_protocol.v1.EvalResult.extensions:type_name -> google.protobuf.Struct
+	15, // 6: monarchic.agent_protocol.v1.ObjectiveSpec.extensions:type_name -> google.protobuf.Struct
+	15, // 7: monarchic.agent_protocol.v1.EvalResult.extensions:type_name -> google.protobuf.Struct
+	15, // 8: monarchic.agent_protocol.v1.FailureClass.extensions:type_name -> google.protobuf.Struct
 	2,  // 9: monarchic.agent_protocol.v1.Provenance.dataset_refs:type_name -> monarchic.agent_protocol.v1.DatasetRef
 	15, // 10: monarchic.agent_protocol.v1.Provenance.extensions:type_name -> google.protobuf.Struct
 	0,  // 11: monarchic.agent_protocol.v1.Task.role:type_name -> monarchic.agent_protocol.v1.AgentRole
@@ -1960,30 +1940,31 @@ var file_monarchic_agent_protocol_proto_depIdxs = []int32{
 	14, // 14: monarchic.agent_protocol.v1.Task.run_context:type_name -> monarchic.agent_protocol.v1.RunContext
 	15, // 15: monarchic.agent_protocol.v1.Task.extensions:type_name -> google.protobuf.Struct
 	4,  // 16: monarchic.agent_protocol.v1.Task.experiment_spec:type_name -> monarchic.agent_protocol.v1.ExperimentSpec
-	5,  // 17: monarchic.agent_protocol.v1.Task.delivery_contract:type_name -> monarchic.agent_protocol.v1.DeliveryContract
-	6,  // 18: monarchic.agent_protocol.v1.Task.objective_spec:type_name -> monarchic.agent_protocol.v1.ObjectiveSpec
-	15, // 19: monarchic.agent_protocol.v1.Artifact.extensions:type_name -> google.protobuf.Struct
-	8,  // 20: monarchic.agent_protocol.v1.Artifact.provenance:type_name -> monarchic.agent_protocol.v1.Provenance
-	2,  // 21: monarchic.agent_protocol.v1.Artifact.dataset_refs:type_name -> monarchic.agent_protocol.v1.DatasetRef
-	7,  // 22: monarchic.agent_protocol.v1.Artifact.eval_results:type_name -> monarchic.agent_protocol.v1.EvalResult
-	4,  // 23: monarchic.agent_protocol.v1.Artifact.experiment_spec:type_name -> monarchic.agent_protocol.v1.ExperimentSpec
-	15, // 24: monarchic.agent_protocol.v1.Event.extensions:type_name -> google.protobuf.Struct
-	8,  // 25: monarchic.agent_protocol.v1.Event.provenance:type_name -> monarchic.agent_protocol.v1.Provenance
-	7,  // 26: monarchic.agent_protocol.v1.Event.eval_results:type_name -> monarchic.agent_protocol.v1.EvalResult
+	5,  // 17: monarchic.agent_protocol.v1.Task.objective_spec:type_name -> monarchic.agent_protocol.v1.ObjectiveSpec
+	15, // 18: monarchic.agent_protocol.v1.Artifact.extensions:type_name -> google.protobuf.Struct
+	8,  // 19: monarchic.agent_protocol.v1.Artifact.provenance:type_name -> monarchic.agent_protocol.v1.Provenance
+	2,  // 20: monarchic.agent_protocol.v1.Artifact.dataset_refs:type_name -> monarchic.agent_protocol.v1.DatasetRef
+	6,  // 21: monarchic.agent_protocol.v1.Artifact.eval_results:type_name -> monarchic.agent_protocol.v1.EvalResult
+	4,  // 22: monarchic.agent_protocol.v1.Artifact.experiment_spec:type_name -> monarchic.agent_protocol.v1.ExperimentSpec
+	15, // 23: monarchic.agent_protocol.v1.Event.extensions:type_name -> google.protobuf.Struct
+	8,  // 24: monarchic.agent_protocol.v1.Event.provenance:type_name -> monarchic.agent_protocol.v1.Provenance
+	6,  // 25: monarchic.agent_protocol.v1.Event.eval_results:type_name -> monarchic.agent_protocol.v1.EvalResult
+	7,  // 26: monarchic.agent_protocol.v1.Event.failure_class:type_name -> monarchic.agent_protocol.v1.FailureClass
 	15, // 27: monarchic.agent_protocol.v1.GateResult.evidence:type_name -> google.protobuf.Struct
 	15, // 28: monarchic.agent_protocol.v1.GateResult.extensions:type_name -> google.protobuf.Struct
-	1,  // 29: monarchic.agent_protocol.v1.RunOutcome.objective_decision:type_name -> monarchic.agent_protocol.v1.OutcomeDecision
-	1,  // 30: monarchic.agent_protocol.v1.RunOutcome.cost_decision:type_name -> monarchic.agent_protocol.v1.OutcomeDecision
-	1,  // 31: monarchic.agent_protocol.v1.RunOutcome.risk_decision:type_name -> monarchic.agent_protocol.v1.OutcomeDecision
-	1,  // 32: monarchic.agent_protocol.v1.RunOutcome.final_decision:type_name -> monarchic.agent_protocol.v1.OutcomeDecision
-	15, // 33: monarchic.agent_protocol.v1.RunOutcome.evidence:type_name -> google.protobuf.Struct
-	15, // 34: monarchic.agent_protocol.v1.RunOutcome.extensions:type_name -> google.protobuf.Struct
-	15, // 35: monarchic.agent_protocol.v1.RunContext.extensions:type_name -> google.protobuf.Struct
-	36, // [36:36] is the sub-list for method output_type
-	36, // [36:36] is the sub-list for method input_type
-	36, // [36:36] is the sub-list for extension type_name
-	36, // [36:36] is the sub-list for extension extendee
-	0,  // [0:36] is the sub-list for field type_name
+	7,  // 29: monarchic.agent_protocol.v1.GateResult.failure_class:type_name -> monarchic.agent_protocol.v1.FailureClass
+	1,  // 30: monarchic.agent_protocol.v1.RunOutcome.objective_decision:type_name -> monarchic.agent_protocol.v1.OutcomeDecision
+	1,  // 31: monarchic.agent_protocol.v1.RunOutcome.cost_decision:type_name -> monarchic.agent_protocol.v1.OutcomeDecision
+	1,  // 32: monarchic.agent_protocol.v1.RunOutcome.risk_decision:type_name -> monarchic.agent_protocol.v1.OutcomeDecision
+	1,  // 33: monarchic.agent_protocol.v1.RunOutcome.final_decision:type_name -> monarchic.agent_protocol.v1.OutcomeDecision
+	15, // 34: monarchic.agent_protocol.v1.RunOutcome.evidence:type_name -> google.protobuf.Struct
+	15, // 35: monarchic.agent_protocol.v1.RunOutcome.extensions:type_name -> google.protobuf.Struct
+	15, // 36: monarchic.agent_protocol.v1.RunContext.extensions:type_name -> google.protobuf.Struct
+	37, // [37:37] is the sub-list for method output_type
+	37, // [37:37] is the sub-list for method input_type
+	37, // [37:37] is the sub-list for extension type_name
+	37, // [37:37] is the sub-list for extension extendee
+	0,  // [0:37] is the sub-list for field type_name
 }
 
 func init() { file_monarchic_agent_protocol_proto_init() }

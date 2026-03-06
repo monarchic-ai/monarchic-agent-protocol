@@ -35,6 +35,9 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Install Nix
+        uses: cachix/install-nix-action@v27
+
       - name: Determine Revision Range
         id: range
         shell: bash
