@@ -1,0 +1,84 @@
+name: Refresh Protocol Artifacts
+
+on:
+  workflow_dispatch:
+    inputs:
+      base_branch:
+        description: "Base branch to target"
+        required: true
+        default: "main"
+      pr_branch:
+        description: "Branch used for generated updates"
+        required: true
+        default: "ci/protocol-artifacts-refresh"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.base_branch }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.22"
+
+      - name: Setup Dart
+        uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
+
+      - name: Install protobuf compiler
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y protobuf-compiler
+
+      - name: Install protoc plugins
+        run: |
+          set -euo pipefail
+          go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.34.2
+          dart pub global activate protoc_plugin
+          echo "$HOME/go/bin" >> "$GITHUB_PATH"
+          echo "$HOME/.pub-cache/bin" >> "$GITHUB_PATH"
+
+      - name: Refresh generated artifacts and local hashes
+        run: |
+          set -euo pipefail
+          bash scripts/generate-proto.sh
+          bash scripts/generate-json-schema.sh
+          bash scripts/update-local-hashes.sh
+
+      - name: Create or update PR
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: ${{ inputs.pr_branch }}
+          base: ${{ inputs.base_branch }}
+          title: "chore(protocol): refresh generated artifacts and local hashes"
+          commit-message: "chore(protocol): refresh generated artifacts and local hashes"
+          body: |
+            Automated refresh:
+            - `scripts/generate-proto.sh`
+            - `scripts/generate-json-schema.sh`
+            - `scripts/update-local-hashes.sh`
+
+            Merge after CI passes, then tag and push release tag.
+          labels: |
+            automation
+            release
+          add-paths: |
+            schemas/v1/schema.json
+            src/**
+            hashes/local-hashes.json

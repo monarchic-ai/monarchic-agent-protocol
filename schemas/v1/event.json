@@ -1,60 +1,33 @@
 {
-  "$id": "monarchic.agent_protocol.v1.Event.schema.json",
+  "$id": "https://monarchic.ai/schema/v1/event.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Event",
+  "type": "object",
   "additionalProperties": true,
-  "patternProperties": {
-    "^(evalResults)$": {
-      "items": {
-        "$ref": "monarchic.agent_protocol.v1.EvalResult.schema.json"
-      },
-      "type": "array"
-    },
-    "^(eventType)$": {
-      "default": "",
-      "type": "string"
-    },
-    "^(taskId)$": {
-      "default": "",
-      "type": "string"
-    }
-  },
+  "required": ["version", "event_type", "timestamp", "task_id", "status"],
   "properties": {
-    "eval_results": {
-      "items": {
-        "$ref": "monarchic.agent_protocol.v1.EvalResult.schema.json"
-      },
-      "type": "array"
+    "version": {
+      "type": "string",
+      "const": "v1"
     },
     "event_type": {
-      "default": "",
       "type": "string"
     },
-    "extensions": {
-      "$ref": "google.protobuf.Struct.schema.json"
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
     },
     "message": {
       "type": "string"
     },
-    "provenance": {
-      "$ref": "monarchic.agent_protocol.v1.Provenance.schema.json"
-    },
-    "status": {
-      "default": "",
-      "type": "string"
-    },
-    "task_id": {
-      "default": "",
-      "type": "string"
-    },
-    "timestamp": {
-      "default": "",
-      "type": "string"
-    },
-    "version": {
-      "default": "",
-      "type": "string"
+    "failure_class": {
+      "$ref": "failure_class.json"
     }
-  },
-  "title": "Event",
-  "type": "object"
+  }
 }

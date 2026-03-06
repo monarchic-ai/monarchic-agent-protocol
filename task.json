@@ -1,0 +1,46 @@
+{
+  "version": "v1",
+  "task_id": "task-proto-001",
+  "role": "dev",
+  "goal": "Implement PROTO-001 (Failure Taxonomy Contract v1)",
+  "inputs": {
+    "acceptance_tests": [
+      "bash scripts/lint-schemas.sh",
+      "bash scripts/test-json-schema.sh",
+      "cargo test -q"
+    ],
+    "branch": "autonomy/monarchic-agent-protocol-proto-001-failure-taxonomy",
+    "deliverables": [
+      "failure_class schema and protobuf message",
+      "Rust/TS bindings",
+      "README and schema index updates"
+    ],
+    "issue_id": "PROTO-001",
+    "issue_url": "https://github.com/monarchic-ai/monarchic-agent-protocol/issues/9",
+    "repo": "monarchic-agent-protocol"
+  },
+  "constraints": {
+    "network": "offline"
+  },
+  "gates_required": null,
+  "run_context": {
+    "version": "v1",
+    "repo": "$HOME/monarchic-agent-protocol",
+    "worktree": "$HOME/monarchic-agent-protocol",
+    "image": "local",
+    "runner": "host",
+    "labels": null
+  },
+  "command": [
+    "bash",
+    "-lc",
+    "export PATH=\"$HOME/.nvm/versions/node/v22.22.0/bin:$PATH\"; git checkout -B \"autonomy/monarchic-agent-protocol-proto-001-failure-taxonomy\" >/dev/null 2>&1 || true; \"$HOME/.vscode-server/extensions/openai.chatgpt-0.4.76-linux-x64/bin/linux-x86_64/codex\" exec --skip-git-repo-check --dangerously-bypass-approvals-and-sandbox --json \"You are operating inside repository path: $HOME/monarchic-agent-protocol.\\\\nImplement issue PROTO-001: Failure Taxonomy Contract v1.\\\\nIssue URL: https://github.com/monarchic-ai/monarchic-agent-protocol/issues/9\\\\nThis task is software engineering only.\\\\nCreate or switch to branch 'autonomy/monarchic-agent-protocol-proto-001-failure-taxonomy' and keep the patch scoped to this issue.\\\\nDeliverables:\\\\n- failure_class schema and protobuf message\\\\n- Rust/TS bindings\\\\n- README and schema index updates\\\\nAcceptance tests to run and include in ISSUE_REPORT.json:\\\\n- bash scripts/lint-schemas.sh\\\\n- bash scripts/test-json-schema.sh\\\\n- cargo test -q\\\\nRequired artifacts in repo root:\\\\n- ISSUE_REPORT.json with keys: status, issue_id, checks_passed_count, changed_files, test_commands, note\\\\n- BLOCKED_REASON.json if blocked, with keys: timestamp, reason, prompt_sha256\\\\nOutput protocol:\\\\n- Print exactly ISSUE_BUILD_OK when complete and tests pass.\\\\n- Print exactly ISSUE_BUILD_BLOCKED when blocked.\\\\nKeep changes typed, testable, and reviewable.\""
+  ],
+  "objective_spec": {
+    "description": "Number of acceptance checks passed for this issue.",
+    "direction": "maximize",
+    "metric_key": "checks_passed_count",
+    "report_file": "ISSUE_REPORT.json",
+    "target": 3
+  }
+}

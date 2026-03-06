@@ -18,10 +18,9 @@ fn main() {
             labels: vec!["linux".to_string(), "rust".to_string()],
             extensions: None,
         }),
-        extensions: None,
-        objective_spec: None,
         experiment_spec: None,
-        delivery_contract: None,
+        objective_spec: None,
+        extensions: Some(Struct::default()),
     };
 
     println!("{}", task.task_id);

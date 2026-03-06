@@ -1,0 +1,4 @@
+{
+  "metric_key": "quality_score",
+  "target": 0.9
+}

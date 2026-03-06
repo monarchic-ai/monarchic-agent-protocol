@@ -1,0 +1,89 @@
+{
+  "version": "v1",
+  "scope": "registry",
+  "release_tag": "v0.1.9",
+  "versions": {
+    "cargo": "0.1.9",
+    "pypi": "0.1.9",
+    "npm": "0.1.9",
+    "ruby": "0.1.9",
+    "nuget": "0.1.9",
+    "php": "0.1.9",
+    "dart": "0.1.9"
+  },
+  "registry_count": 6,
+  "registries": [
+    {
+      "registry": "crates.io",
+      "package": "monarchic-agent-protocol",
+      "version": "0.1.9",
+      "status": "published",
+      "hash": {
+        "algorithm": "sha256",
+        "value": "19d16829cc849968ff256d087e8a960e40628df83dbb7d518f664fbde6611e97"
+      },
+      "source_url": "https://crates.io/api/v1/crates/monarchic-agent-protocol/0.1.9"
+    },
+    {
+      "registry": "pypi",
+      "package": "monarchic-agent-protocol",
+      "version": "0.1.9",
+      "status": "published",
+      "hash": {
+        "algorithm": "sha256",
+        "value": "d2930145298a28cb6d4b5d269cd202f7c8c2425fa7ffff06597f68e063a0718d",
+        "files": [
+          {
+            "filename": "monarchic_agent_protocol-0.1.9-py3-none-any.whl",
+            "sha256": "8d6bcda6c015331ab111634d036a2e3379718dbda68d72d60fc367c984c26436"
+          },
+          {
+            "filename": "monarchic_agent_protocol-0.1.9.tar.gz",
+            "sha256": "116deb5b2eac9e172ed5c5fc5c60bf43abcd2095811128386beec155d728875d"
+          }
+        ]
+      },
+      "source_url": "https://pypi.org/pypi/monarchic-agent-protocol/0.1.9/json"
+    },
+    {
+      "registry": "npm",
+      "package": "@monarchic-ai/monarchic-agent-protocol",
+      "version": "0.1.9",
+      "status": "published",
+      "hash": {
+        "algorithm": "sha1",
+        "value": "c3d342a09934de845ed2b0c9b638ddbba2e4940b",
+        "integrity": "sha512-iTFjQmCTWgdoOWESkdyszyQvYNvgGtyhEfmI3ofEXsI7TcNtN8GazPxny3XlhydYGqMotiV8QLzhGyrWK1RBzQ=="
+      },
+      "source_url": "https://registry.npmjs.org/%40monarchic-ai%2Fmonarchic-agent-protocol/0.1.9"
+    },
+    {
+      "registry": "rubygems",
+      "package": "monarchic-agent-protocol",
+      "version": "0.1.9",
+      "status": "published",
+      "hash": {
+        "algorithm": "sha256",
+        "value": "61b52da1415804a369da32bc9f5eb6c4c7df4aafb8b881107bd7d4750c8027e1"
+      },
+      "source_url": "https://rubygems.org/api/v2/rubygems/monarchic-agent-protocol/versions/0.1.9.json"
+    },
+    {
+      "registry": "nuget",
+      "package": "Monarchic.AgentProtocol",
+      "version": "0.1.9",
+      "status": "published",
+      "hash": null,
+      "source_url": "https://api.nuget.org/v3-flatcontainer/monarchic.agentprotocol/index.json"
+    },
+    {
+      "registry": "packagist",
+      "package": "monarchic/agent-protocol",
+      "version": "0.1.9",
+      "status": "published",
+      "hash": null,
+      "source_url": "https://repo.packagist.org/p2/monarchic/agent-protocol.json"
+    }
+  ],
+  "missing": []
+}

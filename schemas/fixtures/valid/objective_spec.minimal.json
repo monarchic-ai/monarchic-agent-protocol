@@ -1,0 +1,5 @@
+{
+  "metric_key": "quality_score",
+  "direction": "maximize",
+  "target": 0.9
+}
