@@ -804,7 +804,7 @@ EOF
               })
             ];
             text = ''
-              exec ${./scripts/generate-proto.sh} "$@"
+              REPO_ROOT="$(pwd)" exec ${./scripts/generate-proto.sh} "$@"
             '';
           };
           generateJsonSchema = pkgs.writeShellApplication {
@@ -829,7 +829,7 @@ EOF
               })
             ];
             text = ''
-              exec ${builtins.path { path = ./scripts/generate-json-schema.sh; name = "generate-json-schema.sh"; }} "$@"
+              REPO_ROOT="$(pwd)" exec ${builtins.path { path = ./scripts/generate-json-schema.sh; name = "generate-json-schema.sh"; }} "$@"
             '';
           };
           updateVersion = pkgs.writeShellApplication {
