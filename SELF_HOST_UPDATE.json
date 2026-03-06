@@ -1,21 +1,23 @@
 {
   "status": "pass",
-  "headline": "Completed M46 by centralizing temp source-repo seeding for shared self-host artifact regressions.",
-  "current_focus": "Current focus is keeping temp source-repo seeding and empty report-file-list setup owned by scripts/self-host-artifact-test-lib.sh so shared self-host shell regressions stay aligned when core artifact fixtures change.",
-  "milestone_target": "M47 targets deciding whether any wrapper-specific self-host test lib needs a thin source-repo seeding wrapper now that the artifact helper owns the setup path.",
-  "milestones_done": 46,
+  "headline": "Completed M47 by exposing command-log wrapper seeding for shared self-host regressions.",
+  "current_focus": "Current focus is keeping command-log regressions on the wrapper-level source-repo seeding entry point so shell-based non-protobuf test setup stays aligned with the shared artifact helper without direct coupling.",
+  "milestone_target": "No pending self-host milestone remains; the next task target is the next deterministic issue #1 follow-up that expands non-protobuf workflow coverage without reintroducing wrapper/helper drift.",
+  "milestones_done": 47,
   "total_milestones": 47,
   "completed_work": [
-    "Added self_host_artifact_seed_source_repo_with_empty_report_lists in scripts/self-host-artifact-test-lib.sh to copy the core self-host artifacts into a temp source repo and clear SELF_HOST_REPORT.json file lists from one helper-owned setup path.",
-    "Updated scripts/test-self-host-artifact-shared-fixtures.sh and scripts/test-self-host-artifact-command-log-shared-fixtures.sh to use the new helper instead of duplicating temp source-repo seeding logic.",
-    "Added scripts/test-self-host-artifact-source-repo-seeding.sh to verify the new helper copies every core artifact, clears report file lists, and still supports a passing baseline gate.",
-    "Synchronized the self-host milestone, implementation log, command log, proof manifest, report, and update artifacts for M46."
+    "Added self_host_command_log_seed_source_repo_with_empty_report_lists to scripts/self-host-command-log-test-lib.sh so command-log regressions can seed temp source repos through the wrapper they already source.",
+    "Updated scripts/test-self-host-artifact-command-log-shared-fixtures.sh to use the wrapper seeding helper instead of reaching into scripts/self-host-artifact-test-lib.sh directly.",
+    "Added scripts/test-self-host-artifact-command-log-source-repo-seeding.sh to verify the wrapper helper preserves empty report file lists and a passing baseline gate.",
+    "Synchronized the self-host milestone, implementation log, command log, proof manifest, report, and update artifacts for M47."
   ],
   "verification": [
     "bash scripts/test-self-host-proof-artifacts.sh",
+    "bash scripts/test-self-host-artifact-command-log-source-repo-seeding.sh",
     "bash scripts/test-self-host-artifact-source-repo-seeding.sh",
     "bash scripts/test-self-host-artifact-shared-fixtures.sh",
     "bash scripts/test-self-host-artifact-command-log-shared-fixtures.sh",
+    "bash scripts/test-self-host-artifact-command-log-gate.sh",
     "bash scripts/test-self-host-artifacts.sh",
     "python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null",
     "python3 -m json.tool SELF_HOST_PROOF.json >/dev/null",
@@ -25,11 +27,11 @@
     "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null"
   ],
   "blockers": [
-    "No blockers in M46 scope."
+    "No blockers in M47 scope."
   ],
   "next_steps": [
-    "Use M47 only if another wrapper-specific self-host regression needs a thin wrapper around the shared source-repo seeding helper.",
-    "Keep future shell-based non-protobuf fixture setup changes in scripts/self-host-artifact-test-lib.sh so shared regressions do not drift again."
+    "Keep future command-log regressions on self_host_command_log_seed_source_repo_with_empty_report_lists instead of calling artifact-lib seeding helpers directly.",
+    "Select the next deterministic issue #1 follow-up only when a new non-protobuf workflow gap appears that needs additional shared-fixture coverage."
   ],
-  "note": "Status is pass because verification succeeded, milestones_done increased from 45 to 46, and issue #1 progress now keeps temp source-repo seeding plus report-file-list clearing under scripts/self-host-artifact-test-lib.sh for shared shell-based non-protobuf verification."
+  "note": "Status is pass because verification succeeded, milestones_done increased from 46 to 47, and issue #1 progress now keeps command-log wrapper regressions on a wrapper-owned source-repo seeding path for shell-based non-protobuf verification."
 }
