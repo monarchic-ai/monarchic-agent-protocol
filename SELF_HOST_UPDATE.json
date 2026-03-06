@@ -1,37 +1,38 @@
 {
   "status": "pass",
-  "headline": "Completed M47 by exposing command-log wrapper seeding for shared self-host regressions.",
-  "current_focus": "Current focus is keeping command-log regressions on the wrapper-level source-repo seeding entry point so shell-based non-protobuf test setup stays aligned with the shared artifact helper without direct coupling.",
-  "milestone_target": "No pending self-host milestone remains; the next task target is the next deterministic issue #1 follow-up that expands non-protobuf workflow coverage without reintroducing wrapper/helper drift.",
-  "milestones_done": 47,
-  "total_milestones": 47,
+  "headline": "Completed M48 by aligning command-log shell regressions to wrapper-owned core paths.",
+  "current_focus": "Current focus is keeping command-log self-host regressions on the wrapper-owned core-path helper added in this run so future shared artifact fixture changes do not require duplicated file lists in non-protobuf shell coverage.",
+  "milestone_target": "M49: identify the next wrapper/helper ownership gap for issue #1 only if another deterministic non-protobuf self-host regression needs coverage.",
+  "milestones_done": 48,
+  "total_milestones": 49,
   "completed_work": [
-    "Added self_host_command_log_seed_source_repo_with_empty_report_lists to scripts/self-host-command-log-test-lib.sh so command-log regressions can seed temp source repos through the wrapper they already source.",
-    "Updated scripts/test-self-host-artifact-command-log-shared-fixtures.sh to use the wrapper seeding helper instead of reaching into scripts/self-host-artifact-test-lib.sh directly.",
-    "Added scripts/test-self-host-artifact-command-log-source-repo-seeding.sh to verify the wrapper helper preserves empty report file lists and a passing baseline gate.",
-    "Synchronized the self-host milestone, implementation log, command log, proof manifest, report, and update artifacts for M47."
+    "Added self_host_command_log_core_paths to scripts/self-host-command-log-test-lib.sh so command-log tests can ask the wrapper which core artifacts it owns.",
+    "Updated scripts/test-self-host-artifact-command-log-source-repo-seeding.sh to validate every wrapper-owned core artifact path instead of checking a small hardcoded subset.",
+    "Updated scripts/test-self-host-artifact-command-log-shared-fixtures.sh to restore a wrapper-owned core artifact path directly, removing indirect dependence on the broader fixture-path helper.",
+    "Queued M49 as the next deterministic issue #1 follow-up after this wrapper/core-path alignment work."
   ],
   "verification": [
-    "bash scripts/test-self-host-proof-artifacts.sh",
-    "bash scripts/test-self-host-artifact-command-log-source-repo-seeding.sh",
-    "bash scripts/test-self-host-artifact-source-repo-seeding.sh",
-    "bash scripts/test-self-host-artifact-shared-fixtures.sh",
-    "bash scripts/test-self-host-artifact-command-log-shared-fixtures.sh",
-    "bash scripts/test-self-host-artifact-command-log-gate.sh",
-    "bash scripts/test-self-host-artifacts.sh",
-    "python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null",
-    "python3 -m json.tool SELF_HOST_PROOF.json >/dev/null",
-    "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null",
-    "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null",
-    "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null",
-    "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null"
+    "bash scripts/test-self-host-proof-artifacts.sh -> pass",
+    "bash scripts/test-self-host-artifact-command-log-source-repo-seeding.sh -> pass",
+    "bash scripts/test-self-host-artifact-command-log-shared-fixtures.sh -> pass",
+    "bash scripts/test-self-host-artifact-command-log-gate.sh -> pass",
+    "bash -n scripts/self-host-command-log-test-lib.sh -> pass",
+    "bash -n scripts/test-self-host-artifact-command-log-source-repo-seeding.sh -> pass",
+    "bash -n scripts/test-self-host-artifact-command-log-shared-fixtures.sh -> pass",
+    "bash scripts/test-self-host-artifacts.sh -> pass",
+    "python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null -> pass",
+    "python3 -m json.tool SELF_HOST_PROOF.json >/dev/null -> pass",
+    "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null -> pass",
+    "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null -> pass",
+    "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null -> pass",
+    "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
   ],
   "blockers": [
-    "No blockers in M47 scope."
+    "No blockers in M48 scope."
   ],
   "next_steps": [
-    "Keep future command-log regressions on self_host_command_log_seed_source_repo_with_empty_report_lists instead of calling artifact-lib seeding helpers directly.",
-    "Select the next deterministic issue #1 follow-up only when a new non-protobuf workflow gap appears that needs additional shared-fixture coverage."
+    "Use M49 only if another issue #1 regression still reaches into artifact-lib details instead of wrapper-owned helpers.",
+    "Keep future command-log shell coverage on self_host_command_log_core_paths and self_host_command_log_seed_source_repo_with_empty_report_lists so shared fixture additions stay centralized."
   ],
-  "note": "Status is pass because verification succeeded, milestones_done increased from 46 to 47, and issue #1 progress now keeps command-log wrapper regressions on a wrapper-owned source-repo seeding path for shell-based non-protobuf verification."
+  "note": "Status is pass because verification succeeded, milestones_done increased from 47 to 48 versus the prior report, and this run tightened issue #1 non-protobuf shell coverage around a wrapper-owned core-path contract."
 }
