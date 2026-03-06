@@ -327,5 +327,19 @@
     "status": "done",
     "completed_at": "2026-03-06T22:06:26Z",
     "notes": "Exposed self_host_command_log_seed_source_repo_with_empty_report_lists in scripts/self-host-command-log-test-lib.sh, routed the shared command-log fixture regression through the wrapper, and added direct wrapper-seeding coverage so shell-based non-protobuf regressions no longer call artifact-lib seeding directly."
+  },
+  {
+    "id": "M48",
+    "title": "Expose command-log wrapper core artifact paths for seeded self-host regressions",
+    "status": "done",
+    "completed_at": "2026-03-06T22:37:08Z",
+    "notes": "Added self_host_command_log_core_paths to scripts/self-host-command-log-test-lib.sh and moved command-log seeding/shared-fixture regressions onto the wrapper-owned core-path helper so non-protobuf shell coverage stays aligned when shared artifact fixtures change."
+  },
+  {
+    "id": "M49",
+    "title": "Track the next issue #1 wrapper/helper drift follow-up after core-path alignment",
+    "status": "pending",
+    "completed_at": null,
+    "notes": "Pending deterministic follow-up for issue #1 to extend non-protobuf self-host coverage only if another wrapper-level fixture ownership gap appears."
   }
 ]

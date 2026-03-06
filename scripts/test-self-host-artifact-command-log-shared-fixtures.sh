@@ -26,10 +26,10 @@ if [[ -n "$(self_host_command_log_report_paths)" ]]; then
   exit 1
 fi
 
-restored_relative_path="$(self_host_command_log_fixture_paths | head -n 1)"
+restored_relative_path="$(self_host_command_log_core_paths | head -n 1)"
 
 if [[ -z "${restored_relative_path}" ]]; then
-  echo "[${script_label}] Expected shared fixture helper to expose at least one restorable path." >&2
+  echo "[${script_label}] Expected wrapper core-path helper to expose at least one restorable path." >&2
   exit 1
 fi
 
@@ -56,4 +56,4 @@ fi
 
 self_host_command_log_assert_baseline_passes
 
-echo "[${script_label}] PASS: shared command-log fixture setup restores helper-defined fixture paths and preserves a passing baseline gate when report file lists are empty."
+echo "[${script_label}] PASS: shared command-log fixture setup restores wrapper-owned core artifact paths and preserves a passing baseline gate when report file lists are empty."
