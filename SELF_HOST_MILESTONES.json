@@ -278,5 +278,33 @@
     "status": "done",
     "completed_at": "2026-03-06T00:51:48Z",
     "notes": "Added scripts/test-self-host-artifact-command-log-gate.sh to exercise COMMAND_LOG_STATUS_MISMATCH and COMMAND_LOG_INDEX_INVALID through scripts/test-self-host-artifacts.sh, keeping default-gate diagnostics explicit for non-protobuf verification workflows."
+  },
+  {
+    "id": "M41",
+    "title": "Require proof-artifact validation to stay first in self-host command logs",
+    "status": "done",
+    "completed_at": "2026-03-06T01:22:46Z",
+    "notes": "Added COMMAND_LOG_FIRST_COMMAND_INVALID in scripts/test-self-host-artifacts.sh and scripts/test-self-host-artifact-command-log-first-command.sh so self-host runs keep proof-manifest validation as the first deterministic verification step for non-protobuf workflows."
+  },
+  {
+    "id": "M42",
+    "title": "Expand command-log gate smoke coverage for verification-order drift",
+    "status": "done",
+    "completed_at": "2026-03-06T01:46:19Z",
+    "notes": "Extended scripts/test-self-host-artifact-command-log-gate.sh to swap the first two recorded verification commands while keeping indices valid, so the default self-host gate now exercises COMMAND_LOG_FIRST_COMMAND_INVALID alongside status and index regressions."
+  },
+  {
+    "id": "M43",
+    "title": "Reduce duplicated command-log smoke fixture setup across regression scripts",
+    "status": "done",
+    "completed_at": "2026-03-06T07:31:38Z",
+    "notes": "Extracted scripts/self-host-command-log-test-lib.sh to share command-log smoke fixture setup across the default-gate and targeted regression scripts, then added scripts/test-self-host-artifact-command-log-shared-fixtures.sh so the reusable setup stays deterministic for shell-based non-protobuf verification workflows."
+  },
+  {
+    "id": "M44",
+    "title": "Evaluate extending shared fixture setup to the remaining self-host artifact regressions",
+    "status": "pending",
+    "completed_at": null,
+    "notes": "Next increment: assess whether the extracted shared fixture helper can cover the other self-host artifact regression scripts without changing any failure semantics or verification ordering guarantees."
   }
 ]
