@@ -1,6 +1,6 @@
 # Next Priority Task
 
-- generated_at: 2026-03-06T00:27:46.734617+00:00
+- generated_at: 2026-03-06T07:01:12.843236+00:00
 - run_id: autoloop-project-manager-refresh
 - batch: auto-priority-refresh
 - source: project_manager_eval
@@ -10,10 +10,10 @@
 - thinking_complexity: high
 
 ## Prompt
-Investigate and advance issue #1 from monarchic-ai/monarchic-agent-protocol: feat: support non-protobuf supported languages. Current focus: Current focus is keeping SELF_HOST_COMMAND_LOG validation diagnostics deterministic, explicit, and easy to triage.. Issue URL: https://github.com/monarchic-ai/monarchic-agent-protocol/issues/1. Milestone target: M40.
+Investigate and advance issue #1 from monarchic-ai/monarchic-agent-protocol: feat: support non-protobuf supported languages. Current focus: Current focus is keeping the broader default command-log gate smoke coverage synchronized with the dedicated first-command regression and the recorded SELF_HOST_COMMAND_LOG verification order.. Issue URL: https://github.com/monarchic-ai/monarchic-agent-protocol/issues/1. Milestone target: M43.
 
 ## Acceptance
-- Advance milestone M40 with deterministic verification evidence.
+- Advance milestone M43 with deterministic verification evidence.
 - Maintain verification continuity (first expected check: bash scripts/test-self-host-proof-artifacts.sh).
 - Deliver observable progress for issue #1: feat: support non-protobuf supported languages.
 - Address at least one explicit requirement or constraint from issue #1 body context and document the implemented outcome.
