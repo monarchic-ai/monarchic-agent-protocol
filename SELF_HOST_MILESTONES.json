@@ -313,5 +313,19 @@
     "status": "done",
     "completed_at": "2026-03-06T14:50:44Z",
     "notes": "Added shared fixture-path helper functions in scripts/self-host-artifact-test-lib.sh, exposed them through scripts/self-host-command-log-test-lib.sh, and hardened scripts/test-self-host-artifact-command-log-shared-fixtures.sh so empty SELF_HOST_REPORT.json file lists no longer break command-log shared-fixture verification."
+  },
+  {
+    "id": "M46",
+    "title": "Centralize temp source-repo seeding for shared self-host artifact regressions",
+    "status": "done",
+    "completed_at": "2026-03-06T15:22:34Z",
+    "notes": "Added self_host_artifact_seed_source_repo_with_empty_report_lists in scripts/self-host-artifact-test-lib.sh, routed the shared-fixture regression scripts through it, and added direct regression coverage so helper-owned source-repo setup stays aligned for shell-based non-protobuf verification."
+  },
+  {
+    "id": "M47",
+    "title": "Evaluate wrapper-level source-repo seeding exposure for future self-host regressions",
+    "status": "pending",
+    "completed_at": null,
+    "notes": "Pending follow-up after M46; only add wrapper-specific source-repo seeding shims if another self-host regression needs helper-owned setup without calling artifact-lib functions directly."
   }
 ]

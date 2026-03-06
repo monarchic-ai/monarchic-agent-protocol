@@ -59,6 +59,45 @@ self_host_artifact_core_paths() {
     "SELF_HOST_COMMAND_LOG.json"
 }
 
+self_host_artifact_seed_source_repo_with_empty_report_lists() {
+  local script_label="$1"
+  local source_root="$2"
+  local destination_root="$3"
+  local python_cmd=""
+  local relative_path=""
+
+  python_cmd="$(self_host_artifact_choose_python "${script_label}")"
+  mkdir -p "${destination_root}"
+
+  while IFS= read -r relative_path; do
+    [[ -z "${relative_path}" ]] && continue
+
+    if [[ ! -f "${source_root}/${relative_path}" ]]; then
+      echo "[${script_label}] Missing source fixture path: ${source_root}/${relative_path}" >&2
+      return 1
+    fi
+
+    mkdir -p "$(dirname "${destination_root}/${relative_path}")"
+    cp "${source_root}/${relative_path}" "${destination_root}/${relative_path}"
+  done < <(self_host_artifact_core_paths)
+
+  "${python_cmd}" - "${destination_root}/SELF_HOST_REPORT.json" <<'PY'
+import json
+import sys
+
+path = sys.argv[1]
+with open(path, "r", encoding="utf-8") as handle:
+    report = json.load(handle)
+
+report["new_files"] = []
+report["changed_files"] = []
+
+with open(path, "w", encoding="utf-8") as handle:
+    json.dump(report, handle, indent=2)
+    handle.write("\n")
+PY
+}
+
 self_host_artifact_report_paths() {
   "${SELF_HOST_ARTIFACT_PYTHON_CMD}" - "${SELF_HOST_ARTIFACT_REPO_ROOT}/SELF_HOST_REPORT.json" <<'PY'
 import json
