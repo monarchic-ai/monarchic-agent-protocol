@@ -21,6 +21,10 @@ self_host_command_log_cleanup() {
   self_host_artifact_cleanup
 }
 
+self_host_command_log_core_paths() {
+  self_host_artifact_core_paths
+}
+
 self_host_command_log_report_paths() {
   self_host_artifact_report_paths
 }

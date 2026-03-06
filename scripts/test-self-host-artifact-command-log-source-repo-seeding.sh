@@ -17,13 +17,20 @@ trap cleanup EXIT
 
 self_host_command_log_seed_source_repo_with_empty_report_lists "${script_label}" "${repo_root}" "${source_repo}"
 
-if [[ ! -f "${source_repo}/SELF_HOST_COMMAND_LOG.json" ]]; then
-  echo "[${script_label}] Expected wrapper seeding helper to copy SELF_HOST_COMMAND_LOG.json." >&2
-  exit 1
-fi
+seeded_core_path_count=0
 
-if [[ ! -f "${source_repo}/SELF_HOST_REPORT.json" ]]; then
-  echo "[${script_label}] Expected wrapper seeding helper to copy SELF_HOST_REPORT.json." >&2
+while IFS= read -r relative_path; do
+  [[ -z "${relative_path}" ]] && continue
+  seeded_core_path_count=$((seeded_core_path_count + 1))
+
+  if [[ ! -f "${source_repo}/${relative_path}" ]]; then
+    echo "[${script_label}] Expected wrapper seeding helper to copy ${relative_path}." >&2
+    exit 1
+  fi
+done < <(self_host_command_log_core_paths)
+
+if [[ "${seeded_core_path_count}" -eq 0 ]]; then
+  echo "[${script_label}] Expected wrapper core-path helper to expose at least one seeded artifact path." >&2
   exit 1
 fi
 
@@ -36,4 +43,4 @@ if [[ -n "$(self_host_command_log_report_paths)" ]]; then
   exit 1
 fi
 
-echo "[${script_label}] PASS: command-log wrapper seeding exposes empty report file lists and preserves a passing baseline gate."
+echo "[${script_label}] PASS: command-log wrapper seeding covers every wrapper-owned core artifact path, exposes empty report file lists, and preserves a passing baseline gate."
