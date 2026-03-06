@@ -25,6 +25,10 @@ self_host_command_log_report_paths() {
   self_host_artifact_report_paths
 }
 
+self_host_command_log_fixture_paths() {
+  self_host_artifact_fixture_paths
+}
+
 self_host_command_log_reset_fixtures() {
   self_host_artifact_reset_fixtures
 }

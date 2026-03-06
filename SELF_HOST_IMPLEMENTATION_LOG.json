@@ -1078,5 +1078,52 @@
       "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
     ],
     "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-03-06T14:50:44Z",
+    "task_id": "task-self-host-001",
+    "summary": "Completed M45 by making scripts/self-host-artifact-test-lib.sh the single source of truth for restorable fixture paths, routing the command-log shared-fixture regression through that helper, and validating empty SELF_HOST_REPORT.json file-list fallback behavior.",
+    "milestone_completed": "M45",
+    "files": [
+      "scripts/self-host-artifact-test-lib.sh",
+      "scripts/self-host-command-log-test-lib.sh",
+      "scripts/test-self-host-artifact-command-log-shared-fixtures.sh",
+      "SELF_HOST_COMMAND_LOG.json",
+      "SELF_HOST_PROOF.json",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-proof-artifacts.sh -> pass",
+      "bash scripts/test-self-host-artifact-shared-fixtures.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-shared-fixtures.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-first-command.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-gate.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-reason-codes.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-format.sh -> pass",
+      "bash scripts/test-self-host-artifact-proof-gate.sh -> pass",
+      "bash scripts/test-self-host-artifact-report-file-list-consistency.sh -> pass",
+      "bash scripts/test-self-host-artifact-report-file-path-existence.sh -> pass",
+      "bash scripts/test-self-host-artifact-report-new-file-path-existence.sh -> pass",
+      "bash scripts/test-self-host-artifact-status-alignment.sh -> pass",
+      "bash scripts/test-self-host-artifact-text-fields.sh -> pass",
+      "bash scripts/test-self-host-artifact-timestamps.sh -> pass",
+      "bash scripts/test-self-host-artifact-pass-progression.sh -> pass",
+      "bash scripts/test-self-host-artifact-milestone-count-types.sh -> pass",
+      "bash scripts/test-self-host-artifact-log-key-order.sh -> pass",
+      "bash scripts/test-self-host-artifact-log-summary-traceability.sh -> pass",
+      "bash scripts/test-self-host-artifact-done-prefix.sh -> pass",
+      "bash scripts/test-self-host-artifact-latest-milestone.sh -> pass",
+      "bash scripts/test-self-host-artifacts.sh -> pass",
+      "python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_PROOF.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
+    ],
+    "gate": "ready-for-review"
   }
 ]

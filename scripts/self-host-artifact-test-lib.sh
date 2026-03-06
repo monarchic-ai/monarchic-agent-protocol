@@ -49,6 +49,16 @@ self_host_artifact_cleanup() {
   fi
 }
 
+self_host_artifact_core_paths() {
+  printf '%s\n' \
+    "SELF_HOST_MILESTONES.json" \
+    "SELF_HOST_REPORT.json" \
+    "SELF_HOST_UPDATE.json" \
+    "SELF_HOST_IMPLEMENTATION_LOG.json" \
+    "SELF_HOST_PROOF.json" \
+    "SELF_HOST_COMMAND_LOG.json"
+}
+
 self_host_artifact_report_paths() {
   "${SELF_HOST_ARTIFACT_PYTHON_CMD}" - "${SELF_HOST_ARTIFACT_REPO_ROOT}/SELF_HOST_REPORT.json" <<'PY'
 import json
@@ -64,6 +74,11 @@ for key in ("new_files", "changed_files"):
 PY
 }
 
+self_host_artifact_fixture_paths() {
+  self_host_artifact_core_paths
+  self_host_artifact_report_paths
+}
+
 self_host_artifact_copy_relative_path() {
   local relative_path="$1"
   local source_path="${SELF_HOST_ARTIFACT_REPO_ROOT}/${relative_path}"
@@ -77,24 +92,12 @@ self_host_artifact_copy_relative_path() {
 }
 
 self_host_artifact_reset_fixtures() {
-  local core_artifacts=(
-    "SELF_HOST_MILESTONES.json"
-    "SELF_HOST_REPORT.json"
-    "SELF_HOST_UPDATE.json"
-    "SELF_HOST_IMPLEMENTATION_LOG.json"
-    "SELF_HOST_PROOF.json"
-    "SELF_HOST_COMMAND_LOG.json"
-  )
   local relative_path=""
-
-  for relative_path in "${core_artifacts[@]}"; do
-    self_host_artifact_copy_relative_path "${relative_path}"
-  done
 
   while IFS= read -r relative_path; do
     [[ -z "${relative_path}" ]] && continue
     self_host_artifact_copy_relative_path "${relative_path}"
-  done < <(self_host_artifact_report_paths)
+  done < <(self_host_artifact_fixture_paths)
 }
 
 self_host_artifact_run_check() {

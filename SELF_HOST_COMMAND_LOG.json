@@ -138,5 +138,5 @@
       "status": "pass"
     }
   ],
-  "note": "Deterministic command log for self-host artifact verification, preserving proof-manifest validation as the first check while validating the new shared self-host artifact fixture helper across the remaining shell-based non-protobuf regressions."
+  "note": "Deterministic command log for self-host artifact verification, preserving proof-manifest validation as the first check while validating helper-owned fixture path selection for the remaining command-log shared-fixture regression when SELF_HOST_REPORT.json file lists are empty."
 }

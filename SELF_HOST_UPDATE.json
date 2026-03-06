@@ -1,15 +1,15 @@
 {
   "status": "pass",
-  "headline": "Completed M44 by sharing core self-host artifact fixture setup across the remaining regression scripts.",
-  "current_focus": "Current focus is keeping scripts/self-host-artifact-test-lib.sh as the single source of truth for self-host artifact smoke setup so shell-based non-protobuf verification remains stable even when SELF_HOST_REPORT.json file lists change.",
-  "milestone_target": "M44 is complete; the next target is the next priority repo-local task after the self-host fixture consolidation track.",
-  "milestones_done": 44,
-  "total_milestones": 44,
+  "headline": "Completed M45 by moving the command-log shared-fixture regression onto helper-owned fixture paths.",
+  "current_focus": "Current focus is keeping fixture-path selection centralized in scripts/self-host-artifact-test-lib.sh so shell-based non-protobuf verification remains stable when SELF_HOST_REPORT.json file lists are empty or change shape.",
+  "milestone_target": "M45 is complete; the next target is the next repo-local issue #1 improvement after the shared fixture path source-of-truth cleanup.",
+  "milestones_done": 45,
+  "total_milestones": 45,
   "completed_work": [
-    "Added scripts/self-host-artifact-test-lib.sh to centralize core self-host artifact fixture setup, explicit proof and command-log copies, baseline gate assertions, and reusable reason-code helpers.",
-    "Routed scripts/self-host-command-log-test-lib.sh through the new shared helper so the command-log regressions keep using the same core fixture reset path.",
-    "Migrated the remaining self-host artifact regression scripts onto the shared helper, removing their hidden dependence on SELF_HOST_REPORT.json listing proof and command-log artifacts.",
-    "Added scripts/test-self-host-artifact-shared-fixtures.sh and completed M44 with deterministic validation that proof and command-log fixtures restore correctly even when the source report file lists are empty, then synchronized SELF_HOST_PROOF.json with the expanded verification record."
+    "Added self_host_artifact_core_paths and self_host_artifact_fixture_paths in scripts/self-host-artifact-test-lib.sh so fixture restoration and fixture-path discovery come from the same helper-owned source of truth.",
+    "Exposed the shared fixture-path helper through scripts/self-host-command-log-test-lib.sh so command-log regressions can stop reading SELF_HOST_REPORT.json directly.",
+    "Hardened scripts/test-self-host-artifact-command-log-shared-fixtures.sh to run against a temp repo with empty SELF_HOST_REPORT.json file lists and still verify helper-defined fixture restoration plus a passing baseline gate.",
+    "Synchronized the self-host milestone, implementation log, report, update, command log, and proof manifest for the new M45 verification run."
   ],
   "verification": [
     "bash scripts/test-self-host-proof-artifacts.sh",
@@ -41,11 +41,11 @@
     "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null"
   ],
   "blockers": [
-    "No blockers in M44 scope."
+    "No blockers in M45 scope."
   ],
   "next_steps": [
-    "Pick the next repo-local improvement after M44 now that the self-host fixture consolidation track is complete.",
-    "Keep future self-host regressions on scripts/self-host-artifact-test-lib.sh so proof and command-log artifacts never depend on SELF_HOST_REPORT.json file lists again."
+    "Keep future self-host shell regressions on scripts/self-host-artifact-test-lib.sh or its wrappers instead of re-parsing SELF_HOST_REPORT.json directly.",
+    "Select the next repo-local issue #1 improvement now that the last command-log shared-fixture report-list dependency has been removed."
   ],
-  "note": "Status is pass because verification succeeded, milestones_done increased from 43 to 44, and issue #1 progress now includes shared shell fixture setup across all remaining self-host artifact regressions for non-protobuf verification workflows."
+  "note": "Status is pass because verification succeeded, milestones_done increased from 44 to 45, and issue #1 progress now includes helper-owned fixture-path selection for the remaining command-log shared-fixture regression in the shell-based non-protobuf verification workflow."
 }
