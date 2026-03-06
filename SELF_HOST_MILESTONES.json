@@ -345,8 +345,8 @@
   {
     "id": "M50",
     "title": "Assess whether any remaining self-host shell regressions still hardcode wrapper-owned artifact paths",
-    "status": "pending",
-    "completed_at": null,
-    "notes": "Pending follow-up to scan for any remaining wrapper-owned artifact path drift outside the command-log surface after M49 closed the issue #1 command-log path ownership gap."
+    "status": "done",
+    "completed_at": "2026-03-06T23:31:04Z",
+    "notes": "Added scripts/test-self-host-artifact-command-log-wrapper-ownership.sh to scan every command-log regression script for direct self_host_artifact_* usage, missing wrapper-helper calls, and hardcoded command-log paths so the M50 wrapper/helper ownership assessment stays deterministic."
   }
 ]

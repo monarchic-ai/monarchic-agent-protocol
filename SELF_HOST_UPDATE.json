@@ -1,18 +1,19 @@
 {
   "status": "pass",
-  "headline": "Completed M49 by routing command-log shell mutations through a wrapper-owned path helper.",
-  "current_focus": "Current focus is keeping the new wrapper-owned command-log path helper as the single entry point while validating that the refreshed self-host artifacts remain internally consistent.",
-  "milestone_target": "M50: assess whether any remaining self-host shell regressions still hardcode wrapper-owned artifact paths beyond the command-log surface.",
-  "milestones_done": 49,
+  "headline": "Completed M50 by adding a deterministic wrapper-ownership scan for command-log shell regressions.",
+  "current_focus": "Current focus is keeping the new command-log wrapper-ownership scan as the guardrail against future helper drift while the next incremental self-host milestone is selected.",
+  "milestone_target": "No pending milestone remains in the current list; the next target is to define the next small self-host maintainability improvement after review.",
+  "milestones_done": 50,
   "total_milestones": 50,
   "completed_work": [
-    "Added self_host_command_log_relative_path, self_host_command_log_path_in_root, and self_host_command_log_tmp_path to scripts/self-host-command-log-test-lib.sh so the wrapper owns command-log path resolution.",
-    "Updated the first-command, format, reason-code, and gate command-log regression scripts to mutate the temp command log through the wrapper helper instead of hardcoding SELF_HOST_COMMAND_LOG.json.",
-    "Added scripts/test-self-host-artifact-command-log-path-helper.sh to verify the wrapper-owned command-log path helper stays aligned with wrapper-owned core fixtures.",
-    "Queued M50 as the next follow-up now that the issue #1 command-log path ownership gap is closed."
+    "Added scripts/test-self-host-artifact-command-log-wrapper-ownership.sh to scan each command-log regression script for direct self_host_artifact_* usage, missing wrapper-lib sourcing, missing wrapper-helper calls, and hardcoded command-log paths.",
+    "Validated that the current command-log regression suite satisfies the new wrapper-ownership invariant, turning the M50 assessment into an executable repo-local check.",
+    "Marked M50 done in SELF_HOST_MILESTONES.json and advanced the self-host run state from 49 to 50 completed milestones.",
+    "Refreshed SELF_HOST_COMMAND_LOG.json, SELF_HOST_PROOF.json, SELF_HOST_REPORT.json, and SELF_HOST_IMPLEMENTATION_LOG.json to reflect the finalized verification suite."
   ],
   "verification": [
     "bash scripts/test-self-host-proof-artifacts.sh -> pass",
+    "bash scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
     "bash scripts/test-self-host-artifact-command-log-path-helper.sh -> pass",
     "bash scripts/test-self-host-artifact-command-log-first-command.sh -> pass",
     "bash scripts/test-self-host-artifact-command-log-format.sh -> pass",
@@ -21,6 +22,7 @@
     "bash scripts/test-self-host-artifact-command-log-shared-fixtures.sh -> pass",
     "bash scripts/test-self-host-artifact-command-log-gate.sh -> pass",
     "bash -n scripts/self-host-command-log-test-lib.sh -> pass",
+    "bash -n scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
     "bash -n scripts/test-self-host-artifact-command-log-path-helper.sh -> pass",
     "bash -n scripts/test-self-host-artifact-command-log-first-command.sh -> pass",
     "bash -n scripts/test-self-host-artifact-command-log-format.sh -> pass",
@@ -37,11 +39,11 @@
     "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
   ],
   "blockers": [
-    "No blockers in M49 scope."
+    "No blockers in M50 scope."
   ],
   "next_steps": [
-    "Use M50 to scan for any remaining self-host shell regressions that still hardcode wrapper-owned artifact paths outside the command-log surface.",
-    "If no comparable path drift remains, pivot to the next smallest maintainability improvement without widening the verification scope."
+    "Define the next incremental self-host milestone before the next pass-status run so milestone progression can continue deterministically.",
+    "Extend the wrapper-ownership scan if future command-log regressions add new helper surfaces or artifact-path rules."
   ],
-  "note": "Status is pass because verification succeeded, milestones_done increased from 48 to 49 versus the prior report, and this run localized the remaining issue #1 command-log path ownership drift behind wrapper-owned helpers."
+  "note": "Status is pass because verification succeeded, milestones_done increased from 49 to 50 versus the prior report, and M50 converted the remaining command-log wrapper-ownership assessment into deterministic shell coverage."
 }
