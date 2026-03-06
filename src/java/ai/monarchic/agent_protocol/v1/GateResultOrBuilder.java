@@ -92,4 +92,19 @@ public interface GateResultOrBuilder extends
    * <code>.google.protobuf.Struct extensions = 6;</code>
    */
   com.google.protobuf.StructOrBuilder getExtensionsOrBuilder();
+
+  /**
+   * <code>.monarchic.agent_protocol.v1.FailureClass failure_class = 7;</code>
+   * @return Whether the failureClass field is set.
+   */
+  boolean hasFailureClass();
+  /**
+   * <code>.monarchic.agent_protocol.v1.FailureClass failure_class = 7;</code>
+   * @return The failureClass.
+   */
+  ai.monarchic.agent_protocol.v1.FailureClass getFailureClass();
+  /**
+   * <code>.monarchic.agent_protocol.v1.FailureClass failure_class = 7;</code>
+   */
+  ai.monarchic.agent_protocol.v1.FailureClassOrBuilder getFailureClassOrBuilder();
 }

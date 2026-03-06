@@ -352,44 +352,18 @@ private static final long serialVersionUID = 0L;
     return experimentSpec_ == null ? ai.monarchic.agent_protocol.v1.ExperimentSpec.getDefaultInstance() : experimentSpec_;
   }
 
-  public static final int DELIVERY_CONTRACT_FIELD_NUMBER = 11;
-  private ai.monarchic.agent_protocol.v1.DeliveryContract deliveryContract_;
-  /**
-   * <code>.monarchic.agent_protocol.v1.DeliveryContract delivery_contract = 11;</code>
-   * @return Whether the deliveryContract field is set.
-   */
-  @java.lang.Override
-  public boolean hasDeliveryContract() {
-    return ((bitField0_ & 0x00000020) != 0);
-  }
-  /**
-   * <code>.monarchic.agent_protocol.v1.DeliveryContract delivery_contract = 11;</code>
-   * @return The deliveryContract.
-   */
-  @java.lang.Override
-  public ai.monarchic.agent_protocol.v1.DeliveryContract getDeliveryContract() {
-    return deliveryContract_ == null ? ai.monarchic.agent_protocol.v1.DeliveryContract.getDefaultInstance() : deliveryContract_;
-  }
-  /**
-   * <code>.monarchic.agent_protocol.v1.DeliveryContract delivery_contract = 11;</code>
-   */
-  @java.lang.Override
-  public ai.monarchic.agent_protocol.v1.DeliveryContractOrBuilder getDeliveryContractOrBuilder() {
-    return deliveryContract_ == null ? ai.monarchic.agent_protocol.v1.DeliveryContract.getDefaultInstance() : deliveryContract_;
-  }
-
-  public static final int OBJECTIVE_SPEC_FIELD_NUMBER = 12;
+  public static final int OBJECTIVE_SPEC_FIELD_NUMBER = 11;
   private ai.monarchic.agent_protocol.v1.ObjectiveSpec objectiveSpec_;
   /**
-   * <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 12;</code>
+   * <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 11;</code>
    * @return Whether the objectiveSpec field is set.
    */
   @java.lang.Override
   public boolean hasObjectiveSpec() {
-    return ((bitField0_ & 0x00000040) != 0);
+    return ((bitField0_ & 0x00000020) != 0);
   }
   /**
-   * <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 12;</code>
+   * <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 11;</code>
    * @return The objectiveSpec.
    */
   @java.lang.Override
@@ -397,7 +371,7 @@ private static final long serialVersionUID = 0L;
     return objectiveSpec_ == null ? ai.monarchic.agent_protocol.v1.ObjectiveSpec.getDefaultInstance() : objectiveSpec_;
   }
   /**
-   * <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 12;</code>
+   * <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 11;</code>
    */
   @java.lang.Override
   public ai.monarchic.agent_protocol.v1.ObjectiveSpecOrBuilder getObjectiveSpecOrBuilder() {
@@ -449,10 +423,7 @@ private static final long serialVersionUID = 0L;
       output.writeMessage(10, getExperimentSpec());
     }
     if (((bitField0_ & 0x00000020) != 0)) {
-      output.writeMessage(11, getDeliveryContract());
-    }
-    if (((bitField0_ & 0x00000040) != 0)) {
-      output.writeMessage(12, getObjectiveSpec());
+      output.writeMessage(11, getObjectiveSpec());
     }
     getUnknownFields().writeTo(output);
   }
@@ -506,11 +477,7 @@ private static final long serialVersionUID = 0L;
     }
     if (((bitField0_ & 0x00000020) != 0)) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(11, getDeliveryContract());
-    }
-    if (((bitField0_ & 0x00000040) != 0)) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(12, getObjectiveSpec());
+        .computeMessageSize(11, getObjectiveSpec());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -561,11 +528,6 @@ private static final long serialVersionUID = 0L;
       if (!getExperimentSpec()
           .equals(other.getExperimentSpec())) return false;
     }
-    if (hasDeliveryContract() != other.hasDeliveryContract()) return false;
-    if (hasDeliveryContract()) {
-      if (!getDeliveryContract()
-          .equals(other.getDeliveryContract())) return false;
-    }
     if (hasObjectiveSpec() != other.hasObjectiveSpec()) return false;
     if (hasObjectiveSpec()) {
       if (!getObjectiveSpec()
@@ -613,10 +575,6 @@ private static final long serialVersionUID = 0L;
     if (hasExperimentSpec()) {
       hash = (37 * hash) + EXPERIMENT_SPEC_FIELD_NUMBER;
       hash = (53 * hash) + getExperimentSpec().hashCode();
-    }
-    if (hasDeliveryContract()) {
-      hash = (37 * hash) + DELIVERY_CONTRACT_FIELD_NUMBER;
-      hash = (53 * hash) + getDeliveryContract().hashCode();
     }
     if (hasObjectiveSpec()) {
       hash = (37 * hash) + OBJECTIVE_SPEC_FIELD_NUMBER;
@@ -757,7 +715,6 @@ private static final long serialVersionUID = 0L;
         internalGetRunContextFieldBuilder();
         internalGetExtensionsFieldBuilder();
         internalGetExperimentSpecFieldBuilder();
-        internalGetDeliveryContractFieldBuilder();
         internalGetObjectiveSpecFieldBuilder();
       }
     }
@@ -795,11 +752,6 @@ private static final long serialVersionUID = 0L;
       if (experimentSpecBuilder_ != null) {
         experimentSpecBuilder_.dispose();
         experimentSpecBuilder_ = null;
-      }
-      deliveryContract_ = null;
-      if (deliveryContractBuilder_ != null) {
-        deliveryContractBuilder_.dispose();
-        deliveryContractBuilder_ = null;
       }
       objectiveSpec_ = null;
       if (objectiveSpecBuilder_ != null) {
@@ -887,16 +839,10 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000010;
       }
       if (((from_bitField0_ & 0x00000400) != 0)) {
-        result.deliveryContract_ = deliveryContractBuilder_ == null
-            ? deliveryContract_
-            : deliveryContractBuilder_.build();
-        to_bitField0_ |= 0x00000020;
-      }
-      if (((from_bitField0_ & 0x00000800) != 0)) {
         result.objectiveSpec_ = objectiveSpecBuilder_ == null
             ? objectiveSpec_
             : objectiveSpecBuilder_.build();
-        to_bitField0_ |= 0x00000040;
+        to_bitField0_ |= 0x00000020;
       }
       result.bitField0_ |= to_bitField0_;
     }
@@ -955,9 +901,6 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasExperimentSpec()) {
         mergeExperimentSpec(other.getExperimentSpec());
-      }
-      if (other.hasDeliveryContract()) {
-        mergeDeliveryContract(other.getDeliveryContract());
       }
       if (other.hasObjectiveSpec()) {
         mergeObjectiveSpec(other.getObjectiveSpec());
@@ -1051,18 +994,11 @@ private static final long serialVersionUID = 0L;
             } // case 82
             case 90: {
               input.readMessage(
-                  internalGetDeliveryContractFieldBuilder().getBuilder(),
+                  internalGetObjectiveSpecFieldBuilder().getBuilder(),
                   extensionRegistry);
               bitField0_ |= 0x00000400;
               break;
             } // case 90
-            case 98: {
-              input.readMessage(
-                  internalGetObjectiveSpecFieldBuilder().getBuilder(),
-                  extensionRegistry);
-              bitField0_ |= 0x00000800;
-              break;
-            } // case 98
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -2063,139 +1999,18 @@ private static final long serialVersionUID = 0L;
       return experimentSpecBuilder_;
     }
 
-    private ai.monarchic.agent_protocol.v1.DeliveryContract deliveryContract_;
-    private com.google.protobuf.SingleFieldBuilder<
-        ai.monarchic.agent_protocol.v1.DeliveryContract, ai.monarchic.agent_protocol.v1.DeliveryContract.Builder, ai.monarchic.agent_protocol.v1.DeliveryContractOrBuilder> deliveryContractBuilder_;
-    /**
-     * <code>.monarchic.agent_protocol.v1.DeliveryContract delivery_contract = 11;</code>
-     * @return Whether the deliveryContract field is set.
-     */
-    public boolean hasDeliveryContract() {
-      return ((bitField0_ & 0x00000400) != 0);
-    }
-    /**
-     * <code>.monarchic.agent_protocol.v1.DeliveryContract delivery_contract = 11;</code>
-     * @return The deliveryContract.
-     */
-    public ai.monarchic.agent_protocol.v1.DeliveryContract getDeliveryContract() {
-      if (deliveryContractBuilder_ == null) {
-        return deliveryContract_ == null ? ai.monarchic.agent_protocol.v1.DeliveryContract.getDefaultInstance() : deliveryContract_;
-      } else {
-        return deliveryContractBuilder_.getMessage();
-      }
-    }
-    /**
-     * <code>.monarchic.agent_protocol.v1.DeliveryContract delivery_contract = 11;</code>
-     */
-    public Builder setDeliveryContract(ai.monarchic.agent_protocol.v1.DeliveryContract value) {
-      if (deliveryContractBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        deliveryContract_ = value;
-      } else {
-        deliveryContractBuilder_.setMessage(value);
-      }
-      bitField0_ |= 0x00000400;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.monarchic.agent_protocol.v1.DeliveryContract delivery_contract = 11;</code>
-     */
-    public Builder setDeliveryContract(
-        ai.monarchic.agent_protocol.v1.DeliveryContract.Builder builderForValue) {
-      if (deliveryContractBuilder_ == null) {
-        deliveryContract_ = builderForValue.build();
-      } else {
-        deliveryContractBuilder_.setMessage(builderForValue.build());
-      }
-      bitField0_ |= 0x00000400;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.monarchic.agent_protocol.v1.DeliveryContract delivery_contract = 11;</code>
-     */
-    public Builder mergeDeliveryContract(ai.monarchic.agent_protocol.v1.DeliveryContract value) {
-      if (deliveryContractBuilder_ == null) {
-        if (((bitField0_ & 0x00000400) != 0) &&
-          deliveryContract_ != null &&
-          deliveryContract_ != ai.monarchic.agent_protocol.v1.DeliveryContract.getDefaultInstance()) {
-          getDeliveryContractBuilder().mergeFrom(value);
-        } else {
-          deliveryContract_ = value;
-        }
-      } else {
-        deliveryContractBuilder_.mergeFrom(value);
-      }
-      if (deliveryContract_ != null) {
-        bitField0_ |= 0x00000400;
-        onChanged();
-      }
-      return this;
-    }
-    /**
-     * <code>.monarchic.agent_protocol.v1.DeliveryContract delivery_contract = 11;</code>
-     */
-    public Builder clearDeliveryContract() {
-      bitField0_ = (bitField0_ & ~0x00000400);
-      deliveryContract_ = null;
-      if (deliveryContractBuilder_ != null) {
-        deliveryContractBuilder_.dispose();
-        deliveryContractBuilder_ = null;
-      }
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.monarchic.agent_protocol.v1.DeliveryContract delivery_contract = 11;</code>
-     */
-    public ai.monarchic.agent_protocol.v1.DeliveryContract.Builder getDeliveryContractBuilder() {
-      bitField0_ |= 0x00000400;
-      onChanged();
-      return internalGetDeliveryContractFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.monarchic.agent_protocol.v1.DeliveryContract delivery_contract = 11;</code>
-     */
-    public ai.monarchic.agent_protocol.v1.DeliveryContractOrBuilder getDeliveryContractOrBuilder() {
-      if (deliveryContractBuilder_ != null) {
-        return deliveryContractBuilder_.getMessageOrBuilder();
-      } else {
-        return deliveryContract_ == null ?
-            ai.monarchic.agent_protocol.v1.DeliveryContract.getDefaultInstance() : deliveryContract_;
-      }
-    }
-    /**
-     * <code>.monarchic.agent_protocol.v1.DeliveryContract delivery_contract = 11;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilder<
-        ai.monarchic.agent_protocol.v1.DeliveryContract, ai.monarchic.agent_protocol.v1.DeliveryContract.Builder, ai.monarchic.agent_protocol.v1.DeliveryContractOrBuilder> 
-        internalGetDeliveryContractFieldBuilder() {
-      if (deliveryContractBuilder_ == null) {
-        deliveryContractBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-            ai.monarchic.agent_protocol.v1.DeliveryContract, ai.monarchic.agent_protocol.v1.DeliveryContract.Builder, ai.monarchic.agent_protocol.v1.DeliveryContractOrBuilder>(
-                getDeliveryContract(),
-                getParentForChildren(),
-                isClean());
-        deliveryContract_ = null;
-      }
-      return deliveryContractBuilder_;
-    }
-
     private ai.monarchic.agent_protocol.v1.ObjectiveSpec objectiveSpec_;
     private com.google.protobuf.SingleFieldBuilder<
         ai.monarchic.agent_protocol.v1.ObjectiveSpec, ai.monarchic.agent_protocol.v1.ObjectiveSpec.Builder, ai.monarchic.agent_protocol.v1.ObjectiveSpecOrBuilder> objectiveSpecBuilder_;
     /**
-     * <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 12;</code>
+     * <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 11;</code>
      * @return Whether the objectiveSpec field is set.
      */
     public boolean hasObjectiveSpec() {
-      return ((bitField0_ & 0x00000800) != 0);
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
-     * <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 12;</code>
+     * <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 11;</code>
      * @return The objectiveSpec.
      */
     public ai.monarchic.agent_protocol.v1.ObjectiveSpec getObjectiveSpec() {
@@ -2206,7 +2021,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 12;</code>
+     * <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 11;</code>
      */
     public Builder setObjectiveSpec(ai.monarchic.agent_protocol.v1.ObjectiveSpec value) {
       if (objectiveSpecBuilder_ == null) {
@@ -2217,12 +2032,12 @@ private static final long serialVersionUID = 0L;
       } else {
         objectiveSpecBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000800;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
     /**
-     * <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 12;</code>
+     * <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 11;</code>
      */
     public Builder setObjectiveSpec(
         ai.monarchic.agent_protocol.v1.ObjectiveSpec.Builder builderForValue) {
@@ -2231,16 +2046,16 @@ private static final long serialVersionUID = 0L;
       } else {
         objectiveSpecBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000800;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
     /**
-     * <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 12;</code>
+     * <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 11;</code>
      */
     public Builder mergeObjectiveSpec(ai.monarchic.agent_protocol.v1.ObjectiveSpec value) {
       if (objectiveSpecBuilder_ == null) {
-        if (((bitField0_ & 0x00000800) != 0) &&
+        if (((bitField0_ & 0x00000400) != 0) &&
           objectiveSpec_ != null &&
           objectiveSpec_ != ai.monarchic.agent_protocol.v1.ObjectiveSpec.getDefaultInstance()) {
           getObjectiveSpecBuilder().mergeFrom(value);
@@ -2251,16 +2066,16 @@ private static final long serialVersionUID = 0L;
         objectiveSpecBuilder_.mergeFrom(value);
       }
       if (objectiveSpec_ != null) {
-        bitField0_ |= 0x00000800;
+        bitField0_ |= 0x00000400;
         onChanged();
       }
       return this;
     }
     /**
-     * <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 12;</code>
+     * <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 11;</code>
      */
     public Builder clearObjectiveSpec() {
-      bitField0_ = (bitField0_ & ~0x00000800);
+      bitField0_ = (bitField0_ & ~0x00000400);
       objectiveSpec_ = null;
       if (objectiveSpecBuilder_ != null) {
         objectiveSpecBuilder_.dispose();
@@ -2270,15 +2085,15 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 12;</code>
+     * <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 11;</code>
      */
     public ai.monarchic.agent_protocol.v1.ObjectiveSpec.Builder getObjectiveSpecBuilder() {
-      bitField0_ |= 0x00000800;
+      bitField0_ |= 0x00000400;
       onChanged();
       return internalGetObjectiveSpecFieldBuilder().getBuilder();
     }
     /**
-     * <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 12;</code>
+     * <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 11;</code>
      */
     public ai.monarchic.agent_protocol.v1.ObjectiveSpecOrBuilder getObjectiveSpecOrBuilder() {
       if (objectiveSpecBuilder_ != null) {
@@ -2289,7 +2104,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 12;</code>
+     * <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 11;</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         ai.monarchic.agent_protocol.v1.ObjectiveSpec, ai.monarchic.agent_protocol.v1.ObjectiveSpec.Builder, ai.monarchic.agent_protocol.v1.ObjectiveSpecOrBuilder> 
