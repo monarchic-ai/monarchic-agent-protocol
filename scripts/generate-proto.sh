@@ -34,7 +34,7 @@ protoc -I "${proto_dir}" \
   --dart_out=src/dart/lib \
   "${proto_file}"
 
-bash ./scripts/generate-json-schema.sh "${proto_file}"
+bash ./scripts/generate-json-schema.sh
 
 echo "Generated: python, go, java, csharp, ruby, php, dart, json-schema"
 echo "Outputs in: src/python, src/go, src/java, src/csharp, src/ruby, src/php, src/dart/lib, schemas/v1"

@@ -38,6 +38,10 @@ class GateResult extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.google.protobuf.Struct extensions = 6;</code>
      */
     protected $extensions = null;
+    /**
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.FailureClass failure_class = 7;</code>
+     */
+    protected $failure_class = null;
 
     /**
      * Constructor.
@@ -51,6 +55,7 @@ class GateResult extends \Google\Protobuf\Internal\Message
      *     @type string $reason
      *     @type \Google\Protobuf\Struct $evidence
      *     @type \Google\Protobuf\Struct $extensions
+     *     @type \Monarchic\AgentProtocol\V1\FailureClass $failure_class
      * }
      */
     public function __construct($data = NULL) {
@@ -216,6 +221,38 @@ class GateResult extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->extensions = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.FailureClass failure_class = 7;</code>
+     * @return \Monarchic\AgentProtocol\V1\FailureClass|null
+     */
+    public function getFailureClass()
+    {
+        return $this->failure_class;
+    }
+
+    public function hasFailureClass()
+    {
+        return isset($this->failure_class);
+    }
+
+    public function clearFailureClass()
+    {
+        unset($this->failure_class);
+    }
+
+    /**
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.FailureClass failure_class = 7;</code>
+     * @param \Monarchic\AgentProtocol\V1\FailureClass $var
+     * @return $this
+     */
+    public function setFailureClass($var)
+    {
+        GPBUtil::checkMessage($var, \Monarchic\AgentProtocol\V1\FailureClass::class);
+        $this->failure_class = $var;
 
         return $this;
     }
