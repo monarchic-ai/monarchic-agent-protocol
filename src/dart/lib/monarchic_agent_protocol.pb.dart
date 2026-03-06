@@ -444,175 +444,6 @@ class ExperimentSpec extends $pb.GeneratedMessage {
   $0.Struct ensureExtensions() => $_ensure(8);
 }
 
-class DeliveryContract extends $pb.GeneratedMessage {
-  factory DeliveryContract({
-    $core.String? objective,
-    $core.Iterable<$core.String>? definitionOfDone,
-    $core.Iterable<$core.String>? requiredChecks,
-    $core.String? riskTier,
-    $core.int? maxCycleMinutes,
-    $core.int? maxAgentTurns,
-    $core.String? prStrategy,
-    $core.String? reviewPolicy,
-    $core.String? rollbackStrategy,
-    $core.String? notes,
-    $0.Struct? extensions,
-  }) {
-    final result = create();
-    if (objective != null) result.objective = objective;
-    if (definitionOfDone != null)
-      result.definitionOfDone.addAll(definitionOfDone);
-    if (requiredChecks != null) result.requiredChecks.addAll(requiredChecks);
-    if (riskTier != null) result.riskTier = riskTier;
-    if (maxCycleMinutes != null) result.maxCycleMinutes = maxCycleMinutes;
-    if (maxAgentTurns != null) result.maxAgentTurns = maxAgentTurns;
-    if (prStrategy != null) result.prStrategy = prStrategy;
-    if (reviewPolicy != null) result.reviewPolicy = reviewPolicy;
-    if (rollbackStrategy != null) result.rollbackStrategy = rollbackStrategy;
-    if (notes != null) result.notes = notes;
-    if (extensions != null) result.extensions = extensions;
-    return result;
-  }
-
-  DeliveryContract._();
-
-  factory DeliveryContract.fromBuffer($core.List<$core.int> data,
-          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
-  factory DeliveryContract.fromJson($core.String json,
-          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'DeliveryContract',
-      package: const $pb.PackageName(
-          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
-      createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'objective')
-    ..pPS(2, _omitFieldNames ? '' : 'definitionOfDone')
-    ..pPS(3, _omitFieldNames ? '' : 'requiredChecks')
-    ..aOS(4, _omitFieldNames ? '' : 'riskTier')
-    ..aI(5, _omitFieldNames ? '' : 'maxCycleMinutes',
-        fieldType: $pb.PbFieldType.OU3)
-    ..aI(6, _omitFieldNames ? '' : 'maxAgentTurns',
-        fieldType: $pb.PbFieldType.OU3)
-    ..aOS(7, _omitFieldNames ? '' : 'prStrategy')
-    ..aOS(8, _omitFieldNames ? '' : 'reviewPolicy')
-    ..aOS(9, _omitFieldNames ? '' : 'rollbackStrategy')
-    ..aOS(10, _omitFieldNames ? '' : 'notes')
-    ..aOM<$0.Struct>(11, _omitFieldNames ? '' : 'extensions',
-        subBuilder: $0.Struct.create)
-    ..hasRequiredFields = false;
-
-  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DeliveryContract clone() => deepCopy();
-  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DeliveryContract copyWith(void Function(DeliveryContract) updates) =>
-      super.copyWith((message) => updates(message as DeliveryContract))
-          as DeliveryContract;
-
-  @$core.override
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static DeliveryContract create() => DeliveryContract._();
-  @$core.override
-  DeliveryContract createEmptyInstance() => create();
-  @$core.pragma('dart2js:noInline')
-  static DeliveryContract getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<DeliveryContract>(create);
-  static DeliveryContract? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.String get objective => $_getSZ(0);
-  @$pb.TagNumber(1)
-  set objective($core.String value) => $_setString(0, value);
-  @$pb.TagNumber(1)
-  $core.bool hasObjective() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearObjective() => $_clearField(1);
-
-  @$pb.TagNumber(2)
-  $pb.PbList<$core.String> get definitionOfDone => $_getList(1);
-
-  @$pb.TagNumber(3)
-  $pb.PbList<$core.String> get requiredChecks => $_getList(2);
-
-  @$pb.TagNumber(4)
-  $core.String get riskTier => $_getSZ(3);
-  @$pb.TagNumber(4)
-  set riskTier($core.String value) => $_setString(3, value);
-  @$pb.TagNumber(4)
-  $core.bool hasRiskTier() => $_has(3);
-  @$pb.TagNumber(4)
-  void clearRiskTier() => $_clearField(4);
-
-  @$pb.TagNumber(5)
-  $core.int get maxCycleMinutes => $_getIZ(4);
-  @$pb.TagNumber(5)
-  set maxCycleMinutes($core.int value) => $_setUnsignedInt32(4, value);
-  @$pb.TagNumber(5)
-  $core.bool hasMaxCycleMinutes() => $_has(4);
-  @$pb.TagNumber(5)
-  void clearMaxCycleMinutes() => $_clearField(5);
-
-  @$pb.TagNumber(6)
-  $core.int get maxAgentTurns => $_getIZ(5);
-  @$pb.TagNumber(6)
-  set maxAgentTurns($core.int value) => $_setUnsignedInt32(5, value);
-  @$pb.TagNumber(6)
-  $core.bool hasMaxAgentTurns() => $_has(5);
-  @$pb.TagNumber(6)
-  void clearMaxAgentTurns() => $_clearField(6);
-
-  @$pb.TagNumber(7)
-  $core.String get prStrategy => $_getSZ(6);
-  @$pb.TagNumber(7)
-  set prStrategy($core.String value) => $_setString(6, value);
-  @$pb.TagNumber(7)
-  $core.bool hasPrStrategy() => $_has(6);
-  @$pb.TagNumber(7)
-  void clearPrStrategy() => $_clearField(7);
-
-  @$pb.TagNumber(8)
-  $core.String get reviewPolicy => $_getSZ(7);
-  @$pb.TagNumber(8)
-  set reviewPolicy($core.String value) => $_setString(7, value);
-  @$pb.TagNumber(8)
-  $core.bool hasReviewPolicy() => $_has(7);
-  @$pb.TagNumber(8)
-  void clearReviewPolicy() => $_clearField(8);
-
-  @$pb.TagNumber(9)
-  $core.String get rollbackStrategy => $_getSZ(8);
-  @$pb.TagNumber(9)
-  set rollbackStrategy($core.String value) => $_setString(8, value);
-  @$pb.TagNumber(9)
-  $core.bool hasRollbackStrategy() => $_has(8);
-  @$pb.TagNumber(9)
-  void clearRollbackStrategy() => $_clearField(9);
-
-  @$pb.TagNumber(10)
-  $core.String get notes => $_getSZ(9);
-  @$pb.TagNumber(10)
-  set notes($core.String value) => $_setString(9, value);
-  @$pb.TagNumber(10)
-  $core.bool hasNotes() => $_has(9);
-  @$pb.TagNumber(10)
-  void clearNotes() => $_clearField(10);
-
-  @$pb.TagNumber(11)
-  $0.Struct get extensions => $_getN(10);
-  @$pb.TagNumber(11)
-  set extensions($0.Struct value) => $_setField(11, value);
-  @$pb.TagNumber(11)
-  $core.bool hasExtensions() => $_has(10);
-  @$pb.TagNumber(11)
-  void clearExtensions() => $_clearField(11);
-  @$pb.TagNumber(11)
-  $0.Struct ensureExtensions() => $_ensure(10);
-}
-
 class ObjectiveSpec extends $pb.GeneratedMessage {
   factory ObjectiveSpec({
     $core.String? metricKey,
@@ -932,6 +763,148 @@ class EvalResult extends $pb.GeneratedMessage {
   $0.Struct ensureExtensions() => $_ensure(8);
 }
 
+class FailureClass extends $pb.GeneratedMessage {
+  factory FailureClass({
+    $core.String? category,
+    $core.String? code,
+    $core.bool? retryable,
+    $core.String? detail,
+    $core.String? scope,
+    $core.String? source,
+    $core.String? nextAction,
+    $0.Struct? extensions,
+  }) {
+    final result = create();
+    if (category != null) result.category = category;
+    if (code != null) result.code = code;
+    if (retryable != null) result.retryable = retryable;
+    if (detail != null) result.detail = detail;
+    if (scope != null) result.scope = scope;
+    if (source != null) result.source = source;
+    if (nextAction != null) result.nextAction = nextAction;
+    if (extensions != null) result.extensions = extensions;
+    return result;
+  }
+
+  FailureClass._();
+
+  factory FailureClass.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory FailureClass.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'FailureClass',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'category')
+    ..aOS(2, _omitFieldNames ? '' : 'code')
+    ..aOB(3, _omitFieldNames ? '' : 'retryable')
+    ..aOS(4, _omitFieldNames ? '' : 'detail')
+    ..aOS(5, _omitFieldNames ? '' : 'scope')
+    ..aOS(6, _omitFieldNames ? '' : 'source')
+    ..aOS(7, _omitFieldNames ? '' : 'nextAction')
+    ..aOM<$0.Struct>(8, _omitFieldNames ? '' : 'extensions',
+        subBuilder: $0.Struct.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  FailureClass clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  FailureClass copyWith(void Function(FailureClass) updates) =>
+      super.copyWith((message) => updates(message as FailureClass))
+          as FailureClass;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static FailureClass create() => FailureClass._();
+  @$core.override
+  FailureClass createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static FailureClass getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<FailureClass>(create);
+  static FailureClass? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get category => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set category($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasCategory() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCategory() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get code => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set code($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasCode() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearCode() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.bool get retryable => $_getBF(2);
+  @$pb.TagNumber(3)
+  set retryable($core.bool value) => $_setBool(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasRetryable() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearRetryable() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get detail => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set detail($core.String value) => $_setString(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasDetail() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearDetail() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get scope => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set scope($core.String value) => $_setString(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasScope() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearScope() => $_clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get source => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set source($core.String value) => $_setString(5, value);
+  @$pb.TagNumber(6)
+  $core.bool hasSource() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearSource() => $_clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.String get nextAction => $_getSZ(6);
+  @$pb.TagNumber(7)
+  set nextAction($core.String value) => $_setString(6, value);
+  @$pb.TagNumber(7)
+  $core.bool hasNextAction() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearNextAction() => $_clearField(7);
+
+  @$pb.TagNumber(8)
+  $0.Struct get extensions => $_getN(7);
+  @$pb.TagNumber(8)
+  set extensions($0.Struct value) => $_setField(8, value);
+  @$pb.TagNumber(8)
+  $core.bool hasExtensions() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearExtensions() => $_clearField(8);
+  @$pb.TagNumber(8)
+  $0.Struct ensureExtensions() => $_ensure(7);
+}
+
 class Provenance extends $pb.GeneratedMessage {
   factory Provenance({
     $core.String? promptSha256,
@@ -1146,7 +1119,6 @@ class Task extends $pb.GeneratedMessage {
     RunContext? runContext,
     $0.Struct? extensions,
     ExperimentSpec? experimentSpec,
-    DeliveryContract? deliveryContract,
     ObjectiveSpec? objectiveSpec,
   }) {
     final result = create();
@@ -1160,7 +1132,6 @@ class Task extends $pb.GeneratedMessage {
     if (runContext != null) result.runContext = runContext;
     if (extensions != null) result.extensions = extensions;
     if (experimentSpec != null) result.experimentSpec = experimentSpec;
-    if (deliveryContract != null) result.deliveryContract = deliveryContract;
     if (objectiveSpec != null) result.objectiveSpec = objectiveSpec;
     return result;
   }
@@ -1195,9 +1166,7 @@ class Task extends $pb.GeneratedMessage {
         subBuilder: $0.Struct.create)
     ..aOM<ExperimentSpec>(10, _omitFieldNames ? '' : 'experimentSpec',
         subBuilder: ExperimentSpec.create)
-    ..aOM<DeliveryContract>(11, _omitFieldNames ? '' : 'deliveryContract',
-        subBuilder: DeliveryContract.create)
-    ..aOM<ObjectiveSpec>(12, _omitFieldNames ? '' : 'objectiveSpec',
+    ..aOM<ObjectiveSpec>(11, _omitFieldNames ? '' : 'objectiveSpec',
         subBuilder: ObjectiveSpec.create)
     ..hasRequiredFields = false;
 
@@ -1314,26 +1283,15 @@ class Task extends $pb.GeneratedMessage {
   ExperimentSpec ensureExperimentSpec() => $_ensure(9);
 
   @$pb.TagNumber(11)
-  DeliveryContract get deliveryContract => $_getN(10);
+  ObjectiveSpec get objectiveSpec => $_getN(10);
   @$pb.TagNumber(11)
-  set deliveryContract(DeliveryContract value) => $_setField(11, value);
+  set objectiveSpec(ObjectiveSpec value) => $_setField(11, value);
   @$pb.TagNumber(11)
-  $core.bool hasDeliveryContract() => $_has(10);
+  $core.bool hasObjectiveSpec() => $_has(10);
   @$pb.TagNumber(11)
-  void clearDeliveryContract() => $_clearField(11);
+  void clearObjectiveSpec() => $_clearField(11);
   @$pb.TagNumber(11)
-  DeliveryContract ensureDeliveryContract() => $_ensure(10);
-
-  @$pb.TagNumber(12)
-  ObjectiveSpec get objectiveSpec => $_getN(11);
-  @$pb.TagNumber(12)
-  set objectiveSpec(ObjectiveSpec value) => $_setField(12, value);
-  @$pb.TagNumber(12)
-  $core.bool hasObjectiveSpec() => $_has(11);
-  @$pb.TagNumber(12)
-  void clearObjectiveSpec() => $_clearField(12);
-  @$pb.TagNumber(12)
-  ObjectiveSpec ensureObjectiveSpec() => $_ensure(11);
+  ObjectiveSpec ensureObjectiveSpec() => $_ensure(10);
 }
 
 class Artifact extends $pb.GeneratedMessage {
@@ -1520,6 +1478,7 @@ class Event extends $pb.GeneratedMessage {
     $0.Struct? extensions,
     Provenance? provenance,
     $core.Iterable<EvalResult>? evalResults,
+    FailureClass? failureClass,
   }) {
     final result = create();
     if (version != null) result.version = version;
@@ -1531,6 +1490,7 @@ class Event extends $pb.GeneratedMessage {
     if (extensions != null) result.extensions = extensions;
     if (provenance != null) result.provenance = provenance;
     if (evalResults != null) result.evalResults.addAll(evalResults);
+    if (failureClass != null) result.failureClass = failureClass;
     return result;
   }
 
@@ -1560,6 +1520,8 @@ class Event extends $pb.GeneratedMessage {
         subBuilder: Provenance.create)
     ..pPM<EvalResult>(9, _omitFieldNames ? '' : 'evalResults',
         subBuilder: EvalResult.create)
+    ..aOM<FailureClass>(10, _omitFieldNames ? '' : 'failureClass',
+        subBuilder: FailureClass.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -1658,6 +1620,17 @@ class Event extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(9)
   $pb.PbList<EvalResult> get evalResults => $_getList(8);
+
+  @$pb.TagNumber(10)
+  FailureClass get failureClass => $_getN(9);
+  @$pb.TagNumber(10)
+  set failureClass(FailureClass value) => $_setField(10, value);
+  @$pb.TagNumber(10)
+  $core.bool hasFailureClass() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearFailureClass() => $_clearField(10);
+  @$pb.TagNumber(10)
+  FailureClass ensureFailureClass() => $_ensure(9);
 }
 
 class GateResult extends $pb.GeneratedMessage {
@@ -1668,6 +1641,7 @@ class GateResult extends $pb.GeneratedMessage {
     $core.String? reason,
     $0.Struct? evidence,
     $0.Struct? extensions,
+    FailureClass? failureClass,
   }) {
     final result = create();
     if (version != null) result.version = version;
@@ -1676,6 +1650,7 @@ class GateResult extends $pb.GeneratedMessage {
     if (reason != null) result.reason = reason;
     if (evidence != null) result.evidence = evidence;
     if (extensions != null) result.extensions = extensions;
+    if (failureClass != null) result.failureClass = failureClass;
     return result;
   }
 
@@ -1701,6 +1676,8 @@ class GateResult extends $pb.GeneratedMessage {
         subBuilder: $0.Struct.create)
     ..aOM<$0.Struct>(6, _omitFieldNames ? '' : 'extensions',
         subBuilder: $0.Struct.create)
+    ..aOM<FailureClass>(7, _omitFieldNames ? '' : 'failureClass',
+        subBuilder: FailureClass.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -1778,6 +1755,17 @@ class GateResult extends $pb.GeneratedMessage {
   void clearExtensions() => $_clearField(6);
   @$pb.TagNumber(6)
   $0.Struct ensureExtensions() => $_ensure(5);
+
+  @$pb.TagNumber(7)
+  FailureClass get failureClass => $_getN(6);
+  @$pb.TagNumber(7)
+  set failureClass(FailureClass value) => $_setField(7, value);
+  @$pb.TagNumber(7)
+  $core.bool hasFailureClass() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearFailureClass() => $_clearField(7);
+  @$pb.TagNumber(7)
+  FailureClass ensureFailureClass() => $_ensure(6);
 }
 
 class RunOutcome extends $pb.GeneratedMessage {

@@ -50,6 +50,10 @@ class Event extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>repeated .monarchic.agent_protocol.v1.EvalResult eval_results = 9;</code>
      */
     private $eval_results;
+    /**
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.FailureClass failure_class = 10;</code>
+     */
+    protected $failure_class = null;
 
     /**
      * Constructor.
@@ -66,6 +70,7 @@ class Event extends \Google\Protobuf\Internal\Message
      *     @type \Google\Protobuf\Struct $extensions
      *     @type \Monarchic\AgentProtocol\V1\Provenance $provenance
      *     @type \Monarchic\AgentProtocol\V1\EvalResult[] $eval_results
+     *     @type \Monarchic\AgentProtocol\V1\FailureClass $failure_class
      * }
      */
     public function __construct($data = NULL) {
@@ -297,6 +302,38 @@ class Event extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Monarchic\AgentProtocol\V1\EvalResult::class);
         $this->eval_results = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.FailureClass failure_class = 10;</code>
+     * @return \Monarchic\AgentProtocol\V1\FailureClass|null
+     */
+    public function getFailureClass()
+    {
+        return $this->failure_class;
+    }
+
+    public function hasFailureClass()
+    {
+        return isset($this->failure_class);
+    }
+
+    public function clearFailureClass()
+    {
+        unset($this->failure_class);
+    }
+
+    /**
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.FailureClass failure_class = 10;</code>
+     * @param \Monarchic\AgentProtocol\V1\FailureClass $var
+     * @return $this
+     */
+    public function setFailureClass($var)
+    {
+        GPBUtil::checkMessage($var, \Monarchic\AgentProtocol\V1\FailureClass::class);
+        $this->failure_class = $var;
 
         return $this;
     }

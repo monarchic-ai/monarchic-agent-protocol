@@ -24,6 +24,14 @@ enum AgentRole {
   OPS = 7;
 }
 
+enum OutcomeDecision {
+  OUTCOME_DECISION_UNSPECIFIED = 0;
+  ACCEPT = 1;
+  ITERATE = 2;
+  REJECT = 3;
+  ESCALATE = 4;
+}
+
 message DatasetRef {
   string dataset_id = 1;
   optional string uri = 2;

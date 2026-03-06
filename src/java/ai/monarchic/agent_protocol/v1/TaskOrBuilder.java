@@ -158,32 +158,17 @@ public interface TaskOrBuilder extends
   ai.monarchic.agent_protocol.v1.ExperimentSpecOrBuilder getExperimentSpecOrBuilder();
 
   /**
-   * <code>.monarchic.agent_protocol.v1.DeliveryContract delivery_contract = 11;</code>
-   * @return Whether the deliveryContract field is set.
-   */
-  boolean hasDeliveryContract();
-  /**
-   * <code>.monarchic.agent_protocol.v1.DeliveryContract delivery_contract = 11;</code>
-   * @return The deliveryContract.
-   */
-  ai.monarchic.agent_protocol.v1.DeliveryContract getDeliveryContract();
-  /**
-   * <code>.monarchic.agent_protocol.v1.DeliveryContract delivery_contract = 11;</code>
-   */
-  ai.monarchic.agent_protocol.v1.DeliveryContractOrBuilder getDeliveryContractOrBuilder();
-
-  /**
-   * <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 12;</code>
+   * <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 11;</code>
    * @return Whether the objectiveSpec field is set.
    */
   boolean hasObjectiveSpec();
   /**
-   * <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 12;</code>
+   * <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 11;</code>
    * @return The objectiveSpec.
    */
   ai.monarchic.agent_protocol.v1.ObjectiveSpec getObjectiveSpec();
   /**
-   * <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 12;</code>
+   * <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 11;</code>
    */
   ai.monarchic.agent_protocol.v1.ObjectiveSpecOrBuilder getObjectiveSpecOrBuilder();
 }
