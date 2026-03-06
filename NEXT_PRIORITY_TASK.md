@@ -1,6 +1,6 @@
 # Next Priority Task
 
-- generated_at: 2026-03-06T07:01:12.843236+00:00
+- generated_at: 2026-03-06T14:24:13.712765+00:00
 - run_id: autoloop-project-manager-refresh
 - batch: auto-priority-refresh
 - source: project_manager_eval
@@ -10,11 +10,10 @@
 - thinking_complexity: high
 
 ## Prompt
-Investigate and advance issue #1 from monarchic-ai/monarchic-agent-protocol: feat: support non-protobuf supported languages. Current focus: Current focus is keeping the broader default command-log gate smoke coverage synchronized with the dedicated first-command regression and the recorded SELF_HOST_COMMAND_LOG verification order.. Issue URL: https://github.com/monarchic-ai/monarchic-agent-protocol/issues/1. Milestone target: M43.
+Investigate and advance issue #1 from monarchic-ai/monarchic-agent-protocol: feat: support non-protobuf supported languages. Current focus: Current focus is keeping scripts/self-host-artifact-test-lib.sh as the single source of truth for self-host artifact smoke setup so shell-based non-protobuf verification remains stable even when SELF_HOST_REPORT.json file lists change.. Issue URL: https://github.com/monarchic-ai/monarchic-agent-protocol/issues/1.
 
 ## Acceptance
-- Advance milestone M43 with deterministic verification evidence.
-- Maintain verification continuity (first expected check: bash scripts/test-self-host-proof-artifacts.sh).
 - Deliver observable progress for issue #1: feat: support non-protobuf supported languages.
+- Maintain verification continuity (first expected check: bash scripts/test-self-host-proof-artifacts.sh).
 - Address at least one explicit requirement or constraint from issue #1 body context and document the implemented outcome.
 - Run deterministic repository verification and keep SELF_HOST_REPORT.json/SELF_HOST_UPDATE.json synchronized.
