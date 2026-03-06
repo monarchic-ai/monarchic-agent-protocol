@@ -1,0 +1,46 @@
+{
+  "$id": "https://monarchic.ai/schema/v1/failure_class.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FailureClass",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["category", "code", "retryable"],
+  "properties": {
+    "category": {
+      "type": "string",
+      "enum": [
+        "validation",
+        "dependency",
+        "environment",
+        "timeout",
+        "conflict",
+        "permission",
+        "resource",
+        "internal",
+        "unknown"
+      ]
+    },
+    "code": {
+      "type": "string",
+      "minLength": 1
+    },
+    "retryable": {
+      "type": "boolean"
+    },
+    "detail": {
+      "type": "string"
+    },
+    "scope": {
+      "type": "string",
+      "enum": ["task", "artifact", "gate", "runner", "orchestrator", "unknown"]
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1
+    },
+    "next_action": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

@@ -1,0 +1,236 @@
+{
+  "version": "v1",
+  "scope": "local",
+  "artifact_count": 57,
+  "combined_sha256": "7882470822a649b1929693f68d47db5c049e728ca52d374fabc9e7611306be88",
+  "artifacts": [
+    {
+      "path": "Cargo.lock",
+      "sha256": "cc752f4d3ceb4f6021f7b195f6364bf00f801d81e0cd65b3cf185deb11d0c5d5"
+    },
+    {
+      "path": "Cargo.toml",
+      "sha256": "3e36797c9a7bd7299e592ba8937a700f3b2f1bba3a74b4b376de4deee2a4a90e"
+    },
+    {
+      "path": "Monarchic.AgentProtocol.csproj",
+      "sha256": "2f9f349e45b546c1e24ba0c249fb2cc46820c0c0c68ff4b22c57665776d921cf"
+    },
+    {
+      "path": "build.gradle.kts",
+      "sha256": "fa6d95489b89d66ac7d43e82a5e9cb39415266da2e1b1158d57c7ccc381b5300"
+    },
+    {
+      "path": "composer.json",
+      "sha256": "f8f81a35f86a9924b97fb03bbc4047b82013dcec17ebe2372c28063d851cf298"
+    },
+    {
+      "path": "monarchic-agent-protocol.gemspec",
+      "sha256": "eaf276abae8387f4045e904c4ec6e10bf46a3811a0174634104500ca3466253b"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "a3f5e7a0cc4616f9e1abe8b86221e0cf11effc730fba8ceb0a58a859bcdd1a4d"
+    },
+    {
+      "path": "package.json",
+      "sha256": "dd411911c35ef0b4d32e26cffb2d07bdc93aa76102e2e1dceabc3b294c96c70e"
+    },
+    {
+      "path": "pubspec.yaml",
+      "sha256": "ac54d3ebdddd6a2c5e8562380420c64521e6fbe70dcea0b17d33df7f5a853609"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "458c4c26430b0adde676a38254b422eec4bd39aa0601196231755e08ef06a3e4"
+    },
+    {
+      "path": "schemas/v1/agent_role.json",
+      "sha256": "737ed681e3f1457dfbbb7f5966e506fd06ab704df7d7fec1ccd8b981e83ffbb9"
+    },
+    {
+      "path": "schemas/v1/artifact.json",
+      "sha256": "4c3c1c124226cfb01cdc3dfb17024160bf1cb4828a41a2af18ddf0a8c8dd6916"
+    },
+    {
+      "path": "schemas/v1/dataset_ref.json",
+      "sha256": "c9fa081b829499712c0cf436892101efd5a9f9fbdce7784242dd7c5167385382"
+    },
+    {
+      "path": "schemas/v1/eval_result.json",
+      "sha256": "071c44048bce00c9465e62dc7113d8d01c55c89469ef04553e5cb5f268485040"
+    },
+    {
+      "path": "schemas/v1/event.json",
+      "sha256": "0ca7be5e166e981279c1bc93e3d638759ea11b4e1204bbb41229cc5e0388e388"
+    },
+    {
+      "path": "schemas/v1/experiment_spec.json",
+      "sha256": "9a2dc374d3070d3b2f45643c2fabe419e4fd2b50e033b0c9f4b33ea2c2b42c60"
+    },
+    {
+      "path": "schemas/v1/failure_class.json",
+      "sha256": "11d13b318ceb6cfb943fb7f9c00686368befd327b47c83ccad754514bf902d5e"
+    },
+    {
+      "path": "schemas/v1/gate_result.json",
+      "sha256": "3bcd7fef91bf7e1f8c741b66c8ad6f4d126a207b11cc5e65c1806a106f397efe"
+    },
+    {
+      "path": "schemas/v1/monarchic_agent_protocol.proto",
+      "sha256": "b5dd7cb8ce5a797cf37b1f34e56965dd58cb4f40d7cfd0f63e5c664e869e1f10"
+    },
+    {
+      "path": "schemas/v1/objective_spec.json",
+      "sha256": "bd507ea405d64d7335a5e7854d703590eb36973e5e2dcc8dcb9b22ae58a12a1c"
+    },
+    {
+      "path": "schemas/v1/provenance.json",
+      "sha256": "b13a102c70629829746ddf7ade43330ac516d9810508cb84a6382e33977633b0"
+    },
+    {
+      "path": "schemas/v1/run_context.json",
+      "sha256": "057f2db5051c149ba6afcc24404f7831f5209d7a933166cfd89ced105c2f3876"
+    },
+    {
+      "path": "schemas/v1/schema.json",
+      "sha256": "587b0fb651c2e084648bb4589a65b07cf5dd997c79d3c0a060856f5dd76ec7ba"
+    },
+    {
+      "path": "schemas/v1/task.json",
+      "sha256": "161e5b4d77feb262c870435576cbb59e0858be118c758149e998ac74f987df83"
+    },
+    {
+      "path": "setup.cfg",
+      "sha256": "ad271266c4520430c4851b136133aa85143ce6cafb59e9dafeaf17a3f7ffe53b"
+    },
+    {
+      "path": "src/csharp/MonarchicAgentProtocol.cs",
+      "sha256": "c08cb177f877db8155a2b2bce5638529229f405f1f25f3ec81d59cb05628f2a0"
+    },
+    {
+      "path": "src/dart/lib/monarchic_agent_protocol.dart",
+      "sha256": "b3e5afdb0bdcafa7a99bd1f0e7ab952a188922e5b8de07b5ed705d7cbf646d55"
+    },
+    {
+      "path": "src/dart/lib/monarchic_agent_protocol.pb.dart",
+      "sha256": "1eaf83edde61404bddd35008aa1a2b0305c76164fb4083bac4319a3d69aa0b82"
+    },
+    {
+      "path": "src/dart/lib/monarchic_agent_protocol.pbenum.dart",
+      "sha256": "f2b7bf5707c730449750177267d477575155ae9e929f59730a058deaffee84ce"
+    },
+    {
+      "path": "src/dart/lib/monarchic_agent_protocol.pbjson.dart",
+      "sha256": "1507924e1b19ea20288232dfdc7ff7a0f4b3af0c7e638cd3ebecf211d53d8099"
+    },
+    {
+      "path": "src/go/github.com/monarchic-ai/monarchic-agent-protocol/src/go/monarchic/agent_protocol/v1/monarchic_agent_protocol.pb.go",
+      "sha256": "e35ef4d34f05c93ab676d37cf13ec70c31c641886a31a502fbc9a6489a80b146"
+    },
+    {
+      "path": "src/go/monarchic/agent_protocol/v1/monarchic_agent_protocol.pb.go",
+      "sha256": "cc5cf6c36669aea561ec6af8ceda3d83561cbac3b5527327b4103a39eccac586"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/AgentRole.java",
+      "sha256": "a647db9162ebc358c47cd397df9b9f89223737af83d60f5fe1ca753d85c18b61"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/Artifact.java",
+      "sha256": "f0fe2292bfa7cf36594f0305e638b173e5e99b029e6b95bf47f2f07d761650ce"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/ArtifactOrBuilder.java",
+      "sha256": "ad5e7e6f3746bed811145b40eb87f5f7cd1ebcccd9b6efdc92540e53f10c4a76"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/Event.java",
+      "sha256": "da8b4c26aa76c12c3587cb956d6ac5fb0b656a76b3f61be2d0c926e16d8249d6"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/EventOrBuilder.java",
+      "sha256": "05051407121626f34d212b34bed870f787f386de587c2b43a57cac7b845efc7c"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/GateResult.java",
+      "sha256": "6f1ece72fd49ea6fcb4716885a8919672dc4003c09b9c9e374c887ca2673a488"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/GateResultOrBuilder.java",
+      "sha256": "64a623f75f726f729db454d1ae9ba683e9d48b203a01b6305d1f170a1845fce1"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/MonarchicAgentProtocolV1.java",
+      "sha256": "8d4d9d5ebdf58982529747e42ded5a358ef88006c3c294b35e53a544af2d747c"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/RunContext.java",
+      "sha256": "3fdbb2177decf826601ec496993d8bd1de29bfdf40387038414f0b636a664824"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/RunContextOrBuilder.java",
+      "sha256": "9bccdface3631537a7e2ee5d691e69b4f40e04c0dfaab34b041b9c89d2e285d9"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/Task.java",
+      "sha256": "bef8f32238e75b9da3e68016cda597f54ff77f396c21c19558aa916659593209"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/TaskOrBuilder.java",
+      "sha256": "9e9d2c3da48753b52ddcf1dc069703913ddb9dd65b980b6fcfea6b5c77b926e6"
+    },
+    {
+      "path": "src/php/Monarchic/AgentProtocol/V1/AgentRole.php",
+      "sha256": "9b64f537017bf819cb9a5938e6d4473a70eed1bfc4402bf13db78a3e4e2d3a1f"
+    },
+    {
+      "path": "src/php/Monarchic/AgentProtocol/V1/Artifact.php",
+      "sha256": "aedbff106a5a6389ed6c2b69b99444d2dd12fb839db263198b86af7673424050"
+    },
+    {
+      "path": "src/php/Monarchic/AgentProtocol/V1/Event.php",
+      "sha256": "479b080adc85235d7a777c9798fa85c2bc608e3fa16d2c0e8d0e3014d76d2930"
+    },
+    {
+      "path": "src/php/Monarchic/AgentProtocol/V1/GateResult.php",
+      "sha256": "2bc9dcd700166c7f17b469d6c91db4e53e7cd12471e0704de6e6326d621051e4"
+    },
+    {
+      "path": "src/php/Monarchic/AgentProtocol/V1/Metadata/MonarchicAgentProtocol.php",
+      "sha256": "06b5bb18b9c893b95867f3416e2a1dbbe56b5e92fde059d2941861382db84d01"
+    },
+    {
+      "path": "src/php/Monarchic/AgentProtocol/V1/RunContext.php",
+      "sha256": "8429502b3a09db04a6f7e5c1a32828f6a06ef7963a8ec6945bd7435ae9257b89"
+    },
+    {
+      "path": "src/php/Monarchic/AgentProtocol/V1/Task.php",
+      "sha256": "620737419b29ffacae4aec029e186d9b5cb7cc032f0a5df9c2f03e651f615fdb"
+    },
+    {
+      "path": "src/python/monarchic_agent_protocol/__init__.py",
+      "sha256": "ce2e07e50a11175fc615b5d1e8c6200593cff57e7d8c1849a016711b05ab5dac"
+    },
+    {
+      "path": "src/python/monarchic_agent_protocol/monarchic_agent_protocol_pb2.py",
+      "sha256": "228dbfd36c1a392d595fa4aa3e1eed51863cc48793884029215762950831fc4a"
+    },
+    {
+      "path": "src/ruby/monarchic_agent_protocol.rb",
+      "sha256": "214bbb1054ecc18adab7b40bc4c16ce67c4c9d2331fe09a85ff56162afbd4281"
+    },
+    {
+      "path": "src/ruby/monarchic_agent_protocol_pb.rb",
+      "sha256": "5211bd772da7cd0e369d2211de3efd6e4b010a68a430af3c96a57252c3235833"
+    },
+    {
+      "path": "src/rust/lib.rs",
+      "sha256": "ce2140b78ae8ab3a0147f9be4b50e280300b625c2935fc0aaace714a2b86a9ae"
+    },
+    {
+      "path": "src/ts/index.ts",
+      "sha256": "3b6a15895c19a306a5d2385741bd11504ffcb4e5b9112a8401cfbbd5be18ca47"
+    }
+  ]
+}

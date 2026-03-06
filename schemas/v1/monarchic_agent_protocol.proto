@@ -24,14 +24,6 @@ enum AgentRole {
   OPS = 7;
 }
 
-enum OutcomeDecision {
-  OUTCOME_DECISION_UNSPECIFIED = 0;
-  ACCEPT = 1;
-  ITERATE = 2;
-  REJECT = 3;
-  ESCALATE = 4;
-}
-
 message DatasetRef {
   string dataset_id = 1;
   optional string uri = 2;
@@ -65,20 +57,6 @@ message ExperimentSpec {
   google.protobuf.Struct extensions = 9;
 }
 
-message DeliveryContract {
-  string objective = 1;
-  repeated string definition_of_done = 2;
-  repeated string required_checks = 3;
-  string risk_tier = 4;
-  optional uint32 max_cycle_minutes = 5;
-  optional uint32 max_agent_turns = 6;
-  optional string pr_strategy = 7;
-  optional string review_policy = 8;
-  optional string rollback_strategy = 9;
-  optional string notes = 10;
-  google.protobuf.Struct extensions = 11;
-}
-
 message ObjectiveSpec {
   string metric_key = 1;
   string direction = 2;
@@ -102,6 +80,17 @@ message EvalResult {
   bool passed = 7;
   optional string notes = 8;
   google.protobuf.Struct extensions = 9;
+}
+
+message FailureClass {
+  string category = 1;
+  string code = 2;
+  bool retryable = 3;
+  optional string detail = 4;
+  optional string scope = 5;
+  optional string source = 6;
+  optional string next_action = 7;
+  google.protobuf.Struct extensions = 8;
 }
 
 message Provenance {
@@ -132,8 +121,7 @@ message Task {
   RunContext run_context = 8;
   google.protobuf.Struct extensions = 9;
   ExperimentSpec experiment_spec = 10;
-  DeliveryContract delivery_contract = 11;
-  ObjectiveSpec objective_spec = 12;
+  ObjectiveSpec objective_spec = 11;
 }
 
 message Artifact {
@@ -160,6 +148,7 @@ message Event {
   google.protobuf.Struct extensions = 7;
   Provenance provenance = 8;
   repeated EvalResult eval_results = 9;
+  FailureClass failure_class = 10;
 }
 
 message GateResult {
@@ -169,6 +158,7 @@ message GateResult {
   optional string reason = 4;
   google.protobuf.Struct evidence = 5;
   google.protobuf.Struct extensions = 6;
+  FailureClass failure_class = 7;
 }
 
 message RunOutcome {
