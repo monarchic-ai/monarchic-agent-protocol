@@ -804,7 +804,7 @@ EOF
               })
             ];
             text = ''
-              exec ${./scripts/generate-proto.sh} "$@"
+              REPO_ROOT="$(pwd)" exec ${./scripts/generate-proto.sh} "$@"
             '';
           };
           generateJsonSchema = pkgs.writeShellApplication {
@@ -829,7 +829,7 @@ EOF
               })
             ];
             text = ''
-              exec ${builtins.path { path = ./scripts/generate-json-schema.sh; name = "generate-json-schema.sh"; }} "$@"
+              REPO_ROOT="$(pwd)" exec ${builtins.path { path = ./scripts/generate-json-schema.sh; name = "generate-json-schema.sh"; }} "$@"
             '';
           };
           updateVersion = pkgs.writeShellApplication {
@@ -871,7 +871,7 @@ EOF
               pkgs.python3
             ];
           text = ''
-            exec ${builtins.path { path = ./scripts/update-local-hashes.sh; name = "update-local-hashes.sh"; }} "$@"
+            REPO_ROOT="$(pwd)" exec ${builtins.path { path = ./scripts/update-local-hashes.sh; name = "update-local-hashes.sh"; }} "$@"
           '';
         };
           lintSchemas = pkgs.writeShellApplication {

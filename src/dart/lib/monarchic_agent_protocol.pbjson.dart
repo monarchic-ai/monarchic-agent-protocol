@@ -242,99 +242,6 @@ final $typed_data.Uint8List experimentSpecDescriptor = $convert.base64Decode(
     '9uc3RyYWludHMSNwoKZXh0ZW5zaW9ucxgJIAEoCzIXLmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3RS'
     'CmV4dGVuc2lvbnNCDQoLX2h5cG90aGVzaXNCDwoNX21vZGVsX2ZhbWlseQ==');
 
-@$core.Deprecated('Use deliveryContractDescriptor instead')
-const DeliveryContract$json = {
-  '1': 'DeliveryContract',
-  '2': [
-    {'1': 'objective', '3': 1, '4': 1, '5': 9, '10': 'objective'},
-    {
-      '1': 'definition_of_done',
-      '3': 2,
-      '4': 3,
-      '5': 9,
-      '10': 'definitionOfDone'
-    },
-    {'1': 'required_checks', '3': 3, '4': 3, '5': 9, '10': 'requiredChecks'},
-    {'1': 'risk_tier', '3': 4, '4': 1, '5': 9, '10': 'riskTier'},
-    {
-      '1': 'max_cycle_minutes',
-      '3': 5,
-      '4': 1,
-      '5': 13,
-      '9': 0,
-      '10': 'maxCycleMinutes',
-      '17': true
-    },
-    {
-      '1': 'max_agent_turns',
-      '3': 6,
-      '4': 1,
-      '5': 13,
-      '9': 1,
-      '10': 'maxAgentTurns',
-      '17': true
-    },
-    {
-      '1': 'pr_strategy',
-      '3': 7,
-      '4': 1,
-      '5': 9,
-      '9': 2,
-      '10': 'prStrategy',
-      '17': true
-    },
-    {
-      '1': 'review_policy',
-      '3': 8,
-      '4': 1,
-      '5': 9,
-      '9': 3,
-      '10': 'reviewPolicy',
-      '17': true
-    },
-    {
-      '1': 'rollback_strategy',
-      '3': 9,
-      '4': 1,
-      '5': 9,
-      '9': 4,
-      '10': 'rollbackStrategy',
-      '17': true
-    },
-    {'1': 'notes', '3': 10, '4': 1, '5': 9, '9': 5, '10': 'notes', '17': true},
-    {
-      '1': 'extensions',
-      '3': 11,
-      '4': 1,
-      '5': 11,
-      '6': '.google.protobuf.Struct',
-      '10': 'extensions'
-    },
-  ],
-  '8': [
-    {'1': '_max_cycle_minutes'},
-    {'1': '_max_agent_turns'},
-    {'1': '_pr_strategy'},
-    {'1': '_review_policy'},
-    {'1': '_rollback_strategy'},
-    {'1': '_notes'},
-  ],
-};
-
-/// Descriptor for `DeliveryContract`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List deliveryContractDescriptor = $convert.base64Decode(
-    'ChBEZWxpdmVyeUNvbnRyYWN0EhwKCW9iamVjdGl2ZRgBIAEoCVIJb2JqZWN0aXZlEiwKEmRlZm'
-    'luaXRpb25fb2ZfZG9uZRgCIAMoCVIQZGVmaW5pdGlvbk9mRG9uZRInCg9yZXF1aXJlZF9jaGVj'
-    'a3MYAyADKAlSDnJlcXVpcmVkQ2hlY2tzEhsKCXJpc2tfdGllchgEIAEoCVIIcmlza1RpZXISLw'
-    'oRbWF4X2N5Y2xlX21pbnV0ZXMYBSABKA1IAFIPbWF4Q3ljbGVNaW51dGVziAEBEisKD21heF9h'
-    'Z2VudF90dXJucxgGIAEoDUgBUg1tYXhBZ2VudFR1cm5ziAEBEiQKC3ByX3N0cmF0ZWd5GAcgAS'
-    'gJSAJSCnByU3RyYXRlZ3mIAQESKAoNcmV2aWV3X3BvbGljeRgIIAEoCUgDUgxyZXZpZXdQb2xp'
-    'Y3mIAQESMAoRcm9sbGJhY2tfc3RyYXRlZ3kYCSABKAlIBFIQcm9sbGJhY2tTdHJhdGVneYgBAR'
-    'IZCgVub3RlcxgKIAEoCUgFUgVub3Rlc4gBARI3CgpleHRlbnNpb25zGAsgASgLMhcuZ29vZ2xl'
-    'LnByb3RvYnVmLlN0cnVjdFIKZXh0ZW5zaW9uc0IUChJfbWF4X2N5Y2xlX21pbnV0ZXNCEgoQX2'
-    '1heF9hZ2VudF90dXJuc0IOCgxfcHJfc3RyYXRlZ3lCEAoOX3Jldmlld19wb2xpY3lCFAoSX3Jv'
-    'bGxiYWNrX3N0cmF0ZWd5QggKBl9ub3Rlcw==');
-
 @$core.Deprecated('Use objectiveSpecDescriptor instead')
 const ObjectiveSpec$json = {
   '1': 'ObjectiveSpec',
@@ -484,6 +391,51 @@ final $typed_data.Uint8List evalResultDescriptor = $convert.base64Decode(
     'pleHRlbnNpb25zQgsKCV9sb3dlcl9jaUILCglfdXBwZXJfY2lCCwoJX3ZhcmlhbmNlQgcKBV9z'
     'ZWVkQggKBl9ub3Rlcw==');
 
+@$core.Deprecated('Use failureClassDescriptor instead')
+const FailureClass$json = {
+  '1': 'FailureClass',
+  '2': [
+    {'1': 'category', '3': 1, '4': 1, '5': 9, '10': 'category'},
+    {'1': 'code', '3': 2, '4': 1, '5': 9, '10': 'code'},
+    {'1': 'retryable', '3': 3, '4': 1, '5': 8, '10': 'retryable'},
+    {'1': 'detail', '3': 4, '4': 1, '5': 9, '9': 0, '10': 'detail', '17': true},
+    {'1': 'scope', '3': 5, '4': 1, '5': 9, '9': 1, '10': 'scope', '17': true},
+    {'1': 'source', '3': 6, '4': 1, '5': 9, '9': 2, '10': 'source', '17': true},
+    {
+      '1': 'next_action',
+      '3': 7,
+      '4': 1,
+      '5': 9,
+      '9': 3,
+      '10': 'nextAction',
+      '17': true
+    },
+    {
+      '1': 'extensions',
+      '3': 8,
+      '4': 1,
+      '5': 11,
+      '6': '.google.protobuf.Struct',
+      '10': 'extensions'
+    },
+  ],
+  '8': [
+    {'1': '_detail'},
+    {'1': '_scope'},
+    {'1': '_source'},
+    {'1': '_next_action'},
+  ],
+};
+
+/// Descriptor for `FailureClass`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List failureClassDescriptor = $convert.base64Decode(
+    'CgxGYWlsdXJlQ2xhc3MSGgoIY2F0ZWdvcnkYASABKAlSCGNhdGVnb3J5EhIKBGNvZGUYAiABKA'
+    'lSBGNvZGUSHAoJcmV0cnlhYmxlGAMgASgIUglyZXRyeWFibGUSGwoGZGV0YWlsGAQgASgJSABS'
+    'BmRldGFpbIgBARIZCgVzY29wZRgFIAEoCUgBUgVzY29wZYgBARIbCgZzb3VyY2UYBiABKAlIAl'
+    'IGc291cmNliAEBEiQKC25leHRfYWN0aW9uGAcgASgJSANSCm5leHRBY3Rpb26IAQESNwoKZXh0'
+    'ZW5zaW9ucxgIIAEoCzIXLmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3RSCmV4dGVuc2lvbnNCCQoHX2'
+    'RldGFpbEIICgZfc2NvcGVCCQoHX3NvdXJjZUIOCgxfbmV4dF9hY3Rpb24=');
+
 @$core.Deprecated('Use provenanceDescriptor instead')
 const Provenance$json = {
   '1': 'Provenance',
@@ -631,16 +583,8 @@ const Task$json = {
       '10': 'experimentSpec'
     },
     {
-      '1': 'delivery_contract',
-      '3': 11,
-      '4': 1,
-      '5': 11,
-      '6': '.monarchic.agent_protocol.v1.DeliveryContract',
-      '10': 'deliveryContract'
-    },
-    {
       '1': 'objective_spec',
-      '3': 12,
+      '3': 11,
       '4': 1,
       '5': 11,
       '6': '.monarchic.agent_protocol.v1.ObjectiveSpec',
@@ -660,10 +604,8 @@ final $typed_data.Uint8List taskDescriptor = $convert.base64Decode(
     'djEuUnVuQ29udGV4dFIKcnVuQ29udGV4dBI3CgpleHRlbnNpb25zGAkgASgLMhcuZ29vZ2xlLn'
     'Byb3RvYnVmLlN0cnVjdFIKZXh0ZW5zaW9ucxJUCg9leHBlcmltZW50X3NwZWMYCiABKAsyKy5t'
     'b25hcmNoaWMuYWdlbnRfcHJvdG9jb2wudjEuRXhwZXJpbWVudFNwZWNSDmV4cGVyaW1lbnRTcG'
-    'VjEloKEWRlbGl2ZXJ5X2NvbnRyYWN0GAsgASgLMi0ubW9uYXJjaGljLmFnZW50X3Byb3RvY29s'
-    'LnYxLkRlbGl2ZXJ5Q29udHJhY3RSEGRlbGl2ZXJ5Q29udHJhY3QSUQoOb2JqZWN0aXZlX3NwZW'
-    'MYDCABKAsyKi5tb25hcmNoaWMuYWdlbnRfcHJvdG9jb2wudjEuT2JqZWN0aXZlU3BlY1INb2Jq'
-    'ZWN0aXZlU3BlYw==');
+    'VjElEKDm9iamVjdGl2ZV9zcGVjGAsgASgLMioubW9uYXJjaGljLmFnZW50X3Byb3RvY29sLnYx'
+    'Lk9iamVjdGl2ZVNwZWNSDW9iamVjdGl2ZVNwZWM=');
 
 @$core.Deprecated('Use artifactDescriptor instead')
 const Artifact$json = {
@@ -773,6 +715,14 @@ const Event$json = {
       '6': '.monarchic.agent_protocol.v1.EvalResult',
       '10': 'evalResults'
     },
+    {
+      '1': 'failure_class',
+      '3': 10,
+      '4': 1,
+      '5': 11,
+      '6': '.monarchic.agent_protocol.v1.FailureClass',
+      '10': 'failureClass'
+    },
   ],
   '8': [
     {'1': '_message'},
@@ -787,8 +737,9 @@ final $typed_data.Uint8List eventDescriptor = $convert.base64Decode(
     'NzYWdliAEBEjcKCmV4dGVuc2lvbnMYByABKAsyFy5nb29nbGUucHJvdG9idWYuU3RydWN0Ugpl'
     'eHRlbnNpb25zEkcKCnByb3ZlbmFuY2UYCCABKAsyJy5tb25hcmNoaWMuYWdlbnRfcHJvdG9jb2'
     'wudjEuUHJvdmVuYW5jZVIKcHJvdmVuYW5jZRJKCgxldmFsX3Jlc3VsdHMYCSADKAsyJy5tb25h'
-    'cmNoaWMuYWdlbnRfcHJvdG9jb2wudjEuRXZhbFJlc3VsdFILZXZhbFJlc3VsdHNCCgoIX21lc3'
-    'NhZ2U=');
+    'cmNoaWMuYWdlbnRfcHJvdG9jb2wudjEuRXZhbFJlc3VsdFILZXZhbFJlc3VsdHMSTgoNZmFpbH'
+    'VyZV9jbGFzcxgKIAEoCzIpLm1vbmFyY2hpYy5hZ2VudF9wcm90b2NvbC52MS5GYWlsdXJlQ2xh'
+    'c3NSDGZhaWx1cmVDbGFzc0IKCghfbWVzc2FnZQ==');
 
 @$core.Deprecated('Use gateResultDescriptor instead')
 const GateResult$json = {
@@ -814,6 +765,14 @@ const GateResult$json = {
       '6': '.google.protobuf.Struct',
       '10': 'extensions'
     },
+    {
+      '1': 'failure_class',
+      '3': 7,
+      '4': 1,
+      '5': 11,
+      '6': '.monarchic.agent_protocol.v1.FailureClass',
+      '10': 'failureClass'
+    },
   ],
   '8': [
     {'1': '_reason'},
@@ -825,8 +784,9 @@ final $typed_data.Uint8List gateResultDescriptor = $convert.base64Decode(
     'CgpHYXRlUmVzdWx0EhgKB3ZlcnNpb24YASABKAlSB3ZlcnNpb24SEgoEZ2F0ZRgCIAEoCVIEZ2'
     'F0ZRIWCgZzdGF0dXMYAyABKAlSBnN0YXR1cxIbCgZyZWFzb24YBCABKAlIAFIGcmVhc29uiAEB'
     'EjMKCGV2aWRlbmNlGAUgASgLMhcuZ29vZ2xlLnByb3RvYnVmLlN0cnVjdFIIZXZpZGVuY2USNw'
-    'oKZXh0ZW5zaW9ucxgGIAEoCzIXLmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3RSCmV4dGVuc2lvbnNC'
-    'CQoHX3JlYXNvbg==');
+    'oKZXh0ZW5zaW9ucxgGIAEoCzIXLmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3RSCmV4dGVuc2lvbnMS'
+    'TgoNZmFpbHVyZV9jbGFzcxgHIAEoCzIpLm1vbmFyY2hpYy5hZ2VudF9wcm90b2NvbC52MS5GYW'
+    'lsdXJlQ2xhc3NSDGZhaWx1cmVDbGFzc0IJCgdfcmVhc29u');
 
 @$core.Deprecated('Use runOutcomeDescriptor instead')
 const RunOutcome$json = {

@@ -42,11 +42,6 @@ public final class MonarchicAgentProtocolV1 extends com.google.protobuf.Generate
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_monarchic_agent_protocol_v1_ExperimentSpec_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_monarchic_agent_protocol_v1_DeliveryContract_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_monarchic_agent_protocol_v1_DeliveryContract_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_monarchic_agent_protocol_v1_ObjectiveSpec_descriptor;
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -56,6 +51,11 @@ public final class MonarchicAgentProtocolV1 extends com.google.protobuf.Generate
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_monarchic_agent_protocol_v1_EvalResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_monarchic_agent_protocol_v1_FailureClass_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_monarchic_agent_protocol_v1_FailureClass_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_monarchic_agent_protocol_v1_Provenance_descriptor;
   static final 
@@ -124,119 +124,116 @@ public final class MonarchicAgentProtocolV1 extends com.google.protobuf.Generate
       "rotocol.v1.AcceptanceCriteria\022,\n\013constra" +
       "ints\030\010 \001(\0132\027.google.protobuf.Struct\022+\n\ne" +
       "xtensions\030\t \001(\0132\027.google.protobuf.Struct" +
-      "B\r\n\013_hypothesisB\017\n\r_model_family\"\256\003\n\020Del" +
-      "iveryContract\022\021\n\tobjective\030\001 \001(\t\022\032\n\022defi" +
-      "nition_of_done\030\002 \003(\t\022\027\n\017required_checks\030" +
-      "\003 \003(\t\022\021\n\trisk_tier\030\004 \001(\t\022\036\n\021max_cycle_mi" +
-      "nutes\030\005 \001(\rH\000\210\001\001\022\034\n\017max_agent_turns\030\006 \001(" +
-      "\rH\001\210\001\001\022\030\n\013pr_strategy\030\007 \001(\tH\002\210\001\001\022\032\n\rrevi" +
-      "ew_policy\030\010 \001(\tH\003\210\001\001\022\036\n\021rollback_strateg" +
-      "y\030\t \001(\tH\004\210\001\001\022\022\n\005notes\030\n \001(\tH\005\210\001\001\022+\n\nexte" +
-      "nsions\030\013 \001(\0132\027.google.protobuf.StructB\024\n" +
-      "\022_max_cycle_minutesB\022\n\020_max_agent_turnsB" +
-      "\016\n\014_pr_strategyB\020\n\016_review_policyB\024\n\022_ro" +
-      "llback_strategyB\010\n\006_notes\"\363\002\n\rObjectiveS" +
-      "pec\022\022\n\nmetric_key\030\001 \001(\t\022\021\n\tdirection\030\002 \001" +
-      "(\t\022\023\n\006target\030\003 \001(\001H\000\210\001\001\022\026\n\tmin_delta\030\004 \001" +
-      "(\001H\001\210\001\001\022\026\n\ttolerance\030\005 \001(\001H\002\210\001\001\022\030\n\013repor" +
-      "t_file\030\006 \001(\tH\003\210\001\001\022\033\n\016report_task_id\030\007 \001(" +
-      "\tH\004\210\001\001\022\023\n\006weight\030\010 \001(\001H\005\210\001\001\022\030\n\013descripti" +
-      "on\030\t \001(\tH\006\210\001\001\022+\n\nextensions\030\n \001(\0132\027.goog" +
-      "le.protobuf.StructB\t\n\007_targetB\014\n\n_min_de" +
-      "ltaB\014\n\n_toleranceB\016\n\014_report_fileB\021\n\017_re" +
-      "port_task_idB\t\n\007_weightB\016\n\014_description\"" +
-      "\216\002\n\nEvalResult\022\016\n\006metric\030\001 \001(\t\022\r\n\005value\030" +
-      "\002 \001(\001\022\025\n\010lower_ci\030\003 \001(\001H\000\210\001\001\022\025\n\010upper_ci" +
-      "\030\004 \001(\001H\001\210\001\001\022\025\n\010variance\030\005 \001(\001H\002\210\001\001\022\021\n\004se" +
-      "ed\030\006 \001(\003H\003\210\001\001\022\016\n\006passed\030\007 \001(\010\022\022\n\005notes\030\010" +
-      " \001(\tH\004\210\001\001\022+\n\nextensions\030\t \001(\0132\027.google.p" +
-      "rotobuf.StructB\013\n\t_lower_ciB\013\n\t_upper_ci" +
-      "B\013\n\t_varianceB\007\n\005_seedB\010\n\006_notes\"\353\003\n\nPro" +
-      "venance\022\025\n\rprompt_sha256\030\001 \001(\t\022\023\n\013code_s" +
-      "ha256\030\002 \001(\t\022\026\n\016dataset_sha256\030\003 \003(\t\022\017\n\007r" +
-      "untime\030\004 \001(\t\022\022\n\005model\030\005 \001(\tH\000\210\001\001\022\016\n\006runn" +
-      "er\030\006 \001(\t\022\024\n\014orchestrator\030\007 \001(\t\022\035\n\020task_s" +
-      "pec_sha256\030\010 \001(\tH\001\210\001\001\022\034\n\017pipeline_sha256" +
-      "\030\t \001(\tH\002\210\001\001\022\033\n\016command_sha256\030\n \001(\tH\003\210\001\001" +
-      "\022\022\n\ncreated_at\030\013 \001(\t\022\033\n\016source_task_id\030\014" +
-      " \001(\tH\004\210\001\001\022=\n\014dataset_refs\030\r \003(\0132\'.monarc" +
-      "hic.agent_protocol.v1.DatasetRef\022+\n\nexte" +
-      "nsions\030\016 \001(\0132\027.google.protobuf.StructB\010\n" +
-      "\006_modelB\023\n\021_task_spec_sha256B\022\n\020_pipelin" +
-      "e_sha256B\021\n\017_command_sha256B\021\n\017_source_t" +
-      "ask_id\"\232\004\n\004Task\022\017\n\007version\030\001 \001(\t\022\017\n\007task" +
-      "_id\030\002 \001(\t\0224\n\004role\030\003 \001(\0162&.monarchic.agen" +
-      "t_protocol.v1.AgentRole\022\014\n\004goal\030\004 \001(\t\022\'\n" +
-      "\006inputs\030\005 \001(\0132\027.google.protobuf.Struct\022," +
-      "\n\013constraints\030\006 \001(\0132\027.google.protobuf.St" +
-      "ruct\022\026\n\016gates_required\030\007 \003(\t\022<\n\013run_cont" +
-      "ext\030\010 \001(\0132\'.monarchic.agent_protocol.v1." +
-      "RunContext\022+\n\nextensions\030\t \001(\0132\027.google." +
-      "protobuf.Struct\022D\n\017experiment_spec\030\n \001(\013" +
-      "2+.monarchic.agent_protocol.v1.Experimen" +
-      "tSpec\022H\n\021delivery_contract\030\013 \001(\0132-.monar" +
-      "chic.agent_protocol.v1.DeliveryContract\022" +
-      "B\n\016objective_spec\030\014 \001(\0132*.monarchic.agen" +
-      "t_protocol.v1.ObjectiveSpec\"\234\003\n\010Artifact" +
-      "\022\017\n\007version\030\001 \001(\t\022\023\n\013artifact_id\030\002 \001(\t\022\014" +
-      "\n\004type\030\003 \001(\t\022\017\n\007summary\030\004 \001(\t\022\014\n\004path\030\005 " +
-      "\001(\t\022\017\n\007task_id\030\006 \001(\t\022+\n\nextensions\030\007 \001(\013" +
-      "2\027.google.protobuf.Struct\022;\n\nprovenance\030" +
-      "\010 \001(\0132\'.monarchic.agent_protocol.v1.Prov" +
-      "enance\022=\n\014dataset_refs\030\t \003(\0132\'.monarchic" +
-      ".agent_protocol.v1.DatasetRef\022=\n\014eval_re" +
-      "sults\030\n \003(\0132\'.monarchic.agent_protocol.v" +
-      "1.EvalResult\022D\n\017experiment_spec\030\013 \001(\0132+." +
-      "monarchic.agent_protocol.v1.ExperimentSp" +
-      "ec\"\253\002\n\005Event\022\017\n\007version\030\001 \001(\t\022\022\n\nevent_t" +
-      "ype\030\002 \001(\t\022\021\n\ttimestamp\030\003 \001(\t\022\017\n\007task_id\030" +
-      "\004 \001(\t\022\016\n\006status\030\005 \001(\t\022\024\n\007message\030\006 \001(\tH\000" +
-      "\210\001\001\022+\n\nextensions\030\007 \001(\0132\027.google.protobu" +
-      "f.Struct\022;\n\nprovenance\030\010 \001(\0132\'.monarchic" +
-      ".agent_protocol.v1.Provenance\022=\n\014eval_re" +
-      "sults\030\t \003(\0132\'.monarchic.agent_protocol.v" +
-      "1.EvalResultB\n\n\010_message\"\263\001\n\nGateResult\022" +
-      "\017\n\007version\030\001 \001(\t\022\014\n\004gate\030\002 \001(\t\022\016\n\006status" +
-      "\030\003 \001(\t\022\023\n\006reason\030\004 \001(\tH\000\210\001\001\022)\n\010evidence\030" +
-      "\005 \001(\0132\027.google.protobuf.Struct\022+\n\nextens" +
-      "ions\030\006 \001(\0132\027.google.protobuf.StructB\t\n\007_" +
-      "reason\"\210\006\n\nRunOutcome\022\017\n\007version\030\001 \001(\t\022\017" +
-      "\n\007task_id\030\002 \001(\t\022\023\n\006run_id\030\003 \001(\tH\000\210\001\001\022\035\n\020" +
-      "objective_metric\030\004 \001(\tH\001\210\001\001\022\034\n\017objective" +
-      "_score\030\005 \001(\001H\002\210\001\001\022H\n\022objective_decision\030" +
-      "\006 \001(\0162,.monarchic.agent_protocol.v1.Outc" +
-      "omeDecision\022\037\n\022estimated_cost_usd\030\007 \001(\001H" +
-      "\003\210\001\001\022\035\n\020budget_limit_usd\030\010 \001(\001H\004\210\001\001\022C\n\rc" +
-      "ost_decision\030\t \001(\0162,.monarchic.agent_pro" +
-      "tocol.v1.OutcomeDecision\022\027\n\nrisk_level\030\n" +
-      " \001(\tH\005\210\001\001\022\031\n\014risk_summary\030\013 \001(\tH\006\210\001\001\022C\n\r" +
-      "risk_decision\030\014 \001(\0162,.monarchic.agent_pr" +
-      "otocol.v1.OutcomeDecision\022D\n\016final_decis" +
-      "ion\030\r \001(\0162,.monarchic.agent_protocol.v1." +
-      "OutcomeDecision\022\024\n\007summary\030\016 \001(\tH\007\210\001\001\022)\n" +
-      "\010evidence\030\017 \001(\0132\027.google.protobuf.Struct" +
-      "\022+\n\nextensions\030\020 \001(\0132\027.google.protobuf.S" +
-      "tructB\t\n\007_run_idB\023\n\021_objective_metricB\022\n" +
-      "\020_objective_scoreB\025\n\023_estimated_cost_usd" +
-      "B\023\n\021_budget_limit_usdB\r\n\013_risk_levelB\017\n\r" +
-      "_risk_summaryB\n\n\010_summary\"\231\001\n\nRunContext" +
-      "\022\017\n\007version\030\001 \001(\t\022\014\n\004repo\030\002 \001(\t\022\020\n\010workt" +
-      "ree\030\003 \001(\t\022\r\n\005image\030\004 \001(\t\022\016\n\006runner\030\005 \001(\t" +
-      "\022\016\n\006labels\030\006 \003(\t\022+\n\nextensions\030\007 \001(\0132\027.g" +
-      "oogle.protobuf.Struct*\205\001\n\tAgentRole\022\032\n\026A" +
-      "GENT_ROLE_UNSPECIFIED\020\000\022\021\n\rPRODUCT_OWNER" +
-      "\020\001\022\023\n\017PROJECT_MANAGER\020\002\022\007\n\003DEV\020\003\022\006\n\002QA\020\004" +
-      "\022\014\n\010REVIEWER\020\005\022\014\n\010SECURITY\020\006\022\007\n\003OPS\020\007*f\n" +
-      "\017OutcomeDecision\022 \n\034OUTCOME_DECISION_UNS" +
-      "PECIFIED\020\000\022\n\n\006ACCEPT\020\001\022\013\n\007ITERATE\020\002\022\n\n\006R" +
-      "EJECT\020\003\022\014\n\010ESCALATE\020\004B\210\002\n\036ai.monarchic.a" +
-      "gent_protocol.v1B\030MonarchicAgentProtocol" +
-      "V1P\001Zdgithub.com/monarchic-ai/monarchic-" +
-      "agent-protocol/src/go/monarchic/agent_pr" +
-      "otocol/v1;agent_protocolv1\242\002\003MAP\252\002\032Monar" +
-      "chic.AgentProtocol.V1\312\002\032Monarchic\\AgentP" +
-      "rotocol\\V1\342\002#Monarchic\\AgentProtocol\\V1\\" +
-      "Metadatab\006proto3"
+      "B\r\n\013_hypothesisB\017\n\r_model_family\"\363\002\n\rObj" +
+      "ectiveSpec\022\022\n\nmetric_key\030\001 \001(\t\022\021\n\tdirect" +
+      "ion\030\002 \001(\t\022\023\n\006target\030\003 \001(\001H\000\210\001\001\022\026\n\tmin_de" +
+      "lta\030\004 \001(\001H\001\210\001\001\022\026\n\ttolerance\030\005 \001(\001H\002\210\001\001\022\030" +
+      "\n\013report_file\030\006 \001(\tH\003\210\001\001\022\033\n\016report_task_" +
+      "id\030\007 \001(\tH\004\210\001\001\022\023\n\006weight\030\010 \001(\001H\005\210\001\001\022\030\n\013de" +
+      "scription\030\t \001(\tH\006\210\001\001\022+\n\nextensions\030\n \001(\013" +
+      "2\027.google.protobuf.StructB\t\n\007_targetB\014\n\n" +
+      "_min_deltaB\014\n\n_toleranceB\016\n\014_report_file" +
+      "B\021\n\017_report_task_idB\t\n\007_weightB\016\n\014_descr" +
+      "iption\"\216\002\n\nEvalResult\022\016\n\006metric\030\001 \001(\t\022\r\n" +
+      "\005value\030\002 \001(\001\022\025\n\010lower_ci\030\003 \001(\001H\000\210\001\001\022\025\n\010u" +
+      "pper_ci\030\004 \001(\001H\001\210\001\001\022\025\n\010variance\030\005 \001(\001H\002\210\001" +
+      "\001\022\021\n\004seed\030\006 \001(\003H\003\210\001\001\022\016\n\006passed\030\007 \001(\010\022\022\n\005" +
+      "notes\030\010 \001(\tH\004\210\001\001\022+\n\nextensions\030\t \001(\0132\027.g" +
+      "oogle.protobuf.StructB\013\n\t_lower_ciB\013\n\t_u" +
+      "pper_ciB\013\n\t_varianceB\007\n\005_seedB\010\n\006_notes\"" +
+      "\366\001\n\014FailureClass\022\020\n\010category\030\001 \001(\t\022\014\n\004co" +
+      "de\030\002 \001(\t\022\021\n\tretryable\030\003 \001(\010\022\023\n\006detail\030\004 " +
+      "\001(\tH\000\210\001\001\022\022\n\005scope\030\005 \001(\tH\001\210\001\001\022\023\n\006source\030\006" +
+      " \001(\tH\002\210\001\001\022\030\n\013next_action\030\007 \001(\tH\003\210\001\001\022+\n\ne" +
+      "xtensions\030\010 \001(\0132\027.google.protobuf.Struct" +
+      "B\t\n\007_detailB\010\n\006_scopeB\t\n\007_sourceB\016\n\014_nex" +
+      "t_action\"\353\003\n\nProvenance\022\025\n\rprompt_sha256" +
+      "\030\001 \001(\t\022\023\n\013code_sha256\030\002 \001(\t\022\026\n\016dataset_s" +
+      "ha256\030\003 \003(\t\022\017\n\007runtime\030\004 \001(\t\022\022\n\005model\030\005 " +
+      "\001(\tH\000\210\001\001\022\016\n\006runner\030\006 \001(\t\022\024\n\014orchestrator" +
+      "\030\007 \001(\t\022\035\n\020task_spec_sha256\030\010 \001(\tH\001\210\001\001\022\034\n" +
+      "\017pipeline_sha256\030\t \001(\tH\002\210\001\001\022\033\n\016command_s" +
+      "ha256\030\n \001(\tH\003\210\001\001\022\022\n\ncreated_at\030\013 \001(\t\022\033\n\016" +
+      "source_task_id\030\014 \001(\tH\004\210\001\001\022=\n\014dataset_ref" +
+      "s\030\r \003(\0132\'.monarchic.agent_protocol.v1.Da" +
+      "tasetRef\022+\n\nextensions\030\016 \001(\0132\027.google.pr" +
+      "otobuf.StructB\010\n\006_modelB\023\n\021_task_spec_sh" +
+      "a256B\022\n\020_pipeline_sha256B\021\n\017_command_sha" +
+      "256B\021\n\017_source_task_id\"\320\003\n\004Task\022\017\n\007versi" +
+      "on\030\001 \001(\t\022\017\n\007task_id\030\002 \001(\t\0224\n\004role\030\003 \001(\0162" +
+      "&.monarchic.agent_protocol.v1.AgentRole\022" +
+      "\014\n\004goal\030\004 \001(\t\022\'\n\006inputs\030\005 \001(\0132\027.google.p" +
+      "rotobuf.Struct\022,\n\013constraints\030\006 \001(\0132\027.go" +
+      "ogle.protobuf.Struct\022\026\n\016gates_required\030\007" +
+      " \003(\t\022<\n\013run_context\030\010 \001(\0132\'.monarchic.ag" +
+      "ent_protocol.v1.RunContext\022+\n\nextensions" +
+      "\030\t \001(\0132\027.google.protobuf.Struct\022D\n\017exper" +
+      "iment_spec\030\n \001(\0132+.monarchic.agent_proto" +
+      "col.v1.ExperimentSpec\022B\n\016objective_spec\030" +
+      "\013 \001(\0132*.monarchic.agent_protocol.v1.Obje" +
+      "ctiveSpec\"\234\003\n\010Artifact\022\017\n\007version\030\001 \001(\t\022" +
+      "\023\n\013artifact_id\030\002 \001(\t\022\014\n\004type\030\003 \001(\t\022\017\n\007su" +
+      "mmary\030\004 \001(\t\022\014\n\004path\030\005 \001(\t\022\017\n\007task_id\030\006 \001" +
+      "(\t\022+\n\nextensions\030\007 \001(\0132\027.google.protobuf" +
+      ".Struct\022;\n\nprovenance\030\010 \001(\0132\'.monarchic." +
+      "agent_protocol.v1.Provenance\022=\n\014dataset_" +
+      "refs\030\t \003(\0132\'.monarchic.agent_protocol.v1" +
+      ".DatasetRef\022=\n\014eval_results\030\n \003(\0132\'.mona" +
+      "rchic.agent_protocol.v1.EvalResult\022D\n\017ex" +
+      "periment_spec\030\013 \001(\0132+.monarchic.agent_pr" +
+      "otocol.v1.ExperimentSpec\"\355\002\n\005Event\022\017\n\007ve" +
+      "rsion\030\001 \001(\t\022\022\n\nevent_type\030\002 \001(\t\022\021\n\ttimes" +
+      "tamp\030\003 \001(\t\022\017\n\007task_id\030\004 \001(\t\022\016\n\006status\030\005 " +
+      "\001(\t\022\024\n\007message\030\006 \001(\tH\000\210\001\001\022+\n\nextensions\030" +
+      "\007 \001(\0132\027.google.protobuf.Struct\022;\n\nproven" +
+      "ance\030\010 \001(\0132\'.monarchic.agent_protocol.v1" +
+      ".Provenance\022=\n\014eval_results\030\t \003(\0132\'.mona" +
+      "rchic.agent_protocol.v1.EvalResult\022@\n\rfa" +
+      "ilure_class\030\n \001(\0132).monarchic.agent_prot" +
+      "ocol.v1.FailureClassB\n\n\010_message\"\365\001\n\nGat" +
+      "eResult\022\017\n\007version\030\001 \001(\t\022\014\n\004gate\030\002 \001(\t\022\016" +
+      "\n\006status\030\003 \001(\t\022\023\n\006reason\030\004 \001(\tH\000\210\001\001\022)\n\010e" +
+      "vidence\030\005 \001(\0132\027.google.protobuf.Struct\022+" +
+      "\n\nextensions\030\006 \001(\0132\027.google.protobuf.Str" +
+      "uct\022@\n\rfailure_class\030\007 \001(\0132).monarchic.a" +
+      "gent_protocol.v1.FailureClassB\t\n\007_reason" +
+      "\"\210\006\n\nRunOutcome\022\017\n\007version\030\001 \001(\t\022\017\n\007task" +
+      "_id\030\002 \001(\t\022\023\n\006run_id\030\003 \001(\tH\000\210\001\001\022\035\n\020object" +
+      "ive_metric\030\004 \001(\tH\001\210\001\001\022\034\n\017objective_score" +
+      "\030\005 \001(\001H\002\210\001\001\022H\n\022objective_decision\030\006 \001(\0162" +
+      ",.monarchic.agent_protocol.v1.OutcomeDec" +
+      "ision\022\037\n\022estimated_cost_usd\030\007 \001(\001H\003\210\001\001\022\035" +
+      "\n\020budget_limit_usd\030\010 \001(\001H\004\210\001\001\022C\n\rcost_de" +
+      "cision\030\t \001(\0162,.monarchic.agent_protocol." +
+      "v1.OutcomeDecision\022\027\n\nrisk_level\030\n \001(\tH\005" +
+      "\210\001\001\022\031\n\014risk_summary\030\013 \001(\tH\006\210\001\001\022C\n\rrisk_d" +
+      "ecision\030\014 \001(\0162,.monarchic.agent_protocol" +
+      ".v1.OutcomeDecision\022D\n\016final_decision\030\r " +
+      "\001(\0162,.monarchic.agent_protocol.v1.Outcom" +
+      "eDecision\022\024\n\007summary\030\016 \001(\tH\007\210\001\001\022)\n\010evide" +
+      "nce\030\017 \001(\0132\027.google.protobuf.Struct\022+\n\nex" +
+      "tensions\030\020 \001(\0132\027.google.protobuf.StructB" +
+      "\t\n\007_run_idB\023\n\021_objective_metricB\022\n\020_obje" +
+      "ctive_scoreB\025\n\023_estimated_cost_usdB\023\n\021_b" +
+      "udget_limit_usdB\r\n\013_risk_levelB\017\n\r_risk_" +
+      "summaryB\n\n\010_summary\"\231\001\n\nRunContext\022\017\n\007ve" +
+      "rsion\030\001 \001(\t\022\014\n\004repo\030\002 \001(\t\022\020\n\010worktree\030\003 " +
+      "\001(\t\022\r\n\005image\030\004 \001(\t\022\016\n\006runner\030\005 \001(\t\022\016\n\006la" +
+      "bels\030\006 \003(\t\022+\n\nextensions\030\007 \001(\0132\027.google." +
+      "protobuf.Struct*\205\001\n\tAgentRole\022\032\n\026AGENT_R" +
+      "OLE_UNSPECIFIED\020\000\022\021\n\rPRODUCT_OWNER\020\001\022\023\n\017" +
+      "PROJECT_MANAGER\020\002\022\007\n\003DEV\020\003\022\006\n\002QA\020\004\022\014\n\010RE" +
+      "VIEWER\020\005\022\014\n\010SECURITY\020\006\022\007\n\003OPS\020\007*f\n\017Outco" +
+      "meDecision\022 \n\034OUTCOME_DECISION_UNSPECIFI" +
+      "ED\020\000\022\n\n\006ACCEPT\020\001\022\013\n\007ITERATE\020\002\022\n\n\006REJECT\020" +
+      "\003\022\014\n\010ESCALATE\020\004B\210\002\n\036ai.monarchic.agent_p" +
+      "rotocol.v1B\030MonarchicAgentProtocolV1P\001Zd" +
+      "github.com/monarchic-ai/monarchic-agent-" +
+      "protocol/src/go/monarchic/agent_protocol" +
+      "/v1;agent_protocolv1\242\002\003MAP\252\002\032Monarchic.A" +
+      "gentProtocol.V1\312\002\032Monarchic\\AgentProtoco" +
+      "l\\V1\342\002#Monarchic\\AgentProtocol\\V1\\Metada" +
+      "tab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -261,24 +258,24 @@ public final class MonarchicAgentProtocolV1 extends com.google.protobuf.Generate
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_ExperimentSpec_descriptor,
         new java.lang.String[] { "ExperimentId", "Objective", "Hypothesis", "ModelFamily", "Seeds", "DatasetRefs", "Acceptance", "Constraints", "Extensions", });
-    internal_static_monarchic_agent_protocol_v1_DeliveryContract_descriptor =
-      getDescriptor().getMessageTypes().get(3);
-    internal_static_monarchic_agent_protocol_v1_DeliveryContract_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_monarchic_agent_protocol_v1_DeliveryContract_descriptor,
-        new java.lang.String[] { "Objective", "DefinitionOfDone", "RequiredChecks", "RiskTier", "MaxCycleMinutes", "MaxAgentTurns", "PrStrategy", "ReviewPolicy", "RollbackStrategy", "Notes", "Extensions", });
     internal_static_monarchic_agent_protocol_v1_ObjectiveSpec_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_monarchic_agent_protocol_v1_ObjectiveSpec_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_ObjectiveSpec_descriptor,
         new java.lang.String[] { "MetricKey", "Direction", "Target", "MinDelta", "Tolerance", "ReportFile", "ReportTaskId", "Weight", "Description", "Extensions", });
     internal_static_monarchic_agent_protocol_v1_EvalResult_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_monarchic_agent_protocol_v1_EvalResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_EvalResult_descriptor,
         new java.lang.String[] { "Metric", "Value", "LowerCi", "UpperCi", "Variance", "Seed", "Passed", "Notes", "Extensions", });
+    internal_static_monarchic_agent_protocol_v1_FailureClass_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_monarchic_agent_protocol_v1_FailureClass_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_monarchic_agent_protocol_v1_FailureClass_descriptor,
+        new java.lang.String[] { "Category", "Code", "Retryable", "Detail", "Scope", "Source", "NextAction", "Extensions", });
     internal_static_monarchic_agent_protocol_v1_Provenance_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_monarchic_agent_protocol_v1_Provenance_fieldAccessorTable = new
@@ -290,7 +287,7 @@ public final class MonarchicAgentProtocolV1 extends com.google.protobuf.Generate
     internal_static_monarchic_agent_protocol_v1_Task_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_Task_descriptor,
-        new java.lang.String[] { "Version", "TaskId", "Role", "Goal", "Inputs", "Constraints", "GatesRequired", "RunContext", "Extensions", "ExperimentSpec", "DeliveryContract", "ObjectiveSpec", });
+        new java.lang.String[] { "Version", "TaskId", "Role", "Goal", "Inputs", "Constraints", "GatesRequired", "RunContext", "Extensions", "ExperimentSpec", "ObjectiveSpec", });
     internal_static_monarchic_agent_protocol_v1_Artifact_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_monarchic_agent_protocol_v1_Artifact_fieldAccessorTable = new
@@ -302,13 +299,13 @@ public final class MonarchicAgentProtocolV1 extends com.google.protobuf.Generate
     internal_static_monarchic_agent_protocol_v1_Event_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_Event_descriptor,
-        new java.lang.String[] { "Version", "EventType", "Timestamp", "TaskId", "Status", "Message", "Extensions", "Provenance", "EvalResults", });
+        new java.lang.String[] { "Version", "EventType", "Timestamp", "TaskId", "Status", "Message", "Extensions", "Provenance", "EvalResults", "FailureClass", });
     internal_static_monarchic_agent_protocol_v1_GateResult_descriptor =
       getDescriptor().getMessageTypes().get(10);
     internal_static_monarchic_agent_protocol_v1_GateResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_GateResult_descriptor,
-        new java.lang.String[] { "Version", "Gate", "Status", "Reason", "Evidence", "Extensions", });
+        new java.lang.String[] { "Version", "Gate", "Status", "Reason", "Evidence", "Extensions", "FailureClass", });
     internal_static_monarchic_agent_protocol_v1_RunOutcome_descriptor =
       getDescriptor().getMessageTypes().get(11);
     internal_static_monarchic_agent_protocol_v1_RunOutcome_fieldAccessorTable = new
