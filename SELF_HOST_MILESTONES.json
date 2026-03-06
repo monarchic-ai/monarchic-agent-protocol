@@ -289,8 +289,15 @@
   {
     "id": "M42",
     "title": "Expand command-log gate smoke coverage for verification-order drift",
+    "status": "done",
+    "completed_at": "2026-03-06T01:46:19Z",
+    "notes": "Extended scripts/test-self-host-artifact-command-log-gate.sh to swap the first two recorded verification commands while keeping indices valid, so the default self-host gate now exercises COMMAND_LOG_FIRST_COMMAND_INVALID alongside status and index regressions."
+  },
+  {
+    "id": "M43",
+    "title": "Reduce duplicated command-log smoke fixture setup across regression scripts",
     "status": "pending",
     "completed_at": null,
-    "notes": "Next increment: extend the broader command-log gate smoke coverage so verification-order drift is exercised alongside the existing status and index regressions."
+    "notes": "Next increment: extract shared command-log smoke-test fixture setup so the default-gate and targeted regression scripts stay synchronized without changing verification semantics."
   }
 ]

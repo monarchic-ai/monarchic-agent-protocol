@@ -1,20 +1,16 @@
 {
   "status": "pass",
-  "milestone_completed": "M41",
-  "milestones_done": 41,
-  "total_milestones": 42,
-  "new_files": [
-    "scripts/test-self-host-artifact-command-log-first-command.sh"
-  ],
+  "milestone_completed": "M42",
+  "milestones_done": 42,
+  "total_milestones": 43,
+  "new_files": [],
   "changed_files": [
-    "scripts/test-self-host-artifacts.sh",
-    "SELF_HOST_COMMAND_LOG.json",
-    "SELF_HOST_PROOF.json",
+    "scripts/test-self-host-artifact-command-log-gate.sh",
     "SELF_HOST_MILESTONES.json",
     "SELF_HOST_IMPLEMENTATION_LOG.json",
     "SELF_HOST_REPORT.json",
     "SELF_HOST_UPDATE.json"
   ],
   "test_command": "bash scripts/test-self-host-proof-artifacts.sh && bash scripts/test-self-host-artifact-command-log-first-command.sh && bash scripts/test-self-host-artifact-command-log-gate.sh && bash scripts/test-self-host-artifact-command-log-reason-codes.sh && bash scripts/test-self-host-artifact-command-log-format.sh && bash scripts/test-self-host-artifacts.sh && python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null && python3 -m json.tool SELF_HOST_PROOF.json >/dev/null && python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null && python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null && python3 -m json.tool SELF_HOST_REPORT.json >/dev/null && python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null",
-  "note": "Status is pass because verification succeeded and milestones_done increased from 40 to 41 versus the prior report while pinning the proof-artifact check as the first deterministic command-log entry."
+  "note": "Status is pass because verification succeeded and milestones_done increased from 41 to 42 versus the prior report while broadening default command-log gate smoke coverage to exercise first-command order drift alongside status and index regressions."
 }

@@ -126,4 +126,29 @@ PY
 
 expect_reason_code "COMMAND_LOG_INDEX_INVALID" "Expected non-contiguous command index to fail."
 
-echo "[test-self-host-artifact-command-log-gate] PASS: default self-host artifact gate surfaces deterministic command-log reason codes."
+reset_fixtures
+
+"${python_cmd}" - "${tmp_repo}/SELF_HOST_COMMAND_LOG.json" <<'PY'
+import json
+import sys
+
+path = sys.argv[1]
+with open(path, "r", encoding="utf-8") as handle:
+    command_log = json.load(handle)
+
+if len(command_log["commands"]) < 2:
+    raise SystemExit("Need at least two command entries for order-drift regression test.")
+
+first_command = command_log["commands"][0]["command"]
+second_command = command_log["commands"][1]["command"]
+command_log["commands"][0]["command"] = second_command
+command_log["commands"][1]["command"] = first_command
+
+with open(path, "w", encoding="utf-8") as handle:
+    json.dump(command_log, handle, indent=2)
+    handle.write("\n")
+PY
+
+expect_reason_code "COMMAND_LOG_FIRST_COMMAND_INVALID" "Expected first-command order drift to fail."
+
+echo "[test-self-host-artifact-command-log-gate] PASS: default self-host artifact gate surfaces deterministic command-log reason codes for status, index, and verification-order drift."

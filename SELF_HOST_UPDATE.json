@@ -1,15 +1,15 @@
 {
   "status": "pass",
-  "headline": "Completed M41 by requiring the proof-artifact check to remain the first SELF_HOST_COMMAND_LOG entry.",
-  "current_focus": "Current focus is keeping SELF_HOST_COMMAND_LOG verification ordering explicit and deterministic for non-protobuf validation workflows, with proof-manifest validation always running first.",
-  "milestone_target": "M42 is next: expand command-log gate smoke coverage so verification-order drift is exercised alongside the existing status and index regressions.",
-  "milestones_done": 41,
-  "total_milestones": 42,
+  "headline": "Completed M42 by extending default command-log gate smoke coverage to catch first-command order drift.",
+  "current_focus": "Current focus is keeping the broader default command-log gate smoke coverage synchronized with the dedicated first-command regression and the recorded SELF_HOST_COMMAND_LOG verification order.",
+  "milestone_target": "M43 is next: reduce duplicated command-log smoke fixture setup so default-gate and targeted regression scripts stay synchronized.",
+  "milestones_done": 42,
+  "total_milestones": 43,
   "completed_work": [
-    "Added COMMAND_LOG_FIRST_COMMAND_INVALID to scripts/test-self-host-artifacts.sh so the default gate rejects command logs that stop beginning with bash scripts/test-self-host-proof-artifacts.sh.",
-    "Added scripts/test-self-host-artifact-command-log-first-command.sh to mutate the first command entry and assert the new deterministic reason code.",
-    "Updated SELF_HOST_COMMAND_LOG.json and the latest implementation-log verification sequence to include the new first-command regression check while keeping proof validation first.",
-    "Completed milestone M41 and refreshed self-host report/update/proof artifacts with deterministic verification evidence."
+    "Extended scripts/test-self-host-artifact-command-log-gate.sh so the broader default-gate smoke test now swaps the first two recorded commands while keeping indices valid, exercising verification-order drift instead of only malformed-command mutations.",
+    "Kept the existing status-mismatch and index-regression checks in the same smoke script so the default self-host gate now covers all three command-log failure paths together.",
+    "Completed milestone M42 and recorded the new gate coverage in SELF_HOST_MILESTONES.json plus the latest SELF_HOST_IMPLEMENTATION_LOG.json entry.",
+    "Refreshed SELF_HOST_REPORT.json and SELF_HOST_UPDATE.json to reflect the verified M42 completion and the next command-log maintainability target."
   ],
   "verification": [
     "bash scripts/test-self-host-proof-artifacts.sh",
@@ -26,11 +26,11 @@
     "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null"
   ],
   "blockers": [
-    "No blockers in M41 scope."
+    "No blockers in M42 scope."
   ],
   "next_steps": [
-    "Advance M42 by extending broader command-log gate smoke coverage to include first-command drift as a default-gate regression path.",
+    "Start M43 by extracting shared command-log smoke fixture setup into reusable shell logic without changing the recorded verification order or reason-code expectations.",
     "Keep SELF_HOST_COMMAND_LOG.json and the latest implementation-log verification entries strictly synchronized on future runs."
   ],
-  "note": "Status is pass because verification succeeded, milestones_done increased from 40 to 41, and issue #1 progress now includes deterministic enforcement of proof-first verification ordering for non-protobuf workflows."
+  "note": "Status is pass because verification succeeded, milestones_done increased from 41 to 42, and issue #1 progress now includes broader default-gate coverage for first-command verification-order drift in non-protobuf workflows."
 }
