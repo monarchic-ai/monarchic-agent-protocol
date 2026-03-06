@@ -9,54 +9,64 @@
     },
     {
       "index": 2,
-      "command": "bash scripts/test-self-host-artifact-source-repo-seeding.sh",
+      "command": "bash scripts/test-self-host-artifact-command-log-source-repo-seeding.sh",
       "status": "pass"
     },
     {
       "index": 3,
-      "command": "bash scripts/test-self-host-artifact-shared-fixtures.sh",
+      "command": "bash scripts/test-self-host-artifact-source-repo-seeding.sh",
       "status": "pass"
     },
     {
       "index": 4,
-      "command": "bash scripts/test-self-host-artifact-command-log-shared-fixtures.sh",
+      "command": "bash scripts/test-self-host-artifact-shared-fixtures.sh",
       "status": "pass"
     },
     {
       "index": 5,
-      "command": "bash scripts/test-self-host-artifacts.sh",
+      "command": "bash scripts/test-self-host-artifact-command-log-shared-fixtures.sh",
       "status": "pass"
     },
     {
       "index": 6,
-      "command": "python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null",
+      "command": "bash scripts/test-self-host-artifact-command-log-gate.sh",
       "status": "pass"
     },
     {
       "index": 7,
-      "command": "python3 -m json.tool SELF_HOST_PROOF.json >/dev/null",
+      "command": "bash scripts/test-self-host-artifacts.sh",
       "status": "pass"
     },
     {
       "index": 8,
-      "command": "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null",
+      "command": "python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null",
       "status": "pass"
     },
     {
       "index": 9,
-      "command": "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null",
+      "command": "python3 -m json.tool SELF_HOST_PROOF.json >/dev/null",
       "status": "pass"
     },
     {
       "index": 10,
-      "command": "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null",
+      "command": "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null",
       "status": "pass"
     },
     {
       "index": 11,
+      "command": "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null",
+      "status": "pass"
+    },
+    {
+      "index": 12,
+      "command": "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null",
+      "status": "pass"
+    },
+    {
+      "index": 13,
       "command": "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null",
       "status": "pass"
     }
   ],
-  "note": "Deterministic command log for self-host artifact verification, preserving proof-manifest validation as the first check while validating helper-owned temp source-repo seeding for the shared shell regression fixtures."
+  "note": "Deterministic command log for self-host artifact verification, preserving proof-manifest validation as the first check while validating the command-log wrapper seeding shim for shell-based non-protobuf regressions."
 }
