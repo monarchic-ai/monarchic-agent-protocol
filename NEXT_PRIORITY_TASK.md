@@ -1,19 +1,20 @@
 # Next Priority Task
 
-- generated_at: 2026-03-04T09:57:31.854180+00:00
-- run_id: self-host-svc-20260304T053417Z-c001-monarchic-agent-protocol-b5e9d0f75db2
-- batch: batch-0002
-- source: self_host_update
-- task_id: self-host-update-batch-0002
-- title: Advance M37 is complete in this run; next milestone target is M38 to add deterministic command-log artifact validation coverage.
-- why_now: Progress monitor returned no explicit recovery task for this checkpoint.
+- generated_at: 2026-03-06T00:27:46.734617+00:00
+- run_id: autoloop-project-manager-refresh
+- batch: auto-priority-refresh
+- source: project_manager_eval
+- task_id: project-manager-issue-00001
+- title: Issue #1: feat: support non-protobuf supported languages
+- why_now: Open repository issue discovered during automated backlog scan and ranked by objective-weighted scoring; prioritize deterministic software-only progress. Objective score=1.00.
+- thinking_complexity: high
 
 ## Prompt
-Monitor-generated recovery tasks are unavailable for this checkpoint. Use SELF_HOST_UPDATE.json as the source of truth for the next incremental improvement. Prioritize milestone target: M37 is complete in this run; next milestone target is M38 to add deterministic command-log artifact validation coverage. Current focus: Current focus is preserving deterministic self-host traceability by requiring each pass run to advance milestone progression over the prior logged run. Start with next step: Implement M38 by defining and validating a deterministic command-log artifact format for self-host runs. Keep the change low-risk, run verification, and update SELF_HOST_REPORT.json plus SELF_HOST_UPDATE.json.
+Investigate and advance issue #1 from monarchic-ai/monarchic-agent-protocol: feat: support non-protobuf supported languages. Current focus: Current focus is keeping SELF_HOST_COMMAND_LOG validation diagnostics deterministic, explicit, and easy to triage.. Issue URL: https://github.com/monarchic-ai/monarchic-agent-protocol/issues/1. Milestone target: M40.
 
 ## Acceptance
-- Deliver observable progress for milestone target: M37 is complete in this run; next milestone target is M38 to add deterministic command-log artifact validation coverage..
-- Address next step: Implement M38 by defining and validating a deterministic command-log artifact format for self-host runs.
-- Address next step: Keep pass-run milestone progression strict so status pass cannot be reported without incremental completion progress.
+- Advance milestone M40 with deterministic verification evidence.
 - Maintain verification continuity (first expected check: bash scripts/test-self-host-proof-artifacts.sh).
-- Refresh SELF_HOST_REPORT.json and SELF_HOST_UPDATE.json to reflect the completed work.
+- Deliver observable progress for issue #1: feat: support non-protobuf supported languages.
+- Address at least one explicit requirement or constraint from issue #1 body context and document the implemented outcome.
+- Run deterministic repository verification and keep SELF_HOST_REPORT.json/SELF_HOST_UPDATE.json synchronized.

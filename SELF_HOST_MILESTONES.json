@@ -275,8 +275,8 @@
   {
     "id": "M40",
     "title": "Validate command-log reason-code regressions in default self-host gate smoke coverage",
-    "status": "pending",
-    "completed_at": null,
-    "notes": "Planned follow-up to assert command-log reason-code regressions are exercised alongside default gate smoke checks."
+    "status": "done",
+    "completed_at": "2026-03-06T00:51:48Z",
+    "notes": "Added scripts/test-self-host-artifact-command-log-gate.sh to exercise COMMAND_LOG_STATUS_MISMATCH and COMMAND_LOG_INDEX_INVALID through scripts/test-self-host-artifacts.sh, keeping default-gate diagnostics explicit for non-protobuf verification workflows."
   }
 ]

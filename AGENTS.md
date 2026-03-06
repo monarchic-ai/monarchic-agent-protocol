@@ -12,8 +12,8 @@ Implement changes for task task-proto-001 to achieve Implement PROTO-001 (Failur
 - constraints: {
   "network": "offline"
 }
-- repo_root: /home/chris/monarchic-agent-protocol
-- worktree: /home/chris/monarchic-agent-protocol
+- repo_root: $HOME/monarchic-agent-protocol
+- worktree: $HOME/monarchic-agent-protocol
 - protocol concepts: task_id, artifact, gate
 
 ## Outputs
@@ -22,7 +22,7 @@ Implement changes for task task-proto-001 to achieve Implement PROTO-001 (Failur
 - Implementation summary and assumptions
 
 ## Do nots
-- Do not edit outside /home/chris/monarchic-agent-protocol
+- Do not edit outside $HOME/monarchic-agent-protocol
 - Do not introduce environment-specific paths or secrets
 - Do not skip documenting assumptions or tradeoffs
 
@@ -31,7 +31,7 @@ Implement changes for task task-proto-001 to achieve Implement PROTO-001 (Failur
 - Use gates to indicate readiness (e.g., gate: "ready-for-review", "ready-for-qa")
 
 ## Work rules
-- Only work in /home/chris/monarchic-agent-protocol
+- Only work in $HOME/monarchic-agent-protocol
 - Keep changes minimal and aligned to Implement PROTO-001 (Failure Taxonomy Contract v1)
 - Record commands run as a log artifact when they affect outputs
 
