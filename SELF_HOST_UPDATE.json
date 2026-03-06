@@ -1,37 +1,21 @@
 {
   "status": "pass",
-  "headline": "Completed M45 by moving the command-log shared-fixture regression onto helper-owned fixture paths.",
-  "current_focus": "Current focus is keeping fixture-path selection centralized in scripts/self-host-artifact-test-lib.sh so shell-based non-protobuf verification remains stable when SELF_HOST_REPORT.json file lists are empty or change shape.",
-  "milestone_target": "M45 is complete; the next target is the next repo-local issue #1 improvement after the shared fixture path source-of-truth cleanup.",
-  "milestones_done": 45,
-  "total_milestones": 45,
+  "headline": "Completed M46 by centralizing temp source-repo seeding for shared self-host artifact regressions.",
+  "current_focus": "Current focus is keeping temp source-repo seeding and empty report-file-list setup owned by scripts/self-host-artifact-test-lib.sh so shared self-host shell regressions stay aligned when core artifact fixtures change.",
+  "milestone_target": "M47 targets deciding whether any wrapper-specific self-host test lib needs a thin source-repo seeding wrapper now that the artifact helper owns the setup path.",
+  "milestones_done": 46,
+  "total_milestones": 47,
   "completed_work": [
-    "Added self_host_artifact_core_paths and self_host_artifact_fixture_paths in scripts/self-host-artifact-test-lib.sh so fixture restoration and fixture-path discovery come from the same helper-owned source of truth.",
-    "Exposed the shared fixture-path helper through scripts/self-host-command-log-test-lib.sh so command-log regressions can stop reading SELF_HOST_REPORT.json directly.",
-    "Hardened scripts/test-self-host-artifact-command-log-shared-fixtures.sh to run against a temp repo with empty SELF_HOST_REPORT.json file lists and still verify helper-defined fixture restoration plus a passing baseline gate.",
-    "Synchronized the self-host milestone, implementation log, report, update, command log, and proof manifest for the new M45 verification run."
+    "Added self_host_artifact_seed_source_repo_with_empty_report_lists in scripts/self-host-artifact-test-lib.sh to copy the core self-host artifacts into a temp source repo and clear SELF_HOST_REPORT.json file lists from one helper-owned setup path.",
+    "Updated scripts/test-self-host-artifact-shared-fixtures.sh and scripts/test-self-host-artifact-command-log-shared-fixtures.sh to use the new helper instead of duplicating temp source-repo seeding logic.",
+    "Added scripts/test-self-host-artifact-source-repo-seeding.sh to verify the new helper copies every core artifact, clears report file lists, and still supports a passing baseline gate.",
+    "Synchronized the self-host milestone, implementation log, command log, proof manifest, report, and update artifacts for M46."
   ],
   "verification": [
     "bash scripts/test-self-host-proof-artifacts.sh",
+    "bash scripts/test-self-host-artifact-source-repo-seeding.sh",
     "bash scripts/test-self-host-artifact-shared-fixtures.sh",
     "bash scripts/test-self-host-artifact-command-log-shared-fixtures.sh",
-    "bash scripts/test-self-host-artifact-command-log-first-command.sh",
-    "bash scripts/test-self-host-artifact-command-log-gate.sh",
-    "bash scripts/test-self-host-artifact-command-log-reason-codes.sh",
-    "bash scripts/test-self-host-artifact-command-log-format.sh",
-    "bash scripts/test-self-host-artifact-proof-gate.sh",
-    "bash scripts/test-self-host-artifact-report-file-list-consistency.sh",
-    "bash scripts/test-self-host-artifact-report-file-path-existence.sh",
-    "bash scripts/test-self-host-artifact-report-new-file-path-existence.sh",
-    "bash scripts/test-self-host-artifact-status-alignment.sh",
-    "bash scripts/test-self-host-artifact-text-fields.sh",
-    "bash scripts/test-self-host-artifact-timestamps.sh",
-    "bash scripts/test-self-host-artifact-pass-progression.sh",
-    "bash scripts/test-self-host-artifact-milestone-count-types.sh",
-    "bash scripts/test-self-host-artifact-log-key-order.sh",
-    "bash scripts/test-self-host-artifact-log-summary-traceability.sh",
-    "bash scripts/test-self-host-artifact-done-prefix.sh",
-    "bash scripts/test-self-host-artifact-latest-milestone.sh",
     "bash scripts/test-self-host-artifacts.sh",
     "python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null",
     "python3 -m json.tool SELF_HOST_PROOF.json >/dev/null",
@@ -41,11 +25,11 @@
     "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null"
   ],
   "blockers": [
-    "No blockers in M45 scope."
+    "No blockers in M46 scope."
   ],
   "next_steps": [
-    "Keep future self-host shell regressions on scripts/self-host-artifact-test-lib.sh or its wrappers instead of re-parsing SELF_HOST_REPORT.json directly.",
-    "Select the next repo-local issue #1 improvement now that the last command-log shared-fixture report-list dependency has been removed."
+    "Use M47 only if another wrapper-specific self-host regression needs a thin wrapper around the shared source-repo seeding helper.",
+    "Keep future shell-based non-protobuf fixture setup changes in scripts/self-host-artifact-test-lib.sh so shared regressions do not drift again."
   ],
-  "note": "Status is pass because verification succeeded, milestones_done increased from 44 to 45, and issue #1 progress now includes helper-owned fixture-path selection for the remaining command-log shared-fixture regression in the shell-based non-protobuf verification workflow."
+  "note": "Status is pass because verification succeeded, milestones_done increased from 45 to 46, and issue #1 progress now keeps temp source-repo seeding plus report-file-list clearing under scripts/self-host-artifact-test-lib.sh for shared shell-based non-protobuf verification."
 }
