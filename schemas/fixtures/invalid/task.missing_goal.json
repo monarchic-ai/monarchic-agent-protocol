@@ -1,7 +1,5 @@
 {
   "version": "v1",
   "task_id": "task-fixture-invalid-missing-goal",
-  "role": {
-    "bad": true
-  }
+  "role": "dev"
 }

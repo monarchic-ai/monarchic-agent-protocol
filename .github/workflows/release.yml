@@ -2,6 +2,7 @@ name: release
 
 permissions:
   contents: write
+  pull-requests: write
   id-token: write
   pull-requests: write
 
@@ -11,10 +12,50 @@ on:
   workflow_dispatch:
 
 jobs:
+  verify-release-inputs:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Verify tag matches package versions
+        env:
+          TAG_NAME: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          expected="${TAG_NAME#v}"
+          python3 - <<'PY' "$expected"
+          import configparser
+          import json
+          from pathlib import Path
+          import sys
+          import tomllib
+
+          expected = sys.argv[1]
+          cargo = tomllib.loads(Path("Cargo.toml").read_text(encoding="utf-8"))["package"]["version"]
+          pkg = json.loads(Path("package.json").read_text(encoding="utf-8"))["version"]
+          cfg = configparser.ConfigParser()
+          cfg.read("setup.cfg")
+          py = cfg["metadata"]["version"]
+          versions = {"cargo": cargo, "npm": pkg, "python": py}
+          mismatched = {name: value for name, value in versions.items() if value != expected}
+          if mismatched:
+              raise SystemExit(f"tag version mismatch: expected={expected} actual={mismatched}")
+          print(f"tag version verified: {expected}")
+          PY
+      - name: Verify local hashes are current
+        run: |
+          set -euo pipefail
+          bash scripts/update-local-hashes.sh
+          git diff --exit-code -- hashes/local-hashes.json
+
   publish-rust:
     name: Publish Rust (crates.io)
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/v')
+    needs: verify-release-inputs
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
@@ -52,6 +93,7 @@ jobs:
     name: Publish Python (PyPI)
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/v')
+    needs: verify-release-inputs
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -90,6 +132,7 @@ jobs:
     name: Publish TypeScript (npm)
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/v')
+    needs: verify-release-inputs
     permissions:
       contents: read
       id-token: write
@@ -130,6 +173,7 @@ jobs:
     name: Publish C# (NuGet)
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/v')
+    needs: verify-release-inputs
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-dotnet@v4
@@ -148,6 +192,7 @@ jobs:
     name: Publish Ruby (RubyGems)
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/v')
+    needs: verify-release-inputs
     steps:
       - uses: actions/checkout@v4
       - uses: ruby/setup-ruby@v1
@@ -164,6 +209,7 @@ jobs:
     name: Publish PHP (Packagist)
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/v')
+    needs: verify-release-inputs
     steps:
       - name: Trigger Packagist update
         env:
@@ -190,8 +236,8 @@ jobs:
   #       run: |
   #         dart pub publish --force
 
-  update-registry-hashes:
-    name: Update registry hashes
+
+  open-registry-hash-pr:
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/v')
     needs:
@@ -206,63 +252,48 @@ jobs:
       pull-requests: write
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
-          fetch-depth: 0
-      - uses: cachix/install-nix-action@v27
-      - name: Wait for registries to publish
+          python-version: "3.11"
+
+      - name: Refresh registry hash manifest (retry strict, fallback partial)
+        id: refresh_hashes
         env:
-          TAG_REF: ${{ github.ref_name }}
+          TAG_NAME: ${{ github.ref_name }}
         run: |
           set -euo pipefail
-          VERSION="${TAG_REF#v}"
-          urls=(
-            "npm|https://registry.npmjs.org/@monarchic-ai/monarchic-agent-protocol/-/monarchic-agent-protocol-${VERSION}.tgz"
-            "crates|https://crates.io/api/v1/crates/monarchic-agent-protocol/${VERSION}"
-            "pypi|https://files.pythonhosted.org/packages/source/m/monarchic_agent_protocol/monarchic_agent_protocol-${VERSION}.tar.gz"
-            "rubygems|https://rubygems.org/downloads/monarchic-agent-protocol-${VERSION}.gem"
-            "nuget|https://api.nuget.org/v3-flatcontainer/monarchic.agentprotocol/${VERSION}/monarchic.agentprotocol.${VERSION}.nupkg"
-            "jitpack|https://jitpack.io/com/github/monarchic-ai/monarchic-agent-protocol/v${VERSION}/monarchic-agent-protocol-v${VERSION}.jar"
-            "github|https://github.com/monarchic-ai/monarchic-agent-protocol/archive/v${VERSION}.tar.gz"
-          )
-          max_attempts=20
-          attempt=1
-          while true; do
-            echo "Attempt ${attempt}/${max_attempts}..."
-            missing=0
-            for item in "${urls[@]}"; do
-              name="${item%%|*}"
-              url="${item#*|}"
-              if curl -fsSL -H "User-Agent: github-actions" -o /dev/null "$url"; then
-                echo "  ok: ${name}"
-              else
-                echo "  waiting: ${name}"
-                missing=$((missing+1))
-              fi
-            done
-            if [ "$missing" -eq 0 ]; then
-              echo "All registries available"
+          strict_ok=0
+          for attempt in 1 2 3 4 5 6; do
+            if bash scripts/update-registry-hashes.sh --tag "$TAG_NAME"; then
+              strict_ok=1
               break
             fi
-            if [ "$attempt" -ge "$max_attempts" ]; then
-              echo "Timed out waiting for registries" >&2
-              exit 1
-            fi
-            sleep_time=$((10 * 2 ** (attempt - 1)))
-            if [ "$sleep_time" -gt 300 ]; then sleep_time=300; fi
-            echo "Sleeping ${sleep_time}s"
-            sleep "$sleep_time"
-            attempt=$((attempt+1))
+            echo "registry hash refresh strict attempt $attempt failed; retrying"
+            sleep 20
           done
-      - name: Update registry hashes
-        run: nix run .#update-registry-hashes
-      - name: Create PR for updated hashes
+          if [ "$strict_ok" -eq 1 ]; then
+            echo "partial=false" >> "$GITHUB_OUTPUT"
+          else
+            bash scripts/update-registry-hashes.sh --tag "$TAG_NAME" --allow-missing
+            echo "partial=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create or update registry hash PR
         uses: peter-evans/create-pull-request@v6
         with:
-          token: ${{ secrets.PR_BOT_TOKEN }}
-          commit-message: "ci: update registry hashes [ci skip]"
-          title: "ci: update registry hashes"
-          body: "Automated registry hash updates after publishing."
-          branch: "ci/update-registry-hashes-${{ github.run_id }}"
+          branch: ci/registry-hashes-${{ github.ref_name }}
           base: main
+          title: "chore(release): update registry hashes for ${{ github.ref_name }}"
+          commit-message: "chore(release): update registry hashes for ${{ github.ref_name }}"
+          body: |
+            Automated post-tag registry hash refresh for `${{ github.ref_name }}`.
+
+            Partial refresh: `${{ steps.refresh_hashes.outputs.partial }}`
+
+            Generated by:
+            - `scripts/update-registry-hashes.sh --tag ${{ github.ref_name }}`
+          labels: |
+            automation
+            release
           add-paths: |
-            flake.nix
+            hashes/registry-hashes.json

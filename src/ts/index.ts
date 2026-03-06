@@ -18,7 +18,6 @@ export interface Task {
   constraints?: Record<string, unknown>;
   gates_required?: string[];
   run_context?: RunContext;
-  delivery_contract?: DeliveryContract;
   objective_spec?: ObjectiveSpec;
   experiment_spec?: ExperimentSpec;
   [key: string]: unknown;
@@ -45,6 +44,7 @@ export interface Event {
   task_id: string;
   status: string;
   message?: string;
+  failure_class?: FailureClass;
   provenance?: Provenance;
   eval_results?: EvalResult[];
   [key: string]: unknown;
@@ -55,28 +55,28 @@ export interface GateResult {
   gate: string;
   status: string;
   reason?: string;
+  failure_class?: FailureClass;
   evidence?: Record<string, unknown>;
   [key: string]: unknown;
 }
 
-export type OutcomeDecision = "accept" | "iterate" | "reject" | "escalate";
-
-export interface RunOutcome {
-  version: ProtocolVersion;
-  task_id: string;
-  run_id?: string;
-  objective_metric?: string;
-  objective_score?: number;
-  objective_decision: OutcomeDecision;
-  estimated_cost_usd?: number;
-  budget_limit_usd?: number;
-  cost_decision: OutcomeDecision;
-  risk_level?: "low" | "medium" | "high" | "critical" | "unknown";
-  risk_summary?: string;
-  risk_decision: OutcomeDecision;
-  final_decision: OutcomeDecision;
-  summary?: string;
-  evidence?: Record<string, unknown>;
+export interface FailureClass {
+  category:
+    | "validation"
+    | "dependency"
+    | "environment"
+    | "timeout"
+    | "conflict"
+    | "permission"
+    | "resource"
+    | "internal"
+    | "unknown";
+  code: string;
+  retryable: boolean;
+  detail?: string;
+  scope?: "task" | "artifact" | "gate" | "runner" | "orchestrator" | "unknown";
+  source?: string;
+  next_action?: string;
   [key: string]: unknown;
 }
 
@@ -108,20 +108,6 @@ export interface AcceptanceCriteria {
   min_effect_size?: number;
   max_variance?: number;
   confidence_level?: number;
-  [key: string]: unknown;
-}
-
-export interface DeliveryContract {
-  objective: string;
-  definition_of_done: string[];
-  required_checks: string[];
-  risk_tier: "low" | "medium" | "high" | "critical";
-  max_cycle_minutes?: number;
-  max_agent_turns?: number;
-  pr_strategy?: "single" | "stacked" | "incremental";
-  review_policy?: "auto" | "human_required";
-  rollback_strategy?: "revert_commit" | "revert_pr" | "manual";
-  notes?: string;
   [key: string]: unknown;
 }
 

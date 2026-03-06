@@ -1,0 +1,26 @@
+[
+  {
+    "schema": "artifact.json",
+    "ref": "google.protobuf.Struct.schema.json"
+  },
+  {
+    "schema": "artifact.json",
+    "ref": "monarchic.agent_protocol.v1.DatasetRef.schema.json"
+  },
+  {
+    "schema": "artifact.json",
+    "ref": "monarchic.agent_protocol.v1.EvalResult.schema.json"
+  },
+  {
+    "schema": "artifact.json",
+    "ref": "monarchic.agent_protocol.v1.ExperimentSpec.schema.json"
+  },
+  {
+    "schema": "run_context.json",
+    "ref": "google.protobuf.Struct.schema.json"
+  },
+  {
+    "schema": "run_outcome.json",
+    "ref": "google.protobuf.Struct.schema.json"
+  }
+]

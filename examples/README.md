@@ -2,6 +2,7 @@
 
 - Rust: `examples/rust/task.rs` can be run with `cargo run --example task`.
 - TypeScript: `examples/ts/task.ts` is a type-checked usage example; run it with your preferred TS toolchain.
+- JSON (non-protobuf): `examples/json/objective_spec.minimal.json` is a schema-valid minimal ObjectiveSpec payload for language-agnostic consumers.
 - Protobuf C++: `examples/proto/cpp/task.cpp`.
 - Protobuf Java: `examples/proto/java/TaskExample.java`.
 - Protobuf Kotlin: `examples/proto/kotlin/TaskExample.kt`.

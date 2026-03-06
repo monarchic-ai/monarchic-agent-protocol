@@ -1,30 +1,30 @@
 {
-  "$id": "monarchic.agent_protocol.v1.GateResult.schema.json",
+  "$id": "https://monarchic.ai/schema/v1/gate_result.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GateResult",
+  "type": "object",
   "additionalProperties": true,
+  "required": ["version", "gate", "status"],
   "properties": {
-    "evidence": {
-      "$ref": "google.protobuf.Struct.schema.json"
-    },
-    "extensions": {
-      "$ref": "google.protobuf.Struct.schema.json"
+    "version": {
+      "type": "string",
+      "const": "v1"
     },
     "gate": {
-      "default": "",
+      "type": "string"
+    },
+    "status": {
       "type": "string"
     },
     "reason": {
       "type": "string"
     },
-    "status": {
-      "default": "",
-      "type": "string"
+    "failure_class": {
+      "$ref": "failure_class.json"
     },
-    "version": {
-      "default": "",
-      "type": "string"
+    "evidence": {
+      "type": "object",
+      "additionalProperties": true
     }
-  },
-  "title": "Gate Result",
-  "type": "object"
+  }
 }

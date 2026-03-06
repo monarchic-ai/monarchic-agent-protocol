@@ -4,10 +4,7 @@
   "title": "ObjectiveSpec",
   "type": "object",
   "additionalProperties": true,
-  "required": [
-    "metric_key",
-    "direction"
-  ],
+  "required": ["metric_key", "direction"],
   "properties": {
     "metric_key": {
       "type": "string",
@@ -15,11 +12,7 @@
     },
     "direction": {
       "type": "string",
-      "enum": [
-        "maximize",
-        "minimize",
-        "target"
-      ]
+      "enum": ["maximize", "minimize", "target"]
     },
     "target": {
       "type": "number"
@@ -49,14 +42,10 @@
   },
   "anyOf": [
     {
-      "required": [
-        "target"
-      ]
+      "required": ["target"]
     },
     {
-      "required": [
-        "min_delta"
-      ]
+      "required": ["min_delta"]
     }
   ]
 }
