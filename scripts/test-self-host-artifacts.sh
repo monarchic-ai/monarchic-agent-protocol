@@ -492,6 +492,14 @@ if duplicate_commands:
         f"found {duplicate_commands}."
     )
 
+expected_first_command = "bash scripts/test-self-host-proof-artifacts.sh"
+first_command = command_log_commands[0]["command"]
+if first_command != expected_first_command:
+    fail(
+        "reason_code=COMMAND_LOG_FIRST_COMMAND_INVALID SELF_HOST_COMMAND_LOG.json first command must be "
+        f"{expected_first_command!r} to preserve deterministic verification continuity, found {first_command!r}."
+    )
+
 command_log_note = command_log["note"]
 if not isinstance(command_log_note, str) or not command_log_note.strip():
     fail("reason_code=COMMAND_LOG_NOTE_INVALID SELF_HOST_COMMAND_LOG.json note must be a non-empty string.")
