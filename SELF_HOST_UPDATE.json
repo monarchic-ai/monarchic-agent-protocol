@@ -1,24 +1,33 @@
 {
   "status": "pass",
-  "headline": "Completed M48 by aligning command-log shell regressions to wrapper-owned core paths.",
-  "current_focus": "Current focus is keeping command-log self-host regressions on the wrapper-owned core-path helper added in this run so future shared artifact fixture changes do not require duplicated file lists in non-protobuf shell coverage.",
-  "milestone_target": "M49: identify the next wrapper/helper ownership gap for issue #1 only if another deterministic non-protobuf self-host regression needs coverage.",
-  "milestones_done": 48,
-  "total_milestones": 49,
+  "headline": "Completed M49 by routing command-log shell mutations through a wrapper-owned path helper.",
+  "current_focus": "Current focus is keeping the new wrapper-owned command-log path helper as the single entry point while validating that the refreshed self-host artifacts remain internally consistent.",
+  "milestone_target": "M50: assess whether any remaining self-host shell regressions still hardcode wrapper-owned artifact paths beyond the command-log surface.",
+  "milestones_done": 49,
+  "total_milestones": 50,
   "completed_work": [
-    "Added self_host_command_log_core_paths to scripts/self-host-command-log-test-lib.sh so command-log tests can ask the wrapper which core artifacts it owns.",
-    "Updated scripts/test-self-host-artifact-command-log-source-repo-seeding.sh to validate every wrapper-owned core artifact path instead of checking a small hardcoded subset.",
-    "Updated scripts/test-self-host-artifact-command-log-shared-fixtures.sh to restore a wrapper-owned core artifact path directly, removing indirect dependence on the broader fixture-path helper.",
-    "Queued M49 as the next deterministic issue #1 follow-up after this wrapper/core-path alignment work."
+    "Added self_host_command_log_relative_path, self_host_command_log_path_in_root, and self_host_command_log_tmp_path to scripts/self-host-command-log-test-lib.sh so the wrapper owns command-log path resolution.",
+    "Updated the first-command, format, reason-code, and gate command-log regression scripts to mutate the temp command log through the wrapper helper instead of hardcoding SELF_HOST_COMMAND_LOG.json.",
+    "Added scripts/test-self-host-artifact-command-log-path-helper.sh to verify the wrapper-owned command-log path helper stays aligned with wrapper-owned core fixtures.",
+    "Queued M50 as the next follow-up now that the issue #1 command-log path ownership gap is closed."
   ],
   "verification": [
     "bash scripts/test-self-host-proof-artifacts.sh -> pass",
+    "bash scripts/test-self-host-artifact-command-log-path-helper.sh -> pass",
+    "bash scripts/test-self-host-artifact-command-log-first-command.sh -> pass",
+    "bash scripts/test-self-host-artifact-command-log-format.sh -> pass",
+    "bash scripts/test-self-host-artifact-command-log-reason-codes.sh -> pass",
     "bash scripts/test-self-host-artifact-command-log-source-repo-seeding.sh -> pass",
     "bash scripts/test-self-host-artifact-command-log-shared-fixtures.sh -> pass",
     "bash scripts/test-self-host-artifact-command-log-gate.sh -> pass",
     "bash -n scripts/self-host-command-log-test-lib.sh -> pass",
+    "bash -n scripts/test-self-host-artifact-command-log-path-helper.sh -> pass",
+    "bash -n scripts/test-self-host-artifact-command-log-first-command.sh -> pass",
+    "bash -n scripts/test-self-host-artifact-command-log-format.sh -> pass",
+    "bash -n scripts/test-self-host-artifact-command-log-reason-codes.sh -> pass",
     "bash -n scripts/test-self-host-artifact-command-log-source-repo-seeding.sh -> pass",
     "bash -n scripts/test-self-host-artifact-command-log-shared-fixtures.sh -> pass",
+    "bash -n scripts/test-self-host-artifact-command-log-gate.sh -> pass",
     "bash scripts/test-self-host-artifacts.sh -> pass",
     "python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null -> pass",
     "python3 -m json.tool SELF_HOST_PROOF.json >/dev/null -> pass",
@@ -28,11 +37,11 @@
     "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
   ],
   "blockers": [
-    "No blockers in M48 scope."
+    "No blockers in M49 scope."
   ],
   "next_steps": [
-    "Use M49 only if another issue #1 regression still reaches into artifact-lib details instead of wrapper-owned helpers.",
-    "Keep future command-log shell coverage on self_host_command_log_core_paths and self_host_command_log_seed_source_repo_with_empty_report_lists so shared fixture additions stay centralized."
+    "Use M50 to scan for any remaining self-host shell regressions that still hardcode wrapper-owned artifact paths outside the command-log surface.",
+    "If no comparable path drift remains, pivot to the next smallest maintainability improvement without widening the verification scope."
   ],
-  "note": "Status is pass because verification succeeded, milestones_done increased from 47 to 48 versus the prior report, and this run tightened issue #1 non-protobuf shell coverage around a wrapper-owned core-path contract."
+  "note": "Status is pass because verification succeeded, milestones_done increased from 48 to 49 versus the prior report, and this run localized the remaining issue #1 command-log path ownership drift behind wrapper-owned helpers."
 }

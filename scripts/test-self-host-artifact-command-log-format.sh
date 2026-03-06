@@ -13,7 +13,9 @@ trap 'self_host_command_log_cleanup' EXIT
 self_host_command_log_reset_fixtures
 self_host_command_log_assert_baseline_passes
 
-"${SELF_HOST_COMMAND_LOG_PYTHON_CMD}" - "${SELF_HOST_COMMAND_LOG_TMP_REPO}/SELF_HOST_COMMAND_LOG.json" <<'PY'
+command_log_path="$(self_host_command_log_tmp_path)"
+
+"${SELF_HOST_COMMAND_LOG_PYTHON_CMD}" - "${command_log_path}" <<'PY'
 import json
 import sys
 
