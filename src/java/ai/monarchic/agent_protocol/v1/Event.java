@@ -386,6 +386,32 @@ private static final long serialVersionUID = 0L;
     return evalResults_.get(index);
   }
 
+  public static final int FAILURE_CLASS_FIELD_NUMBER = 10;
+  private ai.monarchic.agent_protocol.v1.FailureClass failureClass_;
+  /**
+   * <code>.monarchic.agent_protocol.v1.FailureClass failure_class = 10;</code>
+   * @return Whether the failureClass field is set.
+   */
+  @java.lang.Override
+  public boolean hasFailureClass() {
+    return ((bitField0_ & 0x00000008) != 0);
+  }
+  /**
+   * <code>.monarchic.agent_protocol.v1.FailureClass failure_class = 10;</code>
+   * @return The failureClass.
+   */
+  @java.lang.Override
+  public ai.monarchic.agent_protocol.v1.FailureClass getFailureClass() {
+    return failureClass_ == null ? ai.monarchic.agent_protocol.v1.FailureClass.getDefaultInstance() : failureClass_;
+  }
+  /**
+   * <code>.monarchic.agent_protocol.v1.FailureClass failure_class = 10;</code>
+   */
+  @java.lang.Override
+  public ai.monarchic.agent_protocol.v1.FailureClassOrBuilder getFailureClassOrBuilder() {
+    return failureClass_ == null ? ai.monarchic.agent_protocol.v1.FailureClass.getDefaultInstance() : failureClass_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -427,6 +453,9 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < evalResults_.size(); i++) {
       output.writeMessage(9, evalResults_.get(i));
     }
+    if (((bitField0_ & 0x00000008) != 0)) {
+      output.writeMessage(10, getFailureClass());
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -465,6 +494,10 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < evalResults_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(9, evalResults_.get(i));
+    }
+    if (((bitField0_ & 0x00000008) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(10, getFailureClass());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -508,6 +541,11 @@ private static final long serialVersionUID = 0L;
     }
     if (!getEvalResultsList()
         .equals(other.getEvalResultsList())) return false;
+    if (hasFailureClass() != other.hasFailureClass()) return false;
+    if (hasFailureClass()) {
+      if (!getFailureClass()
+          .equals(other.getFailureClass())) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -544,6 +582,10 @@ private static final long serialVersionUID = 0L;
     if (getEvalResultsCount() > 0) {
       hash = (37 * hash) + EVAL_RESULTS_FIELD_NUMBER;
       hash = (53 * hash) + getEvalResultsList().hashCode();
+    }
+    if (hasFailureClass()) {
+      hash = (37 * hash) + FAILURE_CLASS_FIELD_NUMBER;
+      hash = (53 * hash) + getFailureClass().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -678,6 +720,7 @@ private static final long serialVersionUID = 0L;
         internalGetExtensionsFieldBuilder();
         internalGetProvenanceFieldBuilder();
         internalGetEvalResultsFieldBuilder();
+        internalGetFailureClassFieldBuilder();
       }
     }
     @java.lang.Override
@@ -707,6 +750,11 @@ private static final long serialVersionUID = 0L;
         evalResultsBuilder_.clear();
       }
       bitField0_ = (bitField0_ & ~0x00000100);
+      failureClass_ = null;
+      if (failureClassBuilder_ != null) {
+        failureClassBuilder_.dispose();
+        failureClassBuilder_ = null;
+      }
       return this;
     }
 
@@ -785,6 +833,12 @@ private static final long serialVersionUID = 0L;
             : provenanceBuilder_.build();
         to_bitField0_ |= 0x00000004;
       }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.failureClass_ = failureClassBuilder_ == null
+            ? failureClass_
+            : failureClassBuilder_.build();
+        to_bitField0_ |= 0x00000008;
+      }
       result.bitField0_ |= to_bitField0_;
     }
 
@@ -861,6 +915,9 @@ private static final long serialVersionUID = 0L;
             evalResultsBuilder_.addAllMessages(other.evalResults_);
           }
         }
+      }
+      if (other.hasFailureClass()) {
+        mergeFailureClass(other.getFailureClass());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -945,6 +1002,13 @@ private static final long serialVersionUID = 0L;
               }
               break;
             } // case 74
+            case 82: {
+              input.readMessage(
+                  internalGetFailureClassFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 82
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -1881,6 +1945,127 @@ private static final long serialVersionUID = 0L;
         evalResults_ = null;
       }
       return evalResultsBuilder_;
+    }
+
+    private ai.monarchic.agent_protocol.v1.FailureClass failureClass_;
+    private com.google.protobuf.SingleFieldBuilder<
+        ai.monarchic.agent_protocol.v1.FailureClass, ai.monarchic.agent_protocol.v1.FailureClass.Builder, ai.monarchic.agent_protocol.v1.FailureClassOrBuilder> failureClassBuilder_;
+    /**
+     * <code>.monarchic.agent_protocol.v1.FailureClass failure_class = 10;</code>
+     * @return Whether the failureClass field is set.
+     */
+    public boolean hasFailureClass() {
+      return ((bitField0_ & 0x00000200) != 0);
+    }
+    /**
+     * <code>.monarchic.agent_protocol.v1.FailureClass failure_class = 10;</code>
+     * @return The failureClass.
+     */
+    public ai.monarchic.agent_protocol.v1.FailureClass getFailureClass() {
+      if (failureClassBuilder_ == null) {
+        return failureClass_ == null ? ai.monarchic.agent_protocol.v1.FailureClass.getDefaultInstance() : failureClass_;
+      } else {
+        return failureClassBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.monarchic.agent_protocol.v1.FailureClass failure_class = 10;</code>
+     */
+    public Builder setFailureClass(ai.monarchic.agent_protocol.v1.FailureClass value) {
+      if (failureClassBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        failureClass_ = value;
+      } else {
+        failureClassBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.monarchic.agent_protocol.v1.FailureClass failure_class = 10;</code>
+     */
+    public Builder setFailureClass(
+        ai.monarchic.agent_protocol.v1.FailureClass.Builder builderForValue) {
+      if (failureClassBuilder_ == null) {
+        failureClass_ = builderForValue.build();
+      } else {
+        failureClassBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.monarchic.agent_protocol.v1.FailureClass failure_class = 10;</code>
+     */
+    public Builder mergeFailureClass(ai.monarchic.agent_protocol.v1.FailureClass value) {
+      if (failureClassBuilder_ == null) {
+        if (((bitField0_ & 0x00000200) != 0) &&
+          failureClass_ != null &&
+          failureClass_ != ai.monarchic.agent_protocol.v1.FailureClass.getDefaultInstance()) {
+          getFailureClassBuilder().mergeFrom(value);
+        } else {
+          failureClass_ = value;
+        }
+      } else {
+        failureClassBuilder_.mergeFrom(value);
+      }
+      if (failureClass_ != null) {
+        bitField0_ |= 0x00000200;
+        onChanged();
+      }
+      return this;
+    }
+    /**
+     * <code>.monarchic.agent_protocol.v1.FailureClass failure_class = 10;</code>
+     */
+    public Builder clearFailureClass() {
+      bitField0_ = (bitField0_ & ~0x00000200);
+      failureClass_ = null;
+      if (failureClassBuilder_ != null) {
+        failureClassBuilder_.dispose();
+        failureClassBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.monarchic.agent_protocol.v1.FailureClass failure_class = 10;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.FailureClass.Builder getFailureClassBuilder() {
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return internalGetFailureClassFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.monarchic.agent_protocol.v1.FailureClass failure_class = 10;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.FailureClassOrBuilder getFailureClassOrBuilder() {
+      if (failureClassBuilder_ != null) {
+        return failureClassBuilder_.getMessageOrBuilder();
+      } else {
+        return failureClass_ == null ?
+            ai.monarchic.agent_protocol.v1.FailureClass.getDefaultInstance() : failureClass_;
+      }
+    }
+    /**
+     * <code>.monarchic.agent_protocol.v1.FailureClass failure_class = 10;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        ai.monarchic.agent_protocol.v1.FailureClass, ai.monarchic.agent_protocol.v1.FailureClass.Builder, ai.monarchic.agent_protocol.v1.FailureClassOrBuilder> 
+        internalGetFailureClassFieldBuilder() {
+      if (failureClassBuilder_ == null) {
+        failureClassBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            ai.monarchic.agent_protocol.v1.FailureClass, ai.monarchic.agent_protocol.v1.FailureClass.Builder, ai.monarchic.agent_protocol.v1.FailureClassOrBuilder>(
+                getFailureClass(),
+                getParentForChildren(),
+                isClean());
+        failureClass_ = null;
+      }
+      return failureClassBuilder_;
     }
 
     // @@protoc_insertion_point(builder_scope:monarchic.agent_protocol.v1.Event)

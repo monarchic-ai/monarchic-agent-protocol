@@ -140,4 +140,19 @@ public interface EventOrBuilder extends
    */
   ai.monarchic.agent_protocol.v1.EvalResultOrBuilder getEvalResultsOrBuilder(
       int index);
+
+  /**
+   * <code>.monarchic.agent_protocol.v1.FailureClass failure_class = 10;</code>
+   * @return Whether the failureClass field is set.
+   */
+  boolean hasFailureClass();
+  /**
+   * <code>.monarchic.agent_protocol.v1.FailureClass failure_class = 10;</code>
+   * @return The failureClass.
+   */
+  ai.monarchic.agent_protocol.v1.FailureClass getFailureClass();
+  /**
+   * <code>.monarchic.agent_protocol.v1.FailureClass failure_class = 10;</code>
+   */
+  ai.monarchic.agent_protocol.v1.FailureClassOrBuilder getFailureClassOrBuilder();
 }

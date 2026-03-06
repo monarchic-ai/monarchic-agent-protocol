@@ -20,7 +20,7 @@ fn main() {
         }),
         experiment_spec: None,
         objective_spec: None,
-        extensions: Some(Struct::default()),
+        extensions: Some(Default::default()),
     };
 
     println!("{}", task.task_id);
