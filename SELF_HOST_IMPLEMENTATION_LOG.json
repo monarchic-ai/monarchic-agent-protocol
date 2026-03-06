@@ -923,5 +923,100 @@
       "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
     ],
     "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-03-06T01:22:46Z",
+    "task_id": "task-self-host-001",
+    "summary": "Completed M41 by requiring SELF_HOST_COMMAND_LOG verification to start with the proof-artifact check and adding deterministic regression coverage for first-command drift in non-protobuf workflows.",
+    "milestone_completed": "M41",
+    "files": [
+      "scripts/test-self-host-artifacts.sh",
+      "scripts/test-self-host-artifact-command-log-first-command.sh",
+      "SELF_HOST_COMMAND_LOG.json",
+      "SELF_HOST_PROOF.json",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-proof-artifacts.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-first-command.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-gate.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-reason-codes.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-format.sh -> pass",
+      "bash scripts/test-self-host-artifacts.sh -> pass",
+      "python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_PROOF.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
+    ],
+    "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-03-06T01:46:19Z",
+    "task_id": "task-self-host-001",
+    "summary": "Completed M42 by broadening the default SELF_HOST_COMMAND_LOG gate smoke test so swapping the first two verification commands exercises deterministic verification-order drift alongside status and index regressions.",
+    "milestone_completed": "M42",
+    "files": [
+      "scripts/test-self-host-artifact-command-log-gate.sh",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-proof-artifacts.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-first-command.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-gate.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-reason-codes.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-format.sh -> pass",
+      "bash scripts/test-self-host-artifacts.sh -> pass",
+      "python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_PROOF.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
+    ],
+    "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-03-06T07:31:38Z",
+    "task_id": "task-self-host-001",
+    "summary": "Completed M43 by extracting shared command-log smoke fixture setup into scripts/self-host-command-log-test-lib.sh, migrating the command-log regression scripts onto it, and adding reset validation so shell-based non-protobuf verification coverage stays synchronized.",
+    "milestone_completed": "M43",
+    "files": [
+      "scripts/self-host-command-log-test-lib.sh",
+      "scripts/test-self-host-artifact-command-log-shared-fixtures.sh",
+      "scripts/test-self-host-artifact-command-log-first-command.sh",
+      "scripts/test-self-host-artifact-command-log-gate.sh",
+      "scripts/test-self-host-artifact-command-log-reason-codes.sh",
+      "scripts/test-self-host-artifact-command-log-format.sh",
+      "SELF_HOST_COMMAND_LOG.json",
+      "SELF_HOST_PROOF.json",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-proof-artifacts.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-shared-fixtures.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-first-command.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-gate.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-reason-codes.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-format.sh -> pass",
+      "bash scripts/test-self-host-artifacts.sh -> pass",
+      "python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_PROOF.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
+    ],
+    "gate": "ready-for-review"
   }
 ]
