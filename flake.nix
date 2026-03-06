@@ -871,7 +871,7 @@ EOF
               pkgs.python3
             ];
           text = ''
-            exec ${builtins.path { path = ./scripts/update-local-hashes.sh; name = "update-local-hashes.sh"; }} "$@"
+            REPO_ROOT="$(pwd)" exec ${builtins.path { path = ./scripts/update-local-hashes.sh; name = "update-local-hashes.sh"; }} "$@"
           '';
         };
           lintSchemas = pkgs.writeShellApplication {
