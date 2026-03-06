@@ -29,6 +29,10 @@ self_host_command_log_fixture_paths() {
   self_host_artifact_fixture_paths
 }
 
+self_host_command_log_seed_source_repo_with_empty_report_lists() {
+  self_host_artifact_seed_source_repo_with_empty_report_lists "$@"
+}
+
 self_host_command_log_reset_fixtures() {
   self_host_artifact_reset_fixtures
 }

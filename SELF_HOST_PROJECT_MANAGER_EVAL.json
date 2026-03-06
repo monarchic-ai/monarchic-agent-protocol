@@ -1,19 +1,19 @@
 {
   "version": "v1",
-  "generated_at": "2026-03-06T14:24:13.712765+00:00",
+  "generated_at": "2026-03-06T21:42:24.130063+00:00",
   "source": "self_host_autoloop_project_manager",
   "status": "refreshed",
   "pending_before": null,
   "pending_after": null,
-  "milestones_done": 44,
-  "current_focus": "Current focus is keeping scripts/self-host-artifact-test-lib.sh as the single source of truth for self-host artifact smoke setup so shell-based non-protobuf verification remains stable even when SELF_HOST_REPORT.json file lists change.",
-  "headline": "Completed M44 by sharing core self-host artifact fixture setup across the remaining regression scripts.",
+  "milestones_done": 46,
+  "current_focus": "Current focus is keeping temp source-repo seeding and empty report-file-list setup owned by scripts/self-host-artifact-test-lib.sh so shared self-host shell regressions stay aligned when core artifact fixtures change.",
+  "headline": "Completed M46 by centralizing temp source-repo seeding for shared self-host artifact regressions.",
   "next_steps": [
-    "Pick the next repo-local improvement after M44 now that the self-host fixture consolidation track is complete.",
-    "Keep future self-host regressions on scripts/self-host-artifact-test-lib.sh so proof and command-log artifacts never depend on SELF_HOST_REPORT.json file lists again."
+    "Use M47 only if another wrapper-specific self-host regression needs a thin wrapper around the shared source-repo seeding helper.",
+    "Keep future shell-based non-protobuf fixture setup changes in scripts/self-host-artifact-test-lib.sh so shared regressions do not drift again."
   ],
   "blockers": [
-    "No blockers in M44 scope."
+    "No blockers in M46 scope."
   ],
   "objective_profile": {
     "selected_profile": "balanced",
@@ -115,10 +115,11 @@
       "task_id": "project-manager-issue-00001",
       "title": "Issue #1: feat: support non-protobuf supported languages",
       "why_now": "Open repository issue discovered during automated backlog scan and ranked by objective-weighted scoring; prioritize deterministic software-only progress. Objective score=1.00.",
-      "prompt": "Investigate and advance issue #1 from monarchic-ai/monarchic-agent-protocol: feat: support non-protobuf supported languages. Current focus: Current focus is keeping scripts/self-host-artifact-test-lib.sh as the single source of truth for self-host artifact smoke setup so shell-based non-protobuf verification remains stable even when SELF_HOST_REPORT.json file lists change.. Issue URL: https://github.com/monarchic-ai/monarchic-agent-protocol/issues/1.",
+      "prompt": "Investigate and advance issue #1 from monarchic-ai/monarchic-agent-protocol: feat: support non-protobuf supported languages. Current focus: Current focus is keeping temp source-repo seeding and empty report-file-list setup owned by scripts/self-host-artifact-test-lib.sh so shared self-host shell regressions stay aligned when core artifact fixtures change.. Issue URL: https://github.com/monarchic-ai/monarchic-agent-protocol/issues/1. Milestone target: M47.",
       "acceptance": [
-        "Deliver observable progress for issue #1: feat: support non-protobuf supported languages.",
+        "Advance milestone M47 with deterministic verification evidence.",
         "Maintain verification continuity (first expected check: bash scripts/test-self-host-proof-artifacts.sh).",
+        "Deliver observable progress for issue #1: feat: support non-protobuf supported languages.",
         "Address at least one explicit requirement or constraint from issue #1 body context and document the implemented outcome.",
         "Run deterministic repository verification and keep SELF_HOST_REPORT.json/SELF_HOST_UPDATE.json synchronized."
       ],
@@ -129,22 +130,22 @@
       "task_id": "project-manager-issue-00003",
       "title": "Issue #3: feat: delegator field on task packet",
       "why_now": "Open repository issue discovered during automated backlog scan and ranked by objective-weighted scoring; prioritize deterministic software-only progress. Objective score=1.00.",
-      "prompt": "Investigate and advance issue #3 from monarchic-ai/monarchic-agent-protocol: feat: delegator field on task packet. Current focus: Current focus is keeping scripts/self-host-artifact-test-lib.sh as the single source of truth for self-host artifact smoke setup so shell-based non-protobuf verification remains stable even when SELF_HOST_REPORT.json file lists change.. Issue URL: https://github.com/monarchic-ai/monarchic-agent-protocol/issues/3. Issue context: Required fields: version: \"v1\" task_id: stable identifier role: AgentRole goal: human-readable objective delegator: AgentRole.",
+      "prompt": "Investigate and advance issue #3 from monarchic-ai/monarchic-agent-protocol: feat: delegator field on task packet. Current focus: Current focus is keeping temp source-repo seeding and empty report-file-list setup owned by scripts/self-host-artifact-test-lib.sh so shared self-host shell regressions stay aligned when core artifact fixtures change.. Issue URL: https://github.com/monarchic-ai/monarchic-agent-protocol/issues/3. Issue context: Required fields: version: \"v1\" task_id: stable identifier role: AgentRole goal: human-readable objective delegator: AgentRole.",
       "acceptance": [
         "Deliver observable progress for issue #3: feat: delegator field on task packet.",
         "Address at least one explicit requirement or constraint from issue #3 body context and document the implemented outcome.",
         "Run deterministic repository verification and keep SELF_HOST_REPORT.json/SELF_HOST_UPDATE.json synchronized."
       ],
       "source": "project_manager_eval",
-      "thinking_complexity": "medium"
+      "thinking_complexity": "high"
     },
     {
       "task_id": "project-manager-seed-003",
-      "title": "Pick the next repo-local improvement after M44 now that the self-host fixture consolidation track is complete.",
+      "title": "Use M47 only if another wrapper-specific self-host regression needs a thin wrapper around the shared source-repo seed...",
       "why_now": "Auto-generated from SELF_HOST_UPDATE.next_steps by project-manager evaluator.",
-      "prompt": "Execute this as the next deterministic self-host increment. Current focus: Current focus is keeping scripts/self-host-artifact-test-lib.sh as the single source of truth for self-host artifact smoke setup so shell-based non-protobuf verification remains stable even when SELF_HOST_REPORT.json file lists change. Primary step: Pick the next repo-local improvement after M44 now that the self-host fixture consolidation track is complete.",
+      "prompt": "Execute this as the next deterministic self-host increment. Current focus: Current focus is keeping temp source-repo seeding and empty report-file-list setup owned by scripts/self-host-artifact-test-lib.sh so shared self-host shell regressions stay aligned when core artifact fixtures change. Primary step: Use M47 only if another wrapper-specific self-host regression needs a thin wrapper around the shared source-repo seeding helper.",
       "acceptance": [
-        "Deliver observable progress on: Pick the next repo-local improvement after M44 now that the self-host fixture consolidation track is complete..",
+        "Deliver observable progress on: Use M47 only if another wrapper-specific self-host regression needs a thin wrapper around the shared source-repo seed....",
         "Run deterministic verification and keep SELF_HOST_REPORT/SELF_HOST_UPDATE synchronized."
       ],
       "source": "project_manager_eval",
@@ -152,11 +153,11 @@
     },
     {
       "task_id": "project-manager-seed-004",
-      "title": "Keep future self-host regressions on scripts/self-host-artifact-test-lib.sh so proof and command-log artifacts never...",
+      "title": "Keep future shell-based non-protobuf fixture setup changes in scripts/self-host-artifact-test-lib.sh so shared regres...",
       "why_now": "Auto-generated from SELF_HOST_UPDATE.next_steps by project-manager evaluator.",
-      "prompt": "Execute this as the next deterministic self-host increment. Current focus: Current focus is keeping scripts/self-host-artifact-test-lib.sh as the single source of truth for self-host artifact smoke setup so shell-based non-protobuf verification remains stable even when SELF_HOST_REPORT.json file lists change. Primary step: Keep future self-host regressions on scripts/self-host-artifact-test-lib.sh so proof and command-log artifacts never depend on SELF_HOST_REPORT.json file lists again.",
+      "prompt": "Execute this as the next deterministic self-host increment. Current focus: Current focus is keeping temp source-repo seeding and empty report-file-list setup owned by scripts/self-host-artifact-test-lib.sh so shared self-host shell regressions stay aligned when core artifact fixtures change. Primary step: Keep future shell-based non-protobuf fixture setup changes in scripts/self-host-artifact-test-lib.sh so shared regressions do not drift again.",
       "acceptance": [
-        "Deliver observable progress on: Keep future self-host regressions on scripts/self-host-artifact-test-lib.sh so proof and command-log artifacts never....",
+        "Deliver observable progress on: Keep future shell-based non-protobuf fixture setup changes in scripts/self-host-artifact-test-lib.sh so shared regres....",
         "Run deterministic verification and keep SELF_HOST_REPORT/SELF_HOST_UPDATE synchronized."
       ],
       "source": "project_manager_eval",

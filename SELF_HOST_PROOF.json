@@ -2,29 +2,25 @@
   "task_id": "task-self-host-001",
   "status": "pass",
   "reason_code": "OK",
-  "signature_count": 5,
+  "signature_count": 4,
   "sampled_batches": 1,
   "proofs": [
     {
       "path": "SELF_HOST_COMMAND_LOG.json",
-      "sha256": "83c1c361afee92ab4618ef35ea8f3ca3bcb1341703c2e3d4290ee88796f40099"
+      "sha256": "fd93c1498e8546464c31837a08f251334ede765fcb8083fb75766b72f2ad2d82"
     },
     {
-      "path": "scripts/self-host-artifact-test-lib.sh",
-      "sha256": "15bf310f824c8f7009b2b312953fd8e726a9499f710e2539d8904dd77cee4876"
+      "path": "scripts/self-host-command-log-test-lib.sh",
+      "sha256": "a014ba8215f9a1eef61d0a178b2c68d0294723a8a3c8d19ddc15425788d82aa3"
     },
     {
       "path": "scripts/test-self-host-artifact-command-log-shared-fixtures.sh",
-      "sha256": "3dda701b0767e540ac95a84e7200674983beef1240222bdd3f730fa2dff25fba"
+      "sha256": "559263bafe91d6f05d027858b41a9cb256afb6a5725591fd82600197219b5a85"
     },
     {
-      "path": "scripts/test-self-host-artifact-shared-fixtures.sh",
-      "sha256": "7c012c555d3f9bc595ba298b4dde5782ef3d772a0e0ff4968258f1a2a7976d71"
-    },
-    {
-      "path": "scripts/test-self-host-artifact-source-repo-seeding.sh",
-      "sha256": "37b1a8fc0a3dbaa15bc9d704b4bfbc2b8de29b7e470cbadfa126d87064864498"
+      "path": "scripts/test-self-host-artifact-command-log-source-repo-seeding.sh",
+      "sha256": "ebca49a97c896ef4a93f084f934f8add2bcb5a11ad65f3f7729ebf7040f746a0"
     }
   ],
-  "note": "Deterministic proof manifest for self-host artifact validation, covering the synchronized command log, the shared artifact helper, and the shared-fixture regressions that now reuse helper-owned temp source-repo seeding."
+  "note": "Deterministic proof manifest for self-host artifact validation, covering the synchronized command log, the command-log wrapper seeding shim, and the wrapper-owned shared-fixture regressions for shell-based non-protobuf verification."
 }
