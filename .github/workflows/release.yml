@@ -4,7 +4,6 @@ permissions:
   contents: write
   pull-requests: write
   id-token: write
-  pull-requests: write
 
 on:
   push:
@@ -110,7 +109,7 @@ jobs:
           print(cfg["metadata"]["version"])
           PY
           )
-          STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://pypi.org/pypi/monarchic-agent-protocol/${VERSION}/json || true)
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" "https://pypi.org/pypi/monarchic-agent-protocol/${VERSION}/json" || true)
           if [ "$STATUS" = "200" ]; then
             echo "exists=true" >> "$GITHUB_OUTPUT"
           else
