@@ -2,37 +2,17 @@
   "task_id": "task-self-host-001",
   "status": "pass",
   "reason_code": "OK",
-  "signature_count": 7,
+  "signature_count": 2,
   "sampled_batches": 1,
   "proofs": [
     {
       "path": "SELF_HOST_COMMAND_LOG.json",
-      "sha256": "99393addd58e41308086ec5941e18d0afae01f082494f053d7ba257064132f95"
+      "sha256": "7b5fea7ff6f3404fad64d7ca1949a5fcea660662431bc7994db9d0a33e638a09"
     },
     {
-      "path": "scripts/self-host-command-log-test-lib.sh",
-      "sha256": "5d733841d0aad1d3acc2940f00cea39f3a20669f953f1c5059e53e9231a1b63e"
-    },
-    {
-      "path": "scripts/test-self-host-artifact-command-log-first-command.sh",
-      "sha256": "94340ca045499df0bd81378d1c36ca2cd7731e9560ed003b0ea81f678dd3a725"
-    },
-    {
-      "path": "scripts/test-self-host-artifact-command-log-format.sh",
-      "sha256": "e3a4298ec6339ccc3c7b238d8bb17cdc08282a0659239a88a8845d7253afa328"
-    },
-    {
-      "path": "scripts/test-self-host-artifact-command-log-gate.sh",
-      "sha256": "71ba43f33f4fe09d56bcc2bdc55cf2e8a57a3918d16552c46746dbac67927cdb"
-    },
-    {
-      "path": "scripts/test-self-host-artifact-command-log-path-helper.sh",
-      "sha256": "6548c4730df4fcf187b246d351b5825869e2d9ec4a5878b8e0f6ef71f7cab4fc"
-    },
-    {
-      "path": "scripts/test-self-host-artifact-command-log-reason-codes.sh",
-      "sha256": "f7501fd5107c9df45046801a451b0e2a4ea9e3fb4d74b7d65a8d5dc127c47ded"
+      "path": "scripts/test-self-host-artifact-command-log-wrapper-ownership.sh",
+      "sha256": "ca8d38537652db18dba1b0b005fcbd45ce41ea3a8f6ae0bebdef56a16a31ca68"
     }
   ],
-  "note": "Deterministic proof manifest for self-host artifact validation, covering the synchronized command log, the wrapper-owned command-log path helper, and the updated command-log mutation regressions that now resolve wrapper-owned paths centrally."
+  "note": "Deterministic proof manifest for self-host artifact validation, covering the synchronized command log and the wrapper-ownership scan that guards command-log shell regressions."
 }

@@ -1270,5 +1270,48 @@
       "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
     ],
     "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-03-06T23:31:04Z",
+    "task_id": "task-self-host-001",
+    "summary": "Completed M50 by adding scripts/test-self-host-artifact-command-log-wrapper-ownership.sh to deterministically scan command-log shell regressions for wrapper/helper ownership drift and hardcoded command-log paths, converting the remaining issue #1 assessment into executable coverage.",
+    "milestone_completed": "M50",
+    "files": [
+      "scripts/test-self-host-artifact-command-log-wrapper-ownership.sh",
+      "SELF_HOST_COMMAND_LOG.json",
+      "SELF_HOST_PROOF.json",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-proof-artifacts.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-path-helper.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-first-command.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-format.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-reason-codes.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-source-repo-seeding.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-shared-fixtures.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-gate.sh -> pass",
+      "bash -n scripts/self-host-command-log-test-lib.sh -> pass",
+      "bash -n scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
+      "bash -n scripts/test-self-host-artifact-command-log-path-helper.sh -> pass",
+      "bash -n scripts/test-self-host-artifact-command-log-first-command.sh -> pass",
+      "bash -n scripts/test-self-host-artifact-command-log-format.sh -> pass",
+      "bash -n scripts/test-self-host-artifact-command-log-reason-codes.sh -> pass",
+      "bash -n scripts/test-self-host-artifact-command-log-source-repo-seeding.sh -> pass",
+      "bash -n scripts/test-self-host-artifact-command-log-shared-fixtures.sh -> pass",
+      "bash -n scripts/test-self-host-artifact-command-log-gate.sh -> pass",
+      "bash scripts/test-self-host-artifacts.sh -> pass",
+      "python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_PROOF.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
+    ],
+    "gate": "ready-for-review"
   }
 ]
