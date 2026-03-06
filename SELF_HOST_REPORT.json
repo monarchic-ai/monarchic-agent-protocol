@@ -1,16 +1,24 @@
 {
   "status": "pass",
-  "milestone_completed": "M42",
-  "milestones_done": 42,
-  "total_milestones": 43,
-  "new_files": [],
+  "milestone_completed": "M43",
+  "milestones_done": 43,
+  "total_milestones": 44,
+  "new_files": [
+    "scripts/self-host-command-log-test-lib.sh",
+    "scripts/test-self-host-artifact-command-log-shared-fixtures.sh"
+  ],
   "changed_files": [
+    "scripts/test-self-host-artifact-command-log-first-command.sh",
     "scripts/test-self-host-artifact-command-log-gate.sh",
+    "scripts/test-self-host-artifact-command-log-reason-codes.sh",
+    "scripts/test-self-host-artifact-command-log-format.sh",
+    "SELF_HOST_COMMAND_LOG.json",
+    "SELF_HOST_PROOF.json",
     "SELF_HOST_MILESTONES.json",
     "SELF_HOST_IMPLEMENTATION_LOG.json",
     "SELF_HOST_REPORT.json",
     "SELF_HOST_UPDATE.json"
   ],
-  "test_command": "bash scripts/test-self-host-proof-artifacts.sh && bash scripts/test-self-host-artifact-command-log-first-command.sh && bash scripts/test-self-host-artifact-command-log-gate.sh && bash scripts/test-self-host-artifact-command-log-reason-codes.sh && bash scripts/test-self-host-artifact-command-log-format.sh && bash scripts/test-self-host-artifacts.sh && python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null && python3 -m json.tool SELF_HOST_PROOF.json >/dev/null && python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null && python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null && python3 -m json.tool SELF_HOST_REPORT.json >/dev/null && python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null",
-  "note": "Status is pass because verification succeeded and milestones_done increased from 41 to 42 versus the prior report while broadening default command-log gate smoke coverage to exercise first-command order drift alongside status and index regressions."
+  "test_command": "bash scripts/test-self-host-proof-artifacts.sh && bash scripts/test-self-host-artifact-command-log-shared-fixtures.sh && bash scripts/test-self-host-artifact-command-log-first-command.sh && bash scripts/test-self-host-artifact-command-log-gate.sh && bash scripts/test-self-host-artifact-command-log-reason-codes.sh && bash scripts/test-self-host-artifact-command-log-format.sh && bash scripts/test-self-host-artifacts.sh && python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null && python3 -m json.tool SELF_HOST_PROOF.json >/dev/null && python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null && python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null && python3 -m json.tool SELF_HOST_REPORT.json >/dev/null && python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null",
+  "note": "Status is pass because verification succeeded and milestones_done increased from 42 to 43 versus the prior report while extracting shared command-log smoke fixture setup into a reusable helper and validating reset behavior for shell-based non-protobuf workflows."
 }

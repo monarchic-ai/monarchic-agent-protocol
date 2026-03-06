@@ -1,18 +1,19 @@
 {
   "status": "pass",
-  "headline": "Completed M42 by extending default command-log gate smoke coverage to catch first-command order drift.",
-  "current_focus": "Current focus is keeping the broader default command-log gate smoke coverage synchronized with the dedicated first-command regression and the recorded SELF_HOST_COMMAND_LOG verification order.",
-  "milestone_target": "M43 is next: reduce duplicated command-log smoke fixture setup so default-gate and targeted regression scripts stay synchronized.",
-  "milestones_done": 42,
-  "total_milestones": 43,
+  "headline": "Completed M43 by extracting shared command-log smoke fixture setup into a reusable helper with reset validation.",
+  "current_focus": "Current focus is stabilizing the new shared command-log fixture helper so the shell-based non-protobuf verification path stays synchronized across default-gate and targeted regression scripts without changing verification semantics.",
+  "milestone_target": "M44 is next: evaluate whether the shared fixture helper should cover the remaining self-host artifact regressions without widening behavior changes.",
+  "milestones_done": 43,
+  "total_milestones": 44,
   "completed_work": [
-    "Extended scripts/test-self-host-artifact-command-log-gate.sh so the broader default-gate smoke test now swaps the first two recorded commands while keeping indices valid, exercising verification-order drift instead of only malformed-command mutations.",
-    "Kept the existing status-mismatch and index-regression checks in the same smoke script so the default self-host gate now covers all three command-log failure paths together.",
-    "Completed milestone M42 and recorded the new gate coverage in SELF_HOST_MILESTONES.json plus the latest SELF_HOST_IMPLEMENTATION_LOG.json entry.",
-    "Refreshed SELF_HOST_REPORT.json and SELF_HOST_UPDATE.json to reflect the verified M42 completion and the next command-log maintainability target."
+    "Added scripts/self-host-command-log-test-lib.sh to centralize temporary-repo setup, report-listed fixture copying, baseline gate assertions, and reason-code expectations for the command-log regression scripts.",
+    "Migrated scripts/test-self-host-artifact-command-log-first-command.sh, scripts/test-self-host-artifact-command-log-gate.sh, scripts/test-self-host-artifact-command-log-reason-codes.sh, and scripts/test-self-host-artifact-command-log-format.sh onto the shared helper without changing their failure conditions.",
+    "Added scripts/test-self-host-artifact-command-log-shared-fixtures.sh to verify the shared helper restores a reported file path after deletion and preserves a passing baseline artifact gate.",
+    "Completed milestone M43 and synchronized SELF_HOST_COMMAND_LOG.json, SELF_HOST_PROOF.json, SELF_HOST_REPORT.json, and SELF_HOST_UPDATE.json with the new deterministic verification sequence."
   ],
   "verification": [
     "bash scripts/test-self-host-proof-artifacts.sh",
+    "bash scripts/test-self-host-artifact-command-log-shared-fixtures.sh",
     "bash scripts/test-self-host-artifact-command-log-first-command.sh",
     "bash scripts/test-self-host-artifact-command-log-gate.sh",
     "bash scripts/test-self-host-artifact-command-log-reason-codes.sh",
@@ -26,11 +27,11 @@
     "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null"
   ],
   "blockers": [
-    "No blockers in M42 scope."
+    "No blockers in M43 scope."
   ],
   "next_steps": [
-    "Start M43 by extracting shared command-log smoke fixture setup into reusable shell logic without changing the recorded verification order or reason-code expectations.",
-    "Keep SELF_HOST_COMMAND_LOG.json and the latest implementation-log verification entries strictly synchronized on future runs."
+    "Start M44 by checking whether the remaining self-host artifact regression scripts can reuse the shared fixture helper without changing their existing failure semantics.",
+    "Keep SELF_HOST_COMMAND_LOG.json, SELF_HOST_PROOF.json, and the latest implementation-log verification entries synchronized whenever command-log verification commands change."
   ],
-  "note": "Status is pass because verification succeeded, milestones_done increased from 41 to 42, and issue #1 progress now includes broader default-gate coverage for first-command verification-order drift in non-protobuf workflows."
+  "note": "Status is pass because verification succeeded, milestones_done increased from 42 to 43, and issue #1 progress now includes shared command-log fixture setup that reduces shell-test drift for non-protobuf verification workflows."
 }

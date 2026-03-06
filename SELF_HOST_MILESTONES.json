@@ -296,8 +296,15 @@
   {
     "id": "M43",
     "title": "Reduce duplicated command-log smoke fixture setup across regression scripts",
+    "status": "done",
+    "completed_at": "2026-03-06T07:31:38Z",
+    "notes": "Extracted scripts/self-host-command-log-test-lib.sh to share command-log smoke fixture setup across the default-gate and targeted regression scripts, then added scripts/test-self-host-artifact-command-log-shared-fixtures.sh so the reusable setup stays deterministic for shell-based non-protobuf verification workflows."
+  },
+  {
+    "id": "M44",
+    "title": "Evaluate extending shared fixture setup to the remaining self-host artifact regressions",
     "status": "pending",
     "completed_at": null,
-    "notes": "Next increment: extract shared command-log smoke-test fixture setup so the default-gate and targeted regression scripts stay synchronized without changing verification semantics."
+    "notes": "Next increment: assess whether the extracted shared fixture helper can cover the other self-host artifact regression scripts without changing any failure semantics or verification ordering guarantees."
   }
 ]

@@ -7,16 +7,16 @@
   "proofs": [
     {
       "path": "SELF_HOST_COMMAND_LOG.json",
-      "sha256": "e4ef3901d59664c5aae73368a8ee438475a953986e882df49efa20589e9da4b8"
+      "sha256": "eb174ad5fc61b12e04fc4ed296b87cb1664606b3901e0ade638b679db979b2d4"
     },
     {
       "path": "scripts/test-self-host-artifact-command-log-first-command.sh",
-      "sha256": "fe288cefdba1cab6e061e89290db7822c414f43bc0757716db3c3aa74a2e91bd"
+      "sha256": "d366a29a62caab5a7b5dc13f0fa5891b8f181a1f6faabe6821c2e40f875d0837"
     },
     {
       "path": "scripts/test-self-host-artifacts.sh",
       "sha256": "0fbc5f3e5b3dd639afc7faeb2467b34826fa1a6363a8dcd90c949bc117e684e6"
     }
   ],
-  "note": "Deterministic proof manifest for self-host artifact validation, including the first-command ordering guard that keeps proof verification first in non-protobuf workflows."
+  "note": "Deterministic proof manifest for self-host artifact validation, including the first-command ordering guard and the synchronized command log used by shell-based non-protobuf workflows."
 }
