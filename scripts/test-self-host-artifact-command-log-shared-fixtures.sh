@@ -7,7 +7,6 @@ script_label="test-self-host-artifact-command-log-shared-fixtures"
 
 source "${repo_root}/scripts/self-host-command-log-test-lib.sh"
 source_repo="$(mktemp -d)"
-python_cmd="$(self_host_artifact_choose_python "${script_label}")"
 
 cleanup() {
   rm -rf "${source_repo}"
@@ -15,25 +14,7 @@ cleanup() {
 }
 trap cleanup EXIT
 
-for relative_path in $(self_host_artifact_core_paths); do
-  cp "${repo_root}/${relative_path}" "${source_repo}/${relative_path}"
-done
-
-"${python_cmd}" - "${source_repo}/SELF_HOST_REPORT.json" <<'PY'
-import json
-import sys
-
-path = sys.argv[1]
-with open(path, "r", encoding="utf-8") as handle:
-    report = json.load(handle)
-
-report["new_files"] = []
-report["changed_files"] = []
-
-with open(path, "w", encoding="utf-8") as handle:
-    json.dump(report, handle, indent=2)
-    handle.write("\n")
-PY
+self_host_artifact_seed_source_repo_with_empty_report_lists "${script_label}" "${repo_root}" "${source_repo}"
 
 self_host_command_log_setup "${script_label}" "${source_repo}" "${check_script}"
 
