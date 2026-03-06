@@ -25,6 +25,25 @@ self_host_command_log_core_paths() {
   self_host_artifact_core_paths
 }
 
+self_host_command_log_relative_path() {
+  printf '%s\n' "SELF_HOST_COMMAND_LOG.json"
+}
+
+self_host_command_log_path_in_root() {
+  local root="$1"
+
+  if [[ -z "${root}" ]]; then
+    echo "[self-host-command-log-test-lib] Expected a non-empty root for command-log path resolution." >&2
+    return 1
+  fi
+
+  printf '%s/%s\n' "${root%/}" "$(self_host_command_log_relative_path)"
+}
+
+self_host_command_log_tmp_path() {
+  self_host_command_log_path_in_root "${SELF_HOST_COMMAND_LOG_TMP_REPO:-}"
+}
+
 self_host_command_log_report_paths() {
   self_host_artifact_report_paths
 }

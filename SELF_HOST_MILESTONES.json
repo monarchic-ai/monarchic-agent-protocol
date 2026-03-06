@@ -338,8 +338,15 @@
   {
     "id": "M49",
     "title": "Track the next issue #1 wrapper/helper drift follow-up after core-path alignment",
+    "status": "done",
+    "completed_at": "2026-03-06T23:05:02Z",
+    "notes": "Added self_host_command_log_relative_path, self_host_command_log_path_in_root, and self_host_command_log_tmp_path in scripts/self-host-command-log-test-lib.sh, migrated the command-log mutation regressions off hardcoded SELF_HOST_COMMAND_LOG.json temp paths, and added focused path-helper coverage so wrapper-owned command-log path changes stay centralized for deterministic non-protobuf shell verification."
+  },
+  {
+    "id": "M50",
+    "title": "Assess whether any remaining self-host shell regressions still hardcode wrapper-owned artifact paths",
     "status": "pending",
     "completed_at": null,
-    "notes": "Pending deterministic follow-up for issue #1 to extend non-protobuf self-host coverage only if another wrapper-level fixture ownership gap appears."
+    "notes": "Pending follow-up to scan for any remaining wrapper-owned artifact path drift outside the command-log surface after M49 closed the issue #1 command-log path ownership gap."
   }
 ]
