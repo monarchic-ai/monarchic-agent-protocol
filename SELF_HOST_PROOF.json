@@ -7,7 +7,7 @@
   "proofs": [
     {
       "path": "SELF_HOST_COMMAND_LOG.json",
-      "sha256": "eb174ad5fc61b12e04fc4ed296b87cb1664606b3901e0ade638b679db979b2d4"
+      "sha256": "09a2593af975834bcadb4b68f4c58b619ff54d949387925d8aafbb28e5944e7c"
     },
     {
       "path": "scripts/test-self-host-artifact-command-log-first-command.sh",

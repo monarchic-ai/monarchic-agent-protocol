@@ -9,64 +9,134 @@
     },
     {
       "index": 2,
-      "command": "bash scripts/test-self-host-artifact-command-log-shared-fixtures.sh",
+      "command": "bash scripts/test-self-host-artifact-shared-fixtures.sh",
       "status": "pass"
     },
     {
       "index": 3,
-      "command": "bash scripts/test-self-host-artifact-command-log-first-command.sh",
+      "command": "bash scripts/test-self-host-artifact-command-log-shared-fixtures.sh",
       "status": "pass"
     },
     {
       "index": 4,
-      "command": "bash scripts/test-self-host-artifact-command-log-gate.sh",
+      "command": "bash scripts/test-self-host-artifact-command-log-first-command.sh",
       "status": "pass"
     },
     {
       "index": 5,
-      "command": "bash scripts/test-self-host-artifact-command-log-reason-codes.sh",
+      "command": "bash scripts/test-self-host-artifact-command-log-gate.sh",
       "status": "pass"
     },
     {
       "index": 6,
-      "command": "bash scripts/test-self-host-artifact-command-log-format.sh",
+      "command": "bash scripts/test-self-host-artifact-command-log-reason-codes.sh",
       "status": "pass"
     },
     {
       "index": 7,
-      "command": "bash scripts/test-self-host-artifacts.sh",
+      "command": "bash scripts/test-self-host-artifact-command-log-format.sh",
       "status": "pass"
     },
     {
       "index": 8,
-      "command": "python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null",
+      "command": "bash scripts/test-self-host-artifact-proof-gate.sh",
       "status": "pass"
     },
     {
       "index": 9,
-      "command": "python3 -m json.tool SELF_HOST_PROOF.json >/dev/null",
+      "command": "bash scripts/test-self-host-artifact-report-file-list-consistency.sh",
       "status": "pass"
     },
     {
       "index": 10,
-      "command": "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null",
+      "command": "bash scripts/test-self-host-artifact-report-file-path-existence.sh",
       "status": "pass"
     },
     {
       "index": 11,
-      "command": "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null",
+      "command": "bash scripts/test-self-host-artifact-report-new-file-path-existence.sh",
       "status": "pass"
     },
     {
       "index": 12,
-      "command": "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null",
+      "command": "bash scripts/test-self-host-artifact-status-alignment.sh",
       "status": "pass"
     },
     {
       "index": 13,
+      "command": "bash scripts/test-self-host-artifact-text-fields.sh",
+      "status": "pass"
+    },
+    {
+      "index": 14,
+      "command": "bash scripts/test-self-host-artifact-timestamps.sh",
+      "status": "pass"
+    },
+    {
+      "index": 15,
+      "command": "bash scripts/test-self-host-artifact-pass-progression.sh",
+      "status": "pass"
+    },
+    {
+      "index": 16,
+      "command": "bash scripts/test-self-host-artifact-milestone-count-types.sh",
+      "status": "pass"
+    },
+    {
+      "index": 17,
+      "command": "bash scripts/test-self-host-artifact-log-key-order.sh",
+      "status": "pass"
+    },
+    {
+      "index": 18,
+      "command": "bash scripts/test-self-host-artifact-log-summary-traceability.sh",
+      "status": "pass"
+    },
+    {
+      "index": 19,
+      "command": "bash scripts/test-self-host-artifact-done-prefix.sh",
+      "status": "pass"
+    },
+    {
+      "index": 20,
+      "command": "bash scripts/test-self-host-artifact-latest-milestone.sh",
+      "status": "pass"
+    },
+    {
+      "index": 21,
+      "command": "bash scripts/test-self-host-artifacts.sh",
+      "status": "pass"
+    },
+    {
+      "index": 22,
+      "command": "python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null",
+      "status": "pass"
+    },
+    {
+      "index": 23,
+      "command": "python3 -m json.tool SELF_HOST_PROOF.json >/dev/null",
+      "status": "pass"
+    },
+    {
+      "index": 24,
+      "command": "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null",
+      "status": "pass"
+    },
+    {
+      "index": 25,
+      "command": "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null",
+      "status": "pass"
+    },
+    {
+      "index": 26,
+      "command": "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null",
+      "status": "pass"
+    },
+    {
+      "index": 27,
       "command": "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null",
       "status": "pass"
     }
   ],
-  "note": "Deterministic command log for self-host artifact verification, preserving proof-manifest validation as the first check and validating the shared command-log fixture helper that keeps shell-based non-protobuf regression coverage synchronized."
+  "note": "Deterministic command log for self-host artifact verification, preserving proof-manifest validation as the first check while validating the new shared self-host artifact fixture helper across the remaining shell-based non-protobuf regressions."
 }

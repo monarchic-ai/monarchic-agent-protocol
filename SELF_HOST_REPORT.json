@@ -1,17 +1,27 @@
 {
   "status": "pass",
-  "milestone_completed": "M43",
-  "milestones_done": 43,
+  "milestone_completed": "M44",
+  "milestones_done": 44,
   "total_milestones": 44,
   "new_files": [
-    "scripts/self-host-command-log-test-lib.sh",
-    "scripts/test-self-host-artifact-command-log-shared-fixtures.sh"
+    "scripts/self-host-artifact-test-lib.sh",
+    "scripts/test-self-host-artifact-shared-fixtures.sh"
   ],
   "changed_files": [
-    "scripts/test-self-host-artifact-command-log-first-command.sh",
-    "scripts/test-self-host-artifact-command-log-gate.sh",
-    "scripts/test-self-host-artifact-command-log-reason-codes.sh",
-    "scripts/test-self-host-artifact-command-log-format.sh",
+    "scripts/self-host-command-log-test-lib.sh",
+    "scripts/test-self-host-artifact-done-prefix.sh",
+    "scripts/test-self-host-artifact-latest-milestone.sh",
+    "scripts/test-self-host-artifact-log-key-order.sh",
+    "scripts/test-self-host-artifact-log-summary-traceability.sh",
+    "scripts/test-self-host-artifact-milestone-count-types.sh",
+    "scripts/test-self-host-artifact-pass-progression.sh",
+    "scripts/test-self-host-artifact-proof-gate.sh",
+    "scripts/test-self-host-artifact-report-file-list-consistency.sh",
+    "scripts/test-self-host-artifact-report-file-path-existence.sh",
+    "scripts/test-self-host-artifact-report-new-file-path-existence.sh",
+    "scripts/test-self-host-artifact-status-alignment.sh",
+    "scripts/test-self-host-artifact-text-fields.sh",
+    "scripts/test-self-host-artifact-timestamps.sh",
     "SELF_HOST_COMMAND_LOG.json",
     "SELF_HOST_PROOF.json",
     "SELF_HOST_MILESTONES.json",
@@ -19,6 +29,6 @@
     "SELF_HOST_REPORT.json",
     "SELF_HOST_UPDATE.json"
   ],
-  "test_command": "bash scripts/test-self-host-proof-artifacts.sh && bash scripts/test-self-host-artifact-command-log-shared-fixtures.sh && bash scripts/test-self-host-artifact-command-log-first-command.sh && bash scripts/test-self-host-artifact-command-log-gate.sh && bash scripts/test-self-host-artifact-command-log-reason-codes.sh && bash scripts/test-self-host-artifact-command-log-format.sh && bash scripts/test-self-host-artifacts.sh && python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null && python3 -m json.tool SELF_HOST_PROOF.json >/dev/null && python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null && python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null && python3 -m json.tool SELF_HOST_REPORT.json >/dev/null && python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null",
-  "note": "Status is pass because verification succeeded and milestones_done increased from 42 to 43 versus the prior report while extracting shared command-log smoke fixture setup into a reusable helper and validating reset behavior for shell-based non-protobuf workflows."
+  "test_command": "bash scripts/test-self-host-proof-artifacts.sh && bash scripts/test-self-host-artifact-shared-fixtures.sh && bash scripts/test-self-host-artifact-command-log-shared-fixtures.sh && bash scripts/test-self-host-artifact-command-log-first-command.sh && bash scripts/test-self-host-artifact-command-log-gate.sh && bash scripts/test-self-host-artifact-command-log-reason-codes.sh && bash scripts/test-self-host-artifact-command-log-format.sh && bash scripts/test-self-host-artifact-proof-gate.sh && bash scripts/test-self-host-artifact-report-file-list-consistency.sh && bash scripts/test-self-host-artifact-report-file-path-existence.sh && bash scripts/test-self-host-artifact-report-new-file-path-existence.sh && bash scripts/test-self-host-artifact-status-alignment.sh && bash scripts/test-self-host-artifact-text-fields.sh && bash scripts/test-self-host-artifact-timestamps.sh && bash scripts/test-self-host-artifact-pass-progression.sh && bash scripts/test-self-host-artifact-milestone-count-types.sh && bash scripts/test-self-host-artifact-log-key-order.sh && bash scripts/test-self-host-artifact-log-summary-traceability.sh && bash scripts/test-self-host-artifact-done-prefix.sh && bash scripts/test-self-host-artifact-latest-milestone.sh && bash scripts/test-self-host-artifacts.sh && python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null && python3 -m json.tool SELF_HOST_PROOF.json >/dev/null && python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null && python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null && python3 -m json.tool SELF_HOST_REPORT.json >/dev/null && python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null",
+  "note": "Status is pass because verification succeeded and milestones_done increased from 43 to 44 versus the prior report while extracting a shared self-host artifact fixture helper that removes report-file-list coupling from the remaining shell-based non-protobuf regressions."
 }

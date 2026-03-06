@@ -303,8 +303,8 @@
   {
     "id": "M44",
     "title": "Evaluate extending shared fixture setup to the remaining self-host artifact regressions",
-    "status": "pending",
-    "completed_at": null,
-    "notes": "Next increment: assess whether the extracted shared fixture helper can cover the other self-host artifact regression scripts without changing any failure semantics or verification ordering guarantees."
+    "status": "done",
+    "completed_at": "2026-03-06T08:14:33Z",
+    "notes": "Added scripts/self-host-artifact-test-lib.sh as the shared core fixture helper, routed scripts/self-host-command-log-test-lib.sh through it, migrated the remaining self-host artifact regression scripts onto it, and added scripts/test-self-host-artifact-shared-fixtures.sh so proof and command-log fixtures no longer depend on SELF_HOST_REPORT.json file lists."
   }
 ]

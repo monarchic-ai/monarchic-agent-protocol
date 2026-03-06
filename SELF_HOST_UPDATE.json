@@ -1,23 +1,37 @@
 {
   "status": "pass",
-  "headline": "Completed M43 by extracting shared command-log smoke fixture setup into a reusable helper with reset validation.",
-  "current_focus": "Current focus is stabilizing the new shared command-log fixture helper so the shell-based non-protobuf verification path stays synchronized across default-gate and targeted regression scripts without changing verification semantics.",
-  "milestone_target": "M44 is next: evaluate whether the shared fixture helper should cover the remaining self-host artifact regressions without widening behavior changes.",
-  "milestones_done": 43,
+  "headline": "Completed M44 by sharing core self-host artifact fixture setup across the remaining regression scripts.",
+  "current_focus": "Current focus is keeping scripts/self-host-artifact-test-lib.sh as the single source of truth for self-host artifact smoke setup so shell-based non-protobuf verification remains stable even when SELF_HOST_REPORT.json file lists change.",
+  "milestone_target": "M44 is complete; the next target is the next priority repo-local task after the self-host fixture consolidation track.",
+  "milestones_done": 44,
   "total_milestones": 44,
   "completed_work": [
-    "Added scripts/self-host-command-log-test-lib.sh to centralize temporary-repo setup, report-listed fixture copying, baseline gate assertions, and reason-code expectations for the command-log regression scripts.",
-    "Migrated scripts/test-self-host-artifact-command-log-first-command.sh, scripts/test-self-host-artifact-command-log-gate.sh, scripts/test-self-host-artifact-command-log-reason-codes.sh, and scripts/test-self-host-artifact-command-log-format.sh onto the shared helper without changing their failure conditions.",
-    "Added scripts/test-self-host-artifact-command-log-shared-fixtures.sh to verify the shared helper restores a reported file path after deletion and preserves a passing baseline artifact gate.",
-    "Completed milestone M43 and synchronized SELF_HOST_COMMAND_LOG.json, SELF_HOST_PROOF.json, SELF_HOST_REPORT.json, and SELF_HOST_UPDATE.json with the new deterministic verification sequence."
+    "Added scripts/self-host-artifact-test-lib.sh to centralize core self-host artifact fixture setup, explicit proof and command-log copies, baseline gate assertions, and reusable reason-code helpers.",
+    "Routed scripts/self-host-command-log-test-lib.sh through the new shared helper so the command-log regressions keep using the same core fixture reset path.",
+    "Migrated the remaining self-host artifact regression scripts onto the shared helper, removing their hidden dependence on SELF_HOST_REPORT.json listing proof and command-log artifacts.",
+    "Added scripts/test-self-host-artifact-shared-fixtures.sh and completed M44 with deterministic validation that proof and command-log fixtures restore correctly even when the source report file lists are empty, then synchronized SELF_HOST_PROOF.json with the expanded verification record."
   ],
   "verification": [
     "bash scripts/test-self-host-proof-artifacts.sh",
+    "bash scripts/test-self-host-artifact-shared-fixtures.sh",
     "bash scripts/test-self-host-artifact-command-log-shared-fixtures.sh",
     "bash scripts/test-self-host-artifact-command-log-first-command.sh",
     "bash scripts/test-self-host-artifact-command-log-gate.sh",
     "bash scripts/test-self-host-artifact-command-log-reason-codes.sh",
     "bash scripts/test-self-host-artifact-command-log-format.sh",
+    "bash scripts/test-self-host-artifact-proof-gate.sh",
+    "bash scripts/test-self-host-artifact-report-file-list-consistency.sh",
+    "bash scripts/test-self-host-artifact-report-file-path-existence.sh",
+    "bash scripts/test-self-host-artifact-report-new-file-path-existence.sh",
+    "bash scripts/test-self-host-artifact-status-alignment.sh",
+    "bash scripts/test-self-host-artifact-text-fields.sh",
+    "bash scripts/test-self-host-artifact-timestamps.sh",
+    "bash scripts/test-self-host-artifact-pass-progression.sh",
+    "bash scripts/test-self-host-artifact-milestone-count-types.sh",
+    "bash scripts/test-self-host-artifact-log-key-order.sh",
+    "bash scripts/test-self-host-artifact-log-summary-traceability.sh",
+    "bash scripts/test-self-host-artifact-done-prefix.sh",
+    "bash scripts/test-self-host-artifact-latest-milestone.sh",
     "bash scripts/test-self-host-artifacts.sh",
     "python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null",
     "python3 -m json.tool SELF_HOST_PROOF.json >/dev/null",
@@ -27,11 +41,11 @@
     "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null"
   ],
   "blockers": [
-    "No blockers in M43 scope."
+    "No blockers in M44 scope."
   ],
   "next_steps": [
-    "Start M44 by checking whether the remaining self-host artifact regression scripts can reuse the shared fixture helper without changing their existing failure semantics.",
-    "Keep SELF_HOST_COMMAND_LOG.json, SELF_HOST_PROOF.json, and the latest implementation-log verification entries synchronized whenever command-log verification commands change."
+    "Pick the next repo-local improvement after M44 now that the self-host fixture consolidation track is complete.",
+    "Keep future self-host regressions on scripts/self-host-artifact-test-lib.sh so proof and command-log artifacts never depend on SELF_HOST_REPORT.json file lists again."
   ],
-  "note": "Status is pass because verification succeeded, milestones_done increased from 42 to 43, and issue #1 progress now includes shared command-log fixture setup that reduces shell-test drift for non-protobuf verification workflows."
+  "note": "Status is pass because verification succeeded, milestones_done increased from 43 to 44, and issue #1 progress now includes shared shell fixture setup across all remaining self-host artifact regressions for non-protobuf verification workflows."
 }
