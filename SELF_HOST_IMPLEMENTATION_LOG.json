@@ -1125,5 +1125,37 @@
       "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
     ],
     "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-03-06T15:22:34Z",
+    "task_id": "task-self-host-001",
+    "summary": "Completed M46 by centralizing temp source-repo seeding with empty SELF_HOST_REPORT.json file lists in scripts/self-host-artifact-test-lib.sh, routing the shared-fixture regressions through that helper, and adding direct regression coverage for the helper-owned setup path.",
+    "milestone_completed": "M46",
+    "files": [
+      "scripts/self-host-artifact-test-lib.sh",
+      "scripts/test-self-host-artifact-shared-fixtures.sh",
+      "scripts/test-self-host-artifact-command-log-shared-fixtures.sh",
+      "scripts/test-self-host-artifact-source-repo-seeding.sh",
+      "SELF_HOST_COMMAND_LOG.json",
+      "SELF_HOST_PROOF.json",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-proof-artifacts.sh -> pass",
+      "bash scripts/test-self-host-artifact-source-repo-seeding.sh -> pass",
+      "bash scripts/test-self-host-artifact-shared-fixtures.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-shared-fixtures.sh -> pass",
+      "bash scripts/test-self-host-artifacts.sh -> pass",
+      "python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_PROOF.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
+    ],
+    "gate": "ready-for-review"
   }
 ]
