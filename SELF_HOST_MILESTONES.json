@@ -366,8 +366,15 @@
   {
     "id": "M53",
     "title": "Assess whether command-log python-command state still needs a wrapper-owned helper",
+    "status": "done",
+    "completed_at": "2026-03-07T06:22:59Z",
+    "notes": "Added self_host_command_log_python_cmd in scripts/self-host-command-log-test-lib.sh, migrated the command-log gate/reason-code/first-command/format regressions off direct SELF_HOST_COMMAND_LOG_PYTHON_CMD reads, extended focused helper coverage to verify the wrapper resolves an available interpreter, and tightened wrapper-ownership coverage so wrapper-managed python-command state stays centralized."
+  },
+  {
+    "id": "M54",
+    "title": "Assess whether repeated command-log JSON mutations should move behind wrapper-owned helpers",
     "status": "pending",
     "completed_at": null,
-    "notes": "Pending follow-up after M52; use this only if future deterministic command-log regressions need to stop reading SELF_HOST_COMMAND_LOG_PYTHON_CMD directly and should move that execution state behind wrapper-owned helpers."
+    "notes": "Pending follow-up after M53; use this only if future deterministic command-log regressions need to deduplicate their inline JSON mutation snippets behind shared wrapper-owned helpers without widening shell coverage scope."
   }
 ]
