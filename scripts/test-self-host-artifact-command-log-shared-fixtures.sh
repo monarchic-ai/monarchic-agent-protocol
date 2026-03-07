@@ -18,8 +18,7 @@ self_host_command_log_prepare_seeded_source_repo "${script_label}" "${repo_root}
 
 self_host_command_log_setup "${script_label}" "${source_repo}" "${check_script}"
 
-self_host_command_log_reset_fixtures
-self_host_command_log_assert_baseline_passes
+self_host_command_log_reset_and_assert_baseline
 
 self_host_command_log_assert_report_paths_empty
 
@@ -39,13 +38,11 @@ if [[ -e "${restored_path}" ]]; then
   exit 1
 fi
 
-self_host_command_log_reset_fixtures
+self_host_command_log_reset_and_assert_baseline
 
 if [[ ! -f "${restored_path}" ]]; then
   echo "[${script_label}] Expected reset to restore ${restored_relative_path}." >&2
   exit 1
 fi
-
-self_host_command_log_assert_baseline_passes
 
 echo "[${script_label}] PASS: shared command-log fixture setup restores wrapper-owned core artifact paths and preserves a passing baseline gate when report file lists are empty."

@@ -30,8 +30,7 @@ self_host_command_log_expect_failure_contains \
 self_host_command_log_prepare_seeded_source_repo "${script_label}" "${repo_root}" "${source_repo}"
 
 self_host_command_log_setup "${script_label}" "${source_repo}" "${check_script}"
-self_host_command_log_reset_fixtures
-self_host_command_log_assert_baseline_passes
+self_host_command_log_reset_and_assert_baseline
 
 self_host_command_log_assert_report_paths_empty
 

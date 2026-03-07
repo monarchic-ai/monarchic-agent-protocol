@@ -18,6 +18,7 @@ wrapper_prepare_seeded_source_repo_helper="self_host_command_log_prepare_seeded_
 wrapper_empty_report_paths_helper="self_host_command_log_assert_report_paths_empty"
 wrapper_root_path_helper="self_host_command_log_path_in_root"
 wrapper_tmp_path_helper="self_host_command_log_tmp_path_for_relative_path"
+wrapper_reset_baseline_helper="self_host_command_log_reset_and_assert_baseline"
 wrapper_stderr_contains_helper="self_host_command_log_expect_stderr_contains"
 wrapper_failure_contains_helper="self_host_command_log_expect_failure_contains"
 wrapper_python_cmd_helper="self_host_command_log_python_cmd"
@@ -86,6 +87,17 @@ for script_path in "${command_log_scripts[@]}"; do
     exit 1
   fi
 
+  if awk '
+    /self_host_command_log_reset_fixtures/ { saw_reset=1; next }
+    saw_reset && /^[[:space:]]*$/ { next }
+    saw_reset && /self_host_command_log_assert_baseline_passes/ { exit 0 }
+    saw_reset { saw_reset=0 }
+    END { exit 1 }
+  ' "${script_path}"; then
+    echo "[${script_label}] Expected ${script_name} to keep reset-plus-baseline coverage inside ${wrapper_reset_baseline_helper} instead of open-coding sequential reset and baseline calls." >&2
+    exit 1
+  fi
+
   case "${script_name}" in
     test-self-host-artifact-command-log-first-command.sh|test-self-host-artifact-command-log-format.sh|test-self-host-artifact-command-log-gate.sh|test-self-host-artifact-command-log-reason-codes.sh)
       if ! grep -Fq "${wrapper_json_mutation_helper}" "${script_path}"; then
@@ -95,6 +107,11 @@ for script_path in "${command_log_scripts[@]}"; do
 
       if grep -Eq 'json\.load|json\.dump' "${script_path}"; then
         echo "[${script_label}] Expected ${script_name} to keep command-log JSON load/write boilerplate inside ${wrapper_json_mutation_helper}." >&2
+        exit 1
+      fi
+
+      if ! grep -Fq "${wrapper_reset_baseline_helper}" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to use ${wrapper_reset_baseline_helper} so reset-plus-baseline coverage stays centralized." >&2
         exit 1
       fi
       ;;
@@ -116,6 +133,11 @@ for script_path in "${command_log_scripts[@]}"; do
 
   case "${script_name}" in
     test-self-host-artifact-command-log-path-helper.sh|test-self-host-artifact-command-log-source-repo-seeding.sh)
+      if ! grep -Fq "${wrapper_reset_baseline_helper}" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to use ${wrapper_reset_baseline_helper} so reset-plus-baseline coverage stays centralized." >&2
+        exit 1
+      fi
+
       if ! grep -Fq "${wrapper_failure_contains_helper}" "${script_path}"; then
         echo "[${script_label}] Expected ${script_name} to use ${wrapper_failure_contains_helper} so wrapper-helper failure-output assertions stay centralized." >&2
         exit 1
@@ -159,6 +181,11 @@ for script_path in "${command_log_scripts[@]}"; do
 
   case "${script_name}" in
     test-self-host-artifact-command-log-source-repo-seeding.sh|test-self-host-artifact-command-log-shared-fixtures.sh)
+      if ! grep -Fq "${wrapper_reset_baseline_helper}" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to use ${wrapper_reset_baseline_helper} so reset-plus-baseline coverage stays centralized." >&2
+        exit 1
+      fi
+
       if ! grep -Fq "${wrapper_prepare_seeded_source_repo_helper}" "${script_path}"; then
         echo "[${script_label}] Expected ${script_name} to use ${wrapper_prepare_seeded_source_repo_helper} so wrapper-owned seeded source-repo bootstrap stays centralized." >&2
         exit 1
