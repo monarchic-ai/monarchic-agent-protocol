@@ -2,25 +2,29 @@
   "task_id": "task-self-host-001",
   "status": "pass",
   "reason_code": "OK",
-  "signature_count": 4,
+  "signature_count": 5,
   "sampled_batches": 1,
   "proofs": [
     {
       "path": "scripts/self-host-command-log-test-lib.sh",
-      "sha256": "c1d67c0f84392b53f2118d63a52678bf9214941d995518f65498e647af799f8e"
+      "sha256": "4fcfedd8e7a98af6516aa85e32a174ecf4c80dd4fe5c4f6ba7991b8321116ac6"
+    },
+    {
+      "path": "scripts/test-self-host-artifact-command-log-path-helper.sh",
+      "sha256": "474403c9f76ac5eb700e167e18f0bc05c0872311c428267b051e0e76577c8c8d"
     },
     {
       "path": "scripts/test-self-host-artifact-command-log-shared-fixtures.sh",
-      "sha256": "9fe93650804c0a681179e5cf0986cb507a6eb0eb265ce8e5c8b3d3a1b173f838"
+      "sha256": "840cbee40d6476f3bca50beceef4a5b34760490d054d909503feccadd6fe975f"
     },
     {
       "path": "scripts/test-self-host-artifact-command-log-source-repo-seeding.sh",
-      "sha256": "b205ae985af4aed64b34d78a44b4dec9e4a42f70debc914d02bc255b09371be1"
+      "sha256": "7b2612725ecf7318323e2d3e5aead7e4064bf13ce57d0f5f1f618adf50a3349a"
     },
     {
       "path": "scripts/test-self-host-artifact-command-log-wrapper-ownership.sh",
-      "sha256": "8e1915a711474c825b78c999453d3f5f74ae32a95df1fd9cfab7255488ec186a"
+      "sha256": "8f00875681b30602bd02e79581135048f11d8590cdaf3619361bc6ed48b22b8d"
     }
   ],
-  "note": "Deterministic proof manifest for self-host artifact validation, covering the wrapper-owned command-log helper library and the focused shared-fixtures, source-repo seeding, and wrapper-ownership regressions after centralizing seeded source-repo baseline setup."
+  "note": "Deterministic proof manifest for self-host artifact validation, covering the wrapper-owned command-log helper library and the focused path-helper, shared-fixtures, source-repo seeding, and wrapper-ownership regressions after centralizing first-core-path root resolution."
 }
