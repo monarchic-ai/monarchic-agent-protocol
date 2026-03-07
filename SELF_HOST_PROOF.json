@@ -7,20 +7,20 @@
   "proofs": [
     {
       "path": "scripts/self-host-command-log-test-lib.sh",
-      "sha256": "27b514e9204758e519f02389d84ecefd87c3ff6ad5501a56d0c20de1f34085b7"
+      "sha256": "91aee907d848416b5dd7419e69c27d70d9a59a64e2a6f1b462edf76f3435ec70"
     },
     {
-      "path": "scripts/test-self-host-artifact-command-log-path-helper.sh",
-      "sha256": "dda2e3a93d26dd04102d8613e18afa3f929124cc2e1e84ebd2645182fc4369da"
+      "path": "scripts/test-self-host-artifact-command-log-shared-fixtures.sh",
+      "sha256": "0e1b77d9e833d5535325277d9c6acca544982e3a887b34b4944ded0a53e209cb"
     },
     {
       "path": "scripts/test-self-host-artifact-command-log-source-repo-seeding.sh",
-      "sha256": "94cf0cf0c2f420ea8407fbf34fb413eaa4a195d5b6872e34c57d22aea5f92741"
+      "sha256": "7b859795b292cf8db689df084c39828dc0db11b47ebb62767b35cafcbd2b9016"
     },
     {
       "path": "scripts/test-self-host-artifact-command-log-wrapper-ownership.sh",
-      "sha256": "ec177eb28f33b5d1d9acd110c30a5bb5e6e71575b6739ebd3d768eb2fe282d43"
+      "sha256": "753e119b1915455148218b120a482421b14b917338ed77b1be3ddd1d04a4d650"
     }
   ],
-  "note": "Deterministic proof manifest for self-host artifact validation, covering the wrapper-owned root-path helper contract, the focused path-helper and source-repo seeding regressions, and the tightened ownership scan."
+  "note": "Deterministic proof manifest for self-host artifact validation, covering the wrapper-owned seeded source-repo bootstrap helper, the focused shared-fixtures and source-repo seeding regressions, and the tightened ownership scan."
 }

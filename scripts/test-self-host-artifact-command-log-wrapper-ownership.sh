@@ -14,6 +14,7 @@ wrapper_core_path_membership_helper="self_host_command_log_assert_core_path_list
 wrapper_first_core_path_helper="self_host_command_log_first_core_path"
 wrapper_seed_helper="self_host_command_log_seed_source_repo_with_empty_report_lists"
 wrapper_seeded_core_paths_helper="self_host_command_log_assert_seeded_source_repo_core_paths"
+wrapper_prepare_seeded_source_repo_helper="self_host_command_log_prepare_seeded_source_repo"
 wrapper_empty_report_paths_helper="self_host_command_log_assert_report_paths_empty"
 wrapper_root_path_helper="self_host_command_log_path_in_root"
 wrapper_tmp_path_helper="self_host_command_log_tmp_path_for_relative_path"
@@ -143,13 +144,13 @@ for script_path in "${command_log_scripts[@]}"; do
 
   case "${script_name}" in
     test-self-host-artifact-command-log-source-repo-seeding.sh|test-self-host-artifact-command-log-shared-fixtures.sh)
-      if ! grep -Fq "${wrapper_seed_helper}" "${script_path}"; then
-        echo "[${script_label}] Expected ${script_name} to use ${wrapper_seed_helper} so wrapper-owned source-repo seeding stays centralized." >&2
+      if ! grep -Fq "${wrapper_prepare_seeded_source_repo_helper}" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to use ${wrapper_prepare_seeded_source_repo_helper} so wrapper-owned seeded source-repo bootstrap stays centralized." >&2
         exit 1
       fi
 
-      if ! grep -Fq "${wrapper_seeded_core_paths_helper}" "${script_path}"; then
-        echo "[${script_label}] Expected ${script_name} to use ${wrapper_seeded_core_paths_helper} so seeded wrapper-owned core-path validation stays centralized." >&2
+      if grep -Fq "${wrapper_seed_helper}" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to keep direct ${wrapper_seed_helper} bootstrap inside ${wrapper_prepare_seeded_source_repo_helper}." >&2
         exit 1
       fi
 
@@ -168,6 +169,12 @@ for script_path in "${command_log_scripts[@]}"; do
         exit 1
       fi
       ;;
+    test-self-host-artifact-command-log-source-repo-seeding.sh)
+      if ! grep -Fq "${wrapper_seeded_core_paths_helper}" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to keep deterministic seeded core-path negative coverage on ${wrapper_seeded_core_paths_helper}." >&2
+        exit 1
+      fi
+      ;;
   esac
 done
 
@@ -176,4 +183,4 @@ if [[ "${validated_script_count}" -eq 0 ]]; then
   exit 1
 fi
 
-echo "[${script_label}] PASS: command-log regression scripts stay on wrapper-owned helpers, keep temp-path/root-path/core-path/first-core-path/source-repo/python-command/json-mutation/stderr-assertion ownership centralized, and avoid direct wrapper state reads."
+echo "[${script_label}] PASS: command-log regression scripts stay on wrapper-owned helpers, keep temp-path/root-path/core-path/first-core-path/seeded-source-repo/python-command/json-mutation/stderr-assertion ownership centralized, and avoid direct wrapper state reads."
