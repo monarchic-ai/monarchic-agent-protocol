@@ -27,11 +27,6 @@ self_host_command_log_expect_failure_contains \
   "Expected seeded source-repo validation to fail after removing ${missing_relative_path}." \
   self_host_command_log_assert_seeded_source_repo_core_paths "${source_repo}"
 
-self_host_command_log_prepare_seeded_source_repo "${script_label}" "${repo_root}" "${source_repo}"
-
-self_host_command_log_setup "${script_label}" "${source_repo}" "${check_script}"
-self_host_command_log_reset_and_assert_baseline
-
-self_host_command_log_assert_report_paths_empty
+self_host_command_log_prepare_seeded_source_repo_baseline "${script_label}" "${repo_root}" "${source_repo}" "${check_script}"
 
 echo "[${script_label}] PASS: command-log wrapper seeding covers every wrapper-owned core artifact path, centralizes failure-output assertions, exposes empty report file lists, and preserves a passing baseline gate."

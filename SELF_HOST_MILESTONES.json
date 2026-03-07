@@ -446,5 +446,12 @@
     "status": "done",
     "completed_at": "2026-03-07T12:32:02Z",
     "notes": "Tightened scripts/test-self-host-artifact-command-log-wrapper-ownership.sh so shared-fixtures and source-repo-seeding regressions must keep empty report-list validation on self_host_command_log_assert_report_paths_empty and cannot read self_host_command_log_report_paths directly, preserving wrapper-owned report-path assertions as the sole deterministic shell check."
+  },
+  {
+    "id": "M65",
+    "title": "Centralize command-log seeded source-repo baseline setup behind a wrapper helper",
+    "status": "done",
+    "completed_at": "2026-03-07T12:42:23Z",
+    "notes": "Confirmed the NEXT_PRIORITY_TASK M49 recovery path remains inactive because command-log regressions already stay off direct self_host_artifact_* reach-through, added self_host_command_log_prepare_seeded_source_repo_baseline to centralize seeded source-repo prepare/setup/reset/empty-report validation, migrated the shared-fixtures and source-repo-seeding regressions to that helper, refreshed proof coverage, and tightened wrapper-ownership validation so future seeded baseline setup changes stay centralized."
   }
 ]
