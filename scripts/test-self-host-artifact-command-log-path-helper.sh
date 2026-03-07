@@ -28,10 +28,8 @@ self_host_command_log_assert_core_path_listed "${command_log_relative_path}"
 
 first_core_relative_path="$(self_host_command_log_first_core_path)"
 
-if validation_output="$(self_host_command_log_assert_core_path_listed "${first_core_relative_path}" 2>&1)"; then
-  :
-else
-  echo "[${script_label}] Expected first core-path helper to resolve one wrapper-owned core path, found ${first_core_relative_path}: ${validation_output}" >&2
+if ! self_host_command_log_assert_core_path_listed "${first_core_relative_path}"; then
+  echo "[${script_label}] Expected first core-path helper to resolve one wrapper-owned core path, found ${first_core_relative_path}." >&2
   exit 1
 fi
 
@@ -78,15 +76,10 @@ fi
 
 missing_relative_path="NOT_A_COMMAND_LOG_CORE_PATH.json"
 
-if validation_output="$(self_host_command_log_assert_core_path_listed "${missing_relative_path}" 2>&1)"; then
-  echo "[${script_label}] Expected core-path membership helper to fail for ${missing_relative_path}." >&2
-  exit 1
-fi
-
-if [[ "${validation_output}" != *"${missing_relative_path}"* ]]; then
-  echo "[${script_label}] Expected missing core-path validation to mention ${missing_relative_path}, got: ${validation_output}" >&2
-  exit 1
-fi
+self_host_command_log_expect_failure_contains \
+  "${missing_relative_path}" \
+  "Expected core-path membership helper to fail for ${missing_relative_path}." \
+  self_host_command_log_assert_core_path_listed "${missing_relative_path}"
 
 self_host_command_log_mutate_json "${command_log_path}" <<'PY'
 command_log["status"] = "blocked"
@@ -107,4 +100,4 @@ self_host_command_log_expect_stderr_contains \
   "command index must be a contiguous integer sequence" \
   "Expected stderr substring helper to detect deterministic command-log format drift."
 
-echo "[${script_label}] PASS: command-log wrapper core-path membership, temp-path, first-core-path, stderr-log, python-command, JSON-mutation, and stderr-substring helpers stay aligned with wrapper-owned fixtures."
+echo "[${script_label}] PASS: command-log wrapper core-path membership, failure-output, temp-path, first-core-path, stderr-log, python-command, JSON-mutation, and stderr-substring helpers stay aligned with wrapper-owned fixtures."

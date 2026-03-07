@@ -418,5 +418,12 @@
     "status": "done",
     "completed_at": "2026-03-07T11:58:16Z",
     "notes": "Added self_host_command_log_prepare_seeded_source_repo in scripts/self-host-command-log-test-lib.sh, migrated the shared-fixtures and source-repo seeding regressions off duplicated seed-and-validate bootstrap, refreshed proof coverage to track the seeded-source-repo files touched in this scope, and tightened wrapper-ownership validation so future bootstrap changes stay centralized."
+  },
+  {
+    "id": "M61",
+    "title": "Centralize command-log helper failure-output assertions behind wrapper helpers",
+    "status": "done",
+    "completed_at": "2026-03-07T12:08:42Z",
+    "notes": "Added self_host_command_log_expect_failure_contains in scripts/self-host-command-log-test-lib.sh, migrated the path-helper and source-repo seeding regressions off inline helper-failure capture, refreshed proof coverage for the focused failure-output scope, and tightened wrapper-ownership validation so future negative helper assertions stay centralized."
   }
 ]
