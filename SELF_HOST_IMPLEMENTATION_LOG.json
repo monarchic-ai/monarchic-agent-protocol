@@ -1554,5 +1554,44 @@
       "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
     ],
     "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-03-07T06:58:40Z",
+    "task_id": "task-self-host-001",
+    "summary": "Completed M57 by centralizing command-log stderr failure assertions behind a wrapper-owned helper, migrating the first-command and format regressions off duplicated run-check and stderr inspection, extending focused helper coverage, and tightening the ownership scan so future shell coverage stays centralized.",
+    "milestone_completed": "M57",
+    "files": [
+      "scripts/self-host-command-log-test-lib.sh",
+      "scripts/test-self-host-artifact-command-log-first-command.sh",
+      "scripts/test-self-host-artifact-command-log-format.sh",
+      "scripts/test-self-host-artifact-command-log-path-helper.sh",
+      "scripts/test-self-host-artifact-command-log-wrapper-ownership.sh",
+      "SELF_HOST_COMMAND_LOG.json",
+      "SELF_HOST_PROOF.json",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-proof-artifacts.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-first-command.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-format.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-path-helper.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
+      "bash -n scripts/self-host-command-log-test-lib.sh -> pass",
+      "bash -n scripts/test-self-host-artifact-command-log-first-command.sh -> pass",
+      "bash -n scripts/test-self-host-artifact-command-log-format.sh -> pass",
+      "bash -n scripts/test-self-host-artifact-command-log-path-helper.sh -> pass",
+      "bash -n scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
+      "bash scripts/test-self-host-artifacts.sh -> pass",
+      "python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_PROOF.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
+    ],
+    "gate": "ready-for-review"
   }
 ]

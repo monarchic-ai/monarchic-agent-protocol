@@ -7,28 +7,28 @@
   "proofs": [
     {
       "path": "SELF_HOST_COMMAND_LOG.json",
-      "sha256": "815705a9ce16704ffb8866284a1c0605b208a83be62bf4ec2b07dda9546cbf31"
+      "sha256": "f086f30d7d9e591de09a57e23d1c39ed6f7f3031b3898d91889f9cb73407ff16"
     },
     {
       "path": "scripts/self-host-command-log-test-lib.sh",
-      "sha256": "8d482d4c450cc2e8c27028057bce3716621a25cfaac8cbf6fce3a79aee1669a7"
+      "sha256": "a69da6f0643c2b4c12c83ae25130bfe24cc1bf9d2c851ad57b15b24fd15fb307"
+    },
+    {
+      "path": "scripts/test-self-host-artifact-command-log-first-command.sh",
+      "sha256": "9ff529fe5350fb0cfd96eb84cc96222e96652a11d88267b16ac76016da47a28f"
+    },
+    {
+      "path": "scripts/test-self-host-artifact-command-log-format.sh",
+      "sha256": "a74ace87417cb0c7139500408ea215d234df7bf582e86624a0b118982ca35489"
     },
     {
       "path": "scripts/test-self-host-artifact-command-log-path-helper.sh",
-      "sha256": "2b33efacee9384bf87730d07e6c3aa36eaa10dbd200b645603b5e601bd7d1bc9"
-    },
-    {
-      "path": "scripts/test-self-host-artifact-command-log-shared-fixtures.sh",
-      "sha256": "974c5a009c08eab1923249b92a9d9a5db102fc703508c92c8fd90e52f2fc0861"
-    },
-    {
-      "path": "scripts/test-self-host-artifact-command-log-source-repo-seeding.sh",
-      "sha256": "06aea800fda843bb722bc20a60b61e13440564a6edbb3232aef5e826d682f68a"
+      "sha256": "f6e6c1d1c4495099355fae087d4628eed4c857f24f4ed6d95c8918da70f06e8e"
     },
     {
       "path": "scripts/test-self-host-artifact-command-log-wrapper-ownership.sh",
-      "sha256": "717ac169ad7279b78a773b4a845b6110579436fc7fb96a9c1734d432d844e0aa"
+      "sha256": "423b8e968047874b60af71adccfb2e10a82c6ca1c2042eabd7d9ca5dcb3f195a"
     }
   ],
-  "note": "Deterministic proof manifest for self-host artifact validation, covering the synchronized command log, the wrapper-owned first-core-path helper, the focused path-helper regression, the shared-fixture and source-repo seeding regressions, and the tightened ownership scan."
+  "note": "Deterministic proof manifest for self-host artifact validation, covering the synchronized command log, the wrapper-owned stderr-substring helper, the focused first-command/format/path-helper regressions, and the tightened ownership scan."
 }

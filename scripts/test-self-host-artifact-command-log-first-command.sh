@@ -14,7 +14,6 @@ self_host_command_log_reset_fixtures
 self_host_command_log_assert_baseline_passes
 
 command_log_path="$(self_host_command_log_tmp_path)"
-stderr_log_path="$(self_host_command_log_stderr_log_path)"
 
 self_host_command_log_mutate_json "${command_log_path}" <<'PY'
 if not command_log["commands"]:
@@ -23,20 +22,8 @@ if not command_log["commands"]:
 command_log["commands"][0]["command"] = "bash scripts/test-self-host-proof-artifacts.sh --drifted"
 PY
 
-set +e
-self_host_command_log_run_check >/dev/null 2>"${stderr_log_path}"
-exit_code=$?
-set -e
-
-if [[ "${exit_code}" -eq 0 ]]; then
-  echo "[${script_label}] Expected a drifted first command to fail." >&2
-  exit 1
-fi
-
-if ! grep -q "reason_code=COMMAND_LOG_FIRST_COMMAND_INVALID" "${stderr_log_path}"; then
-  echo "[${script_label}] Unexpected stderr output for first-command reason code check:" >&2
-  cat "${stderr_log_path}" >&2
-  exit 1
-fi
+self_host_command_log_expect_stderr_contains \
+  "reason_code=COMMAND_LOG_FIRST_COMMAND_INVALID" \
+  "Expected a drifted first command to fail."
 
 echo "[${script_label}] PASS: first command validation is deterministic."

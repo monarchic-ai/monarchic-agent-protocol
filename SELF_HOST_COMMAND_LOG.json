@@ -9,22 +9,22 @@
     },
     {
       "index": 2,
-      "command": "bash scripts/test-self-host-artifact-command-log-wrapper-ownership.sh",
+      "command": "bash scripts/test-self-host-artifact-command-log-first-command.sh",
       "status": "pass"
     },
     {
       "index": 3,
-      "command": "bash scripts/test-self-host-artifact-command-log-shared-fixtures.sh",
+      "command": "bash scripts/test-self-host-artifact-command-log-format.sh",
       "status": "pass"
     },
     {
       "index": 4,
-      "command": "bash scripts/test-self-host-artifact-command-log-source-repo-seeding.sh",
+      "command": "bash scripts/test-self-host-artifact-command-log-path-helper.sh",
       "status": "pass"
     },
     {
       "index": 5,
-      "command": "bash scripts/test-self-host-artifact-command-log-path-helper.sh",
+      "command": "bash scripts/test-self-host-artifact-command-log-wrapper-ownership.sh",
       "status": "pass"
     },
     {
@@ -34,22 +34,22 @@
     },
     {
       "index": 7,
-      "command": "bash -n scripts/test-self-host-artifact-command-log-wrapper-ownership.sh",
+      "command": "bash -n scripts/test-self-host-artifact-command-log-first-command.sh",
       "status": "pass"
     },
     {
       "index": 8,
-      "command": "bash -n scripts/test-self-host-artifact-command-log-shared-fixtures.sh",
+      "command": "bash -n scripts/test-self-host-artifact-command-log-format.sh",
       "status": "pass"
     },
     {
       "index": 9,
-      "command": "bash -n scripts/test-self-host-artifact-command-log-source-repo-seeding.sh",
+      "command": "bash -n scripts/test-self-host-artifact-command-log-path-helper.sh",
       "status": "pass"
     },
     {
       "index": 10,
-      "command": "bash -n scripts/test-self-host-artifact-command-log-path-helper.sh",
+      "command": "bash -n scripts/test-self-host-artifact-command-log-wrapper-ownership.sh",
       "status": "pass"
     },
     {
@@ -88,5 +88,5 @@
       "status": "pass"
     }
   ],
-  "note": "Deterministic command log for self-host artifact verification, preserving proof-manifest validation as the first check while validating the wrapper-owned first-core-path helper, seeded source-repo coverage, and the tightened command-log ownership scan."
+  "note": "Deterministic command log for self-host artifact verification, preserving proof-manifest validation as the first check while validating the wrapper-owned stderr-substring helper, the focused path-helper coverage, and the tightened command-log ownership scan."
 }

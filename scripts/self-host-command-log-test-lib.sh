@@ -198,3 +198,38 @@ self_host_command_log_assert_baseline_passes() {
 self_host_command_log_expect_reason_code() {
   self_host_artifact_expect_reason_code "$@"
 }
+
+self_host_command_log_expect_stderr_contains() {
+  local expected_substring="${1:-}"
+  local failure_message="${2:-}"
+  local exit_code=0
+  local stderr_log_path=""
+
+  if [[ -z "${expected_substring}" ]]; then
+    echo "[self-host-command-log-test-lib] Expected a non-empty stderr substring." >&2
+    return 1
+  fi
+
+  if [[ -z "${failure_message}" ]]; then
+    echo "[self-host-command-log-test-lib] Expected a non-empty failure message for stderr assertions." >&2
+    return 1
+  fi
+
+  stderr_log_path="$(self_host_command_log_stderr_log_path)"
+
+  set +e
+  self_host_command_log_run_check >/dev/null 2>"${stderr_log_path}"
+  exit_code=$?
+  set -e
+
+  if [[ "${exit_code}" -eq 0 ]]; then
+    echo "[${SELF_HOST_COMMAND_LOG_SCRIPT_LABEL}] ${failure_message}" >&2
+    return 1
+  fi
+
+  if ! grep -Fq "${expected_substring}" "${stderr_log_path}"; then
+    echo "[${SELF_HOST_COMMAND_LOG_SCRIPT_LABEL}] Unexpected stderr output while checking for ${expected_substring}:" >&2
+    cat "${stderr_log_path}" >&2
+    return 1
+  fi
+}
