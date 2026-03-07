@@ -24,12 +24,7 @@ self_host_command_log_assert_baseline_passes
 
 self_host_command_log_assert_report_paths_empty
 
-restored_relative_path="$(self_host_command_log_core_paths | head -n 1)"
-
-if [[ -z "${restored_relative_path}" ]]; then
-  echo "[${script_label}] Expected wrapper core-path helper to expose at least one restorable path." >&2
-  exit 1
-fi
+restored_relative_path="$(self_host_command_log_first_core_path)"
 
 restored_path="$(self_host_command_log_tmp_path_for_relative_path "${restored_relative_path}")"
 
