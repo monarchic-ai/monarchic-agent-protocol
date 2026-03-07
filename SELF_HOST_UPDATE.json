@@ -1,21 +1,23 @@
 {
   "status": "pass",
-  "headline": "Completed M65 by centralizing command-log seeded source-repo baseline setup behind a wrapper helper.",
-  "current_focus": "Current focus is using M49 only if another issue #1 regression resumes direct artifact-lib reach-through; seeded source-repo baseline setup is now centralized on self_host_command_log_prepare_seeded_source_repo_baseline with wrapper ownership coverage guarding the delegation chain.",
-  "milestone_target": "M65 completed: command-log seeded source-repo baseline setup now stays on self_host_command_log_prepare_seeded_source_repo_baseline instead of repeating prepare/setup/reset/empty-report assertions in shell regressions.",
-  "milestones_done": 65,
-  "total_milestones": 65,
+  "headline": "Completed M66 by centralizing command-log first-core-path root resolution behind a wrapper helper.",
+  "current_focus": "Current focus is using M49 only if another issue #1 regression resumes direct artifact-lib reach-through; first-core-path root joins now stay centralized on self_host_command_log_first_core_path_in_root with wrapper ownership coverage guarding that delegation path.",
+  "milestone_target": "M66 completed: command-log first-core-path root resolution now stays on self_host_command_log_first_core_path_in_root instead of repeating first-core-path plus root-join composition in shell regressions.",
+  "milestones_done": 66,
+  "total_milestones": 66,
   "completed_work": [
     "Revalidated the NEXT_PRIORITY_TASK M49 trigger and confirmed command-log regressions still avoid direct self_host_artifact_* reach-through, so the recovery path remained inactive for this run.",
-    "Added self_host_command_log_prepare_seeded_source_repo_baseline in scripts/self-host-command-log-test-lib.sh and migrated the shared-fixtures plus source-repo-seeding regressions off repeated seeded prepare/setup/reset/empty-report boilerplate.",
-    "Tightened scripts/test-self-host-artifact-command-log-wrapper-ownership.sh and refreshed SELF_HOST_PROOF.json so future seeded baseline setup changes stay centralized on the new wrapper helper."
+    "Added self_host_command_log_first_core_path_in_root in scripts/self-host-command-log-test-lib.sh and migrated the path-helper, shared-fixtures, and source-repo-seeding regressions off repeated first-core-path plus root-join composition.",
+    "Tightened scripts/test-self-host-artifact-command-log-wrapper-ownership.sh and refreshed SELF_HOST_PROOF.json so future first-core-path path-join changes stay centralized on the new wrapper helper."
   ],
   "verification": [
     "bash scripts/test-self-host-proof-artifacts.sh -> pass",
     "bash -n scripts/self-host-command-log-test-lib.sh -> pass",
+    "bash -n scripts/test-self-host-artifact-command-log-path-helper.sh -> pass",
     "bash -n scripts/test-self-host-artifact-command-log-shared-fixtures.sh -> pass",
     "bash -n scripts/test-self-host-artifact-command-log-source-repo-seeding.sh -> pass",
     "bash -n scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
+    "bash scripts/test-self-host-artifact-command-log-path-helper.sh -> pass",
     "bash scripts/test-self-host-artifact-command-log-shared-fixtures.sh -> pass",
     "bash scripts/test-self-host-artifact-command-log-source-repo-seeding.sh -> pass",
     "bash scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
@@ -28,11 +30,11 @@
     "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
   ],
   "blockers": [
-    "No blockers in M65 scope."
+    "No blockers in M66 scope."
   ],
   "next_steps": [
     "Use M49 only if another issue #1 regression reaches into artifact-lib details instead of wrapper-owned helpers.",
-    "Keep future seeded source-repo baseline setup on self_host_command_log_prepare_seeded_source_repo_baseline so helper and shell coverage stay aligned when bootstrap or baseline expectations change."
+    "Keep future first-core-path root joins on self_host_command_log_first_core_path_in_root so helper and shell coverage stay aligned when command-log core artifact paths change."
   ],
-  "note": "Status is pass because verification succeeded, milestones_done increased from 64 to 65 versus the prior report, and M65 centralized seeded source-repo baseline setup behind a wrapper helper after confirming the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remained inactive."
+  "note": "Status is pass because verification succeeded, milestones_done increased from 65 to 66 versus the prior report, and M66 centralized command-log first-core-path root resolution behind a wrapper helper after confirming the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remained inactive."
 }

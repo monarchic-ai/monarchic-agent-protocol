@@ -453,5 +453,12 @@
     "status": "done",
     "completed_at": "2026-03-07T12:42:23Z",
     "notes": "Confirmed the NEXT_PRIORITY_TASK M49 recovery path remains inactive because command-log regressions already stay off direct self_host_artifact_* reach-through, added self_host_command_log_prepare_seeded_source_repo_baseline to centralize seeded source-repo prepare/setup/reset/empty-report validation, migrated the shared-fixtures and source-repo-seeding regressions to that helper, refreshed proof coverage, and tightened wrapper-ownership validation so future seeded baseline setup changes stay centralized."
+  },
+  {
+    "id": "M66",
+    "title": "Centralize command-log first-core-path root resolution behind a wrapper helper",
+    "status": "done",
+    "completed_at": "2026-03-07T12:54:20Z",
+    "notes": "Confirmed the NEXT_PRIORITY_TASK M49 recovery path remains inactive because command-log regressions still avoid direct self_host_artifact_* reach-through, added self_host_command_log_first_core_path_in_root to centralize first-core-path root joins, migrated the path-helper, shared-fixtures, and source-repo seeding regressions to that helper, refreshed proof coverage, and tightened wrapper-ownership validation so future first-core-path path joins stay centralized."
   }
 ]
