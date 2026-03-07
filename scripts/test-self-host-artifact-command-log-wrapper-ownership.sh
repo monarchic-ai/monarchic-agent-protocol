@@ -9,6 +9,7 @@ source "${repo_root}/scripts/self-host-command-log-test-lib.sh"
 artifact_helper_prefix='self_host'"_artifact_"
 wrapper_helper_prefix="self_host_command_log_"
 wrapper_lib_reference="self-host-command-log-test-lib.sh"
+wrapper_lib_path="${repo_root}/scripts/${wrapper_lib_reference}"
 wrapper_core_paths_helper="self_host_command_log_core_paths"
 wrapper_core_path_membership_helper="self_host_command_log_assert_core_path_listed"
 wrapper_first_core_path_helper="self_host_command_log_first_core_path"
@@ -24,6 +25,17 @@ wrapper_failure_contains_helper="self_host_command_log_expect_failure_contains"
 wrapper_python_cmd_helper="self_host_command_log_python_cmd"
 wrapper_json_mutation_helper="self_host_command_log_mutate_json"
 disallowed_state_prefix="SELF_HOST_COMMAND_LOG_"
+
+wrapper_helper_body() {
+  local helper_name="${1:-}"
+
+  if [[ -z "${helper_name}" ]]; then
+    echo "[${script_label}] Expected a non-empty wrapper helper name while reading ${wrapper_lib_reference}." >&2
+    exit 1
+  fi
+
+  sed -n "/^${helper_name}() {$/,/^}$/p" "${wrapper_lib_path}"
+}
 
 shopt -s nullglob
 command_log_scripts=("${repo_root}"/scripts/test-self-host-artifact-command-log-*.sh)
@@ -42,6 +54,33 @@ done < <(self_host_command_log_core_paths)
 
 if [[ "${#command_log_core_paths[@]}" -eq 0 ]]; then
   echo "[${script_label}] Expected wrapper core-path helper to expose at least one artifact path." >&2
+  exit 1
+fi
+
+prepare_seeded_source_repo_body="$(wrapper_helper_body "${wrapper_prepare_seeded_source_repo_helper}")"
+if [[ -z "${prepare_seeded_source_repo_body}" ]]; then
+  echo "[${script_label}] Expected ${wrapper_lib_reference} to define ${wrapper_prepare_seeded_source_repo_helper}." >&2
+  exit 1
+fi
+
+if [[ "${prepare_seeded_source_repo_body}" != *"${wrapper_seed_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_prepare_seeded_source_repo_helper} to keep seeded source-repo bootstrap on ${wrapper_seed_helper} so empty report-list fixture seeding stays centralized." >&2
+  exit 1
+fi
+
+if [[ "${prepare_seeded_source_repo_body}" != *"${wrapper_seeded_core_paths_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_prepare_seeded_source_repo_helper} to validate seeded core paths through ${wrapper_seeded_core_paths_helper} after bootstrap." >&2
+  exit 1
+fi
+
+seeded_core_paths_body="$(wrapper_helper_body "${wrapper_seeded_core_paths_helper}")"
+if [[ -z "${seeded_core_paths_body}" ]]; then
+  echo "[${script_label}] Expected ${wrapper_lib_reference} to define ${wrapper_seeded_core_paths_helper}." >&2
+  exit 1
+fi
+
+if [[ "${seeded_core_paths_body}" != *"${wrapper_core_paths_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_seeded_core_paths_helper} to enumerate wrapper-owned artifact paths through ${wrapper_core_paths_helper} so shared fixture additions stay centralized." >&2
   exit 1
 fi
 
