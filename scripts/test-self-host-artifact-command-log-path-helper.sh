@@ -16,6 +16,7 @@ self_host_command_log_assert_baseline_passes
 command_log_relative_path="$(self_host_command_log_relative_path)"
 tmp_repo_root="$(self_host_command_log_tmp_root)"
 stderr_log_path="$(self_host_command_log_stderr_log_path)"
+python_cmd="$(self_host_command_log_python_cmd)"
 
 if [[ -z "${command_log_relative_path}" ]]; then
   echo "[${script_label}] Expected command-log relative-path helper to return a path." >&2
@@ -50,4 +51,9 @@ if [[ ! -f "${stderr_log_path}" ]]; then
   exit 1
 fi
 
-echo "[${script_label}] PASS: command-log wrapper temp-path and stderr-log helpers stay aligned with wrapper-owned fixtures."
+if ! command -v "${python_cmd}" >/dev/null 2>&1; then
+  echo "[${script_label}] Expected wrapper python-command helper to resolve an available interpreter, found ${python_cmd}." >&2
+  exit 1
+fi
+
+echo "[${script_label}] PASS: command-log wrapper temp-path, stderr-log, and python-command helpers stay aligned with wrapper-owned fixtures."

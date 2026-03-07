@@ -14,8 +14,9 @@ self_host_command_log_reset_fixtures
 self_host_command_log_assert_baseline_passes
 
 command_log_path="$(self_host_command_log_tmp_path)"
+python_cmd="$(self_host_command_log_python_cmd)"
 
-"${SELF_HOST_COMMAND_LOG_PYTHON_CMD}" - "${command_log_path}" <<'PY'
+"${python_cmd}" - "${command_log_path}" <<'PY'
 import json
 import sys
 
@@ -34,7 +35,7 @@ self_host_command_log_expect_reason_code "COMMAND_LOG_STATUS_MISMATCH" "Expected
 
 self_host_command_log_reset_fixtures
 
-"${SELF_HOST_COMMAND_LOG_PYTHON_CMD}" - "${command_log_path}" <<'PY'
+"${python_cmd}" - "${command_log_path}" <<'PY'
 import json
 import sys
 

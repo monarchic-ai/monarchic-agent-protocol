@@ -15,8 +15,9 @@ self_host_command_log_assert_baseline_passes
 
 command_log_path="$(self_host_command_log_tmp_path)"
 stderr_log_path="$(self_host_command_log_stderr_log_path)"
+python_cmd="$(self_host_command_log_python_cmd)"
 
-"${SELF_HOST_COMMAND_LOG_PYTHON_CMD}" - "${command_log_path}" <<'PY'
+"${python_cmd}" - "${command_log_path}" <<'PY'
 import json
 import sys
 

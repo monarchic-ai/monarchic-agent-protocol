@@ -75,6 +75,15 @@ self_host_command_log_stderr_log_path() {
   printf '%s\n' "${SELF_HOST_COMMAND_LOG_STDERR_LOG}"
 }
 
+self_host_command_log_python_cmd() {
+  if [[ -z "${SELF_HOST_COMMAND_LOG_PYTHON_CMD:-}" ]]; then
+    echo "[self-host-command-log-test-lib] Expected command-log python command to be initialized." >&2
+    return 1
+  fi
+
+  printf '%s\n' "${SELF_HOST_COMMAND_LOG_PYTHON_CMD}"
+}
+
 self_host_command_log_report_paths() {
   self_host_artifact_report_paths
 }
