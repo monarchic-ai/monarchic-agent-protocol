@@ -10,6 +10,7 @@ artifact_helper_prefix='self_host'"_artifact_"
 wrapper_helper_prefix="self_host_command_log_"
 wrapper_lib_reference="self-host-command-log-test-lib.sh"
 wrapper_core_paths_helper="self_host_command_log_core_paths"
+wrapper_first_core_path_helper="self_host_command_log_first_core_path"
 wrapper_seed_helper="self_host_command_log_seed_source_repo_with_empty_report_lists"
 wrapper_seeded_core_paths_helper="self_host_command_log_assert_seeded_source_repo_core_paths"
 wrapper_empty_report_paths_helper="self_host_command_log_assert_report_paths_empty"
@@ -120,8 +121,13 @@ for script_path in "${command_log_scripts[@]}"; do
         exit 1
       fi
 
-      if ! grep -Fq "${wrapper_core_paths_helper}" "${script_path}"; then
-        echo "[${script_label}] Expected ${script_name} to use ${wrapper_core_paths_helper} so wrapper-owned core artifact paths stay centralized." >&2
+      if ! grep -Fq "${wrapper_first_core_path_helper}" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to use ${wrapper_first_core_path_helper} so wrapper-owned first-core-path selection stays centralized." >&2
+        exit 1
+      fi
+
+      if grep -Fq "${wrapper_core_paths_helper} | head -n 1" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to resolve first core paths through ${wrapper_first_core_path_helper} instead of inline ${wrapper_core_paths_helper} pipelines." >&2
         exit 1
       fi
 
@@ -138,4 +144,4 @@ if [[ "${validated_script_count}" -eq 0 ]]; then
   exit 1
 fi
 
-echo "[${script_label}] PASS: command-log regression scripts stay on wrapper-owned helpers, keep temp-path/core-path/source-repo/python-command/json-mutation ownership centralized, and avoid direct wrapper state reads."
+echo "[${script_label}] PASS: command-log regression scripts stay on wrapper-owned helpers, keep temp-path/core-path/first-core-path/source-repo/python-command/json-mutation ownership centralized, and avoid direct wrapper state reads."

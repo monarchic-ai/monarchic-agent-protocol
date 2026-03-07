@@ -1,14 +1,14 @@
 {
   "status": "pass",
-  "headline": "Completed M55 by centralizing command-log seeded source-repo validation behind wrapper helpers.",
-  "current_focus": "Current focus is keeping command-log shared-fixture and source-repo seeding coverage on wrapper-owned seed, core-path, and empty-report assertions while the next incremental self-host task is selected.",
-  "milestone_target": "M55 completed: seeded source-repo and empty-report validation now live behind wrapper-owned command-log helpers.",
-  "milestones_done": 55,
-  "total_milestones": 55,
+  "headline": "Completed M56 by centralizing command-log first-core-path selection behind a wrapper helper.",
+  "current_focus": "Current focus is keeping command-log shared-fixture and source-repo seeding coverage on wrapper-owned seed, core-path, first-core-path, and empty-report assertions while the next incremental self-host task is selected.",
+  "milestone_target": "M56 completed: first-core-path selection now lives behind wrapper-owned command-log helpers.",
+  "milestones_done": 56,
+  "total_milestones": 56,
   "completed_work": [
-    "Added self_host_command_log_assert_seeded_source_repo_core_paths and self_host_command_log_assert_report_paths_empty in scripts/self-host-command-log-test-lib.sh so command-log shared-fixture regressions can reuse one wrapper-owned validation path for seeded core artifacts and empty report lists.",
-    "Updated scripts/test-self-host-artifact-command-log-shared-fixtures.sh and scripts/test-self-host-artifact-command-log-source-repo-seeding.sh to validate seeded source repos through the new wrapper helpers instead of open-coded loops and direct report-list emptiness checks.",
-    "Extended scripts/test-self-host-artifact-command-log-source-repo-seeding.sh with a deterministic negative check that removes one seeded wrapper-owned core artifact, confirms the new helper reports the missing path, then reseeds before baseline validation.",
+    "Added self_host_command_log_first_core_path in scripts/self-host-command-log-test-lib.sh so command-log regressions can reuse one wrapper-owned selection path for the first seeded core artifact instead of duplicating inline pipelines.",
+    "Updated scripts/test-self-host-artifact-command-log-shared-fixtures.sh and scripts/test-self-host-artifact-command-log-source-repo-seeding.sh to resolve their selected wrapper-owned artifact through the new helper rather than self_host_command_log_core_paths | head -n 1.",
+    "Extended scripts/test-self-host-artifact-command-log-path-helper.sh so the focused helper coverage now verifies the first-core-path helper resolves a wrapper-owned artifact that baseline fixture restoration actually seeded.",
     "Tightened scripts/test-self-host-artifact-command-log-wrapper-ownership.sh and refreshed SELF_HOST_COMMAND_LOG.json, SELF_HOST_PROOF.json, SELF_HOST_MILESTONES.json, SELF_HOST_IMPLEMENTATION_LOG.json, and SELF_HOST_REPORT.json for the focused verification suite."
   ],
   "verification": [
@@ -18,9 +18,9 @@
     "bash scripts/test-self-host-artifact-command-log-source-repo-seeding.sh -> pass",
     "bash scripts/test-self-host-artifact-command-log-path-helper.sh -> pass",
     "bash -n scripts/self-host-command-log-test-lib.sh -> pass",
+    "bash -n scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
     "bash -n scripts/test-self-host-artifact-command-log-shared-fixtures.sh -> pass",
     "bash -n scripts/test-self-host-artifact-command-log-source-repo-seeding.sh -> pass",
-    "bash -n scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
     "bash -n scripts/test-self-host-artifact-command-log-path-helper.sh -> pass",
     "bash scripts/test-self-host-artifacts.sh -> pass",
     "python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null -> pass",
@@ -31,11 +31,11 @@
     "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
   ],
   "blockers": [
-    "No blockers in M55 scope."
+    "No blockers in M56 scope."
   ],
   "next_steps": [
-    "Select the next low-risk command-log or proof-artifact improvement now that seeded source-repo validation is wrapper-owned.",
-    "Extend the ownership scan again if future command-log regressions add new wrapper-managed fixture assertions or source-repo setup helpers."
+    "Select the next low-risk command-log or proof-artifact improvement only if another issue #1 regression still open-codes wrapper-owned details instead of the command-log helper library.",
+    "Extend the ownership scan again if future command-log regressions add new wrapper-managed fixture-selection helpers or other repeated shell pipelines."
   ],
-  "note": "Status is pass because verification succeeded, milestones_done increased from 54 to 55 versus the prior report, and M55 centralized seeded source-repo validation behind deterministic wrapper-owned helpers."
+  "note": "Status is pass because verification succeeded, milestones_done increased from 55 to 56 versus the prior report, and M56 centralized first-core-path selection behind deterministic wrapper-owned helpers."
 }
