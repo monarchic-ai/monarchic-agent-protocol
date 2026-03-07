@@ -1,25 +1,33 @@
 {
   "status": "pass",
-  "headline": "Completed M61 by centralizing command-log helper failure-output assertions behind a wrapper helper.",
-  "current_focus": "Current focus is keeping command-log negative helper assertions on self_host_command_log_expect_failure_contains while selecting the next incremental ownership gap only if another issue #1 regression still open-codes wrapper-owned details.",
-  "milestone_target": "M61 completed: command-log helper failure-output assertions now live behind a wrapper-owned helper.",
-  "milestones_done": 61,
-  "total_milestones": 61,
+  "headline": "Completed M62 by centralizing command-log reset-plus-baseline coverage behind a wrapper helper.",
+  "current_focus": "Current focus is keeping command-log reset-plus-baseline coverage on self_host_command_log_reset_and_assert_baseline while using M49 only if another issue #1 regression resumes direct artifact-lib reach-through instead of wrapper-owned helpers.",
+  "milestone_target": "M62 completed: command-log reset-plus-baseline coverage now lives behind a wrapper-owned helper.",
+  "milestones_done": 62,
+  "total_milestones": 62,
   "completed_work": [
-    "Added self_host_command_log_expect_failure_contains in scripts/self-host-command-log-test-lib.sh so wrapper-owned helper failure capture and substring validation live behind one reusable assertion helper.",
-    "Updated scripts/test-self-host-artifact-command-log-path-helper.sh and scripts/test-self-host-artifact-command-log-source-repo-seeding.sh to route deterministic negative helper coverage through the shared failure-output helper instead of open-coded validation_output wrappers.",
-    "Tightened scripts/test-self-host-artifact-command-log-wrapper-ownership.sh so future command-log shell regressions must keep helper failure-output capture centralized while preserving the existing root-path, seeded-source-repo, and core-path ownership checks.",
-    "Refreshed SELF_HOST_PROOF.json and SELF_HOST_COMMAND_LOG.json so the deterministic proof manifest and latest verification command list track the focused failure-output scope touched in this run."
+    "Added self_host_command_log_reset_and_assert_baseline in scripts/self-host-command-log-test-lib.sh so fixture restoration and passing-baseline verification live behind one wrapper-owned helper.",
+    "Updated the command-log first-command, format, gate, path-helper, reason-code, shared-fixture, and source-repo seeding regressions to route repeated reset-plus-baseline setup through the shared helper so each deterministic mutation case starts from a verified passing state.",
+    "Tightened scripts/test-self-host-artifact-command-log-wrapper-ownership.sh to require the reset-plus-baseline helper and reject open-coded sequential reset and baseline calls after confirming the old M49 direct artifact-lib recovery path no longer applied.",
+    "Refreshed SELF_HOST_PROOF.json and SELF_HOST_COMMAND_LOG.json so the deterministic proof manifest and verification command list track the reset-plus-baseline scope touched in this run."
   ],
   "verification": [
     "bash scripts/test-self-host-proof-artifacts.sh -> pass",
-    "bash scripts/test-self-host-artifact-command-log-shared-fixtures.sh -> pass",
+    "bash scripts/test-self-host-artifact-command-log-first-command.sh -> pass",
+    "bash scripts/test-self-host-artifact-command-log-format.sh -> pass",
+    "bash scripts/test-self-host-artifact-command-log-gate.sh -> pass",
     "bash scripts/test-self-host-artifact-command-log-path-helper.sh -> pass",
+    "bash scripts/test-self-host-artifact-command-log-reason-codes.sh -> pass",
+    "bash scripts/test-self-host-artifact-command-log-shared-fixtures.sh -> pass",
     "bash scripts/test-self-host-artifact-command-log-source-repo-seeding.sh -> pass",
     "bash scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
     "bash -n scripts/self-host-command-log-test-lib.sh -> pass",
-    "bash -n scripts/test-self-host-artifact-command-log-shared-fixtures.sh -> pass",
+    "bash -n scripts/test-self-host-artifact-command-log-first-command.sh -> pass",
+    "bash -n scripts/test-self-host-artifact-command-log-format.sh -> pass",
+    "bash -n scripts/test-self-host-artifact-command-log-gate.sh -> pass",
     "bash -n scripts/test-self-host-artifact-command-log-path-helper.sh -> pass",
+    "bash -n scripts/test-self-host-artifact-command-log-reason-codes.sh -> pass",
+    "bash -n scripts/test-self-host-artifact-command-log-shared-fixtures.sh -> pass",
     "bash -n scripts/test-self-host-artifact-command-log-source-repo-seeding.sh -> pass",
     "bash -n scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
     "bash scripts/test-self-host-artifacts.sh -> pass",
@@ -31,11 +39,11 @@
     "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
   ],
   "blockers": [
-    "No blockers in M61 scope."
+    "No blockers in M62 scope."
   ],
   "next_steps": [
-    "Use M49 only if another issue #1 regression still open-codes wrapper-owned details instead of self_host_command_log_expect_failure_contains or the existing command-log helper library assertions.",
-    "Keep future command-log shell coverage on self_host_command_log_expect_failure_contains, self_host_command_log_core_paths, and self_host_command_log_prepare_seeded_source_repo so failure-output, core-path, and seeded-source-repo checks stay centralized."
+    "Use M49 only if another issue #1 regression reaches into artifact-lib details instead of wrapper-owned helpers.",
+    "Keep future command-log shell coverage on self_host_command_log_reset_and_assert_baseline, self_host_command_log_prepare_seeded_source_repo, and the existing wrapper-owned assertion helpers so baseline resets and seeded fixture checks stay centralized."
   ],
-  "note": "Status is pass because verification succeeded, milestones_done increased from 60 to 61 versus the prior report, and M61 centralized deterministic helper failure-output assertions behind a wrapper-owned helper while keeping the command-log verification list in sync."
+  "note": "Status is pass because verification succeeded, milestones_done increased from 61 to 62 versus the prior report, and M62 centralized deterministic command-log reset-plus-baseline coverage behind a wrapper-owned helper after confirming no remaining direct artifact-lib reach-through required the old M49 path."
 }

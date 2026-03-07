@@ -425,5 +425,12 @@
     "status": "done",
     "completed_at": "2026-03-07T12:08:42Z",
     "notes": "Added self_host_command_log_expect_failure_contains in scripts/self-host-command-log-test-lib.sh, migrated the path-helper and source-repo seeding regressions off inline helper-failure capture, refreshed proof coverage for the focused failure-output scope, and tightened wrapper-ownership validation so future negative helper assertions stay centralized."
+  },
+  {
+    "id": "M62",
+    "title": "Centralize command-log reset-plus-baseline coverage behind a wrapper helper",
+    "status": "done",
+    "completed_at": "2026-03-07T12:19:57Z",
+    "notes": "Added self_host_command_log_reset_and_assert_baseline in scripts/self-host-command-log-test-lib.sh, migrated the command-log regressions off repeated reset-and-baseline boilerplate so each deterministic mutation case starts from a verified passing state, confirmed the old M49 artifact-lib recovery path no longer applied, and tightened wrapper-ownership validation so future reset-plus-baseline coverage stays centralized."
   }
 ]
