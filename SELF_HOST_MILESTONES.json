@@ -432,5 +432,12 @@
     "status": "done",
     "completed_at": "2026-03-07T12:19:57Z",
     "notes": "Added self_host_command_log_reset_and_assert_baseline in scripts/self-host-command-log-test-lib.sh, migrated the command-log regressions off repeated reset-and-baseline boilerplate so each deterministic mutation case starts from a verified passing state, confirmed the old M49 artifact-lib recovery path no longer applied, and tightened wrapper-ownership validation so future reset-plus-baseline coverage stays centralized."
+  },
+  {
+    "id": "M63",
+    "title": "Validate command-log helper-library delegation for seeded core-path coverage",
+    "status": "done",
+    "completed_at": "2026-03-07T12:27:16Z",
+    "notes": "Tightened scripts/test-self-host-artifact-command-log-wrapper-ownership.sh to inspect scripts/self-host-command-log-test-lib.sh and require self_host_command_log_prepare_seeded_source_repo to keep seeded source-repo bootstrap on self_host_command_log_seed_source_repo_with_empty_report_lists while self_host_command_log_assert_seeded_source_repo_core_paths stays anchored on self_host_command_log_core_paths, preventing future shared fixture additions from reintroducing duplicated file lists in command-log shell coverage."
   }
 ]
