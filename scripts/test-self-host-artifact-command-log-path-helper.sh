@@ -14,6 +14,8 @@ self_host_command_log_reset_fixtures
 self_host_command_log_assert_baseline_passes
 
 command_log_relative_path="$(self_host_command_log_relative_path)"
+tmp_repo_root="$(self_host_command_log_tmp_root)"
+stderr_log_path="$(self_host_command_log_stderr_log_path)"
 
 if [[ -z "${command_log_relative_path}" ]]; then
   echo "[${script_label}] Expected command-log relative-path helper to return a path." >&2
@@ -26,10 +28,15 @@ if ! self_host_command_log_core_paths | grep -Fxq "${command_log_relative_path}"
 fi
 
 command_log_path="$(self_host_command_log_tmp_path)"
-expected_command_log_path="${SELF_HOST_COMMAND_LOG_TMP_REPO}/${command_log_relative_path}"
+expected_command_log_path="$(self_host_command_log_tmp_path_for_relative_path "${command_log_relative_path}")"
 
 if [[ "${command_log_path}" != "${expected_command_log_path}" ]]; then
   echo "[${script_label}] Expected temp command-log path ${expected_command_log_path}, found ${command_log_path}." >&2
+  exit 1
+fi
+
+if [[ "${expected_command_log_path}" != "${tmp_repo_root}/${command_log_relative_path}" ]]; then
+  echo "[${script_label}] Expected relative-path helper to stay aligned with the wrapper temp root ${tmp_repo_root}." >&2
   exit 1
 fi
 
@@ -38,4 +45,9 @@ if [[ ! -f "${command_log_path}" ]]; then
   exit 1
 fi
 
-echo "[${script_label}] PASS: command-log wrapper path helper stays aligned with wrapper-owned core fixtures."
+if [[ ! -f "${stderr_log_path}" ]]; then
+  echo "[${script_label}] Expected wrapper stderr-log helper to resolve an initialized log file." >&2
+  exit 1
+fi
+
+echo "[${script_label}] PASS: command-log wrapper temp-path and stderr-log helpers stay aligned with wrapper-owned fixtures."

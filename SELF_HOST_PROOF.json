@@ -2,17 +2,21 @@
   "task_id": "task-self-host-001",
   "status": "pass",
   "reason_code": "OK",
-  "signature_count": 2,
+  "signature_count": 3,
   "sampled_batches": 1,
   "proofs": [
     {
       "path": "SELF_HOST_COMMAND_LOG.json",
-      "sha256": "2360ef74348a568a4acab9c6fa4262ee5d65b571234d448d4eabdc47cfeccf27"
+      "sha256": "40ffe327393b497738d554df58e4bc88e39f7f12020c7bb595dc38ece65ca1a2"
+    },
+    {
+      "path": "scripts/self-host-command-log-test-lib.sh",
+      "sha256": "9b8e5c06255a6f30f7a8fc40976a6d2e7f42e8d5d15d3eb2c9f6a1d33861c49c"
     },
     {
       "path": "scripts/test-self-host-artifact-command-log-wrapper-ownership.sh",
-      "sha256": "71458c20f3f7794fad378f9f6def22aee9b40e53753dfdec3dd52ebd77f01315"
+      "sha256": "4b39a88f8fcef2e43c178868211c4d96ab229d43e7f543c1c88f4e6ab6cbc483"
     }
   ],
-  "note": "Deterministic proof manifest for self-host artifact validation, covering the synchronized command log and the hardened wrapper-ownership scan that guards command-log core-path and seeding helper usage."
+  "note": "Deterministic proof manifest for self-host artifact validation, covering the synchronized command log, the wrapper-owned temp/stderr helper surface, and the tightened ownership scan that guards against direct state-variable reads."
 }
