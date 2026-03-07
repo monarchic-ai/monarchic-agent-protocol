@@ -25,6 +25,33 @@ self_host_command_log_core_paths() {
   self_host_artifact_core_paths
 }
 
+self_host_command_log_assert_seeded_source_repo_core_paths() {
+  local source_root="${1:-}"
+  local script_label="${SELF_HOST_COMMAND_LOG_SCRIPT_LABEL:-self-host-command-log-test-lib}"
+  local relative_path=""
+  local seeded_core_path_count=0
+
+  if [[ -z "${source_root}" ]]; then
+    echo "[self-host-command-log-test-lib] Expected a non-empty source root for seeded core-path validation." >&2
+    return 1
+  fi
+
+  while IFS= read -r relative_path; do
+    [[ -z "${relative_path}" ]] && continue
+    seeded_core_path_count=$((seeded_core_path_count + 1))
+
+    if [[ ! -f "${source_root}/${relative_path}" ]]; then
+      echo "[${script_label}] Expected wrapper seeding helper to copy ${relative_path}." >&2
+      return 1
+    fi
+  done < <(self_host_command_log_core_paths)
+
+  if [[ "${seeded_core_path_count}" -eq 0 ]]; then
+    echo "[${script_label}] Expected wrapper core-path helper to expose at least one seeded artifact path." >&2
+    return 1
+  fi
+}
+
 self_host_command_log_relative_path() {
   printf '%s\n' "SELF_HOST_COMMAND_LOG.json"
 }
@@ -125,6 +152,15 @@ PY
 
 self_host_command_log_report_paths() {
   self_host_artifact_report_paths
+}
+
+self_host_command_log_assert_report_paths_empty() {
+  local script_label="${SELF_HOST_COMMAND_LOG_SCRIPT_LABEL:-self-host-command-log-test-lib}"
+
+  if [[ -n "$(self_host_command_log_report_paths)" ]]; then
+    echo "[${script_label}] Expected the temp report to expose no report-listed paths." >&2
+    return 1
+  fi
 }
 
 self_host_command_log_fixture_paths() {
