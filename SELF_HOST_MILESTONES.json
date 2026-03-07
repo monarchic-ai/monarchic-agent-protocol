@@ -390,5 +390,12 @@
     "status": "done",
     "completed_at": "2026-03-07T06:50:07Z",
     "notes": "Added self_host_command_log_first_core_path in scripts/self-host-command-log-test-lib.sh, migrated the shared-fixtures and source-repo seeding regressions off inline core-path pipelines, extended the focused path-helper coverage to verify the new wrapper helper resolves a restored artifact, and tightened wrapper-ownership coverage so future command-log shell regressions keep first-core-path selection centralized."
+  },
+  {
+    "id": "M57",
+    "title": "Centralize command-log stderr failure assertions behind wrapper helpers",
+    "status": "done",
+    "completed_at": "2026-03-07T06:58:40Z",
+    "notes": "Added self_host_command_log_expect_stderr_contains in scripts/self-host-command-log-test-lib.sh, migrated the first-command and format regressions off duplicated run-check and stderr-grep logic, extended focused helper coverage, and tightened wrapper-ownership validation so future command-log failure assertions stay centralized."
   }
 ]

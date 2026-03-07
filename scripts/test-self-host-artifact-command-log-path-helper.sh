@@ -76,4 +76,17 @@ PY
 
 self_host_command_log_expect_reason_code "COMMAND_LOG_STATUS_MISMATCH" "Expected command-log JSON mutation helper to persist a deterministic status mutation."
 
-echo "[${script_label}] PASS: command-log wrapper temp-path, first-core-path, stderr-log, python-command, and JSON-mutation helpers stay aligned with wrapper-owned fixtures."
+self_host_command_log_reset_fixtures
+
+self_host_command_log_mutate_json "${command_log_path}" <<'PY'
+if not command_log["commands"]:
+    raise SystemExit("Need at least one command entry for stderr helper coverage.")
+
+command_log["commands"][0]["index"] = 99
+PY
+
+self_host_command_log_expect_stderr_contains \
+  "command index must be a contiguous integer sequence" \
+  "Expected stderr substring helper to detect deterministic command-log format drift."
+
+echo "[${script_label}] PASS: command-log wrapper temp-path, first-core-path, stderr-log, python-command, JSON-mutation, and stderr-substring helpers stay aligned with wrapper-owned fixtures."
