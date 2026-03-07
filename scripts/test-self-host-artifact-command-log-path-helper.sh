@@ -56,4 +56,10 @@ if ! command -v "${python_cmd}" >/dev/null 2>&1; then
   exit 1
 fi
 
-echo "[${script_label}] PASS: command-log wrapper temp-path, stderr-log, and python-command helpers stay aligned with wrapper-owned fixtures."
+self_host_command_log_mutate_json "${command_log_path}" <<'PY'
+command_log["status"] = "blocked"
+PY
+
+self_host_command_log_expect_reason_code "COMMAND_LOG_STATUS_MISMATCH" "Expected command-log JSON mutation helper to persist a deterministic status mutation."
+
+echo "[${script_label}] PASS: command-log wrapper temp-path, stderr-log, python-command, and JSON-mutation helpers stay aligned with wrapper-owned fixtures."
