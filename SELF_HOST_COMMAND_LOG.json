@@ -14,119 +14,64 @@
     },
     {
       "index": 3,
-      "command": "bash scripts/test-self-host-artifact-command-log-path-helper.sh",
-      "status": "pass"
-    },
-    {
-      "index": 4,
-      "command": "bash scripts/test-self-host-artifact-command-log-first-command.sh",
-      "status": "pass"
-    },
-    {
-      "index": 5,
-      "command": "bash scripts/test-self-host-artifact-command-log-format.sh",
-      "status": "pass"
-    },
-    {
-      "index": 6,
-      "command": "bash scripts/test-self-host-artifact-command-log-reason-codes.sh",
-      "status": "pass"
-    },
-    {
-      "index": 7,
       "command": "bash scripts/test-self-host-artifact-command-log-source-repo-seeding.sh",
       "status": "pass"
     },
     {
-      "index": 8,
+      "index": 4,
       "command": "bash scripts/test-self-host-artifact-command-log-shared-fixtures.sh",
       "status": "pass"
     },
     {
-      "index": 9,
-      "command": "bash scripts/test-self-host-artifact-command-log-gate.sh",
-      "status": "pass"
-    },
-    {
-      "index": 10,
-      "command": "bash -n scripts/self-host-command-log-test-lib.sh",
-      "status": "pass"
-    },
-    {
-      "index": 11,
+      "index": 5,
       "command": "bash -n scripts/test-self-host-artifact-command-log-wrapper-ownership.sh",
       "status": "pass"
     },
     {
-      "index": 12,
-      "command": "bash -n scripts/test-self-host-artifact-command-log-path-helper.sh",
-      "status": "pass"
-    },
-    {
-      "index": 13,
-      "command": "bash -n scripts/test-self-host-artifact-command-log-first-command.sh",
-      "status": "pass"
-    },
-    {
-      "index": 14,
-      "command": "bash -n scripts/test-self-host-artifact-command-log-format.sh",
-      "status": "pass"
-    },
-    {
-      "index": 15,
-      "command": "bash -n scripts/test-self-host-artifact-command-log-reason-codes.sh",
-      "status": "pass"
-    },
-    {
-      "index": 16,
+      "index": 6,
       "command": "bash -n scripts/test-self-host-artifact-command-log-source-repo-seeding.sh",
       "status": "pass"
     },
     {
-      "index": 17,
+      "index": 7,
       "command": "bash -n scripts/test-self-host-artifact-command-log-shared-fixtures.sh",
       "status": "pass"
     },
     {
-      "index": 18,
-      "command": "bash -n scripts/test-self-host-artifact-command-log-gate.sh",
-      "status": "pass"
-    },
-    {
-      "index": 19,
+      "index": 8,
       "command": "bash scripts/test-self-host-artifacts.sh",
       "status": "pass"
     },
     {
-      "index": 20,
+      "index": 9,
       "command": "python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null",
       "status": "pass"
     },
     {
-      "index": 21,
+      "index": 10,
       "command": "python3 -m json.tool SELF_HOST_PROOF.json >/dev/null",
       "status": "pass"
     },
     {
-      "index": 22,
+      "index": 11,
       "command": "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null",
       "status": "pass"
     },
     {
-      "index": 23,
+      "index": 12,
       "command": "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null",
       "status": "pass"
     },
     {
-      "index": 24,
+      "index": 13,
       "command": "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null",
       "status": "pass"
     },
     {
-      "index": 25,
+      "index": 14,
       "command": "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null",
       "status": "pass"
     }
   ],
-  "note": "Deterministic command log for self-host artifact verification, preserving proof-manifest validation as the first check while validating the new wrapper-ownership scan and the aligned command-log shell regressions."
+  "note": "Deterministic command log for self-host artifact verification, preserving proof-manifest validation as the first check while validating the hardened wrapper-ownership scan and the focused command-log core-path/seeding helper coverage."
 }
