@@ -373,8 +373,8 @@
   {
     "id": "M54",
     "title": "Assess whether repeated command-log JSON mutations should move behind wrapper-owned helpers",
-    "status": "pending",
-    "completed_at": null,
-    "notes": "Pending follow-up after M53; use this only if future deterministic command-log regressions need to deduplicate their inline JSON mutation snippets behind shared wrapper-owned helpers without widening shell coverage scope."
+    "status": "done",
+    "completed_at": "2026-03-07T06:33:04Z",
+    "notes": "Added self_host_command_log_mutate_json in scripts/self-host-command-log-test-lib.sh, migrated the command-log gate/reason-code/first-command/format regressions off duplicated inline JSON load/write boilerplate, extended focused helper coverage to prove the shared mutation helper persists deterministic status drift, and tightened wrapper-ownership coverage so future regressions keep repeated JSON mutations behind the wrapper-owned helper."
   }
 ]
