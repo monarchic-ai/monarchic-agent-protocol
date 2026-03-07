@@ -13,6 +13,7 @@ wrapper_core_paths_helper="self_host_command_log_core_paths"
 wrapper_seed_helper="self_host_command_log_seed_source_repo_with_empty_report_lists"
 wrapper_tmp_path_helper="self_host_command_log_tmp_path_for_relative_path"
 wrapper_stderr_log_helper="self_host_command_log_stderr_log_path"
+wrapper_python_cmd_helper="self_host_command_log_python_cmd"
 disallowed_state_prefix="SELF_HOST_COMMAND_LOG_"
 
 shopt -s nullglob
@@ -60,8 +61,8 @@ for script_path in "${command_log_scripts[@]}"; do
     exit 1
   fi
 
-  if grep -Eq '\bSELF_HOST_COMMAND_LOG_(TMP_REPO|STDERR_LOG)\b' "${script_path}"; then
-    echo "[${script_label}] Expected ${script_name} to resolve wrapper-owned temp and stderr state through ${wrapper_helper_prefix}helpers instead of ${disallowed_state_prefix} variables." >&2
+  if grep -Eq '\bSELF_HOST_COMMAND_LOG_(TMP_REPO|STDERR_LOG|PYTHON_CMD)\b' "${script_path}"; then
+    echo "[${script_label}] Expected ${script_name} to resolve wrapper-owned temp, stderr, and python-command state through ${wrapper_helper_prefix}helpers instead of ${disallowed_state_prefix} variables." >&2
     exit 1
   fi
 
@@ -73,18 +74,33 @@ for script_path in "${command_log_scripts[@]}"; do
   done
 
   case "${script_name}" in
+    test-self-host-artifact-command-log-first-command.sh|test-self-host-artifact-command-log-format.sh|test-self-host-artifact-command-log-gate.sh|test-self-host-artifact-command-log-reason-codes.sh)
+      if ! grep -Fq "${wrapper_python_cmd_helper}" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to use ${wrapper_python_cmd_helper} so wrapper-owned python-command state stays centralized." >&2
+        exit 1
+      fi
+      ;;
+  esac
+
+  case "${script_name}" in
     test-self-host-artifact-command-log-first-command.sh|test-self-host-artifact-command-log-format.sh)
       if ! grep -Fq "${wrapper_stderr_log_helper}" "${script_path}"; then
         echo "[${script_label}] Expected ${script_name} to use ${wrapper_stderr_log_helper} so wrapper-owned stderr paths stay centralized." >&2
         exit 1
       fi
       ;;
+  esac
+
+  case "${script_name}" in
     test-self-host-artifact-command-log-path-helper.sh|test-self-host-artifact-command-log-shared-fixtures.sh)
       if ! grep -Fq "${wrapper_tmp_path_helper}" "${script_path}"; then
         echo "[${script_label}] Expected ${script_name} to use ${wrapper_tmp_path_helper} so wrapper-owned temp fixture paths stay centralized." >&2
         exit 1
       fi
       ;;
+  esac
+
+  case "${script_name}" in
     test-self-host-artifact-command-log-source-repo-seeding.sh|test-self-host-artifact-command-log-shared-fixtures.sh)
       if ! grep -Fq "${wrapper_seed_helper}" "${script_path}"; then
         echo "[${script_label}] Expected ${script_name} to use ${wrapper_seed_helper} so wrapper-owned source-repo seeding stays centralized." >&2
@@ -104,4 +120,4 @@ if [[ "${validated_script_count}" -eq 0 ]]; then
   exit 1
 fi
 
-echo "[${script_label}] PASS: command-log regression scripts stay on wrapper-owned helpers, keep temp-path/core-path/source-repo ownership centralized, and avoid direct wrapper state reads."
+echo "[${script_label}] PASS: command-log regression scripts stay on wrapper-owned helpers, keep temp-path/core-path/source-repo/python-command ownership centralized, and avoid direct wrapper state reads."
