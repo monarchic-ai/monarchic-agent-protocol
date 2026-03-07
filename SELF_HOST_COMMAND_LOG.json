@@ -108,5 +108,5 @@
       "status": "pass"
     }
   ],
-  "note": "Deterministic command log for self-host artifact verification, preserving proof-manifest validation as the first check while validating wrapper-owned python-command helper centralization and the tightened command-log ownership scan."
+  "note": "Deterministic command log for self-host artifact verification, preserving proof-manifest validation as the first check while validating wrapper-owned JSON-mutation helper centralization and the tightened command-log ownership scan."
 }

@@ -7,20 +7,20 @@
   "proofs": [
     {
       "path": "SELF_HOST_COMMAND_LOG.json",
-      "sha256": "c6b5d265803c8b8cffb11092830d8c5b8872747f42fc11857e1a4d6b9a00851d"
+      "sha256": "efdaa875e3a00d0172978c5228be5c0eab485556c1ebbba8b0c46affc63ce465"
     },
     {
       "path": "scripts/self-host-command-log-test-lib.sh",
-      "sha256": "6ff470a19b69373ad1bd78e4fe638d2dca975f85ef50e86f6272528c4629a1c8"
+      "sha256": "61b04538805b5345234256543c682fceb051266350112f72934394fce3206949"
     },
     {
       "path": "scripts/test-self-host-artifact-command-log-path-helper.sh",
-      "sha256": "6d6ef2da0f6760488cabc9068e7bf591eb13da1f482eb7147262d1a1e6e2abb5"
+      "sha256": "7870da61a22d1b764aa4ccf2e56ab8e186674dac49bac8a150eb9461925e555d"
     },
     {
       "path": "scripts/test-self-host-artifact-command-log-wrapper-ownership.sh",
-      "sha256": "bcf919add6956ef5f7c13df7cd04b2123cfb86ff3c580a8f115e2c7936640812"
+      "sha256": "600b51e7b4535dde397cdb669e384adc775e09b0514bfda1c3c8ca7d9f59761b"
     }
   ],
-  "note": "Deterministic proof manifest for self-host artifact validation, covering the synchronized command log, the wrapper-owned python-command helper surface, the focused helper validation, and the tightened ownership scan that guards against direct state-variable reads."
+  "note": "Deterministic proof manifest for self-host artifact validation, covering the synchronized command log, the wrapper-owned JSON-mutation helper surface, the focused helper validation, and the tightened ownership scan that guards against inline JSON load/write boilerplate and direct state-variable reads."
 }
