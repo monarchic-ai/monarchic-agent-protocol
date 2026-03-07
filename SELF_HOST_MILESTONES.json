@@ -439,5 +439,12 @@
     "status": "done",
     "completed_at": "2026-03-07T12:27:16Z",
     "notes": "Tightened scripts/test-self-host-artifact-command-log-wrapper-ownership.sh to inspect scripts/self-host-command-log-test-lib.sh and require self_host_command_log_prepare_seeded_source_repo to keep seeded source-repo bootstrap on self_host_command_log_seed_source_repo_with_empty_report_lists while self_host_command_log_assert_seeded_source_repo_core_paths stays anchored on self_host_command_log_core_paths, preventing future shared fixture additions from reintroducing duplicated file lists in command-log shell coverage."
+  },
+  {
+    "id": "M64",
+    "title": "Prevent direct command-log report-path emptiness checks from bypassing wrapper helpers",
+    "status": "done",
+    "completed_at": "2026-03-07T12:32:02Z",
+    "notes": "Tightened scripts/test-self-host-artifact-command-log-wrapper-ownership.sh so shared-fixtures and source-repo-seeding regressions must keep empty report-list validation on self_host_command_log_assert_report_paths_empty and cannot read self_host_command_log_report_paths directly, preserving wrapper-owned report-path assertions as the sole deterministic shell check."
   }
 ]
