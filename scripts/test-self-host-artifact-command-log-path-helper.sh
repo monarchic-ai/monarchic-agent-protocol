@@ -28,6 +28,15 @@ if ! self_host_command_log_core_paths | grep -Fxq "${command_log_relative_path}"
   exit 1
 fi
 
+first_core_relative_path="$(self_host_command_log_first_core_path)"
+
+if ! self_host_command_log_core_paths | grep -Fxq "${first_core_relative_path}"; then
+  echo "[${script_label}] Expected first core-path helper to resolve one wrapper-owned core path, found ${first_core_relative_path}." >&2
+  exit 1
+fi
+
+first_core_path="$(self_host_command_log_tmp_path_for_relative_path "${first_core_relative_path}")"
+
 command_log_path="$(self_host_command_log_tmp_path)"
 expected_command_log_path="$(self_host_command_log_tmp_path_for_relative_path "${command_log_relative_path}")"
 
@@ -43,6 +52,11 @@ fi
 
 if [[ ! -f "${command_log_path}" ]]; then
   echo "[${script_label}] Expected baseline fixtures to restore ${command_log_relative_path}." >&2
+  exit 1
+fi
+
+if [[ ! -f "${first_core_path}" ]]; then
+  echo "[${script_label}] Expected first core-path helper to resolve a restored wrapper-owned artifact, found ${first_core_relative_path}." >&2
   exit 1
 fi
 
@@ -62,4 +76,4 @@ PY
 
 self_host_command_log_expect_reason_code "COMMAND_LOG_STATUS_MISMATCH" "Expected command-log JSON mutation helper to persist a deterministic status mutation."
 
-echo "[${script_label}] PASS: command-log wrapper temp-path, stderr-log, python-command, and JSON-mutation helpers stay aligned with wrapper-owned fixtures."
+echo "[${script_label}] PASS: command-log wrapper temp-path, first-core-path, stderr-log, python-command, and JSON-mutation helpers stay aligned with wrapper-owned fixtures."
