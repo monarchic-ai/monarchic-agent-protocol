@@ -16,6 +16,7 @@ wrapper_first_core_path_helper="self_host_command_log_first_core_path"
 wrapper_seed_helper="self_host_command_log_seed_source_repo_with_empty_report_lists"
 wrapper_seeded_core_paths_helper="self_host_command_log_assert_seeded_source_repo_core_paths"
 wrapper_prepare_seeded_source_repo_helper="self_host_command_log_prepare_seeded_source_repo"
+wrapper_report_paths_helper="self_host_command_log_report_paths"
 wrapper_empty_report_paths_helper="self_host_command_log_assert_report_paths_empty"
 wrapper_root_path_helper="self_host_command_log_path_in_root"
 wrapper_tmp_path_helper="self_host_command_log_tmp_path_for_relative_path"
@@ -247,6 +248,11 @@ for script_path in "${command_log_scripts[@]}"; do
 
       if ! grep -Fq "${wrapper_empty_report_paths_helper}" "${script_path}"; then
         echo "[${script_label}] Expected ${script_name} to use ${wrapper_empty_report_paths_helper} so empty wrapper report-list validation stays centralized." >&2
+        exit 1
+      fi
+
+      if grep -Fq "${wrapper_report_paths_helper}" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to keep direct ${wrapper_report_paths_helper} reads inside ${wrapper_empty_report_paths_helper} so wrapper-owned empty report-list validation stays centralized." >&2
         exit 1
       fi
       ;;

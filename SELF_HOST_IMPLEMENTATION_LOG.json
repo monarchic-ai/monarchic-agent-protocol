@@ -1823,5 +1823,33 @@
       "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
     ],
     "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-03-07T12:32:02Z",
+    "task_id": "task-self-host-001",
+    "summary": "Completed M64 by tightening command-log wrapper ownership validation so shared-fixtures and source-repo-seeding regressions cannot bypass self_host_command_log_assert_report_paths_empty with direct self_host_command_log_report_paths reads, keeping empty report-list assertions centralized in the wrapper helper.",
+    "milestone_completed": "M64",
+    "files": [
+      "scripts/test-self-host-artifact-command-log-wrapper-ownership.sh",
+      "SELF_HOST_PROOF.json",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-proof-artifacts.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-source-repo-seeding.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
+      "bash -n scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
+      "bash scripts/test-self-host-artifacts.sh -> pass",
+      "python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_PROOF.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
+    ],
+    "gate": "ready-for-review"
   }
 ]

@@ -19,8 +19,8 @@
     },
     {
       "path": "scripts/test-self-host-artifact-command-log-wrapper-ownership.sh",
-      "sha256": "c0bb00e4c43b7c1ae87a91b93e3f8c7e7cc35b35d65a0724294575a1fa9866b8"
+      "sha256": "f64900759cb41a14b09000868b878f4cd5cbdee5d667b883f917307aa4b71a71"
     }
   ],
-  "note": "Deterministic proof manifest for self-host artifact validation, covering the wrapper-owned command-log helper library and the focused path-helper, source-repo seeding, and wrapper-ownership regressions after tightening helper-library delegation checks."
+  "note": "Deterministic proof manifest for self-host artifact validation, covering the wrapper-owned command-log helper library and the focused path-helper, source-repo seeding, and wrapper-ownership regressions after tightening the empty report-list ownership guard against direct report-path reads."
 }
