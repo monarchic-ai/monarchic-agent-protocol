@@ -33,7 +33,7 @@ if [[ -z "${restored_relative_path}" ]]; then
   exit 1
 fi
 
-restored_path="${SELF_HOST_COMMAND_LOG_TMP_REPO}/${restored_relative_path}"
+restored_path="$(self_host_command_log_tmp_path_for_relative_path "${restored_relative_path}")"
 
 if [[ ! -f "${restored_path}" ]]; then
   echo "[${script_label}] Expected baseline fixtures to copy ${restored_relative_path}." >&2

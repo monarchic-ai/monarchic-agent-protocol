@@ -14,6 +14,7 @@ self_host_command_log_reset_fixtures
 self_host_command_log_assert_baseline_passes
 
 command_log_path="$(self_host_command_log_tmp_path)"
+stderr_log_path="$(self_host_command_log_stderr_log_path)"
 
 "${SELF_HOST_COMMAND_LOG_PYTHON_CMD}" - "${command_log_path}" <<'PY'
 import json
@@ -34,7 +35,7 @@ with open(path, "w", encoding="utf-8") as handle:
 PY
 
 set +e
-self_host_command_log_run_check >/dev/null 2>"${SELF_HOST_COMMAND_LOG_STDERR_LOG}"
+self_host_command_log_run_check >/dev/null 2>"${stderr_log_path}"
 exit_code=$?
 set -e
 
@@ -43,9 +44,9 @@ if [[ "${exit_code}" -eq 0 ]]; then
   exit 1
 fi
 
-if ! grep -q "reason_code=COMMAND_LOG_FIRST_COMMAND_INVALID" "${SELF_HOST_COMMAND_LOG_STDERR_LOG}"; then
+if ! grep -q "reason_code=COMMAND_LOG_FIRST_COMMAND_INVALID" "${stderr_log_path}"; then
   echo "[${script_label}] Unexpected stderr output for first-command reason code check:" >&2
-  cat "${SELF_HOST_COMMAND_LOG_STDERR_LOG}" >&2
+  cat "${stderr_log_path}" >&2
   exit 1
 fi
 
