@@ -14,8 +14,7 @@ cleanup() {
 }
 trap cleanup EXIT
 
-self_host_command_log_seed_source_repo_with_empty_report_lists "${script_label}" "${repo_root}" "${source_repo}"
-self_host_command_log_assert_seeded_source_repo_core_paths "${source_repo}"
+self_host_command_log_prepare_seeded_source_repo "${script_label}" "${repo_root}" "${source_repo}"
 
 self_host_command_log_setup "${script_label}" "${source_repo}" "${check_script}"
 

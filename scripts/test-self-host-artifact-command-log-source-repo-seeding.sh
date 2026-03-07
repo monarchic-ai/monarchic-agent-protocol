@@ -15,8 +15,7 @@ cleanup() {
 }
 trap cleanup EXIT
 
-self_host_command_log_seed_source_repo_with_empty_report_lists "${script_label}" "${repo_root}" "${source_repo}"
-self_host_command_log_assert_seeded_source_repo_core_paths "${source_repo}"
+self_host_command_log_prepare_seeded_source_repo "${script_label}" "${repo_root}" "${source_repo}"
 
 missing_relative_path="$(self_host_command_log_first_core_path)"
 missing_path="$(self_host_command_log_path_in_root "${source_repo}" "${missing_relative_path}")"
@@ -33,8 +32,7 @@ if [[ "${validation_output}" != *"${missing_relative_path}"* ]]; then
   exit 1
 fi
 
-self_host_command_log_seed_source_repo_with_empty_report_lists "${script_label}" "${repo_root}" "${source_repo}"
-self_host_command_log_assert_seeded_source_repo_core_paths "${source_repo}"
+self_host_command_log_prepare_seeded_source_repo "${script_label}" "${repo_root}" "${source_repo}"
 
 self_host_command_log_setup "${script_label}" "${source_repo}" "${check_script}"
 self_host_command_log_reset_fixtures
