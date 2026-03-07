@@ -1,14 +1,14 @@
 {
   "status": "pass",
-  "headline": "Completed M63 by validating helper-library delegation for command-log seeded core-path coverage.",
-  "current_focus": "Current focus is using M49 only if another issue #1 regression resumes direct artifact-lib reach-through; command-log shared fixture coverage now also guards the wrapper helper library so future core artifact additions stay centralized.",
-  "milestone_target": "M63 completed: command-log wrapper ownership validation now enforces helper-library delegation through self_host_command_log_core_paths and self_host_command_log_seed_source_repo_with_empty_report_lists.",
-  "milestones_done": 63,
-  "total_milestones": 63,
+  "headline": "Completed M64 by blocking direct command-log report-path reads from bypassing the empty-report wrapper helper.",
+  "current_focus": "Current focus is using M49 only if another issue #1 regression resumes direct artifact-lib reach-through; the wrapper ownership scan now also blocks direct self_host_command_log_report_paths reads so empty report-list checks stay centralized.",
+  "milestone_target": "M64 completed: command-log wrapper ownership validation now keeps empty report-list assertions on self_host_command_log_assert_report_paths_empty instead of direct self_host_command_log_report_paths reads.",
+  "milestones_done": 64,
+  "total_milestones": 64,
   "completed_work": [
-    "Added helper-library inspection to scripts/test-self-host-artifact-command-log-wrapper-ownership.sh so the ownership scan reads scripts/self-host-command-log-test-lib.sh and fails if wrapper helper definitions disappear.",
-    "Required self_host_command_log_prepare_seeded_source_repo to keep seeded source-repo bootstrap delegated through self_host_command_log_seed_source_repo_with_empty_report_lists and follow with self_host_command_log_assert_seeded_source_repo_core_paths.",
-    "Required self_host_command_log_assert_seeded_source_repo_core_paths to stay anchored on self_host_command_log_core_paths so future shared fixture additions do not require duplicated file lists in deterministic command-log shell coverage."
+    "Added wrapper_report_paths_helper coverage to scripts/test-self-host-artifact-command-log-wrapper-ownership.sh so the ownership scan rejects direct self_host_command_log_report_paths reads in command-log regressions that should stay on wrapper-owned assertions.",
+    "Required test-self-host-artifact-command-log-shared-fixtures.sh and test-self-host-artifact-command-log-source-repo-seeding.sh to keep empty report-list validation delegated through self_host_command_log_assert_report_paths_empty.",
+    "Refreshed SELF_HOST_PROOF.json for the tightened wrapper-ownership scope after updating scripts/test-self-host-artifact-command-log-wrapper-ownership.sh."
   ],
   "verification": [
     "bash scripts/test-self-host-proof-artifacts.sh -> pass",
@@ -24,11 +24,11 @@
     "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
   ],
   "blockers": [
-    "No blockers in M63 scope."
+    "No blockers in M64 scope."
   ],
   "next_steps": [
     "Use M49 only if another issue #1 regression reaches into artifact-lib details instead of wrapper-owned helpers.",
-    "Keep future command-log shared fixture changes behind self_host_command_log_core_paths, self_host_command_log_seed_source_repo_with_empty_report_lists, and the wrapper ownership scan so helper and shell coverage stay aligned."
+    "Keep future command-log empty report-list checks behind self_host_command_log_assert_report_paths_empty and the wrapper ownership scan so helper and shell coverage stay aligned."
   ],
-  "note": "Status is pass because verification succeeded, milestones_done increased from 62 to 63 versus the prior report, and M63 closed the remaining helper-library ownership gap around wrapper-owned seeded core-path coverage."
+  "note": "Status is pass because verification succeeded, milestones_done increased from 63 to 64 versus the prior report, and M64 closed the remaining wrapper-owned empty report-list ownership gap in deterministic command-log shell coverage."
 }
