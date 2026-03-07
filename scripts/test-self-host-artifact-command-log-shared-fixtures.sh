@@ -15,16 +15,14 @@ cleanup() {
 trap cleanup EXIT
 
 self_host_command_log_seed_source_repo_with_empty_report_lists "${script_label}" "${repo_root}" "${source_repo}"
+self_host_command_log_assert_seeded_source_repo_core_paths "${source_repo}"
 
 self_host_command_log_setup "${script_label}" "${source_repo}" "${check_script}"
 
 self_host_command_log_reset_fixtures
 self_host_command_log_assert_baseline_passes
 
-if [[ -n "$(self_host_command_log_report_paths)" ]]; then
-  echo "[${script_label}] Expected the temp report to expose no report-listed paths." >&2
-  exit 1
-fi
+self_host_command_log_assert_report_paths_empty
 
 restored_relative_path="$(self_host_command_log_core_paths | head -n 1)"
 

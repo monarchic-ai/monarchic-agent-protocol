@@ -2,25 +2,29 @@
   "task_id": "task-self-host-001",
   "status": "pass",
   "reason_code": "OK",
-  "signature_count": 4,
+  "signature_count": 5,
   "sampled_batches": 1,
   "proofs": [
     {
       "path": "SELF_HOST_COMMAND_LOG.json",
-      "sha256": "efdaa875e3a00d0172978c5228be5c0eab485556c1ebbba8b0c46affc63ce465"
+      "sha256": "5f48431ea36467fe0fbe7723c33fb0b4521588edd2b7b28e22ad5aceceab1078"
     },
     {
       "path": "scripts/self-host-command-log-test-lib.sh",
-      "sha256": "61b04538805b5345234256543c682fceb051266350112f72934394fce3206949"
+      "sha256": "301ecad432c82b69c48946dbad25008aed616fb1f407f5e43396f0cc9a408cbc"
     },
     {
-      "path": "scripts/test-self-host-artifact-command-log-path-helper.sh",
-      "sha256": "7870da61a22d1b764aa4ccf2e56ab8e186674dac49bac8a150eb9461925e555d"
+      "path": "scripts/test-self-host-artifact-command-log-shared-fixtures.sh",
+      "sha256": "fcf639ded8041590787630d4a4f2f4fba8013ff45660ad010a8deb9cf2daddf0"
+    },
+    {
+      "path": "scripts/test-self-host-artifact-command-log-source-repo-seeding.sh",
+      "sha256": "9bafae0f22560f20087041c8b742c6d64ab06889d5567eb41cf65765fbcb0ecf"
     },
     {
       "path": "scripts/test-self-host-artifact-command-log-wrapper-ownership.sh",
-      "sha256": "600b51e7b4535dde397cdb669e384adc775e09b0514bfda1c3c8ca7d9f59761b"
+      "sha256": "62342d348adb7bf991b15d5e3d81f3e54c8866b96f89283e5c2ac1b993ba8424"
     }
   ],
-  "note": "Deterministic proof manifest for self-host artifact validation, covering the synchronized command log, the wrapper-owned JSON-mutation helper surface, the focused helper validation, and the tightened ownership scan that guards against inline JSON load/write boilerplate and direct state-variable reads."
+  "note": "Deterministic proof manifest for self-host artifact validation, covering the synchronized command log, the wrapper-owned seeded source-repo assertions, the shared-fixture and source-repo seeding regressions, and the tightened ownership scan that keeps seeded-path and empty-report validation centralized."
 }
