@@ -411,5 +411,12 @@
     "status": "done",
     "completed_at": "2026-03-07T11:48:19Z",
     "notes": "Broadened self_host_command_log_path_in_root to resolve explicit wrapper-owned relative paths, routed seeded source-repo and temp-path joins through that helper, added focused helper coverage for default and explicit root-relative resolution, and tightened wrapper-ownership validation so command-log source-repo and temp-root joins stay centralized."
+  },
+  {
+    "id": "M60",
+    "title": "Centralize command-log seeded source-repo bootstrap behind a wrapper helper",
+    "status": "done",
+    "completed_at": "2026-03-07T11:58:16Z",
+    "notes": "Added self_host_command_log_prepare_seeded_source_repo in scripts/self-host-command-log-test-lib.sh, migrated the shared-fixtures and source-repo seeding regressions off duplicated seed-and-validate bootstrap, refreshed proof coverage to track the seeded-source-repo files touched in this scope, and tightened wrapper-ownership validation so future bootstrap changes stay centralized."
   }
 ]
