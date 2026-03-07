@@ -10,8 +10,7 @@ source "${repo_root}/scripts/self-host-command-log-test-lib.sh"
 self_host_command_log_setup "${script_label}" "${repo_root}" "${check_script}"
 trap 'self_host_command_log_cleanup' EXIT
 
-self_host_command_log_reset_fixtures
-self_host_command_log_assert_baseline_passes
+self_host_command_log_reset_and_assert_baseline
 
 command_log_relative_path="$(self_host_command_log_relative_path)"
 tmp_repo_root="$(self_host_command_log_tmp_root)"
@@ -87,7 +86,7 @@ PY
 
 self_host_command_log_expect_reason_code "COMMAND_LOG_STATUS_MISMATCH" "Expected command-log JSON mutation helper to persist a deterministic status mutation."
 
-self_host_command_log_reset_fixtures
+self_host_command_log_reset_and_assert_baseline
 
 self_host_command_log_mutate_json "${command_log_path}" <<'PY'
 if not command_log["commands"]:

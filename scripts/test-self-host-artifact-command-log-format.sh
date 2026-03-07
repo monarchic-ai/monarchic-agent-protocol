@@ -10,8 +10,7 @@ source "${repo_root}/scripts/self-host-command-log-test-lib.sh"
 self_host_command_log_setup "${script_label}" "${repo_root}" "${check_script}"
 trap 'self_host_command_log_cleanup' EXIT
 
-self_host_command_log_reset_fixtures
-self_host_command_log_assert_baseline_passes
+self_host_command_log_reset_and_assert_baseline
 
 command_log_path="$(self_host_command_log_tmp_path)"
 
