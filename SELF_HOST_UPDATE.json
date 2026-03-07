@@ -1,25 +1,27 @@
 {
   "status": "pass",
-  "headline": "Completed M57 by centralizing command-log stderr failure assertions behind a wrapper helper.",
-  "current_focus": "Current focus is keeping command-log failure-path shell coverage on wrapper-owned JSON mutation, stderr-substring assertion, and path-helper helpers while the next incremental self-host task is selected.",
-  "milestone_target": "M57 completed: stderr failure assertions now live behind a wrapper-owned command-log helper.",
-  "milestones_done": 57,
-  "total_milestones": 57,
+  "headline": "Completed M58 by centralizing command-log core-path membership assertions behind a wrapper helper.",
+  "current_focus": "Current focus is keeping command-log core-path membership, shared-fixture seeding, and source-repo validation on wrapper-owned helpers while the next incremental self-host task is selected.",
+  "milestone_target": "M58 completed: core-path membership assertions now live behind a wrapper-owned command-log helper.",
+  "milestones_done": 58,
+  "total_milestones": 58,
   "completed_work": [
-    "Added self_host_command_log_expect_stderr_contains in scripts/self-host-command-log-test-lib.sh so command-log regressions can reuse one wrapper-owned failure-path assertion instead of duplicating run-check, exit-code, and stderr-grep boilerplate.",
-    "Updated scripts/test-self-host-artifact-command-log-first-command.sh and scripts/test-self-host-artifact-command-log-format.sh to resolve deterministic failure assertions through the new wrapper helper rather than open-coded stderr handling.",
-    "Extended scripts/test-self-host-artifact-command-log-path-helper.sh so the focused helper coverage now verifies the stderr-substring helper catches deterministic command-log format drift.",
-    "Tightened scripts/test-self-host-artifact-command-log-wrapper-ownership.sh and refreshed SELF_HOST_COMMAND_LOG.json, SELF_HOST_PROOF.json, SELF_HOST_MILESTONES.json, SELF_HOST_IMPLEMENTATION_LOG.json, and SELF_HOST_REPORT.json for the focused verification suite."
+    "Added self_host_command_log_assert_core_path_listed in scripts/self-host-command-log-test-lib.sh so command-log regressions can reuse one wrapper-owned core-path membership assertion instead of open-coding core_paths grep pipelines.",
+    "Updated scripts/test-self-host-artifact-command-log-path-helper.sh to resolve deterministic positive and negative core-path membership checks through the new wrapper helper while keeping the focused helper coverage on wrapper-owned core paths.",
+    "Tightened scripts/test-self-host-artifact-command-log-wrapper-ownership.sh so future command-log regressions must use the new membership helper instead of inline self_host_command_log_core_paths grep pipelines.",
+    "Refreshed SELF_HOST_COMMAND_LOG.json, SELF_HOST_PROOF.json, SELF_HOST_MILESTONES.json, SELF_HOST_IMPLEMENTATION_LOG.json, and SELF_HOST_REPORT.json for the focused verification suite and milestone progression."
   ],
   "verification": [
     "bash scripts/test-self-host-proof-artifacts.sh -> pass",
     "bash scripts/test-self-host-artifact-command-log-first-command.sh -> pass",
     "bash scripts/test-self-host-artifact-command-log-format.sh -> pass",
+    "bash scripts/test-self-host-artifact-command-log-gate.sh -> pass",
     "bash scripts/test-self-host-artifact-command-log-path-helper.sh -> pass",
+    "bash scripts/test-self-host-artifact-command-log-reason-codes.sh -> pass",
+    "bash scripts/test-self-host-artifact-command-log-shared-fixtures.sh -> pass",
+    "bash scripts/test-self-host-artifact-command-log-source-repo-seeding.sh -> pass",
     "bash scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
     "bash -n scripts/self-host-command-log-test-lib.sh -> pass",
-    "bash -n scripts/test-self-host-artifact-command-log-first-command.sh -> pass",
-    "bash -n scripts/test-self-host-artifact-command-log-format.sh -> pass",
     "bash -n scripts/test-self-host-artifact-command-log-path-helper.sh -> pass",
     "bash -n scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
     "bash scripts/test-self-host-artifacts.sh -> pass",
@@ -31,11 +33,11 @@
     "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
   ],
   "blockers": [
-    "No blockers in M57 scope."
+    "No blockers in M58 scope."
   ],
   "next_steps": [
-    "Select the next low-risk command-log or proof-artifact improvement only if another issue #1 regression still open-codes wrapper-owned details instead of the command-log helper library.",
-    "Extend the ownership scan again if future command-log regressions duplicate wrapper-managed stderr, success-path, or fixture assertions outside the helper library."
+    "Select the next low-risk command-log improvement only if another issue #1 regression still open-codes wrapper-owned details instead of command-log helper library assertions.",
+    "Keep future command-log shell coverage on self_host_command_log_core_paths and self_host_command_log_seed_source_repo_with_empty_report_lists so shared fixture additions stay centralized."
   ],
-  "note": "Status is pass because verification succeeded, milestones_done increased from 56 to 57 versus the prior report, and M57 centralized stderr failure assertions behind deterministic wrapper-owned helpers."
+  "note": "Status is pass because verification succeeded, milestones_done increased from 57 to 58 versus the prior report, and M58 centralized deterministic core-path membership assertions behind wrapper-owned helpers."
 }

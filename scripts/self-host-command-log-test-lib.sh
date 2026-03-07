@@ -25,6 +25,21 @@ self_host_command_log_core_paths() {
   self_host_artifact_core_paths
 }
 
+self_host_command_log_assert_core_path_listed() {
+  local relative_path="${1:-}"
+  local script_label="${SELF_HOST_COMMAND_LOG_SCRIPT_LABEL:-self-host-command-log-test-lib}"
+
+  if [[ -z "${relative_path}" ]]; then
+    echo "[self-host-command-log-test-lib] Expected a non-empty relative path for core-path membership validation." >&2
+    return 1
+  fi
+
+  if ! self_host_command_log_core_paths | grep -Fxq "${relative_path}"; then
+    echo "[${script_label}] Expected wrapper core-path helper to list ${relative_path}." >&2
+    return 1
+  fi
+}
+
 self_host_command_log_first_core_path() {
   local first_relative_path=""
 
