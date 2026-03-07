@@ -56,6 +56,7 @@ self_host_command_log_assert_seeded_source_repo_core_paths() {
   local source_root="${1:-}"
   local script_label="${SELF_HOST_COMMAND_LOG_SCRIPT_LABEL:-self-host-command-log-test-lib}"
   local relative_path=""
+  local seeded_path=""
   local seeded_core_path_count=0
 
   if [[ -z "${source_root}" ]]; then
@@ -66,8 +67,9 @@ self_host_command_log_assert_seeded_source_repo_core_paths() {
   while IFS= read -r relative_path; do
     [[ -z "${relative_path}" ]] && continue
     seeded_core_path_count=$((seeded_core_path_count + 1))
+    seeded_path="$(self_host_command_log_path_in_root "${source_root}" "${relative_path}")"
 
-    if [[ ! -f "${source_root}/${relative_path}" ]]; then
+    if [[ ! -f "${seeded_path}" ]]; then
       echo "[${script_label}] Expected wrapper seeding helper to copy ${relative_path}." >&2
       return 1
     fi
@@ -93,14 +95,24 @@ self_host_command_log_tmp_root() {
 }
 
 self_host_command_log_path_in_root() {
-  local root="$1"
+  local root="${1:-}"
+  local relative_path="${2:-}"
 
   if [[ -z "${root}" ]]; then
     echo "[self-host-command-log-test-lib] Expected a non-empty root for command-log path resolution." >&2
     return 1
   fi
 
-  printf '%s/%s\n' "${root%/}" "$(self_host_command_log_relative_path)"
+  if [[ -z "${relative_path}" ]]; then
+    relative_path="$(self_host_command_log_relative_path)"
+  fi
+
+  if [[ -z "${relative_path}" ]]; then
+    echo "[self-host-command-log-test-lib] Expected a non-empty relative path for command-log path resolution." >&2
+    return 1
+  fi
+
+  printf '%s/%s\n' "${root%/}" "${relative_path}"
 }
 
 self_host_command_log_tmp_path_for_relative_path() {
@@ -113,7 +125,7 @@ self_host_command_log_tmp_path_for_relative_path() {
   fi
 
   tmp_root="$(self_host_command_log_tmp_root)"
-  printf '%s/%s\n' "${tmp_root%/}" "${relative_path}"
+  self_host_command_log_path_in_root "${tmp_root}" "${relative_path}"
 }
 
 self_host_command_log_tmp_path() {
