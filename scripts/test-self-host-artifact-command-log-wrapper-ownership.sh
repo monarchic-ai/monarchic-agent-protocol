@@ -13,6 +13,7 @@ wrapper_lib_path="${repo_root}/scripts/${wrapper_lib_reference}"
 wrapper_core_paths_helper="self_host_command_log_core_paths"
 wrapper_core_path_membership_helper="self_host_command_log_assert_core_path_listed"
 wrapper_first_core_path_helper="self_host_command_log_first_core_path"
+wrapper_first_core_path_in_root_helper="self_host_command_log_first_core_path_in_root"
 wrapper_seed_helper="self_host_command_log_seed_source_repo_with_empty_report_lists"
 wrapper_seeded_core_paths_helper="self_host_command_log_assert_seeded_source_repo_core_paths"
 wrapper_prepare_seeded_source_repo_helper="self_host_command_log_prepare_seeded_source_repo"
@@ -110,6 +111,22 @@ fi
 
 if [[ "${seeded_core_paths_body}" != *"${wrapper_core_paths_helper}"* ]]; then
   echo "[${script_label}] Expected ${wrapper_seeded_core_paths_helper} to enumerate wrapper-owned artifact paths through ${wrapper_core_paths_helper} so shared fixture additions stay centralized." >&2
+  exit 1
+fi
+
+first_core_path_in_root_body="$(wrapper_helper_body "${wrapper_first_core_path_in_root_helper}")"
+if [[ -z "${first_core_path_in_root_body}" ]]; then
+  echo "[${script_label}] Expected ${wrapper_lib_reference} to define ${wrapper_first_core_path_in_root_helper}." >&2
+  exit 1
+fi
+
+if [[ "${first_core_path_in_root_body}" != *"${wrapper_first_core_path_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_first_core_path_in_root_helper} to select the wrapper-owned first core path through ${wrapper_first_core_path_helper}." >&2
+  exit 1
+fi
+
+if [[ "${first_core_path_in_root_body}" != *"${wrapper_root_path_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_first_core_path_in_root_helper} to resolve first core paths through ${wrapper_root_path_helper} so root joins stay centralized." >&2
   exit 1
 fi
 
@@ -220,14 +237,34 @@ for script_path in "${command_log_scripts[@]}"; do
   esac
 
   case "${script_name}" in
-    test-self-host-artifact-command-log-path-helper.sh|test-self-host-artifact-command-log-source-repo-seeding.sh)
+    test-self-host-artifact-command-log-path-helper.sh)
       if ! grep -Fq "${wrapper_root_path_helper}" "${script_path}"; then
-        echo "[${script_label}] Expected ${script_name} to use ${wrapper_root_path_helper} so root-relative wrapper-owned path joins stay centralized." >&2
+        echo "[${script_label}] Expected ${script_name} to use ${wrapper_root_path_helper} so direct root-relative wrapper-owned path joins stay centralized." >&2
         exit 1
       fi
 
       if grep -Eq '\$\{(source_repo|tmp_repo_root)\}/\$\{[^}]+\}' "${script_path}"; then
         echo "[${script_label}] Expected ${script_name} to resolve wrapper-owned root-relative paths through ${wrapper_root_path_helper} instead of open-coded root/path concatenation." >&2
+        exit 1
+      fi
+      ;;
+    test-self-host-artifact-command-log-source-repo-seeding.sh|test-self-host-artifact-command-log-shared-fixtures.sh)
+      if grep -Eq '\$\{(source_repo|tmp_repo_root)\}/\$\{[^}]+\}' "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to avoid open-coded root/path concatenation for wrapper-owned paths." >&2
+        exit 1
+      fi
+      ;;
+  esac
+
+  case "${script_name}" in
+    test-self-host-artifact-command-log-path-helper.sh|test-self-host-artifact-command-log-source-repo-seeding.sh|test-self-host-artifact-command-log-shared-fixtures.sh)
+      if ! grep -Fq "${wrapper_first_core_path_in_root_helper}" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to use ${wrapper_first_core_path_in_root_helper} so first-core-path root joins stay centralized." >&2
+        exit 1
+      fi
+
+      if grep -Eq "\\b${wrapper_root_path_helper}\\b .*\\b${wrapper_first_core_path_helper}\\b|\\b${wrapper_first_core_path_helper}\\b.*\\b${wrapper_root_path_helper}\\b" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to resolve first core paths through ${wrapper_first_core_path_in_root_helper} instead of composing ${wrapper_first_core_path_helper} with ${wrapper_root_path_helper} inline." >&2
         exit 1
       fi
       ;;
@@ -239,8 +276,7 @@ for script_path in "${command_log_scripts[@]}"; do
         echo "[${script_label}] Expected ${script_name} to use ${wrapper_core_path_membership_helper} so wrapper-owned core-path membership assertions stay centralized." >&2
         exit 1
       fi
-      ;&
-    test-self-host-artifact-command-log-shared-fixtures.sh)
+
       if ! grep -Fq "${wrapper_tmp_path_helper}" "${script_path}"; then
         echo "[${script_label}] Expected ${script_name} to use ${wrapper_tmp_path_helper} so wrapper-owned temp fixture paths stay centralized." >&2
         exit 1

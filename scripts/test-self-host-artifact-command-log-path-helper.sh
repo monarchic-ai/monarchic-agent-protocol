@@ -33,7 +33,7 @@ if ! self_host_command_log_assert_core_path_listed "${first_core_relative_path}"
 fi
 
 first_core_path="$(self_host_command_log_tmp_path_for_relative_path "${first_core_relative_path}")"
-first_core_path_in_root="$(self_host_command_log_path_in_root "${tmp_repo_root}" "${first_core_relative_path}")"
+first_core_path_in_root="$(self_host_command_log_first_core_path_in_root "${tmp_repo_root}")"
 
 command_log_path="$(self_host_command_log_tmp_path)"
 expected_command_log_path="$(self_host_command_log_tmp_path_for_relative_path "${command_log_relative_path}")"

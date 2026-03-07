@@ -52,6 +52,19 @@ self_host_command_log_first_core_path() {
   printf '%s\n' "${first_relative_path}"
 }
 
+self_host_command_log_first_core_path_in_root() {
+  local root="${1:-}"
+  local first_relative_path=""
+
+  if [[ -z "${root}" ]]; then
+    echo "[self-host-command-log-test-lib] Expected a non-empty root for first core-path resolution." >&2
+    return 1
+  fi
+
+  first_relative_path="$(self_host_command_log_first_core_path)" || return 1
+  self_host_command_log_path_in_root "${root}" "${first_relative_path}"
+}
+
 self_host_command_log_assert_seeded_source_repo_core_paths() {
   local source_root="${1:-}"
   local script_label="${SELF_HOST_COMMAND_LOG_SCRIPT_LABEL:-self-host-command-log-test-lib}"

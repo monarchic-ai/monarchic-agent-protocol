@@ -17,8 +17,7 @@ trap cleanup EXIT
 self_host_command_log_prepare_seeded_source_repo_baseline "${script_label}" "${repo_root}" "${source_repo}" "${check_script}"
 
 restored_relative_path="$(self_host_command_log_first_core_path)"
-
-restored_path="$(self_host_command_log_tmp_path_for_relative_path "${restored_relative_path}")"
+restored_path="$(self_host_command_log_first_core_path_in_root "$(self_host_command_log_tmp_root)")"
 
 if [[ ! -f "${restored_path}" ]]; then
   echo "[${script_label}] Expected baseline fixtures to copy ${restored_relative_path}." >&2
