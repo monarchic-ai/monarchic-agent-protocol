@@ -29,6 +29,15 @@ self_host_command_log_relative_path() {
   printf '%s\n' "SELF_HOST_COMMAND_LOG.json"
 }
 
+self_host_command_log_tmp_root() {
+  if [[ -z "${SELF_HOST_COMMAND_LOG_TMP_REPO:-}" ]]; then
+    echo "[self-host-command-log-test-lib] Expected command-log temp repo to be initialized." >&2
+    return 1
+  fi
+
+  printf '%s\n' "${SELF_HOST_COMMAND_LOG_TMP_REPO}"
+}
+
 self_host_command_log_path_in_root() {
   local root="$1"
 
@@ -40,8 +49,30 @@ self_host_command_log_path_in_root() {
   printf '%s/%s\n' "${root%/}" "$(self_host_command_log_relative_path)"
 }
 
+self_host_command_log_tmp_path_for_relative_path() {
+  local relative_path="$1"
+  local tmp_root=""
+
+  if [[ -z "${relative_path}" ]]; then
+    echo "[self-host-command-log-test-lib] Expected a non-empty relative path for temp fixture resolution." >&2
+    return 1
+  fi
+
+  tmp_root="$(self_host_command_log_tmp_root)"
+  printf '%s/%s\n' "${tmp_root%/}" "${relative_path}"
+}
+
 self_host_command_log_tmp_path() {
-  self_host_command_log_path_in_root "${SELF_HOST_COMMAND_LOG_TMP_REPO:-}"
+  self_host_command_log_tmp_path_for_relative_path "$(self_host_command_log_relative_path)"
+}
+
+self_host_command_log_stderr_log_path() {
+  if [[ -z "${SELF_HOST_COMMAND_LOG_STDERR_LOG:-}" ]]; then
+    echo "[self-host-command-log-test-lib] Expected command-log stderr log to be initialized." >&2
+    return 1
+  fi
+
+  printf '%s\n' "${SELF_HOST_COMMAND_LOG_STDERR_LOG}"
 }
 
 self_host_command_log_report_paths() {

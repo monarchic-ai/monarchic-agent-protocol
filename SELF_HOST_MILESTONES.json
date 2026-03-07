@@ -358,9 +358,16 @@
   },
   {
     "id": "M52",
-    "title": "Define the next incremental self-host maintainability target after wrapper-helper scan hardening",
+    "title": "Centralize command-log temp and stderr state behind wrapper helpers",
+    "status": "done",
+    "completed_at": "2026-03-07T06:13:32Z",
+    "notes": "Added self_host_command_log_tmp_root, self_host_command_log_tmp_path_for_relative_path, and self_host_command_log_stderr_log_path in scripts/self-host-command-log-test-lib.sh, moved the affected command-log regressions off direct SELF_HOST_COMMAND_LOG_TMP_REPO and SELF_HOST_COMMAND_LOG_STDERR_LOG reads, and tightened wrapper-ownership coverage so wrapper-managed execution state stays centralized."
+  },
+  {
+    "id": "M53",
+    "title": "Assess whether command-log python-command state still needs a wrapper-owned helper",
     "status": "pending",
     "completed_at": null,
-    "notes": "Pending follow-up after M51; select the next low-risk self-host improvement once the hardened command-log wrapper-helper coverage has been reviewed."
+    "notes": "Pending follow-up after M52; use this only if future deterministic command-log regressions need to stop reading SELF_HOST_COMMAND_LOG_PYTHON_CMD directly and should move that execution state behind wrapper-owned helpers."
   }
 ]
