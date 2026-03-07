@@ -376,5 +376,12 @@
     "status": "done",
     "completed_at": "2026-03-07T06:33:04Z",
     "notes": "Added self_host_command_log_mutate_json in scripts/self-host-command-log-test-lib.sh, migrated the command-log gate/reason-code/first-command/format regressions off duplicated inline JSON load/write boilerplate, extended focused helper coverage to prove the shared mutation helper persists deterministic status drift, and tightened wrapper-ownership coverage so future regressions keep repeated JSON mutations behind the wrapper-owned helper."
+  },
+  {
+    "id": "M55",
+    "title": "Centralize command-log seeded source-repo validation behind wrapper helpers",
+    "status": "done",
+    "completed_at": "2026-03-07T06:41:16Z",
+    "notes": "Added wrapper-owned seeded source-repo and empty-report assertions in scripts/self-host-command-log-test-lib.sh, migrated the shared-fixture and source-repo seeding regressions onto those helpers, added a negative seeded-path validation, and tightened wrapper-ownership coverage so future command-log fixture additions stay centralized."
   }
 ]

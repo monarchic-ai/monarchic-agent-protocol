@@ -11,6 +11,8 @@ wrapper_helper_prefix="self_host_command_log_"
 wrapper_lib_reference="self-host-command-log-test-lib.sh"
 wrapper_core_paths_helper="self_host_command_log_core_paths"
 wrapper_seed_helper="self_host_command_log_seed_source_repo_with_empty_report_lists"
+wrapper_seeded_core_paths_helper="self_host_command_log_assert_seeded_source_repo_core_paths"
+wrapper_empty_report_paths_helper="self_host_command_log_assert_report_paths_empty"
 wrapper_tmp_path_helper="self_host_command_log_tmp_path_for_relative_path"
 wrapper_stderr_log_helper="self_host_command_log_stderr_log_path"
 wrapper_python_cmd_helper="self_host_command_log_python_cmd"
@@ -113,8 +115,18 @@ for script_path in "${command_log_scripts[@]}"; do
         exit 1
       fi
 
+      if ! grep -Fq "${wrapper_seeded_core_paths_helper}" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to use ${wrapper_seeded_core_paths_helper} so seeded wrapper-owned core-path validation stays centralized." >&2
+        exit 1
+      fi
+
       if ! grep -Fq "${wrapper_core_paths_helper}" "${script_path}"; then
         echo "[${script_label}] Expected ${script_name} to use ${wrapper_core_paths_helper} so wrapper-owned core artifact paths stay centralized." >&2
+        exit 1
+      fi
+
+      if ! grep -Fq "${wrapper_empty_report_paths_helper}" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to use ${wrapper_empty_report_paths_helper} so empty wrapper report-list validation stays centralized." >&2
         exit 1
       fi
       ;;
