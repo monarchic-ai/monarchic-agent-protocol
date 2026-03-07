@@ -18,12 +18,7 @@ trap cleanup EXIT
 self_host_command_log_seed_source_repo_with_empty_report_lists "${script_label}" "${repo_root}" "${source_repo}"
 self_host_command_log_assert_seeded_source_repo_core_paths "${source_repo}"
 
-missing_relative_path="$(self_host_command_log_core_paths | head -n 1)"
-
-if [[ -z "${missing_relative_path}" ]]; then
-  echo "[${script_label}] Expected wrapper core-path helper to expose at least one seeded artifact path." >&2
-  exit 1
-fi
+missing_relative_path="$(self_host_command_log_first_core_path)"
 
 rm -f "${source_repo}/${missing_relative_path}"
 
