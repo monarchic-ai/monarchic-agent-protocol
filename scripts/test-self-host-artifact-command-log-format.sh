@@ -15,24 +15,12 @@ self_host_command_log_assert_baseline_passes
 
 command_log_path="$(self_host_command_log_tmp_path)"
 stderr_log_path="$(self_host_command_log_stderr_log_path)"
-python_cmd="$(self_host_command_log_python_cmd)"
 
-"${python_cmd}" - "${command_log_path}" <<'PY'
-import json
-import sys
-
-path = sys.argv[1]
-with open(path, "r", encoding="utf-8") as handle:
-    command_log = json.load(handle)
-
+self_host_command_log_mutate_json "${command_log_path}" <<'PY'
 if not command_log["commands"]:
     raise SystemExit("Need at least one command entry for regression test.")
 
 command_log["commands"][0]["index"] = 99
-
-with open(path, "w", encoding="utf-8") as handle:
-    json.dump(command_log, handle, indent=2)
-    handle.write("\n")
 PY
 
 set +e

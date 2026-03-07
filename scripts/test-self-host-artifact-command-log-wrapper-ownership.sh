@@ -14,6 +14,7 @@ wrapper_seed_helper="self_host_command_log_seed_source_repo_with_empty_report_li
 wrapper_tmp_path_helper="self_host_command_log_tmp_path_for_relative_path"
 wrapper_stderr_log_helper="self_host_command_log_stderr_log_path"
 wrapper_python_cmd_helper="self_host_command_log_python_cmd"
+wrapper_json_mutation_helper="self_host_command_log_mutate_json"
 disallowed_state_prefix="SELF_HOST_COMMAND_LOG_"
 
 shopt -s nullglob
@@ -75,8 +76,13 @@ for script_path in "${command_log_scripts[@]}"; do
 
   case "${script_name}" in
     test-self-host-artifact-command-log-first-command.sh|test-self-host-artifact-command-log-format.sh|test-self-host-artifact-command-log-gate.sh|test-self-host-artifact-command-log-reason-codes.sh)
-      if ! grep -Fq "${wrapper_python_cmd_helper}" "${script_path}"; then
-        echo "[${script_label}] Expected ${script_name} to use ${wrapper_python_cmd_helper} so wrapper-owned python-command state stays centralized." >&2
+      if ! grep -Fq "${wrapper_json_mutation_helper}" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to use ${wrapper_json_mutation_helper} so repeated command-log JSON mutations stay centralized." >&2
+        exit 1
+      fi
+
+      if grep -Eq 'json\.load|json\.dump' "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to keep command-log JSON load/write boilerplate inside ${wrapper_json_mutation_helper}." >&2
         exit 1
       fi
       ;;
@@ -120,4 +126,4 @@ if [[ "${validated_script_count}" -eq 0 ]]; then
   exit 1
 fi
 
-echo "[${script_label}] PASS: command-log regression scripts stay on wrapper-owned helpers, keep temp-path/core-path/source-repo/python-command ownership centralized, and avoid direct wrapper state reads."
+echo "[${script_label}] PASS: command-log regression scripts stay on wrapper-owned helpers, keep temp-path/core-path/source-repo/python-command/json-mutation ownership centralized, and avoid direct wrapper state reads."
