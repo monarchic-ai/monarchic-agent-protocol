@@ -7,12 +7,12 @@
   "proofs": [
     {
       "path": "SELF_HOST_COMMAND_LOG.json",
-      "sha256": "7b5fea7ff6f3404fad64d7ca1949a5fcea660662431bc7994db9d0a33e638a09"
+      "sha256": "2360ef74348a568a4acab9c6fa4262ee5d65b571234d448d4eabdc47cfeccf27"
     },
     {
       "path": "scripts/test-self-host-artifact-command-log-wrapper-ownership.sh",
-      "sha256": "ca8d38537652db18dba1b0b005fcbd45ce41ea3a8f6ae0bebdef56a16a31ca68"
+      "sha256": "71458c20f3f7794fad378f9f6def22aee9b40e53753dfdec3dd52ebd77f01315"
     }
   ],
-  "note": "Deterministic proof manifest for self-host artifact validation, covering the synchronized command log and the wrapper-ownership scan that guards command-log shell regressions."
+  "note": "Deterministic proof manifest for self-host artifact validation, covering the synchronized command log and the hardened wrapper-ownership scan that guards command-log core-path and seeding helper usage."
 }
