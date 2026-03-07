@@ -10,6 +10,7 @@ artifact_helper_prefix='self_host'"_artifact_"
 wrapper_helper_prefix="self_host_command_log_"
 wrapper_lib_reference="self-host-command-log-test-lib.sh"
 wrapper_core_paths_helper="self_host_command_log_core_paths"
+wrapper_core_path_membership_helper="self_host_command_log_assert_core_path_listed"
 wrapper_first_core_path_helper="self_host_command_log_first_core_path"
 wrapper_seed_helper="self_host_command_log_seed_source_repo_with_empty_report_lists"
 wrapper_seeded_core_paths_helper="self_host_command_log_assert_seeded_source_repo_core_paths"
@@ -77,6 +78,11 @@ for script_path in "${command_log_scripts[@]}"; do
     fi
   done
 
+  if grep -Eq '\bself_host_command_log_core_paths\b[[:space:]]*\|[[:space:]]*grep -[A-Za-z]*q' "${script_path}"; then
+    echo "[${script_label}] Expected ${script_name} to keep wrapper-owned core-path membership assertions inside ${wrapper_core_path_membership_helper} instead of inline ${wrapper_core_paths_helper} grep pipelines." >&2
+    exit 1
+  fi
+
   case "${script_name}" in
     test-self-host-artifact-command-log-first-command.sh|test-self-host-artifact-command-log-format.sh|test-self-host-artifact-command-log-gate.sh|test-self-host-artifact-command-log-reason-codes.sh)
       if ! grep -Fq "${wrapper_json_mutation_helper}" "${script_path}"; then
@@ -106,7 +112,13 @@ for script_path in "${command_log_scripts[@]}"; do
   esac
 
   case "${script_name}" in
-    test-self-host-artifact-command-log-path-helper.sh|test-self-host-artifact-command-log-shared-fixtures.sh)
+    test-self-host-artifact-command-log-path-helper.sh)
+      if ! grep -Fq "${wrapper_core_path_membership_helper}" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to use ${wrapper_core_path_membership_helper} so wrapper-owned core-path membership assertions stay centralized." >&2
+        exit 1
+      fi
+      ;&
+    test-self-host-artifact-command-log-shared-fixtures.sh)
       if ! grep -Fq "${wrapper_tmp_path_helper}" "${script_path}"; then
         echo "[${script_label}] Expected ${script_name} to use ${wrapper_tmp_path_helper} so wrapper-owned temp fixture paths stay centralized." >&2
         exit 1

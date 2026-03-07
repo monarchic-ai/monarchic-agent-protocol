@@ -1,13 +1,11 @@
 {
   "status": "pass",
-  "milestone_completed": "M57",
-  "milestones_done": 57,
-  "total_milestones": 57,
+  "milestone_completed": "M58",
+  "milestones_done": 58,
+  "total_milestones": 58,
   "new_files": [],
   "changed_files": [
     "scripts/self-host-command-log-test-lib.sh",
-    "scripts/test-self-host-artifact-command-log-first-command.sh",
-    "scripts/test-self-host-artifact-command-log-format.sh",
     "scripts/test-self-host-artifact-command-log-path-helper.sh",
     "scripts/test-self-host-artifact-command-log-wrapper-ownership.sh",
     "SELF_HOST_COMMAND_LOG.json",
@@ -17,6 +15,6 @@
     "SELF_HOST_REPORT.json",
     "SELF_HOST_UPDATE.json"
   ],
-  "test_command": "bash scripts/test-self-host-proof-artifacts.sh && bash scripts/test-self-host-artifact-command-log-first-command.sh && bash scripts/test-self-host-artifact-command-log-format.sh && bash scripts/test-self-host-artifact-command-log-path-helper.sh && bash scripts/test-self-host-artifact-command-log-wrapper-ownership.sh && bash -n scripts/self-host-command-log-test-lib.sh && bash -n scripts/test-self-host-artifact-command-log-first-command.sh && bash -n scripts/test-self-host-artifact-command-log-format.sh && bash -n scripts/test-self-host-artifact-command-log-path-helper.sh && bash -n scripts/test-self-host-artifact-command-log-wrapper-ownership.sh && bash scripts/test-self-host-artifacts.sh && python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null && python3 -m json.tool SELF_HOST_PROOF.json >/dev/null && python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null && python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null && python3 -m json.tool SELF_HOST_REPORT.json >/dev/null && python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null",
-  "note": "Status is pass because verification succeeded, milestones_done increased from 56 to 57 versus the prior report, and M57 centralized command-log stderr failure assertions behind a wrapper-owned helper while tightening focused helper and ownership coverage."
+  "test_command": "bash scripts/test-self-host-proof-artifacts.sh && bash scripts/test-self-host-artifact-command-log-first-command.sh && bash scripts/test-self-host-artifact-command-log-format.sh && bash scripts/test-self-host-artifact-command-log-gate.sh && bash scripts/test-self-host-artifact-command-log-path-helper.sh && bash scripts/test-self-host-artifact-command-log-reason-codes.sh && bash scripts/test-self-host-artifact-command-log-shared-fixtures.sh && bash scripts/test-self-host-artifact-command-log-source-repo-seeding.sh && bash scripts/test-self-host-artifact-command-log-wrapper-ownership.sh && bash -n scripts/self-host-command-log-test-lib.sh && bash -n scripts/test-self-host-artifact-command-log-path-helper.sh && bash -n scripts/test-self-host-artifact-command-log-wrapper-ownership.sh && bash scripts/test-self-host-artifacts.sh && python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null && python3 -m json.tool SELF_HOST_PROOF.json >/dev/null && python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null && python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null && python3 -m json.tool SELF_HOST_REPORT.json >/dev/null && python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null",
+  "note": "Status is pass because verification succeeded, milestones_done increased from 57 to 58 versus the prior report, and M58 centralized command-log core-path membership assertions behind a wrapper-owned helper while tightening focused helper and ownership coverage."
 }

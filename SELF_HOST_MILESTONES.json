@@ -397,5 +397,12 @@
     "status": "done",
     "completed_at": "2026-03-07T06:58:40Z",
     "notes": "Added self_host_command_log_expect_stderr_contains in scripts/self-host-command-log-test-lib.sh, migrated the first-command and format regressions off duplicated run-check and stderr-grep logic, extended focused helper coverage, and tightened wrapper-ownership validation so future command-log failure assertions stay centralized."
+  },
+  {
+    "id": "M58",
+    "title": "Centralize command-log core-path membership assertions behind wrapper helpers",
+    "status": "done",
+    "completed_at": "2026-03-07T07:06:30Z",
+    "notes": "Added self_host_command_log_assert_core_path_listed in scripts/self-host-command-log-test-lib.sh, migrated the focused path-helper regression off inline core-path grep pipelines, added deterministic negative helper coverage, and tightened wrapper-ownership validation so future command-log shell regressions keep core-path membership assertions centralized."
   }
 ]
