@@ -1,28 +1,25 @@
 {
   "status": "pass",
-  "headline": "Completed M58 by centralizing command-log core-path membership assertions behind a wrapper helper.",
-  "current_focus": "Current focus is keeping command-log core-path membership, shared-fixture seeding, and source-repo validation on wrapper-owned helpers while the next incremental self-host task is selected.",
-  "milestone_target": "M58 completed: core-path membership assertions now live behind a wrapper-owned command-log helper.",
-  "milestones_done": 58,
-  "total_milestones": 58,
+  "headline": "Completed M59 by centralizing command-log root-relative path joins behind a wrapper helper.",
+  "current_focus": "Current focus is keeping command-log root-relative path joins, core-path validation, and source-repo seeding on wrapper-owned helpers while the next incremental ownership gap is selected.",
+  "milestone_target": "M59 completed: root-relative command-log path joins now live behind a wrapper-owned helper.",
+  "milestones_done": 59,
+  "total_milestones": 59,
   "completed_work": [
-    "Added self_host_command_log_assert_core_path_listed in scripts/self-host-command-log-test-lib.sh so command-log regressions can reuse one wrapper-owned core-path membership assertion instead of open-coding core_paths grep pipelines.",
-    "Updated scripts/test-self-host-artifact-command-log-path-helper.sh to resolve deterministic positive and negative core-path membership checks through the new wrapper helper while keeping the focused helper coverage on wrapper-owned core paths.",
-    "Tightened scripts/test-self-host-artifact-command-log-wrapper-ownership.sh so future command-log regressions must use the new membership helper instead of inline self_host_command_log_core_paths grep pipelines.",
-    "Refreshed SELF_HOST_COMMAND_LOG.json, SELF_HOST_PROOF.json, SELF_HOST_MILESTONES.json, SELF_HOST_IMPLEMENTATION_LOG.json, and SELF_HOST_REPORT.json for the focused verification suite and milestone progression."
+    "Broadened self_host_command_log_path_in_root in scripts/self-host-command-log-test-lib.sh so wrapper-owned path resolution can cover both the default command-log artifact and explicit relative paths under arbitrary roots.",
+    "Updated scripts/test-self-host-artifact-command-log-path-helper.sh to validate that the wrapper root-path helper stays aligned with both the command-log artifact path and the first wrapper-owned core path under the temp repo root.",
+    "Updated scripts/test-self-host-artifact-command-log-source-repo-seeding.sh and wrapper-owned seeded-path validation to resolve source-repo joins through the shared root-path helper instead of open-coded ${source_repo}/${relative_path} concatenation.",
+    "Tightened scripts/test-self-host-artifact-command-log-wrapper-ownership.sh so future command-log shell regressions must use the wrapper-owned root-path helper for temp-root and source-repo joins."
   ],
   "verification": [
     "bash scripts/test-self-host-proof-artifacts.sh -> pass",
-    "bash scripts/test-self-host-artifact-command-log-first-command.sh -> pass",
-    "bash scripts/test-self-host-artifact-command-log-format.sh -> pass",
-    "bash scripts/test-self-host-artifact-command-log-gate.sh -> pass",
     "bash scripts/test-self-host-artifact-command-log-path-helper.sh -> pass",
-    "bash scripts/test-self-host-artifact-command-log-reason-codes.sh -> pass",
     "bash scripts/test-self-host-artifact-command-log-shared-fixtures.sh -> pass",
     "bash scripts/test-self-host-artifact-command-log-source-repo-seeding.sh -> pass",
     "bash scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
     "bash -n scripts/self-host-command-log-test-lib.sh -> pass",
     "bash -n scripts/test-self-host-artifact-command-log-path-helper.sh -> pass",
+    "bash -n scripts/test-self-host-artifact-command-log-source-repo-seeding.sh -> pass",
     "bash -n scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
     "bash scripts/test-self-host-artifacts.sh -> pass",
     "python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null -> pass",
@@ -33,11 +30,11 @@
     "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
   ],
   "blockers": [
-    "No blockers in M58 scope."
+    "No blockers in M59 scope."
   ],
   "next_steps": [
     "Select the next low-risk command-log improvement only if another issue #1 regression still open-codes wrapper-owned details instead of command-log helper library assertions.",
     "Keep future command-log shell coverage on self_host_command_log_core_paths and self_host_command_log_seed_source_repo_with_empty_report_lists so shared fixture additions stay centralized."
   ],
-  "note": "Status is pass because verification succeeded, milestones_done increased from 57 to 58 versus the prior report, and M58 centralized deterministic core-path membership assertions behind wrapper-owned helpers."
+  "note": "Status is pass because verification succeeded, milestones_done increased from 58 to 59 versus the prior report, and M59 centralized deterministic root-relative path joins behind wrapper-owned helpers."
 }
