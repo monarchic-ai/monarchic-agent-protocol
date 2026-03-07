@@ -1,20 +1,24 @@
 {
   "status": "pass",
-  "headline": "Completed M64 by blocking direct command-log report-path reads from bypassing the empty-report wrapper helper.",
-  "current_focus": "Current focus is using M49 only if another issue #1 regression resumes direct artifact-lib reach-through; the wrapper ownership scan now also blocks direct self_host_command_log_report_paths reads so empty report-list checks stay centralized.",
-  "milestone_target": "M64 completed: command-log wrapper ownership validation now keeps empty report-list assertions on self_host_command_log_assert_report_paths_empty instead of direct self_host_command_log_report_paths reads.",
-  "milestones_done": 64,
-  "total_milestones": 64,
+  "headline": "Completed M65 by centralizing command-log seeded source-repo baseline setup behind a wrapper helper.",
+  "current_focus": "Current focus is using M49 only if another issue #1 regression resumes direct artifact-lib reach-through; seeded source-repo baseline setup is now centralized on self_host_command_log_prepare_seeded_source_repo_baseline with wrapper ownership coverage guarding the delegation chain.",
+  "milestone_target": "M65 completed: command-log seeded source-repo baseline setup now stays on self_host_command_log_prepare_seeded_source_repo_baseline instead of repeating prepare/setup/reset/empty-report assertions in shell regressions.",
+  "milestones_done": 65,
+  "total_milestones": 65,
   "completed_work": [
-    "Added wrapper_report_paths_helper coverage to scripts/test-self-host-artifact-command-log-wrapper-ownership.sh so the ownership scan rejects direct self_host_command_log_report_paths reads in command-log regressions that should stay on wrapper-owned assertions.",
-    "Required test-self-host-artifact-command-log-shared-fixtures.sh and test-self-host-artifact-command-log-source-repo-seeding.sh to keep empty report-list validation delegated through self_host_command_log_assert_report_paths_empty.",
-    "Refreshed SELF_HOST_PROOF.json for the tightened wrapper-ownership scope after updating scripts/test-self-host-artifact-command-log-wrapper-ownership.sh."
+    "Revalidated the NEXT_PRIORITY_TASK M49 trigger and confirmed command-log regressions still avoid direct self_host_artifact_* reach-through, so the recovery path remained inactive for this run.",
+    "Added self_host_command_log_prepare_seeded_source_repo_baseline in scripts/self-host-command-log-test-lib.sh and migrated the shared-fixtures plus source-repo-seeding regressions off repeated seeded prepare/setup/reset/empty-report boilerplate.",
+    "Tightened scripts/test-self-host-artifact-command-log-wrapper-ownership.sh and refreshed SELF_HOST_PROOF.json so future seeded baseline setup changes stay centralized on the new wrapper helper."
   ],
   "verification": [
     "bash scripts/test-self-host-proof-artifacts.sh -> pass",
+    "bash -n scripts/self-host-command-log-test-lib.sh -> pass",
+    "bash -n scripts/test-self-host-artifact-command-log-shared-fixtures.sh -> pass",
+    "bash -n scripts/test-self-host-artifact-command-log-source-repo-seeding.sh -> pass",
+    "bash -n scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
+    "bash scripts/test-self-host-artifact-command-log-shared-fixtures.sh -> pass",
     "bash scripts/test-self-host-artifact-command-log-source-repo-seeding.sh -> pass",
     "bash scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
-    "bash -n scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
     "bash scripts/test-self-host-artifacts.sh -> pass",
     "python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null -> pass",
     "python3 -m json.tool SELF_HOST_PROOF.json >/dev/null -> pass",
@@ -24,11 +28,11 @@
     "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
   ],
   "blockers": [
-    "No blockers in M64 scope."
+    "No blockers in M65 scope."
   ],
   "next_steps": [
     "Use M49 only if another issue #1 regression reaches into artifact-lib details instead of wrapper-owned helpers.",
-    "Keep future command-log empty report-list checks behind self_host_command_log_assert_report_paths_empty and the wrapper ownership scan so helper and shell coverage stay aligned."
+    "Keep future seeded source-repo baseline setup on self_host_command_log_prepare_seeded_source_repo_baseline so helper and shell coverage stay aligned when bootstrap or baseline expectations change."
   ],
-  "note": "Status is pass because verification succeeded, milestones_done increased from 63 to 64 versus the prior report, and M64 closed the remaining wrapper-owned empty report-list ownership gap in deterministic command-log shell coverage."
+  "note": "Status is pass because verification succeeded, milestones_done increased from 64 to 65 versus the prior report, and M65 centralized seeded source-repo baseline setup behind a wrapper helper after confirming the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remained inactive."
 }

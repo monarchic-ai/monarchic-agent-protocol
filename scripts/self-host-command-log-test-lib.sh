@@ -105,6 +105,38 @@ self_host_command_log_prepare_seeded_source_repo() {
   self_host_command_log_assert_seeded_source_repo_core_paths "${source_root}"
 }
 
+self_host_command_log_prepare_seeded_source_repo_baseline() {
+  local script_label="${1:-}"
+  local repo_root="${2:-}"
+  local source_root="${3:-}"
+  local check_script="${4:-}"
+
+  if [[ -z "${script_label}" ]]; then
+    echo "[self-host-command-log-test-lib] Expected a non-empty script label for seeded source-repo baseline setup." >&2
+    return 1
+  fi
+
+  if [[ -z "${repo_root}" ]]; then
+    echo "[self-host-command-log-test-lib] Expected a non-empty repo root for seeded source-repo baseline setup." >&2
+    return 1
+  fi
+
+  if [[ -z "${source_root}" ]]; then
+    echo "[self-host-command-log-test-lib] Expected a non-empty source root for seeded source-repo baseline setup." >&2
+    return 1
+  fi
+
+  if [[ -z "${check_script}" ]]; then
+    echo "[self-host-command-log-test-lib] Expected a non-empty check script for seeded source-repo baseline setup." >&2
+    return 1
+  fi
+
+  self_host_command_log_prepare_seeded_source_repo "${script_label}" "${repo_root}" "${source_root}"
+  self_host_command_log_setup "${script_label}" "${source_root}" "${check_script}"
+  self_host_command_log_reset_and_assert_baseline
+  self_host_command_log_assert_report_paths_empty
+}
+
 self_host_command_log_relative_path() {
   printf '%s\n' "SELF_HOST_COMMAND_LOG.json"
 }
