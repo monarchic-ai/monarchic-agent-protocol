@@ -1,35 +1,24 @@
 {
   "status": "pass",
-  "headline": "Completed M50 by adding a deterministic wrapper-ownership scan for command-log shell regressions.",
-  "current_focus": "Current focus is keeping the new command-log wrapper-ownership scan as the guardrail against future helper drift while the next incremental self-host milestone is selected.",
-  "milestone_target": "No pending milestone remains in the current list; the next target is to define the next small self-host maintainability improvement after review.",
-  "milestones_done": 50,
-  "total_milestones": 50,
+  "headline": "Completed M51 by hardening command-log wrapper-ownership coverage around core-path and seeding helpers.",
+  "current_focus": "Current focus is using the hardened command-log wrapper-ownership scan as the guardrail against core-path/helper drift while the next incremental self-host maintainability target is selected.",
+  "milestone_target": "M52: define the next incremental self-host maintainability target after wrapper-helper scan hardening.",
+  "milestones_done": 51,
+  "total_milestones": 52,
   "completed_work": [
-    "Added scripts/test-self-host-artifact-command-log-wrapper-ownership.sh to scan each command-log regression script for direct self_host_artifact_* usage, missing wrapper-lib sourcing, missing wrapper-helper calls, and hardcoded command-log paths.",
-    "Validated that the current command-log regression suite satisfies the new wrapper-ownership invariant, turning the M50 assessment into an executable repo-local check.",
-    "Marked M50 done in SELF_HOST_MILESTONES.json and advanced the self-host run state from 49 to 50 completed milestones.",
-    "Refreshed SELF_HOST_COMMAND_LOG.json, SELF_HOST_PROOF.json, SELF_HOST_REPORT.json, and SELF_HOST_IMPLEMENTATION_LOG.json to reflect the finalized verification suite."
+    "Hardened scripts/test-self-host-artifact-command-log-wrapper-ownership.sh so it now rejects hardcoded wrapper-owned core artifact paths across the command-log regression scripts instead of only checking the command-log file path.",
+    "Required scripts/test-self-host-artifact-command-log-source-repo-seeding.sh and scripts/test-self-host-artifact-command-log-shared-fixtures.sh to keep using self_host_command_log_core_paths and self_host_command_log_seed_source_repo_with_empty_report_lists, turning the current recovery guidance into executable coverage.",
+    "Marked M51 done in SELF_HOST_MILESTONES.json, added pending follow-up milestone M52, and advanced the self-host run state from 50 to 51 completed milestones.",
+    "Refreshed SELF_HOST_COMMAND_LOG.json, SELF_HOST_PROOF.json, SELF_HOST_REPORT.json, and SELF_HOST_IMPLEMENTATION_LOG.json to reflect the focused verification suite."
   ],
   "verification": [
     "bash scripts/test-self-host-proof-artifacts.sh -> pass",
     "bash scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
-    "bash scripts/test-self-host-artifact-command-log-path-helper.sh -> pass",
-    "bash scripts/test-self-host-artifact-command-log-first-command.sh -> pass",
-    "bash scripts/test-self-host-artifact-command-log-format.sh -> pass",
-    "bash scripts/test-self-host-artifact-command-log-reason-codes.sh -> pass",
     "bash scripts/test-self-host-artifact-command-log-source-repo-seeding.sh -> pass",
     "bash scripts/test-self-host-artifact-command-log-shared-fixtures.sh -> pass",
-    "bash scripts/test-self-host-artifact-command-log-gate.sh -> pass",
-    "bash -n scripts/self-host-command-log-test-lib.sh -> pass",
     "bash -n scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
-    "bash -n scripts/test-self-host-artifact-command-log-path-helper.sh -> pass",
-    "bash -n scripts/test-self-host-artifact-command-log-first-command.sh -> pass",
-    "bash -n scripts/test-self-host-artifact-command-log-format.sh -> pass",
-    "bash -n scripts/test-self-host-artifact-command-log-reason-codes.sh -> pass",
     "bash -n scripts/test-self-host-artifact-command-log-source-repo-seeding.sh -> pass",
     "bash -n scripts/test-self-host-artifact-command-log-shared-fixtures.sh -> pass",
-    "bash -n scripts/test-self-host-artifact-command-log-gate.sh -> pass",
     "bash scripts/test-self-host-artifacts.sh -> pass",
     "python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null -> pass",
     "python3 -m json.tool SELF_HOST_PROOF.json >/dev/null -> pass",
@@ -39,11 +28,11 @@
     "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
   ],
   "blockers": [
-    "No blockers in M50 scope."
+    "No blockers in M51 scope."
   ],
   "next_steps": [
-    "Define the next incremental self-host milestone before the next pass-status run so milestone progression can continue deterministically.",
-    "Extend the wrapper-ownership scan if future command-log regressions add new helper surfaces or artifact-path rules."
+    "Select the next low-risk self-host maintainability improvement and complete pending milestone M52 on the next pass-status run.",
+    "Extend the hardened wrapper-ownership scan if future command-log regressions add new wrapper-owned helper surfaces or core artifact path rules."
   ],
-  "note": "Status is pass because verification succeeded, milestones_done increased from 49 to 50 versus the prior report, and M50 converted the remaining command-log wrapper-ownership assessment into deterministic shell coverage."
+  "note": "Status is pass because verification succeeded, milestones_done increased from 50 to 51 versus the prior report, and M51 turned the current core-path/seeding helper recovery guidance into deterministic wrapper-ownership coverage."
 }

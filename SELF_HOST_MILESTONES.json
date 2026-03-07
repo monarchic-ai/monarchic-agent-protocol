@@ -348,5 +348,19 @@
     "status": "done",
     "completed_at": "2026-03-06T23:31:04Z",
     "notes": "Added scripts/test-self-host-artifact-command-log-wrapper-ownership.sh to scan every command-log regression script for direct self_host_artifact_* usage, missing wrapper-helper calls, and hardcoded command-log paths so the M50 wrapper/helper ownership assessment stays deterministic."
+  },
+  {
+    "id": "M51",
+    "title": "Harden command-log wrapper-ownership coverage for centralized core-path and seeding helpers",
+    "status": "done",
+    "completed_at": "2026-03-07T06:03:25Z",
+    "notes": "Tightened scripts/test-self-host-artifact-command-log-wrapper-ownership.sh so it now rejects hardcoded wrapper-owned core artifact paths and requires the shared-fixture regressions to use self_host_command_log_core_paths plus self_host_command_log_seed_source_repo_with_empty_report_lists."
+  },
+  {
+    "id": "M52",
+    "title": "Define the next incremental self-host maintainability target after wrapper-helper scan hardening",
+    "status": "pending",
+    "completed_at": null,
+    "notes": "Pending follow-up after M51; select the next low-risk self-host improvement once the hardened command-log wrapper-helper coverage has been reviewed."
   }
 ]
