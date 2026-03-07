@@ -2,33 +2,25 @@
   "task_id": "task-self-host-001",
   "status": "pass",
   "reason_code": "OK",
-  "signature_count": 6,
+  "signature_count": 4,
   "sampled_batches": 1,
   "proofs": [
     {
-      "path": "SELF_HOST_COMMAND_LOG.json",
-      "sha256": "359ed355045d9fc4b0c7e86cf6d3a667feb4ec4edd462a8d7dd144623251a63f"
-    },
-    {
       "path": "scripts/self-host-command-log-test-lib.sh",
-      "sha256": "208218eee54804be95c5b53bd2c0209266aa489e1443539a24828843946dbf76"
-    },
-    {
-      "path": "scripts/test-self-host-artifact-command-log-first-command.sh",
-      "sha256": "9ff529fe5350fb0cfd96eb84cc96222e96652a11d88267b16ac76016da47a28f"
-    },
-    {
-      "path": "scripts/test-self-host-artifact-command-log-format.sh",
-      "sha256": "a74ace87417cb0c7139500408ea215d234df7bf582e86624a0b118982ca35489"
+      "sha256": "27b514e9204758e519f02389d84ecefd87c3ff6ad5501a56d0c20de1f34085b7"
     },
     {
       "path": "scripts/test-self-host-artifact-command-log-path-helper.sh",
-      "sha256": "45c960e97a7f24a7ca79c46facfdf146308ad23db76a177f0c2fc585ff95139a"
+      "sha256": "dda2e3a93d26dd04102d8613e18afa3f929124cc2e1e84ebd2645182fc4369da"
+    },
+    {
+      "path": "scripts/test-self-host-artifact-command-log-source-repo-seeding.sh",
+      "sha256": "94cf0cf0c2f420ea8407fbf34fb413eaa4a195d5b6872e34c57d22aea5f92741"
     },
     {
       "path": "scripts/test-self-host-artifact-command-log-wrapper-ownership.sh",
-      "sha256": "50485d7eeb1eeef971efcf7167a15fa3b609f63846ab258103c15f41a17c5ec8"
+      "sha256": "ec177eb28f33b5d1d9acd110c30a5bb5e6e71575b6739ebd3d768eb2fe282d43"
     }
   ],
-  "note": "Deterministic proof manifest for self-host artifact validation, covering the synchronized command log, the wrapper-owned core-path membership helper, the focused path-helper regression, and the tightened ownership scan."
+  "note": "Deterministic proof manifest for self-host artifact validation, covering the wrapper-owned root-path helper contract, the focused path-helper and source-repo seeding regressions, and the tightened ownership scan."
 }

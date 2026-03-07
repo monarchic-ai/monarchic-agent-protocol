@@ -404,5 +404,12 @@
     "status": "done",
     "completed_at": "2026-03-07T07:06:30Z",
     "notes": "Added self_host_command_log_assert_core_path_listed in scripts/self-host-command-log-test-lib.sh, migrated the focused path-helper regression off inline core-path grep pipelines, added deterministic negative helper coverage, and tightened wrapper-ownership validation so future command-log shell regressions keep core-path membership assertions centralized."
+  },
+  {
+    "id": "M59",
+    "title": "Centralize command-log root-relative path joins behind wrapper helpers",
+    "status": "done",
+    "completed_at": "2026-03-07T11:48:19Z",
+    "notes": "Broadened self_host_command_log_path_in_root to resolve explicit wrapper-owned relative paths, routed seeded source-repo and temp-path joins through that helper, added focused helper coverage for default and explicit root-relative resolution, and tightened wrapper-ownership validation so command-log source-repo and temp-root joins stay centralized."
   }
 ]

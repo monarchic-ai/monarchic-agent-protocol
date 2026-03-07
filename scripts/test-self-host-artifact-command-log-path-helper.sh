@@ -17,6 +17,7 @@ command_log_relative_path="$(self_host_command_log_relative_path)"
 tmp_repo_root="$(self_host_command_log_tmp_root)"
 stderr_log_path="$(self_host_command_log_stderr_log_path)"
 python_cmd="$(self_host_command_log_python_cmd)"
+command_log_path_in_root="$(self_host_command_log_path_in_root "${tmp_repo_root}")"
 
 if [[ -z "${command_log_relative_path}" ]]; then
   echo "[${script_label}] Expected command-log relative-path helper to return a path." >&2
@@ -35,6 +36,7 @@ else
 fi
 
 first_core_path="$(self_host_command_log_tmp_path_for_relative_path "${first_core_relative_path}")"
+first_core_path_in_root="$(self_host_command_log_path_in_root "${tmp_repo_root}" "${first_core_relative_path}")"
 
 command_log_path="$(self_host_command_log_tmp_path)"
 expected_command_log_path="$(self_host_command_log_tmp_path_for_relative_path "${command_log_relative_path}")"
@@ -44,8 +46,13 @@ if [[ "${command_log_path}" != "${expected_command_log_path}" ]]; then
   exit 1
 fi
 
-if [[ "${expected_command_log_path}" != "${tmp_repo_root}/${command_log_relative_path}" ]]; then
-  echo "[${script_label}] Expected relative-path helper to stay aligned with the wrapper temp root ${tmp_repo_root}." >&2
+if [[ "${expected_command_log_path}" != "${command_log_path_in_root}" ]]; then
+  echo "[${script_label}] Expected root-path helper to keep ${command_log_relative_path} aligned with the wrapper temp root ${tmp_repo_root}." >&2
+  exit 1
+fi
+
+if [[ "${first_core_path}" != "${first_core_path_in_root}" ]]; then
+  echo "[${script_label}] Expected root-path helper to keep ${first_core_relative_path} aligned with the wrapper temp root ${tmp_repo_root}." >&2
   exit 1
 fi
 

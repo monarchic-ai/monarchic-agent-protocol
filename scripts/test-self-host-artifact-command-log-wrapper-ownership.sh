@@ -15,6 +15,7 @@ wrapper_first_core_path_helper="self_host_command_log_first_core_path"
 wrapper_seed_helper="self_host_command_log_seed_source_repo_with_empty_report_lists"
 wrapper_seeded_core_paths_helper="self_host_command_log_assert_seeded_source_repo_core_paths"
 wrapper_empty_report_paths_helper="self_host_command_log_assert_report_paths_empty"
+wrapper_root_path_helper="self_host_command_log_path_in_root"
 wrapper_tmp_path_helper="self_host_command_log_tmp_path_for_relative_path"
 wrapper_stderr_contains_helper="self_host_command_log_expect_stderr_contains"
 wrapper_python_cmd_helper="self_host_command_log_python_cmd"
@@ -112,6 +113,20 @@ for script_path in "${command_log_scripts[@]}"; do
   esac
 
   case "${script_name}" in
+    test-self-host-artifact-command-log-path-helper.sh|test-self-host-artifact-command-log-source-repo-seeding.sh)
+      if ! grep -Fq "${wrapper_root_path_helper}" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to use ${wrapper_root_path_helper} so root-relative wrapper-owned path joins stay centralized." >&2
+        exit 1
+      fi
+
+      if grep -Eq '\$\{(source_repo|tmp_repo_root)\}/\$\{[^}]+\}' "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to resolve wrapper-owned root-relative paths through ${wrapper_root_path_helper} instead of open-coded root/path concatenation." >&2
+        exit 1
+      fi
+      ;;
+  esac
+
+  case "${script_name}" in
     test-self-host-artifact-command-log-path-helper.sh)
       if ! grep -Fq "${wrapper_core_path_membership_helper}" "${script_path}"; then
         echo "[${script_label}] Expected ${script_name} to use ${wrapper_core_path_membership_helper} so wrapper-owned core-path membership assertions stay centralized." >&2
@@ -161,4 +176,4 @@ if [[ "${validated_script_count}" -eq 0 ]]; then
   exit 1
 fi
 
-echo "[${script_label}] PASS: command-log regression scripts stay on wrapper-owned helpers, keep temp-path/core-path/first-core-path/source-repo/python-command/json-mutation/stderr-assertion ownership centralized, and avoid direct wrapper state reads."
+echo "[${script_label}] PASS: command-log regression scripts stay on wrapper-owned helpers, keep temp-path/root-path/core-path/first-core-path/source-repo/python-command/json-mutation/stderr-assertion ownership centralized, and avoid direct wrapper state reads."
