@@ -16,6 +16,8 @@ wrapper_first_core_path_helper="self_host_command_log_first_core_path"
 wrapper_seed_helper="self_host_command_log_seed_source_repo_with_empty_report_lists"
 wrapper_seeded_core_paths_helper="self_host_command_log_assert_seeded_source_repo_core_paths"
 wrapper_prepare_seeded_source_repo_helper="self_host_command_log_prepare_seeded_source_repo"
+wrapper_seeded_baseline_helper="self_host_command_log_prepare_seeded_source_repo_baseline"
+wrapper_setup_helper="self_host_command_log_setup"
 wrapper_report_paths_helper="self_host_command_log_report_paths"
 wrapper_empty_report_paths_helper="self_host_command_log_assert_report_paths_empty"
 wrapper_root_path_helper="self_host_command_log_path_in_root"
@@ -71,6 +73,32 @@ fi
 
 if [[ "${prepare_seeded_source_repo_body}" != *"${wrapper_seeded_core_paths_helper}"* ]]; then
   echo "[${script_label}] Expected ${wrapper_prepare_seeded_source_repo_helper} to validate seeded core paths through ${wrapper_seeded_core_paths_helper} after bootstrap." >&2
+  exit 1
+fi
+
+seeded_baseline_body="$(wrapper_helper_body "${wrapper_seeded_baseline_helper}")"
+if [[ -z "${seeded_baseline_body}" ]]; then
+  echo "[${script_label}] Expected ${wrapper_lib_reference} to define ${wrapper_seeded_baseline_helper}." >&2
+  exit 1
+fi
+
+if [[ "${seeded_baseline_body}" != *"${wrapper_prepare_seeded_source_repo_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_seeded_baseline_helper} to seed source repos through ${wrapper_prepare_seeded_source_repo_helper} so bootstrap stays centralized." >&2
+  exit 1
+fi
+
+if [[ "${seeded_baseline_body}" != *"${wrapper_setup_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_seeded_baseline_helper} to initialize wrapper state through ${wrapper_setup_helper}." >&2
+  exit 1
+fi
+
+if [[ "${seeded_baseline_body}" != *"${wrapper_reset_baseline_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_seeded_baseline_helper} to reset and validate the baseline through ${wrapper_reset_baseline_helper}." >&2
+  exit 1
+fi
+
+if [[ "${seeded_baseline_body}" != *"${wrapper_empty_report_paths_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_seeded_baseline_helper} to keep empty report-list validation on ${wrapper_empty_report_paths_helper}." >&2
   exit 1
 fi
 
@@ -172,12 +200,13 @@ for script_path in "${command_log_scripts[@]}"; do
   esac
 
   case "${script_name}" in
-    test-self-host-artifact-command-log-path-helper.sh|test-self-host-artifact-command-log-source-repo-seeding.sh)
+    test-self-host-artifact-command-log-path-helper.sh)
       if ! grep -Fq "${wrapper_reset_baseline_helper}" "${script_path}"; then
         echo "[${script_label}] Expected ${script_name} to use ${wrapper_reset_baseline_helper} so reset-plus-baseline coverage stays centralized." >&2
         exit 1
       fi
-
+      ;&
+    test-self-host-artifact-command-log-source-repo-seeding.sh)
       if ! grep -Fq "${wrapper_failure_contains_helper}" "${script_path}"; then
         echo "[${script_label}] Expected ${script_name} to use ${wrapper_failure_contains_helper} so wrapper-helper failure-output assertions stay centralized." >&2
         exit 1
@@ -221,18 +250,8 @@ for script_path in "${command_log_scripts[@]}"; do
 
   case "${script_name}" in
     test-self-host-artifact-command-log-source-repo-seeding.sh|test-self-host-artifact-command-log-shared-fixtures.sh)
-      if ! grep -Fq "${wrapper_reset_baseline_helper}" "${script_path}"; then
-        echo "[${script_label}] Expected ${script_name} to use ${wrapper_reset_baseline_helper} so reset-plus-baseline coverage stays centralized." >&2
-        exit 1
-      fi
-
-      if ! grep -Fq "${wrapper_prepare_seeded_source_repo_helper}" "${script_path}"; then
-        echo "[${script_label}] Expected ${script_name} to use ${wrapper_prepare_seeded_source_repo_helper} so wrapper-owned seeded source-repo bootstrap stays centralized." >&2
-        exit 1
-      fi
-
-      if grep -Fq "${wrapper_seed_helper}" "${script_path}"; then
-        echo "[${script_label}] Expected ${script_name} to keep direct ${wrapper_seed_helper} bootstrap inside ${wrapper_prepare_seeded_source_repo_helper}." >&2
+      if ! grep -Fq "${wrapper_seeded_baseline_helper}" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to use ${wrapper_seeded_baseline_helper} so seeded source-repo baseline setup stays centralized." >&2
         exit 1
       fi
 
@@ -246,17 +265,41 @@ for script_path in "${command_log_scripts[@]}"; do
         exit 1
       fi
 
-      if ! grep -Fq "${wrapper_empty_report_paths_helper}" "${script_path}"; then
-        echo "[${script_label}] Expected ${script_name} to use ${wrapper_empty_report_paths_helper} so empty wrapper report-list validation stays centralized." >&2
-        exit 1
-      fi
-
       if grep -Fq "${wrapper_report_paths_helper}" "${script_path}"; then
         echo "[${script_label}] Expected ${script_name} to keep direct ${wrapper_report_paths_helper} reads inside ${wrapper_empty_report_paths_helper} so wrapper-owned empty report-list validation stays centralized." >&2
         exit 1
       fi
+
+      if grep -Fq "${wrapper_setup_helper} \"\${script_label}\" \"\${source_repo}\" \"\${check_script}\"" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to keep seeded source-repo setup inside ${wrapper_seeded_baseline_helper} instead of direct ${wrapper_setup_helper} calls." >&2
+        exit 1
+      fi
+
+      if grep -Fq "${wrapper_empty_report_paths_helper}" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to keep empty report-list validation inside ${wrapper_seeded_baseline_helper}." >&2
+        exit 1
+      fi
+      ;;
+  esac
+
+  case "${script_name}" in
+    test-self-host-artifact-command-log-shared-fixtures.sh)
+      if grep -Eq "\\b${wrapper_prepare_seeded_source_repo_helper}\\b" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to keep direct seeded source-repo bootstrap inside ${wrapper_seeded_baseline_helper}." >&2
+        exit 1
+      fi
       ;;
     test-self-host-artifact-command-log-source-repo-seeding.sh)
+      if ! grep -Eq "\\b${wrapper_prepare_seeded_source_repo_helper}\\b" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to use ${wrapper_prepare_seeded_source_repo_helper} for deterministic negative seeded-core-path coverage before the centralized baseline helper runs." >&2
+        exit 1
+      fi
+
+      if grep -Fq "${wrapper_seed_helper}" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to keep direct ${wrapper_seed_helper} bootstrap inside ${wrapper_prepare_seeded_source_repo_helper}." >&2
+        exit 1
+      fi
+
       if ! grep -Fq "${wrapper_seeded_core_paths_helper}" "${script_path}"; then
         echo "[${script_label}] Expected ${script_name} to keep deterministic seeded core-path negative coverage on ${wrapper_seeded_core_paths_helper}." >&2
         exit 1
@@ -270,4 +313,4 @@ if [[ "${validated_script_count}" -eq 0 ]]; then
   exit 1
 fi
 
-echo "[${script_label}] PASS: command-log regression scripts stay on wrapper-owned helpers, keep temp-path/root-path/core-path/first-core-path/seeded-source-repo/python-command/json-mutation/failure-output/stderr-assertion ownership centralized, and avoid direct wrapper state reads."
+echo "[${script_label}] PASS: command-log regression scripts stay on wrapper-owned helpers, keep temp-path/root-path/core-path/first-core-path/seeded-source-repo/seeded-baseline/python-command/json-mutation/failure-output/stderr-assertion ownership centralized, and avoid direct wrapper state reads."

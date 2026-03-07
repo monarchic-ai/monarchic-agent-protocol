@@ -14,13 +14,7 @@ cleanup() {
 }
 trap cleanup EXIT
 
-self_host_command_log_prepare_seeded_source_repo "${script_label}" "${repo_root}" "${source_repo}"
-
-self_host_command_log_setup "${script_label}" "${source_repo}" "${check_script}"
-
-self_host_command_log_reset_and_assert_baseline
-
-self_host_command_log_assert_report_paths_empty
+self_host_command_log_prepare_seeded_source_repo_baseline "${script_label}" "${repo_root}" "${source_repo}" "${check_script}"
 
 restored_relative_path="$(self_host_command_log_first_core_path)"
 
