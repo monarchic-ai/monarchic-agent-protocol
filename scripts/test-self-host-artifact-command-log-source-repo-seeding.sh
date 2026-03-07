@@ -19,8 +19,9 @@ self_host_command_log_seed_source_repo_with_empty_report_lists "${script_label}"
 self_host_command_log_assert_seeded_source_repo_core_paths "${source_repo}"
 
 missing_relative_path="$(self_host_command_log_first_core_path)"
+missing_path="$(self_host_command_log_path_in_root "${source_repo}" "${missing_relative_path}")"
 
-rm -f "${source_repo}/${missing_relative_path}"
+rm -f "${missing_path}"
 
 if validation_output="$(self_host_command_log_assert_seeded_source_repo_core_paths "${source_repo}" 2>&1)"; then
   echo "[${script_label}] Expected seeded source-repo validation to fail after removing ${missing_relative_path}." >&2
