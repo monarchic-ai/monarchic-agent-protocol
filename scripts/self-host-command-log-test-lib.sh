@@ -284,3 +284,37 @@ self_host_command_log_expect_stderr_contains() {
     return 1
   fi
 }
+
+self_host_command_log_expect_failure_contains() {
+  local expected_substring="${1:-}"
+  local failure_message="${2:-}"
+  local validation_output=""
+
+  if [[ -z "${expected_substring}" ]]; then
+    echo "[self-host-command-log-test-lib] Expected a non-empty failure-output substring." >&2
+    return 1
+  fi
+
+  if [[ -z "${failure_message}" ]]; then
+    echo "[self-host-command-log-test-lib] Expected a non-empty failure message for wrapper helper failure assertions." >&2
+    return 1
+  fi
+
+  shift 2
+
+  if [[ "$#" -eq 0 ]]; then
+    echo "[self-host-command-log-test-lib] Expected a wrapper helper command for failure-output assertions." >&2
+    return 1
+  fi
+
+  if validation_output="$("$@" 2>&1)"; then
+    echo "[${SELF_HOST_COMMAND_LOG_SCRIPT_LABEL}] ${failure_message}" >&2
+    return 1
+  fi
+
+  if [[ "${validation_output}" != *"${expected_substring}"* ]]; then
+    echo "[${SELF_HOST_COMMAND_LOG_SCRIPT_LABEL}] Unexpected failure output while checking for ${expected_substring}:" >&2
+    printf '%s\n' "${validation_output}" >&2
+    return 1
+  fi
+}
