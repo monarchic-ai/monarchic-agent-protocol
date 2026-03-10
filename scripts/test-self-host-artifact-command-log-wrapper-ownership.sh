@@ -121,6 +121,17 @@ if [[ "${seeded_core_paths_body}" != *"${wrapper_core_paths_helper}"* ]]; then
   exit 1
 fi
 
+first_core_path_body="$(wrapper_helper_body "${wrapper_first_core_path_helper}")"
+if [[ -z "${first_core_path_body}" ]]; then
+  echo "[${script_label}] Expected ${wrapper_lib_reference} to define ${wrapper_first_core_path_helper}." >&2
+  exit 1
+fi
+
+if [[ "${first_core_path_body}" != *"${wrapper_core_paths_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_first_core_path_helper} to enumerate wrapper-owned artifact paths through ${wrapper_core_paths_helper} so future shared fixture additions stay centralized." >&2
+  exit 1
+fi
+
 first_core_path_in_root_body="$(wrapper_helper_body "${wrapper_first_core_path_in_root_helper}")"
 if [[ -z "${first_core_path_in_root_body}" ]]; then
   echo "[${script_label}] Expected ${wrapper_lib_reference} to define ${wrapper_first_core_path_in_root_helper}." >&2

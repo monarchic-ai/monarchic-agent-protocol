@@ -1,25 +1,18 @@
 {
   "status": "pass",
-  "headline": "Completed M70 by centralizing command-log first-core-path pair assignment behind wrapper helpers.",
-  "current_focus": "Current focus is using M49 only if another issue #1 regression resumes direct artifact-lib reach-through; the seeded and temp-root command-log regressions now keep first-core-path pair unpacking centralized on self_host_command_log_assign_first_core_path_pair_in_root and self_host_command_log_assign_first_core_path_pair_in_tmp_root with wrapper ownership coverage guarding that delegation path.",
-  "milestone_target": "M70 completed: command-log regressions now assign the first core artifact's relative/rooted path pair through self_host_command_log_assign_first_core_path_pair_in_root and self_host_command_log_assign_first_core_path_pair_in_tmp_root instead of open-coding mapfile unpacking around pair helpers.",
-  "milestones_done": 70,
-  "total_milestones": 70,
+  "headline": "Completed M71 by guarding first-core-path delegation on the wrapper-owned core-path helper.",
+  "current_focus": "Current focus is using M49 only if another issue #1 regression resumes direct artifact-lib reach-through; wrapper ownership coverage now keeps self_host_command_log_first_core_path delegated to self_host_command_log_core_paths so future shared fixture additions stay centralized.",
+  "milestone_target": "M71 completed: wrapper ownership coverage now asserts self_host_command_log_first_core_path delegates first core-path selection through self_host_command_log_core_paths so future shared fixture additions stay centralized.",
+  "milestones_done": 71,
+  "total_milestones": 71,
   "completed_work": [
     "Revalidated the NEXT_PRIORITY_TASK M49 trigger and confirmed command-log regressions still avoid direct self_host_artifact_* reach-through, so the recovery path remained inactive for this run.",
-    "Added self_host_command_log_assign_first_core_path_pair_in_root and self_host_command_log_assign_first_core_path_pair_in_tmp_root in scripts/self-host-command-log-test-lib.sh, migrated the path-helper/shared-fixtures/source-repo-seeding regressions to those helpers, and added deterministic invalid-variable coverage for pair assignment.",
-    "Tightened scripts/test-self-host-artifact-command-log-wrapper-ownership.sh, refreshed SELF_HOST_PROOF.json, and extended verification with a syntax check for scripts/test-self-host-artifact-command-log-source-repo-seeding.sh so future pair-assignment changes stay centralized."
+    "Tightened scripts/test-self-host-artifact-command-log-wrapper-ownership.sh to assert self_host_command_log_first_core_path delegates first-core-path selection through self_host_command_log_core_paths.",
+    "Refreshed the proof manifest, command log, milestone log, and pass report so the new wrapper-owned core-path delegation guard is traceable through verification artifacts."
   ],
   "verification": [
     "bash scripts/test-self-host-proof-artifacts.sh -> pass",
-    "bash -n scripts/self-host-command-log-test-lib.sh -> pass",
-    "bash -n scripts/test-self-host-artifact-command-log-path-helper.sh -> pass",
-    "bash -n scripts/test-self-host-artifact-command-log-shared-fixtures.sh -> pass",
-    "bash -n scripts/test-self-host-artifact-command-log-source-repo-seeding.sh -> pass",
     "bash -n scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
-    "bash scripts/test-self-host-artifact-command-log-path-helper.sh -> pass",
-    "bash scripts/test-self-host-artifact-command-log-shared-fixtures.sh -> pass",
-    "bash scripts/test-self-host-artifact-command-log-source-repo-seeding.sh -> pass",
     "bash scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
     "bash scripts/test-self-host-artifacts.sh -> pass",
     "python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null -> pass",
@@ -30,11 +23,11 @@
     "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
   ],
   "blockers": [
-    "No blockers in M70 scope."
+    "No blockers in M71 scope."
   ],
   "next_steps": [
     "Use M49 only if another issue #1 regression reaches into artifact-lib details instead of wrapper-owned helpers.",
-    "Keep future seeded and temp-root first-core-path pair unpacking on self_host_command_log_assign_first_core_path_pair_in_root and self_host_command_log_assign_first_core_path_pair_in_tmp_root so pair-shape validation stays centralized when fixture setup changes."
+    "Keep future command-log shell coverage on self_host_command_log_core_paths and self_host_command_log_seed_source_repo_with_empty_report_lists so shared artifact fixture changes stay centralized."
   ],
-  "note": "Status is pass because verification succeeded, milestones_done increased from 69 to 70 versus the prior report, and M70 centralized first-core-path pair unpacking behind wrapper assignment helpers after confirming the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remained inactive."
+  "note": "Status is pass because verification succeeded, milestones_done increased from 70 to 71 versus the prior report, and M71 tightened wrapper ownership coverage so self_host_command_log_first_core_path stays delegated to self_host_command_log_core_paths after confirming the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remained inactive."
 }
