@@ -39,6 +39,7 @@ wrapper_reset_baseline_helper="self_host_command_log_reset_and_assert_baseline"
 wrapper_reset_tmp_path_helper="self_host_command_log_reset_and_resolve_tmp_path"
 wrapper_reason_code_helper="self_host_command_log_expect_reason_code"
 wrapper_reason_code_after_mutation_helper="self_host_command_log_expect_reason_code_after_mutation"
+wrapper_status_and_index_reason_codes_helper="self_host_command_log_expect_status_and_index_reason_codes"
 wrapper_stderr_contains_helper="self_host_command_log_expect_stderr_contains"
 wrapper_failure_contains_helper="self_host_command_log_expect_failure_contains"
 wrapper_python_cmd_helper="self_host_command_log_python_cmd"
@@ -349,6 +350,27 @@ if [[ "${reason_code_after_mutation_body}" != *"${wrapper_reason_code_helper}"* 
   exit 1
 fi
 
+status_and_index_reason_codes_body="$(wrapper_helper_body "${wrapper_status_and_index_reason_codes_helper}")"
+if [[ -z "${status_and_index_reason_codes_body}" ]]; then
+  echo "[${script_label}] Expected ${wrapper_lib_reference} to define ${wrapper_status_and_index_reason_codes_helper}." >&2
+  exit 1
+fi
+
+if [[ "${status_and_index_reason_codes_body}" != *"${wrapper_reason_code_after_mutation_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_status_and_index_reason_codes_helper} to keep common reason-code mutation coverage on ${wrapper_reason_code_after_mutation_helper} so reset-plus-mutate-plus-reason-code assertions stay centralized." >&2
+  exit 1
+fi
+
+if [[ "${status_and_index_reason_codes_body}" != *"COMMAND_LOG_STATUS_MISMATCH"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_status_and_index_reason_codes_helper} to cover COMMAND_LOG_STATUS_MISMATCH so common status drift stays centralized." >&2
+  exit 1
+fi
+
+if [[ "${status_and_index_reason_codes_body}" != *"COMMAND_LOG_INDEX_INVALID"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_status_and_index_reason_codes_helper} to cover COMMAND_LOG_INDEX_INVALID so common index drift stays centralized." >&2
+  exit 1
+fi
+
 json_mutation_body="$(wrapper_helper_body "${wrapper_json_mutation_helper}")"
 if [[ -z "${json_mutation_body}" ]]; then
   echo "[${script_label}] Expected ${wrapper_lib_reference} to define ${wrapper_json_mutation_helper}." >&2
@@ -465,13 +487,33 @@ for script_path in "${command_log_scripts[@]}"; do
 
   case "${script_name}" in
     test-self-host-artifact-command-log-gate.sh|test-self-host-artifact-command-log-reason-codes.sh)
-      if ! grep -Fq "${wrapper_reason_code_after_mutation_helper}" "${script_path}"; then
-        echo "[${script_label}] Expected ${script_name} to use ${wrapper_reason_code_after_mutation_helper} so repeated mutation-based reason-code coverage stays centralized." >&2
+      if ! grep -Fq "${wrapper_status_and_index_reason_codes_helper}" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to use ${wrapper_status_and_index_reason_codes_helper} so common status/index reason-code coverage stays centralized." >&2
+        exit 1
+      fi
+
+      if grep -Eq 'COMMAND_LOG_STATUS_MISMATCH|COMMAND_LOG_INDEX_INVALID' "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to keep common status/index reason-code literals inside ${wrapper_status_and_index_reason_codes_helper} instead of repeating them inline." >&2
         exit 1
       fi
 
       if grep -Eq "\\b${wrapper_reset_tmp_path_helper}\\b|\\b${wrapper_json_mutation_helper}\\b|\\b${wrapper_reason_code_helper}\\b" "${script_path}"; then
         echo "[${script_label}] Expected ${script_name} to keep reset-plus-mutate-plus-reason-code assertions inside ${wrapper_reason_code_after_mutation_helper} instead of open-coding the sequence." >&2
+        exit 1
+      fi
+      ;;
+  esac
+
+  case "${script_name}" in
+    test-self-host-artifact-command-log-reason-codes.sh)
+      if grep -Fq "${wrapper_reason_code_after_mutation_helper}" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to keep common mutation-based reason-code assertions inside ${wrapper_status_and_index_reason_codes_helper} instead of direct ${wrapper_reason_code_after_mutation_helper} calls." >&2
+        exit 1
+      fi
+      ;;
+    test-self-host-artifact-command-log-gate.sh)
+      if ! grep -Fq "${wrapper_reason_code_after_mutation_helper}" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to keep first-command order drift coverage on ${wrapper_reason_code_after_mutation_helper}." >&2
         exit 1
       fi
       ;;
