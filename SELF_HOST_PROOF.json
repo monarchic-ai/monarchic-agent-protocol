@@ -7,15 +7,15 @@
   "proofs": [
     {
       "path": "scripts/self-host-command-log-test-lib.sh",
-      "sha256": "0848d2d8ee15d0c0044ee9a1c8f714c00ea8c122f3644ee853b1e7a7e0ffb29c"
+      "sha256": "65192b893b442898b6b9d8a270879c216eb61c2956e470471eb63500f679da28"
     },
     {
       "path": "scripts/test-self-host-artifact-command-log-path-helper.sh",
-      "sha256": "4b3ebf79870636346877f08ad966b582d9f2d725159dce40e047d8e67b5dfb36"
+      "sha256": "4cd787ce102faa9de077076fc09410ee44efeca93378d410239684b67c9558c3"
     },
     {
       "path": "scripts/test-self-host-artifact-command-log-shared-fixtures.sh",
-      "sha256": "11e3ac5db0d8724afe1f2e2392980127deaae0ae8cb828ec29ad98becf607854"
+      "sha256": "c75c2a73672cfc1a25e997d84d9a1b360a325f3c8c695a376f2ca83438adf322"
     },
     {
       "path": "scripts/test-self-host-artifact-command-log-source-repo-seeding.sh",
@@ -23,8 +23,8 @@
     },
     {
       "path": "scripts/test-self-host-artifact-command-log-wrapper-ownership.sh",
-      "sha256": "b87a0e8875d8cd05d84860abd8e369801f80d09a2299b0102ee7d8cf24731504"
+      "sha256": "77139dbfaf873a04f8a57f934964b9866b440fd9a5ed1f85928a2fb12ae1ab5a"
     }
   ],
-  "note": "Deterministic proof manifest for self-host artifact validation, covering the wrapper-owned command-log helper library plus the seeded first-core-path pair regressions and wrapper-ownership checks after centralizing relative/rooted first-core-path pairing."
+  "note": "Deterministic proof manifest for self-host artifact validation, covering the wrapper-owned command-log helper library plus the temp-root first-core-path pair regressions and wrapper-ownership checks after centralizing temp-root relative/rooted first-core-path pairing."
 }

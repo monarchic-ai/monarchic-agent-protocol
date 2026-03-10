@@ -16,7 +16,7 @@ trap cleanup EXIT
 
 self_host_command_log_prepare_seeded_source_repo_baseline "${script_label}" "${repo_root}" "${source_repo}" "${check_script}"
 
-mapfile -t first_core_pair < <(self_host_command_log_first_core_path_pair_in_root "$(self_host_command_log_tmp_root)")
+mapfile -t first_core_pair < <(self_host_command_log_first_core_path_pair_in_tmp_root)
 restored_relative_path="${first_core_pair[0]:-}"
 restored_path="${first_core_pair[1]:-}"
 
