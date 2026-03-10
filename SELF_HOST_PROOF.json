@@ -7,11 +7,11 @@
   "proofs": [
     {
       "path": "scripts/self-host-command-log-test-lib.sh",
-      "sha256": "4341e91c71a5ae3293025a98b1e63b43215bbddfae86362b1968859a9124faff"
+      "sha256": "89a236d445911eaf4870c03c496534820192e96e6d6965a515ef4b322f9b272d"
     },
     {
       "path": "scripts/test-self-host-artifact-command-log-path-helper.sh",
-      "sha256": "8edb9fac4870aeb3594df5d34f60439148d8c81c514b517b6a678af9d8ecaa14"
+      "sha256": "7ce678541aa2d0f7a656af3b9ac44d9b7cdab72b0f4a407dd0b1ad29a2ce3ac6"
     },
     {
       "path": "scripts/test-self-host-artifact-command-log-shared-fixtures.sh",
@@ -23,8 +23,8 @@
     },
     {
       "path": "scripts/test-self-host-artifact-command-log-wrapper-ownership.sh",
-      "sha256": "27492d89457ffc617254f0fa5aa9d8efaf39d68f87b5ab5d8550a28ddfdfec82"
+      "sha256": "35654a6599ebe9cca8c6205bfba180c47047cc84c2c8ea74caced795734c4e6b"
     }
   ],
-  "note": "Deterministic proof manifest for self-host artifact validation, covering the wrapper-owned command-log helper library plus the path-helper/shared-fixtures/source-repo-seeding regressions and wrapper-ownership checks after centralizing restored first-core-path existence validation on the existing wrapper assignment helper."
+  "note": "Deterministic proof manifest for self-host artifact validation, covering the wrapper-owned command-log helper library plus the path-helper/shared-fixtures/source-repo-seeding regressions and wrapper-ownership checks after centralizing temp-path core-path membership validation on the wrapper helper."
 }

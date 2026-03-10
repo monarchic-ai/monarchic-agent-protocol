@@ -509,5 +509,12 @@
     "status": "done",
     "completed_at": "2026-03-10T08:39:47Z",
     "notes": "Confirmed the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remains inactive because command-log regressions still avoid direct self_host_artifact_* reach-through, migrated test-self-host-artifact-command-log-path-helper.sh to self_host_command_log_assign_existing_first_core_path_pair_in_tmp_root so restored first-core-path existence validation stays centralized, tightened wrapper ownership checks to block direct temp-root pair assignment and open-coded file checks from returning, refreshed proof coverage, and preserved deterministic command-log shell verification."
+  },
+  {
+    "id": "M74",
+    "title": "Require wrapper-owned core-path membership for command-log temp-path resolution",
+    "status": "done",
+    "completed_at": "2026-03-10T08:52:00Z",
+    "notes": "Confirmed the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remains inactive because command-log regressions still avoid direct self_host_artifact_* reach-through, tightened self_host_command_log_tmp_path_for_relative_path to validate wrapper-owned core-path membership through self_host_command_log_assert_core_path_listed before resolving temp fixture paths, extended path-helper coverage to reject non-core relative paths through that helper, refreshed proof coverage, and tightened wrapper-ownership validation so temp-path resolution cannot drift away from the shared core-path list."
   }
 ]

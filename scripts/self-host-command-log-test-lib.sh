@@ -293,7 +293,7 @@ self_host_command_log_path_in_root() {
 }
 
 self_host_command_log_tmp_path_for_relative_path() {
-  local relative_path="$1"
+  local relative_path="${1:-}"
   local tmp_root=""
 
   if [[ -z "${relative_path}" ]]; then
@@ -301,7 +301,9 @@ self_host_command_log_tmp_path_for_relative_path() {
     return 1
   fi
 
-  tmp_root="$(self_host_command_log_tmp_root)"
+  self_host_command_log_assert_core_path_listed "${relative_path}" || return 1
+
+  tmp_root="$(self_host_command_log_tmp_root)" || return 1
   self_host_command_log_path_in_root "${tmp_root}" "${relative_path}"
 }
 
