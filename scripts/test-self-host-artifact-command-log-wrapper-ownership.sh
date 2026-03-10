@@ -262,6 +262,27 @@ if [[ "${reset_tmp_path_body}" != *"${wrapper_command_log_tmp_path_helper}"* ]];
   exit 1
 fi
 
+tmp_path_body="$(wrapper_helper_body "${wrapper_tmp_path_helper}")"
+if [[ -z "${tmp_path_body}" ]]; then
+  echo "[${script_label}] Expected ${wrapper_lib_reference} to define ${wrapper_tmp_path_helper}." >&2
+  exit 1
+fi
+
+if [[ "${tmp_path_body}" != *"${wrapper_core_path_membership_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_tmp_path_helper} to validate wrapper-owned core-path membership through ${wrapper_core_path_membership_helper} so temp-path resolution stays centralized on the shared core-path list." >&2
+  exit 1
+fi
+
+if [[ "${tmp_path_body}" != *"${wrapper_tmp_root_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_tmp_path_helper} to resolve the wrapper-owned temp root through ${wrapper_tmp_root_helper} so temp state reads stay centralized." >&2
+  exit 1
+fi
+
+if [[ "${tmp_path_body}" != *"${wrapper_root_path_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_tmp_path_helper} to resolve temp fixture paths through ${wrapper_root_path_helper} so root joins stay centralized." >&2
+  exit 1
+fi
+
 validated_script_count=0
 
 for script_path in "${command_log_scripts[@]}"; do
