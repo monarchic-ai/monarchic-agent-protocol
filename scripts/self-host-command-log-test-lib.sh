@@ -345,6 +345,17 @@ self_host_command_log_report_path_in_root() {
   self_host_command_log_path_in_root "${root}" "$(self_host_command_log_report_relative_path)"
 }
 
+self_host_command_log_choose_python() {
+  local script_label="${1:-}"
+
+  if [[ -z "${script_label}" ]]; then
+    echo "[self-host-command-log-test-lib] Expected a non-empty script label for python selection." >&2
+    return 1
+  fi
+
+  self_host_artifact_choose_python "${script_label}"
+}
+
 self_host_command_log_mutate_report_json_in_root() {
   local script_label="${1:-}"
   local root="${2:-}"
@@ -367,7 +378,7 @@ self_host_command_log_mutate_report_json_in_root() {
     return 1
   fi
 
-  python_cmd="$(self_host_artifact_choose_python "${script_label}")" || return 1
+  python_cmd="$(self_host_command_log_choose_python "${script_label}")" || return 1
   self_host_command_log_mutate_json_file "${python_cmd}" "${report_path}"
 }
 
@@ -486,7 +497,7 @@ self_host_command_log_assert_report_paths_empty_in_root() {
     return 1
   fi
 
-  python_cmd="$(self_host_artifact_choose_python "${script_label}")" || return 1
+  python_cmd="$(self_host_command_log_choose_python "${script_label}")" || return 1
 
   if [[ -n "$("${python_cmd}" - "${report_path}" <<'PY'
 import json
