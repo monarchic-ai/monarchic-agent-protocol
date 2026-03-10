@@ -89,6 +89,62 @@ self_host_command_log_first_core_path_pair_in_tmp_root() {
   self_host_command_log_first_core_path_pair_in_root "${tmp_root}"
 }
 
+self_host_command_log_assign_first_core_path_pair_in_root() {
+  local relative_path_var_name="${1:-}"
+  local rooted_path_var_name="${2:-}"
+  local root="${3:-}"
+  local first_core_pair=()
+
+  if [[ -z "${relative_path_var_name}" ]]; then
+    echo "[self-host-command-log-test-lib] Expected a non-empty shell variable name for first core-path relative-path assignment." >&2
+    return 1
+  fi
+
+  if [[ ! "${relative_path_var_name}" =~ ^[a-zA-Z_][a-zA-Z0-9_]*$ ]]; then
+    echo "[self-host-command-log-test-lib] Expected a valid shell variable name for first core-path relative-path assignment, found ${relative_path_var_name}." >&2
+    return 1
+  fi
+
+  if [[ -z "${rooted_path_var_name}" ]]; then
+    echo "[self-host-command-log-test-lib] Expected a non-empty shell variable name for first core-path rooted-path assignment." >&2
+    return 1
+  fi
+
+  if [[ ! "${rooted_path_var_name}" =~ ^[a-zA-Z_][a-zA-Z0-9_]*$ ]]; then
+    echo "[self-host-command-log-test-lib] Expected a valid shell variable name for first core-path rooted-path assignment, found ${rooted_path_var_name}." >&2
+    return 1
+  fi
+
+  if [[ -z "${root}" ]]; then
+    echo "[self-host-command-log-test-lib] Expected a non-empty root for first core-path pair assignment." >&2
+    return 1
+  fi
+
+  mapfile -t first_core_pair < <(self_host_command_log_first_core_path_pair_in_root "${root}") || return 1
+
+  if [[ "${#first_core_pair[@]}" -ne 2 ]]; then
+    echo "[self-host-command-log-test-lib] Expected first core-path pair resolution to return exactly two lines, found ${#first_core_pair[@]}." >&2
+    return 1
+  fi
+
+  if [[ -z "${first_core_pair[0]}" || -z "${first_core_pair[1]}" ]]; then
+    echo "[self-host-command-log-test-lib] Expected first core-path pair resolution to return non-empty relative and rooted paths." >&2
+    return 1
+  fi
+
+  printf -v "${relative_path_var_name}" '%s' "${first_core_pair[0]}"
+  printf -v "${rooted_path_var_name}" '%s' "${first_core_pair[1]}"
+}
+
+self_host_command_log_assign_first_core_path_pair_in_tmp_root() {
+  local relative_path_var_name="${1:-}"
+  local rooted_path_var_name="${2:-}"
+  local tmp_root=""
+
+  tmp_root="$(self_host_command_log_tmp_root)" || return 1
+  self_host_command_log_assign_first_core_path_pair_in_root "${relative_path_var_name}" "${rooted_path_var_name}" "${tmp_root}"
+}
+
 self_host_command_log_assert_seeded_source_repo_core_paths() {
   local source_root="${1:-}"
   local script_label="${SELF_HOST_COMMAND_LOG_SCRIPT_LABEL:-self-host-command-log-test-lib}"
