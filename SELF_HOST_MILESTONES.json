@@ -558,5 +558,12 @@
     "status": "done",
     "completed_at": "2026-03-10T14:38:16Z",
     "notes": "Confirmed the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remains inactive because command-log regressions still avoid direct self_host_artifact_* reach-through, added self_host_command_log_remove_existing_first_core_path_pair_in_root and self_host_command_log_remove_existing_first_core_path_pair_in_tmp_root to centralize existing first-core-path resolution plus deletion verification, migrated the source-repo seeding and shared-fixtures regressions to those helpers, refreshed proof coverage, and tightened wrapper-ownership validation so seeded and restored first-core-path removal does not drift back into open-coded rm -f checks."
+  },
+  {
+    "id": "M81",
+    "title": "Centralize temp-root first-core-path resolution on a wrapper helper",
+    "status": "done",
+    "completed_at": "2026-03-10T14:49:01Z",
+    "notes": "Confirmed the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remains inactive because command-log regressions still avoid direct self_host_artifact_* reach-through, added self_host_command_log_first_core_path_in_tmp_root to centralize temp-root first-core-path resolution through wrapper-owned temp-root and root-resolution helpers, migrated the path-helper regression to that helper, refreshed proof coverage, and tightened wrapper-ownership validation so temp-root first-core-path lookups do not drift back into inline tmp-path composition."
   }
 ]
