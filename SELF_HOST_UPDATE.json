@@ -1,27 +1,23 @@
 {
   "status": "pass",
-  "headline": "Completed M79 by centralizing mutation-based first-command/format stderr assertions on one wrapper helper.",
-  "current_focus": "Current focus is using M49 only if another issue #1 regression resumes direct artifact-lib reach-through; seeded/shared core-path coverage remains centralized on self_host_command_log_core_paths and self_host_command_log_seed_source_repo_with_empty_report_lists, and mutation-based first-command/format stderr regressions now stay on self_host_command_log_expect_stderr_contains_after_mutation.",
-  "milestone_target": "M79 completed: mutation-based first-command and format stderr regressions now route through self_host_command_log_expect_stderr_contains_after_mutation, which delegates to self_host_command_log_reset_and_resolve_tmp_path, self_host_command_log_mutate_json, and self_host_command_log_expect_stderr_contains so reset/mutate/stderr boilerplate stays out of individual shell regressions.",
-  "milestones_done": 79,
-  "total_milestones": 79,
+  "headline": "Completed M80 by centralizing seeded and restored first-core-path removal on wrapper helpers.",
+  "current_focus": "Current focus is using M49 only if another issue #1 regression resumes direct artifact-lib reach-through; seeded/shared core-path coverage remains centralized on self_host_command_log_core_paths and self_host_command_log_seed_source_repo_with_empty_report_lists, and seeded/shared first-core-path removal now stays on self_host_command_log_remove_existing_first_core_path_pair_in_root and self_host_command_log_remove_existing_first_core_path_pair_in_tmp_root.",
+  "milestone_target": "M80 completed: seeded-source and shared-fixture first-core-path removal now route through self_host_command_log_remove_existing_first_core_path_pair_in_root and self_host_command_log_remove_existing_first_core_path_pair_in_tmp_root, which delegate existing-path resolution through wrapper-owned first-core-path pair helpers and verify deletion centrally.",
+  "milestones_done": 80,
+  "total_milestones": 80,
   "completed_work": [
     "Revalidated the NEXT_PRIORITY_TASK M49 trigger and confirmed command-log regressions still avoid direct self_host_artifact_* reach-through, so the recovery path remained inactive for this run.",
-    "Added self_host_command_log_expect_stderr_contains_after_mutation to centralize baseline reset, command-log JSON mutation, and stderr assertion flow for mutation-based shell regressions.",
-    "Migrated the first-command and format regressions to the new helper, tightened wrapper-ownership coverage to require that delegation, and refreshed the proof/report artifacts for the updated verification sequence."
+    "Added self_host_command_log_remove_existing_first_core_path_pair_in_root and self_host_command_log_remove_existing_first_core_path_pair_in_tmp_root to centralize existing first-core-path resolution plus deletion verification for seeded-source and shared-fixture regressions.",
+    "Migrated the source-repo seeding and shared-fixtures regressions to the new helpers, tightened wrapper-ownership coverage to require that delegation, and refreshed the proof/report artifacts for the updated verification sequence."
   ],
   "verification": [
     "bash scripts/test-self-host-proof-artifacts.sh -> pass",
     "bash -n scripts/self-host-command-log-test-lib.sh -> pass",
-    "bash -n scripts/test-self-host-artifact-command-log-first-command.sh -> pass",
-    "bash -n scripts/test-self-host-artifact-command-log-format.sh -> pass",
-    "bash -n scripts/test-self-host-artifact-command-log-gate.sh -> pass",
-    "bash -n scripts/test-self-host-artifact-command-log-reason-codes.sh -> pass",
+    "bash -n scripts/test-self-host-artifact-command-log-source-repo-seeding.sh -> pass",
+    "bash -n scripts/test-self-host-artifact-command-log-shared-fixtures.sh -> pass",
     "bash -n scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
-    "bash scripts/test-self-host-artifact-command-log-first-command.sh -> pass",
-    "bash scripts/test-self-host-artifact-command-log-format.sh -> pass",
-    "bash scripts/test-self-host-artifact-command-log-gate.sh -> pass",
-    "bash scripts/test-self-host-artifact-command-log-reason-codes.sh -> pass",
+    "bash scripts/test-self-host-artifact-command-log-source-repo-seeding.sh -> pass",
+    "bash scripts/test-self-host-artifact-command-log-shared-fixtures.sh -> pass",
     "bash scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
     "bash scripts/test-self-host-artifacts.sh -> pass",
     "python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null -> pass",
@@ -37,7 +33,7 @@
   "next_steps": [
     "Use M49 only if another issue #1 regression reaches into artifact-lib details instead of wrapper-owned helpers.",
     "Keep future seeded/shared command-log path coverage on self_host_command_log_core_paths and self_host_command_log_seed_source_repo_with_empty_report_lists so shared fixture additions stay centralized.",
-    "Keep future mutation-based first-command/format stderr coverage on self_host_command_log_expect_stderr_contains_after_mutation so reset/mutate/stderr boilerplate does not drift back into individual shell regressions."
+    "Keep future seeded/shared first-core-path removal coverage on self_host_command_log_remove_existing_first_core_path_pair_in_root and self_host_command_log_remove_existing_first_core_path_pair_in_tmp_root so deletion checks do not drift back into individual shell regressions."
   ],
-  "note": "Status is pass because verification succeeded, milestones_done increased from 78 to 79 versus the prior report, M79 centralized mutation-based first-command/format stderr assertions on self_host_command_log_expect_stderr_contains_after_mutation, and the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remained inactive because command-log regressions still avoid direct self_host_artifact_* reach-through."
+  "note": "Status is pass because verification succeeded, milestones_done increased from 79 to 80 versus the prior report, M80 centralized seeded and restored first-core-path removal on wrapper-owned helpers, and the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remained inactive because command-log regressions still avoid direct self_host_artifact_* reach-through."
 }

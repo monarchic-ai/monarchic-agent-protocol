@@ -29,9 +29,7 @@ self_host_command_log_expect_failure_contains \
 
 self_host_command_log_prepare_seeded_source_repo "${script_label}" "${repo_root}" "${source_repo}"
 
-self_host_command_log_assign_existing_first_core_path_pair_in_root missing_relative_path missing_path "${source_repo}"
-
-rm -f "${missing_path}"
+self_host_command_log_remove_existing_first_core_path_pair_in_root missing_relative_path missing_path "${source_repo}"
 
 self_host_command_log_expect_failure_contains \
   "${missing_relative_path}" \
@@ -40,4 +38,4 @@ self_host_command_log_expect_failure_contains \
 
 self_host_command_log_prepare_seeded_source_repo_baseline "${script_label}" "${repo_root}" "${source_repo}" "${check_script}"
 
-echo "[${script_label}] PASS: command-log wrapper seeding covers every wrapper-owned core artifact path, centralizes seeded empty-report-list validation plus first-core-path pair assignment and failure-output assertions, exposes empty report file lists, and preserves a passing baseline gate."
+echo "[${script_label}] PASS: command-log wrapper seeding covers every wrapper-owned core artifact path, centralizes seeded empty-report-list validation plus first-core-path removal and failure-output assertions, exposes empty report file lists, and preserves a passing baseline gate."
