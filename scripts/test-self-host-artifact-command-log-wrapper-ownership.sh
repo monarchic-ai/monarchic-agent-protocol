@@ -14,6 +14,7 @@ wrapper_core_paths_helper="self_host_command_log_core_paths"
 wrapper_core_path_membership_helper="self_host_command_log_assert_core_path_listed"
 wrapper_first_core_path_helper="self_host_command_log_first_core_path"
 wrapper_first_core_path_in_root_helper="self_host_command_log_first_core_path_in_root"
+wrapper_first_core_path_in_tmp_root_helper="self_host_command_log_first_core_path_in_tmp_root"
 wrapper_first_core_path_pair_in_root_helper="self_host_command_log_first_core_path_pair_in_root"
 wrapper_first_core_path_pair_in_tmp_root_helper="self_host_command_log_first_core_path_pair_in_tmp_root"
 wrapper_assign_first_core_path_pair_in_root_helper="self_host_command_log_assign_first_core_path_pair_in_root"
@@ -217,6 +218,22 @@ fi
 
 if [[ "${first_core_path_in_root_body}" != *"${wrapper_root_path_helper}"* ]]; then
   echo "[${script_label}] Expected ${wrapper_first_core_path_in_root_helper} to resolve first core paths through ${wrapper_root_path_helper} so root joins stay centralized." >&2
+  exit 1
+fi
+
+first_core_path_in_tmp_root_body="$(wrapper_helper_body "${wrapper_first_core_path_in_tmp_root_helper}")"
+if [[ -z "${first_core_path_in_tmp_root_body}" ]]; then
+  echo "[${script_label}] Expected ${wrapper_lib_reference} to define ${wrapper_first_core_path_in_tmp_root_helper}." >&2
+  exit 1
+fi
+
+if [[ "${first_core_path_in_tmp_root_body}" != *"${wrapper_tmp_root_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_first_core_path_in_tmp_root_helper} to resolve the wrapper-owned temp root through ${wrapper_tmp_root_helper} so temp-root state reads stay centralized." >&2
+  exit 1
+fi
+
+if [[ "${first_core_path_in_tmp_root_body}" != *"${wrapper_first_core_path_in_root_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_first_core_path_in_tmp_root_helper} to delegate rooted temp first-core-path resolution through ${wrapper_first_core_path_in_root_helper}." >&2
   exit 1
 fi
 
@@ -626,8 +643,18 @@ for script_path in "${command_log_scripts[@]}"; do
 
   case "${script_name}" in
     test-self-host-artifact-command-log-path-helper.sh)
+      if ! grep -Fq "${wrapper_first_core_path_in_tmp_root_helper}" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to use ${wrapper_first_core_path_in_tmp_root_helper} so temp-root first-core-path resolution stays centralized." >&2
+        exit 1
+      fi
+
       if ! grep -Fq "${wrapper_first_core_path_in_root_helper}" "${script_path}"; then
         echo "[${script_label}] Expected ${script_name} to use ${wrapper_first_core_path_in_root_helper} so first-core-path root joins stay centralized." >&2
+        exit 1
+      fi
+
+      if grep -Fq "${wrapper_tmp_path_helper} \"\${first_core_relative_path}\"" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to resolve temp-root first core paths through ${wrapper_first_core_path_in_tmp_root_helper} instead of composing ${wrapper_first_core_path_helper} with ${wrapper_tmp_path_helper} inline." >&2
         exit 1
       fi
 
@@ -845,4 +872,4 @@ if [[ "${validated_script_count}" -eq 0 ]]; then
   exit 1
 fi
 
-echo "[${script_label}] PASS: command-log regression scripts stay on wrapper-owned helpers, keep baseline-reset temp-path/root-path/core-path/first-core-path pair/first-core-path pair assignment/first-core-path removal/temp-root pair/seeded-source-repo/seeded-baseline/report-json-mutation/python-command/json-mutation/mutation-based reason-code/failure-output/stderr-assertion ownership centralized, and avoid direct wrapper state reads."
+echo "[${script_label}] PASS: command-log regression scripts stay on wrapper-owned helpers, keep baseline-reset temp-path/root-path/core-path/temp-root first-core-path/first-core-path pair/first-core-path pair assignment/first-core-path removal/temp-root pair/seeded-source-repo/seeded-baseline/report-json-mutation/python-command/json-mutation/mutation-based reason-code/failure-output/stderr-assertion ownership centralized, and avoid direct wrapper state reads."
