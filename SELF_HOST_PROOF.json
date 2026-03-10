@@ -2,29 +2,33 @@
   "task_id": "task-self-host-001",
   "status": "pass",
   "reason_code": "OK",
-  "signature_count": 5,
+  "signature_count": 6,
   "sampled_batches": 1,
   "proofs": [
     {
       "path": "scripts/self-host-command-log-test-lib.sh",
-      "sha256": "4fcfedd8e7a98af6516aa85e32a174ecf4c80dd4fe5c4f6ba7991b8321116ac6"
+      "sha256": "6c7e08899859a3a6830c8429a2e5a0e57db099be14430e050f6d8381b5927ab7"
     },
     {
-      "path": "scripts/test-self-host-artifact-command-log-path-helper.sh",
-      "sha256": "474403c9f76ac5eb700e167e18f0bc05c0872311c428267b051e0e76577c8c8d"
+      "path": "scripts/test-self-host-artifact-command-log-first-command.sh",
+      "sha256": "3d13150bf56c3471444ecdea22ad820df5ab4c15975b5631e8188ec952e60ed5"
     },
     {
-      "path": "scripts/test-self-host-artifact-command-log-shared-fixtures.sh",
-      "sha256": "840cbee40d6476f3bca50beceef4a5b34760490d054d909503feccadd6fe975f"
+      "path": "scripts/test-self-host-artifact-command-log-format.sh",
+      "sha256": "691de428b2781f07f2011e64adc7cd9c76acff2246200fe3aaf5d57669931775"
     },
     {
-      "path": "scripts/test-self-host-artifact-command-log-source-repo-seeding.sh",
-      "sha256": "7b2612725ecf7318323e2d3e5aead7e4064bf13ce57d0f5f1f618adf50a3349a"
+      "path": "scripts/test-self-host-artifact-command-log-gate.sh",
+      "sha256": "6347516bb01280540afe581a264d75ce1dec1333601254808ed9133d4888b307"
+    },
+    {
+      "path": "scripts/test-self-host-artifact-command-log-reason-codes.sh",
+      "sha256": "05f74a17675278a52af144e20647691c450af00aad91a8eee21a9ea7bb72912a"
     },
     {
       "path": "scripts/test-self-host-artifact-command-log-wrapper-ownership.sh",
-      "sha256": "8f00875681b30602bd02e79581135048f11d8590cdaf3619361bc6ed48b22b8d"
+      "sha256": "71a82426f6f4876d8748f3904ebd637d0ef1b5ce5b6cf25ca96fbbf0d404951e"
     }
   ],
-  "note": "Deterministic proof manifest for self-host artifact validation, covering the wrapper-owned command-log helper library and the focused path-helper, shared-fixtures, source-repo seeding, and wrapper-ownership regressions after centralizing first-core-path root resolution."
+  "note": "Deterministic proof manifest for self-host artifact validation, covering the wrapper-owned command-log helper library plus the focused deterministic mutation and wrapper-ownership regressions after centralizing baseline-reset temp-path setup."
 }
