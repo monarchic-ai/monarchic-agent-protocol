@@ -2247,5 +2247,38 @@
       "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
     ],
     "gate": "ready-for-review"
+  },
+  {
+    "timestamp": "2026-03-10T09:17:59Z",
+    "task_id": "task-self-host-001",
+    "summary": "Completed M76 by confirming the NEXT_PRIORITY_TASK M49 artifact-lib recovery path stayed inactive, adding self_host_command_log_report_relative_path, self_host_command_log_report_path_in_root, and self_host_command_log_assert_report_paths_empty_in_root to centralize seeded empty report-list validation, migrating the source-repo seeding regression to those helpers, tightening wrapper-ownership checks to require that delegation, and refreshing proof coverage.",
+    "milestone_completed": "M76",
+    "files": [
+      "scripts/self-host-command-log-test-lib.sh",
+      "scripts/test-self-host-artifact-command-log-source-repo-seeding.sh",
+      "scripts/test-self-host-artifact-command-log-wrapper-ownership.sh",
+      "SELF_HOST_COMMAND_LOG.json",
+      "SELF_HOST_MILESTONES.json",
+      "SELF_HOST_IMPLEMENTATION_LOG.json",
+      "SELF_HOST_PROOF.json",
+      "SELF_HOST_REPORT.json",
+      "SELF_HOST_UPDATE.json"
+    ],
+    "verification": [
+      "bash scripts/test-self-host-proof-artifacts.sh -> pass",
+      "bash -n scripts/self-host-command-log-test-lib.sh -> pass",
+      "bash -n scripts/test-self-host-artifact-command-log-source-repo-seeding.sh -> pass",
+      "bash -n scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-source-repo-seeding.sh -> pass",
+      "bash scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
+      "bash scripts/test-self-host-artifacts.sh -> pass",
+      "python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_PROOF.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null -> pass",
+      "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
+    ],
+    "gate": "ready-for-review"
   }
 ]
