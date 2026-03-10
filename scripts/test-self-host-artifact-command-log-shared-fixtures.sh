@@ -16,9 +16,7 @@ trap cleanup EXIT
 
 self_host_command_log_prepare_seeded_source_repo_baseline "${script_label}" "${repo_root}" "${source_repo}" "${check_script}"
 
-mapfile -t first_core_pair < <(self_host_command_log_first_core_path_pair_in_tmp_root)
-restored_relative_path="${first_core_pair[0]:-}"
-restored_path="${first_core_pair[1]:-}"
+self_host_command_log_assign_first_core_path_pair_in_tmp_root restored_relative_path restored_path
 
 if [[ ! -f "${restored_path}" ]]; then
   echo "[${script_label}] Expected baseline fixtures to copy ${restored_relative_path}." >&2
@@ -39,4 +37,4 @@ if [[ ! -f "${restored_path}" ]]; then
   exit 1
 fi
 
-echo "[${script_label}] PASS: shared command-log fixture setup restores wrapper-owned core artifact paths through centralized first-core-path pair resolution and preserves a passing baseline gate when report file lists are empty."
+echo "[${script_label}] PASS: shared command-log fixture setup restores wrapper-owned core artifact paths through centralized first-core-path pair assignment and preserves a passing baseline gate when report file lists are empty."

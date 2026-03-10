@@ -481,5 +481,12 @@
     "status": "done",
     "completed_at": "2026-03-10T02:59:47Z",
     "notes": "Confirmed the NEXT_PRIORITY_TASK M49 recovery path remains inactive because command-log regressions still avoid direct self_host_artifact_* reach-through, added self_host_command_log_first_core_path_pair_in_tmp_root to centralize temp-root first-core-path relative/rooted pairing, migrated the path-helper and shared-fixtures regressions to that helper, refreshed proof coverage, and tightened wrapper-ownership validation so temp-root pair resolution stays centralized."
+  },
+  {
+    "id": "M70",
+    "title": "Centralize command-log first-core-path pair unpacking behind wrapper assignment helpers",
+    "status": "done",
+    "completed_at": "2026-03-10T03:12:41Z",
+    "notes": "Confirmed the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remains inactive because command-log regressions still avoid direct self_host_artifact_* reach-through, added self_host_command_log_assign_first_core_path_pair_in_root and self_host_command_log_assign_first_core_path_pair_in_tmp_root to centralize first-core-path pair unpacking plus variable-name validation, migrated the path-helper/shared-fixtures/source-repo-seeding regressions to those helpers, added deterministic invalid-variable coverage, refreshed proof coverage, and tightened wrapper ownership checks so future pair assignment changes stay centralized."
   }
 ]

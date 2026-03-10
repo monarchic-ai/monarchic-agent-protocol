@@ -16,6 +16,8 @@ wrapper_first_core_path_helper="self_host_command_log_first_core_path"
 wrapper_first_core_path_in_root_helper="self_host_command_log_first_core_path_in_root"
 wrapper_first_core_path_pair_in_root_helper="self_host_command_log_first_core_path_pair_in_root"
 wrapper_first_core_path_pair_in_tmp_root_helper="self_host_command_log_first_core_path_pair_in_tmp_root"
+wrapper_assign_first_core_path_pair_in_root_helper="self_host_command_log_assign_first_core_path_pair_in_root"
+wrapper_assign_first_core_path_pair_in_tmp_root_helper="self_host_command_log_assign_first_core_path_pair_in_tmp_root"
 wrapper_seed_helper="self_host_command_log_seed_source_repo_with_empty_report_lists"
 wrapper_seeded_core_paths_helper="self_host_command_log_assert_seeded_source_repo_core_paths"
 wrapper_prepare_seeded_source_repo_helper="self_host_command_log_prepare_seeded_source_repo"
@@ -164,6 +166,38 @@ fi
 
 if [[ "${first_core_path_pair_in_tmp_root_body}" != *"${wrapper_first_core_path_pair_in_root_helper}"* ]]; then
   echo "[${script_label}] Expected ${wrapper_first_core_path_pair_in_tmp_root_helper} to delegate relative/rooted first-core-path pairing through ${wrapper_first_core_path_pair_in_root_helper}." >&2
+  exit 1
+fi
+
+assign_first_core_path_pair_in_root_body="$(wrapper_helper_body "${wrapper_assign_first_core_path_pair_in_root_helper}")"
+if [[ -z "${assign_first_core_path_pair_in_root_body}" ]]; then
+  echo "[${script_label}] Expected ${wrapper_lib_reference} to define ${wrapper_assign_first_core_path_pair_in_root_helper}." >&2
+  exit 1
+fi
+
+if [[ "${assign_first_core_path_pair_in_root_body}" != *"${wrapper_first_core_path_pair_in_root_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_assign_first_core_path_pair_in_root_helper} to keep first-core-path pair resolution on ${wrapper_first_core_path_pair_in_root_helper} so pair output shape stays centralized." >&2
+  exit 1
+fi
+
+if [[ "${assign_first_core_path_pair_in_root_body}" != *"printf -v"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_assign_first_core_path_pair_in_root_helper} to assign resolved first-core-path pairs directly into caller variables." >&2
+  exit 1
+fi
+
+assign_first_core_path_pair_in_tmp_root_body="$(wrapper_helper_body "${wrapper_assign_first_core_path_pair_in_tmp_root_helper}")"
+if [[ -z "${assign_first_core_path_pair_in_tmp_root_body}" ]]; then
+  echo "[${script_label}] Expected ${wrapper_lib_reference} to define ${wrapper_assign_first_core_path_pair_in_tmp_root_helper}." >&2
+  exit 1
+fi
+
+if [[ "${assign_first_core_path_pair_in_tmp_root_body}" != *"${wrapper_tmp_root_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_assign_first_core_path_pair_in_tmp_root_helper} to resolve the wrapper-owned temp root through ${wrapper_tmp_root_helper} so temp state reads stay centralized." >&2
+  exit 1
+fi
+
+if [[ "${assign_first_core_path_pair_in_tmp_root_body}" != *"${wrapper_assign_first_core_path_pair_in_root_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_assign_first_core_path_pair_in_tmp_root_helper} to delegate first-core-path pair assignment through ${wrapper_assign_first_core_path_pair_in_root_helper}." >&2
   exit 1
 fi
 
@@ -330,13 +364,23 @@ for script_path in "${command_log_scripts[@]}"; do
 
   case "${script_name}" in
     test-self-host-artifact-command-log-source-repo-seeding.sh)
-      if ! grep -Fq "${wrapper_first_core_path_pair_in_root_helper}" "${script_path}"; then
-        echo "[${script_label}] Expected ${script_name} to use ${wrapper_first_core_path_pair_in_root_helper} so seeded first-core-path relative/rooted path pairing stays centralized." >&2
+      if ! grep -Fq "${wrapper_assign_first_core_path_pair_in_root_helper}" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to use ${wrapper_assign_first_core_path_pair_in_root_helper} so seeded first-core-path pair assignment stays centralized." >&2
+        exit 1
+      fi
+
+      if grep -Fq 'mapfile -t first_core_pair' "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to keep first-core-path pair unpacking inside ${wrapper_assign_first_core_path_pair_in_root_helper} instead of open-coded mapfile arrays." >&2
+        exit 1
+      fi
+
+      if grep -Fq "${wrapper_first_core_path_pair_in_root_helper}" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to keep direct seeded first-core-path pair reads inside ${wrapper_assign_first_core_path_pair_in_root_helper}." >&2
         exit 1
       fi
 
       if grep -Eq "\\b${wrapper_first_core_path_helper}\\b|\\b${wrapper_first_core_path_in_root_helper}\\b" "${script_path}"; then
-        echo "[${script_label}] Expected ${script_name} to resolve seeded first core-path pairs through ${wrapper_first_core_path_pair_in_root_helper} instead of separate ${wrapper_first_core_path_helper} and ${wrapper_first_core_path_in_root_helper} calls." >&2
+        echo "[${script_label}] Expected ${script_name} to resolve seeded first core-path pairs through ${wrapper_assign_first_core_path_pair_in_root_helper} instead of separate ${wrapper_first_core_path_helper} and ${wrapper_first_core_path_in_root_helper} calls." >&2
         exit 1
       fi
       ;;
@@ -344,13 +388,27 @@ for script_path in "${command_log_scripts[@]}"; do
 
   case "${script_name}" in
     test-self-host-artifact-command-log-path-helper.sh|test-self-host-artifact-command-log-shared-fixtures.sh)
-      if ! grep -Fq "${wrapper_first_core_path_pair_in_tmp_root_helper}" "${script_path}"; then
-        echo "[${script_label}] Expected ${script_name} to use ${wrapper_first_core_path_pair_in_tmp_root_helper} so temp-root first-core-path relative/rooted path pairing stays centralized." >&2
+      if grep -Eq "\\b${wrapper_first_core_path_pair_in_root_helper}\\b.*\\b${wrapper_tmp_root_helper}\\b|\\b${wrapper_tmp_root_helper}\\b.*\\b${wrapper_first_core_path_pair_in_root_helper}\\b" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to resolve temp-root first core-path pairs through ${wrapper_first_core_path_pair_in_tmp_root_helper} instead of composing ${wrapper_first_core_path_pair_in_root_helper} with ${wrapper_tmp_root_helper} inline." >&2
+        exit 1
+      fi
+      ;;
+  esac
+
+  case "${script_name}" in
+    test-self-host-artifact-command-log-path-helper.sh|test-self-host-artifact-command-log-shared-fixtures.sh)
+      if ! grep -Fq "${wrapper_assign_first_core_path_pair_in_tmp_root_helper}" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to use ${wrapper_assign_first_core_path_pair_in_tmp_root_helper} so temp-root first-core-path pair assignment stays centralized." >&2
         exit 1
       fi
 
-      if grep -Eq "\\b${wrapper_first_core_path_pair_in_root_helper}\\b.*\\b${wrapper_tmp_root_helper}\\b|\\b${wrapper_tmp_root_helper}\\b.*\\b${wrapper_first_core_path_pair_in_root_helper}\\b" "${script_path}"; then
-        echo "[${script_label}] Expected ${script_name} to resolve temp-root first core-path pairs through ${wrapper_first_core_path_pair_in_tmp_root_helper} instead of composing ${wrapper_first_core_path_pair_in_root_helper} with ${wrapper_tmp_root_helper} inline." >&2
+      if grep -Fq 'mapfile -t first_core_pair' "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to keep temp-root first-core-path pair unpacking inside ${wrapper_assign_first_core_path_pair_in_tmp_root_helper} instead of open-coded mapfile arrays." >&2
+        exit 1
+      fi
+
+      if grep -Fq "${wrapper_first_core_path_pair_in_tmp_root_helper}" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to keep direct temp-root first-core-path pair reads inside ${wrapper_assign_first_core_path_pair_in_tmp_root_helper}." >&2
         exit 1
       fi
       ;;
@@ -430,4 +488,4 @@ if [[ "${validated_script_count}" -eq 0 ]]; then
   exit 1
 fi
 
-echo "[${script_label}] PASS: command-log regression scripts stay on wrapper-owned helpers, keep baseline-reset temp-path/root-path/core-path/first-core-path pair/temp-root pair/seeded-source-repo/seeded-baseline/python-command/json-mutation/failure-output/stderr-assertion ownership centralized, and avoid direct wrapper state reads."
+echo "[${script_label}] PASS: command-log regression scripts stay on wrapper-owned helpers, keep baseline-reset temp-path/root-path/core-path/first-core-path pair/first-core-path pair assignment/temp-root pair/seeded-source-repo/seeded-baseline/python-command/json-mutation/failure-output/stderr-assertion ownership centralized, and avoid direct wrapper state reads."
