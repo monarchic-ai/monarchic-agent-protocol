@@ -33,7 +33,7 @@ if ! self_host_command_log_assert_core_path_listed "${first_core_relative_path}"
   exit 1
 fi
 
-first_core_path="$(self_host_command_log_tmp_path_for_relative_path "${first_core_relative_path}")"
+first_core_path="$(self_host_command_log_first_core_path_in_tmp_root)"
 first_core_path_in_root="$(self_host_command_log_first_core_path_in_root "${tmp_repo_root}")"
 
 command_log_path="$(self_host_command_log_tmp_path)"
@@ -115,4 +115,4 @@ self_host_command_log_expect_stderr_contains \
   "command index must be a contiguous integer sequence" \
   "Expected stderr substring helper to detect deterministic command-log format drift."
 
-echo "[${script_label}] PASS: command-log wrapper core-path membership, failure-output, temp-path membership enforcement, existing first-core-path pair assignment, stderr-log, python-command, JSON-mutation, and stderr-substring helpers stay aligned with wrapper-owned fixtures."
+echo "[${script_label}] PASS: command-log wrapper core-path membership, failure-output, temp-path membership enforcement, temp-root first-core-path resolution, existing first-core-path pair assignment, stderr-log, python-command, JSON-mutation, and stderr-substring helpers stay aligned with wrapper-owned fixtures."

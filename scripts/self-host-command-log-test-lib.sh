@@ -65,6 +65,13 @@ self_host_command_log_first_core_path_in_root() {
   self_host_command_log_path_in_root "${root}" "${first_relative_path}"
 }
 
+self_host_command_log_first_core_path_in_tmp_root() {
+  local tmp_root=""
+
+  tmp_root="$(self_host_command_log_tmp_root)" || return 1
+  self_host_command_log_first_core_path_in_root "${tmp_root}"
+}
+
 self_host_command_log_first_core_path_pair_in_root() {
   local root="${1:-}"
   local first_relative_path=""
