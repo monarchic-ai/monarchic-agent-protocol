@@ -1,14 +1,15 @@
 {
   "status": "pass",
-  "milestone_completed": "M66",
-  "milestones_done": 66,
-  "total_milestones": 66,
+  "milestone_completed": "M67",
+  "milestones_done": 67,
+  "total_milestones": 67,
   "new_files": [],
   "changed_files": [
     "scripts/self-host-command-log-test-lib.sh",
-    "scripts/test-self-host-artifact-command-log-path-helper.sh",
-    "scripts/test-self-host-artifact-command-log-shared-fixtures.sh",
-    "scripts/test-self-host-artifact-command-log-source-repo-seeding.sh",
+    "scripts/test-self-host-artifact-command-log-first-command.sh",
+    "scripts/test-self-host-artifact-command-log-format.sh",
+    "scripts/test-self-host-artifact-command-log-gate.sh",
+    "scripts/test-self-host-artifact-command-log-reason-codes.sh",
     "scripts/test-self-host-artifact-command-log-wrapper-ownership.sh",
     "SELF_HOST_COMMAND_LOG.json",
     "SELF_HOST_PROOF.json",
@@ -17,6 +18,6 @@
     "SELF_HOST_REPORT.json",
     "SELF_HOST_UPDATE.json"
   ],
-  "test_command": "bash scripts/test-self-host-proof-artifacts.sh && bash -n scripts/self-host-command-log-test-lib.sh && bash -n scripts/test-self-host-artifact-command-log-path-helper.sh && bash -n scripts/test-self-host-artifact-command-log-shared-fixtures.sh && bash -n scripts/test-self-host-artifact-command-log-source-repo-seeding.sh && bash -n scripts/test-self-host-artifact-command-log-wrapper-ownership.sh && bash scripts/test-self-host-artifact-command-log-path-helper.sh && bash scripts/test-self-host-artifact-command-log-shared-fixtures.sh && bash scripts/test-self-host-artifact-command-log-source-repo-seeding.sh && bash scripts/test-self-host-artifact-command-log-wrapper-ownership.sh && bash scripts/test-self-host-artifacts.sh && python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null && python3 -m json.tool SELF_HOST_PROOF.json >/dev/null && python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null && python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null && python3 -m json.tool SELF_HOST_REPORT.json >/dev/null && python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null",
-  "note": "Status is pass because verification succeeded, milestones_done increased from 65 to 66 versus the prior report, and M66 centralized command-log first-core-path root resolution behind self_host_command_log_first_core_path_in_root after confirming the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remained inactive."
+  "test_command": "bash scripts/test-self-host-proof-artifacts.sh && bash -n scripts/self-host-command-log-test-lib.sh && bash -n scripts/test-self-host-artifact-command-log-first-command.sh && bash -n scripts/test-self-host-artifact-command-log-format.sh && bash -n scripts/test-self-host-artifact-command-log-gate.sh && bash -n scripts/test-self-host-artifact-command-log-reason-codes.sh && bash -n scripts/test-self-host-artifact-command-log-wrapper-ownership.sh && bash scripts/test-self-host-artifact-command-log-first-command.sh && bash scripts/test-self-host-artifact-command-log-format.sh && bash scripts/test-self-host-artifact-command-log-gate.sh && bash scripts/test-self-host-artifact-command-log-reason-codes.sh && bash scripts/test-self-host-artifact-command-log-wrapper-ownership.sh && bash scripts/test-self-host-artifacts.sh && python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null && python3 -m json.tool SELF_HOST_PROOF.json >/dev/null && python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null && python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null && python3 -m json.tool SELF_HOST_REPORT.json >/dev/null && python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null",
+  "note": "Status is pass because verification succeeded, milestones_done increased from 66 to 67 versus the prior report, and M67 centralized deterministic command-log baseline-reset temp-path setup behind self_host_command_log_reset_and_resolve_tmp_path after confirming the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remained inactive."
 }

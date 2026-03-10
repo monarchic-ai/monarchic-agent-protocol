@@ -460,5 +460,12 @@
     "status": "done",
     "completed_at": "2026-03-07T12:54:20Z",
     "notes": "Confirmed the NEXT_PRIORITY_TASK M49 recovery path remains inactive because command-log regressions still avoid direct self_host_artifact_* reach-through, added self_host_command_log_first_core_path_in_root to centralize first-core-path root joins, migrated the path-helper, shared-fixtures, and source-repo seeding regressions to that helper, refreshed proof coverage, and tightened wrapper-ownership validation so future first-core-path path joins stay centralized."
+  },
+  {
+    "id": "M67",
+    "title": "Centralize deterministic command-log baseline-reset temp-path setup behind a wrapper helper",
+    "status": "done",
+    "completed_at": "2026-03-10T02:37:23Z",
+    "notes": "Confirmed the NEXT_PRIORITY_TASK M49 recovery path remains inactive because the command-log regressions still avoid direct self_host_artifact_* reach-through, added self_host_command_log_reset_and_resolve_tmp_path to centralize verified baseline reset plus temp command-log path resolution, migrated the first-command, format, gate, and reason-code regressions to that helper, refreshed proof coverage, and tightened wrapper-ownership validation so deterministic mutation setup stays centralized."
   }
 ]
