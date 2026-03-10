@@ -1,20 +1,21 @@
 {
   "status": "pass",
-  "milestone_completed": "M74",
-  "milestones_done": 74,
-  "total_milestones": 74,
+  "milestone_completed": "M75",
+  "milestones_done": 75,
+  "total_milestones": 75,
   "new_files": [],
   "changed_files": [
     "scripts/self-host-command-log-test-lib.sh",
-    "scripts/test-self-host-artifact-command-log-path-helper.sh",
+    "scripts/test-self-host-artifact-command-log-gate.sh",
+    "scripts/test-self-host-artifact-command-log-reason-codes.sh",
     "scripts/test-self-host-artifact-command-log-wrapper-ownership.sh",
     "SELF_HOST_COMMAND_LOG.json",
-    "SELF_HOST_PROOF.json",
     "SELF_HOST_MILESTONES.json",
     "SELF_HOST_IMPLEMENTATION_LOG.json",
+    "SELF_HOST_PROOF.json",
     "SELF_HOST_REPORT.json",
     "SELF_HOST_UPDATE.json"
   ],
-  "test_command": "bash scripts/test-self-host-proof-artifacts.sh && bash -n scripts/self-host-command-log-test-lib.sh && bash -n scripts/test-self-host-artifact-command-log-path-helper.sh && bash -n scripts/test-self-host-artifact-command-log-wrapper-ownership.sh && bash scripts/test-self-host-artifact-command-log-path-helper.sh && bash scripts/test-self-host-artifact-command-log-wrapper-ownership.sh && bash scripts/test-self-host-artifacts.sh && python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null && python3 -m json.tool SELF_HOST_PROOF.json >/dev/null && python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null && python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null && python3 -m json.tool SELF_HOST_REPORT.json >/dev/null && python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null",
-  "note": "Status is pass because verification succeeded, milestones_done increased from 73 to 74 versus the prior report, and M74 centralized command-log temp-path core-path membership validation on the wrapper helper after confirming the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remained inactive."
+  "test_command": "bash scripts/test-self-host-proof-artifacts.sh && bash -n scripts/self-host-command-log-test-lib.sh && bash -n scripts/test-self-host-artifact-command-log-gate.sh && bash -n scripts/test-self-host-artifact-command-log-reason-codes.sh && bash -n scripts/test-self-host-artifact-command-log-wrapper-ownership.sh && bash scripts/test-self-host-artifact-command-log-gate.sh && bash scripts/test-self-host-artifact-command-log-reason-codes.sh && bash scripts/test-self-host-artifact-command-log-wrapper-ownership.sh && bash scripts/test-self-host-artifacts.sh && python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null && python3 -m json.tool SELF_HOST_PROOF.json >/dev/null && python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null && python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null && python3 -m json.tool SELF_HOST_REPORT.json >/dev/null && python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null",
+  "note": "Status is pass because verification succeeded, milestones_done increased from 74 to 75 versus the prior report, M75 centralized mutation-based command-log reason-code assertions on self_host_command_log_expect_reason_code_after_mutation, and the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remained inactive because command-log regressions still avoid direct self_host_artifact_* reach-through."
 }

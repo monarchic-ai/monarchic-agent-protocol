@@ -2,29 +2,25 @@
   "task_id": "task-self-host-001",
   "status": "pass",
   "reason_code": "OK",
-  "signature_count": 5,
+  "signature_count": 4,
   "sampled_batches": 1,
   "proofs": [
     {
       "path": "scripts/self-host-command-log-test-lib.sh",
-      "sha256": "89a236d445911eaf4870c03c496534820192e96e6d6965a515ef4b322f9b272d"
+      "sha256": "36d3548edc4843de5fcb3745b6a2b6996106dffcf05bc01bce4d6c62e579d870"
     },
     {
-      "path": "scripts/test-self-host-artifact-command-log-path-helper.sh",
-      "sha256": "7ce678541aa2d0f7a656af3b9ac44d9b7cdab72b0f4a407dd0b1ad29a2ce3ac6"
+      "path": "scripts/test-self-host-artifact-command-log-gate.sh",
+      "sha256": "f5a7c21350881519ba8470c351ebaab01928b04e66cf79b9e349b972499fb551"
     },
     {
-      "path": "scripts/test-self-host-artifact-command-log-shared-fixtures.sh",
-      "sha256": "24b424953dbcb62019cd523009f8f5b518e3ac86cf6907c877ad6a5067f3f1a8"
-    },
-    {
-      "path": "scripts/test-self-host-artifact-command-log-source-repo-seeding.sh",
-      "sha256": "f1bfb5aa527f0e5fdca0d42e22d063051552d854a79ee9233a945ae6ec4a88a7"
+      "path": "scripts/test-self-host-artifact-command-log-reason-codes.sh",
+      "sha256": "78d9d08fc18b9ab098e3b567417ed792a63187fd993a8e0ec4f89f30ea18a795"
     },
     {
       "path": "scripts/test-self-host-artifact-command-log-wrapper-ownership.sh",
-      "sha256": "35654a6599ebe9cca8c6205bfba180c47047cc84c2c8ea74caced795734c4e6b"
+      "sha256": "d696cb9a117b97a94ba80dfe089f77f5ffc2f372578b7cd5e62156830ef08ac4"
     }
   ],
-  "note": "Deterministic proof manifest for self-host artifact validation, covering the wrapper-owned command-log helper library plus the path-helper/shared-fixtures/source-repo-seeding regressions and wrapper-ownership checks after centralizing temp-path core-path membership validation on the wrapper helper."
+  "note": "Deterministic proof manifest for self-host artifact validation, covering the wrapper-owned command-log helper library plus the gate/reason-code regressions and wrapper-ownership checks after centralizing mutation-based reason-code assertions on a shared helper."
 }

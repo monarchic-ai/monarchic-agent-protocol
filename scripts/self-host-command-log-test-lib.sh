@@ -403,6 +403,26 @@ self_host_command_log_reset_and_resolve_tmp_path() {
   self_host_command_log_tmp_path
 }
 
+self_host_command_log_expect_reason_code_after_mutation() {
+  local expected_reason_code="${1:-}"
+  local failure_message="${2:-}"
+  local command_log_path=""
+
+  if [[ -z "${expected_reason_code}" ]]; then
+    echo "[self-host-command-log-test-lib] Expected a non-empty reason code for mutation-based failure assertions." >&2
+    return 1
+  fi
+
+  if [[ -z "${failure_message}" ]]; then
+    echo "[self-host-command-log-test-lib] Expected a non-empty failure message for mutation-based reason-code assertions." >&2
+    return 1
+  fi
+
+  command_log_path="$(self_host_command_log_reset_and_resolve_tmp_path)" || return 1
+  self_host_command_log_mutate_json "${command_log_path}" || return 1
+  self_host_command_log_expect_reason_code "${expected_reason_code}" "${failure_message}"
+}
+
 self_host_command_log_run_check() {
   self_host_artifact_run_check
 }
