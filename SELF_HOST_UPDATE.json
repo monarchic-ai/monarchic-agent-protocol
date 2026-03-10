@@ -1,14 +1,14 @@
 {
   "status": "pass",
-  "headline": "Completed M76 by centralizing seeded empty report-list validation on root-scoped command-log helpers.",
-  "current_focus": "Current focus is using M49 only if another issue #1 regression resumes direct artifact-lib reach-through; seeded source-repo command-log coverage now keeps report-path joins and empty report-list validation on wrapper-owned helpers so future shared fixture changes do not require duplicated report-path drift in non-protobuf shell coverage.",
-  "milestone_target": "M76 completed: seeded source-repo bootstrap now validates empty report lists through self_host_command_log_assert_report_paths_empty_in_root and resolves report paths through self_host_command_log_report_path_in_root.",
-  "milestones_done": 76,
-  "total_milestones": 76,
+  "headline": "Completed M77 by centralizing seeded report JSON mutation on root-scoped command-log helpers.",
+  "current_focus": "Current focus is using M49 only if another issue #1 regression resumes direct artifact-lib reach-through; seeded source-repo command-log coverage now keeps report-path joins, empty report-list validation, and seeded report JSON mutation on wrapper-owned helpers so future shared fixture changes do not require inline Python or duplicated root/path joins in non-protobuf shell coverage.",
+  "milestone_target": "M77 completed: seeded source-repo bootstrap now mutates SELF_HOST_REPORT.json through self_host_command_log_mutate_report_json_in_root, which resolves the report path through self_host_command_log_report_path_in_root and shares JSON rewrite boilerplate with self_host_command_log_mutate_json_file.",
+  "milestones_done": 77,
+  "total_milestones": 77,
   "completed_work": [
     "Revalidated the NEXT_PRIORITY_TASK M49 trigger and confirmed command-log regressions still avoid direct self_host_artifact_* reach-through, so the recovery path remained inactive for this run.",
-    "Added self_host_command_log_report_relative_path, self_host_command_log_report_path_in_root, and self_host_command_log_assert_report_paths_empty_in_root to centralize seeded report-path resolution plus empty report-list validation in the wrapper-owned command-log helper library.",
-    "Migrated the source-repo seeding regression to the new helpers, tightened wrapper-ownership coverage to require that delegation, and refreshed the proof manifest for the seeded report-validation scope."
+    "Added self_host_command_log_mutate_json_file and self_host_command_log_mutate_report_json_in_root to centralize reusable JSON mutation plus seeded report-path resolution in the wrapper-owned command-log helper library.",
+    "Migrated the source-repo seeding regression to the new helper, tightened wrapper-ownership coverage to require that delegation, and refreshed the proof manifest for the seeded report-mutation scope."
   ],
   "verification": [
     "bash scripts/test-self-host-proof-artifacts.sh -> pass",
@@ -26,11 +26,11 @@
     "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
   ],
   "blockers": [
-    "No blockers in M76 scope."
+    "No blockers in M77 scope."
   ],
   "next_steps": [
     "Use M49 only if another issue #1 regression reaches into artifact-lib details instead of wrapper-owned helpers.",
-    "Keep future seeded source-repo report-list coverage on self_host_command_log_prepare_seeded_source_repo, self_host_command_log_report_path_in_root, and self_host_command_log_assert_report_paths_empty_in_root so report-path joins and empty-list validation do not drift back into individual shell tests."
+    "Keep future seeded source-repo report mutation coverage on self_host_command_log_mutate_report_json_in_root, self_host_command_log_report_path_in_root, and self_host_command_log_assert_report_paths_empty_in_root so report-path joins, empty-list validation, and JSON rewrite boilerplate do not drift back into individual shell tests."
   ],
-  "note": "Status is pass because verification succeeded, milestones_done increased from 75 to 76 versus the prior report, M76 centralized seeded empty report-list validation on self_host_command_log_report_path_in_root and self_host_command_log_assert_report_paths_empty_in_root, and the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remained inactive because command-log regressions still avoid direct self_host_artifact_* reach-through."
+  "note": "Status is pass because verification succeeded, milestones_done increased from 76 to 77 versus the prior report, M77 centralized seeded report JSON mutation on self_host_command_log_mutate_report_json_in_root and self_host_command_log_mutate_json_file, and the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remained inactive because command-log regressions still avoid direct self_host_artifact_* reach-through."
 }

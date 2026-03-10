@@ -308,6 +308,32 @@ self_host_command_log_report_path_in_root() {
   self_host_command_log_path_in_root "${root}" "$(self_host_command_log_report_relative_path)"
 }
 
+self_host_command_log_mutate_report_json_in_root() {
+  local script_label="${1:-}"
+  local root="${2:-}"
+  local report_path=""
+  local python_cmd=""
+
+  if [[ -z "${script_label}" ]]; then
+    echo "[self-host-command-log-test-lib] Expected a non-empty script label for report JSON mutation." >&2
+    return 1
+  fi
+
+  if [[ -z "${root}" ]]; then
+    echo "[self-host-command-log-test-lib] Expected a non-empty root for report JSON mutation." >&2
+    return 1
+  fi
+
+  report_path="$(self_host_command_log_report_path_in_root "${root}")" || return 1
+  if [[ ! -f "${report_path}" ]]; then
+    echo "[${script_label}] Expected ${report_path} to exist for report JSON mutation." >&2
+    return 1
+  fi
+
+  python_cmd="$(self_host_artifact_choose_python "${script_label}")" || return 1
+  self_host_command_log_mutate_json_file "${python_cmd}" "${report_path}"
+}
+
 self_host_command_log_tmp_path_for_relative_path() {
   local relative_path="${1:-}"
   local tmp_root=""
@@ -345,24 +371,28 @@ self_host_command_log_python_cmd() {
   printf '%s\n' "${SELF_HOST_COMMAND_LOG_PYTHON_CMD}"
 }
 
-self_host_command_log_mutate_json() {
-  local command_log_path="${1:-}"
+self_host_command_log_mutate_json_file() {
+  local python_cmd="${1:-}"
+  local json_path="${2:-}"
   local mutation_script=""
-  local python_cmd=""
 
-  if [[ -z "${command_log_path}" ]]; then
-    echo "[self-host-command-log-test-lib] Expected a non-empty command-log path for JSON mutation." >&2
+  if [[ -z "${python_cmd}" ]]; then
+    echo "[self-host-command-log-test-lib] Expected a non-empty python command for JSON mutation." >&2
+    return 1
+  fi
+
+  if [[ -z "${json_path}" ]]; then
+    echo "[self-host-command-log-test-lib] Expected a non-empty JSON path for mutation." >&2
     return 1
   fi
 
   mutation_script="$(cat)"
   if [[ -z "${mutation_script}" ]]; then
-    echo "[self-host-command-log-test-lib] Expected a non-empty command-log JSON mutation snippet on stdin." >&2
+    echo "[self-host-command-log-test-lib] Expected a non-empty JSON mutation snippet on stdin." >&2
     return 1
   fi
 
-  python_cmd="$(self_host_command_log_python_cmd)"
-  SELF_HOST_COMMAND_LOG_MUTATION="${mutation_script}" "${python_cmd}" - "${command_log_path}" <<'PY'
+  SELF_HOST_COMMAND_LOG_MUTATION="${mutation_script}" "${python_cmd}" - "${json_path}" <<'PY'
 import json
 import os
 import sys
@@ -370,18 +400,31 @@ import sys
 path = sys.argv[1]
 mutation = os.environ.get("SELF_HOST_COMMAND_LOG_MUTATION", "")
 if not mutation:
-    raise SystemExit("Expected a non-empty command-log JSON mutation snippet.")
+    raise SystemExit("Expected a non-empty JSON mutation snippet.")
 
 with open(path, "r", encoding="utf-8") as handle:
-    command_log = json.load(handle)
+    document = json.load(handle)
 
-namespace = {"command_log": command_log}
+namespace = {"command_log": document, "document": document, "report": document}
 exec(compile(mutation, "<self-host-command-log-mutation>", "exec"), namespace)
 
 with open(path, "w", encoding="utf-8") as handle:
-    json.dump(command_log, handle, indent=2)
+    json.dump(document, handle, indent=2)
     handle.write("\n")
 PY
+}
+
+self_host_command_log_mutate_json() {
+  local command_log_path="${1:-}"
+  local python_cmd=""
+
+  if [[ -z "${command_log_path}" ]]; then
+    echo "[self-host-command-log-test-lib] Expected a non-empty command-log path for JSON mutation." >&2
+    return 1
+  fi
+
+  python_cmd="$(self_host_command_log_python_cmd)"
+  self_host_command_log_mutate_json_file "${python_cmd}" "${command_log_path}"
 }
 
 self_host_command_log_report_paths() {
