@@ -23,7 +23,9 @@ wrapper_report_paths_helper="self_host_command_log_report_paths"
 wrapper_empty_report_paths_helper="self_host_command_log_assert_report_paths_empty"
 wrapper_root_path_helper="self_host_command_log_path_in_root"
 wrapper_tmp_path_helper="self_host_command_log_tmp_path_for_relative_path"
+wrapper_command_log_tmp_path_helper="self_host_command_log_tmp_path"
 wrapper_reset_baseline_helper="self_host_command_log_reset_and_assert_baseline"
+wrapper_reset_tmp_path_helper="self_host_command_log_reset_and_resolve_tmp_path"
 wrapper_stderr_contains_helper="self_host_command_log_expect_stderr_contains"
 wrapper_failure_contains_helper="self_host_command_log_expect_failure_contains"
 wrapper_python_cmd_helper="self_host_command_log_python_cmd"
@@ -130,6 +132,22 @@ if [[ "${first_core_path_in_root_body}" != *"${wrapper_root_path_helper}"* ]]; t
   exit 1
 fi
 
+reset_tmp_path_body="$(wrapper_helper_body "${wrapper_reset_tmp_path_helper}")"
+if [[ -z "${reset_tmp_path_body}" ]]; then
+  echo "[${script_label}] Expected ${wrapper_lib_reference} to define ${wrapper_reset_tmp_path_helper}." >&2
+  exit 1
+fi
+
+if [[ "${reset_tmp_path_body}" != *"${wrapper_reset_baseline_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_reset_tmp_path_helper} to keep baseline reset coverage on ${wrapper_reset_baseline_helper}." >&2
+  exit 1
+fi
+
+if [[ "${reset_tmp_path_body}" != *"${wrapper_command_log_tmp_path_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_reset_tmp_path_helper} to resolve the temp command-log path through ${wrapper_command_log_tmp_path_helper}." >&2
+  exit 1
+fi
+
 validated_script_count=0
 
 for script_path in "${command_log_scripts[@]}"; do
@@ -185,6 +203,16 @@ for script_path in "${command_log_scripts[@]}"; do
 
   case "${script_name}" in
     test-self-host-artifact-command-log-first-command.sh|test-self-host-artifact-command-log-format.sh|test-self-host-artifact-command-log-gate.sh|test-self-host-artifact-command-log-reason-codes.sh)
+      if ! grep -Fq "${wrapper_reset_tmp_path_helper}" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to use ${wrapper_reset_tmp_path_helper} so deterministic mutation coverage keeps baseline-reset temp-path setup centralized." >&2
+        exit 1
+      fi
+
+      if grep -Eq "\\b${wrapper_reset_baseline_helper}\\b|\\b${wrapper_command_log_tmp_path_helper}\\b" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to resolve baseline-reset temp command-log paths through ${wrapper_reset_tmp_path_helper} instead of open-coding ${wrapper_reset_baseline_helper} plus ${wrapper_command_log_tmp_path_helper}." >&2
+        exit 1
+      fi
+
       if ! grep -Fq "${wrapper_json_mutation_helper}" "${script_path}"; then
         echo "[${script_label}] Expected ${script_name} to use ${wrapper_json_mutation_helper} so repeated command-log JSON mutations stay centralized." >&2
         exit 1
@@ -192,11 +220,6 @@ for script_path in "${command_log_scripts[@]}"; do
 
       if grep -Eq 'json\.load|json\.dump' "${script_path}"; then
         echo "[${script_label}] Expected ${script_name} to keep command-log JSON load/write boilerplate inside ${wrapper_json_mutation_helper}." >&2
-        exit 1
-      fi
-
-      if ! grep -Fq "${wrapper_reset_baseline_helper}" "${script_path}"; then
-        echo "[${script_label}] Expected ${script_name} to use ${wrapper_reset_baseline_helper} so reset-plus-baseline coverage stays centralized." >&2
         exit 1
       fi
       ;;
@@ -349,4 +372,4 @@ if [[ "${validated_script_count}" -eq 0 ]]; then
   exit 1
 fi
 
-echo "[${script_label}] PASS: command-log regression scripts stay on wrapper-owned helpers, keep temp-path/root-path/core-path/first-core-path/seeded-source-repo/seeded-baseline/python-command/json-mutation/failure-output/stderr-assertion ownership centralized, and avoid direct wrapper state reads."
+echo "[${script_label}] PASS: command-log regression scripts stay on wrapper-owned helpers, keep baseline-reset temp-path/root-path/core-path/first-core-path/seeded-source-repo/seeded-baseline/python-command/json-mutation/failure-output/stderr-assertion ownership centralized, and avoid direct wrapper state reads."

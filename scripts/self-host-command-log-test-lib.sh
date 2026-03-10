@@ -288,6 +288,11 @@ self_host_command_log_reset_and_assert_baseline() {
   self_host_command_log_assert_baseline_passes
 }
 
+self_host_command_log_reset_and_resolve_tmp_path() {
+  self_host_command_log_reset_and_assert_baseline
+  self_host_command_log_tmp_path
+}
+
 self_host_command_log_run_check() {
   self_host_artifact_run_check
 }
