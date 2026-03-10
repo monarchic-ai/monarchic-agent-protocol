@@ -26,7 +26,7 @@ fi
 self_host_command_log_assert_core_path_listed "${command_log_relative_path}"
 
 first_core_relative_path="$(self_host_command_log_first_core_path)"
-self_host_command_log_assign_first_core_path_pair_in_tmp_root paired_first_core_relative_path paired_first_core_path_in_root
+self_host_command_log_assign_existing_first_core_path_pair_in_tmp_root paired_first_core_relative_path paired_first_core_path_in_root
 
 if ! self_host_command_log_assert_core_path_listed "${first_core_relative_path}"; then
   echo "[${script_label}] Expected first core-path helper to resolve one wrapper-owned core path, found ${first_core_relative_path}." >&2
@@ -66,11 +66,6 @@ fi
 
 if [[ ! -f "${command_log_path}" ]]; then
   echo "[${script_label}] Expected baseline fixtures to restore ${command_log_relative_path}." >&2
-  exit 1
-fi
-
-if [[ ! -f "${first_core_path}" ]]; then
-  echo "[${script_label}] Expected first core-path helper to resolve a restored wrapper-owned artifact, found ${first_core_relative_path}." >&2
   exit 1
 fi
 
@@ -115,4 +110,4 @@ self_host_command_log_expect_stderr_contains \
   "command index must be a contiguous integer sequence" \
   "Expected stderr substring helper to detect deterministic command-log format drift."
 
-echo "[${script_label}] PASS: command-log wrapper core-path membership, failure-output, temp-path, first-core-path pair assignment, stderr-log, python-command, JSON-mutation, and stderr-substring helpers stay aligned with wrapper-owned fixtures."
+echo "[${script_label}] PASS: command-log wrapper core-path membership, failure-output, temp-path, existing first-core-path pair assignment, stderr-log, python-command, JSON-mutation, and stderr-substring helpers stay aligned with wrapper-owned fixtures."
