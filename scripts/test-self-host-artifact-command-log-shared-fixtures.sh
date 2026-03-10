@@ -16,12 +16,7 @@ trap cleanup EXIT
 
 self_host_command_log_prepare_seeded_source_repo_baseline "${script_label}" "${repo_root}" "${source_repo}" "${check_script}"
 
-self_host_command_log_assign_first_core_path_pair_in_tmp_root restored_relative_path restored_path
-
-if [[ ! -f "${restored_path}" ]]; then
-  echo "[${script_label}] Expected baseline fixtures to copy ${restored_relative_path}." >&2
-  exit 1
-fi
+self_host_command_log_assign_existing_first_core_path_pair_in_tmp_root restored_relative_path restored_path
 
 rm -f "${restored_path}"
 
@@ -32,8 +27,15 @@ fi
 
 self_host_command_log_reset_and_assert_baseline
 
-if [[ ! -f "${restored_path}" ]]; then
-  echo "[${script_label}] Expected reset to restore ${restored_relative_path}." >&2
+self_host_command_log_assign_existing_first_core_path_pair_in_tmp_root restored_again_relative_path restored_again_path
+
+if [[ "${restored_again_relative_path}" != "${restored_relative_path}" ]]; then
+  echo "[${script_label}] Expected reset to restore the same first core relative path ${restored_relative_path}, found ${restored_again_relative_path}." >&2
+  exit 1
+fi
+
+if [[ "${restored_again_path}" != "${restored_path}" ]]; then
+  echo "[${script_label}] Expected reset to restore the same first core rooted path ${restored_path}, found ${restored_again_path}." >&2
   exit 1
 fi
 
