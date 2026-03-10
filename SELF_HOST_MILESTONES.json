@@ -537,5 +537,12 @@
     "status": "done",
     "completed_at": "2026-03-10T09:30:23Z",
     "notes": "Confirmed the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remains inactive because command-log regressions still avoid direct self_host_artifact_* reach-through, added self_host_command_log_mutate_json_file and self_host_command_log_mutate_report_json_in_root to centralize seeded report JSON mutation plus reusable wrapper-owned JSON rewrite boilerplate, migrated the source-repo seeding regression to the new helper, refreshed proof coverage, and tightened wrapper-ownership validation so seeded report mutation stays centralized."
+  },
+  {
+    "id": "M78",
+    "title": "Centralize common command-log status and index reason-code regressions on one wrapper helper",
+    "status": "done",
+    "completed_at": "2026-03-10T09:40:35Z",
+    "notes": "Confirmed the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remains inactive because command-log regressions still avoid direct self_host_artifact_* reach-through, added self_host_command_log_expect_status_and_index_reason_codes to centralize the shared blocked-status and non-contiguous-index reason-code regressions on the wrapper-owned command-log helper library, migrated the gate and reason-code regressions to that helper, refreshed proof coverage, and tightened wrapper-ownership validation so common mutation-based reason-code checks do not drift back into duplicated shell snippets."
   }
 ]

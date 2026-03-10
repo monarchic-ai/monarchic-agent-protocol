@@ -522,6 +522,36 @@ self_host_command_log_expect_reason_code_after_mutation() {
   self_host_command_log_expect_reason_code "${expected_reason_code}" "${failure_message}"
 }
 
+self_host_command_log_expect_status_and_index_reason_codes() {
+  local status_failure_message="${1:-}"
+  local index_failure_message="${2:-}"
+
+  if [[ -z "${status_failure_message}" ]]; then
+    echo "[self-host-command-log-test-lib] Expected a non-empty failure message for status-mismatch coverage." >&2
+    return 1
+  fi
+
+  if [[ -z "${index_failure_message}" ]]; then
+    echo "[self-host-command-log-test-lib] Expected a non-empty failure message for index-invalid coverage." >&2
+    return 1
+  fi
+
+  self_host_command_log_expect_reason_code_after_mutation \
+    "COMMAND_LOG_STATUS_MISMATCH" \
+    "${status_failure_message}" <<'PY'
+command_log["status"] = "blocked"
+PY
+
+  self_host_command_log_expect_reason_code_after_mutation \
+    "COMMAND_LOG_INDEX_INVALID" \
+    "${index_failure_message}" <<'PY'
+if not command_log["commands"]:
+    raise SystemExit("Need at least one command entry for regression test.")
+
+command_log["commands"][0]["index"] = 99
+PY
+}
+
 self_host_command_log_run_check() {
   self_host_artifact_run_check
 }

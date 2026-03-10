@@ -1,21 +1,23 @@
 {
   "status": "pass",
-  "headline": "Completed M77 by centralizing seeded report JSON mutation on root-scoped command-log helpers.",
-  "current_focus": "Current focus is using M49 only if another issue #1 regression resumes direct artifact-lib reach-through; seeded source-repo command-log coverage now keeps report-path joins, empty report-list validation, and seeded report JSON mutation on wrapper-owned helpers so future shared fixture changes do not require inline Python or duplicated root/path joins in non-protobuf shell coverage.",
-  "milestone_target": "M77 completed: seeded source-repo bootstrap now mutates SELF_HOST_REPORT.json through self_host_command_log_mutate_report_json_in_root, which resolves the report path through self_host_command_log_report_path_in_root and shares JSON rewrite boilerplate with self_host_command_log_mutate_json_file.",
-  "milestones_done": 77,
-  "total_milestones": 77,
+  "headline": "Completed M78 by centralizing common command-log status/index reason-code regressions on one wrapper helper.",
+  "current_focus": "Current focus is using M49 only if another issue #1 regression resumes direct artifact-lib reach-through; common command-log status/index reason-code regressions now stay on self_host_command_log_expect_status_and_index_reason_codes so gate and reason-code shell coverage can add cases without repeating inline mutation snippets.",
+  "milestone_target": "M78 completed: common command-log status/index reason-code regressions now route through self_host_command_log_expect_status_and_index_reason_codes, which delegates to self_host_command_log_expect_reason_code_after_mutation and keeps shared mutation snippets out of the gate and reason-code shell tests.",
+  "milestones_done": 78,
+  "total_milestones": 78,
   "completed_work": [
     "Revalidated the NEXT_PRIORITY_TASK M49 trigger and confirmed command-log regressions still avoid direct self_host_artifact_* reach-through, so the recovery path remained inactive for this run.",
-    "Added self_host_command_log_mutate_json_file and self_host_command_log_mutate_report_json_in_root to centralize reusable JSON mutation plus seeded report-path resolution in the wrapper-owned command-log helper library.",
-    "Migrated the source-repo seeding regression to the new helper, tightened wrapper-ownership coverage to require that delegation, and refreshed the proof manifest for the seeded report-mutation scope."
+    "Added self_host_command_log_expect_status_and_index_reason_codes to centralize the shared blocked-status and non-contiguous-index reason-code regressions on the wrapper-owned command-log helper library.",
+    "Migrated the gate and reason-code shell regressions to the new helper, tightened wrapper-ownership coverage to require that delegation, and refreshed the proof manifest for the common reason-code regression scope."
   ],
   "verification": [
     "bash scripts/test-self-host-proof-artifacts.sh -> pass",
     "bash -n scripts/self-host-command-log-test-lib.sh -> pass",
-    "bash -n scripts/test-self-host-artifact-command-log-source-repo-seeding.sh -> pass",
+    "bash -n scripts/test-self-host-artifact-command-log-gate.sh -> pass",
+    "bash -n scripts/test-self-host-artifact-command-log-reason-codes.sh -> pass",
     "bash -n scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
-    "bash scripts/test-self-host-artifact-command-log-source-repo-seeding.sh -> pass",
+    "bash scripts/test-self-host-artifact-command-log-gate.sh -> pass",
+    "bash scripts/test-self-host-artifact-command-log-reason-codes.sh -> pass",
     "bash scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
     "bash scripts/test-self-host-artifacts.sh -> pass",
     "python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null -> pass",
@@ -26,11 +28,11 @@
     "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
   ],
   "blockers": [
-    "No blockers in M77 scope."
+    "No blockers in M78 scope."
   ],
   "next_steps": [
     "Use M49 only if another issue #1 regression reaches into artifact-lib details instead of wrapper-owned helpers.",
-    "Keep future seeded source-repo report mutation coverage on self_host_command_log_mutate_report_json_in_root, self_host_command_log_report_path_in_root, and self_host_command_log_assert_report_paths_empty_in_root so report-path joins, empty-list validation, and JSON rewrite boilerplate do not drift back into individual shell tests."
+    "Keep future command-log status/index reason-code coverage on self_host_command_log_expect_status_and_index_reason_codes so common mutation snippets do not drift back into individual shell regressions."
   ],
-  "note": "Status is pass because verification succeeded, milestones_done increased from 76 to 77 versus the prior report, M77 centralized seeded report JSON mutation on self_host_command_log_mutate_report_json_in_root and self_host_command_log_mutate_json_file, and the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remained inactive because command-log regressions still avoid direct self_host_artifact_* reach-through."
+  "note": "Status is pass because verification succeeded, milestones_done increased from 77 to 78 versus the prior report, M78 centralized common command-log status/index reason-code regressions on self_host_command_log_expect_status_and_index_reason_codes, and the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remained inactive because command-log regressions still avoid direct self_host_artifact_* reach-through."
 }
