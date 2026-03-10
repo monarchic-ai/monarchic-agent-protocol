@@ -7,16 +7,16 @@
   "proofs": [
     {
       "path": "scripts/self-host-command-log-test-lib.sh",
-      "sha256": "1d1b551cdf69895dd17b4eb23a54551eb997e291323d8c00953007e918179496"
+      "sha256": "b6bc38455bfb38b83ab0f3af9645b625ae87e6bf8ec4495c090d3a81e21b3a6b"
     },
     {
       "path": "scripts/test-self-host-artifact-command-log-path-helper.sh",
-      "sha256": "8679f1e2d254ecb761fe99941ef5c25e5ab05d2eebeb3fbc3e1f3cfd48328138"
+      "sha256": "1e28d56ca5df059db3b06011871f23e293d98ce3c41bffede010ea05494980a9"
     },
     {
       "path": "scripts/test-self-host-artifact-command-log-wrapper-ownership.sh",
-      "sha256": "188a913d9aa05d3d64717a2934183cf5ed165d7d267220477a3ba466e614ea90"
+      "sha256": "b74075eda412097ffac14fd8a160352bc27c914cef5e7d5715667fd9ad7c7bf0"
     }
   ],
-  "note": "Deterministic proof manifest for self-host artifact validation, covering the wrapper-owned command-log helper library plus the path-helper and wrapper-ownership regressions after centralizing temp-root first-core-path resolution on a wrapper helper."
+  "note": "Deterministic proof manifest for self-host artifact validation, covering the wrapper-owned command-log helper library plus the path-helper and wrapper-ownership regressions after centralizing root-scoped report helper python selection on a wrapper helper."
 }
