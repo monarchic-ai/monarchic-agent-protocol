@@ -39,6 +39,7 @@ wrapper_reset_baseline_helper="self_host_command_log_reset_and_assert_baseline"
 wrapper_reset_tmp_path_helper="self_host_command_log_reset_and_resolve_tmp_path"
 wrapper_reason_code_helper="self_host_command_log_expect_reason_code"
 wrapper_reason_code_after_mutation_helper="self_host_command_log_expect_reason_code_after_mutation"
+wrapper_stderr_contains_after_mutation_helper="self_host_command_log_expect_stderr_contains_after_mutation"
 wrapper_status_and_index_reason_codes_helper="self_host_command_log_expect_status_and_index_reason_codes"
 wrapper_stderr_contains_helper="self_host_command_log_expect_stderr_contains"
 wrapper_failure_contains_helper="self_host_command_log_expect_failure_contains"
@@ -350,6 +351,27 @@ if [[ "${reason_code_after_mutation_body}" != *"${wrapper_reason_code_helper}"* 
   exit 1
 fi
 
+stderr_contains_after_mutation_body="$(wrapper_helper_body "${wrapper_stderr_contains_after_mutation_helper}")"
+if [[ -z "${stderr_contains_after_mutation_body}" ]]; then
+  echo "[${script_label}] Expected ${wrapper_lib_reference} to define ${wrapper_stderr_contains_after_mutation_helper}." >&2
+  exit 1
+fi
+
+if [[ "${stderr_contains_after_mutation_body}" != *"${wrapper_reset_tmp_path_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_stderr_contains_after_mutation_helper} to reset and resolve baseline temp command-log paths through ${wrapper_reset_tmp_path_helper}." >&2
+  exit 1
+fi
+
+if [[ "${stderr_contains_after_mutation_body}" != *"${wrapper_json_mutation_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_stderr_contains_after_mutation_helper} to keep JSON mutation boilerplate on ${wrapper_json_mutation_helper}." >&2
+  exit 1
+fi
+
+if [[ "${stderr_contains_after_mutation_body}" != *"${wrapper_stderr_contains_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_stderr_contains_after_mutation_helper} to keep stderr assertions on ${wrapper_stderr_contains_helper}." >&2
+  exit 1
+fi
+
 status_and_index_reason_codes_body="$(wrapper_helper_body "${wrapper_status_and_index_reason_codes_helper}")"
 if [[ -z "${status_and_index_reason_codes_body}" ]]; then
   echo "[${script_label}] Expected ${wrapper_lib_reference} to define ${wrapper_status_and_index_reason_codes_helper}." >&2
@@ -463,18 +485,13 @@ for script_path in "${command_log_scripts[@]}"; do
 
   case "${script_name}" in
     test-self-host-artifact-command-log-first-command.sh|test-self-host-artifact-command-log-format.sh)
-      if ! grep -Fq "${wrapper_reset_tmp_path_helper}" "${script_path}"; then
-        echo "[${script_label}] Expected ${script_name} to use ${wrapper_reset_tmp_path_helper} so deterministic mutation coverage keeps baseline-reset temp-path setup centralized." >&2
+      if ! grep -Fq "${wrapper_stderr_contains_after_mutation_helper}" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to use ${wrapper_stderr_contains_after_mutation_helper} so deterministic reset-plus-mutate-plus-stderr coverage stays centralized." >&2
         exit 1
       fi
 
-      if grep -Eq "\\b${wrapper_reset_baseline_helper}\\b|\\b${wrapper_command_log_tmp_path_helper}\\b" "${script_path}"; then
-        echo "[${script_label}] Expected ${script_name} to resolve baseline-reset temp command-log paths through ${wrapper_reset_tmp_path_helper} instead of open-coding ${wrapper_reset_baseline_helper} plus ${wrapper_command_log_tmp_path_helper}." >&2
-        exit 1
-      fi
-
-      if ! grep -Fq "${wrapper_json_mutation_helper}" "${script_path}"; then
-        echo "[${script_label}] Expected ${script_name} to use ${wrapper_json_mutation_helper} so repeated command-log JSON mutations stay centralized." >&2
+      if grep -Eq "\\b${wrapper_reset_tmp_path_helper}\\b|\\b${wrapper_json_mutation_helper}\\b|\\b${wrapper_stderr_contains_helper}\\b" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to keep reset-plus-mutate-plus-stderr coverage inside ${wrapper_stderr_contains_after_mutation_helper} instead of open-coding the sequence." >&2
         exit 1
       fi
 
@@ -521,11 +538,6 @@ for script_path in "${command_log_scripts[@]}"; do
 
   case "${script_name}" in
     test-self-host-artifact-command-log-first-command.sh|test-self-host-artifact-command-log-format.sh)
-      if ! grep -Fq "${wrapper_stderr_contains_helper}" "${script_path}"; then
-        echo "[${script_label}] Expected ${script_name} to use ${wrapper_stderr_contains_helper} so command-log stderr failure assertions stay centralized." >&2
-        exit 1
-      fi
-
       if grep -Eq '\bself_host_command_log_run_check\b|grep -[A-Za-z]*q .*stderr_log_path|cat \"?\$\{stderr_log_path\}\"?' "${script_path}"; then
         echo "[${script_label}] Expected ${script_name} to keep stderr failure checks inside ${wrapper_stderr_contains_helper} instead of open-coding run-check and stderr-log inspection." >&2
         exit 1

@@ -544,5 +544,12 @@
     "status": "done",
     "completed_at": "2026-03-10T09:40:35Z",
     "notes": "Confirmed the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remains inactive because command-log regressions still avoid direct self_host_artifact_* reach-through, added self_host_command_log_expect_status_and_index_reason_codes to centralize the shared blocked-status and non-contiguous-index reason-code regressions on the wrapper-owned command-log helper library, migrated the gate and reason-code regressions to that helper, refreshed proof coverage, and tightened wrapper-ownership validation so common mutation-based reason-code checks do not drift back into duplicated shell snippets."
+  },
+  {
+    "id": "M79",
+    "title": "Centralize mutation-based first-command and format stderr assertions on one wrapper helper",
+    "status": "done",
+    "completed_at": "2026-03-10T14:28:27Z",
+    "notes": "Confirmed the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remains inactive because command-log regressions still avoid direct self_host_artifact_* reach-through, added self_host_command_log_expect_stderr_contains_after_mutation to centralize baseline reset plus command-log JSON mutation plus stderr assertions, migrated the first-command and format regressions to that helper, refreshed proof coverage, and tightened wrapper-ownership validation so mutation-based stderr checks do not drift back into duplicated shell snippets."
   }
 ]
