@@ -82,6 +82,13 @@ self_host_command_log_first_core_path_pair_in_root() {
   printf '%s\n' "${first_rooted_path}"
 }
 
+self_host_command_log_first_core_path_pair_in_tmp_root() {
+  local tmp_root=""
+
+  tmp_root="$(self_host_command_log_tmp_root)" || return 1
+  self_host_command_log_first_core_path_pair_in_root "${tmp_root}"
+}
+
 self_host_command_log_assert_seeded_source_repo_core_paths() {
   local source_root="${1:-}"
   local script_label="${SELF_HOST_COMMAND_LOG_SCRIPT_LABEL:-self-host-command-log-test-lib}"
