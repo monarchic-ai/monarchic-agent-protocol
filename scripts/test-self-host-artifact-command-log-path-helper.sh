@@ -26,7 +26,7 @@ fi
 self_host_command_log_assert_core_path_listed "${command_log_relative_path}"
 
 first_core_relative_path="$(self_host_command_log_first_core_path)"
-mapfile -t first_core_pair < <(self_host_command_log_first_core_path_pair_in_root "${tmp_repo_root}")
+mapfile -t first_core_pair < <(self_host_command_log_first_core_path_pair_in_tmp_root)
 paired_first_core_relative_path="${first_core_pair[0]:-}"
 paired_first_core_path_in_root="${first_core_pair[1]:-}"
 

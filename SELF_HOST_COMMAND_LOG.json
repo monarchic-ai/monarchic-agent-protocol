@@ -24,69 +24,64 @@
     },
     {
       "index": 5,
-      "command": "bash -n scripts/test-self-host-artifact-command-log-source-repo-seeding.sh",
-      "status": "pass"
-    },
-    {
-      "index": 6,
       "command": "bash -n scripts/test-self-host-artifact-command-log-wrapper-ownership.sh",
       "status": "pass"
     },
     {
-      "index": 7,
+      "index": 6,
       "command": "bash scripts/test-self-host-artifact-command-log-path-helper.sh",
       "status": "pass"
     },
     {
-      "index": 8,
+      "index": 7,
       "command": "bash scripts/test-self-host-artifact-command-log-shared-fixtures.sh",
       "status": "pass"
     },
     {
-      "index": 9,
+      "index": 8,
       "command": "bash scripts/test-self-host-artifact-command-log-source-repo-seeding.sh",
       "status": "pass"
     },
     {
-      "index": 10,
+      "index": 9,
       "command": "bash scripts/test-self-host-artifact-command-log-wrapper-ownership.sh",
       "status": "pass"
     },
     {
-      "index": 11,
+      "index": 10,
       "command": "bash scripts/test-self-host-artifacts.sh",
       "status": "pass"
     },
     {
-      "index": 12,
+      "index": 11,
       "command": "python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null",
       "status": "pass"
     },
     {
-      "index": 13,
+      "index": 12,
       "command": "python3 -m json.tool SELF_HOST_PROOF.json >/dev/null",
       "status": "pass"
     },
     {
-      "index": 14,
+      "index": 13,
       "command": "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null",
       "status": "pass"
     },
     {
-      "index": 15,
+      "index": 14,
       "command": "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null",
       "status": "pass"
     },
     {
-      "index": 16,
+      "index": 15,
       "command": "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null",
       "status": "pass"
     },
     {
-      "index": 17,
+      "index": 16,
       "command": "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null",
       "status": "pass"
     }
   ],
-  "note": "Deterministic command log for self-host artifact verification, preserving proof-manifest validation as the first check while validating the centralized first-core-path pair helper, the updated seeded fixture regressions, and the tightened wrapper ownership scan."
+  "note": "Deterministic command log for self-host artifact verification, validating the temp-root first-core-path pair helper, the updated path-helper and shared-fixtures regressions, and the tightened wrapper ownership scan after confirming the NEXT_PRIORITY_TASK M49 artifact-lib recovery path stayed inactive."
 }
