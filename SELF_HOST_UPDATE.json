@@ -1,23 +1,20 @@
 {
   "status": "pass",
-  "headline": "Completed M72 by centralizing seeded and restored first-core-path existence validation behind wrapper assignment helpers.",
-  "current_focus": "Current focus is using M49 only if another issue #1 regression resumes direct artifact-lib reach-through; seeded and restored command-log fixture coverage now keeps first-core-path existence validation on wrapper-owned assignment helpers so future shared fixture changes stay centralized.",
-  "milestone_target": "M72 completed: wrapper helpers now centralize seeded and restored first-core-path pair assignment plus existence validation for source-repo seeding and shared-fixture coverage.",
-  "milestones_done": 72,
-  "total_milestones": 72,
+  "headline": "Completed M73 by centralizing path-helper restored first-core-path existence validation on the existing wrapper assignment helper.",
+  "current_focus": "Current focus is using M49 only if another issue #1 regression resumes direct artifact-lib reach-through; the path-helper regression now keeps restored first-core-path existence validation on self_host_command_log_assign_existing_first_core_path_pair_in_tmp_root so temp-root fixture checks stay centralized.",
+  "milestone_target": "M73 completed: command-log path-helper coverage now keeps restored first-core-path existence validation on the existing wrapper assignment helper and the proof manifest covers that regression.",
+  "milestones_done": 73,
+  "total_milestones": 73,
   "completed_work": [
     "Revalidated the NEXT_PRIORITY_TASK M49 trigger and confirmed command-log regressions still avoid direct self_host_artifact_* reach-through, so the recovery path remained inactive for this run.",
-    "Added self_host_command_log_assign_existing_first_core_path_pair_in_root and self_host_command_log_assign_existing_first_core_path_pair_in_tmp_root to centralize first-core-path pair assignment plus existence validation.",
-    "Migrated the source-repo-seeding and shared-fixtures regressions to the new helpers, refreshed proof coverage, and tightened wrapper ownership checks so seeded and restored first-core-path presence validation stays centralized."
+    "Migrated test-self-host-artifact-command-log-path-helper.sh to self_host_command_log_assign_existing_first_core_path_pair_in_tmp_root so restored first-core-path existence validation stays on the wrapper-owned helper instead of an inline file check.",
+    "Tightened wrapper ownership checks to require the existing temp-root first-core-path assignment helper in path-helper coverage, block direct temp-root pair assignment or open-coded file checks from returning, and refreshed proof coverage to include the changed regression."
   ],
   "verification": [
     "bash scripts/test-self-host-proof-artifacts.sh -> pass",
-    "bash -n scripts/self-host-command-log-test-lib.sh -> pass",
-    "bash -n scripts/test-self-host-artifact-command-log-source-repo-seeding.sh -> pass",
-    "bash -n scripts/test-self-host-artifact-command-log-shared-fixtures.sh -> pass",
+    "bash -n scripts/test-self-host-artifact-command-log-path-helper.sh -> pass",
     "bash -n scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
-    "bash scripts/test-self-host-artifact-command-log-source-repo-seeding.sh -> pass",
-    "bash scripts/test-self-host-artifact-command-log-shared-fixtures.sh -> pass",
+    "bash scripts/test-self-host-artifact-command-log-path-helper.sh -> pass",
     "bash scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
     "bash scripts/test-self-host-artifacts.sh -> pass",
     "python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null -> pass",
@@ -28,11 +25,11 @@
     "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
   ],
   "blockers": [
-    "No blockers in M72 scope."
+    "No blockers in M73 scope."
   ],
   "next_steps": [
     "Use M49 only if another issue #1 regression reaches into artifact-lib details instead of wrapper-owned helpers.",
-    "Keep future command-log shell coverage on self_host_command_log_core_paths, self_host_command_log_seed_source_repo_with_empty_report_lists, and the existing first-core-path assignment helpers so shared artifact fixture changes stay centralized."
+    "Keep future path-helper shell coverage on self_host_command_log_assign_existing_first_core_path_pair_in_tmp_root so restored first-core-path existence validation does not drift back into inline file checks."
   ],
-  "note": "Status is pass because verification succeeded, milestones_done increased from 71 to 72 versus the prior report, and M72 centralized seeded and restored first-core-path existence validation on wrapper-owned assignment helpers after confirming the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remained inactive."
+  "note": "Status is pass because verification succeeded, milestones_done increased from 72 to 73 versus the prior report, and M73 centralized restored path-helper first-core-path existence validation on the existing wrapper assignment helper after confirming the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remained inactive."
 }
