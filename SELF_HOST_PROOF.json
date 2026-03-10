@@ -7,7 +7,7 @@
   "proofs": [
     {
       "path": "scripts/self-host-command-log-test-lib.sh",
-      "sha256": "2ac2b44fd48af0006bf3e5bcd52d8bbcdd14f0487d9d8b662a654f67f1a67d5b"
+      "sha256": "c5848b4cf57b8b08653b576c1f178020adf06b703b35f6093dbe243aa1f97193"
     },
     {
       "path": "scripts/test-self-host-artifact-command-log-gate.sh",
@@ -19,8 +19,8 @@
     },
     {
       "path": "scripts/test-self-host-artifact-command-log-wrapper-ownership.sh",
-      "sha256": "e661ec4dc6e7167496748476ece64e0f143073cee8f7840fc6b6b5e94ad72203"
+      "sha256": "bb319b7f6d58d5066320a643669cb286b75cf12ed3ee1f6518fac1645533963f"
     }
   ],
-  "note": "Deterministic proof manifest for self-host artifact validation, covering the wrapper-owned command-log helper library plus the gate, reason-code, and wrapper-ownership regressions after centralizing common status/index reason-code mutations on one helper."
+  "note": "Deterministic proof manifest for self-host artifact validation, covering the wrapper-owned command-log helper library plus the gate, reason-code, and wrapper-ownership regressions after centralizing mutation-based stderr assertions for the first-command and format regressions on one helper."
 }

@@ -522,6 +522,26 @@ self_host_command_log_expect_reason_code_after_mutation() {
   self_host_command_log_expect_reason_code "${expected_reason_code}" "${failure_message}"
 }
 
+self_host_command_log_expect_stderr_contains_after_mutation() {
+  local expected_substring="${1:-}"
+  local failure_message="${2:-}"
+  local command_log_path=""
+
+  if [[ -z "${expected_substring}" ]]; then
+    echo "[self-host-command-log-test-lib] Expected a non-empty stderr substring for mutation-based stderr assertions." >&2
+    return 1
+  fi
+
+  if [[ -z "${failure_message}" ]]; then
+    echo "[self-host-command-log-test-lib] Expected a non-empty failure message for mutation-based stderr assertions." >&2
+    return 1
+  fi
+
+  command_log_path="$(self_host_command_log_reset_and_resolve_tmp_path)" || return 1
+  self_host_command_log_mutate_json "${command_log_path}" || return 1
+  self_host_command_log_expect_stderr_contains "${expected_substring}" "${failure_message}"
+}
+
 self_host_command_log_expect_status_and_index_reason_codes() {
   local status_failure_message="${1:-}"
   local index_failure_message="${2:-}"
