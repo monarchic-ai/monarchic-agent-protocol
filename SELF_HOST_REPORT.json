@@ -1,10 +1,13 @@
 {
   "status": "pass",
-  "milestone_completed": "M71",
-  "milestones_done": 71,
-  "total_milestones": 71,
+  "milestone_completed": "M72",
+  "milestones_done": 72,
+  "total_milestones": 72,
   "new_files": [],
   "changed_files": [
+    "scripts/self-host-command-log-test-lib.sh",
+    "scripts/test-self-host-artifact-command-log-shared-fixtures.sh",
+    "scripts/test-self-host-artifact-command-log-source-repo-seeding.sh",
     "scripts/test-self-host-artifact-command-log-wrapper-ownership.sh",
     "SELF_HOST_COMMAND_LOG.json",
     "SELF_HOST_PROOF.json",
@@ -13,6 +16,6 @@
     "SELF_HOST_REPORT.json",
     "SELF_HOST_UPDATE.json"
   ],
-  "test_command": "bash scripts/test-self-host-proof-artifacts.sh && bash -n scripts/test-self-host-artifact-command-log-wrapper-ownership.sh && bash scripts/test-self-host-artifact-command-log-wrapper-ownership.sh && bash scripts/test-self-host-artifacts.sh && python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null && python3 -m json.tool SELF_HOST_PROOF.json >/dev/null && python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null && python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null && python3 -m json.tool SELF_HOST_REPORT.json >/dev/null && python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null",
-  "note": "Status is pass because verification succeeded, milestones_done increased from 70 to 71 versus the prior report, and M71 tightened wrapper ownership coverage so self_host_command_log_first_core_path stays delegated to self_host_command_log_core_paths after confirming the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remained inactive."
+  "test_command": "bash scripts/test-self-host-proof-artifacts.sh && bash -n scripts/self-host-command-log-test-lib.sh && bash -n scripts/test-self-host-artifact-command-log-source-repo-seeding.sh && bash -n scripts/test-self-host-artifact-command-log-shared-fixtures.sh && bash -n scripts/test-self-host-artifact-command-log-wrapper-ownership.sh && bash scripts/test-self-host-artifact-command-log-source-repo-seeding.sh && bash scripts/test-self-host-artifact-command-log-shared-fixtures.sh && bash scripts/test-self-host-artifact-command-log-wrapper-ownership.sh && bash scripts/test-self-host-artifacts.sh && python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null && python3 -m json.tool SELF_HOST_PROOF.json >/dev/null && python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null && python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null && python3 -m json.tool SELF_HOST_REPORT.json >/dev/null && python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null",
+  "note": "Status is pass because verification succeeded, milestones_done increased from 71 to 72 versus the prior report, and M72 centralized seeded and restored first-core-path existence validation on wrapper-owned assignment helpers after confirming the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remained inactive."
 }

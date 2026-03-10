@@ -17,7 +17,7 @@ trap cleanup EXIT
 
 self_host_command_log_prepare_seeded_source_repo "${script_label}" "${repo_root}" "${source_repo}"
 
-self_host_command_log_assign_first_core_path_pair_in_root missing_relative_path missing_path "${source_repo}"
+self_host_command_log_assign_existing_first_core_path_pair_in_root missing_relative_path missing_path "${source_repo}"
 
 rm -f "${missing_path}"
 

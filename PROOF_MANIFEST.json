@@ -1,11 +1,11 @@
 {
   "version": "v1",
-  "combined_sha256": "83e253f20af44c90feac5afd7d480dd08f3f87020b52e0aaac2fe1e81b34a7fd",
+  "combined_sha256": "8d9aaa84d0f3c08b711184aa98a475b7dce31ad6676dfd33304374711a02a1f4",
   "artifacts": [
     {
       "path": "SELF_HOST_COMMAND_LOG.json",
-      "sha256": "a5ce13007cdfd36d37261c4423516233cca59fcd4015a8f9e9f590d98e681b13",
-      "bytes": 1702
+      "sha256": "1c00dcb037929bf2db48de1a91ea7686cd3389e758e930f79e016e223bf11241",
+      "bytes": 2399
     },
     {
       "path": "SELF_HOST_COMMAND_LOG.txt",
@@ -14,33 +14,48 @@
     },
     {
       "path": "SELF_HOST_IMPLEMENTATION_LOG.json",
-      "sha256": "9f2d1e81ad7b18ad9d389840ff3deab0592669ffcbb40f2cd680c0ef182bcd16",
-      "bytes": 114866
+      "sha256": "c62f9f1a55b14acabe9d702fcfbdc380569ce0f29b07006fbac6a8fad6cf4271",
+      "bytes": 117280
     },
     {
       "path": "SELF_HOST_MILESTONES.json",
-      "sha256": "6c9af5943c80bc5f53f1bb52f13cef386baa92aba2c11a05bad75b1735407f3f",
-      "bytes": 34273
+      "sha256": "4e411341cce0248a56cb74f81ad882f782706f1d86bb616618d933df3885ef1e",
+      "bytes": 35113
     },
     {
       "path": "SELF_HOST_PROOF.json",
-      "sha256": "28b8a512cae4e257f7eda414a45b65f373ef7509f6e41ae04ed159f408fbfbd4",
-      "bytes": 1327
+      "sha256": "dbb022cee8f51a703215f480f07f23e04a324dc3a1bf4af64be5707e8894a704",
+      "bytes": 1130
     },
     {
       "path": "SELF_HOST_REPORT.json",
-      "sha256": "ad8f6292aca6e9ee582c892addea87ed58975b1d34c81841d1ed6db7122ee0f7",
-      "bytes": 1392
+      "sha256": "6d3ef428adb2b7d6f651cc396c9fdfd8a7730559c97f7aabe0593a66340b70e9",
+      "bytes": 1911
     },
     {
       "path": "SELF_HOST_UPDATE.json",
-      "sha256": "c0a0cf9168f485e7b3c7fb65e0dcca729c3d71c4f761843e1ab09303d7fdeb8e",
-      "bytes": 2842
+      "sha256": "628f53e33dae7a23b53c1f1067d11dd81376760597f42fec4e1e971231776d8e",
+      "bytes": 3349
+    },
+    {
+      "path": "scripts/self-host-command-log-test-lib.sh",
+      "sha256": "4341e91c71a5ae3293025a98b1e63b43215bbddfae86362b1968859a9124faff",
+      "bytes": 15947
+    },
+    {
+      "path": "scripts/test-self-host-artifact-command-log-shared-fixtures.sh",
+      "sha256": "24b424953dbcb62019cd523009f8f5b518e3ac86cf6907c877ad6a5067f3f1a8",
+      "bytes": 1684
+    },
+    {
+      "path": "scripts/test-self-host-artifact-command-log-source-repo-seeding.sh",
+      "sha256": "f1bfb5aa527f0e5fdca0d42e22d063051552d854a79ee9233a945ae6ec4a88a7",
+      "bytes": 1297
     },
     {
       "path": "scripts/test-self-host-artifact-command-log-wrapper-ownership.sh",
-      "sha256": "e5cff0c40ba61706e91157deabdf68367cc00acef2eba4b9a1301f70ebed8571",
-      "bytes": 26654
+      "sha256": "c029f6103db6e9950c589a56dbde225c202df05c28957a45f3ea1d81a8a9d434",
+      "bytes": 30843
     }
   ]
 }
