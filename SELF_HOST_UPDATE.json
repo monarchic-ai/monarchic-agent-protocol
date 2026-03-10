@@ -1,17 +1,18 @@
 {
   "status": "pass",
-  "headline": "Completed M73 by centralizing path-helper restored first-core-path existence validation on the existing wrapper assignment helper.",
-  "current_focus": "Current focus is using M49 only if another issue #1 regression resumes direct artifact-lib reach-through; the path-helper regression now keeps restored first-core-path existence validation on self_host_command_log_assign_existing_first_core_path_pair_in_tmp_root so temp-root fixture checks stay centralized.",
-  "milestone_target": "M73 completed: command-log path-helper coverage now keeps restored first-core-path existence validation on the existing wrapper assignment helper and the proof manifest covers that regression.",
-  "milestones_done": 73,
-  "total_milestones": 73,
+  "headline": "Completed M74 by centralizing temp-path core-path membership validation on the wrapper helper.",
+  "current_focus": "Current focus is using M49 only if another issue #1 regression resumes direct artifact-lib reach-through; the temp-path regression now keeps non-core path rejection on self_host_command_log_tmp_path_for_relative_path so wrapper-owned core-path list membership stays centralized.",
+  "milestone_target": "M74 completed: command-log temp-path coverage now rejects non-core relative paths through self_host_command_log_tmp_path_for_relative_path and the proof manifest covers that regression.",
+  "milestones_done": 74,
+  "total_milestones": 74,
   "completed_work": [
     "Revalidated the NEXT_PRIORITY_TASK M49 trigger and confirmed command-log regressions still avoid direct self_host_artifact_* reach-through, so the recovery path remained inactive for this run.",
-    "Migrated test-self-host-artifact-command-log-path-helper.sh to self_host_command_log_assign_existing_first_core_path_pair_in_tmp_root so restored first-core-path existence validation stays on the wrapper-owned helper instead of an inline file check.",
-    "Tightened wrapper ownership checks to require the existing temp-root first-core-path assignment helper in path-helper coverage, block direct temp-root pair assignment or open-coded file checks from returning, and refreshed proof coverage to include the changed regression."
+    "Tightened self_host_command_log_tmp_path_for_relative_path to validate wrapper-owned core-path membership through self_host_command_log_assert_core_path_listed before resolving temp fixture paths.",
+    "Extended path-helper coverage to reject non-core relative paths through the temp-path helper, tightened wrapper-ownership checks to require that delegation, and refreshed proof coverage."
   ],
   "verification": [
     "bash scripts/test-self-host-proof-artifacts.sh -> pass",
+    "bash -n scripts/self-host-command-log-test-lib.sh -> pass",
     "bash -n scripts/test-self-host-artifact-command-log-path-helper.sh -> pass",
     "bash -n scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
     "bash scripts/test-self-host-artifact-command-log-path-helper.sh -> pass",
@@ -25,11 +26,11 @@
     "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
   ],
   "blockers": [
-    "No blockers in M73 scope."
+    "No blockers in M74 scope."
   ],
   "next_steps": [
     "Use M49 only if another issue #1 regression reaches into artifact-lib details instead of wrapper-owned helpers.",
-    "Keep future path-helper shell coverage on self_host_command_log_assign_existing_first_core_path_pair_in_tmp_root so restored first-core-path existence validation does not drift back into inline file checks."
+    "Keep future temp-path shell coverage on self_host_command_log_tmp_path_for_relative_path so wrapper-owned core-path membership checks do not drift back into inline assertions."
   ],
-  "note": "Status is pass because verification succeeded, milestones_done increased from 72 to 73 versus the prior report, and M73 centralized restored path-helper first-core-path existence validation on the existing wrapper assignment helper after confirming the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remained inactive."
+  "note": "Status is pass because verification succeeded, milestones_done increased from 73 to 74 versus the prior report, and M74 centralized command-log temp-path core-path membership validation on the wrapper helper after confirming the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remained inactive."
 }
