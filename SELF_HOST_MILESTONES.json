@@ -523,5 +523,12 @@
     "status": "done",
     "completed_at": "2026-03-10T09:03:55Z",
     "notes": "Confirmed the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remains inactive because command-log regressions still avoid direct self_host_artifact_* reach-through, added self_host_command_log_expect_reason_code_after_mutation to centralize baseline reset plus JSON mutation plus reason-code assertions, migrated the gate and reason-code regressions to that helper, refreshed proof coverage, and tightened wrapper-ownership validation so mutation-based reason-code checks do not drift back into duplicated shell sequences."
+  },
+  {
+    "id": "M76",
+    "title": "Centralize seeded empty report-list validation on root-scoped command-log wrappers",
+    "status": "done",
+    "completed_at": "2026-03-10T09:17:59Z",
+    "notes": "Confirmed the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remains inactive because command-log regressions still avoid direct self_host_artifact_* reach-through, added self_host_command_log_report_relative_path, self_host_command_log_report_path_in_root, and self_host_command_log_assert_report_paths_empty_in_root to centralize seeded report-path joins plus empty report-list validation, migrated the source-repo seeding regression to those helpers, refreshed proof coverage, and tightened wrapper-ownership validation so seeded report-path checks stay centralized."
   }
 ]
