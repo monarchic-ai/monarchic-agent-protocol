@@ -26,9 +26,7 @@ fi
 self_host_command_log_assert_core_path_listed "${command_log_relative_path}"
 
 first_core_relative_path="$(self_host_command_log_first_core_path)"
-mapfile -t first_core_pair < <(self_host_command_log_first_core_path_pair_in_tmp_root)
-paired_first_core_relative_path="${first_core_pair[0]:-}"
-paired_first_core_path_in_root="${first_core_pair[1]:-}"
+self_host_command_log_assign_first_core_path_pair_in_tmp_root paired_first_core_relative_path paired_first_core_path_in_root
 
 if ! self_host_command_log_assert_core_path_listed "${first_core_relative_path}"; then
   echo "[${script_label}] Expected first core-path helper to resolve one wrapper-owned core path, found ${first_core_relative_path}." >&2
@@ -93,6 +91,11 @@ self_host_command_log_expect_failure_contains \
   "Expected core-path membership helper to fail for ${missing_relative_path}." \
   self_host_command_log_assert_core_path_listed "${missing_relative_path}"
 
+self_host_command_log_expect_failure_contains \
+  "not-a-shell-variable" \
+  "Expected first core-path pair assignment helper to reject an invalid relative-path variable name." \
+  self_host_command_log_assign_first_core_path_pair_in_root "not-a-shell-variable" paired_first_core_path_in_root "${tmp_repo_root}"
+
 self_host_command_log_mutate_json "${command_log_path}" <<'PY'
 command_log["status"] = "blocked"
 PY
@@ -112,4 +115,4 @@ self_host_command_log_expect_stderr_contains \
   "command index must be a contiguous integer sequence" \
   "Expected stderr substring helper to detect deterministic command-log format drift."
 
-echo "[${script_label}] PASS: command-log wrapper core-path membership, failure-output, temp-path, first-core-path pair resolution, stderr-log, python-command, JSON-mutation, and stderr-substring helpers stay aligned with wrapper-owned fixtures."
+echo "[${script_label}] PASS: command-log wrapper core-path membership, failure-output, temp-path, first-core-path pair assignment, stderr-log, python-command, JSON-mutation, and stderr-substring helpers stay aligned with wrapper-owned fixtures."
