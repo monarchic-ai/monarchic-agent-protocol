@@ -530,5 +530,12 @@
     "status": "done",
     "completed_at": "2026-03-10T09:17:59Z",
     "notes": "Confirmed the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remains inactive because command-log regressions still avoid direct self_host_artifact_* reach-through, added self_host_command_log_report_relative_path, self_host_command_log_report_path_in_root, and self_host_command_log_assert_report_paths_empty_in_root to centralize seeded report-path joins plus empty report-list validation, migrated the source-repo seeding regression to those helpers, refreshed proof coverage, and tightened wrapper-ownership validation so seeded report-path checks stay centralized."
+  },
+  {
+    "id": "M77",
+    "title": "Centralize seeded report JSON mutation on root-scoped command-log wrappers",
+    "status": "done",
+    "completed_at": "2026-03-10T09:30:23Z",
+    "notes": "Confirmed the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remains inactive because command-log regressions still avoid direct self_host_artifact_* reach-through, added self_host_command_log_mutate_json_file and self_host_command_log_mutate_report_json_in_root to centralize seeded report JSON mutation plus reusable wrapper-owned JSON rewrite boilerplate, migrated the source-repo seeding regression to the new helper, refreshed proof coverage, and tightened wrapper-ownership validation so seeded report mutation stays centralized."
   }
 ]

@@ -7,16 +7,16 @@
   "proofs": [
     {
       "path": "scripts/self-host-command-log-test-lib.sh",
-      "sha256": "61af3a5dace141ab7aca37fb2a9ad5329d0f7d4e863302a4093fdb1af048d317"
+      "sha256": "5eeaa3128b4149c7214d4043b406d4dcbf9b3ed801c288304d10f88b21901609"
     },
     {
       "path": "scripts/test-self-host-artifact-command-log-source-repo-seeding.sh",
-      "sha256": "b49eb4c6a977f88715a330b6497df1037f415af3140c848fbb6ba5dfbc75ac28"
+      "sha256": "beb9862badef9c32ab8991a60379578c8a8e6807cbda7ecc7dee01a0111c22c5"
     },
     {
       "path": "scripts/test-self-host-artifact-command-log-wrapper-ownership.sh",
-      "sha256": "06964cb468ac917a9c758ed20e78e1aa95424d3d7b07655f098dbbcf66e11612"
+      "sha256": "6141dadb6f508befd2b546277f18286fa69e7cc695b684edda998daa716e7cab"
     }
   ],
-  "note": "Deterministic proof manifest for self-host artifact validation, covering the wrapper-owned command-log helper library plus the source-repo seeding and wrapper-ownership regressions after centralizing seeded empty report-list validation on root-scoped helpers."
+  "note": "Deterministic proof manifest for self-host artifact validation, covering the wrapper-owned command-log helper library plus the source-repo seeding and wrapper-ownership regressions after centralizing seeded report JSON mutation on root-scoped helpers."
 }
