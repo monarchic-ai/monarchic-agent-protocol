@@ -26,6 +26,9 @@ wrapper_prepare_seeded_source_repo_helper="self_host_command_log_prepare_seeded_
 wrapper_seeded_baseline_helper="self_host_command_log_prepare_seeded_source_repo_baseline"
 wrapper_setup_helper="self_host_command_log_setup"
 wrapper_report_paths_helper="self_host_command_log_report_paths"
+wrapper_report_relative_path_helper="self_host_command_log_report_relative_path"
+wrapper_report_path_in_root_helper="self_host_command_log_report_path_in_root"
+wrapper_empty_report_paths_in_root_helper="self_host_command_log_assert_report_paths_empty_in_root"
 wrapper_empty_report_paths_helper="self_host_command_log_assert_report_paths_empty"
 wrapper_tmp_root_helper="self_host_command_log_tmp_root"
 wrapper_root_path_helper="self_host_command_log_path_in_root"
@@ -88,6 +91,11 @@ if [[ "${prepare_seeded_source_repo_body}" != *"${wrapper_seeded_core_paths_help
   exit 1
 fi
 
+if [[ "${prepare_seeded_source_repo_body}" != *"${wrapper_empty_report_paths_in_root_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_prepare_seeded_source_repo_helper} to validate seeded empty report lists through ${wrapper_empty_report_paths_in_root_helper} so source-repo bootstrap keeps report-list cleanup centralized." >&2
+  exit 1
+fi
+
 seeded_baseline_body="$(wrapper_helper_body "${wrapper_seeded_baseline_helper}")"
 if [[ -z "${seeded_baseline_body}" ]]; then
   echo "[${script_label}] Expected ${wrapper_lib_reference} to define ${wrapper_seeded_baseline_helper}." >&2
@@ -111,6 +119,44 @@ fi
 
 if [[ "${seeded_baseline_body}" != *"${wrapper_empty_report_paths_helper}"* ]]; then
   echo "[${script_label}] Expected ${wrapper_seeded_baseline_helper} to keep empty report-list validation on ${wrapper_empty_report_paths_helper}." >&2
+  exit 1
+fi
+
+empty_report_paths_in_root_body="$(wrapper_helper_body "${wrapper_empty_report_paths_in_root_helper}")"
+if [[ -z "${empty_report_paths_in_root_body}" ]]; then
+  echo "[${script_label}] Expected ${wrapper_lib_reference} to define ${wrapper_empty_report_paths_in_root_helper}." >&2
+  exit 1
+fi
+
+report_path_in_root_body="$(wrapper_helper_body "${wrapper_report_path_in_root_helper}")"
+if [[ -z "${report_path_in_root_body}" ]]; then
+  echo "[${script_label}] Expected ${wrapper_lib_reference} to define ${wrapper_report_path_in_root_helper}." >&2
+  exit 1
+fi
+
+if [[ "${report_path_in_root_body}" != *"${wrapper_root_path_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_report_path_in_root_helper} to resolve wrapper-owned report artifacts through ${wrapper_root_path_helper} so seeded root/report joins stay centralized." >&2
+  exit 1
+fi
+
+if [[ "${report_path_in_root_body}" != *"${wrapper_report_relative_path_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_report_path_in_root_helper} to keep report relative-path resolution on ${wrapper_report_relative_path_helper} so report path names stay centralized." >&2
+  exit 1
+fi
+
+if [[ "${empty_report_paths_in_root_body}" != *"${wrapper_report_path_in_root_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_empty_report_paths_in_root_helper} to resolve report artifacts through ${wrapper_report_path_in_root_helper} so seeded root/report joins stay centralized." >&2
+  exit 1
+fi
+
+empty_report_paths_body="$(wrapper_helper_body "${wrapper_empty_report_paths_helper}")"
+if [[ -z "${empty_report_paths_body}" ]]; then
+  echo "[${script_label}] Expected ${wrapper_lib_reference} to define ${wrapper_empty_report_paths_helper}." >&2
+  exit 1
+fi
+
+if [[ "${empty_report_paths_body}" != *"${wrapper_empty_report_paths_in_root_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_empty_report_paths_helper} to delegate empty report-list validation through ${wrapper_empty_report_paths_in_root_helper} so root-scoped validation stays centralized." >&2
   exit 1
 fi
 
@@ -472,6 +518,16 @@ for script_path in "${command_log_scripts[@]}"; do
         exit 1
       fi
 
+      if ! grep -Fq "${wrapper_empty_report_paths_in_root_helper}" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to use ${wrapper_empty_report_paths_in_root_helper} so deterministic negative seeded report-list coverage stays centralized on the root-scoped wrapper helper." >&2
+        exit 1
+      fi
+
+      if ! grep -Fq "${wrapper_report_path_in_root_helper}" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to resolve seeded report artifact paths through ${wrapper_report_path_in_root_helper} so report-path joins stay centralized." >&2
+        exit 1
+      fi
+
       if grep -Fq 'mapfile -t first_core_pair' "${script_path}"; then
         echo "[${script_label}] Expected ${script_name} to keep first-core-path pair unpacking inside ${wrapper_assign_first_core_path_pair_in_root_helper} instead of open-coded mapfile arrays." >&2
         exit 1
@@ -589,7 +645,7 @@ for script_path in "${command_log_scripts[@]}"; do
         exit 1
       fi
 
-      if grep -Fq "${wrapper_empty_report_paths_helper}" "${script_path}"; then
+      if grep -Eq "\\b${wrapper_empty_report_paths_helper}\\b" "${script_path}"; then
         echo "[${script_label}] Expected ${script_name} to keep empty report-list validation inside ${wrapper_seeded_baseline_helper}." >&2
         exit 1
       fi
