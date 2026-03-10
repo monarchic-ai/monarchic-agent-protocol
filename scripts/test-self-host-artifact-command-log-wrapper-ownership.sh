@@ -28,6 +28,7 @@ wrapper_setup_helper="self_host_command_log_setup"
 wrapper_report_paths_helper="self_host_command_log_report_paths"
 wrapper_report_relative_path_helper="self_host_command_log_report_relative_path"
 wrapper_report_path_in_root_helper="self_host_command_log_report_path_in_root"
+wrapper_report_json_mutation_in_root_helper="self_host_command_log_mutate_report_json_in_root"
 wrapper_empty_report_paths_in_root_helper="self_host_command_log_assert_report_paths_empty_in_root"
 wrapper_empty_report_paths_helper="self_host_command_log_assert_report_paths_empty"
 wrapper_tmp_root_helper="self_host_command_log_tmp_root"
@@ -41,6 +42,7 @@ wrapper_reason_code_after_mutation_helper="self_host_command_log_expect_reason_c
 wrapper_stderr_contains_helper="self_host_command_log_expect_stderr_contains"
 wrapper_failure_contains_helper="self_host_command_log_expect_failure_contains"
 wrapper_python_cmd_helper="self_host_command_log_python_cmd"
+wrapper_json_file_mutation_helper="self_host_command_log_mutate_json_file"
 wrapper_json_mutation_helper="self_host_command_log_mutate_json"
 disallowed_state_prefix="SELF_HOST_COMMAND_LOG_"
 
@@ -146,6 +148,22 @@ fi
 
 if [[ "${empty_report_paths_in_root_body}" != *"${wrapper_report_path_in_root_helper}"* ]]; then
   echo "[${script_label}] Expected ${wrapper_empty_report_paths_in_root_helper} to resolve report artifacts through ${wrapper_report_path_in_root_helper} so seeded root/report joins stay centralized." >&2
+  exit 1
+fi
+
+report_json_mutation_in_root_body="$(wrapper_helper_body "${wrapper_report_json_mutation_in_root_helper}")"
+if [[ -z "${report_json_mutation_in_root_body}" ]]; then
+  echo "[${script_label}] Expected ${wrapper_lib_reference} to define ${wrapper_report_json_mutation_in_root_helper}." >&2
+  exit 1
+fi
+
+if [[ "${report_json_mutation_in_root_body}" != *"${wrapper_report_path_in_root_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_report_json_mutation_in_root_helper} to resolve seeded report artifacts through ${wrapper_report_path_in_root_helper} so report-path joins stay centralized." >&2
+  exit 1
+fi
+
+if [[ "${report_json_mutation_in_root_body}" != *"${wrapper_json_file_mutation_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_report_json_mutation_in_root_helper} to keep seeded report JSON mutation boilerplate on ${wrapper_json_file_mutation_helper}." >&2
   exit 1
 fi
 
@@ -328,6 +346,22 @@ fi
 
 if [[ "${reason_code_after_mutation_body}" != *"${wrapper_reason_code_helper}"* ]]; then
   echo "[${script_label}] Expected ${wrapper_reason_code_after_mutation_helper} to keep reason-code assertions on ${wrapper_reason_code_helper}." >&2
+  exit 1
+fi
+
+json_mutation_body="$(wrapper_helper_body "${wrapper_json_mutation_helper}")"
+if [[ -z "${json_mutation_body}" ]]; then
+  echo "[${script_label}] Expected ${wrapper_lib_reference} to define ${wrapper_json_mutation_helper}." >&2
+  exit 1
+fi
+
+if [[ "${json_mutation_body}" != *"${wrapper_python_cmd_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_json_mutation_helper} to resolve the initialized wrapper python command through ${wrapper_python_cmd_helper}." >&2
+  exit 1
+fi
+
+if [[ "${json_mutation_body}" != *"${wrapper_json_file_mutation_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_json_mutation_helper} to keep command-log JSON mutation boilerplate on ${wrapper_json_file_mutation_helper}." >&2
   exit 1
 fi
 
@@ -523,8 +557,8 @@ for script_path in "${command_log_scripts[@]}"; do
         exit 1
       fi
 
-      if ! grep -Fq "${wrapper_report_path_in_root_helper}" "${script_path}"; then
-        echo "[${script_label}] Expected ${script_name} to resolve seeded report artifact paths through ${wrapper_report_path_in_root_helper} so report-path joins stay centralized." >&2
+      if ! grep -Fq "${wrapper_report_json_mutation_in_root_helper}" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to mutate seeded report JSON through ${wrapper_report_json_mutation_in_root_helper} so report-path resolution and JSON mutation boilerplate stay centralized." >&2
         exit 1
       fi
 
@@ -545,6 +579,16 @@ for script_path in "${command_log_scripts[@]}"; do
 
       if grep -Eq "\\b${wrapper_first_core_path_helper}\\b|\\b${wrapper_first_core_path_in_root_helper}\\b" "${script_path}"; then
         echo "[${script_label}] Expected ${script_name} to resolve seeded first core-path pairs through ${wrapper_assign_first_core_path_pair_in_root_helper} instead of separate ${wrapper_first_core_path_helper} and ${wrapper_first_core_path_in_root_helper} calls." >&2
+        exit 1
+      fi
+
+      if grep -Eq "\\b${wrapper_report_path_in_root_helper}\\b" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to keep seeded report-path joins inside ${wrapper_report_json_mutation_in_root_helper} and ${wrapper_empty_report_paths_in_root_helper} instead of direct ${wrapper_report_path_in_root_helper} calls." >&2
+        exit 1
+      fi
+
+      if grep -Eq 'python3 - |json\.load|json\.dump' "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to keep seeded report JSON mutation boilerplate inside ${wrapper_report_json_mutation_in_root_helper}." >&2
         exit 1
       fi
       ;;
@@ -683,4 +727,4 @@ if [[ "${validated_script_count}" -eq 0 ]]; then
   exit 1
 fi
 
-echo "[${script_label}] PASS: command-log regression scripts stay on wrapper-owned helpers, keep baseline-reset temp-path/root-path/core-path/first-core-path pair/first-core-path pair assignment/temp-root pair/seeded-source-repo/seeded-baseline/python-command/json-mutation/mutation-based reason-code/failure-output/stderr-assertion ownership centralized, and avoid direct wrapper state reads."
+echo "[${script_label}] PASS: command-log regression scripts stay on wrapper-owned helpers, keep baseline-reset temp-path/root-path/core-path/first-core-path pair/first-core-path pair assignment/temp-root pair/seeded-source-repo/seeded-baseline/report-json-mutation/python-command/json-mutation/mutation-based reason-code/failure-output/stderr-assertion ownership centralized, and avoid direct wrapper state reads."

@@ -68,5 +68,5 @@
       "status": "pass"
     }
   ],
-  "note": "Deterministic command log for self-host artifact verification, validating that seeded source-repo empty report-list assertions now stay centralized on self_host_command_log_report_path_in_root and self_host_command_log_assert_report_paths_empty_in_root after confirming the NEXT_PRIORITY_TASK M49 artifact-lib recovery path stayed inactive."
+  "note": "Deterministic command log for self-host artifact verification, validating that seeded source-repo report JSON mutation now stays centralized on self_host_command_log_mutate_report_json_in_root and self_host_command_log_mutate_json_file after confirming the NEXT_PRIORITY_TASK M49 artifact-lib recovery path stayed inactive."
 }
