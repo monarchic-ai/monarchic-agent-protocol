@@ -83,6 +83,11 @@ missing_relative_path="NOT_A_COMMAND_LOG_CORE_PATH.json"
 
 self_host_command_log_expect_failure_contains \
   "${missing_relative_path}" \
+  "Expected temp-path helper to reject non-core path ${missing_relative_path}." \
+  self_host_command_log_tmp_path_for_relative_path "${missing_relative_path}"
+
+self_host_command_log_expect_failure_contains \
+  "${missing_relative_path}" \
   "Expected core-path membership helper to fail for ${missing_relative_path}." \
   self_host_command_log_assert_core_path_listed "${missing_relative_path}"
 
@@ -110,4 +115,4 @@ self_host_command_log_expect_stderr_contains \
   "command index must be a contiguous integer sequence" \
   "Expected stderr substring helper to detect deterministic command-log format drift."
 
-echo "[${script_label}] PASS: command-log wrapper core-path membership, failure-output, temp-path, existing first-core-path pair assignment, stderr-log, python-command, JSON-mutation, and stderr-substring helpers stay aligned with wrapper-owned fixtures."
+echo "[${script_label}] PASS: command-log wrapper core-path membership, failure-output, temp-path membership enforcement, existing first-core-path pair assignment, stderr-log, python-command, JSON-mutation, and stderr-substring helpers stay aligned with wrapper-owned fixtures."
