@@ -7,6 +7,7 @@ script_label="test-self-host-artifact-command-log-wrapper-ownership"
 source "${repo_root}/scripts/self-host-command-log-test-lib.sh"
 
 artifact_helper_prefix='self_host'"_artifact_"
+artifact_choose_python_helper="${artifact_helper_prefix}choose_python"
 wrapper_helper_prefix="self_host_command_log_"
 wrapper_lib_reference="self-host-command-log-test-lib.sh"
 wrapper_lib_path="${repo_root}/scripts/${wrapper_lib_reference}"
@@ -46,6 +47,7 @@ wrapper_stderr_contains_after_mutation_helper="self_host_command_log_expect_stde
 wrapper_status_and_index_reason_codes_helper="self_host_command_log_expect_status_and_index_reason_codes"
 wrapper_stderr_contains_helper="self_host_command_log_expect_stderr_contains"
 wrapper_failure_contains_helper="self_host_command_log_expect_failure_contains"
+wrapper_choose_python_helper="self_host_command_log_choose_python"
 wrapper_python_cmd_helper="self_host_command_log_python_cmd"
 wrapper_json_file_mutation_helper="self_host_command_log_mutate_json_file"
 wrapper_json_mutation_helper="self_host_command_log_mutate_json"
@@ -167,6 +169,11 @@ if [[ "${report_json_mutation_in_root_body}" != *"${wrapper_report_path_in_root_
   exit 1
 fi
 
+if [[ "${report_json_mutation_in_root_body}" != *"${wrapper_choose_python_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_report_json_mutation_in_root_helper} to resolve root-scoped python selection through ${wrapper_choose_python_helper} so report helper interpreter selection stays centralized." >&2
+  exit 1
+fi
+
 if [[ "${report_json_mutation_in_root_body}" != *"${wrapper_json_file_mutation_helper}"* ]]; then
   echo "[${script_label}] Expected ${wrapper_report_json_mutation_in_root_helper} to keep seeded report JSON mutation boilerplate on ${wrapper_json_file_mutation_helper}." >&2
   exit 1
@@ -180,6 +187,17 @@ fi
 
 if [[ "${empty_report_paths_body}" != *"${wrapper_empty_report_paths_in_root_helper}"* ]]; then
   echo "[${script_label}] Expected ${wrapper_empty_report_paths_helper} to delegate empty report-list validation through ${wrapper_empty_report_paths_in_root_helper} so root-scoped validation stays centralized." >&2
+  exit 1
+fi
+
+choose_python_body="$(wrapper_helper_body "${wrapper_choose_python_helper}")"
+if [[ -z "${choose_python_body}" ]]; then
+  echo "[${script_label}] Expected ${wrapper_lib_reference} to define ${wrapper_choose_python_helper}." >&2
+  exit 1
+fi
+
+if [[ "${choose_python_body}" != *"${artifact_choose_python_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_choose_python_helper} to delegate python interpreter discovery through ${artifact_choose_python_helper} so root-scoped wrapper helpers do not duplicate interpreter selection." >&2
   exit 1
 fi
 
@@ -462,6 +480,11 @@ fi
 
 if [[ "${json_mutation_body}" != *"${wrapper_json_file_mutation_helper}"* ]]; then
   echo "[${script_label}] Expected ${wrapper_json_mutation_helper} to keep command-log JSON mutation boilerplate on ${wrapper_json_file_mutation_helper}." >&2
+  exit 1
+fi
+
+if [[ "${empty_report_paths_in_root_body}" != *"${wrapper_choose_python_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_empty_report_paths_in_root_helper} to resolve root-scoped python selection through ${wrapper_choose_python_helper} so empty report-list validation keeps interpreter selection centralized." >&2
   exit 1
 fi
 
