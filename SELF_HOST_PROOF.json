@@ -2,12 +2,16 @@
   "task_id": "task-self-host-001",
   "status": "pass",
   "reason_code": "OK",
-  "signature_count": 4,
+  "signature_count": 5,
   "sampled_batches": 1,
   "proofs": [
     {
       "path": "scripts/self-host-command-log-test-lib.sh",
       "sha256": "4341e91c71a5ae3293025a98b1e63b43215bbddfae86362b1968859a9124faff"
+    },
+    {
+      "path": "scripts/test-self-host-artifact-command-log-path-helper.sh",
+      "sha256": "8edb9fac4870aeb3594df5d34f60439148d8c81c514b517b6a678af9d8ecaa14"
     },
     {
       "path": "scripts/test-self-host-artifact-command-log-shared-fixtures.sh",
@@ -19,8 +23,8 @@
     },
     {
       "path": "scripts/test-self-host-artifact-command-log-wrapper-ownership.sh",
-      "sha256": "c029f6103db6e9950c589a56dbde225c202df05c28957a45f3ea1d81a8a9d434"
+      "sha256": "27492d89457ffc617254f0fa5aa9d8efaf39d68f87b5ab5d8550a28ddfdfec82"
     }
   ],
-  "note": "Deterministic proof manifest for self-host artifact validation, covering the wrapper-owned command-log helper library plus the shared-fixtures/source-repo-seeding regressions and wrapper-ownership checks after centralizing seeded and restored first-core-path existence validation."
+  "note": "Deterministic proof manifest for self-host artifact validation, covering the wrapper-owned command-log helper library plus the path-helper/shared-fixtures/source-repo-seeding regressions and wrapper-ownership checks after centralizing restored first-core-path existence validation on the existing wrapper assignment helper."
 }

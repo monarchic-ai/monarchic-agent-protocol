@@ -447,8 +447,8 @@ for script_path in "${command_log_scripts[@]}"; do
 
   case "${script_name}" in
     test-self-host-artifact-command-log-path-helper.sh)
-      if ! grep -Fq "${wrapper_assign_first_core_path_pair_in_tmp_root_helper}" "${script_path}"; then
-        echo "[${script_label}] Expected ${script_name} to use ${wrapper_assign_first_core_path_pair_in_tmp_root_helper} so temp-root first-core-path pair assignment stays centralized." >&2
+      if ! grep -Fq "${wrapper_assign_existing_first_core_path_pair_in_tmp_root_helper}" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to use ${wrapper_assign_existing_first_core_path_pair_in_tmp_root_helper} so restored temp-root first-core-path existence validation stays centralized." >&2
         exit 1
       fi
 
@@ -459,6 +459,16 @@ for script_path in "${command_log_scripts[@]}"; do
 
       if grep -Fq "${wrapper_first_core_path_pair_in_tmp_root_helper}" "${script_path}"; then
         echo "[${script_label}] Expected ${script_name} to keep direct temp-root first-core-path pair reads inside ${wrapper_assign_first_core_path_pair_in_tmp_root_helper}." >&2
+        exit 1
+      fi
+
+      if grep -Fq "${wrapper_assign_first_core_path_pair_in_tmp_root_helper}" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to keep restored temp-root first-core-path existence checks inside ${wrapper_assign_existing_first_core_path_pair_in_tmp_root_helper} instead of direct ${wrapper_assign_first_core_path_pair_in_tmp_root_helper} calls." >&2
+        exit 1
+      fi
+
+      if grep -Fq '[[ ! -f "${first_core_path}" ]]' "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to keep restored first-core-path existence checks inside ${wrapper_assign_existing_first_core_path_pair_in_tmp_root_helper} instead of open-coded file checks." >&2
         exit 1
       fi
       ;;
