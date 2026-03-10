@@ -33,6 +33,8 @@ wrapper_tmp_path_helper="self_host_command_log_tmp_path_for_relative_path"
 wrapper_command_log_tmp_path_helper="self_host_command_log_tmp_path"
 wrapper_reset_baseline_helper="self_host_command_log_reset_and_assert_baseline"
 wrapper_reset_tmp_path_helper="self_host_command_log_reset_and_resolve_tmp_path"
+wrapper_reason_code_helper="self_host_command_log_expect_reason_code"
+wrapper_reason_code_after_mutation_helper="self_host_command_log_expect_reason_code_after_mutation"
 wrapper_stderr_contains_helper="self_host_command_log_expect_stderr_contains"
 wrapper_failure_contains_helper="self_host_command_log_expect_failure_contains"
 wrapper_python_cmd_helper="self_host_command_log_python_cmd"
@@ -262,6 +264,27 @@ if [[ "${reset_tmp_path_body}" != *"${wrapper_command_log_tmp_path_helper}"* ]];
   exit 1
 fi
 
+reason_code_after_mutation_body="$(wrapper_helper_body "${wrapper_reason_code_after_mutation_helper}")"
+if [[ -z "${reason_code_after_mutation_body}" ]]; then
+  echo "[${script_label}] Expected ${wrapper_lib_reference} to define ${wrapper_reason_code_after_mutation_helper}." >&2
+  exit 1
+fi
+
+if [[ "${reason_code_after_mutation_body}" != *"${wrapper_reset_tmp_path_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_reason_code_after_mutation_helper} to reset and resolve baseline temp command-log paths through ${wrapper_reset_tmp_path_helper}." >&2
+  exit 1
+fi
+
+if [[ "${reason_code_after_mutation_body}" != *"${wrapper_json_mutation_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_reason_code_after_mutation_helper} to keep JSON mutation boilerplate on ${wrapper_json_mutation_helper}." >&2
+  exit 1
+fi
+
+if [[ "${reason_code_after_mutation_body}" != *"${wrapper_reason_code_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_reason_code_after_mutation_helper} to keep reason-code assertions on ${wrapper_reason_code_helper}." >&2
+  exit 1
+fi
+
 tmp_path_body="$(wrapper_helper_body "${wrapper_tmp_path_helper}")"
 if [[ -z "${tmp_path_body}" ]]; then
   echo "[${script_label}] Expected ${wrapper_lib_reference} to define ${wrapper_tmp_path_helper}." >&2
@@ -337,7 +360,7 @@ for script_path in "${command_log_scripts[@]}"; do
   fi
 
   case "${script_name}" in
-    test-self-host-artifact-command-log-first-command.sh|test-self-host-artifact-command-log-format.sh|test-self-host-artifact-command-log-gate.sh|test-self-host-artifact-command-log-reason-codes.sh)
+    test-self-host-artifact-command-log-first-command.sh|test-self-host-artifact-command-log-format.sh)
       if ! grep -Fq "${wrapper_reset_tmp_path_helper}" "${script_path}"; then
         echo "[${script_label}] Expected ${script_name} to use ${wrapper_reset_tmp_path_helper} so deterministic mutation coverage keeps baseline-reset temp-path setup centralized." >&2
         exit 1
@@ -355,6 +378,20 @@ for script_path in "${command_log_scripts[@]}"; do
 
       if grep -Eq 'json\.load|json\.dump' "${script_path}"; then
         echo "[${script_label}] Expected ${script_name} to keep command-log JSON load/write boilerplate inside ${wrapper_json_mutation_helper}." >&2
+        exit 1
+      fi
+      ;;
+  esac
+
+  case "${script_name}" in
+    test-self-host-artifact-command-log-gate.sh|test-self-host-artifact-command-log-reason-codes.sh)
+      if ! grep -Fq "${wrapper_reason_code_after_mutation_helper}" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to use ${wrapper_reason_code_after_mutation_helper} so repeated mutation-based reason-code coverage stays centralized." >&2
+        exit 1
+      fi
+
+      if grep -Eq "\\b${wrapper_reset_tmp_path_helper}\\b|\\b${wrapper_json_mutation_helper}\\b|\\b${wrapper_reason_code_helper}\\b" "${script_path}"; then
+        echo "[${script_label}] Expected ${script_name} to keep reset-plus-mutate-plus-reason-code assertions inside ${wrapper_reason_code_after_mutation_helper} instead of open-coding the sequence." >&2
         exit 1
       fi
       ;;
@@ -590,4 +627,4 @@ if [[ "${validated_script_count}" -eq 0 ]]; then
   exit 1
 fi
 
-echo "[${script_label}] PASS: command-log regression scripts stay on wrapper-owned helpers, keep baseline-reset temp-path/root-path/core-path/first-core-path pair/first-core-path pair assignment/temp-root pair/seeded-source-repo/seeded-baseline/python-command/json-mutation/failure-output/stderr-assertion ownership centralized, and avoid direct wrapper state reads."
+echo "[${script_label}] PASS: command-log regression scripts stay on wrapper-owned helpers, keep baseline-reset temp-path/root-path/core-path/first-core-path pair/first-core-path pair assignment/temp-root pair/seeded-source-repo/seeded-baseline/python-command/json-mutation/mutation-based reason-code/failure-output/stderr-assertion ownership centralized, and avoid direct wrapper state reads."

@@ -516,5 +516,12 @@
     "status": "done",
     "completed_at": "2026-03-10T08:52:00Z",
     "notes": "Confirmed the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remains inactive because command-log regressions still avoid direct self_host_artifact_* reach-through, tightened self_host_command_log_tmp_path_for_relative_path to validate wrapper-owned core-path membership through self_host_command_log_assert_core_path_listed before resolving temp fixture paths, extended path-helper coverage to reject non-core relative paths through that helper, refreshed proof coverage, and tightened wrapper-ownership validation so temp-path resolution cannot drift away from the shared core-path list."
+  },
+  {
+    "id": "M75",
+    "title": "Centralize mutation-based command-log reason-code assertions on one wrapper helper",
+    "status": "done",
+    "completed_at": "2026-03-10T09:03:55Z",
+    "notes": "Confirmed the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remains inactive because command-log regressions still avoid direct self_host_artifact_* reach-through, added self_host_command_log_expect_reason_code_after_mutation to centralize baseline reset plus JSON mutation plus reason-code assertions, migrated the gate and reason-code regressions to that helper, refreshed proof coverage, and tightened wrapper-ownership validation so mutation-based reason-code checks do not drift back into duplicated shell sequences."
   }
 ]
