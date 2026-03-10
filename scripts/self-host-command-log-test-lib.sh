@@ -224,6 +224,7 @@ self_host_command_log_prepare_seeded_source_repo() {
 
   self_host_command_log_seed_source_repo_with_empty_report_lists "${script_label}" "${repo_root}" "${source_root}"
   self_host_command_log_assert_seeded_source_repo_core_paths "${source_root}"
+  self_host_command_log_assert_report_paths_empty_in_root "${source_root}"
 }
 
 self_host_command_log_prepare_seeded_source_repo_baseline() {
@@ -262,6 +263,10 @@ self_host_command_log_relative_path() {
   printf '%s\n' "SELF_HOST_COMMAND_LOG.json"
 }
 
+self_host_command_log_report_relative_path() {
+  printf '%s\n' "SELF_HOST_REPORT.json"
+}
+
 self_host_command_log_tmp_root() {
   if [[ -z "${SELF_HOST_COMMAND_LOG_TMP_REPO:-}" ]]; then
     echo "[self-host-command-log-test-lib] Expected command-log temp repo to be initialized." >&2
@@ -290,6 +295,17 @@ self_host_command_log_path_in_root() {
   fi
 
   printf '%s/%s\n' "${root%/}" "${relative_path}"
+}
+
+self_host_command_log_report_path_in_root() {
+  local root="${1:-}"
+
+  if [[ -z "${root}" ]]; then
+    echo "[self-host-command-log-test-lib] Expected a non-empty root for report-path resolution." >&2
+    return 1
+  fi
+
+  self_host_command_log_path_in_root "${root}" "$(self_host_command_log_report_relative_path)"
 }
 
 self_host_command_log_tmp_path_for_relative_path() {
@@ -372,13 +388,53 @@ self_host_command_log_report_paths() {
   self_host_artifact_report_paths
 }
 
-self_host_command_log_assert_report_paths_empty() {
+self_host_command_log_assert_report_paths_empty_in_root() {
+  local root="${1:-}"
   local script_label="${SELF_HOST_COMMAND_LOG_SCRIPT_LABEL:-self-host-command-log-test-lib}"
+  local report_path=""
+  local python_cmd=""
 
-  if [[ -n "$(self_host_command_log_report_paths)" ]]; then
-    echo "[${script_label}] Expected the temp report to expose no report-listed paths." >&2
+  if [[ -z "${root}" ]]; then
+    echo "[self-host-command-log-test-lib] Expected a non-empty root for empty report-path validation." >&2
     return 1
   fi
+
+  report_path="$(self_host_command_log_report_path_in_root "${root}")" || return 1
+
+  if [[ ! -f "${report_path}" ]]; then
+    echo "[${script_label}] Expected ${report_path} to exist for empty report-path validation." >&2
+    return 1
+  fi
+
+  python_cmd="$(self_host_artifact_choose_python "${script_label}")" || return 1
+
+  if [[ -n "$("${python_cmd}" - "${report_path}" <<'PY'
+import json
+import sys
+
+with open(sys.argv[1], "r", encoding="utf-8") as handle:
+    report = json.load(handle)
+
+for key in ("new_files", "changed_files"):
+    for path in report.get(key, []):
+        if isinstance(path, str) and path:
+            print(path)
+PY
+)" ]]; then
+    echo "[${script_label}] Expected ${report_path} to expose no report-listed paths." >&2
+    return 1
+  fi
+}
+
+self_host_command_log_assert_report_paths_empty() {
+  local repo_root="${SELF_HOST_COMMAND_LOG_REPO_ROOT:-}"
+
+  if [[ -z "${repo_root}" ]]; then
+    echo "[self-host-command-log-test-lib] Expected command-log repo root to be initialized for empty report-path validation." >&2
+    return 1
+  fi
+
+  self_host_command_log_assert_report_paths_empty_in_root "${repo_root}"
 }
 
 self_host_command_log_fixture_paths() {

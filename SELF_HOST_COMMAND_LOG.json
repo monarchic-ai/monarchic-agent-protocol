@@ -14,69 +14,59 @@
     },
     {
       "index": 3,
-      "command": "bash -n scripts/test-self-host-artifact-command-log-gate.sh",
+      "command": "bash -n scripts/test-self-host-artifact-command-log-source-repo-seeding.sh",
       "status": "pass"
     },
     {
       "index": 4,
-      "command": "bash -n scripts/test-self-host-artifact-command-log-reason-codes.sh",
-      "status": "pass"
-    },
-    {
-      "index": 5,
       "command": "bash -n scripts/test-self-host-artifact-command-log-wrapper-ownership.sh",
       "status": "pass"
     },
     {
+      "index": 5,
+      "command": "bash scripts/test-self-host-artifact-command-log-source-repo-seeding.sh",
+      "status": "pass"
+    },
+    {
       "index": 6,
-      "command": "bash scripts/test-self-host-artifact-command-log-gate.sh",
-      "status": "pass"
-    },
-    {
-      "index": 7,
-      "command": "bash scripts/test-self-host-artifact-command-log-reason-codes.sh",
-      "status": "pass"
-    },
-    {
-      "index": 8,
       "command": "bash scripts/test-self-host-artifact-command-log-wrapper-ownership.sh",
       "status": "pass"
     },
     {
-      "index": 9,
+      "index": 7,
       "command": "bash scripts/test-self-host-artifacts.sh",
       "status": "pass"
     },
     {
-      "index": 10,
+      "index": 8,
       "command": "python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null",
       "status": "pass"
     },
     {
-      "index": 11,
+      "index": 9,
       "command": "python3 -m json.tool SELF_HOST_PROOF.json >/dev/null",
       "status": "pass"
     },
     {
-      "index": 12,
+      "index": 10,
       "command": "python3 -m json.tool SELF_HOST_MILESTONES.json >/dev/null",
       "status": "pass"
     },
     {
-      "index": 13,
+      "index": 11,
       "command": "python3 -m json.tool SELF_HOST_IMPLEMENTATION_LOG.json >/dev/null",
       "status": "pass"
     },
     {
-      "index": 14,
+      "index": 12,
       "command": "python3 -m json.tool SELF_HOST_REPORT.json >/dev/null",
       "status": "pass"
     },
     {
-      "index": 15,
+      "index": 13,
       "command": "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null",
       "status": "pass"
     }
   ],
-  "note": "Deterministic command log for self-host artifact verification, validating that mutation-based command-log reason-code assertions now stay centralized on self_host_command_log_expect_reason_code_after_mutation after confirming the NEXT_PRIORITY_TASK M49 artifact-lib recovery path stayed inactive."
+  "note": "Deterministic command log for self-host artifact verification, validating that seeded source-repo empty report-list assertions now stay centralized on self_host_command_log_report_path_in_root and self_host_command_log_assert_report_paths_empty_in_root after confirming the NEXT_PRIORITY_TASK M49 artifact-lib recovery path stayed inactive."
 }
