@@ -26,6 +26,9 @@ fi
 self_host_command_log_assert_core_path_listed "${command_log_relative_path}"
 
 first_core_relative_path="$(self_host_command_log_first_core_path)"
+mapfile -t first_core_pair < <(self_host_command_log_first_core_path_pair_in_root "${tmp_repo_root}")
+paired_first_core_relative_path="${first_core_pair[0]:-}"
+paired_first_core_path_in_root="${first_core_pair[1]:-}"
 
 if ! self_host_command_log_assert_core_path_listed "${first_core_relative_path}"; then
   echo "[${script_label}] Expected first core-path helper to resolve one wrapper-owned core path, found ${first_core_relative_path}." >&2
@@ -50,6 +53,16 @@ fi
 
 if [[ "${first_core_path}" != "${first_core_path_in_root}" ]]; then
   echo "[${script_label}] Expected root-path helper to keep ${first_core_relative_path} aligned with the wrapper temp root ${tmp_repo_root}." >&2
+  exit 1
+fi
+
+if [[ "${paired_first_core_relative_path}" != "${first_core_relative_path}" ]]; then
+  echo "[${script_label}] Expected first core-path pair helper to keep the first wrapper-owned relative path aligned with ${first_core_relative_path}, found ${paired_first_core_relative_path}." >&2
+  exit 1
+fi
+
+if [[ "${paired_first_core_path_in_root}" != "${first_core_path_in_root}" ]]; then
+  echo "[${script_label}] Expected first core-path pair helper to keep the rooted first wrapper-owned path aligned with ${first_core_path_in_root}, found ${paired_first_core_path_in_root}." >&2
   exit 1
 fi
 
@@ -99,4 +112,4 @@ self_host_command_log_expect_stderr_contains \
   "command index must be a contiguous integer sequence" \
   "Expected stderr substring helper to detect deterministic command-log format drift."
 
-echo "[${script_label}] PASS: command-log wrapper core-path membership, failure-output, temp-path, first-core-path, stderr-log, python-command, JSON-mutation, and stderr-substring helpers stay aligned with wrapper-owned fixtures."
+echo "[${script_label}] PASS: command-log wrapper core-path membership, failure-output, temp-path, first-core-path pair resolution, stderr-log, python-command, JSON-mutation, and stderr-substring helpers stay aligned with wrapper-owned fixtures."
