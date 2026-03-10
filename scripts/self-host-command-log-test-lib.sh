@@ -173,6 +173,36 @@ self_host_command_log_assign_existing_first_core_path_pair_in_tmp_root() {
   self_host_command_log_assign_existing_first_core_path_pair_in_root "${relative_path_var_name}" "${rooted_path_var_name}" "${tmp_root}"
 }
 
+self_host_command_log_remove_existing_first_core_path_pair_in_root() {
+  local relative_path_var_name="${1:-}"
+  local rooted_path_var_name="${2:-}"
+  local root="${3:-}"
+  local script_label="${SELF_HOST_COMMAND_LOG_SCRIPT_LABEL:-self-host-command-log-test-lib}"
+  local relative_path=""
+  local rooted_path=""
+
+  self_host_command_log_assign_existing_first_core_path_pair_in_root "${relative_path_var_name}" "${rooted_path_var_name}" "${root}" || return 1
+
+  relative_path="${!relative_path_var_name}"
+  rooted_path="${!rooted_path_var_name}"
+
+  rm -f -- "${rooted_path}"
+
+  if [[ -e "${rooted_path}" ]]; then
+    echo "[${script_label}] Expected first core-path removal helper to delete ${relative_path} at ${rooted_path}." >&2
+    return 1
+  fi
+}
+
+self_host_command_log_remove_existing_first_core_path_pair_in_tmp_root() {
+  local relative_path_var_name="${1:-}"
+  local rooted_path_var_name="${2:-}"
+  local tmp_root=""
+
+  tmp_root="$(self_host_command_log_tmp_root)" || return 1
+  self_host_command_log_remove_existing_first_core_path_pair_in_root "${relative_path_var_name}" "${rooted_path_var_name}" "${tmp_root}"
+}
+
 self_host_command_log_assert_seeded_source_repo_core_paths() {
   local source_root="${1:-}"
   local script_label="${SELF_HOST_COMMAND_LOG_SCRIPT_LABEL:-self-host-command-log-test-lib}"
