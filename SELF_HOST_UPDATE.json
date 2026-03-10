@@ -1,21 +1,25 @@
 {
   "status": "pass",
-  "headline": "Completed M78 by centralizing common command-log status/index reason-code regressions on one wrapper helper.",
-  "current_focus": "Current focus is using M49 only if another issue #1 regression resumes direct artifact-lib reach-through; common command-log status/index reason-code regressions now stay on self_host_command_log_expect_status_and_index_reason_codes so gate and reason-code shell coverage can add cases without repeating inline mutation snippets.",
-  "milestone_target": "M78 completed: common command-log status/index reason-code regressions now route through self_host_command_log_expect_status_and_index_reason_codes, which delegates to self_host_command_log_expect_reason_code_after_mutation and keeps shared mutation snippets out of the gate and reason-code shell tests.",
-  "milestones_done": 78,
-  "total_milestones": 78,
+  "headline": "Completed M79 by centralizing mutation-based first-command/format stderr assertions on one wrapper helper.",
+  "current_focus": "Current focus is using M49 only if another issue #1 regression resumes direct artifact-lib reach-through; seeded/shared core-path coverage remains centralized on self_host_command_log_core_paths and self_host_command_log_seed_source_repo_with_empty_report_lists, and mutation-based first-command/format stderr regressions now stay on self_host_command_log_expect_stderr_contains_after_mutation.",
+  "milestone_target": "M79 completed: mutation-based first-command and format stderr regressions now route through self_host_command_log_expect_stderr_contains_after_mutation, which delegates to self_host_command_log_reset_and_resolve_tmp_path, self_host_command_log_mutate_json, and self_host_command_log_expect_stderr_contains so reset/mutate/stderr boilerplate stays out of individual shell regressions.",
+  "milestones_done": 79,
+  "total_milestones": 79,
   "completed_work": [
     "Revalidated the NEXT_PRIORITY_TASK M49 trigger and confirmed command-log regressions still avoid direct self_host_artifact_* reach-through, so the recovery path remained inactive for this run.",
-    "Added self_host_command_log_expect_status_and_index_reason_codes to centralize the shared blocked-status and non-contiguous-index reason-code regressions on the wrapper-owned command-log helper library.",
-    "Migrated the gate and reason-code shell regressions to the new helper, tightened wrapper-ownership coverage to require that delegation, and refreshed the proof manifest for the common reason-code regression scope."
+    "Added self_host_command_log_expect_stderr_contains_after_mutation to centralize baseline reset, command-log JSON mutation, and stderr assertion flow for mutation-based shell regressions.",
+    "Migrated the first-command and format regressions to the new helper, tightened wrapper-ownership coverage to require that delegation, and refreshed the proof/report artifacts for the updated verification sequence."
   ],
   "verification": [
     "bash scripts/test-self-host-proof-artifacts.sh -> pass",
     "bash -n scripts/self-host-command-log-test-lib.sh -> pass",
+    "bash -n scripts/test-self-host-artifact-command-log-first-command.sh -> pass",
+    "bash -n scripts/test-self-host-artifact-command-log-format.sh -> pass",
     "bash -n scripts/test-self-host-artifact-command-log-gate.sh -> pass",
     "bash -n scripts/test-self-host-artifact-command-log-reason-codes.sh -> pass",
     "bash -n scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
+    "bash scripts/test-self-host-artifact-command-log-first-command.sh -> pass",
+    "bash scripts/test-self-host-artifact-command-log-format.sh -> pass",
     "bash scripts/test-self-host-artifact-command-log-gate.sh -> pass",
     "bash scripts/test-self-host-artifact-command-log-reason-codes.sh -> pass",
     "bash scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
@@ -28,11 +32,12 @@
     "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
   ],
   "blockers": [
-    "No blockers in M78 scope."
+    "No blockers in M79 scope."
   ],
   "next_steps": [
     "Use M49 only if another issue #1 regression reaches into artifact-lib details instead of wrapper-owned helpers.",
-    "Keep future command-log status/index reason-code coverage on self_host_command_log_expect_status_and_index_reason_codes so common mutation snippets do not drift back into individual shell regressions."
+    "Keep future seeded/shared command-log path coverage on self_host_command_log_core_paths and self_host_command_log_seed_source_repo_with_empty_report_lists so shared fixture additions stay centralized.",
+    "Keep future mutation-based first-command/format stderr coverage on self_host_command_log_expect_stderr_contains_after_mutation so reset/mutate/stderr boilerplate does not drift back into individual shell regressions."
   ],
-  "note": "Status is pass because verification succeeded, milestones_done increased from 77 to 78 versus the prior report, M78 centralized common command-log status/index reason-code regressions on self_host_command_log_expect_status_and_index_reason_codes, and the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remained inactive because command-log regressions still avoid direct self_host_artifact_* reach-through."
+  "note": "Status is pass because verification succeeded, milestones_done increased from 78 to 79 versus the prior report, M79 centralized mutation-based first-command/format stderr assertions on self_host_command_log_expect_stderr_contains_after_mutation, and the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remained inactive because command-log regressions still avoid direct self_host_artifact_* reach-through."
 }
