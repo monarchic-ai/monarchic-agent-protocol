@@ -1,21 +1,25 @@
 {
   "status": "pass",
-  "headline": "Completed M81 by centralizing temp-root first-core-path resolution on a wrapper helper.",
-  "current_focus": "Current focus is using M49 only if another issue #1 regression resumes direct artifact-lib reach-through; command-log first-core-path coverage now stays centralized on self_host_command_log_first_core_path_in_tmp_root, self_host_command_log_first_core_path_in_root, self_host_command_log_core_paths, and self_host_command_log_seed_source_repo_with_empty_report_lists.",
-  "milestone_target": "M81 completed: path-helper temp-root first-core-path resolution now routes through self_host_command_log_first_core_path_in_tmp_root, which delegates temp-root lookup through self_host_command_log_tmp_root and root-scoped resolution through self_host_command_log_first_core_path_in_root.",
-  "milestones_done": 81,
-  "total_milestones": 81,
+  "headline": "Completed M82 by centralizing root-scoped python selection on a wrapper helper.",
+  "current_focus": "Current focus is using M49 only if another issue #1 regression resumes direct artifact-lib reach-through; root-scoped command-log report helper coverage now keeps interpreter selection centralized on self_host_command_log_choose_python while initialized mutation coverage stays on self_host_command_log_python_cmd.",
+  "milestone_target": "M82 completed: root-scoped report JSON mutation and empty-report-list validation now route python interpreter discovery through self_host_command_log_choose_python, while initialized command-log mutation continues to use self_host_command_log_python_cmd.",
+  "milestones_done": 82,
+  "total_milestones": 82,
   "completed_work": [
     "Revalidated the NEXT_PRIORITY_TASK M49 trigger and confirmed command-log regressions still avoid direct self_host_artifact_* reach-through, so the recovery path remained inactive for this run.",
-    "Added self_host_command_log_first_core_path_in_tmp_root to centralize temp-root first-core-path resolution through the wrapper-owned temp-root and root-resolution helpers.",
-    "Migrated test-self-host-artifact-command-log-path-helper.sh to the new helper, tightened wrapper-ownership coverage to require that delegation and reject inline temp-path composition, and refreshed the proof/report artifacts for the updated verification sequence."
+    "Added self_host_command_log_choose_python to centralize root-scoped report helper interpreter selection on a wrapper-owned entrypoint instead of duplicating self_host_artifact_choose_python calls.",
+    "Extended test-self-host-artifact-command-log-path-helper.sh to verify root-scoped python selection stays aligned with initialized wrapper python state, tightened wrapper-ownership coverage to require the new delegation for report helpers, and refreshed the proof/report artifacts for the updated verification sequence."
   ],
   "verification": [
     "bash scripts/test-self-host-proof-artifacts.sh -> pass",
     "bash -n scripts/self-host-command-log-test-lib.sh -> pass",
     "bash -n scripts/test-self-host-artifact-command-log-path-helper.sh -> pass",
+    "bash -n scripts/test-self-host-artifact-command-log-source-repo-seeding.sh -> pass",
+    "bash -n scripts/test-self-host-artifact-command-log-shared-fixtures.sh -> pass",
     "bash -n scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
     "bash scripts/test-self-host-artifact-command-log-path-helper.sh -> pass",
+    "bash scripts/test-self-host-artifact-command-log-source-repo-seeding.sh -> pass",
+    "bash scripts/test-self-host-artifact-command-log-shared-fixtures.sh -> pass",
     "bash scripts/test-self-host-artifact-command-log-wrapper-ownership.sh -> pass",
     "bash scripts/test-self-host-artifacts.sh -> pass",
     "python3 -m json.tool SELF_HOST_COMMAND_LOG.json >/dev/null -> pass",
@@ -26,12 +30,12 @@
     "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
   ],
   "blockers": [
-    "No blockers in M81 scope."
+    "No blockers in M82 scope."
   ],
   "next_steps": [
     "Use M49 only if another issue #1 regression reaches into artifact-lib details instead of wrapper-owned helpers.",
-    "Keep future temp-root first-core-path lookups on self_host_command_log_first_core_path_in_tmp_root so temp-path composition does not drift back into individual shell regressions.",
+    "Keep future root-scoped command-log report helpers on self_host_command_log_choose_python so interpreter selection does not drift back into duplicated artifact-lib calls.",
     "Keep future command-log shell coverage on self_host_command_log_core_paths and self_host_command_log_seed_source_repo_with_empty_report_lists so shared fixture additions stay centralized."
   ],
-  "note": "Status is pass because verification succeeded, milestones_done increased from 80 to 81 versus the prior report, M81 centralized temp-root first-core-path resolution on self_host_command_log_first_core_path_in_tmp_root, and the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remained inactive because command-log regressions still avoid direct self_host_artifact_* reach-through."
+  "note": "Status is pass because verification succeeded, milestones_done increased from 81 to 82 versus the prior report, M82 centralized root-scoped report helper python selection on self_host_command_log_choose_python, and the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remained inactive because command-log regressions still avoid direct self_host_artifact_* reach-through."
 }

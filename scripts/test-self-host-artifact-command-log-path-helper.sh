@@ -16,6 +16,7 @@ command_log_relative_path="$(self_host_command_log_relative_path)"
 tmp_repo_root="$(self_host_command_log_tmp_root)"
 stderr_log_path="$(self_host_command_log_stderr_log_path)"
 python_cmd="$(self_host_command_log_python_cmd)"
+selected_python_cmd="$(self_host_command_log_choose_python "${script_label}")"
 command_log_path_in_root="$(self_host_command_log_path_in_root "${tmp_repo_root}")"
 
 if [[ -z "${command_log_relative_path}" ]]; then
@@ -79,6 +80,11 @@ if ! command -v "${python_cmd}" >/dev/null 2>&1; then
   exit 1
 fi
 
+if [[ "${selected_python_cmd}" != "${python_cmd}" ]]; then
+  echo "[${script_label}] Expected root-scoped python selection to stay aligned with initialized wrapper python state, found ${selected_python_cmd} vs ${python_cmd}." >&2
+  exit 1
+fi
+
 missing_relative_path="NOT_A_COMMAND_LOG_CORE_PATH.json"
 
 self_host_command_log_expect_failure_contains \
@@ -115,4 +121,4 @@ self_host_command_log_expect_stderr_contains \
   "command index must be a contiguous integer sequence" \
   "Expected stderr substring helper to detect deterministic command-log format drift."
 
-echo "[${script_label}] PASS: command-log wrapper core-path membership, failure-output, temp-path membership enforcement, temp-root first-core-path resolution, existing first-core-path pair assignment, stderr-log, python-command, JSON-mutation, and stderr-substring helpers stay aligned with wrapper-owned fixtures."
+echo "[${script_label}] PASS: command-log wrapper core-path membership, failure-output, temp-path membership enforcement, temp-root first-core-path resolution, existing first-core-path pair assignment, stderr-log, initialized plus root-scoped python selection, JSON-mutation, and stderr-substring helpers stay aligned with wrapper-owned fixtures."
