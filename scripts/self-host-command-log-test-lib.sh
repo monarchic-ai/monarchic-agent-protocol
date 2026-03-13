@@ -529,7 +529,19 @@ self_host_command_log_assert_report_paths_empty() {
 }
 
 self_host_command_log_fixture_paths() {
-  self_host_artifact_fixture_paths
+  self_host_command_log_core_paths
+  self_host_command_log_report_paths
+}
+
+self_host_command_log_copy_relative_path() {
+  local relative_path="${1:-}"
+
+  if [[ -z "${relative_path}" ]]; then
+    echo "[self-host-command-log-test-lib] Expected a non-empty relative path for fixture copying." >&2
+    return 1
+  fi
+
+  self_host_artifact_copy_relative_path "${relative_path}"
 }
 
 self_host_command_log_seed_source_repo_with_empty_report_lists() {
@@ -537,7 +549,12 @@ self_host_command_log_seed_source_repo_with_empty_report_lists() {
 }
 
 self_host_command_log_reset_fixtures() {
-  self_host_artifact_reset_fixtures
+  local relative_path=""
+
+  while IFS= read -r relative_path; do
+    [[ -z "${relative_path}" ]] && continue
+    self_host_command_log_copy_relative_path "${relative_path}"
+  done < <(self_host_command_log_fixture_paths)
 }
 
 self_host_command_log_reset_and_assert_baseline() {
