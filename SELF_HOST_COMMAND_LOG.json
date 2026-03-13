@@ -88,5 +88,5 @@
       "status": "pass"
     }
   ],
-  "note": "Deterministic command log for self-host artifact verification, validating that root-scoped report helper python selection now stays centralized on self_host_command_log_choose_python after confirming the NEXT_PRIORITY_TASK M49 artifact-lib recovery path stayed inactive."
+  "note": "Deterministic command log for self-host artifact verification, validating that command-log fixture resets now compose wrapper-owned core/report fixture enumeration and file-copy helpers after confirming the NEXT_PRIORITY_TASK M49 artifact-lib recovery path stayed inactive."
 }
