@@ -572,5 +572,12 @@
     "status": "done",
     "completed_at": "2026-03-10T15:00:58Z",
     "notes": "Confirmed the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remains inactive because command-log regressions still avoid direct self_host_artifact_* reach-through, added self_host_command_log_choose_python to centralize root-scoped report helper interpreter selection, validated it stays aligned with initialized wrapper python state in the path-helper regression, refreshed proof coverage, and tightened wrapper-ownership validation so root-scoped report helpers do not duplicate python selection."
+  },
+  {
+    "id": "M83",
+    "title": "Centralize command-log fixture reset on wrapper-owned fixture-path and copy helpers",
+    "status": "done",
+    "completed_at": "2026-03-10T15:14:33Z",
+    "notes": "Confirmed the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remains inactive because command-log regressions still avoid direct self_host_artifact_* reach-through, updated self_host_command_log_fixture_paths to compose wrapper-owned core and report-path helpers, added self_host_command_log_copy_relative_path so fixture resets copy through a wrapper-owned helper, refreshed proof coverage, and tightened wrapper-ownership validation so fixture resets do not drift back into direct artifact reset delegation."
   }
 ]

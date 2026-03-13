@@ -7,7 +7,9 @@ script_label="test-self-host-artifact-command-log-wrapper-ownership"
 source "${repo_root}/scripts/self-host-command-log-test-lib.sh"
 
 artifact_helper_prefix='self_host'"_artifact_"
+artifact_copy_relative_path_helper="${artifact_helper_prefix}copy_relative_path"
 artifact_choose_python_helper="${artifact_helper_prefix}choose_python"
+artifact_report_paths_helper="${artifact_helper_prefix}report_paths"
 wrapper_helper_prefix="self_host_command_log_"
 wrapper_lib_reference="self-host-command-log-test-lib.sh"
 wrapper_lib_path="${repo_root}/scripts/${wrapper_lib_reference}"
@@ -35,6 +37,9 @@ wrapper_report_path_in_root_helper="self_host_command_log_report_path_in_root"
 wrapper_report_json_mutation_in_root_helper="self_host_command_log_mutate_report_json_in_root"
 wrapper_empty_report_paths_in_root_helper="self_host_command_log_assert_report_paths_empty_in_root"
 wrapper_empty_report_paths_helper="self_host_command_log_assert_report_paths_empty"
+wrapper_fixture_paths_helper="self_host_command_log_fixture_paths"
+wrapper_copy_relative_path_helper="self_host_command_log_copy_relative_path"
+wrapper_reset_fixtures_helper="self_host_command_log_reset_fixtures"
 wrapper_tmp_root_helper="self_host_command_log_tmp_root"
 wrapper_root_path_helper="self_host_command_log_path_in_root"
 wrapper_tmp_path_helper="self_host_command_log_tmp_path_for_relative_path"
@@ -187,6 +192,60 @@ fi
 
 if [[ "${empty_report_paths_body}" != *"${wrapper_empty_report_paths_in_root_helper}"* ]]; then
   echo "[${script_label}] Expected ${wrapper_empty_report_paths_helper} to delegate empty report-list validation through ${wrapper_empty_report_paths_in_root_helper} so root-scoped validation stays centralized." >&2
+  exit 1
+fi
+
+report_paths_body="$(wrapper_helper_body "${wrapper_report_paths_helper}")"
+if [[ -z "${report_paths_body}" ]]; then
+  echo "[${script_label}] Expected ${wrapper_lib_reference} to define ${wrapper_report_paths_helper}." >&2
+  exit 1
+fi
+
+if [[ "${report_paths_body}" != *"${artifact_report_paths_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_report_paths_helper} to delegate report-listed fixture enumeration through ${artifact_report_paths_helper} so report-list parsing stays centralized." >&2
+  exit 1
+fi
+
+fixture_paths_body="$(wrapper_helper_body "${wrapper_fixture_paths_helper}")"
+if [[ -z "${fixture_paths_body}" ]]; then
+  echo "[${script_label}] Expected ${wrapper_lib_reference} to define ${wrapper_fixture_paths_helper}." >&2
+  exit 1
+fi
+
+if [[ "${fixture_paths_body}" != *"${wrapper_core_paths_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_fixture_paths_helper} to enumerate wrapper-owned core fixture paths through ${wrapper_core_paths_helper} so core fixture additions stay centralized." >&2
+  exit 1
+fi
+
+if [[ "${fixture_paths_body}" != *"${wrapper_report_paths_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_fixture_paths_helper} to append report-listed fixture paths through ${wrapper_report_paths_helper} so report-driven fixture copies stay centralized." >&2
+  exit 1
+fi
+
+copy_relative_path_body="$(wrapper_helper_body "${wrapper_copy_relative_path_helper}")"
+if [[ -z "${copy_relative_path_body}" ]]; then
+  echo "[${script_label}] Expected ${wrapper_lib_reference} to define ${wrapper_copy_relative_path_helper}." >&2
+  exit 1
+fi
+
+if [[ "${copy_relative_path_body}" != *"${artifact_copy_relative_path_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_copy_relative_path_helper} to delegate fixture copying through ${artifact_copy_relative_path_helper} so file copy semantics stay centralized." >&2
+  exit 1
+fi
+
+reset_fixtures_body="$(wrapper_helper_body "${wrapper_reset_fixtures_helper}")"
+if [[ -z "${reset_fixtures_body}" ]]; then
+  echo "[${script_label}] Expected ${wrapper_lib_reference} to define ${wrapper_reset_fixtures_helper}." >&2
+  exit 1
+fi
+
+if [[ "${reset_fixtures_body}" != *"${wrapper_fixture_paths_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_reset_fixtures_helper} to enumerate wrapper-owned fixture paths through ${wrapper_fixture_paths_helper} so fixture list composition stays centralized." >&2
+  exit 1
+fi
+
+if [[ "${reset_fixtures_body}" != *"${wrapper_copy_relative_path_helper}"* ]]; then
+  echo "[${script_label}] Expected ${wrapper_reset_fixtures_helper} to copy wrapper-owned fixture paths through ${wrapper_copy_relative_path_helper} so reset copy semantics stay centralized." >&2
   exit 1
 fi
 

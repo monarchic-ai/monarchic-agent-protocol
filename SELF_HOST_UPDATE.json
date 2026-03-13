@@ -1,14 +1,14 @@
 {
   "status": "pass",
-  "headline": "Completed M82 by centralizing root-scoped python selection on a wrapper helper.",
-  "current_focus": "Current focus is using M49 only if another issue #1 regression resumes direct artifact-lib reach-through; root-scoped command-log report helper coverage now keeps interpreter selection centralized on self_host_command_log_choose_python while initialized mutation coverage stays on self_host_command_log_python_cmd.",
-  "milestone_target": "M82 completed: root-scoped report JSON mutation and empty-report-list validation now route python interpreter discovery through self_host_command_log_choose_python, while initialized command-log mutation continues to use self_host_command_log_python_cmd.",
-  "milestones_done": 82,
-  "total_milestones": 82,
+  "headline": "Completed M83 by centralizing command-log fixture reset on wrapper-owned helpers.",
+  "current_focus": "Current focus is using M49 only if another issue #1 regression resumes direct artifact-lib reach-through; command-log fixture resets now compose wrapper-owned core/report fixture enumeration on self_host_command_log_fixture_paths and wrapper-owned file copying on self_host_command_log_copy_relative_path.",
+  "milestone_target": "M83 completed: command-log fixture resets now enumerate wrapper-owned core and report-listed fixture paths through self_host_command_log_fixture_paths and copy them through self_host_command_log_copy_relative_path.",
+  "milestones_done": 83,
+  "total_milestones": 83,
   "completed_work": [
     "Revalidated the NEXT_PRIORITY_TASK M49 trigger and confirmed command-log regressions still avoid direct self_host_artifact_* reach-through, so the recovery path remained inactive for this run.",
-    "Added self_host_command_log_choose_python to centralize root-scoped report helper interpreter selection on a wrapper-owned entrypoint instead of duplicating self_host_artifact_choose_python calls.",
-    "Extended test-self-host-artifact-command-log-path-helper.sh to verify root-scoped python selection stays aligned with initialized wrapper python state, tightened wrapper-ownership coverage to require the new delegation for report helpers, and refreshed the proof/report artifacts for the updated verification sequence."
+    "Updated self_host_command_log_fixture_paths to compose wrapper-owned core-path and report-path helpers, and added self_host_command_log_copy_relative_path so fixture resets no longer delegate the entire copy sequence through artifact-lib.",
+    "Extended wrapper-ownership coverage to require wrapper-owned report-path, fixture-path, copy, and reset delegation, then refreshed the proof/report artifacts for the updated verification sequence."
   ],
   "verification": [
     "bash scripts/test-self-host-proof-artifacts.sh -> pass",
@@ -30,12 +30,12 @@
     "python3 -m json.tool SELF_HOST_UPDATE.json >/dev/null -> pass"
   ],
   "blockers": [
-    "No blockers in M82 scope."
+    "No blockers in M83 scope."
   ],
   "next_steps": [
     "Use M49 only if another issue #1 regression reaches into artifact-lib details instead of wrapper-owned helpers.",
-    "Keep future root-scoped command-log report helpers on self_host_command_log_choose_python so interpreter selection does not drift back into duplicated artifact-lib calls.",
-    "Keep future command-log shell coverage on self_host_command_log_core_paths and self_host_command_log_seed_source_repo_with_empty_report_lists so shared fixture additions stay centralized."
+    "Keep future command-log fixture resets on self_host_command_log_fixture_paths and self_host_command_log_copy_relative_path so fixture list composition and copy semantics stay centralized.",
+    "Keep future report-driven fixture enumeration on self_host_command_log_report_paths so report-list parsing does not drift back into duplicated inline Python."
   ],
-  "note": "Status is pass because verification succeeded, milestones_done increased from 81 to 82 versus the prior report, M82 centralized root-scoped report helper python selection on self_host_command_log_choose_python, and the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remained inactive because command-log regressions still avoid direct self_host_artifact_* reach-through."
+  "note": "Status is pass because verification succeeded, milestones_done increased from 82 to 83 versus the prior report, M83 centralized command-log fixture reset on wrapper-owned fixture-path and copy helpers, and the NEXT_PRIORITY_TASK M49 artifact-lib recovery path remained inactive because command-log regressions still avoid direct self_host_artifact_* reach-through."
 }
