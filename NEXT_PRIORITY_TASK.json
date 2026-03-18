@@ -1,38 +1,38 @@
 {
   "version": "v1",
   "generated_at": "2026-03-06T22:38:12.387712+00:00",
-  "run_id": "self-host-svc-20260306T173928Z-c001-monarchic-agent-protocol-b5e9d0f75db2",
+  "run_id": "project-state-svc-20260306T173928Z-c001-monarchic-agent-protocol-b5e9d0f75db2",
   "batch": "batch-0001",
-  "source": "self_host_update",
+  "source": "project_state_summary",
   "fallback_used": true,
   "top_priority_task": {
-    "task_id": "self-host-update-batch-0001",
-    "title": "Advance M49: identify the next wrapper/helper ownership gap for issue #1 only if another deterministic non-protobuf self-host regression needs coverage.",
+    "task_id": "project-state-update-batch-0001",
+    "title": "Advance M49: identify the next wrapper/helper ownership gap for issue #1 only if another deterministic non-protobuf project-state regression needs coverage.",
     "why_now": "Progress monitor returned no explicit recovery task for this checkpoint.",
-    "prompt": "Monitor-generated recovery tasks are unavailable for this checkpoint.\nUse SELF_HOST_UPDATE.json as the source of truth for the next incremental improvement.\nPrioritize milestone target: M49: identify the next wrapper/helper ownership gap for issue #1 only if another deterministic non-protobuf self-host regression needs coverage.\nCurrent focus: Current focus is keeping command-log self-host regressions on the wrapper-owned core-path helper added in this run so future shared artifact fixture changes do not require duplicated file lists in non-protobuf shell coverage.\nStart with next step: Use M49 only if another issue #1 regression still reaches into artifact-lib details instead of wrapper-owned helpers.\nKeep the change low-risk, run verification, and update SELF_HOST_REPORT.json plus SELF_HOST_UPDATE.json.",
+    "prompt": "Monitor-generated recovery tasks are unavailable for this checkpoint.\nUse PROJECT_SUMMARY.json as the source of truth for the next incremental improvement.\nPrioritize milestone target: M49: identify the next wrapper/helper ownership gap for issue #1 only if another deterministic non-protobuf project-state regression needs coverage.\nCurrent focus: Current focus is keeping command-log project-state regressions on the wrapper-owned core-path helper added in this run so future shared artifact fixture changes do not require duplicated file lists in non-protobuf shell coverage.\nStart with next step: Use M49 only if another issue #1 regression still reaches into artifact-lib details instead of wrapper-owned helpers.\nKeep the change low-risk, run verification, and update PROJECT_STATUS.json plus PROJECT_SUMMARY.json.",
     "acceptance": [
-      "Deliver observable progress for milestone target: M49: identify the next wrapper/helper ownership gap for issue #1 only if another deterministic non-protobuf self-host regression needs coverage..",
+      "Deliver observable progress for milestone target: M49: identify the next wrapper/helper ownership gap for issue #1 only if another deterministic non-protobuf project-state regression needs coverage..",
       "Address next step: Use M49 only if another issue #1 regression still reaches into artifact-lib details instead of wrapper-owned helpers.",
-      "Address next step: Keep future command-log shell coverage on self_host_command_log_core_paths and self_host_command_log_seed_source_repo_with_empty_report_lists so shared fixture additions stay centralized.",
-      "Maintain verification continuity (first expected check: bash scripts/test-self-host-proof-artifacts.sh -> pass).",
-      "Refresh SELF_HOST_REPORT.json and SELF_HOST_UPDATE.json to reflect the completed work."
+      "Address next step: Keep future command-log shell coverage on project_state_command_log_core_paths and project_state_command_log_seed_source_repo_with_empty_report_lists so shared fixture additions stay centralized.",
+      "Maintain verification continuity (first expected check: bash scripts/test-project-state-proof-artifacts.sh -> pass).",
+      "Refresh PROJECT_STATUS.json and PROJECT_SUMMARY.json to reflect the completed work."
     ],
-    "source": "self_host_update"
+    "source": "project_state_summary"
   },
   "all_priority_tasks": [
     {
-      "task_id": "self-host-update-batch-0001",
-      "title": "Advance M49: identify the next wrapper/helper ownership gap for issue #1 only if another deterministic non-protobuf self-host regression needs coverage.",
+      "task_id": "project-state-update-batch-0001",
+      "title": "Advance M49: identify the next wrapper/helper ownership gap for issue #1 only if another deterministic non-protobuf project-state regression needs coverage.",
       "why_now": "Progress monitor returned no explicit recovery task for this checkpoint.",
-      "prompt": "Monitor-generated recovery tasks are unavailable for this checkpoint.\nUse SELF_HOST_UPDATE.json as the source of truth for the next incremental improvement.\nPrioritize milestone target: M49: identify the next wrapper/helper ownership gap for issue #1 only if another deterministic non-protobuf self-host regression needs coverage.\nCurrent focus: Current focus is keeping command-log self-host regressions on the wrapper-owned core-path helper added in this run so future shared artifact fixture changes do not require duplicated file lists in non-protobuf shell coverage.\nStart with next step: Use M49 only if another issue #1 regression still reaches into artifact-lib details instead of wrapper-owned helpers.\nKeep the change low-risk, run verification, and update SELF_HOST_REPORT.json plus SELF_HOST_UPDATE.json.",
+      "prompt": "Monitor-generated recovery tasks are unavailable for this checkpoint.\nUse PROJECT_SUMMARY.json as the source of truth for the next incremental improvement.\nPrioritize milestone target: M49: identify the next wrapper/helper ownership gap for issue #1 only if another deterministic non-protobuf project-state regression needs coverage.\nCurrent focus: Current focus is keeping command-log project-state regressions on the wrapper-owned core-path helper added in this run so future shared artifact fixture changes do not require duplicated file lists in non-protobuf shell coverage.\nStart with next step: Use M49 only if another issue #1 regression still reaches into artifact-lib details instead of wrapper-owned helpers.\nKeep the change low-risk, run verification, and update PROJECT_STATUS.json plus PROJECT_SUMMARY.json.",
       "acceptance": [
-        "Deliver observable progress for milestone target: M49: identify the next wrapper/helper ownership gap for issue #1 only if another deterministic non-protobuf self-host regression needs coverage..",
+        "Deliver observable progress for milestone target: M49: identify the next wrapper/helper ownership gap for issue #1 only if another deterministic non-protobuf project-state regression needs coverage..",
         "Address next step: Use M49 only if another issue #1 regression still reaches into artifact-lib details instead of wrapper-owned helpers.",
-        "Address next step: Keep future command-log shell coverage on self_host_command_log_core_paths and self_host_command_log_seed_source_repo_with_empty_report_lists so shared fixture additions stay centralized.",
-        "Maintain verification continuity (first expected check: bash scripts/test-self-host-proof-artifacts.sh -> pass).",
-        "Refresh SELF_HOST_REPORT.json and SELF_HOST_UPDATE.json to reflect the completed work."
+        "Address next step: Keep future command-log shell coverage on project_state_command_log_core_paths and project_state_command_log_seed_source_repo_with_empty_report_lists so shared fixture additions stay centralized.",
+        "Maintain verification continuity (first expected check: bash scripts/test-project-state-proof-artifacts.sh -> pass).",
+        "Refresh PROJECT_STATUS.json and PROJECT_SUMMARY.json to reflect the completed work."
       ],
-      "source": "self_host_update"
+      "source": "project_state_summary"
     }
   ]
 }
