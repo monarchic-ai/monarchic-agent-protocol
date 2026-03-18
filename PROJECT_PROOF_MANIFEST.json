@@ -1,0 +1,51 @@
+{
+  "version": "v1",
+  "combined_sha256": "f39f29562056cd9525e4797ebf9a46a619d29ccf9da7f3f643150e8082070214",
+  "artifacts": [
+    {
+      "path": "PROJECT_COMMAND_LOG.json",
+      "sha256": "14fcade2b632f5192d2e60f254234678283caf8d90076ee165e95e9846dbff7e",
+      "bytes": 2708
+    },
+    {
+      "path": "PROJECT_COMMAND_LOG.txt",
+      "sha256": "592e5e0f72c699defad8c0010e9f3acb2a06f595df719844278c22c37ffc5991",
+      "bytes": 10209
+    },
+    {
+      "path": "PROJECT_ACTIVITY_LOG.json",
+      "sha256": "89f402ca2fc005968f1dc4e5dcc7e38f227ee86d9681fe36ddca10fa82e6b3e0",
+      "bytes": 142812
+    },
+    {
+      "path": "PROJECT_MILESTONES.json",
+      "sha256": "26685fd1a3fc24ec30ccb657cd4a241254e574848d5620d6fe7d88a1e35e1289",
+      "bytes": 44141
+    },
+    {
+      "path": "PROJECT_PROOF.json",
+      "sha256": "5526f561021b0c883f8b49a606edbb25120d11bbde631eecab4d6268b8e45b37",
+      "bytes": 727
+    },
+    {
+      "path": "PROJECT_STATUS.json",
+      "sha256": "9d8479612723e84fab83d91ae5e9e029d7c6077286ed290a73d2f4b76710a678",
+      "bytes": 1976
+    },
+    {
+      "path": "PROJECT_SUMMARY.json",
+      "sha256": "6f87da6648ed117bffd5ea6f0c10b2ecc734c77e33a3d583e8122b3f11b98ef6",
+      "bytes": 3741
+    },
+    {
+      "path": "scripts/project-state-command-log-test-lib.sh",
+      "sha256": "432e2f53e5c7b7272966823cb9e8a3ce604391071f397309de93f62c67e922f1",
+      "bytes": 24413
+    },
+    {
+      "path": "scripts/test-project-state-artifact-command-log-wrapper-ownership.sh",
+      "sha256": "9a2683615d705ae0c3b7dab2e3b5fa8926cbdc7b7d4aaf33b21d4c5cce31c211",
+      "bytes": 54378
+    }
+  ]
+}

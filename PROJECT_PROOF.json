@@ -1,0 +1,18 @@
+{
+  "task_id": "task-project-state-001",
+  "status": "pass",
+  "reason_code": "OK",
+  "signature_count": 2,
+  "sampled_batches": 1,
+  "proofs": [
+    {
+      "path": "scripts/project-state-command-log-test-lib.sh",
+      "sha256": "432e2f53e5c7b7272966823cb9e8a3ce604391071f397309de93f62c67e922f1"
+    },
+    {
+      "path": "scripts/test-project-state-artifact-command-log-wrapper-ownership.sh",
+      "sha256": "9a2683615d705ae0c3b7dab2e3b5fa8926cbdc7b7d4aaf33b21d4c5cce31c211"
+    }
+  ],
+  "note": "Deterministic proof manifest for project-state artifact validation, covering the command-log helper library plus the wrapper-ownership regression after centralizing fixture-path reset composition on wrapper-owned helpers."
+}

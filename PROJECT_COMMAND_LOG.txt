@@ -1,0 +1,187 @@
+2026-03-10T02:42:35Z /bin/bash -lc "rg --files -g 'instructions.md' -g 'NEXT_PRIORITY_TASK.md' -g 'PROJECT_MILESTONES.json' -g 'PROJECT_ACTIVITY_LOG.json' -g 'PROJECT_STATUS.json' -g 'PROJECT_SUMMARY.json'"
+result: fail exit_code=127
+2026-03-10T02:42:35Z /bin/bash -lc "sed -n '1,220p' instructions.md"
+result: fail exit_code=2
+2026-03-10T02:42:35Z /bin/bash -lc 'tail -n 80 PROJECT_ACTIVITY_LOG.json'
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc 'tail -n 40 PROJECT_MILESTONES.json'
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc "if [ -f PROJECT_STATUS.json ]; then sed -n '1,220p' PROJECT_STATUS.json; else echo '__MISSING__'; fi"
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc "if [ -f PROJECT_SUMMARY.json ]; then sed -n '1,260p' PROJECT_SUMMARY.json; else echo '__MISSING__'; fi"
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc "if [ -f NEXT_PRIORITY_TASK.md ]; then sed -n '1,220p' NEXT_PRIORITY_TASK.md; else echo '__MISSING__'; fi"
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc "find .. -name instructions.md -o -name 'project-state-command-log-test-lib.sh' -o -name 'test-project-state-artifact-command-log-wrapper-ownership.sh' -o -name 'test-project-state-artifact-command-log-*.sh' -o -name 'PROJECT_COMMAND_LOG.json' -o -name 'PROJECT_PROOF.json' | sed 's#"'^./##'"' | sort"
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc "python3 - <<'PY'
+import json
+from pathlib import Path
+p=Path('PROJECT_MILESTONES.json')
+obj=json.loads(p.read_text())
+print('total', len(obj))
+for m in obj[-8:]:
+    print(m['id'], m['status'], m['title'])
+PY"
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc "python3 - <<'PY'
+import json
+from pathlib import Path
+obj=json.loads(Path('PROJECT_MILESTONES.json').read_text())
+for m in obj:
+    if m['status']"'!='"'done':
+        print(m['id'], m['status'], m['title'])
+PY"
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc "grep -RInE 'project_state_command_log_core_paths|project_state_command_log_seed_source_repo_with_empty_report_lists|project_state_artifact_' scripts/project-state-command-log-test-lib.sh scripts/test-project-state-artifact-command-log-*.sh"
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc "sed -n '1,260p' scripts/project-state-command-log-test-lib.sh"
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc "sed -n '1,260p' scripts/test-project-state-artifact-command-log-wrapper-ownership.sh"
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc "sed -n '1,240p' scripts/test-project-state-artifact-command-log-shared-fixtures.sh"
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc "sed -n '1,220p' scripts/test-project-state-artifact-command-log-path-helper.sh"
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc "sed -n '1,240p' scripts/test-project-state-artifact-command-log-source-repo-seeding.sh"
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc "sed -n '220,340p' scripts/test-project-state-artifact-command-log-wrapper-ownership.sh"
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc "sed -n '1,240p' scripts/test-project-state-artifact-command-log-gate.sh"
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc "sed -n '1,240p' scripts/test-project-state-artifact-command-log-reason-codes.sh"
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc "sed -n '1,240p' scripts/test-project-state-artifact-command-log-first-command.sh"
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc "sed -n '1,240p' scripts/test-project-state-artifact-command-log-format.sh"
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc 'tail -n 60 scripts/test-project-state-artifact-command-log-wrapper-ownership.sh'
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc "grep -n 'project_state_command_log_tmp_path\\|project_state_command_log_reset_and_assert_baseline\\|project_state_command_log_expect_' scripts/project-state-command-log-test-lib.sh"
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc "sed -n '240,360p' scripts/project-state-command-log-test-lib.sh"
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc "sed -n '360,420p' scripts/project-state-command-log-test-lib.sh"
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc 'tail -n 80 PROJECT_PROOF.json'
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc 'head -n 40 PROJECT_PROOF.json'
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc "sed -n '1,260p' scripts/test-project-state-proof-artifacts.sh"
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc "grep -n 'PROJECT_PROOF.json\\|proofs\\|sha256\\|signature_count' -n scripts/test-project-state-proof-artifacts.sh"
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc "sed -n '1,260p' scripts/test-project-state-artifacts.sh"
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc "grep -RInE 'PROJECT_MILESTONES.json|PROJECT_STATUS.json|PROJECT_SUMMARY.json|PROJECT_ACTIVITY_LOG.json' scripts | sort"
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc "sed -n '520,620p' scripts/test-project-state-artifacts.sh"
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc 'tail -n 120 PROJECT_COMMAND_LOG.json'
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc "sed -n '1,120p' scripts/test-project-state-artifact-command-log-reason-codes.sh"
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc "sed -n '280,310p' scripts/project-state-command-log-test-lib.sh"
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc "sed -n '1,120p' scripts/test-project-state-artifact-command-log-gate.sh"
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc "sed -n '1,220p' scripts/test-project-state-artifact-command-log-wrapper-ownership.sh"
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc 'bash -n scripts/project-state-command-log-test-lib.sh'
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc 'bash -n scripts/test-project-state-artifact-command-log-format.sh'
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc 'bash -n scripts/test-project-state-artifact-command-log-reason-codes.sh'
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc 'bash -n scripts/test-project-state-artifact-command-log-gate.sh'
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc 'bash -n scripts/test-project-state-artifact-command-log-first-command.sh'
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc 'bash -n scripts/test-project-state-artifact-command-log-wrapper-ownership.sh'
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc 'date -u +%Y-%m-%dT%H:%M:%SZ'
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc "python3 - <<'PY'
+import hashlib
+from pathlib import Path
+paths = [
+ 'scripts/project-state-command-log-test-lib.sh',
+ 'scripts/test-project-state-artifact-command-log-first-command.sh',
+ 'scripts/test-project-state-artifact-command-log-format.sh',
+ 'scripts/test-project-state-artifact-command-log-gate.sh',
+ 'scripts/test-project-state-artifact-command-log-reason-codes.sh',
+ 'scripts/test-project-state-artifact-command-log-wrapper-ownership.sh',
+]
+for path in paths:
+    print(path, hashlib.sha256(Path(path).read_bytes()).hexdigest())
+PY"
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc "python3 - <<'PY'
+import json
+from pathlib import Path
+report = json.loads(Path('PROJECT_STATUS.json').read_text())
+log = json.loads(Path('PROJECT_ACTIVITY_LOG.json').read_text())
+cmd = json.loads(Path('PROJECT_COMMAND_LOG.json').read_text())
+print('report milestone', report['milestone_completed'])
+print('done', report['milestones_done'], 'total', report['total_milestones'])
+print('task_id', log[-1]['task_id'])
+print('prev milestone', log[-1]['milestone_completed'])
+print('cmd_count', len(cmd['commands']))
+PY"
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc 'bash scripts/test-project-state-proof-artifacts.sh'
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc 'bash scripts/test-project-state-artifact-command-log-wrapper-ownership.sh'
+result: fail exit_code=1
+2026-03-10T02:42:35Z /bin/bash -lc 'bash scripts/test-project-state-artifact-command-log-format.sh'
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc 'bash scripts/test-project-state-artifact-command-log-first-command.sh'
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc 'bash scripts/test-project-state-artifact-command-log-reason-codes.sh'
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc 'bash scripts/test-project-state-artifact-command-log-gate.sh'
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc "grep -n 'reset-plus-baseline coverage stays centralized' -n scripts/test-project-state-artifact-command-log-wrapper-ownership.sh"
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc "sed -n '220,260p' scripts/test-project-state-artifact-command-log-wrapper-ownership.sh"
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc 'bash -n scripts/test-project-state-artifact-command-log-wrapper-ownership.sh'
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc "python3 - <<'PY'
+import hashlib
+from pathlib import Path
+path = Path('scripts/test-project-state-artifact-command-log-wrapper-ownership.sh')
+print(hashlib.sha256(path.read_bytes()).hexdigest())
+PY"
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc 'bash scripts/test-project-state-proof-artifacts.sh'
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc 'bash scripts/test-project-state-artifact-command-log-wrapper-ownership.sh'
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc 'bash scripts/test-project-state-artifacts.sh'
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc 'python3 -m json.tool PROJECT_COMMAND_LOG.json >/dev/null'
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc 'python3 -m json.tool PROJECT_PROOF.json >/dev/null'
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc 'python3 -m json.tool PROJECT_ACTIVITY_LOG.json >/dev/null'
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc 'python3 -m json.tool PROJECT_SUMMARY.json >/dev/null'
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc 'python3 -m json.tool PROJECT_STATUS.json >/dev/null'
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc 'python3 -m json.tool PROJECT_MILESTONES.json >/dev/null'
+result: pass
+2026-03-10T02:42:35Z /bin/bash -lc 'git status --short'
+result: fail exit_code=128
+2026-03-10T02:42:35Z /bin/bash -lc "python3 - <<'PY'
+import json
+from pathlib import Path
+m=json.loads(Path('PROJECT_MILESTONES.json').read_text())
+r=json.loads(Path('PROJECT_STATUS.json').read_text())
+print('latest', m[-1]['id'], m[-1]['status'])
+print('done', sum(1 for x in m if x['status']=='done'))
+print('total', len(m))
+print('report', r['status'], r['milestone_completed'], r['milestones_done'], r['total_milestones'])
+PY"
+result: pass
