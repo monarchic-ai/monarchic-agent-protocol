@@ -1,0 +1,168 @@
+{
+  "version": "v1",
+  "generated_at": "2026-03-06T21:42:24.130063+00:00",
+  "source": "project_state_autoloop_project_manager",
+  "status": "refreshed",
+  "pending_before": null,
+  "pending_after": null,
+  "milestones_done": 46,
+  "current_focus": "Current focus is keeping temp source-repo seeding and empty report-file-list setup owned by scripts/project-state-artifact-test-lib.sh so shared project-state shell regressions stay aligned when core artifact fixtures change.",
+  "headline": "Completed M46 by centralizing temp source-repo seeding for shared project-state artifact regressions.",
+  "next_steps": [
+    "Use M47 only if another wrapper-specific project-state regression needs a thin wrapper around the shared source-repo seeding helper.",
+    "Keep future shell-based non-protobuf fixture setup changes in scripts/project-state-artifact-test-lib.sh so shared regressions do not drift again."
+  ],
+  "blockers": [
+    "No blockers in M46 scope."
+  ],
+  "objective_profile": {
+    "selected_profile": "balanced",
+    "profile_source": "default",
+    "primary_objective": "reliability",
+    "weights": {
+      "revenue": 0.35,
+      "reliability": 0.45,
+      "project-state": 0.2,
+      "maintainability": 0.12,
+      "security": 0.1,
+      "observability": 0.14,
+      "product_evidence": 0.12,
+      "cost_efficiency": 0.1
+    }
+  },
+  "engineering_steer": null,
+  "steering_task_ranking": {
+    "applied": false
+  },
+  "strict_issue_patch_mode": {
+    "enabled": false,
+    "applied": false,
+    "threshold": 0,
+    "open_issue_count_considered": 2,
+    "reason": "disabled"
+  },
+  "revenue_seed_task_ids": [],
+  "open_issues_considered": [
+    {
+      "number": 3,
+      "title": "feat: delegator field on task packet",
+      "url": "https://github.com/monarchic-ai/monarchic-agent-protocol/issues/3",
+      "labels": [],
+      "repo": "monarchic-ai/monarchic-agent-protocol",
+      "body": "Required fields: version: \"v1\" task_id: stable identifier role: AgentRole goal: human-readable objective delegator: AgentRole"
+    },
+    {
+      "number": 1,
+      "title": "feat: support non-protobuf supported languages",
+      "url": "https://github.com/monarchic-ai/monarchic-agent-protocol/issues/1",
+      "labels": [],
+      "repo": "monarchic-ai/monarchic-agent-protocol",
+      "body": ""
+    }
+  ],
+  "ranked_open_issues": [
+    {
+      "number": 1,
+      "title": "feat: support non-protobuf supported languages",
+      "url": "https://github.com/monarchic-ai/monarchic-agent-protocol/issues/1",
+      "labels": [],
+      "repo": "monarchic-ai/monarchic-agent-protocol",
+      "body": "",
+      "score": 1.0,
+      "objective_signals": {
+        "channels": [],
+        "revenue_hits": [],
+        "reliability_hits": [],
+        "project-state_hits": [],
+        "maintainability_hits": [],
+        "security_hits": [],
+        "observability_hits": [],
+        "product_evidence_hits": [],
+        "cost_efficiency_hits": [],
+        "steer_focus_hits": [],
+        "steer_avoid_hits": [],
+        "pinned_issue": false,
+        "steering_score_delta": 0.0
+      }
+    },
+    {
+      "number": 3,
+      "title": "feat: delegator field on task packet",
+      "url": "https://github.com/monarchic-ai/monarchic-agent-protocol/issues/3",
+      "labels": [],
+      "repo": "monarchic-ai/monarchic-agent-protocol",
+      "body": "Required fields: version: \"v1\" task_id: stable identifier role: AgentRole goal: human-readable objective delegator: AgentRole",
+      "score": 1.0,
+      "objective_signals": {
+        "channels": [],
+        "revenue_hits": [],
+        "reliability_hits": [],
+        "project-state_hits": [],
+        "maintainability_hits": [],
+        "security_hits": [],
+        "observability_hits": [],
+        "product_evidence_hits": [],
+        "cost_efficiency_hits": [],
+        "steer_focus_hits": [],
+        "steer_avoid_hits": [],
+        "pinned_issue": false,
+        "steering_score_delta": 0.0
+      }
+    }
+  ],
+  "generated_tasks": [
+    {
+      "task_id": "project-manager-issue-00001",
+      "title": "Issue #1: feat: support non-protobuf supported languages",
+      "why_now": "Open repository issue discovered during automated backlog scan and ranked by objective-weighted scoring; prioritize deterministic software-only progress. Objective score=1.00.",
+      "prompt": "Investigate and advance issue #1 from monarchic-ai/monarchic-agent-protocol: feat: support non-protobuf supported languages. Current focus: Current focus is keeping temp source-repo seeding and empty report-file-list setup owned by scripts/project-state-artifact-test-lib.sh so shared project-state shell regressions stay aligned when core artifact fixtures change.. Issue URL: https://github.com/monarchic-ai/monarchic-agent-protocol/issues/1. Milestone target: M47.",
+      "acceptance": [
+        "Advance milestone M47 with deterministic verification evidence.",
+        "Maintain verification continuity (first expected check: bash scripts/test-project-state-proof-artifacts.sh).",
+        "Deliver observable progress for issue #1: feat: support non-protobuf supported languages.",
+        "Address at least one explicit requirement or constraint from issue #1 body context and document the implemented outcome.",
+        "Run deterministic repository verification and keep PROJECT_STATUS.json/PROJECT_SUMMARY.json synchronized."
+      ],
+      "source": "project_manager_eval",
+      "thinking_complexity": "high"
+    },
+    {
+      "task_id": "project-manager-issue-00003",
+      "title": "Issue #3: feat: delegator field on task packet",
+      "why_now": "Open repository issue discovered during automated backlog scan and ranked by objective-weighted scoring; prioritize deterministic software-only progress. Objective score=1.00.",
+      "prompt": "Investigate and advance issue #3 from monarchic-ai/monarchic-agent-protocol: feat: delegator field on task packet. Current focus: Current focus is keeping temp source-repo seeding and empty report-file-list setup owned by scripts/project-state-artifact-test-lib.sh so shared project-state shell regressions stay aligned when core artifact fixtures change.. Issue URL: https://github.com/monarchic-ai/monarchic-agent-protocol/issues/3. Issue context: Required fields: version: \"v1\" task_id: stable identifier role: AgentRole goal: human-readable objective delegator: AgentRole.",
+      "acceptance": [
+        "Deliver observable progress for issue #3: feat: delegator field on task packet.",
+        "Address at least one explicit requirement or constraint from issue #3 body context and document the implemented outcome.",
+        "Run deterministic repository verification and keep PROJECT_STATUS.json/PROJECT_SUMMARY.json synchronized."
+      ],
+      "source": "project_manager_eval",
+      "thinking_complexity": "high"
+    },
+    {
+      "task_id": "project-manager-seed-003",
+      "title": "Use M47 only if another wrapper-specific project-state regression needs a thin wrapper around the shared source-repo seed...",
+      "why_now": "Auto-generated from PROJECT_SUMMARY.next_steps by project-manager evaluator.",
+      "prompt": "Execute this as the next deterministic project-state increment. Current focus: Current focus is keeping temp source-repo seeding and empty report-file-list setup owned by scripts/project-state-artifact-test-lib.sh so shared project-state shell regressions stay aligned when core artifact fixtures change. Primary step: Use M47 only if another wrapper-specific project-state regression needs a thin wrapper around the shared source-repo seeding helper.",
+      "acceptance": [
+        "Deliver observable progress on: Use M47 only if another wrapper-specific project-state regression needs a thin wrapper around the shared source-repo seed....",
+        "Run deterministic verification and keep PROJECT_STATUS/PROJECT_SUMMARY synchronized."
+      ],
+      "source": "project_manager_eval",
+      "thinking_complexity": "medium"
+    },
+    {
+      "task_id": "project-manager-seed-004",
+      "title": "Keep future shell-based non-protobuf fixture setup changes in scripts/project-state-artifact-test-lib.sh so shared regres...",
+      "why_now": "Auto-generated from PROJECT_SUMMARY.next_steps by project-manager evaluator.",
+      "prompt": "Execute this as the next deterministic project-state increment. Current focus: Current focus is keeping temp source-repo seeding and empty report-file-list setup owned by scripts/project-state-artifact-test-lib.sh so shared project-state shell regressions stay aligned when core artifact fixtures change. Primary step: Keep future shell-based non-protobuf fixture setup changes in scripts/project-state-artifact-test-lib.sh so shared regressions do not drift again.",
+      "acceptance": [
+        "Deliver observable progress on: Keep future shell-based non-protobuf fixture setup changes in scripts/project-state-artifact-test-lib.sh so shared regres....",
+        "Run deterministic verification and keep PROJECT_STATUS/PROJECT_SUMMARY synchronized."
+      ],
+      "source": "project_manager_eval",
+      "thinking_complexity": "medium"
+    }
+  ],
+  "added_milestones": []
+}
