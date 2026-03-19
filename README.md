@@ -51,6 +51,8 @@ For languages that do not use protobuf bindings, exchange protocol objects as JS
 - Validate a typed payload against a specific schema: `bash scripts/validate-protocol-json.sh schemas/v1/objective_spec.json schemas/fixtures/valid/objective_spec.minimal.json`
 - Validate the canonical non-protobuf JSON example: `bash scripts/validate-protocol-json.sh schemas/v1/objective_spec.json examples/json/objective_spec.minimal.json`
 
+Project-state contract fixtures used by the shell verification suite live under `fixtures/project-state/`, not the repo root.
+
 ### Versioning
 
 - Protocol versions live under `schemas/v1/`.
