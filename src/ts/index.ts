@@ -7,7 +7,8 @@ export type AgentRole =
   | "qa"
   | "reviewer"
   | "security"
-  | "ops";
+  | "ops"
+  | "publisher";
 
 export interface Task {
   version: ProtocolVersion;

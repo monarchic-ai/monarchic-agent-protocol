@@ -112,6 +112,7 @@ Enum values:
 - `reviewer`
 - `security`
 - `ops`
+- `publisher`
 
 Example:
 
