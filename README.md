@@ -68,6 +68,13 @@ Schema files live under `schemas/v1/`:
 - `schemas/v1/event.json`
 - `schemas/v1/gate_result.json`
 - `schemas/v1/failure_class.json`
+- `schemas/v1/plan_status.json`
+- `schemas/v1/failure_detail.json`
+- `schemas/v1/role_provenance.json`
+- `schemas/v1/plan_provenance.json`
+- `schemas/v1/plan_step.json`
+- `schemas/v1/plan.json`
+- `schemas/v1/execution_receipt.json`
 - `schemas/v1/run_context.json`
 - `schemas/v1/run_outcome.json`
 - `schemas/v1/delivery_contract.json`
@@ -91,6 +98,13 @@ All schemas allow additional properties for forward compatibility.
 - `schemas/v1/event.json`
 - `schemas/v1/gate_result.json`
 - `schemas/v1/failure_class.json`
+- `schemas/v1/plan_status.json`
+- `schemas/v1/failure_detail.json`
+- `schemas/v1/role_provenance.json`
+- `schemas/v1/plan_provenance.json`
+- `schemas/v1/plan_step.json`
+- `schemas/v1/plan.json`
+- `schemas/v1/execution_receipt.json`
 - `schemas/v1/run_context.json`
 - `schemas/v1/dataset_ref.json`
 - `schemas/v1/experiment_spec.json`
@@ -315,6 +329,114 @@ Required fields:
 
 Optional fields include `detail`, `scope`, `source`, and `next_action`.
 
+### PlanStatus
+
+Plan lifecycle status used for typed execution plans and receipts.
+
+Allowed values:
+
+- `unspecified`
+- `draft`
+- `planned`
+- `executing`
+- `complete`
+- `bounded`
+- `failed`
+- `cancelled`
+- `unknown`
+
+### FailureDetail
+
+Failure detail attached to a plan or receipt.
+
+Required fields:
+
+- `class`: one of `validation`, `execution`, `agent`, `infra`, `policy`, or `unknown`
+- `code`: machine-readable failure code
+- `message`: operator-readable failure message
+
+Optional fields:
+
+- `details`: bounded extension object with implementation diagnostics
+
+### RoleProvenance
+
+Role metadata for deterministic role-template binding.
+
+Required fields:
+
+- `role_name`
+- `template_hash`
+- `render_hash`
+
+### PlanProvenance
+
+Generation metadata for a plan and policy context.
+
+Required fields:
+
+- `generated_by`
+- `generated_at_ms`
+
+Optional fields:
+
+- `policy_profile`
+- `role`
+
+### PlanStep
+
+Execution step in a plan, with dependency and template fields.
+
+Required fields:
+
+- `step_id`
+- `description`
+- `task_template`
+
+Optional fields:
+
+- `depends_on`
+- `failure`
+
+### Plan
+
+Canonical plan contract.
+
+Required fields:
+
+- `contract_version`: required contract tag (for now `"v1"`)
+- `plan_id`
+- `objective`
+- `status`
+- `created_at_ms`
+- `updated_at_ms`
+- `provenance`
+- `steps`
+
+Optional fields:
+
+- `run_id`
+
+### ExecutionReceipt
+
+Deterministic execution contract for a run.
+
+Required fields:
+
+- `contract_version`: required contract tag (for now `"v1"`)
+- `run_id`
+- `plan_id`
+- `plan_hash`
+- `task_hashes`
+- `artifact_hashes`
+- `outcome_hash`
+- `status`
+- `generated_at_ms`
+
+Optional fields:
+
+- `failure`
+
 ### DatasetRef
 
 Reference to a dataset used by an experiment or output artifact.
@@ -424,7 +546,11 @@ github.com/monarchic-ai/monarchic-agent-protocol/src/go
 
 #### Protobuf
 
-The v1 protobuf schema lives at `schemas/v1/monarchic_agent_protocol.proto`. It mirrors the JSON schema and uses `google.protobuf.Struct` for free-form objects (`inputs`, `constraints`, `evidence`, `extensions`). Additional JSON properties should be stored in the `extensions` field on each message.
+The v1 protobuf schema lives at `schemas/v1/monarchic_agent_protocol.proto`. Its portable object messages mirror the JSON schema and use `google.protobuf.Struct` for free-form objects (`inputs`, `constraints`, `evidence`, `extensions`). Additional JSON properties should be stored in the `extensions` field on each message.
+
+The protobuf file also contains transport-only service definitions for machine-to-machine control-plane RPC, starting with `RunnerControlService`. Those RPC services and their lease/session envelopes are protobuf-only contracts and are not mirrored into the JSON schema index.
+
+The Rust crate published from this repository currently exports protobuf message types. Runtime repositories that need gRPC client/server bindings should generate transport stubs from the canonical proto with their chosen toolchain, such as `tonic-build`.
 
 Language packages are published per registry. Use the registry package for your language instead of generating local outputs.
 
