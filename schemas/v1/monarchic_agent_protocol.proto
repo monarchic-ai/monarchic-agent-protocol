@@ -119,6 +119,71 @@ message Provenance {
   google.protobuf.Struct extensions = 14;
 }
 
+enum PlanStatus {
+  PLAN_STATUS_UNSPECIFIED = 0;
+  DRAFT = 1;
+  PLANNED = 2;
+  EXECUTING = 3;
+  COMPLETE = 4;
+  BOUNDED = 5;
+  FAILED = 6;
+  CANCELLED = 7;
+  UNKNOWN = 8;
+}
+
+message RoleProvenance {
+  string role_name = 1;
+  string template_hash = 2;
+  string render_hash = 3;
+}
+
+message PlanProvenance {
+  string generated_by = 1;
+  optional string policy_profile = 2;
+  uint64 generated_at_ms = 3;
+  optional RoleProvenance role = 4;
+}
+
+message FailureDetail {
+  string class = 1;
+  string code = 2;
+  string message = 3;
+  google.protobuf.Struct details = 4;
+}
+
+message PlanStep {
+  string step_id = 1;
+  string description = 2;
+  repeated string depends_on = 3;
+  google.protobuf.Struct task_template = 4;
+  optional FailureDetail failure = 5;
+}
+
+message Plan {
+  string contract_version = 1;
+  string plan_id = 2;
+  optional string run_id = 3;
+  string objective = 4;
+  PlanStatus status = 5;
+  uint64 created_at_ms = 6;
+  uint64 updated_at_ms = 7;
+  PlanProvenance provenance = 8;
+  repeated PlanStep steps = 9;
+}
+
+message ExecutionReceipt {
+  string contract_version = 1;
+  string run_id = 2;
+  string plan_id = 3;
+  string plan_hash = 4;
+  repeated string task_hashes = 5;
+  repeated string artifact_hashes = 6;
+  string outcome_hash = 7;
+  PlanStatus status = 8;
+  optional FailureDetail failure = 9;
+  uint64 generated_at_ms = 10;
+}
+
 message Task {
   string version = 1;
   string task_id = 2;

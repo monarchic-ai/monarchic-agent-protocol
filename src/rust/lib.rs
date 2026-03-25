@@ -10,5 +10,6 @@ pub mod monarchic {
 
 pub use monarchic::agent_protocol::v1::{
     AcceptanceCriteria, AgentRole, Artifact, DatasetRef, EvalResult, Event, ExperimentSpec,
-    FailureClass, GateResult, Provenance, RunContext, Task,
+    FailureClass, FailureDetail, GateResult, Plan, PlanProvenance, PlanStatus, PlanStep,
+    Provenance, RoleProvenance, RunContext, Task, ExecutionReceipt,
 };

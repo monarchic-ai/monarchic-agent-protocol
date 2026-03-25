@@ -7,6 +7,12 @@ Track schema edits in reverse chronological order. Each entry must include:
 - `schema_files`
 - `validation`
 
+## 2026-03-24
+- task_id: task-proto-002
+- summary: Added canonical autonomy-plan and execution receipt protocol contracts (Plan, PlanStep, PlanStatus, FailureDetail, PlanProvenance, RoleProvenance, ExecutionReceipt), plus schema index updates.
+- schema_files: schemas/v1/plan_status.json, schemas/v1/failure_detail.json, schemas/v1/role_provenance.json, schemas/v1/plan_provenance.json, schemas/v1/plan_step.json, schemas/v1/plan.json, schemas/v1/execution_receipt.json, schemas/v1/schema.json, schemas/v1/monarchic_agent_protocol.proto
+- validation: bash scripts/lint-schemas.sh && bash scripts/test-json-schema.sh && bash scripts/test-readme-schema-index-coverage.sh
+
 ## 2026-02-20
 - task_id: task-proto-001
 - summary: Added FailureClass taxonomy contract, indexed schema coverage, and failure_class references for event/gate payloads.
