@@ -172,6 +172,78 @@ Example:
 }
 ```
 
+### PipelineSpec
+
+Represents a planned pipeline before execution.
+
+Required fields:
+
+- `version`: `"v1"`
+- `pipeline_id`: stable identifier
+- `objective`: human-readable campaign or pipeline objective
+- `project_key`: member/project scope identifier
+- `tasks`: ordered `PipelineTask[]`
+
+This is the shared planning shape that bootstrap generation, orchestration
+validation, and UI preview should converge on.
+
+Current shared planning fields now include:
+
+- `PipelineSpec`
+- `PipelineTask`
+- `TaskDependency`
+- `SkillRef`
+- `RoleDefinition`
+- `ResolvedRoleBundle`
+
+These are available in the protobuf and language bindings even where the checked-in
+JSON Schema index has not yet been expanded to cover each planning helper type.
+
+### RoleDefinition and ResolvedRoleBundle
+
+These types provide the shared contract between:
+
+- role catalogs in `monarchic-agent-roles`
+- orchestration-time validation
+- runner-time execution bundles
+
+`RoleDefinition` describes a canonical role, its capabilities, and its declared
+skill requirements. `ResolvedRoleBundle` is the runtime handoff shape that can
+pair a concrete role definition with the resolved skills and rendered template
+path used for one task execution.
+
+### Canonical Pipeline Layout
+
+`PipelineSpec` and `PipelineTask` are now the canonical role-aware planning
+layout across the stack.
+
+For compatibility, older minimal pipeline files may still only carry:
+
+- `pipeline_id`
+- `tasks[].id`
+- `tasks[].task`
+
+But once a pipeline opts into the role-aware contract by declaring any of:
+
+- `objective`
+- `project_key`
+- `tasks[].role`
+- `tasks[].goal`
+- `tasks[].required_skills`
+
+the intended canonical shape is:
+
+- `PipelineSpec.objective`: required, non-empty
+- `PipelineSpec.project_key`: required, non-empty
+- `PipelineTask.role`: required, non-empty
+- `PipelineTask.goal`: required, non-empty
+- `PipelineTask.required_skills`: optional list of `SkillRef`, but when present it
+  must be internally well-formed and deduplicated
+
+This is the contract `monarch` should generate, `monarchic-orchestrator` should
+validate, and `monarchic-runner` should ultimately execute through resolved role
+bundles.
+
 ### Task
 
 Represents work assigned to an agent.
