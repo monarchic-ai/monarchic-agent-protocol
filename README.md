@@ -546,7 +546,11 @@ github.com/monarchic-ai/monarchic-agent-protocol/src/go
 
 #### Protobuf
 
-The v1 protobuf schema lives at `schemas/v1/monarchic_agent_protocol.proto`. It mirrors the JSON schema and uses `google.protobuf.Struct` for free-form objects (`inputs`, `constraints`, `evidence`, `extensions`). Additional JSON properties should be stored in the `extensions` field on each message.
+The v1 protobuf schema lives at `schemas/v1/monarchic_agent_protocol.proto`. Its portable object messages mirror the JSON schema and use `google.protobuf.Struct` for free-form objects (`inputs`, `constraints`, `evidence`, `extensions`). Additional JSON properties should be stored in the `extensions` field on each message.
+
+The protobuf file also contains transport-only service definitions for machine-to-machine control-plane RPC, starting with `RunnerControlService`. Those RPC services and their lease/session envelopes are protobuf-only contracts and are not mirrored into the JSON schema index.
+
+The Rust crate published from this repository currently exports protobuf message types. Runtime repositories that need gRPC client/server bindings should generate transport stubs from the canonical proto with their chosen toolchain, such as `tonic-build`.
 
 Language packages are published per registry. Use the registry package for your language instead of generating local outputs.
 

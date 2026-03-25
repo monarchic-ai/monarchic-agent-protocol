@@ -7,6 +7,12 @@ Track schema edits in reverse chronological order. Each entry must include:
 - `schema_files`
 - `validation`
 
+## 2026-03-25
+- task_id: task-proto-003
+- summary: Added canonical protobuf-only runner control-plane RPC contracts for registration, leases, heartbeats, progress, outcomes, and cancellation acknowledgements.
+- schema_files: schemas/v1/monarchic_agent_protocol.proto
+- validation: bash scripts/lint-schemas.sh && bash scripts/test-proto.sh && bash scripts/test-schema-changelog-format.sh && cargo test -q
+
 ## 2026-03-24
 - task_id: task-proto-002
 - summary: Added canonical autonomy-plan and execution receipt protocol contracts (Plan, PlanStep, PlanStatus, FailureDetail, PlanProvenance, RoleProvenance, ExecutionReceipt), plus schema index updates.
