@@ -19,6 +19,27 @@
       "$ref": "failure_class.json"
     },
     {
+      "$ref": "plan_status.json"
+    },
+    {
+      "$ref": "failure_detail.json"
+    },
+    {
+      "$ref": "role_provenance.json"
+    },
+    {
+      "$ref": "plan_provenance.json"
+    },
+    {
+      "$ref": "plan_step.json"
+    },
+    {
+      "$ref": "plan.json"
+    },
+    {
+      "$ref": "execution_receipt.json"
+    },
+    {
       "$ref": "run_context.json"
     },
     {

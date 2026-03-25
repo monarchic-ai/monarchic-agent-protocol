@@ -1,0 +1,17 @@
+{
+  "$id": "https://monarchic.ai/schema/v1/plan_status.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PlanStatus",
+  "type": "string",
+  "enum": [
+    "unspecified",
+    "draft",
+    "planned",
+    "executing",
+    "complete",
+    "bounded",
+    "failed",
+    "cancelled",
+    "unknown"
+  ]
+}

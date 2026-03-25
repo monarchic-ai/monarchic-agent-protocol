@@ -1,0 +1,55 @@
+{
+  "$id": "https://monarchic.ai/schema/v1/plan.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Plan",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "contract_version",
+    "plan_id",
+    "objective",
+    "status",
+    "created_at_ms",
+    "updated_at_ms",
+    "provenance",
+    "steps"
+  ],
+  "properties": {
+    "contract_version": {
+      "type": "string",
+      "enum": ["v1"]
+    },
+    "plan_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "objective": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "$ref": "plan_status.json"
+    },
+    "created_at_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "updated_at_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "provenance": {
+      "$ref": "plan_provenance.json"
+    },
+    "steps": {
+      "type": "array",
+      "items": {
+        "$ref": "plan_step.json"
+      }
+    }
+  }
+}

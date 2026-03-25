@@ -33,6 +33,15 @@ jobs:
       - name: Validate JSON schemas
         run: bash scripts/lint-schemas.sh
 
+      - name: Validate JSON schemas against fixtures
+        run: bash scripts/test-json-schema.sh
+
+      - name: Validate README schema index coverage
+        run: bash scripts/test-readme-schema-index-coverage.sh
+
+      - name: Validate schema changelog format
+        run: bash scripts/test-schema-changelog-format.sh
+
       - name: Validate protobuf codegen
         run: nix run .#test-proto -- schemas/v1/monarchic_agent_protocol.proto
 

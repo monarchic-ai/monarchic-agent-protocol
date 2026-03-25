@@ -1,0 +1,22 @@
+{
+  "$id": "https://monarchic.ai/schema/v1/role_provenance.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RoleProvenance",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["role_name", "template_hash", "render_hash"],
+  "properties": {
+    "role_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "template_hash": {
+      "type": "string",
+      "minLength": 1
+    },
+    "render_hash": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}
