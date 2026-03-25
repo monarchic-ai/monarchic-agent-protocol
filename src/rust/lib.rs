@@ -9,6 +9,13 @@ pub mod monarchic {
 }
 
 pub use monarchic::agent_protocol::v1::{
-    AcceptanceCriteria, AgentRole, Artifact, DatasetRef, EvalResult, Event, ExperimentSpec,
-    FailureClass, GateResult, Provenance, RunContext, Task,
+    AcceptanceCriteria, AckCancellationRequest, AckCancellationResponse, AcquireLeaseRequest,
+    AcquireLeaseResponse, AgentRole, Artifact, CancellationIntent, DatasetRef, EvalResult,
+    Event, ExecutionReceipt, ExperimentSpec, FailureClass, FailureDetail, GateResult,
+    HeartbeatRequest, HeartbeatResponse, LeaseAssignment, LeaseRef, LeaseStatus, Plan,
+    PlanProvenance, PlanStatus, PlanStep, Provenance, RegisterRunnerRequest,
+    RegisterRunnerResponse, RenewLeaseRequest, RenewLeaseResponse, ReportStepOutcomeRequest,
+    ReportStepOutcomeResponse, ReportStepProgressRequest, ReportStepProgressResponse,
+    ReportStepStartedRequest, ReportStepStartedResponse, RoleProvenance, RunContext,
+    RunnerCapabilities, Task,
 };

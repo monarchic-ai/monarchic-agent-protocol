@@ -1,0 +1,33 @@
+{
+  "$id": "https://monarchic.ai/schema/v1/failure_detail.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FailureDetail",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["class", "code", "message"],
+  "properties": {
+    "class": {
+      "type": "string",
+      "enum": [
+        "validation",
+        "execution",
+        "agent",
+        "infra",
+        "policy",
+        "unknown"
+      ]
+    },
+    "code": {
+      "type": "string",
+      "minLength": 1
+    },
+    "message": {
+      "type": "string",
+      "minLength": 1
+    },
+    "details": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "$id": "https://monarchic.ai/schema/v1/plan_step.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PlanStep",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["step_id", "description", "task_template"],
+  "properties": {
+    "step_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "depends_on": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "task_template": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "failure": {
+      "$ref": "failure_detail.json"
+    }
+  }
+}
