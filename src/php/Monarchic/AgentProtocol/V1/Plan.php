@@ -50,6 +50,26 @@ class Plan extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>repeated .monarchic.agent_protocol.v1.PlanStep steps = 9;</code>
      */
     private $steps;
+    /**
+     * Generated from protobuf field <code>optional string intent_id = 10;</code>
+     */
+    protected $intent_id = null;
+    /**
+     * Generated from protobuf field <code>optional string plan_version = 11;</code>
+     */
+    protected $plan_version = null;
+    /**
+     * Generated from protobuf field <code>optional string planner_version = 12;</code>
+     */
+    protected $planner_version = null;
+    /**
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.ReplanPolicy replan_policy = 13;</code>
+     */
+    protected $replan_policy = null;
+    /**
+     * Generated from protobuf field <code>optional string input_digest = 14;</code>
+     */
+    protected $input_digest = null;
 
     /**
      * Constructor.
@@ -66,6 +86,11 @@ class Plan extends \Google\Protobuf\Internal\Message
      *     @type int|string $updated_at_ms
      *     @type \Monarchic\AgentProtocol\V1\PlanProvenance $provenance
      *     @type \Monarchic\AgentProtocol\V1\PlanStep[] $steps
+     *     @type string $intent_id
+     *     @type string $plan_version
+     *     @type string $planner_version
+     *     @type \Monarchic\AgentProtocol\V1\ReplanPolicy $replan_policy
+     *     @type string $input_digest
      * }
      */
     public function __construct($data = NULL) {
@@ -287,6 +312,166 @@ class Plan extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Monarchic\AgentProtocol\V1\PlanStep::class);
         $this->steps = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string intent_id = 10;</code>
+     * @return string
+     */
+    public function getIntentId()
+    {
+        return isset($this->intent_id) ? $this->intent_id : '';
+    }
+
+    public function hasIntentId()
+    {
+        return isset($this->intent_id);
+    }
+
+    public function clearIntentId()
+    {
+        unset($this->intent_id);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string intent_id = 10;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setIntentId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->intent_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string plan_version = 11;</code>
+     * @return string
+     */
+    public function getPlanVersion()
+    {
+        return isset($this->plan_version) ? $this->plan_version : '';
+    }
+
+    public function hasPlanVersion()
+    {
+        return isset($this->plan_version);
+    }
+
+    public function clearPlanVersion()
+    {
+        unset($this->plan_version);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string plan_version = 11;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setPlanVersion($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->plan_version = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string planner_version = 12;</code>
+     * @return string
+     */
+    public function getPlannerVersion()
+    {
+        return isset($this->planner_version) ? $this->planner_version : '';
+    }
+
+    public function hasPlannerVersion()
+    {
+        return isset($this->planner_version);
+    }
+
+    public function clearPlannerVersion()
+    {
+        unset($this->planner_version);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string planner_version = 12;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setPlannerVersion($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->planner_version = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.ReplanPolicy replan_policy = 13;</code>
+     * @return \Monarchic\AgentProtocol\V1\ReplanPolicy|null
+     */
+    public function getReplanPolicy()
+    {
+        return $this->replan_policy;
+    }
+
+    public function hasReplanPolicy()
+    {
+        return isset($this->replan_policy);
+    }
+
+    public function clearReplanPolicy()
+    {
+        unset($this->replan_policy);
+    }
+
+    /**
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.ReplanPolicy replan_policy = 13;</code>
+     * @param \Monarchic\AgentProtocol\V1\ReplanPolicy $var
+     * @return $this
+     */
+    public function setReplanPolicy($var)
+    {
+        GPBUtil::checkMessage($var, \Monarchic\AgentProtocol\V1\ReplanPolicy::class);
+        $this->replan_policy = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string input_digest = 14;</code>
+     * @return string
+     */
+    public function getInputDigest()
+    {
+        return isset($this->input_digest) ? $this->input_digest : '';
+    }
+
+    public function hasInputDigest()
+    {
+        return isset($this->input_digest);
+    }
+
+    public function clearInputDigest()
+    {
+        unset($this->input_digest);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string input_digest = 14;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setInputDigest($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->input_digest = $var;
 
         return $this;
     }
