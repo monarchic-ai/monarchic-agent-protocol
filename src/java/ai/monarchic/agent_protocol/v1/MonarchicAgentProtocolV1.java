@@ -62,6 +62,36 @@ public final class MonarchicAgentProtocolV1 extends com.google.protobuf.Generate
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_monarchic_agent_protocol_v1_Provenance_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_monarchic_agent_protocol_v1_RoleProvenance_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_monarchic_agent_protocol_v1_RoleProvenance_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_monarchic_agent_protocol_v1_PlanProvenance_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_monarchic_agent_protocol_v1_PlanProvenance_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_monarchic_agent_protocol_v1_FailureDetail_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_monarchic_agent_protocol_v1_FailureDetail_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_monarchic_agent_protocol_v1_PlanStep_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_monarchic_agent_protocol_v1_PlanStep_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_monarchic_agent_protocol_v1_Plan_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_monarchic_agent_protocol_v1_Plan_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_monarchic_agent_protocol_v1_ExecutionReceipt_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_monarchic_agent_protocol_v1_ExecutionReceipt_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_monarchic_agent_protocol_v1_Task_descriptor;
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -91,6 +121,111 @@ public final class MonarchicAgentProtocolV1 extends com.google.protobuf.Generate
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_monarchic_agent_protocol_v1_RunContext_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_monarchic_agent_protocol_v1_RunnerCapabilities_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_monarchic_agent_protocol_v1_RunnerCapabilities_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_monarchic_agent_protocol_v1_LeaseRef_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_monarchic_agent_protocol_v1_LeaseRef_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_monarchic_agent_protocol_v1_LeaseStatus_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_monarchic_agent_protocol_v1_LeaseStatus_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_monarchic_agent_protocol_v1_CancellationIntent_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_monarchic_agent_protocol_v1_CancellationIntent_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_monarchic_agent_protocol_v1_LeaseAssignment_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_monarchic_agent_protocol_v1_LeaseAssignment_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_monarchic_agent_protocol_v1_RegisterRunnerRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_monarchic_agent_protocol_v1_RegisterRunnerRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_monarchic_agent_protocol_v1_RegisterRunnerResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_monarchic_agent_protocol_v1_RegisterRunnerResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_monarchic_agent_protocol_v1_HeartbeatRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_monarchic_agent_protocol_v1_HeartbeatRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_monarchic_agent_protocol_v1_HeartbeatResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_monarchic_agent_protocol_v1_HeartbeatResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_monarchic_agent_protocol_v1_AcquireLeaseRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_monarchic_agent_protocol_v1_AcquireLeaseRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_monarchic_agent_protocol_v1_AcquireLeaseResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_monarchic_agent_protocol_v1_AcquireLeaseResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_monarchic_agent_protocol_v1_RenewLeaseRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_monarchic_agent_protocol_v1_RenewLeaseRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_monarchic_agent_protocol_v1_RenewLeaseResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_monarchic_agent_protocol_v1_RenewLeaseResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_monarchic_agent_protocol_v1_ReportStepStartedRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_monarchic_agent_protocol_v1_ReportStepStartedRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_monarchic_agent_protocol_v1_ReportStepStartedResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_monarchic_agent_protocol_v1_ReportStepStartedResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_monarchic_agent_protocol_v1_ReportStepProgressRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_monarchic_agent_protocol_v1_ReportStepProgressRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_monarchic_agent_protocol_v1_ReportStepProgressResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_monarchic_agent_protocol_v1_ReportStepProgressResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_monarchic_agent_protocol_v1_ReportStepOutcomeRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_monarchic_agent_protocol_v1_ReportStepOutcomeRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_monarchic_agent_protocol_v1_ReportStepOutcomeResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_monarchic_agent_protocol_v1_ReportStepOutcomeResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_monarchic_agent_protocol_v1_AckCancellationRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_monarchic_agent_protocol_v1_AckCancellationRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_monarchic_agent_protocol_v1_AckCancellationResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_monarchic_agent_protocol_v1_AckCancellationResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -159,81 +294,268 @@ public final class MonarchicAgentProtocolV1 extends com.google.protobuf.Generate
       "tasetRef\022+\n\nextensions\030\016 \001(\0132\027.google.pr" +
       "otobuf.StructB\010\n\006_modelB\023\n\021_task_spec_sh" +
       "a256B\022\n\020_pipeline_sha256B\021\n\017_command_sha" +
-      "256B\021\n\017_source_task_id\"\320\003\n\004Task\022\017\n\007versi" +
-      "on\030\001 \001(\t\022\017\n\007task_id\030\002 \001(\t\0224\n\004role\030\003 \001(\0162" +
-      "&.monarchic.agent_protocol.v1.AgentRole\022" +
-      "\014\n\004goal\030\004 \001(\t\022\'\n\006inputs\030\005 \001(\0132\027.google.p" +
-      "rotobuf.Struct\022,\n\013constraints\030\006 \001(\0132\027.go" +
-      "ogle.protobuf.Struct\022\026\n\016gates_required\030\007" +
-      " \003(\t\022<\n\013run_context\030\010 \001(\0132\'.monarchic.ag" +
-      "ent_protocol.v1.RunContext\022+\n\nextensions" +
-      "\030\t \001(\0132\027.google.protobuf.Struct\022D\n\017exper" +
-      "iment_spec\030\n \001(\0132+.monarchic.agent_proto" +
-      "col.v1.ExperimentSpec\022B\n\016objective_spec\030" +
-      "\013 \001(\0132*.monarchic.agent_protocol.v1.Obje" +
-      "ctiveSpec\"\234\003\n\010Artifact\022\017\n\007version\030\001 \001(\t\022" +
-      "\023\n\013artifact_id\030\002 \001(\t\022\014\n\004type\030\003 \001(\t\022\017\n\007su" +
-      "mmary\030\004 \001(\t\022\014\n\004path\030\005 \001(\t\022\017\n\007task_id\030\006 \001" +
-      "(\t\022+\n\nextensions\030\007 \001(\0132\027.google.protobuf" +
-      ".Struct\022;\n\nprovenance\030\010 \001(\0132\'.monarchic." +
-      "agent_protocol.v1.Provenance\022=\n\014dataset_" +
-      "refs\030\t \003(\0132\'.monarchic.agent_protocol.v1" +
-      ".DatasetRef\022=\n\014eval_results\030\n \003(\0132\'.mona" +
-      "rchic.agent_protocol.v1.EvalResult\022D\n\017ex" +
-      "periment_spec\030\013 \001(\0132+.monarchic.agent_pr" +
-      "otocol.v1.ExperimentSpec\"\355\002\n\005Event\022\017\n\007ve" +
-      "rsion\030\001 \001(\t\022\022\n\nevent_type\030\002 \001(\t\022\021\n\ttimes" +
-      "tamp\030\003 \001(\t\022\017\n\007task_id\030\004 \001(\t\022\016\n\006status\030\005 " +
-      "\001(\t\022\024\n\007message\030\006 \001(\tH\000\210\001\001\022+\n\nextensions\030" +
-      "\007 \001(\0132\027.google.protobuf.Struct\022;\n\nproven" +
-      "ance\030\010 \001(\0132\'.monarchic.agent_protocol.v1" +
-      ".Provenance\022=\n\014eval_results\030\t \003(\0132\'.mona" +
-      "rchic.agent_protocol.v1.EvalResult\022@\n\rfa" +
-      "ilure_class\030\n \001(\0132).monarchic.agent_prot" +
-      "ocol.v1.FailureClassB\n\n\010_message\"\365\001\n\nGat" +
-      "eResult\022\017\n\007version\030\001 \001(\t\022\014\n\004gate\030\002 \001(\t\022\016" +
-      "\n\006status\030\003 \001(\t\022\023\n\006reason\030\004 \001(\tH\000\210\001\001\022)\n\010e" +
-      "vidence\030\005 \001(\0132\027.google.protobuf.Struct\022+" +
-      "\n\nextensions\030\006 \001(\0132\027.google.protobuf.Str" +
-      "uct\022@\n\rfailure_class\030\007 \001(\0132).monarchic.a" +
-      "gent_protocol.v1.FailureClassB\t\n\007_reason" +
-      "\"\210\006\n\nRunOutcome\022\017\n\007version\030\001 \001(\t\022\017\n\007task" +
-      "_id\030\002 \001(\t\022\023\n\006run_id\030\003 \001(\tH\000\210\001\001\022\035\n\020object" +
-      "ive_metric\030\004 \001(\tH\001\210\001\001\022\034\n\017objective_score" +
-      "\030\005 \001(\001H\002\210\001\001\022H\n\022objective_decision\030\006 \001(\0162" +
-      ",.monarchic.agent_protocol.v1.OutcomeDec" +
-      "ision\022\037\n\022estimated_cost_usd\030\007 \001(\001H\003\210\001\001\022\035" +
-      "\n\020budget_limit_usd\030\010 \001(\001H\004\210\001\001\022C\n\rcost_de" +
-      "cision\030\t \001(\0162,.monarchic.agent_protocol." +
-      "v1.OutcomeDecision\022\027\n\nrisk_level\030\n \001(\tH\005" +
-      "\210\001\001\022\031\n\014risk_summary\030\013 \001(\tH\006\210\001\001\022C\n\rrisk_d" +
-      "ecision\030\014 \001(\0162,.monarchic.agent_protocol" +
-      ".v1.OutcomeDecision\022D\n\016final_decision\030\r " +
-      "\001(\0162,.monarchic.agent_protocol.v1.Outcom" +
-      "eDecision\022\024\n\007summary\030\016 \001(\tH\007\210\001\001\022)\n\010evide" +
-      "nce\030\017 \001(\0132\027.google.protobuf.Struct\022+\n\nex" +
-      "tensions\030\020 \001(\0132\027.google.protobuf.StructB" +
-      "\t\n\007_run_idB\023\n\021_objective_metricB\022\n\020_obje" +
-      "ctive_scoreB\025\n\023_estimated_cost_usdB\023\n\021_b" +
-      "udget_limit_usdB\r\n\013_risk_levelB\017\n\r_risk_" +
-      "summaryB\n\n\010_summary\"\231\001\n\nRunContext\022\017\n\007ve" +
-      "rsion\030\001 \001(\t\022\014\n\004repo\030\002 \001(\t\022\020\n\010worktree\030\003 " +
-      "\001(\t\022\r\n\005image\030\004 \001(\t\022\016\n\006runner\030\005 \001(\t\022\016\n\006la" +
-      "bels\030\006 \003(\t\022+\n\nextensions\030\007 \001(\0132\027.google." +
-      "protobuf.Struct*\205\001\n\tAgentRole\022\032\n\026AGENT_R" +
-      "OLE_UNSPECIFIED\020\000\022\021\n\rPRODUCT_OWNER\020\001\022\023\n\017" +
-      "PROJECT_MANAGER\020\002\022\007\n\003DEV\020\003\022\006\n\002QA\020\004\022\014\n\010RE" +
-      "VIEWER\020\005\022\014\n\010SECURITY\020\006\022\007\n\003OPS\020\007*f\n\017Outco" +
-      "meDecision\022 \n\034OUTCOME_DECISION_UNSPECIFI" +
-      "ED\020\000\022\n\n\006ACCEPT\020\001\022\013\n\007ITERATE\020\002\022\n\n\006REJECT\020" +
-      "\003\022\014\n\010ESCALATE\020\004B\210\002\n\036ai.monarchic.agent_p" +
-      "rotocol.v1B\030MonarchicAgentProtocolV1P\001Zd" +
-      "github.com/monarchic-ai/monarchic-agent-" +
-      "protocol/src/go/monarchic/agent_protocol" +
-      "/v1;agent_protocolv1\242\002\003MAP\252\002\032Monarchic.A" +
-      "gentProtocol.V1\312\002\032Monarchic\\AgentProtoco" +
-      "l\\V1\342\002#Monarchic\\AgentProtocol\\V1\\Metada" +
-      "tab\006proto3"
+      "256B\021\n\017_source_task_id\"O\n\016RoleProvenance" +
+      "\022\021\n\trole_name\030\001 \001(\t\022\025\n\rtemplate_hash\030\002 \001" +
+      "(\t\022\023\n\013render_hash\030\003 \001(\t\"\270\001\n\016PlanProvenan" +
+      "ce\022\024\n\014generated_by\030\001 \001(\t\022\033\n\016policy_profi" +
+      "le\030\002 \001(\tH\000\210\001\001\022\027\n\017generated_at_ms\030\003 \001(\004\022>" +
+      "\n\004role\030\004 \001(\0132+.monarchic.agent_protocol." +
+      "v1.RoleProvenanceH\001\210\001\001B\021\n\017_policy_profil" +
+      "eB\007\n\005_role\"g\n\rFailureDetail\022\r\n\005class\030\001 \001" +
+      "(\t\022\014\n\004code\030\002 \001(\t\022\017\n\007message\030\003 \001(\t\022(\n\007det" +
+      "ails\030\004 \001(\0132\027.google.protobuf.Struct\"\302\001\n\010" +
+      "PlanStep\022\017\n\007step_id\030\001 \001(\t\022\023\n\013description" +
+      "\030\002 \001(\t\022\022\n\ndepends_on\030\003 \003(\t\022.\n\rtask_templ" +
+      "ate\030\004 \001(\0132\027.google.protobuf.Struct\022@\n\007fa" +
+      "ilure\030\005 \001(\0132*.monarchic.agent_protocol.v" +
+      "1.FailureDetailH\000\210\001\001B\n\n\010_failure\"\302\002\n\004Pla" +
+      "n\022\030\n\020contract_version\030\001 \001(\t\022\017\n\007plan_id\030\002" +
+      " \001(\t\022\023\n\006run_id\030\003 \001(\tH\000\210\001\001\022\021\n\tobjective\030\004" +
+      " \001(\t\0227\n\006status\030\005 \001(\0162\'.monarchic.agent_p" +
+      "rotocol.v1.PlanStatus\022\025\n\rcreated_at_ms\030\006" +
+      " \001(\004\022\025\n\rupdated_at_ms\030\007 \001(\004\022?\n\nprovenanc" +
+      "e\030\010 \001(\0132+.monarchic.agent_protocol.v1.Pl" +
+      "anProvenance\0224\n\005steps\030\t \003(\0132%.monarchic." +
+      "agent_protocol.v1.PlanStepB\t\n\007_run_id\"\304\002" +
+      "\n\020ExecutionReceipt\022\030\n\020contract_version\030\001" +
+      " \001(\t\022\016\n\006run_id\030\002 \001(\t\022\017\n\007plan_id\030\003 \001(\t\022\021\n" +
+      "\tplan_hash\030\004 \001(\t\022\023\n\013task_hashes\030\005 \003(\t\022\027\n" +
+      "\017artifact_hashes\030\006 \003(\t\022\024\n\014outcome_hash\030\007" +
+      " \001(\t\0227\n\006status\030\010 \001(\0162\'.monarchic.agent_p" +
+      "rotocol.v1.PlanStatus\022@\n\007failure\030\t \001(\0132*" +
+      ".monarchic.agent_protocol.v1.FailureDeta" +
+      "ilH\000\210\001\001\022\027\n\017generated_at_ms\030\n \001(\004B\n\n\010_fai" +
+      "lure\"\320\003\n\004Task\022\017\n\007version\030\001 \001(\t\022\017\n\007task_i" +
+      "d\030\002 \001(\t\0224\n\004role\030\003 \001(\0162&.monarchic.agent_" +
+      "protocol.v1.AgentRole\022\014\n\004goal\030\004 \001(\t\022\'\n\006i" +
+      "nputs\030\005 \001(\0132\027.google.protobuf.Struct\022,\n\013" +
+      "constraints\030\006 \001(\0132\027.google.protobuf.Stru" +
+      "ct\022\026\n\016gates_required\030\007 \003(\t\022<\n\013run_contex" +
+      "t\030\010 \001(\0132\'.monarchic.agent_protocol.v1.Ru" +
+      "nContext\022+\n\nextensions\030\t \001(\0132\027.google.pr" +
+      "otobuf.Struct\022D\n\017experiment_spec\030\n \001(\0132+" +
+      ".monarchic.agent_protocol.v1.ExperimentS" +
+      "pec\022B\n\016objective_spec\030\013 \001(\0132*.monarchic." +
+      "agent_protocol.v1.ObjectiveSpec\"\234\003\n\010Arti" +
+      "fact\022\017\n\007version\030\001 \001(\t\022\023\n\013artifact_id\030\002 \001" +
+      "(\t\022\014\n\004type\030\003 \001(\t\022\017\n\007summary\030\004 \001(\t\022\014\n\004pat" +
+      "h\030\005 \001(\t\022\017\n\007task_id\030\006 \001(\t\022+\n\nextensions\030\007" +
+      " \001(\0132\027.google.protobuf.Struct\022;\n\nprovena" +
+      "nce\030\010 \001(\0132\'.monarchic.agent_protocol.v1." +
+      "Provenance\022=\n\014dataset_refs\030\t \003(\0132\'.monar" +
+      "chic.agent_protocol.v1.DatasetRef\022=\n\014eva" +
+      "l_results\030\n \003(\0132\'.monarchic.agent_protoc" +
+      "ol.v1.EvalResult\022D\n\017experiment_spec\030\013 \001(" +
+      "\0132+.monarchic.agent_protocol.v1.Experime" +
+      "ntSpec\"\355\002\n\005Event\022\017\n\007version\030\001 \001(\t\022\022\n\neve" +
+      "nt_type\030\002 \001(\t\022\021\n\ttimestamp\030\003 \001(\t\022\017\n\007task" +
+      "_id\030\004 \001(\t\022\016\n\006status\030\005 \001(\t\022\024\n\007message\030\006 \001" +
+      "(\tH\000\210\001\001\022+\n\nextensions\030\007 \001(\0132\027.google.pro" +
+      "tobuf.Struct\022;\n\nprovenance\030\010 \001(\0132\'.monar" +
+      "chic.agent_protocol.v1.Provenance\022=\n\014eva" +
+      "l_results\030\t \003(\0132\'.monarchic.agent_protoc" +
+      "ol.v1.EvalResult\022@\n\rfailure_class\030\n \001(\0132" +
+      ").monarchic.agent_protocol.v1.FailureCla" +
+      "ssB\n\n\010_message\"\365\001\n\nGateResult\022\017\n\007version" +
+      "\030\001 \001(\t\022\014\n\004gate\030\002 \001(\t\022\016\n\006status\030\003 \001(\t\022\023\n\006" +
+      "reason\030\004 \001(\tH\000\210\001\001\022)\n\010evidence\030\005 \001(\0132\027.go" +
+      "ogle.protobuf.Struct\022+\n\nextensions\030\006 \001(\013" +
+      "2\027.google.protobuf.Struct\022@\n\rfailure_cla" +
+      "ss\030\007 \001(\0132).monarchic.agent_protocol.v1.F" +
+      "ailureClassB\t\n\007_reason\"\210\006\n\nRunOutcome\022\017\n" +
+      "\007version\030\001 \001(\t\022\017\n\007task_id\030\002 \001(\t\022\023\n\006run_i" +
+      "d\030\003 \001(\tH\000\210\001\001\022\035\n\020objective_metric\030\004 \001(\tH\001" +
+      "\210\001\001\022\034\n\017objective_score\030\005 \001(\001H\002\210\001\001\022H\n\022obj" +
+      "ective_decision\030\006 \001(\0162,.monarchic.agent_" +
+      "protocol.v1.OutcomeDecision\022\037\n\022estimated" +
+      "_cost_usd\030\007 \001(\001H\003\210\001\001\022\035\n\020budget_limit_usd" +
+      "\030\010 \001(\001H\004\210\001\001\022C\n\rcost_decision\030\t \001(\0162,.mon" +
+      "archic.agent_protocol.v1.OutcomeDecision" +
+      "\022\027\n\nrisk_level\030\n \001(\tH\005\210\001\001\022\031\n\014risk_summar" +
+      "y\030\013 \001(\tH\006\210\001\001\022C\n\rrisk_decision\030\014 \001(\0162,.mo" +
+      "narchic.agent_protocol.v1.OutcomeDecisio" +
+      "n\022D\n\016final_decision\030\r \001(\0162,.monarchic.ag" +
+      "ent_protocol.v1.OutcomeDecision\022\024\n\007summa" +
+      "ry\030\016 \001(\tH\007\210\001\001\022)\n\010evidence\030\017 \001(\0132\027.google" +
+      ".protobuf.Struct\022+\n\nextensions\030\020 \001(\0132\027.g" +
+      "oogle.protobuf.StructB\t\n\007_run_idB\023\n\021_obj" +
+      "ective_metricB\022\n\020_objective_scoreB\025\n\023_es" +
+      "timated_cost_usdB\023\n\021_budget_limit_usdB\r\n" +
+      "\013_risk_levelB\017\n\r_risk_summaryB\n\n\010_summar" +
+      "y\"\231\001\n\nRunContext\022\017\n\007version\030\001 \001(\t\022\014\n\004rep" +
+      "o\030\002 \001(\t\022\020\n\010worktree\030\003 \001(\t\022\r\n\005image\030\004 \001(\t" +
+      "\022\016\n\006runner\030\005 \001(\t\022\016\n\006labels\030\006 \003(\t\022+\n\nexte" +
+      "nsions\030\007 \001(\0132\027.google.protobuf.Struct\"\221\002" +
+      "\n\022RunnerCapabilities\022\020\n\010platform\030\001 \001(\t\022\017" +
+      "\n\007runtime\030\002 \001(\t\022?\n\017supported_roles\030\003 \003(\016" +
+      "2&.monarchic.agent_protocol.v1.AgentRole" +
+      "\022\037\n\027supported_task_versions\030\004 \003(\t\022\016\n\006lab" +
+      "els\030\005 \003(\t\022 \n\030supports_interactive_pty\030\006 " +
+      "\001(\010\022\027\n\017supports_resume\030\007 \001(\010\022+\n\nextensio" +
+      "ns\030\010 \001(\0132\027.google.protobuf.Struct\"v\n\010Lea" +
+      "seRef\022\020\n\010lease_id\030\001 \001(\t\022\025\n\rfencing_token" +
+      "\030\002 \001(\t\022\016\n\006run_id\030\003 \001(\t\022\017\n\007plan_id\030\004 \001(\t\022" +
+      "\017\n\007step_id\030\005 \001(\t\022\017\n\007task_id\030\006 \001(\t\"\344\001\n\013Le" +
+      "aseStatus\0224\n\005lease\030\001 \001(\0132%.monarchic.age" +
+      "nt_protocol.v1.LeaseRef\022\r\n\005state\030\002 \001(\t\022\025" +
+      "\n\rupdated_at_ms\030\003 \001(\004\022@\n\007failure\030\004 \001(\0132*" +
+      ".monarchic.agent_protocol.v1.FailureDeta" +
+      "ilH\000\210\001\001\022+\n\nextensions\030\005 \001(\0132\027.google.pro" +
+      "tobuf.StructB\n\n\010_failure\"\257\001\n\022Cancellatio" +
+      "nIntent\0224\n\005lease\030\001 \001(\0132%.monarchic.agent" +
+      "_protocol.v1.LeaseRef\022\016\n\006reason\030\002 \001(\t\022\027\n" +
+      "\017requested_at_ms\030\003 \001(\004\022\r\n\005force\030\004 \001(\010\022+\n" +
+      "\nextensions\030\005 \001(\0132\027.google.protobuf.Stru" +
+      "ct\"\321\001\n\017LeaseAssignment\0224\n\005lease\030\001 \001(\0132%." +
+      "monarchic.agent_protocol.v1.LeaseRef\022/\n\004" +
+      "task\030\002 \001(\0132!.monarchic.agent_protocol.v1" +
+      ".Task\022\024\n\014issued_at_ms\030\003 \001(\004\022\024\n\014lease_ttl" +
+      "_ms\030\004 \001(\004\022+\n\nextensions\030\005 \001(\0132\027.google.p" +
+      "rotobuf.Struct\"\325\001\n\025RegisterRunnerRequest" +
+      "\022\030\n\020contract_version\030\001 \001(\t\022\021\n\trunner_id\030" +
+      "\002 \001(\t\022E\n\014capabilities\030\003 \001(\0132/.monarchic." +
+      "agent_protocol.v1.RunnerCapabilities\022\033\n\023" +
+      "max_parallel_leases\030\004 \001(\r\022+\n\nextensions\030" +
+      "\005 \001(\0132\027.google.protobuf.Struct\"\313\001\n\026Regis" +
+      "terRunnerResponse\022\030\n\020contract_version\030\001 " +
+      "\001(\t\022\027\n\017orchestrator_id\030\002 \001(\t\022\022\n\nsession_" +
+      "id\030\003 \001(\t\022\035\n\025heartbeat_interval_ms\030\004 \001(\004\022" +
+      "\036\n\026lease_poll_interval_ms\030\005 \001(\004\022+\n\nexten" +
+      "sions\030\006 \001(\0132\027.google.protobuf.Struct\"\301\001\n" +
+      "\020HeartbeatRequest\022\030\n\020contract_version\030\001 " +
+      "\001(\t\022\021\n\trunner_id\030\002 \001(\t\022\022\n\nsession_id\030\003 \001" +
+      "(\t\022?\n\ractive_leases\030\004 \003(\0132(.monarchic.ag" +
+      "ent_protocol.v1.LeaseStatus\022+\n\nextension" +
+      "s\030\005 \001(\0132\027.google.protobuf.Struct\"\326\001\n\021Hea" +
+      "rtbeatResponse\022\030\n\020contract_version\030\001 \001(\t" +
+      "\022\027\n\017orchestrator_id\030\002 \001(\t\022\031\n\021next_heartb" +
+      "eat_ms\030\003 \001(\004\022F\n\rcancellations\030\004 \003(\0132/.mo" +
+      "narchic.agent_protocol.v1.CancellationIn" +
+      "tent\022+\n\nextensions\030\005 \001(\0132\027.google.protob" +
+      "uf.Struct\"\266\001\n\023AcquireLeaseRequest\022\030\n\020con" +
+      "tract_version\030\001 \001(\t\022\021\n\trunner_id\030\002 \001(\t\022\022" +
+      "\n\nsession_id\030\003 \001(\t\022\027\n\017available_slots\030\004 " +
+      "\001(\r\022\030\n\020active_lease_ids\030\005 \003(\t\022+\n\nextensi" +
+      "ons\030\006 \001(\0132\027.google.protobuf.Struct\"\230\002\n\024A" +
+      "cquireLeaseResponse\022\030\n\020contract_version\030" +
+      "\001 \001(\t\022\027\n\017orchestrator_id\030\002 \001(\t\022@\n\nassign" +
+      "ment\030\003 \001(\0132,.monarchic.agent_protocol.v1" +
+      ".LeaseAssignment\022\026\n\016retry_after_ms\030\004 \001(\004" +
+      "\022F\n\rcancellations\030\005 \003(\0132/.monarchic.agen" +
+      "t_protocol.v1.CancellationIntent\022+\n\nexte" +
+      "nsions\030\006 \001(\0132\027.google.protobuf.Struct\"\267\001" +
+      "\n\021RenewLeaseRequest\022\030\n\020contract_version\030" +
+      "\001 \001(\t\022\021\n\trunner_id\030\002 \001(\t\022\022\n\nsession_id\030\003" +
+      " \001(\t\0224\n\005lease\030\004 \001(\0132%.monarchic.agent_pr" +
+      "otocol.v1.LeaseRef\022+\n\nextensions\030\005 \001(\0132\027" +
+      ".google.protobuf.Struct\"\262\002\n\022RenewLeaseRe" +
+      "sponse\022\030\n\020contract_version\030\001 \001(\t\022\027\n\017orch" +
+      "estrator_id\030\002 \001(\t\022\020\n\010accepted\030\003 \001(\010\022\024\n\014l" +
+      "ease_ttl_ms\030\004 \001(\004\022F\n\rcancellations\030\005 \003(\013" +
+      "2/.monarchic.agent_protocol.v1.Cancellat" +
+      "ionIntent\022@\n\007failure\030\006 \001(\0132*.monarchic.a" +
+      "gent_protocol.v1.FailureDetailH\000\210\001\001\022+\n\ne" +
+      "xtensions\030\007 \001(\0132\027.google.protobuf.Struct" +
+      "B\n\n\010_failure\"\322\001\n\030ReportStepStartedReques" +
+      "t\022\030\n\020contract_version\030\001 \001(\t\022\021\n\trunner_id" +
+      "\030\002 \001(\t\022\022\n\nsession_id\030\003 \001(\t\0224\n\005lease\030\004 \001(" +
+      "\0132%.monarchic.agent_protocol.v1.LeaseRef" +
+      "\022\022\n\nstarted_at\030\005 \001(\t\022+\n\nextensions\030\006 \001(\013" +
+      "2\027.google.protobuf.Struct\"\333\001\n\031ReportStep" +
+      "StartedResponse\022\030\n\020contract_version\030\001 \001(" +
+      "\t\022\027\n\017orchestrator_id\030\002 \001(\t\022\020\n\010accepted\030\003" +
+      " \001(\010\022@\n\007failure\030\004 \001(\0132*.monarchic.agent_" +
+      "protocol.v1.FailureDetailH\000\210\001\001\022+\n\nextens" +
+      "ions\030\005 \001(\0132\027.google.protobuf.StructB\n\n\010_" +
+      "failure\"\255\002\n\031ReportStepProgressRequest\022\030\n" +
+      "\020contract_version\030\001 \001(\t\022\021\n\trunner_id\030\002 \001" +
+      "(\t\022\022\n\nsession_id\030\003 \001(\t\0224\n\005lease\030\004 \001(\0132%." +
+      "monarchic.agent_protocol.v1.LeaseRef\0222\n\006" +
+      "events\030\005 \003(\0132\".monarchic.agent_protocol." +
+      "v1.Event\0228\n\tartifacts\030\006 \003(\0132%.monarchic." +
+      "agent_protocol.v1.Artifact\022+\n\nextensions" +
+      "\030\007 \001(\0132\027.google.protobuf.Struct\"\244\002\n\032Repo" +
+      "rtStepProgressResponse\022\030\n\020contract_versi" +
+      "on\030\001 \001(\t\022\027\n\017orchestrator_id\030\002 \001(\t\022\020\n\010acc" +
+      "epted\030\003 \001(\010\022F\n\rcancellations\030\004 \003(\0132/.mon" +
+      "archic.agent_protocol.v1.CancellationInt" +
+      "ent\022@\n\007failure\030\005 \001(\0132*.monarchic.agent_p" +
+      "rotocol.v1.FailureDetailH\000\210\001\001\022+\n\nextensi" +
+      "ons\030\006 \001(\0132\027.google.protobuf.StructB\n\n\010_f" +
+      "ailure\"\233\004\n\030ReportStepOutcomeRequest\022\030\n\020c" +
+      "ontract_version\030\001 \001(\t\022\021\n\trunner_id\030\002 \001(\t" +
+      "\022\022\n\nsession_id\030\003 \001(\t\0224\n\005lease\030\004 \001(\0132%.mo" +
+      "narchic.agent_protocol.v1.LeaseRef\0227\n\006st" +
+      "atus\030\005 \001(\0162\'.monarchic.agent_protocol.v1" +
+      ".PlanStatus\0222\n\006events\030\006 \003(\0132\".monarchic." +
+      "agent_protocol.v1.Event\0228\n\tartifacts\030\007 \003" +
+      "(\0132%.monarchic.agent_protocol.v1.Artifac" +
+      "t\022A\n\013run_outcome\030\010 \001(\0132\'.monarchic.agent" +
+      "_protocol.v1.RunOutcomeH\000\210\001\001\022@\n\007failure\030" +
+      "\t \001(\0132*.monarchic.agent_protocol.v1.Fail" +
+      "ureDetailH\001\210\001\001\022\023\n\013finished_at\030\n \001(\t\022+\n\ne" +
+      "xtensions\030\013 \001(\0132\027.google.protobuf.Struct" +
+      "B\016\n\014_run_outcomeB\n\n\010_failure\"\333\001\n\031ReportS" +
+      "tepOutcomeResponse\022\030\n\020contract_version\030\001" +
+      " \001(\t\022\027\n\017orchestrator_id\030\002 \001(\t\022\020\n\010accepte" +
+      "d\030\003 \001(\010\022@\n\007failure\030\004 \001(\0132*.monarchic.age" +
+      "nt_protocol.v1.FailureDetailH\000\210\001\001\022+\n\next" +
+      "ensions\030\005 \001(\0132\027.google.protobuf.StructB\n" +
+      "\n\010_failure\"\356\001\n\026AckCancellationRequest\022\030\n" +
+      "\020contract_version\030\001 \001(\t\022\021\n\trunner_id\030\002 \001" +
+      "(\t\022\022\n\nsession_id\030\003 \001(\t\0224\n\005lease\030\004 \001(\0132%." +
+      "monarchic.agent_protocol.v1.LeaseRef\022\016\n\006" +
+      "status\030\005 \001(\t\022\024\n\007message\030\006 \001(\tH\000\210\001\001\022+\n\nex" +
+      "tensions\030\007 \001(\0132\027.google.protobuf.StructB" +
+      "\n\n\010_message\"\331\001\n\027AckCancellationResponse\022" +
+      "\030\n\020contract_version\030\001 \001(\t\022\027\n\017orchestrato" +
+      "r_id\030\002 \001(\t\022\020\n\010accepted\030\003 \001(\010\022@\n\007failure\030" +
+      "\004 \001(\0132*.monarchic.agent_protocol.v1.Fail" +
+      "ureDetailH\000\210\001\001\022+\n\nextensions\030\005 \001(\0132\027.goo" +
+      "gle.protobuf.StructB\n\n\010_failure*\224\001\n\tAgen" +
+      "tRole\022\032\n\026AGENT_ROLE_UNSPECIFIED\020\000\022\021\n\rPRO" +
+      "DUCT_OWNER\020\001\022\023\n\017PROJECT_MANAGER\020\002\022\007\n\003DEV" +
+      "\020\003\022\006\n\002QA\020\004\022\014\n\010REVIEWER\020\005\022\014\n\010SECURITY\020\006\022\007" +
+      "\n\003OPS\020\007\022\r\n\tPUBLISHER\020\010*f\n\017OutcomeDecisio" +
+      "n\022 \n\034OUTCOME_DECISION_UNSPECIFIED\020\000\022\n\n\006A" +
+      "CCEPT\020\001\022\013\n\007ITERATE\020\002\022\n\n\006REJECT\020\003\022\014\n\010ESCA" +
+      "LATE\020\004*\223\001\n\nPlanStatus\022\033\n\027PLAN_STATUS_UNS" +
+      "PECIFIED\020\000\022\t\n\005DRAFT\020\001\022\013\n\007PLANNED\020\002\022\r\n\tEX" +
+      "ECUTING\020\003\022\014\n\010COMPLETE\020\004\022\013\n\007BOUNDED\020\005\022\n\n\006" +
+      "FAILED\020\006\022\r\n\tCANCELLED\020\007\022\013\n\007UNKNOWN\020\0102\361\007\n" +
+      "\024RunnerControlService\022y\n\016RegisterRunner\022" +
+      "2.monarchic.agent_protocol.v1.RegisterRu" +
+      "nnerRequest\0323.monarchic.agent_protocol.v" +
+      "1.RegisterRunnerResponse\022j\n\tHeartbeat\022-." +
+      "monarchic.agent_protocol.v1.HeartbeatReq" +
+      "uest\032..monarchic.agent_protocol.v1.Heart" +
+      "beatResponse\022s\n\014AcquireLease\0220.monarchic" +
+      ".agent_protocol.v1.AcquireLeaseRequest\0321" +
+      ".monarchic.agent_protocol.v1.AcquireLeas" +
+      "eResponse\022m\n\nRenewLease\022..monarchic.agen" +
+      "t_protocol.v1.RenewLeaseRequest\032/.monarc" +
+      "hic.agent_protocol.v1.RenewLeaseResponse" +
+      "\022\202\001\n\021ReportStepStarted\0225.monarchic.agent" +
+      "_protocol.v1.ReportStepStartedRequest\0326." +
+      "monarchic.agent_protocol.v1.ReportStepSt" +
+      "artedResponse\022\205\001\n\022ReportStepProgress\0226.m" +
+      "onarchic.agent_protocol.v1.ReportStepPro" +
+      "gressRequest\0327.monarchic.agent_protocol." +
+      "v1.ReportStepProgressResponse\022\202\001\n\021Report" +
+      "StepOutcome\0225.monarchic.agent_protocol.v" +
+      "1.ReportStepOutcomeRequest\0326.monarchic.a" +
+      "gent_protocol.v1.ReportStepOutcomeRespon" +
+      "se\022|\n\017AckCancellation\0223.monarchic.agent_" +
+      "protocol.v1.AckCancellationRequest\0324.mon" +
+      "archic.agent_protocol.v1.AckCancellation" +
+      "ResponseB\210\002\n\036ai.monarchic.agent_protocol" +
+      ".v1B\030MonarchicAgentProtocolV1P\001Zdgithub." +
+      "com/monarchic-ai/monarchic-agent-protoco" +
+      "l/src/go/monarchic/agent_protocol/v1;age" +
+      "nt_protocolv1\242\002\003MAP\252\002\032Monarchic.AgentPro" +
+      "tocol.V1\312\002\032Monarchic\\AgentProtocol\\V1\342\002#" +
+      "Monarchic\\AgentProtocol\\V1\\Metadatab\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -282,42 +604,204 @@ public final class MonarchicAgentProtocolV1 extends com.google.protobuf.Generate
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_Provenance_descriptor,
         new java.lang.String[] { "PromptSha256", "CodeSha256", "DatasetSha256", "Runtime", "Model", "Runner", "Orchestrator", "TaskSpecSha256", "PipelineSha256", "CommandSha256", "CreatedAt", "SourceTaskId", "DatasetRefs", "Extensions", });
-    internal_static_monarchic_agent_protocol_v1_Task_descriptor =
+    internal_static_monarchic_agent_protocol_v1_RoleProvenance_descriptor =
       getDescriptor().getMessageTypes().get(7);
+    internal_static_monarchic_agent_protocol_v1_RoleProvenance_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_monarchic_agent_protocol_v1_RoleProvenance_descriptor,
+        new java.lang.String[] { "RoleName", "TemplateHash", "RenderHash", });
+    internal_static_monarchic_agent_protocol_v1_PlanProvenance_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_monarchic_agent_protocol_v1_PlanProvenance_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_monarchic_agent_protocol_v1_PlanProvenance_descriptor,
+        new java.lang.String[] { "GeneratedBy", "PolicyProfile", "GeneratedAtMs", "Role", });
+    internal_static_monarchic_agent_protocol_v1_FailureDetail_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_monarchic_agent_protocol_v1_FailureDetail_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_monarchic_agent_protocol_v1_FailureDetail_descriptor,
+        new java.lang.String[] { "Class_", "Code", "Message", "Details", });
+    internal_static_monarchic_agent_protocol_v1_PlanStep_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_monarchic_agent_protocol_v1_PlanStep_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_monarchic_agent_protocol_v1_PlanStep_descriptor,
+        new java.lang.String[] { "StepId", "Description", "DependsOn", "TaskTemplate", "Failure", });
+    internal_static_monarchic_agent_protocol_v1_Plan_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_monarchic_agent_protocol_v1_Plan_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_monarchic_agent_protocol_v1_Plan_descriptor,
+        new java.lang.String[] { "ContractVersion", "PlanId", "RunId", "Objective", "Status", "CreatedAtMs", "UpdatedAtMs", "Provenance", "Steps", });
+    internal_static_monarchic_agent_protocol_v1_ExecutionReceipt_descriptor =
+      getDescriptor().getMessageTypes().get(12);
+    internal_static_monarchic_agent_protocol_v1_ExecutionReceipt_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_monarchic_agent_protocol_v1_ExecutionReceipt_descriptor,
+        new java.lang.String[] { "ContractVersion", "RunId", "PlanId", "PlanHash", "TaskHashes", "ArtifactHashes", "OutcomeHash", "Status", "Failure", "GeneratedAtMs", });
+    internal_static_monarchic_agent_protocol_v1_Task_descriptor =
+      getDescriptor().getMessageTypes().get(13);
     internal_static_monarchic_agent_protocol_v1_Task_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_Task_descriptor,
         new java.lang.String[] { "Version", "TaskId", "Role", "Goal", "Inputs", "Constraints", "GatesRequired", "RunContext", "Extensions", "ExperimentSpec", "ObjectiveSpec", });
     internal_static_monarchic_agent_protocol_v1_Artifact_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_monarchic_agent_protocol_v1_Artifact_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_Artifact_descriptor,
         new java.lang.String[] { "Version", "ArtifactId", "Type", "Summary", "Path", "TaskId", "Extensions", "Provenance", "DatasetRefs", "EvalResults", "ExperimentSpec", });
     internal_static_monarchic_agent_protocol_v1_Event_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_monarchic_agent_protocol_v1_Event_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_Event_descriptor,
         new java.lang.String[] { "Version", "EventType", "Timestamp", "TaskId", "Status", "Message", "Extensions", "Provenance", "EvalResults", "FailureClass", });
     internal_static_monarchic_agent_protocol_v1_GateResult_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_monarchic_agent_protocol_v1_GateResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_GateResult_descriptor,
         new java.lang.String[] { "Version", "Gate", "Status", "Reason", "Evidence", "Extensions", "FailureClass", });
     internal_static_monarchic_agent_protocol_v1_RunOutcome_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_monarchic_agent_protocol_v1_RunOutcome_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_RunOutcome_descriptor,
         new java.lang.String[] { "Version", "TaskId", "RunId", "ObjectiveMetric", "ObjectiveScore", "ObjectiveDecision", "EstimatedCostUsd", "BudgetLimitUsd", "CostDecision", "RiskLevel", "RiskSummary", "RiskDecision", "FinalDecision", "Summary", "Evidence", "Extensions", });
     internal_static_monarchic_agent_protocol_v1_RunContext_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_monarchic_agent_protocol_v1_RunContext_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_RunContext_descriptor,
         new java.lang.String[] { "Version", "Repo", "Worktree", "Image", "Runner", "Labels", "Extensions", });
+    internal_static_monarchic_agent_protocol_v1_RunnerCapabilities_descriptor =
+      getDescriptor().getMessageTypes().get(19);
+    internal_static_monarchic_agent_protocol_v1_RunnerCapabilities_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_monarchic_agent_protocol_v1_RunnerCapabilities_descriptor,
+        new java.lang.String[] { "Platform", "Runtime", "SupportedRoles", "SupportedTaskVersions", "Labels", "SupportsInteractivePty", "SupportsResume", "Extensions", });
+    internal_static_monarchic_agent_protocol_v1_LeaseRef_descriptor =
+      getDescriptor().getMessageTypes().get(20);
+    internal_static_monarchic_agent_protocol_v1_LeaseRef_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_monarchic_agent_protocol_v1_LeaseRef_descriptor,
+        new java.lang.String[] { "LeaseId", "FencingToken", "RunId", "PlanId", "StepId", "TaskId", });
+    internal_static_monarchic_agent_protocol_v1_LeaseStatus_descriptor =
+      getDescriptor().getMessageTypes().get(21);
+    internal_static_monarchic_agent_protocol_v1_LeaseStatus_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_monarchic_agent_protocol_v1_LeaseStatus_descriptor,
+        new java.lang.String[] { "Lease", "State", "UpdatedAtMs", "Failure", "Extensions", });
+    internal_static_monarchic_agent_protocol_v1_CancellationIntent_descriptor =
+      getDescriptor().getMessageTypes().get(22);
+    internal_static_monarchic_agent_protocol_v1_CancellationIntent_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_monarchic_agent_protocol_v1_CancellationIntent_descriptor,
+        new java.lang.String[] { "Lease", "Reason", "RequestedAtMs", "Force", "Extensions", });
+    internal_static_monarchic_agent_protocol_v1_LeaseAssignment_descriptor =
+      getDescriptor().getMessageTypes().get(23);
+    internal_static_monarchic_agent_protocol_v1_LeaseAssignment_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_monarchic_agent_protocol_v1_LeaseAssignment_descriptor,
+        new java.lang.String[] { "Lease", "Task", "IssuedAtMs", "LeaseTtlMs", "Extensions", });
+    internal_static_monarchic_agent_protocol_v1_RegisterRunnerRequest_descriptor =
+      getDescriptor().getMessageTypes().get(24);
+    internal_static_monarchic_agent_protocol_v1_RegisterRunnerRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_monarchic_agent_protocol_v1_RegisterRunnerRequest_descriptor,
+        new java.lang.String[] { "ContractVersion", "RunnerId", "Capabilities", "MaxParallelLeases", "Extensions", });
+    internal_static_monarchic_agent_protocol_v1_RegisterRunnerResponse_descriptor =
+      getDescriptor().getMessageTypes().get(25);
+    internal_static_monarchic_agent_protocol_v1_RegisterRunnerResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_monarchic_agent_protocol_v1_RegisterRunnerResponse_descriptor,
+        new java.lang.String[] { "ContractVersion", "OrchestratorId", "SessionId", "HeartbeatIntervalMs", "LeasePollIntervalMs", "Extensions", });
+    internal_static_monarchic_agent_protocol_v1_HeartbeatRequest_descriptor =
+      getDescriptor().getMessageTypes().get(26);
+    internal_static_monarchic_agent_protocol_v1_HeartbeatRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_monarchic_agent_protocol_v1_HeartbeatRequest_descriptor,
+        new java.lang.String[] { "ContractVersion", "RunnerId", "SessionId", "ActiveLeases", "Extensions", });
+    internal_static_monarchic_agent_protocol_v1_HeartbeatResponse_descriptor =
+      getDescriptor().getMessageTypes().get(27);
+    internal_static_monarchic_agent_protocol_v1_HeartbeatResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_monarchic_agent_protocol_v1_HeartbeatResponse_descriptor,
+        new java.lang.String[] { "ContractVersion", "OrchestratorId", "NextHeartbeatMs", "Cancellations", "Extensions", });
+    internal_static_monarchic_agent_protocol_v1_AcquireLeaseRequest_descriptor =
+      getDescriptor().getMessageTypes().get(28);
+    internal_static_monarchic_agent_protocol_v1_AcquireLeaseRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_monarchic_agent_protocol_v1_AcquireLeaseRequest_descriptor,
+        new java.lang.String[] { "ContractVersion", "RunnerId", "SessionId", "AvailableSlots", "ActiveLeaseIds", "Extensions", });
+    internal_static_monarchic_agent_protocol_v1_AcquireLeaseResponse_descriptor =
+      getDescriptor().getMessageTypes().get(29);
+    internal_static_monarchic_agent_protocol_v1_AcquireLeaseResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_monarchic_agent_protocol_v1_AcquireLeaseResponse_descriptor,
+        new java.lang.String[] { "ContractVersion", "OrchestratorId", "Assignment", "RetryAfterMs", "Cancellations", "Extensions", });
+    internal_static_monarchic_agent_protocol_v1_RenewLeaseRequest_descriptor =
+      getDescriptor().getMessageTypes().get(30);
+    internal_static_monarchic_agent_protocol_v1_RenewLeaseRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_monarchic_agent_protocol_v1_RenewLeaseRequest_descriptor,
+        new java.lang.String[] { "ContractVersion", "RunnerId", "SessionId", "Lease", "Extensions", });
+    internal_static_monarchic_agent_protocol_v1_RenewLeaseResponse_descriptor =
+      getDescriptor().getMessageTypes().get(31);
+    internal_static_monarchic_agent_protocol_v1_RenewLeaseResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_monarchic_agent_protocol_v1_RenewLeaseResponse_descriptor,
+        new java.lang.String[] { "ContractVersion", "OrchestratorId", "Accepted", "LeaseTtlMs", "Cancellations", "Failure", "Extensions", });
+    internal_static_monarchic_agent_protocol_v1_ReportStepStartedRequest_descriptor =
+      getDescriptor().getMessageTypes().get(32);
+    internal_static_monarchic_agent_protocol_v1_ReportStepStartedRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_monarchic_agent_protocol_v1_ReportStepStartedRequest_descriptor,
+        new java.lang.String[] { "ContractVersion", "RunnerId", "SessionId", "Lease", "StartedAt", "Extensions", });
+    internal_static_monarchic_agent_protocol_v1_ReportStepStartedResponse_descriptor =
+      getDescriptor().getMessageTypes().get(33);
+    internal_static_monarchic_agent_protocol_v1_ReportStepStartedResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_monarchic_agent_protocol_v1_ReportStepStartedResponse_descriptor,
+        new java.lang.String[] { "ContractVersion", "OrchestratorId", "Accepted", "Failure", "Extensions", });
+    internal_static_monarchic_agent_protocol_v1_ReportStepProgressRequest_descriptor =
+      getDescriptor().getMessageTypes().get(34);
+    internal_static_monarchic_agent_protocol_v1_ReportStepProgressRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_monarchic_agent_protocol_v1_ReportStepProgressRequest_descriptor,
+        new java.lang.String[] { "ContractVersion", "RunnerId", "SessionId", "Lease", "Events", "Artifacts", "Extensions", });
+    internal_static_monarchic_agent_protocol_v1_ReportStepProgressResponse_descriptor =
+      getDescriptor().getMessageTypes().get(35);
+    internal_static_monarchic_agent_protocol_v1_ReportStepProgressResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_monarchic_agent_protocol_v1_ReportStepProgressResponse_descriptor,
+        new java.lang.String[] { "ContractVersion", "OrchestratorId", "Accepted", "Cancellations", "Failure", "Extensions", });
+    internal_static_monarchic_agent_protocol_v1_ReportStepOutcomeRequest_descriptor =
+      getDescriptor().getMessageTypes().get(36);
+    internal_static_monarchic_agent_protocol_v1_ReportStepOutcomeRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_monarchic_agent_protocol_v1_ReportStepOutcomeRequest_descriptor,
+        new java.lang.String[] { "ContractVersion", "RunnerId", "SessionId", "Lease", "Status", "Events", "Artifacts", "RunOutcome", "Failure", "FinishedAt", "Extensions", });
+    internal_static_monarchic_agent_protocol_v1_ReportStepOutcomeResponse_descriptor =
+      getDescriptor().getMessageTypes().get(37);
+    internal_static_monarchic_agent_protocol_v1_ReportStepOutcomeResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_monarchic_agent_protocol_v1_ReportStepOutcomeResponse_descriptor,
+        new java.lang.String[] { "ContractVersion", "OrchestratorId", "Accepted", "Failure", "Extensions", });
+    internal_static_monarchic_agent_protocol_v1_AckCancellationRequest_descriptor =
+      getDescriptor().getMessageTypes().get(38);
+    internal_static_monarchic_agent_protocol_v1_AckCancellationRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_monarchic_agent_protocol_v1_AckCancellationRequest_descriptor,
+        new java.lang.String[] { "ContractVersion", "RunnerId", "SessionId", "Lease", "Status", "Message", "Extensions", });
+    internal_static_monarchic_agent_protocol_v1_AckCancellationResponse_descriptor =
+      getDescriptor().getMessageTypes().get(39);
+    internal_static_monarchic_agent_protocol_v1_AckCancellationResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_monarchic_agent_protocol_v1_AckCancellationResponse_descriptor,
+        new java.lang.String[] { "ContractVersion", "OrchestratorId", "Accepted", "Failure", "Extensions", });
     descriptor.resolveAllFeaturesImmutable();
     com.google.protobuf.StructProto.getDescriptor();
   }
