@@ -50,6 +50,7 @@ pub enum LeaseRejectionReason {
     StepAlreadyTerminal,
     RunNotExecutable,
     DependencyBlocked,
+    LeaseSuperseded,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
