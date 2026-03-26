@@ -331,6 +331,7 @@ enum LeaseRejectionReason {
   LEASE_REJECTION_STEP_ALREADY_TERMINAL = 5;
   LEASE_REJECTION_RUN_NOT_EXECUTABLE = 6;
   LEASE_REJECTION_DEPENDENCY_BLOCKED = 7;
+  LEASE_REJECTION_LEASE_SUPERSEDED = 8;
 }
 
 enum RecoveryEventKind {
@@ -475,6 +476,26 @@ message RenewLeaseResponse {
   google.protobuf.Struct extensions = 7;
 }
 
+message ResumeLeaseRequest {
+  string contract_version = 1;
+  string runner_id = 2;
+  string session_id = 3;
+  LeaseRef lease = 4;
+  google.protobuf.Struct extensions = 5;
+}
+
+message ResumeLeaseResponse {
+  string contract_version = 1;
+  string orchestrator_id = 2;
+  bool accepted = 3;
+  Lease lease = 4;
+  uint64 expires_at_ms = 5;
+  string current_fencing_token = 6;
+  LeaseRejectionReason reason = 7;
+  string message = 8;
+  google.protobuf.Struct extensions = 9;
+}
+
 message ReportStepStartedRequest {
   string contract_version = 1;
   string runner_id = 2;
@@ -559,6 +580,7 @@ service RunnerControlService {
   rpc Heartbeat(HeartbeatRequest) returns (HeartbeatResponse);
   rpc AcquireLease(AcquireLeaseRequest) returns (AcquireLeaseResponse);
   rpc RenewLease(RenewLeaseRequest) returns (RenewLeaseResponse);
+  rpc ResumeLease(ResumeLeaseRequest) returns (ResumeLeaseResponse);
   rpc ReportStepStarted(ReportStepStartedRequest) returns (ReportStepStartedResponse);
   rpc ReportStepProgress(ReportStepProgressRequest) returns (ReportStepProgressResponse);
   rpc ReportStepOutcome(ReportStepOutcomeRequest) returns (ReportStepOutcomeResponse);

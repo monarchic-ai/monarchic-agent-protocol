@@ -66,6 +66,9 @@ fn lease_rejection_reason_fixture_round_trips_canonically() {
     assert_fixture_round_trip::<LeaseRejectionReason>(
         "lease_rejection_reason.stale_fencing_token.json",
     );
+    assert_fixture_round_trip::<LeaseRejectionReason>(
+        "lease_rejection_reason.lease_superseded.json",
+    );
 }
 
 #[test]

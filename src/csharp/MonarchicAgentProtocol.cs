@@ -244,121 +244,136 @@ namespace Monarchic.AgentProtocol.V1 {
             "YXRpb25JbnRlbnQSQAoHZmFpbHVyZRgGIAEoCzIqLm1vbmFyY2hpYy5hZ2Vu",
             "dF9wcm90b2NvbC52MS5GYWlsdXJlRGV0YWlsSACIAQESKwoKZXh0ZW5zaW9u",
             "cxgHIAEoCzIXLmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3RCCgoIX2ZhaWx1cmUi",
-            "0gEKGFJlcG9ydFN0ZXBTdGFydGVkUmVxdWVzdBIYChBjb250cmFjdF92ZXJz",
-            "aW9uGAEgASgJEhEKCXJ1bm5lcl9pZBgCIAEoCRISCgpzZXNzaW9uX2lkGAMg",
-            "ASgJEjQKBWxlYXNlGAQgASgLMiUubW9uYXJjaGljLmFnZW50X3Byb3RvY29s",
-            "LnYxLkxlYXNlUmVmEhIKCnN0YXJ0ZWRfYXQYBSABKAkSKwoKZXh0ZW5zaW9u",
-            "cxgGIAEoCzIXLmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3Qi2wEKGVJlcG9ydFN0",
-            "ZXBTdGFydGVkUmVzcG9uc2USGAoQY29udHJhY3RfdmVyc2lvbhgBIAEoCRIX",
-            "Cg9vcmNoZXN0cmF0b3JfaWQYAiABKAkSEAoIYWNjZXB0ZWQYAyABKAgSQAoH",
-            "ZmFpbHVyZRgEIAEoCzIqLm1vbmFyY2hpYy5hZ2VudF9wcm90b2NvbC52MS5G",
-            "YWlsdXJlRGV0YWlsSACIAQESKwoKZXh0ZW5zaW9ucxgFIAEoCzIXLmdvb2ds",
-            "ZS5wcm90b2J1Zi5TdHJ1Y3RCCgoIX2ZhaWx1cmUirQIKGVJlcG9ydFN0ZXBQ",
-            "cm9ncmVzc1JlcXVlc3QSGAoQY29udHJhY3RfdmVyc2lvbhgBIAEoCRIRCgly",
-            "dW5uZXJfaWQYAiABKAkSEgoKc2Vzc2lvbl9pZBgDIAEoCRI0CgVsZWFzZRgE",
-            "IAEoCzIlLm1vbmFyY2hpYy5hZ2VudF9wcm90b2NvbC52MS5MZWFzZVJlZhIy",
-            "CgZldmVudHMYBSADKAsyIi5tb25hcmNoaWMuYWdlbnRfcHJvdG9jb2wudjEu",
-            "RXZlbnQSOAoJYXJ0aWZhY3RzGAYgAygLMiUubW9uYXJjaGljLmFnZW50X3By",
-            "b3RvY29sLnYxLkFydGlmYWN0EisKCmV4dGVuc2lvbnMYByABKAsyFy5nb29n",
-            "bGUucHJvdG9idWYuU3RydWN0IqQCChpSZXBvcnRTdGVwUHJvZ3Jlc3NSZXNw",
-            "b25zZRIYChBjb250cmFjdF92ZXJzaW9uGAEgASgJEhcKD29yY2hlc3RyYXRv",
-            "cl9pZBgCIAEoCRIQCghhY2NlcHRlZBgDIAEoCBJGCg1jYW5jZWxsYXRpb25z",
-            "GAQgAygLMi8ubW9uYXJjaGljLmFnZW50X3Byb3RvY29sLnYxLkNhbmNlbGxh",
-            "dGlvbkludGVudBJACgdmYWlsdXJlGAUgASgLMioubW9uYXJjaGljLmFnZW50",
-            "X3Byb3RvY29sLnYxLkZhaWx1cmVEZXRhaWxIAIgBARIrCgpleHRlbnNpb25z",
-            "GAYgASgLMhcuZ29vZ2xlLnByb3RvYnVmLlN0cnVjdEIKCghfZmFpbHVyZSKb",
-            "BAoYUmVwb3J0U3RlcE91dGNvbWVSZXF1ZXN0EhgKEGNvbnRyYWN0X3ZlcnNp",
-            "b24YASABKAkSEQoJcnVubmVyX2lkGAIgASgJEhIKCnNlc3Npb25faWQYAyAB",
-            "KAkSNAoFbGVhc2UYBCABKAsyJS5tb25hcmNoaWMuYWdlbnRfcHJvdG9jb2wu",
-            "djEuTGVhc2VSZWYSNwoGc3RhdHVzGAUgASgOMicubW9uYXJjaGljLmFnZW50",
-            "X3Byb3RvY29sLnYxLlBsYW5TdGF0dXMSMgoGZXZlbnRzGAYgAygLMiIubW9u",
-            "YXJjaGljLmFnZW50X3Byb3RvY29sLnYxLkV2ZW50EjgKCWFydGlmYWN0cxgH",
-            "IAMoCzIlLm1vbmFyY2hpYy5hZ2VudF9wcm90b2NvbC52MS5BcnRpZmFjdBJB",
-            "CgtydW5fb3V0Y29tZRgIIAEoCzInLm1vbmFyY2hpYy5hZ2VudF9wcm90b2Nv",
-            "bC52MS5SdW5PdXRjb21lSACIAQESQAoHZmFpbHVyZRgJIAEoCzIqLm1vbmFy",
-            "Y2hpYy5hZ2VudF9wcm90b2NvbC52MS5GYWlsdXJlRGV0YWlsSAGIAQESEwoL",
-            "ZmluaXNoZWRfYXQYCiABKAkSKwoKZXh0ZW5zaW9ucxgLIAEoCzIXLmdvb2ds",
-            "ZS5wcm90b2J1Zi5TdHJ1Y3RCDgoMX3J1bl9vdXRjb21lQgoKCF9mYWlsdXJl",
-            "ItsBChlSZXBvcnRTdGVwT3V0Y29tZVJlc3BvbnNlEhgKEGNvbnRyYWN0X3Zl",
+            "uAEKElJlc3VtZUxlYXNlUmVxdWVzdBIYChBjb250cmFjdF92ZXJzaW9uGAEg",
+            "ASgJEhEKCXJ1bm5lcl9pZBgCIAEoCRISCgpzZXNzaW9uX2lkGAMgASgJEjQK",
+            "BWxlYXNlGAQgASgLMiUubW9uYXJjaGljLmFnZW50X3Byb3RvY29sLnYxLkxl",
+            "YXNlUmVmEisKCmV4dGVuc2lvbnMYBSABKAsyFy5nb29nbGUucHJvdG9idWYu",
+            "U3RydWN0IsQCChNSZXN1bWVMZWFzZVJlc3BvbnNlEhgKEGNvbnRyYWN0X3Zl",
             "cnNpb24YASABKAkSFwoPb3JjaGVzdHJhdG9yX2lkGAIgASgJEhAKCGFjY2Vw",
-            "dGVkGAMgASgIEkAKB2ZhaWx1cmUYBCABKAsyKi5tb25hcmNoaWMuYWdlbnRf",
-            "cHJvdG9jb2wudjEuRmFpbHVyZURldGFpbEgAiAEBEisKCmV4dGVuc2lvbnMY",
-            "BSABKAsyFy5nb29nbGUucHJvdG9idWYuU3RydWN0QgoKCF9mYWlsdXJlIu4B",
-            "ChZBY2tDYW5jZWxsYXRpb25SZXF1ZXN0EhgKEGNvbnRyYWN0X3ZlcnNpb24Y",
-            "ASABKAkSEQoJcnVubmVyX2lkGAIgASgJEhIKCnNlc3Npb25faWQYAyABKAkS",
-            "NAoFbGVhc2UYBCABKAsyJS5tb25hcmNoaWMuYWdlbnRfcHJvdG9jb2wudjEu",
-            "TGVhc2VSZWYSDgoGc3RhdHVzGAUgASgJEhQKB21lc3NhZ2UYBiABKAlIAIgB",
-            "ARIrCgpleHRlbnNpb25zGAcgASgLMhcuZ29vZ2xlLnByb3RvYnVmLlN0cnVj",
-            "dEIKCghfbWVzc2FnZSLZAQoXQWNrQ2FuY2VsbGF0aW9uUmVzcG9uc2USGAoQ",
-            "Y29udHJhY3RfdmVyc2lvbhgBIAEoCRIXCg9vcmNoZXN0cmF0b3JfaWQYAiAB",
-            "KAkSEAoIYWNjZXB0ZWQYAyABKAgSQAoHZmFpbHVyZRgEIAEoCzIqLm1vbmFy",
-            "Y2hpYy5hZ2VudF9wcm90b2NvbC52MS5GYWlsdXJlRGV0YWlsSACIAQESKwoK",
-            "ZXh0ZW5zaW9ucxgFIAEoCzIXLmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3RCCgoI",
-            "X2ZhaWx1cmUqlAEKCUFnZW50Um9sZRIaChZBR0VOVF9ST0xFX1VOU1BFQ0lG",
-            "SUVEEAASEQoNUFJPRFVDVF9PV05FUhABEhMKD1BST0pFQ1RfTUFOQUdFUhAC",
-            "EgcKA0RFVhADEgYKAlFBEAQSDAoIUkVWSUVXRVIQBRIMCghTRUNVUklUWRAG",
-            "EgcKA09QUxAHEg0KCVBVQkxJU0hFUhAIKmYKD091dGNvbWVEZWNpc2lvbhIg",
-            "ChxPVVRDT01FX0RFQ0lTSU9OX1VOU1BFQ0lGSUVEEAASCgoGQUNDRVBUEAES",
-            "CwoHSVRFUkFURRACEgoKBlJFSkVDVBADEgwKCEVTQ0FMQVRFEAQqkwEKClBs",
-            "YW5TdGF0dXMSGwoXUExBTl9TVEFUVVNfVU5TUEVDSUZJRUQQABIJCgVEUkFG",
-            "VBABEgsKB1BMQU5ORUQQAhINCglFWEVDVVRJTkcQAxIMCghDT01QTEVURRAE",
-            "EgsKB0JPVU5ERUQQBRIKCgZGQUlMRUQQBhINCglDQU5DRUxMRUQQBxILCgdV",
-            "TktOT1dOEAgqsAEKE0xlYXNlTGlmZWN5Y2xlU3RhdGUSJQohTEVBU0VfTElG",
-            "RUNZQ0xFX1NUQVRFX1VOU1BFQ0lGSUVEEAASEAoMTEVBU0VfSVNTVUVEEAES",
-            "EAoMTEVBU0VfQUNUSVZFEAISEgoOTEVBU0VfUkVMRUFTRUQQAxIRCg1MRUFT",
-            "RV9FWFBJUkVEEAQSEwoPTEVBU0VfQ0FOQ0VMTEVEEAUSEgoOTEVBU0VfUkVK",
-            "RUNURUQQBirGAQoRUnVuTGlmZWN5Y2xlU3RhdGUSIwofUlVOX0xJRkVDWUNM",
-            "RV9TVEFURV9VTlNQRUNJRklFRBAAEg8KC1JVTl9QRU5ESU5HEAESEQoNUlVO",
-            "X0VYRUNVVElORxACEg4KClJVTl9QQVVTRUQQAxISCg5SVU5fQ0FOQ0VMTElO",
-            "RxAEEhEKDVJVTl9DQU5DRUxMRUQQBRIOCgpSVU5fRkFJTEVEEAYSEAoMUlVO",
-            "X0NPTVBMRVRFEAcSDwoLUlVOX0JMT0NLRUQQCCrJAQoSU3RlcExpZmVjeWNs",
-            "ZVN0YXRlEiQKIFNURVBfTElGRUNZQ0xFX1NUQVRFX1VOU1BFQ0lGSUVEEAAS",
-            "EAoMU1RFUF9QRU5ESU5HEAESDgoKU1RFUF9SRUFEWRACEg8KC1NURVBfTEVB",
-            "U0VEEAMSEAoMU1RFUF9SVU5OSU5HEAQSEQoNU1RFUF9DT01QTEVURRAFEg8K",
-            "C1NURVBfRkFJTEVEEAYSEgoOU1RFUF9DQU5DRUxMRUQQBxIQCgxTVEVQX0JM",
-            "T0NLRUQQCCrIAgoUTGVhc2VSZWplY3Rpb25SZWFzb24SJgoiTEVBU0VfUkVK",
-            "RUNUSU9OX1JFQVNPTl9VTlNQRUNJRklFRBAAEicKI0xFQVNFX1JFSkVDVElP",
-            "Tl9TVEFMRV9GRU5DSU5HX1RPS0VOEAESGwoXTEVBU0VfUkVKRUNUSU9OX0VY",
-            "UElSRUQQAhIkCiBMRUFTRV9SRUpFQ1RJT05fU0VTU0lPTl9NSVNNQVRDSBAD",
-            "EiEKHUxFQVNFX1JFSkVDVElPTl9VTktOT1dOX0xFQVNFEAQSKQolTEVBU0Vf",
-            "UkVKRUNUSU9OX1NURVBfQUxSRUFEWV9URVJNSU5BTBAFEiYKIkxFQVNFX1JF",
-            "SkVDVElPTl9SVU5fTk9UX0VYRUNVVEFCTEUQBhImCiJMRUFTRV9SRUpFQ1RJ",
-            "T05fREVQRU5ERU5DWV9CTE9DS0VEEAcqrwIKEVJlY292ZXJ5RXZlbnRLaW5k",
-            "EiMKH1JFQ09WRVJZX0VWRU5UX0tJTkRfVU5TUEVDSUZJRUQQABInCiNSRUNP",
-            "VkVSWV9FVkVOVF9PUkNIRVNUUkFUT1JfU1RBUlRFRBABEiEKHVJFQ09WRVJZ",
-            "X0VWRU5UX1NUQVRFX1JFTE9BREVEEAISIQodUkVDT1ZFUllfRVZFTlRfTEVB",
-            "U0VfUkVTVE9SRUQQAxIhCh1SRUNPVkVSWV9FVkVOVF9MRUFTRV9SRUpFQ1RF",
-            "RBAEEiAKHFJFQ09WRVJZX0VWRU5UX1NURVBfUkVRVUVVRUQQBRIfChtSRUNP",
-            "VkVSWV9FVkVOVF9TVEVQX0JMT0NLRUQQBhIgChxSRUNPVkVSWV9FVkVOVF9S",
-            "VU5fUkVDT1ZFUkVEEAcy8QcKFFJ1bm5lckNvbnRyb2xTZXJ2aWNlEnkKDlJl",
-            "Z2lzdGVyUnVubmVyEjIubW9uYXJjaGljLmFnZW50X3Byb3RvY29sLnYxLlJl",
-            "Z2lzdGVyUnVubmVyUmVxdWVzdBozLm1vbmFyY2hpYy5hZ2VudF9wcm90b2Nv",
-            "bC52MS5SZWdpc3RlclJ1bm5lclJlc3BvbnNlEmoKCUhlYXJ0YmVhdBItLm1v",
-            "bmFyY2hpYy5hZ2VudF9wcm90b2NvbC52MS5IZWFydGJlYXRSZXF1ZXN0Gi4u",
-            "bW9uYXJjaGljLmFnZW50X3Byb3RvY29sLnYxLkhlYXJ0YmVhdFJlc3BvbnNl",
-            "EnMKDEFjcXVpcmVMZWFzZRIwLm1vbmFyY2hpYy5hZ2VudF9wcm90b2NvbC52",
-            "MS5BY3F1aXJlTGVhc2VSZXF1ZXN0GjEubW9uYXJjaGljLmFnZW50X3Byb3Rv",
-            "Y29sLnYxLkFjcXVpcmVMZWFzZVJlc3BvbnNlEm0KClJlbmV3TGVhc2USLi5t",
-            "b25hcmNoaWMuYWdlbnRfcHJvdG9jb2wudjEuUmVuZXdMZWFzZVJlcXVlc3Qa",
-            "Ly5tb25hcmNoaWMuYWdlbnRfcHJvdG9jb2wudjEuUmVuZXdMZWFzZVJlc3Bv",
-            "bnNlEoIBChFSZXBvcnRTdGVwU3RhcnRlZBI1Lm1vbmFyY2hpYy5hZ2VudF9w",
-            "cm90b2NvbC52MS5SZXBvcnRTdGVwU3RhcnRlZFJlcXVlc3QaNi5tb25hcmNo",
-            "aWMuYWdlbnRfcHJvdG9jb2wudjEuUmVwb3J0U3RlcFN0YXJ0ZWRSZXNwb25z",
-            "ZRKFAQoSUmVwb3J0U3RlcFByb2dyZXNzEjYubW9uYXJjaGljLmFnZW50X3By",
-            "b3RvY29sLnYxLlJlcG9ydFN0ZXBQcm9ncmVzc1JlcXVlc3QaNy5tb25hcmNo",
-            "aWMuYWdlbnRfcHJvdG9jb2wudjEuUmVwb3J0U3RlcFByb2dyZXNzUmVzcG9u",
-            "c2USggEKEVJlcG9ydFN0ZXBPdXRjb21lEjUubW9uYXJjaGljLmFnZW50X3By",
-            "b3RvY29sLnYxLlJlcG9ydFN0ZXBPdXRjb21lUmVxdWVzdBo2Lm1vbmFyY2hp",
-            "Yy5hZ2VudF9wcm90b2NvbC52MS5SZXBvcnRTdGVwT3V0Y29tZVJlc3BvbnNl",
-            "EnwKD0Fja0NhbmNlbGxhdGlvbhIzLm1vbmFyY2hpYy5hZ2VudF9wcm90b2Nv",
-            "bC52MS5BY2tDYW5jZWxsYXRpb25SZXF1ZXN0GjQubW9uYXJjaGljLmFnZW50",
-            "X3Byb3RvY29sLnYxLkFja0NhbmNlbGxhdGlvblJlc3BvbnNlQogCCh5haS5t",
-            "b25hcmNoaWMuYWdlbnRfcHJvdG9jb2wudjFCGE1vbmFyY2hpY0FnZW50UHJv",
-            "dG9jb2xWMVABWmRnaXRodWIuY29tL21vbmFyY2hpYy1haS9tb25hcmNoaWMt",
-            "YWdlbnQtcHJvdG9jb2wvc3JjL2dvL21vbmFyY2hpYy9hZ2VudF9wcm90b2Nv",
-            "bC92MTthZ2VudF9wcm90b2NvbHYxogIDTUFQqgIaTW9uYXJjaGljLkFnZW50",
-            "UHJvdG9jb2wuVjHKAhpNb25hcmNoaWNcQWdlbnRQcm90b2NvbFxWMeICI01v",
-            "bmFyY2hpY1xBZ2VudFByb3RvY29sXFYxXE1ldGFkYXRhYgZwcm90bzM="));
+            "dGVkGAMgASgIEjEKBWxlYXNlGAQgASgLMiIubW9uYXJjaGljLmFnZW50X3By",
+            "b3RvY29sLnYxLkxlYXNlEhUKDWV4cGlyZXNfYXRfbXMYBSABKAQSHQoVY3Vy",
+            "cmVudF9mZW5jaW5nX3Rva2VuGAYgASgJEkEKBnJlYXNvbhgHIAEoDjIxLm1v",
+            "bmFyY2hpYy5hZ2VudF9wcm90b2NvbC52MS5MZWFzZVJlamVjdGlvblJlYXNv",
+            "bhIPCgdtZXNzYWdlGAggASgJEisKCmV4dGVuc2lvbnMYCSABKAsyFy5nb29n",
+            "bGUucHJvdG9idWYuU3RydWN0ItIBChhSZXBvcnRTdGVwU3RhcnRlZFJlcXVl",
+            "c3QSGAoQY29udHJhY3RfdmVyc2lvbhgBIAEoCRIRCglydW5uZXJfaWQYAiAB",
+            "KAkSEgoKc2Vzc2lvbl9pZBgDIAEoCRI0CgVsZWFzZRgEIAEoCzIlLm1vbmFy",
+            "Y2hpYy5hZ2VudF9wcm90b2NvbC52MS5MZWFzZVJlZhISCgpzdGFydGVkX2F0",
+            "GAUgASgJEisKCmV4dGVuc2lvbnMYBiABKAsyFy5nb29nbGUucHJvdG9idWYu",
+            "U3RydWN0ItsBChlSZXBvcnRTdGVwU3RhcnRlZFJlc3BvbnNlEhgKEGNvbnRy",
+            "YWN0X3ZlcnNpb24YASABKAkSFwoPb3JjaGVzdHJhdG9yX2lkGAIgASgJEhAK",
+            "CGFjY2VwdGVkGAMgASgIEkAKB2ZhaWx1cmUYBCABKAsyKi5tb25hcmNoaWMu",
+            "YWdlbnRfcHJvdG9jb2wudjEuRmFpbHVyZURldGFpbEgAiAEBEisKCmV4dGVu",
+            "c2lvbnMYBSABKAsyFy5nb29nbGUucHJvdG9idWYuU3RydWN0QgoKCF9mYWls",
+            "dXJlIq0CChlSZXBvcnRTdGVwUHJvZ3Jlc3NSZXF1ZXN0EhgKEGNvbnRyYWN0",
+            "X3ZlcnNpb24YASABKAkSEQoJcnVubmVyX2lkGAIgASgJEhIKCnNlc3Npb25f",
+            "aWQYAyABKAkSNAoFbGVhc2UYBCABKAsyJS5tb25hcmNoaWMuYWdlbnRfcHJv",
+            "dG9jb2wudjEuTGVhc2VSZWYSMgoGZXZlbnRzGAUgAygLMiIubW9uYXJjaGlj",
+            "LmFnZW50X3Byb3RvY29sLnYxLkV2ZW50EjgKCWFydGlmYWN0cxgGIAMoCzIl",
+            "Lm1vbmFyY2hpYy5hZ2VudF9wcm90b2NvbC52MS5BcnRpZmFjdBIrCgpleHRl",
+            "bnNpb25zGAcgASgLMhcuZ29vZ2xlLnByb3RvYnVmLlN0cnVjdCKkAgoaUmVw",
+            "b3J0U3RlcFByb2dyZXNzUmVzcG9uc2USGAoQY29udHJhY3RfdmVyc2lvbhgB",
+            "IAEoCRIXCg9vcmNoZXN0cmF0b3JfaWQYAiABKAkSEAoIYWNjZXB0ZWQYAyAB",
+            "KAgSRgoNY2FuY2VsbGF0aW9ucxgEIAMoCzIvLm1vbmFyY2hpYy5hZ2VudF9w",
+            "cm90b2NvbC52MS5DYW5jZWxsYXRpb25JbnRlbnQSQAoHZmFpbHVyZRgFIAEo",
+            "CzIqLm1vbmFyY2hpYy5hZ2VudF9wcm90b2NvbC52MS5GYWlsdXJlRGV0YWls",
+            "SACIAQESKwoKZXh0ZW5zaW9ucxgGIAEoCzIXLmdvb2dsZS5wcm90b2J1Zi5T",
+            "dHJ1Y3RCCgoIX2ZhaWx1cmUimwQKGFJlcG9ydFN0ZXBPdXRjb21lUmVxdWVz",
+            "dBIYChBjb250cmFjdF92ZXJzaW9uGAEgASgJEhEKCXJ1bm5lcl9pZBgCIAEo",
+            "CRISCgpzZXNzaW9uX2lkGAMgASgJEjQKBWxlYXNlGAQgASgLMiUubW9uYXJj",
+            "aGljLmFnZW50X3Byb3RvY29sLnYxLkxlYXNlUmVmEjcKBnN0YXR1cxgFIAEo",
+            "DjInLm1vbmFyY2hpYy5hZ2VudF9wcm90b2NvbC52MS5QbGFuU3RhdHVzEjIK",
+            "BmV2ZW50cxgGIAMoCzIiLm1vbmFyY2hpYy5hZ2VudF9wcm90b2NvbC52MS5F",
+            "dmVudBI4CglhcnRpZmFjdHMYByADKAsyJS5tb25hcmNoaWMuYWdlbnRfcHJv",
+            "dG9jb2wudjEuQXJ0aWZhY3QSQQoLcnVuX291dGNvbWUYCCABKAsyJy5tb25h",
+            "cmNoaWMuYWdlbnRfcHJvdG9jb2wudjEuUnVuT3V0Y29tZUgAiAEBEkAKB2Zh",
+            "aWx1cmUYCSABKAsyKi5tb25hcmNoaWMuYWdlbnRfcHJvdG9jb2wudjEuRmFp",
+            "bHVyZURldGFpbEgBiAEBEhMKC2ZpbmlzaGVkX2F0GAogASgJEisKCmV4dGVu",
+            "c2lvbnMYCyABKAsyFy5nb29nbGUucHJvdG9idWYuU3RydWN0Qg4KDF9ydW5f",
+            "b3V0Y29tZUIKCghfZmFpbHVyZSLbAQoZUmVwb3J0U3RlcE91dGNvbWVSZXNw",
+            "b25zZRIYChBjb250cmFjdF92ZXJzaW9uGAEgASgJEhcKD29yY2hlc3RyYXRv",
+            "cl9pZBgCIAEoCRIQCghhY2NlcHRlZBgDIAEoCBJACgdmYWlsdXJlGAQgASgL",
+            "MioubW9uYXJjaGljLmFnZW50X3Byb3RvY29sLnYxLkZhaWx1cmVEZXRhaWxI",
+            "AIgBARIrCgpleHRlbnNpb25zGAUgASgLMhcuZ29vZ2xlLnByb3RvYnVmLlN0",
+            "cnVjdEIKCghfZmFpbHVyZSLuAQoWQWNrQ2FuY2VsbGF0aW9uUmVxdWVzdBIY",
+            "ChBjb250cmFjdF92ZXJzaW9uGAEgASgJEhEKCXJ1bm5lcl9pZBgCIAEoCRIS",
+            "CgpzZXNzaW9uX2lkGAMgASgJEjQKBWxlYXNlGAQgASgLMiUubW9uYXJjaGlj",
+            "LmFnZW50X3Byb3RvY29sLnYxLkxlYXNlUmVmEg4KBnN0YXR1cxgFIAEoCRIU",
+            "CgdtZXNzYWdlGAYgASgJSACIAQESKwoKZXh0ZW5zaW9ucxgHIAEoCzIXLmdv",
+            "b2dsZS5wcm90b2J1Zi5TdHJ1Y3RCCgoIX21lc3NhZ2Ui2QEKF0Fja0NhbmNl",
+            "bGxhdGlvblJlc3BvbnNlEhgKEGNvbnRyYWN0X3ZlcnNpb24YASABKAkSFwoP",
+            "b3JjaGVzdHJhdG9yX2lkGAIgASgJEhAKCGFjY2VwdGVkGAMgASgIEkAKB2Zh",
+            "aWx1cmUYBCABKAsyKi5tb25hcmNoaWMuYWdlbnRfcHJvdG9jb2wudjEuRmFp",
+            "bHVyZURldGFpbEgAiAEBEisKCmV4dGVuc2lvbnMYBSABKAsyFy5nb29nbGUu",
+            "cHJvdG9idWYuU3RydWN0QgoKCF9mYWlsdXJlKpQBCglBZ2VudFJvbGUSGgoW",
+            "QUdFTlRfUk9MRV9VTlNQRUNJRklFRBAAEhEKDVBST0RVQ1RfT1dORVIQARIT",
+            "Cg9QUk9KRUNUX01BTkFHRVIQAhIHCgNERVYQAxIGCgJRQRAEEgwKCFJFVklF",
+            "V0VSEAUSDAoIU0VDVVJJVFkQBhIHCgNPUFMQBxINCglQVUJMSVNIRVIQCCpm",
+            "Cg9PdXRjb21lRGVjaXNpb24SIAocT1VUQ09NRV9ERUNJU0lPTl9VTlNQRUNJ",
+            "RklFRBAAEgoKBkFDQ0VQVBABEgsKB0lURVJBVEUQAhIKCgZSRUpFQ1QQAxIM",
+            "CghFU0NBTEFURRAEKpMBCgpQbGFuU3RhdHVzEhsKF1BMQU5fU1RBVFVTX1VO",
+            "U1BFQ0lGSUVEEAASCQoFRFJBRlQQARILCgdQTEFOTkVEEAISDQoJRVhFQ1VU",
+            "SU5HEAMSDAoIQ09NUExFVEUQBBILCgdCT1VOREVEEAUSCgoGRkFJTEVEEAYS",
+            "DQoJQ0FOQ0VMTEVEEAcSCwoHVU5LTk9XThAIKrABChNMZWFzZUxpZmVjeWNs",
+            "ZVN0YXRlEiUKIUxFQVNFX0xJRkVDWUNMRV9TVEFURV9VTlNQRUNJRklFRBAA",
+            "EhAKDExFQVNFX0lTU1VFRBABEhAKDExFQVNFX0FDVElWRRACEhIKDkxFQVNF",
+            "X1JFTEVBU0VEEAMSEQoNTEVBU0VfRVhQSVJFRBAEEhMKD0xFQVNFX0NBTkNF",
+            "TExFRBAFEhIKDkxFQVNFX1JFSkVDVEVEEAYqxgEKEVJ1bkxpZmVjeWNsZVN0",
+            "YXRlEiMKH1JVTl9MSUZFQ1lDTEVfU1RBVEVfVU5TUEVDSUZJRUQQABIPCgtS",
+            "VU5fUEVORElORxABEhEKDVJVTl9FWEVDVVRJTkcQAhIOCgpSVU5fUEFVU0VE",
+            "EAMSEgoOUlVOX0NBTkNFTExJTkcQBBIRCg1SVU5fQ0FOQ0VMTEVEEAUSDgoK",
+            "UlVOX0ZBSUxFRBAGEhAKDFJVTl9DT01QTEVURRAHEg8KC1JVTl9CTE9DS0VE",
+            "EAgqyQEKElN0ZXBMaWZlY3ljbGVTdGF0ZRIkCiBTVEVQX0xJRkVDWUNMRV9T",
+            "VEFURV9VTlNQRUNJRklFRBAAEhAKDFNURVBfUEVORElORxABEg4KClNURVBf",
+            "UkVBRFkQAhIPCgtTVEVQX0xFQVNFRBADEhAKDFNURVBfUlVOTklORxAEEhEK",
+            "DVNURVBfQ09NUExFVEUQBRIPCgtTVEVQX0ZBSUxFRBAGEhIKDlNURVBfQ0FO",
+            "Q0VMTEVEEAcSEAoMU1RFUF9CTE9DS0VEEAgq7gIKFExlYXNlUmVqZWN0aW9u",
+            "UmVhc29uEiYKIkxFQVNFX1JFSkVDVElPTl9SRUFTT05fVU5TUEVDSUZJRUQQ",
+            "ABInCiNMRUFTRV9SRUpFQ1RJT05fU1RBTEVfRkVOQ0lOR19UT0tFThABEhsK",
+            "F0xFQVNFX1JFSkVDVElPTl9FWFBJUkVEEAISJAogTEVBU0VfUkVKRUNUSU9O",
+            "X1NFU1NJT05fTUlTTUFUQ0gQAxIhCh1MRUFTRV9SRUpFQ1RJT05fVU5LTk9X",
+            "Tl9MRUFTRRAEEikKJUxFQVNFX1JFSkVDVElPTl9TVEVQX0FMUkVBRFlfVEVS",
+            "TUlOQUwQBRImCiJMRUFTRV9SRUpFQ1RJT05fUlVOX05PVF9FWEVDVVRBQkxF",
+            "EAYSJgoiTEVBU0VfUkVKRUNUSU9OX0RFUEVOREVOQ1lfQkxPQ0tFRBAHEiQK",
+            "IExFQVNFX1JFSkVDVElPTl9MRUFTRV9TVVBFUlNFREVEEAgqrwIKEVJlY292",
+            "ZXJ5RXZlbnRLaW5kEiMKH1JFQ09WRVJZX0VWRU5UX0tJTkRfVU5TUEVDSUZJ",
+            "RUQQABInCiNSRUNPVkVSWV9FVkVOVF9PUkNIRVNUUkFUT1JfU1RBUlRFRBAB",
+            "EiEKHVJFQ09WRVJZX0VWRU5UX1NUQVRFX1JFTE9BREVEEAISIQodUkVDT1ZF",
+            "UllfRVZFTlRfTEVBU0VfUkVTVE9SRUQQAxIhCh1SRUNPVkVSWV9FVkVOVF9M",
+            "RUFTRV9SRUpFQ1RFRBAEEiAKHFJFQ09WRVJZX0VWRU5UX1NURVBfUkVRVUVV",
+            "RUQQBRIfChtSRUNPVkVSWV9FVkVOVF9TVEVQX0JMT0NLRUQQBhIgChxSRUNP",
+            "VkVSWV9FVkVOVF9SVU5fUkVDT1ZFUkVEEAcy4wgKFFJ1bm5lckNvbnRyb2xT",
+            "ZXJ2aWNlEnkKDlJlZ2lzdGVyUnVubmVyEjIubW9uYXJjaGljLmFnZW50X3By",
+            "b3RvY29sLnYxLlJlZ2lzdGVyUnVubmVyUmVxdWVzdBozLm1vbmFyY2hpYy5h",
+            "Z2VudF9wcm90b2NvbC52MS5SZWdpc3RlclJ1bm5lclJlc3BvbnNlEmoKCUhl",
+            "YXJ0YmVhdBItLm1vbmFyY2hpYy5hZ2VudF9wcm90b2NvbC52MS5IZWFydGJl",
+            "YXRSZXF1ZXN0Gi4ubW9uYXJjaGljLmFnZW50X3Byb3RvY29sLnYxLkhlYXJ0",
+            "YmVhdFJlc3BvbnNlEnMKDEFjcXVpcmVMZWFzZRIwLm1vbmFyY2hpYy5hZ2Vu",
+            "dF9wcm90b2NvbC52MS5BY3F1aXJlTGVhc2VSZXF1ZXN0GjEubW9uYXJjaGlj",
+            "LmFnZW50X3Byb3RvY29sLnYxLkFjcXVpcmVMZWFzZVJlc3BvbnNlEm0KClJl",
+            "bmV3TGVhc2USLi5tb25hcmNoaWMuYWdlbnRfcHJvdG9jb2wudjEuUmVuZXdM",
+            "ZWFzZVJlcXVlc3QaLy5tb25hcmNoaWMuYWdlbnRfcHJvdG9jb2wudjEuUmVu",
+            "ZXdMZWFzZVJlc3BvbnNlEnAKC1Jlc3VtZUxlYXNlEi8ubW9uYXJjaGljLmFn",
+            "ZW50X3Byb3RvY29sLnYxLlJlc3VtZUxlYXNlUmVxdWVzdBowLm1vbmFyY2hp",
+            "Yy5hZ2VudF9wcm90b2NvbC52MS5SZXN1bWVMZWFzZVJlc3BvbnNlEoIBChFS",
+            "ZXBvcnRTdGVwU3RhcnRlZBI1Lm1vbmFyY2hpYy5hZ2VudF9wcm90b2NvbC52",
+            "MS5SZXBvcnRTdGVwU3RhcnRlZFJlcXVlc3QaNi5tb25hcmNoaWMuYWdlbnRf",
+            "cHJvdG9jb2wudjEuUmVwb3J0U3RlcFN0YXJ0ZWRSZXNwb25zZRKFAQoSUmVw",
+            "b3J0U3RlcFByb2dyZXNzEjYubW9uYXJjaGljLmFnZW50X3Byb3RvY29sLnYx",
+            "LlJlcG9ydFN0ZXBQcm9ncmVzc1JlcXVlc3QaNy5tb25hcmNoaWMuYWdlbnRf",
+            "cHJvdG9jb2wudjEuUmVwb3J0U3RlcFByb2dyZXNzUmVzcG9uc2USggEKEVJl",
+            "cG9ydFN0ZXBPdXRjb21lEjUubW9uYXJjaGljLmFnZW50X3Byb3RvY29sLnYx",
+            "LlJlcG9ydFN0ZXBPdXRjb21lUmVxdWVzdBo2Lm1vbmFyY2hpYy5hZ2VudF9w",
+            "cm90b2NvbC52MS5SZXBvcnRTdGVwT3V0Y29tZVJlc3BvbnNlEnwKD0Fja0Nh",
+            "bmNlbGxhdGlvbhIzLm1vbmFyY2hpYy5hZ2VudF9wcm90b2NvbC52MS5BY2tD",
+            "YW5jZWxsYXRpb25SZXF1ZXN0GjQubW9uYXJjaGljLmFnZW50X3Byb3RvY29s",
+            "LnYxLkFja0NhbmNlbGxhdGlvblJlc3BvbnNlQogCCh5haS5tb25hcmNoaWMu",
+            "YWdlbnRfcHJvdG9jb2wudjFCGE1vbmFyY2hpY0FnZW50UHJvdG9jb2xWMVAB",
+            "WmRnaXRodWIuY29tL21vbmFyY2hpYy1haS9tb25hcmNoaWMtYWdlbnQtcHJv",
+            "dG9jb2wvc3JjL2dvL21vbmFyY2hpYy9hZ2VudF9wcm90b2NvbC92MTthZ2Vu",
+            "dF9wcm90b2NvbHYxogIDTUFQqgIaTW9uYXJjaGljLkFnZW50UHJvdG9jb2wu",
+            "VjHKAhpNb25hcmNoaWNcQWdlbnRQcm90b2NvbFxWMeICI01vbmFyY2hpY1xB",
+            "Z2VudFByb3RvY29sXFYxXE1ldGFkYXRhYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Monarchic.AgentProtocol.V1.AgentRole), typeof(global::Monarchic.AgentProtocol.V1.OutcomeDecision), typeof(global::Monarchic.AgentProtocol.V1.PlanStatus), typeof(global::Monarchic.AgentProtocol.V1.LeaseLifecycleState), typeof(global::Monarchic.AgentProtocol.V1.RunLifecycleState), typeof(global::Monarchic.AgentProtocol.V1.StepLifecycleState), typeof(global::Monarchic.AgentProtocol.V1.LeaseRejectionReason), typeof(global::Monarchic.AgentProtocol.V1.RecoveryEventKind), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -397,6 +412,8 @@ namespace Monarchic.AgentProtocol.V1 {
             new pbr::GeneratedClrTypeInfo(typeof(global::Monarchic.AgentProtocol.V1.AcquireLeaseResponse), global::Monarchic.AgentProtocol.V1.AcquireLeaseResponse.Parser, new[]{ "ContractVersion", "OrchestratorId", "Assignment", "RetryAfterMs", "Cancellations", "Extensions" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Monarchic.AgentProtocol.V1.RenewLeaseRequest), global::Monarchic.AgentProtocol.V1.RenewLeaseRequest.Parser, new[]{ "ContractVersion", "RunnerId", "SessionId", "Lease", "Extensions" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Monarchic.AgentProtocol.V1.RenewLeaseResponse), global::Monarchic.AgentProtocol.V1.RenewLeaseResponse.Parser, new[]{ "ContractVersion", "OrchestratorId", "Accepted", "LeaseTtlMs", "Cancellations", "Failure", "Extensions" }, new[]{ "Failure" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Monarchic.AgentProtocol.V1.ResumeLeaseRequest), global::Monarchic.AgentProtocol.V1.ResumeLeaseRequest.Parser, new[]{ "ContractVersion", "RunnerId", "SessionId", "Lease", "Extensions" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Monarchic.AgentProtocol.V1.ResumeLeaseResponse), global::Monarchic.AgentProtocol.V1.ResumeLeaseResponse.Parser, new[]{ "ContractVersion", "OrchestratorId", "Accepted", "Lease", "ExpiresAtMs", "CurrentFencingToken", "Reason", "Message", "Extensions" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Monarchic.AgentProtocol.V1.ReportStepStartedRequest), global::Monarchic.AgentProtocol.V1.ReportStepStartedRequest.Parser, new[]{ "ContractVersion", "RunnerId", "SessionId", "Lease", "StartedAt", "Extensions" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Monarchic.AgentProtocol.V1.ReportStepStartedResponse), global::Monarchic.AgentProtocol.V1.ReportStepStartedResponse.Parser, new[]{ "ContractVersion", "OrchestratorId", "Accepted", "Failure", "Extensions" }, new[]{ "Failure" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Monarchic.AgentProtocol.V1.ReportStepProgressRequest), global::Monarchic.AgentProtocol.V1.ReportStepProgressRequest.Parser, new[]{ "ContractVersion", "RunnerId", "SessionId", "Lease", "Events", "Artifacts", "Extensions" }, null, null, null, null),
@@ -486,6 +503,7 @@ namespace Monarchic.AgentProtocol.V1 {
     [pbr::OriginalName("LEASE_REJECTION_STEP_ALREADY_TERMINAL")] LeaseRejectionStepAlreadyTerminal = 5,
     [pbr::OriginalName("LEASE_REJECTION_RUN_NOT_EXECUTABLE")] LeaseRejectionRunNotExecutable = 6,
     [pbr::OriginalName("LEASE_REJECTION_DEPENDENCY_BLOCKED")] LeaseRejectionDependencyBlocked = 7,
+    [pbr::OriginalName("LEASE_REJECTION_LEASE_SUPERSEDED")] LeaseRejectionLeaseSuperseded = 8,
   }
 
   public enum RecoveryEventKind {
@@ -16920,6 +16938,882 @@ namespace Monarchic.AgentProtocol.V1 {
   }
 
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class ResumeLeaseRequest : pb::IMessage<ResumeLeaseRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<ResumeLeaseRequest> _parser = new pb::MessageParser<ResumeLeaseRequest>(() => new ResumeLeaseRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<ResumeLeaseRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Monarchic.AgentProtocol.V1.MonarchicAgentProtocolReflection.Descriptor.MessageTypes[35]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ResumeLeaseRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ResumeLeaseRequest(ResumeLeaseRequest other) : this() {
+      contractVersion_ = other.contractVersion_;
+      runnerId_ = other.runnerId_;
+      sessionId_ = other.sessionId_;
+      lease_ = other.lease_ != null ? other.lease_.Clone() : null;
+      extensions_ = other.extensions_ != null ? other.extensions_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ResumeLeaseRequest Clone() {
+      return new ResumeLeaseRequest(this);
+    }
+
+    /// <summary>Field number for the "contract_version" field.</summary>
+    public const int ContractVersionFieldNumber = 1;
+    private string contractVersion_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string ContractVersion {
+      get { return contractVersion_; }
+      set {
+        contractVersion_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "runner_id" field.</summary>
+    public const int RunnerIdFieldNumber = 2;
+    private string runnerId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string RunnerId {
+      get { return runnerId_; }
+      set {
+        runnerId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "session_id" field.</summary>
+    public const int SessionIdFieldNumber = 3;
+    private string sessionId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string SessionId {
+      get { return sessionId_; }
+      set {
+        sessionId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "lease" field.</summary>
+    public const int LeaseFieldNumber = 4;
+    private global::Monarchic.AgentProtocol.V1.LeaseRef lease_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Monarchic.AgentProtocol.V1.LeaseRef Lease {
+      get { return lease_; }
+      set {
+        lease_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "extensions" field.</summary>
+    public const int ExtensionsFieldNumber = 5;
+    private global::Google.Protobuf.WellKnownTypes.Struct extensions_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Struct Extensions {
+      get { return extensions_; }
+      set {
+        extensions_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as ResumeLeaseRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(ResumeLeaseRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ContractVersion != other.ContractVersion) return false;
+      if (RunnerId != other.RunnerId) return false;
+      if (SessionId != other.SessionId) return false;
+      if (!object.Equals(Lease, other.Lease)) return false;
+      if (!object.Equals(Extensions, other.Extensions)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ContractVersion.Length != 0) hash ^= ContractVersion.GetHashCode();
+      if (RunnerId.Length != 0) hash ^= RunnerId.GetHashCode();
+      if (SessionId.Length != 0) hash ^= SessionId.GetHashCode();
+      if (lease_ != null) hash ^= Lease.GetHashCode();
+      if (extensions_ != null) hash ^= Extensions.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (ContractVersion.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(ContractVersion);
+      }
+      if (RunnerId.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(RunnerId);
+      }
+      if (SessionId.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(SessionId);
+      }
+      if (lease_ != null) {
+        output.WriteRawTag(34);
+        output.WriteMessage(Lease);
+      }
+      if (extensions_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(Extensions);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (ContractVersion.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(ContractVersion);
+      }
+      if (RunnerId.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(RunnerId);
+      }
+      if (SessionId.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(SessionId);
+      }
+      if (lease_ != null) {
+        output.WriteRawTag(34);
+        output.WriteMessage(Lease);
+      }
+      if (extensions_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(Extensions);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (ContractVersion.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ContractVersion);
+      }
+      if (RunnerId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RunnerId);
+      }
+      if (SessionId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(SessionId);
+      }
+      if (lease_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Lease);
+      }
+      if (extensions_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Extensions);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(ResumeLeaseRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ContractVersion.Length != 0) {
+        ContractVersion = other.ContractVersion;
+      }
+      if (other.RunnerId.Length != 0) {
+        RunnerId = other.RunnerId;
+      }
+      if (other.SessionId.Length != 0) {
+        SessionId = other.SessionId;
+      }
+      if (other.lease_ != null) {
+        if (lease_ == null) {
+          Lease = new global::Monarchic.AgentProtocol.V1.LeaseRef();
+        }
+        Lease.MergeFrom(other.Lease);
+      }
+      if (other.extensions_ != null) {
+        if (extensions_ == null) {
+          Extensions = new global::Google.Protobuf.WellKnownTypes.Struct();
+        }
+        Extensions.MergeFrom(other.Extensions);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            ContractVersion = input.ReadString();
+            break;
+          }
+          case 18: {
+            RunnerId = input.ReadString();
+            break;
+          }
+          case 26: {
+            SessionId = input.ReadString();
+            break;
+          }
+          case 34: {
+            if (lease_ == null) {
+              Lease = new global::Monarchic.AgentProtocol.V1.LeaseRef();
+            }
+            input.ReadMessage(Lease);
+            break;
+          }
+          case 42: {
+            if (extensions_ == null) {
+              Extensions = new global::Google.Protobuf.WellKnownTypes.Struct();
+            }
+            input.ReadMessage(Extensions);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            ContractVersion = input.ReadString();
+            break;
+          }
+          case 18: {
+            RunnerId = input.ReadString();
+            break;
+          }
+          case 26: {
+            SessionId = input.ReadString();
+            break;
+          }
+          case 34: {
+            if (lease_ == null) {
+              Lease = new global::Monarchic.AgentProtocol.V1.LeaseRef();
+            }
+            input.ReadMessage(Lease);
+            break;
+          }
+          case 42: {
+            if (extensions_ == null) {
+              Extensions = new global::Google.Protobuf.WellKnownTypes.Struct();
+            }
+            input.ReadMessage(Extensions);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class ResumeLeaseResponse : pb::IMessage<ResumeLeaseResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<ResumeLeaseResponse> _parser = new pb::MessageParser<ResumeLeaseResponse>(() => new ResumeLeaseResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<ResumeLeaseResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Monarchic.AgentProtocol.V1.MonarchicAgentProtocolReflection.Descriptor.MessageTypes[36]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ResumeLeaseResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ResumeLeaseResponse(ResumeLeaseResponse other) : this() {
+      contractVersion_ = other.contractVersion_;
+      orchestratorId_ = other.orchestratorId_;
+      accepted_ = other.accepted_;
+      lease_ = other.lease_ != null ? other.lease_.Clone() : null;
+      expiresAtMs_ = other.expiresAtMs_;
+      currentFencingToken_ = other.currentFencingToken_;
+      reason_ = other.reason_;
+      message_ = other.message_;
+      extensions_ = other.extensions_ != null ? other.extensions_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ResumeLeaseResponse Clone() {
+      return new ResumeLeaseResponse(this);
+    }
+
+    /// <summary>Field number for the "contract_version" field.</summary>
+    public const int ContractVersionFieldNumber = 1;
+    private string contractVersion_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string ContractVersion {
+      get { return contractVersion_; }
+      set {
+        contractVersion_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "orchestrator_id" field.</summary>
+    public const int OrchestratorIdFieldNumber = 2;
+    private string orchestratorId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string OrchestratorId {
+      get { return orchestratorId_; }
+      set {
+        orchestratorId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "accepted" field.</summary>
+    public const int AcceptedFieldNumber = 3;
+    private bool accepted_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Accepted {
+      get { return accepted_; }
+      set {
+        accepted_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "lease" field.</summary>
+    public const int LeaseFieldNumber = 4;
+    private global::Monarchic.AgentProtocol.V1.Lease lease_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Monarchic.AgentProtocol.V1.Lease Lease {
+      get { return lease_; }
+      set {
+        lease_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "expires_at_ms" field.</summary>
+    public const int ExpiresAtMsFieldNumber = 5;
+    private ulong expiresAtMs_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong ExpiresAtMs {
+      get { return expiresAtMs_; }
+      set {
+        expiresAtMs_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "current_fencing_token" field.</summary>
+    public const int CurrentFencingTokenFieldNumber = 6;
+    private string currentFencingToken_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string CurrentFencingToken {
+      get { return currentFencingToken_; }
+      set {
+        currentFencingToken_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "reason" field.</summary>
+    public const int ReasonFieldNumber = 7;
+    private global::Monarchic.AgentProtocol.V1.LeaseRejectionReason reason_ = global::Monarchic.AgentProtocol.V1.LeaseRejectionReason.Unspecified;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Monarchic.AgentProtocol.V1.LeaseRejectionReason Reason {
+      get { return reason_; }
+      set {
+        reason_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "message" field.</summary>
+    public const int MessageFieldNumber = 8;
+    private string message_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Message {
+      get { return message_; }
+      set {
+        message_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "extensions" field.</summary>
+    public const int ExtensionsFieldNumber = 9;
+    private global::Google.Protobuf.WellKnownTypes.Struct extensions_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Struct Extensions {
+      get { return extensions_; }
+      set {
+        extensions_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as ResumeLeaseResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(ResumeLeaseResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ContractVersion != other.ContractVersion) return false;
+      if (OrchestratorId != other.OrchestratorId) return false;
+      if (Accepted != other.Accepted) return false;
+      if (!object.Equals(Lease, other.Lease)) return false;
+      if (ExpiresAtMs != other.ExpiresAtMs) return false;
+      if (CurrentFencingToken != other.CurrentFencingToken) return false;
+      if (Reason != other.Reason) return false;
+      if (Message != other.Message) return false;
+      if (!object.Equals(Extensions, other.Extensions)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ContractVersion.Length != 0) hash ^= ContractVersion.GetHashCode();
+      if (OrchestratorId.Length != 0) hash ^= OrchestratorId.GetHashCode();
+      if (Accepted != false) hash ^= Accepted.GetHashCode();
+      if (lease_ != null) hash ^= Lease.GetHashCode();
+      if (ExpiresAtMs != 0UL) hash ^= ExpiresAtMs.GetHashCode();
+      if (CurrentFencingToken.Length != 0) hash ^= CurrentFencingToken.GetHashCode();
+      if (Reason != global::Monarchic.AgentProtocol.V1.LeaseRejectionReason.Unspecified) hash ^= Reason.GetHashCode();
+      if (Message.Length != 0) hash ^= Message.GetHashCode();
+      if (extensions_ != null) hash ^= Extensions.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (ContractVersion.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(ContractVersion);
+      }
+      if (OrchestratorId.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(OrchestratorId);
+      }
+      if (Accepted != false) {
+        output.WriteRawTag(24);
+        output.WriteBool(Accepted);
+      }
+      if (lease_ != null) {
+        output.WriteRawTag(34);
+        output.WriteMessage(Lease);
+      }
+      if (ExpiresAtMs != 0UL) {
+        output.WriteRawTag(40);
+        output.WriteUInt64(ExpiresAtMs);
+      }
+      if (CurrentFencingToken.Length != 0) {
+        output.WriteRawTag(50);
+        output.WriteString(CurrentFencingToken);
+      }
+      if (Reason != global::Monarchic.AgentProtocol.V1.LeaseRejectionReason.Unspecified) {
+        output.WriteRawTag(56);
+        output.WriteEnum((int) Reason);
+      }
+      if (Message.Length != 0) {
+        output.WriteRawTag(66);
+        output.WriteString(Message);
+      }
+      if (extensions_ != null) {
+        output.WriteRawTag(74);
+        output.WriteMessage(Extensions);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (ContractVersion.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(ContractVersion);
+      }
+      if (OrchestratorId.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(OrchestratorId);
+      }
+      if (Accepted != false) {
+        output.WriteRawTag(24);
+        output.WriteBool(Accepted);
+      }
+      if (lease_ != null) {
+        output.WriteRawTag(34);
+        output.WriteMessage(Lease);
+      }
+      if (ExpiresAtMs != 0UL) {
+        output.WriteRawTag(40);
+        output.WriteUInt64(ExpiresAtMs);
+      }
+      if (CurrentFencingToken.Length != 0) {
+        output.WriteRawTag(50);
+        output.WriteString(CurrentFencingToken);
+      }
+      if (Reason != global::Monarchic.AgentProtocol.V1.LeaseRejectionReason.Unspecified) {
+        output.WriteRawTag(56);
+        output.WriteEnum((int) Reason);
+      }
+      if (Message.Length != 0) {
+        output.WriteRawTag(66);
+        output.WriteString(Message);
+      }
+      if (extensions_ != null) {
+        output.WriteRawTag(74);
+        output.WriteMessage(Extensions);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (ContractVersion.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ContractVersion);
+      }
+      if (OrchestratorId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(OrchestratorId);
+      }
+      if (Accepted != false) {
+        size += 1 + 1;
+      }
+      if (lease_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Lease);
+      }
+      if (ExpiresAtMs != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(ExpiresAtMs);
+      }
+      if (CurrentFencingToken.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(CurrentFencingToken);
+      }
+      if (Reason != global::Monarchic.AgentProtocol.V1.LeaseRejectionReason.Unspecified) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Reason);
+      }
+      if (Message.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Message);
+      }
+      if (extensions_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Extensions);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(ResumeLeaseResponse other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ContractVersion.Length != 0) {
+        ContractVersion = other.ContractVersion;
+      }
+      if (other.OrchestratorId.Length != 0) {
+        OrchestratorId = other.OrchestratorId;
+      }
+      if (other.Accepted != false) {
+        Accepted = other.Accepted;
+      }
+      if (other.lease_ != null) {
+        if (lease_ == null) {
+          Lease = new global::Monarchic.AgentProtocol.V1.Lease();
+        }
+        Lease.MergeFrom(other.Lease);
+      }
+      if (other.ExpiresAtMs != 0UL) {
+        ExpiresAtMs = other.ExpiresAtMs;
+      }
+      if (other.CurrentFencingToken.Length != 0) {
+        CurrentFencingToken = other.CurrentFencingToken;
+      }
+      if (other.Reason != global::Monarchic.AgentProtocol.V1.LeaseRejectionReason.Unspecified) {
+        Reason = other.Reason;
+      }
+      if (other.Message.Length != 0) {
+        Message = other.Message;
+      }
+      if (other.extensions_ != null) {
+        if (extensions_ == null) {
+          Extensions = new global::Google.Protobuf.WellKnownTypes.Struct();
+        }
+        Extensions.MergeFrom(other.Extensions);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            ContractVersion = input.ReadString();
+            break;
+          }
+          case 18: {
+            OrchestratorId = input.ReadString();
+            break;
+          }
+          case 24: {
+            Accepted = input.ReadBool();
+            break;
+          }
+          case 34: {
+            if (lease_ == null) {
+              Lease = new global::Monarchic.AgentProtocol.V1.Lease();
+            }
+            input.ReadMessage(Lease);
+            break;
+          }
+          case 40: {
+            ExpiresAtMs = input.ReadUInt64();
+            break;
+          }
+          case 50: {
+            CurrentFencingToken = input.ReadString();
+            break;
+          }
+          case 56: {
+            Reason = (global::Monarchic.AgentProtocol.V1.LeaseRejectionReason) input.ReadEnum();
+            break;
+          }
+          case 66: {
+            Message = input.ReadString();
+            break;
+          }
+          case 74: {
+            if (extensions_ == null) {
+              Extensions = new global::Google.Protobuf.WellKnownTypes.Struct();
+            }
+            input.ReadMessage(Extensions);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            ContractVersion = input.ReadString();
+            break;
+          }
+          case 18: {
+            OrchestratorId = input.ReadString();
+            break;
+          }
+          case 24: {
+            Accepted = input.ReadBool();
+            break;
+          }
+          case 34: {
+            if (lease_ == null) {
+              Lease = new global::Monarchic.AgentProtocol.V1.Lease();
+            }
+            input.ReadMessage(Lease);
+            break;
+          }
+          case 40: {
+            ExpiresAtMs = input.ReadUInt64();
+            break;
+          }
+          case 50: {
+            CurrentFencingToken = input.ReadString();
+            break;
+          }
+          case 56: {
+            Reason = (global::Monarchic.AgentProtocol.V1.LeaseRejectionReason) input.ReadEnum();
+            break;
+          }
+          case 66: {
+            Message = input.ReadString();
+            break;
+          }
+          case 74: {
+            if (extensions_ == null) {
+              Extensions = new global::Google.Protobuf.WellKnownTypes.Struct();
+            }
+            input.ReadMessage(Extensions);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ReportStepStartedRequest : pb::IMessage<ReportStepStartedRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -16934,7 +17828,7 @@ namespace Monarchic.AgentProtocol.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Monarchic.AgentProtocol.V1.MonarchicAgentProtocolReflection.Descriptor.MessageTypes[35]; }
+      get { return global::Monarchic.AgentProtocol.V1.MonarchicAgentProtocolReflection.Descriptor.MessageTypes[37]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -17335,7 +18229,7 @@ namespace Monarchic.AgentProtocol.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Monarchic.AgentProtocol.V1.MonarchicAgentProtocolReflection.Descriptor.MessageTypes[36]; }
+      get { return global::Monarchic.AgentProtocol.V1.MonarchicAgentProtocolReflection.Descriptor.MessageTypes[38]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -17699,7 +18593,7 @@ namespace Monarchic.AgentProtocol.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Monarchic.AgentProtocol.V1.MonarchicAgentProtocolReflection.Descriptor.MessageTypes[37]; }
+      get { return global::Monarchic.AgentProtocol.V1.MonarchicAgentProtocolReflection.Descriptor.MessageTypes[39]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -18115,7 +19009,7 @@ namespace Monarchic.AgentProtocol.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Monarchic.AgentProtocol.V1.MonarchicAgentProtocolReflection.Descriptor.MessageTypes[38]; }
+      get { return global::Monarchic.AgentProtocol.V1.MonarchicAgentProtocolReflection.Descriptor.MessageTypes[40]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -18505,7 +19399,7 @@ namespace Monarchic.AgentProtocol.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Monarchic.AgentProtocol.V1.MonarchicAgentProtocolReflection.Descriptor.MessageTypes[39]; }
+      get { return global::Monarchic.AgentProtocol.V1.MonarchicAgentProtocolReflection.Descriptor.MessageTypes[41]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -19087,7 +19981,7 @@ namespace Monarchic.AgentProtocol.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Monarchic.AgentProtocol.V1.MonarchicAgentProtocolReflection.Descriptor.MessageTypes[40]; }
+      get { return global::Monarchic.AgentProtocol.V1.MonarchicAgentProtocolReflection.Descriptor.MessageTypes[42]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -19451,7 +20345,7 @@ namespace Monarchic.AgentProtocol.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Monarchic.AgentProtocol.V1.MonarchicAgentProtocolReflection.Descriptor.MessageTypes[41]; }
+      get { return global::Monarchic.AgentProtocol.V1.MonarchicAgentProtocolReflection.Descriptor.MessageTypes[43]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -19903,7 +20797,7 @@ namespace Monarchic.AgentProtocol.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Monarchic.AgentProtocol.V1.MonarchicAgentProtocolReflection.Descriptor.MessageTypes[42]; }
+      get { return global::Monarchic.AgentProtocol.V1.MonarchicAgentProtocolReflection.Descriptor.MessageTypes[44]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
