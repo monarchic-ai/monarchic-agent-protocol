@@ -124,4 +124,87 @@ public interface PlanOrBuilder extends
    */
   ai.monarchic.agent_protocol.v1.PlanStepOrBuilder getStepsOrBuilder(
       int index);
+
+  /**
+   * <code>optional string intent_id = 10;</code>
+   * @return Whether the intentId field is set.
+   */
+  boolean hasIntentId();
+  /**
+   * <code>optional string intent_id = 10;</code>
+   * @return The intentId.
+   */
+  java.lang.String getIntentId();
+  /**
+   * <code>optional string intent_id = 10;</code>
+   * @return The bytes for intentId.
+   */
+  com.google.protobuf.ByteString
+      getIntentIdBytes();
+
+  /**
+   * <code>optional string plan_version = 11;</code>
+   * @return Whether the planVersion field is set.
+   */
+  boolean hasPlanVersion();
+  /**
+   * <code>optional string plan_version = 11;</code>
+   * @return The planVersion.
+   */
+  java.lang.String getPlanVersion();
+  /**
+   * <code>optional string plan_version = 11;</code>
+   * @return The bytes for planVersion.
+   */
+  com.google.protobuf.ByteString
+      getPlanVersionBytes();
+
+  /**
+   * <code>optional string planner_version = 12;</code>
+   * @return Whether the plannerVersion field is set.
+   */
+  boolean hasPlannerVersion();
+  /**
+   * <code>optional string planner_version = 12;</code>
+   * @return The plannerVersion.
+   */
+  java.lang.String getPlannerVersion();
+  /**
+   * <code>optional string planner_version = 12;</code>
+   * @return The bytes for plannerVersion.
+   */
+  com.google.protobuf.ByteString
+      getPlannerVersionBytes();
+
+  /**
+   * <code>.monarchic.agent_protocol.v1.ReplanPolicy replan_policy = 13;</code>
+   * @return Whether the replanPolicy field is set.
+   */
+  boolean hasReplanPolicy();
+  /**
+   * <code>.monarchic.agent_protocol.v1.ReplanPolicy replan_policy = 13;</code>
+   * @return The replanPolicy.
+   */
+  ai.monarchic.agent_protocol.v1.ReplanPolicy getReplanPolicy();
+  /**
+   * <code>.monarchic.agent_protocol.v1.ReplanPolicy replan_policy = 13;</code>
+   */
+  ai.monarchic.agent_protocol.v1.ReplanPolicyOrBuilder getReplanPolicyOrBuilder();
+
+  /**
+   * <code>optional string input_digest = 14;</code>
+   * @return Whether the inputDigest field is set.
+   */
+  boolean hasInputDigest();
+  /**
+   * <code>optional string input_digest = 14;</code>
+   * @return The inputDigest.
+   */
+  java.lang.String getInputDigest();
+  /**
+   * <code>optional string input_digest = 14;</code>
+   * @return The bytes for inputDigest.
+   */
+  com.google.protobuf.ByteString
+      getInputDigestBytes();
 }

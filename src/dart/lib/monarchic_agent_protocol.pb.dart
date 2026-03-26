@@ -1108,6 +1108,161 @@ class Provenance extends $pb.GeneratedMessage {
   $0.Struct ensureExtensions() => $_ensure(13);
 }
 
+class Intent extends $pb.GeneratedMessage {
+  factory Intent({
+    $core.String? intentId,
+    $fixnum.Int64? submittedAt,
+    $core.String? submitter,
+    $core.String? policyVersion,
+    $core.String? targetRepo,
+    $core.String? targetRef,
+    $core.String? goal,
+    $0.Struct? constraints,
+    $core.String? contextDigest,
+  }) {
+    final result = create();
+    if (intentId != null) result.intentId = intentId;
+    if (submittedAt != null) result.submittedAt = submittedAt;
+    if (submitter != null) result.submitter = submitter;
+    if (policyVersion != null) result.policyVersion = policyVersion;
+    if (targetRepo != null) result.targetRepo = targetRepo;
+    if (targetRef != null) result.targetRef = targetRef;
+    if (goal != null) result.goal = goal;
+    if (constraints != null) result.constraints = constraints;
+    if (contextDigest != null) result.contextDigest = contextDigest;
+    return result;
+  }
+
+  Intent._();
+
+  factory Intent.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory Intent.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Intent',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'intentId')
+    ..a<$fixnum.Int64>(
+        2, _omitFieldNames ? '' : 'submittedAt', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(3, _omitFieldNames ? '' : 'submitter')
+    ..aOS(4, _omitFieldNames ? '' : 'policyVersion')
+    ..aOS(5, _omitFieldNames ? '' : 'targetRepo')
+    ..aOS(6, _omitFieldNames ? '' : 'targetRef')
+    ..aOS(7, _omitFieldNames ? '' : 'goal')
+    ..aOM<$0.Struct>(8, _omitFieldNames ? '' : 'constraints',
+        subBuilder: $0.Struct.create)
+    ..aOS(9, _omitFieldNames ? '' : 'contextDigest')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  Intent clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  Intent copyWith(void Function(Intent) updates) =>
+      super.copyWith((message) => updates(message as Intent)) as Intent;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static Intent create() => Intent._();
+  @$core.override
+  Intent createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static Intent getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Intent>(create);
+  static Intent? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get intentId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set intentId($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasIntentId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearIntentId() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $fixnum.Int64 get submittedAt => $_getI64(1);
+  @$pb.TagNumber(2)
+  set submittedAt($fixnum.Int64 value) => $_setInt64(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasSubmittedAt() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearSubmittedAt() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get submitter => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set submitter($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasSubmitter() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearSubmitter() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get policyVersion => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set policyVersion($core.String value) => $_setString(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasPolicyVersion() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearPolicyVersion() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get targetRepo => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set targetRepo($core.String value) => $_setString(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasTargetRepo() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearTargetRepo() => $_clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get targetRef => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set targetRef($core.String value) => $_setString(5, value);
+  @$pb.TagNumber(6)
+  $core.bool hasTargetRef() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearTargetRef() => $_clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.String get goal => $_getSZ(6);
+  @$pb.TagNumber(7)
+  set goal($core.String value) => $_setString(6, value);
+  @$pb.TagNumber(7)
+  $core.bool hasGoal() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearGoal() => $_clearField(7);
+
+  @$pb.TagNumber(8)
+  $0.Struct get constraints => $_getN(7);
+  @$pb.TagNumber(8)
+  set constraints($0.Struct value) => $_setField(8, value);
+  @$pb.TagNumber(8)
+  $core.bool hasConstraints() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearConstraints() => $_clearField(8);
+  @$pb.TagNumber(8)
+  $0.Struct ensureConstraints() => $_ensure(7);
+
+  @$pb.TagNumber(9)
+  $core.String get contextDigest => $_getSZ(8);
+  @$pb.TagNumber(9)
+  set contextDigest($core.String value) => $_setString(8, value);
+  @$pb.TagNumber(9)
+  $core.bool hasContextDigest() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearContextDigest() => $_clearField(9);
+}
+
 class RoleProvenance extends $pb.GeneratedMessage {
   factory RoleProvenance({
     $core.String? roleName,
@@ -1377,6 +1532,144 @@ class FailureDetail extends $pb.GeneratedMessage {
   $0.Struct ensureDetails() => $_ensure(3);
 }
 
+class ReplanPolicy extends $pb.GeneratedMessage {
+  factory ReplanPolicy({
+    ReplanStrategy? strategy,
+    $core.int? maxAttempts,
+  }) {
+    final result = create();
+    if (strategy != null) result.strategy = strategy;
+    if (maxAttempts != null) result.maxAttempts = maxAttempts;
+    return result;
+  }
+
+  ReplanPolicy._();
+
+  factory ReplanPolicy.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory ReplanPolicy.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ReplanPolicy',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aE<ReplanStrategy>(1, _omitFieldNames ? '' : 'strategy',
+        enumValues: ReplanStrategy.values)
+    ..aI(2, _omitFieldNames ? '' : 'maxAttempts',
+        fieldType: $pb.PbFieldType.OU3)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ReplanPolicy clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ReplanPolicy copyWith(void Function(ReplanPolicy) updates) =>
+      super.copyWith((message) => updates(message as ReplanPolicy))
+          as ReplanPolicy;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ReplanPolicy create() => ReplanPolicy._();
+  @$core.override
+  ReplanPolicy createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static ReplanPolicy getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ReplanPolicy>(create);
+  static ReplanPolicy? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  ReplanStrategy get strategy => $_getN(0);
+  @$pb.TagNumber(1)
+  set strategy(ReplanStrategy value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasStrategy() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearStrategy() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.int get maxAttempts => $_getIZ(1);
+  @$pb.TagNumber(2)
+  set maxAttempts($core.int value) => $_setUnsignedInt32(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasMaxAttempts() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearMaxAttempts() => $_clearField(2);
+}
+
+class StepOutputExpectation extends $pb.GeneratedMessage {
+  factory StepOutputExpectation({
+    ArtifactKind? kind,
+    $core.String? logicalName,
+  }) {
+    final result = create();
+    if (kind != null) result.kind = kind;
+    if (logicalName != null) result.logicalName = logicalName;
+    return result;
+  }
+
+  StepOutputExpectation._();
+
+  factory StepOutputExpectation.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory StepOutputExpectation.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'StepOutputExpectation',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aE<ArtifactKind>(1, _omitFieldNames ? '' : 'kind',
+        enumValues: ArtifactKind.values)
+    ..aOS(2, _omitFieldNames ? '' : 'logicalName')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  StepOutputExpectation clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  StepOutputExpectation copyWith(
+          void Function(StepOutputExpectation) updates) =>
+      super.copyWith((message) => updates(message as StepOutputExpectation))
+          as StepOutputExpectation;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static StepOutputExpectation create() => StepOutputExpectation._();
+  @$core.override
+  StepOutputExpectation createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static StepOutputExpectation getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<StepOutputExpectation>(create);
+  static StepOutputExpectation? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  ArtifactKind get kind => $_getN(0);
+  @$pb.TagNumber(1)
+  set kind(ArtifactKind value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasKind() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearKind() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get logicalName => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set logicalName($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasLogicalName() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearLogicalName() => $_clearField(2);
+}
+
 class PlanStep extends $pb.GeneratedMessage {
   factory PlanStep({
     $core.String? stepId,
@@ -1384,6 +1677,11 @@ class PlanStep extends $pb.GeneratedMessage {
     $core.Iterable<$core.String>? dependsOn,
     $0.Struct? taskTemplate,
     FailureDetail? failure,
+    $core.String? taskId,
+    PlanStepKind? kind,
+    $0.Struct? inputs,
+    $core.Iterable<StepOutputExpectation>? expectedOutputs,
+    $core.Iterable<$core.String>? policyTags,
   }) {
     final result = create();
     if (stepId != null) result.stepId = stepId;
@@ -1391,6 +1689,11 @@ class PlanStep extends $pb.GeneratedMessage {
     if (dependsOn != null) result.dependsOn.addAll(dependsOn);
     if (taskTemplate != null) result.taskTemplate = taskTemplate;
     if (failure != null) result.failure = failure;
+    if (taskId != null) result.taskId = taskId;
+    if (kind != null) result.kind = kind;
+    if (inputs != null) result.inputs = inputs;
+    if (expectedOutputs != null) result.expectedOutputs.addAll(expectedOutputs);
+    if (policyTags != null) result.policyTags.addAll(policyTags);
     return result;
   }
 
@@ -1415,6 +1718,14 @@ class PlanStep extends $pb.GeneratedMessage {
         subBuilder: $0.Struct.create)
     ..aOM<FailureDetail>(5, _omitFieldNames ? '' : 'failure',
         subBuilder: FailureDetail.create)
+    ..aOS(6, _omitFieldNames ? '' : 'taskId')
+    ..aE<PlanStepKind>(7, _omitFieldNames ? '' : 'kind',
+        enumValues: PlanStepKind.values)
+    ..aOM<$0.Struct>(8, _omitFieldNames ? '' : 'inputs',
+        subBuilder: $0.Struct.create)
+    ..pPM<StepOutputExpectation>(9, _omitFieldNames ? '' : 'expectedOutputs',
+        subBuilder: StepOutputExpectation.create)
+    ..pPS(10, _omitFieldNames ? '' : 'policyTags')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -1477,6 +1788,41 @@ class PlanStep extends $pb.GeneratedMessage {
   void clearFailure() => $_clearField(5);
   @$pb.TagNumber(5)
   FailureDetail ensureFailure() => $_ensure(4);
+
+  @$pb.TagNumber(6)
+  $core.String get taskId => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set taskId($core.String value) => $_setString(5, value);
+  @$pb.TagNumber(6)
+  $core.bool hasTaskId() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearTaskId() => $_clearField(6);
+
+  @$pb.TagNumber(7)
+  PlanStepKind get kind => $_getN(6);
+  @$pb.TagNumber(7)
+  set kind(PlanStepKind value) => $_setField(7, value);
+  @$pb.TagNumber(7)
+  $core.bool hasKind() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearKind() => $_clearField(7);
+
+  @$pb.TagNumber(8)
+  $0.Struct get inputs => $_getN(7);
+  @$pb.TagNumber(8)
+  set inputs($0.Struct value) => $_setField(8, value);
+  @$pb.TagNumber(8)
+  $core.bool hasInputs() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearInputs() => $_clearField(8);
+  @$pb.TagNumber(8)
+  $0.Struct ensureInputs() => $_ensure(7);
+
+  @$pb.TagNumber(9)
+  $pb.PbList<StepOutputExpectation> get expectedOutputs => $_getList(8);
+
+  @$pb.TagNumber(10)
+  $pb.PbList<$core.String> get policyTags => $_getList(9);
 }
 
 class Plan extends $pb.GeneratedMessage {
@@ -1490,6 +1836,11 @@ class Plan extends $pb.GeneratedMessage {
     $fixnum.Int64? updatedAtMs,
     PlanProvenance? provenance,
     $core.Iterable<PlanStep>? steps,
+    $core.String? intentId,
+    $core.String? planVersion,
+    $core.String? plannerVersion,
+    ReplanPolicy? replanPolicy,
+    $core.String? inputDigest,
   }) {
     final result = create();
     if (contractVersion != null) result.contractVersion = contractVersion;
@@ -1501,6 +1852,11 @@ class Plan extends $pb.GeneratedMessage {
     if (updatedAtMs != null) result.updatedAtMs = updatedAtMs;
     if (provenance != null) result.provenance = provenance;
     if (steps != null) result.steps.addAll(steps);
+    if (intentId != null) result.intentId = intentId;
+    if (planVersion != null) result.planVersion = planVersion;
+    if (plannerVersion != null) result.plannerVersion = plannerVersion;
+    if (replanPolicy != null) result.replanPolicy = replanPolicy;
+    if (inputDigest != null) result.inputDigest = inputDigest;
     return result;
   }
 
@@ -1534,6 +1890,12 @@ class Plan extends $pb.GeneratedMessage {
         subBuilder: PlanProvenance.create)
     ..pPM<PlanStep>(9, _omitFieldNames ? '' : 'steps',
         subBuilder: PlanStep.create)
+    ..aOS(10, _omitFieldNames ? '' : 'intentId')
+    ..aOS(11, _omitFieldNames ? '' : 'planVersion')
+    ..aOS(12, _omitFieldNames ? '' : 'plannerVersion')
+    ..aOM<ReplanPolicy>(13, _omitFieldNames ? '' : 'replanPolicy',
+        subBuilder: ReplanPolicy.create)
+    ..aOS(14, _omitFieldNames ? '' : 'inputDigest')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -1630,6 +1992,53 @@ class Plan extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(9)
   $pb.PbList<PlanStep> get steps => $_getList(8);
+
+  @$pb.TagNumber(10)
+  $core.String get intentId => $_getSZ(9);
+  @$pb.TagNumber(10)
+  set intentId($core.String value) => $_setString(9, value);
+  @$pb.TagNumber(10)
+  $core.bool hasIntentId() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearIntentId() => $_clearField(10);
+
+  @$pb.TagNumber(11)
+  $core.String get planVersion => $_getSZ(10);
+  @$pb.TagNumber(11)
+  set planVersion($core.String value) => $_setString(10, value);
+  @$pb.TagNumber(11)
+  $core.bool hasPlanVersion() => $_has(10);
+  @$pb.TagNumber(11)
+  void clearPlanVersion() => $_clearField(11);
+
+  @$pb.TagNumber(12)
+  $core.String get plannerVersion => $_getSZ(11);
+  @$pb.TagNumber(12)
+  set plannerVersion($core.String value) => $_setString(11, value);
+  @$pb.TagNumber(12)
+  $core.bool hasPlannerVersion() => $_has(11);
+  @$pb.TagNumber(12)
+  void clearPlannerVersion() => $_clearField(12);
+
+  @$pb.TagNumber(13)
+  ReplanPolicy get replanPolicy => $_getN(12);
+  @$pb.TagNumber(13)
+  set replanPolicy(ReplanPolicy value) => $_setField(13, value);
+  @$pb.TagNumber(13)
+  $core.bool hasReplanPolicy() => $_has(12);
+  @$pb.TagNumber(13)
+  void clearReplanPolicy() => $_clearField(13);
+  @$pb.TagNumber(13)
+  ReplanPolicy ensureReplanPolicy() => $_ensure(12);
+
+  @$pb.TagNumber(14)
+  $core.String get inputDigest => $_getSZ(13);
+  @$pb.TagNumber(14)
+  set inputDigest($core.String value) => $_setString(13, value);
+  @$pb.TagNumber(14)
+  $core.bool hasInputDigest() => $_has(13);
+  @$pb.TagNumber(14)
+  void clearInputDigest() => $_clearField(14);
 }
 
 class ExecutionReceipt extends $pb.GeneratedMessage {

@@ -34,6 +34,10 @@ private static final long serialVersionUID = 0L;
     objective_ = "";
     status_ = 0;
     steps_ = java.util.Collections.emptyList();
+    intentId_ = "";
+    planVersion_ = "";
+    plannerVersion_ = "";
+    inputDigest_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -321,6 +325,220 @@ private static final long serialVersionUID = 0L;
     return steps_.get(index);
   }
 
+  public static final int INTENT_ID_FIELD_NUMBER = 10;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object intentId_ = "";
+  /**
+   * <code>optional string intent_id = 10;</code>
+   * @return Whether the intentId field is set.
+   */
+  @java.lang.Override
+  public boolean hasIntentId() {
+    return ((bitField0_ & 0x00000004) != 0);
+  }
+  /**
+   * <code>optional string intent_id = 10;</code>
+   * @return The intentId.
+   */
+  @java.lang.Override
+  public java.lang.String getIntentId() {
+    java.lang.Object ref = intentId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      intentId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>optional string intent_id = 10;</code>
+   * @return The bytes for intentId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getIntentIdBytes() {
+    java.lang.Object ref = intentId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      intentId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int PLAN_VERSION_FIELD_NUMBER = 11;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object planVersion_ = "";
+  /**
+   * <code>optional string plan_version = 11;</code>
+   * @return Whether the planVersion field is set.
+   */
+  @java.lang.Override
+  public boolean hasPlanVersion() {
+    return ((bitField0_ & 0x00000008) != 0);
+  }
+  /**
+   * <code>optional string plan_version = 11;</code>
+   * @return The planVersion.
+   */
+  @java.lang.Override
+  public java.lang.String getPlanVersion() {
+    java.lang.Object ref = planVersion_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      planVersion_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>optional string plan_version = 11;</code>
+   * @return The bytes for planVersion.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getPlanVersionBytes() {
+    java.lang.Object ref = planVersion_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      planVersion_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int PLANNER_VERSION_FIELD_NUMBER = 12;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object plannerVersion_ = "";
+  /**
+   * <code>optional string planner_version = 12;</code>
+   * @return Whether the plannerVersion field is set.
+   */
+  @java.lang.Override
+  public boolean hasPlannerVersion() {
+    return ((bitField0_ & 0x00000010) != 0);
+  }
+  /**
+   * <code>optional string planner_version = 12;</code>
+   * @return The plannerVersion.
+   */
+  @java.lang.Override
+  public java.lang.String getPlannerVersion() {
+    java.lang.Object ref = plannerVersion_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      plannerVersion_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>optional string planner_version = 12;</code>
+   * @return The bytes for plannerVersion.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getPlannerVersionBytes() {
+    java.lang.Object ref = plannerVersion_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      plannerVersion_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int REPLAN_POLICY_FIELD_NUMBER = 13;
+  private ai.monarchic.agent_protocol.v1.ReplanPolicy replanPolicy_;
+  /**
+   * <code>.monarchic.agent_protocol.v1.ReplanPolicy replan_policy = 13;</code>
+   * @return Whether the replanPolicy field is set.
+   */
+  @java.lang.Override
+  public boolean hasReplanPolicy() {
+    return ((bitField0_ & 0x00000020) != 0);
+  }
+  /**
+   * <code>.monarchic.agent_protocol.v1.ReplanPolicy replan_policy = 13;</code>
+   * @return The replanPolicy.
+   */
+  @java.lang.Override
+  public ai.monarchic.agent_protocol.v1.ReplanPolicy getReplanPolicy() {
+    return replanPolicy_ == null ? ai.monarchic.agent_protocol.v1.ReplanPolicy.getDefaultInstance() : replanPolicy_;
+  }
+  /**
+   * <code>.monarchic.agent_protocol.v1.ReplanPolicy replan_policy = 13;</code>
+   */
+  @java.lang.Override
+  public ai.monarchic.agent_protocol.v1.ReplanPolicyOrBuilder getReplanPolicyOrBuilder() {
+    return replanPolicy_ == null ? ai.monarchic.agent_protocol.v1.ReplanPolicy.getDefaultInstance() : replanPolicy_;
+  }
+
+  public static final int INPUT_DIGEST_FIELD_NUMBER = 14;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object inputDigest_ = "";
+  /**
+   * <code>optional string input_digest = 14;</code>
+   * @return Whether the inputDigest field is set.
+   */
+  @java.lang.Override
+  public boolean hasInputDigest() {
+    return ((bitField0_ & 0x00000040) != 0);
+  }
+  /**
+   * <code>optional string input_digest = 14;</code>
+   * @return The inputDigest.
+   */
+  @java.lang.Override
+  public java.lang.String getInputDigest() {
+    java.lang.Object ref = inputDigest_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      inputDigest_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>optional string input_digest = 14;</code>
+   * @return The bytes for inputDigest.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getInputDigestBytes() {
+    java.lang.Object ref = inputDigest_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      inputDigest_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -361,6 +579,21 @@ private static final long serialVersionUID = 0L;
     }
     for (int i = 0; i < steps_.size(); i++) {
       output.writeMessage(9, steps_.get(i));
+    }
+    if (((bitField0_ & 0x00000004) != 0)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 10, intentId_);
+    }
+    if (((bitField0_ & 0x00000008) != 0)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 11, planVersion_);
+    }
+    if (((bitField0_ & 0x00000010) != 0)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 12, plannerVersion_);
+    }
+    if (((bitField0_ & 0x00000020) != 0)) {
+      output.writeMessage(13, getReplanPolicy());
+    }
+    if (((bitField0_ & 0x00000040) != 0)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 14, inputDigest_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -403,6 +636,22 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(9, steps_.get(i));
     }
+    if (((bitField0_ & 0x00000004) != 0)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(10, intentId_);
+    }
+    if (((bitField0_ & 0x00000008) != 0)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(11, planVersion_);
+    }
+    if (((bitField0_ & 0x00000010) != 0)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(12, plannerVersion_);
+    }
+    if (((bitField0_ & 0x00000020) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(13, getReplanPolicy());
+    }
+    if (((bitField0_ & 0x00000040) != 0)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(14, inputDigest_);
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -441,6 +690,31 @@ private static final long serialVersionUID = 0L;
     }
     if (!getStepsList()
         .equals(other.getStepsList())) return false;
+    if (hasIntentId() != other.hasIntentId()) return false;
+    if (hasIntentId()) {
+      if (!getIntentId()
+          .equals(other.getIntentId())) return false;
+    }
+    if (hasPlanVersion() != other.hasPlanVersion()) return false;
+    if (hasPlanVersion()) {
+      if (!getPlanVersion()
+          .equals(other.getPlanVersion())) return false;
+    }
+    if (hasPlannerVersion() != other.hasPlannerVersion()) return false;
+    if (hasPlannerVersion()) {
+      if (!getPlannerVersion()
+          .equals(other.getPlannerVersion())) return false;
+    }
+    if (hasReplanPolicy() != other.hasReplanPolicy()) return false;
+    if (hasReplanPolicy()) {
+      if (!getReplanPolicy()
+          .equals(other.getReplanPolicy())) return false;
+    }
+    if (hasInputDigest() != other.hasInputDigest()) return false;
+    if (hasInputDigest()) {
+      if (!getInputDigest()
+          .equals(other.getInputDigest())) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -477,6 +751,26 @@ private static final long serialVersionUID = 0L;
     if (getStepsCount() > 0) {
       hash = (37 * hash) + STEPS_FIELD_NUMBER;
       hash = (53 * hash) + getStepsList().hashCode();
+    }
+    if (hasIntentId()) {
+      hash = (37 * hash) + INTENT_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getIntentId().hashCode();
+    }
+    if (hasPlanVersion()) {
+      hash = (37 * hash) + PLAN_VERSION_FIELD_NUMBER;
+      hash = (53 * hash) + getPlanVersion().hashCode();
+    }
+    if (hasPlannerVersion()) {
+      hash = (37 * hash) + PLANNER_VERSION_FIELD_NUMBER;
+      hash = (53 * hash) + getPlannerVersion().hashCode();
+    }
+    if (hasReplanPolicy()) {
+      hash = (37 * hash) + REPLAN_POLICY_FIELD_NUMBER;
+      hash = (53 * hash) + getReplanPolicy().hashCode();
+    }
+    if (hasInputDigest()) {
+      hash = (37 * hash) + INPUT_DIGEST_FIELD_NUMBER;
+      hash = (53 * hash) + getInputDigest().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -610,6 +904,7 @@ private static final long serialVersionUID = 0L;
               .alwaysUseFieldBuilders) {
         internalGetProvenanceFieldBuilder();
         internalGetStepsFieldBuilder();
+        internalGetReplanPolicyFieldBuilder();
       }
     }
     @java.lang.Override
@@ -635,6 +930,15 @@ private static final long serialVersionUID = 0L;
         stepsBuilder_.clear();
       }
       bitField0_ = (bitField0_ & ~0x00000100);
+      intentId_ = "";
+      planVersion_ = "";
+      plannerVersion_ = "";
+      replanPolicy_ = null;
+      if (replanPolicyBuilder_ != null) {
+        replanPolicyBuilder_.dispose();
+        replanPolicyBuilder_ = null;
+      }
+      inputDigest_ = "";
       return this;
     }
 
@@ -710,6 +1014,28 @@ private static final long serialVersionUID = 0L;
             : provenanceBuilder_.build();
         to_bitField0_ |= 0x00000002;
       }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.intentId_ = intentId_;
+        to_bitField0_ |= 0x00000004;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.planVersion_ = planVersion_;
+        to_bitField0_ |= 0x00000008;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.plannerVersion_ = plannerVersion_;
+        to_bitField0_ |= 0x00000010;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.replanPolicy_ = replanPolicyBuilder_ == null
+            ? replanPolicy_
+            : replanPolicyBuilder_.build();
+        to_bitField0_ |= 0x00000020;
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.inputDigest_ = inputDigest_;
+        to_bitField0_ |= 0x00000040;
+      }
       result.bitField0_ |= to_bitField0_;
     }
 
@@ -782,6 +1108,29 @@ private static final long serialVersionUID = 0L;
             stepsBuilder_.addAllMessages(other.steps_);
           }
         }
+      }
+      if (other.hasIntentId()) {
+        intentId_ = other.intentId_;
+        bitField0_ |= 0x00000200;
+        onChanged();
+      }
+      if (other.hasPlanVersion()) {
+        planVersion_ = other.planVersion_;
+        bitField0_ |= 0x00000400;
+        onChanged();
+      }
+      if (other.hasPlannerVersion()) {
+        plannerVersion_ = other.plannerVersion_;
+        bitField0_ |= 0x00000800;
+        onChanged();
+      }
+      if (other.hasReplanPolicy()) {
+        mergeReplanPolicy(other.getReplanPolicy());
+      }
+      if (other.hasInputDigest()) {
+        inputDigest_ = other.inputDigest_;
+        bitField0_ |= 0x00002000;
+        onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -864,6 +1213,33 @@ private static final long serialVersionUID = 0L;
               }
               break;
             } // case 74
+            case 82: {
+              intentId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 82
+            case 90: {
+              planVersion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 90
+            case 98: {
+              plannerVersion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 98
+            case 106: {
+              input.readMessage(
+                  internalGetReplanPolicyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 106
+            case 114: {
+              inputDigest_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 114
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -1650,6 +2026,443 @@ private static final long serialVersionUID = 0L;
         steps_ = null;
       }
       return stepsBuilder_;
+    }
+
+    private java.lang.Object intentId_ = "";
+    /**
+     * <code>optional string intent_id = 10;</code>
+     * @return Whether the intentId field is set.
+     */
+    public boolean hasIntentId() {
+      return ((bitField0_ & 0x00000200) != 0);
+    }
+    /**
+     * <code>optional string intent_id = 10;</code>
+     * @return The intentId.
+     */
+    public java.lang.String getIntentId() {
+      java.lang.Object ref = intentId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        intentId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>optional string intent_id = 10;</code>
+     * @return The bytes for intentId.
+     */
+    public com.google.protobuf.ByteString
+        getIntentIdBytes() {
+      java.lang.Object ref = intentId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        intentId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>optional string intent_id = 10;</code>
+     * @param value The intentId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIntentId(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      intentId_ = value;
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional string intent_id = 10;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearIntentId() {
+      intentId_ = getDefaultInstance().getIntentId();
+      bitField0_ = (bitField0_ & ~0x00000200);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional string intent_id = 10;</code>
+     * @param value The bytes for intentId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIntentIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      intentId_ = value;
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object planVersion_ = "";
+    /**
+     * <code>optional string plan_version = 11;</code>
+     * @return Whether the planVersion field is set.
+     */
+    public boolean hasPlanVersion() {
+      return ((bitField0_ & 0x00000400) != 0);
+    }
+    /**
+     * <code>optional string plan_version = 11;</code>
+     * @return The planVersion.
+     */
+    public java.lang.String getPlanVersion() {
+      java.lang.Object ref = planVersion_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        planVersion_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>optional string plan_version = 11;</code>
+     * @return The bytes for planVersion.
+     */
+    public com.google.protobuf.ByteString
+        getPlanVersionBytes() {
+      java.lang.Object ref = planVersion_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        planVersion_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>optional string plan_version = 11;</code>
+     * @param value The planVersion to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPlanVersion(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      planVersion_ = value;
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional string plan_version = 11;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPlanVersion() {
+      planVersion_ = getDefaultInstance().getPlanVersion();
+      bitField0_ = (bitField0_ & ~0x00000400);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional string plan_version = 11;</code>
+     * @param value The bytes for planVersion to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPlanVersionBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      planVersion_ = value;
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object plannerVersion_ = "";
+    /**
+     * <code>optional string planner_version = 12;</code>
+     * @return Whether the plannerVersion field is set.
+     */
+    public boolean hasPlannerVersion() {
+      return ((bitField0_ & 0x00000800) != 0);
+    }
+    /**
+     * <code>optional string planner_version = 12;</code>
+     * @return The plannerVersion.
+     */
+    public java.lang.String getPlannerVersion() {
+      java.lang.Object ref = plannerVersion_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        plannerVersion_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>optional string planner_version = 12;</code>
+     * @return The bytes for plannerVersion.
+     */
+    public com.google.protobuf.ByteString
+        getPlannerVersionBytes() {
+      java.lang.Object ref = plannerVersion_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        plannerVersion_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>optional string planner_version = 12;</code>
+     * @param value The plannerVersion to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPlannerVersion(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      plannerVersion_ = value;
+      bitField0_ |= 0x00000800;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional string planner_version = 12;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPlannerVersion() {
+      plannerVersion_ = getDefaultInstance().getPlannerVersion();
+      bitField0_ = (bitField0_ & ~0x00000800);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional string planner_version = 12;</code>
+     * @param value The bytes for plannerVersion to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPlannerVersionBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      plannerVersion_ = value;
+      bitField0_ |= 0x00000800;
+      onChanged();
+      return this;
+    }
+
+    private ai.monarchic.agent_protocol.v1.ReplanPolicy replanPolicy_;
+    private com.google.protobuf.SingleFieldBuilder<
+        ai.monarchic.agent_protocol.v1.ReplanPolicy, ai.monarchic.agent_protocol.v1.ReplanPolicy.Builder, ai.monarchic.agent_protocol.v1.ReplanPolicyOrBuilder> replanPolicyBuilder_;
+    /**
+     * <code>.monarchic.agent_protocol.v1.ReplanPolicy replan_policy = 13;</code>
+     * @return Whether the replanPolicy field is set.
+     */
+    public boolean hasReplanPolicy() {
+      return ((bitField0_ & 0x00001000) != 0);
+    }
+    /**
+     * <code>.monarchic.agent_protocol.v1.ReplanPolicy replan_policy = 13;</code>
+     * @return The replanPolicy.
+     */
+    public ai.monarchic.agent_protocol.v1.ReplanPolicy getReplanPolicy() {
+      if (replanPolicyBuilder_ == null) {
+        return replanPolicy_ == null ? ai.monarchic.agent_protocol.v1.ReplanPolicy.getDefaultInstance() : replanPolicy_;
+      } else {
+        return replanPolicyBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.monarchic.agent_protocol.v1.ReplanPolicy replan_policy = 13;</code>
+     */
+    public Builder setReplanPolicy(ai.monarchic.agent_protocol.v1.ReplanPolicy value) {
+      if (replanPolicyBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        replanPolicy_ = value;
+      } else {
+        replanPolicyBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00001000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.monarchic.agent_protocol.v1.ReplanPolicy replan_policy = 13;</code>
+     */
+    public Builder setReplanPolicy(
+        ai.monarchic.agent_protocol.v1.ReplanPolicy.Builder builderForValue) {
+      if (replanPolicyBuilder_ == null) {
+        replanPolicy_ = builderForValue.build();
+      } else {
+        replanPolicyBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00001000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.monarchic.agent_protocol.v1.ReplanPolicy replan_policy = 13;</code>
+     */
+    public Builder mergeReplanPolicy(ai.monarchic.agent_protocol.v1.ReplanPolicy value) {
+      if (replanPolicyBuilder_ == null) {
+        if (((bitField0_ & 0x00001000) != 0) &&
+          replanPolicy_ != null &&
+          replanPolicy_ != ai.monarchic.agent_protocol.v1.ReplanPolicy.getDefaultInstance()) {
+          getReplanPolicyBuilder().mergeFrom(value);
+        } else {
+          replanPolicy_ = value;
+        }
+      } else {
+        replanPolicyBuilder_.mergeFrom(value);
+      }
+      if (replanPolicy_ != null) {
+        bitField0_ |= 0x00001000;
+        onChanged();
+      }
+      return this;
+    }
+    /**
+     * <code>.monarchic.agent_protocol.v1.ReplanPolicy replan_policy = 13;</code>
+     */
+    public Builder clearReplanPolicy() {
+      bitField0_ = (bitField0_ & ~0x00001000);
+      replanPolicy_ = null;
+      if (replanPolicyBuilder_ != null) {
+        replanPolicyBuilder_.dispose();
+        replanPolicyBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.monarchic.agent_protocol.v1.ReplanPolicy replan_policy = 13;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.ReplanPolicy.Builder getReplanPolicyBuilder() {
+      bitField0_ |= 0x00001000;
+      onChanged();
+      return internalGetReplanPolicyFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.monarchic.agent_protocol.v1.ReplanPolicy replan_policy = 13;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.ReplanPolicyOrBuilder getReplanPolicyOrBuilder() {
+      if (replanPolicyBuilder_ != null) {
+        return replanPolicyBuilder_.getMessageOrBuilder();
+      } else {
+        return replanPolicy_ == null ?
+            ai.monarchic.agent_protocol.v1.ReplanPolicy.getDefaultInstance() : replanPolicy_;
+      }
+    }
+    /**
+     * <code>.monarchic.agent_protocol.v1.ReplanPolicy replan_policy = 13;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        ai.monarchic.agent_protocol.v1.ReplanPolicy, ai.monarchic.agent_protocol.v1.ReplanPolicy.Builder, ai.monarchic.agent_protocol.v1.ReplanPolicyOrBuilder> 
+        internalGetReplanPolicyFieldBuilder() {
+      if (replanPolicyBuilder_ == null) {
+        replanPolicyBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            ai.monarchic.agent_protocol.v1.ReplanPolicy, ai.monarchic.agent_protocol.v1.ReplanPolicy.Builder, ai.monarchic.agent_protocol.v1.ReplanPolicyOrBuilder>(
+                getReplanPolicy(),
+                getParentForChildren(),
+                isClean());
+        replanPolicy_ = null;
+      }
+      return replanPolicyBuilder_;
+    }
+
+    private java.lang.Object inputDigest_ = "";
+    /**
+     * <code>optional string input_digest = 14;</code>
+     * @return Whether the inputDigest field is set.
+     */
+    public boolean hasInputDigest() {
+      return ((bitField0_ & 0x00002000) != 0);
+    }
+    /**
+     * <code>optional string input_digest = 14;</code>
+     * @return The inputDigest.
+     */
+    public java.lang.String getInputDigest() {
+      java.lang.Object ref = inputDigest_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        inputDigest_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>optional string input_digest = 14;</code>
+     * @return The bytes for inputDigest.
+     */
+    public com.google.protobuf.ByteString
+        getInputDigestBytes() {
+      java.lang.Object ref = inputDigest_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        inputDigest_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>optional string input_digest = 14;</code>
+     * @param value The inputDigest to set.
+     * @return This builder for chaining.
+     */
+    public Builder setInputDigest(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      inputDigest_ = value;
+      bitField0_ |= 0x00002000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional string input_digest = 14;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearInputDigest() {
+      inputDigest_ = getDefaultInstance().getInputDigest();
+      bitField0_ = (bitField0_ & ~0x00002000);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional string input_digest = 14;</code>
+     * @param value The bytes for inputDigest to set.
+     * @return This builder for chaining.
+     */
+    public Builder setInputDigestBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      inputDigest_ = value;
+      bitField0_ |= 0x00002000;
+      onChanged();
+      return this;
     }
 
     // @@protoc_insertion_point(builder_scope:monarchic.agent_protocol.v1.Plan)

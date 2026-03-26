@@ -160,7 +160,7 @@ public enum LeaseRejectionReason
   }
   public static com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.getDescriptor().getEnumTypes().get(6);
+    return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.getDescriptor().getEnumTypes().get(9);
   }
 
   private static final LeaseRejectionReason[] VALUES = values();
