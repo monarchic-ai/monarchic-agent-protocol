@@ -29,6 +29,8 @@ abstract class RunnerControlServiceBase extends $pb.GeneratedService {
       $pb.ServerContext ctx, $1.AcquireLeaseRequest request);
   $async.Future<$1.RenewLeaseResponse> renewLease(
       $pb.ServerContext ctx, $1.RenewLeaseRequest request);
+  $async.Future<$1.ResumeLeaseResponse> resumeLease(
+      $pb.ServerContext ctx, $1.ResumeLeaseRequest request);
   $async.Future<$1.ReportStepStartedResponse> reportStepStarted(
       $pb.ServerContext ctx, $1.ReportStepStartedRequest request);
   $async.Future<$1.ReportStepProgressResponse> reportStepProgress(
@@ -48,6 +50,8 @@ abstract class RunnerControlServiceBase extends $pb.GeneratedService {
         return $1.AcquireLeaseRequest();
       case 'RenewLease':
         return $1.RenewLeaseRequest();
+      case 'ResumeLease':
+        return $1.ResumeLeaseRequest();
       case 'ReportStepStarted':
         return $1.ReportStepStartedRequest();
       case 'ReportStepProgress':
@@ -72,6 +76,8 @@ abstract class RunnerControlServiceBase extends $pb.GeneratedService {
         return acquireLease(ctx, request as $1.AcquireLeaseRequest);
       case 'RenewLease':
         return renewLease(ctx, request as $1.RenewLeaseRequest);
+      case 'ResumeLease':
+        return resumeLease(ctx, request as $1.ResumeLeaseRequest);
       case 'ReportStepStarted':
         return reportStepStarted(ctx, request as $1.ReportStepStartedRequest);
       case 'ReportStepProgress':

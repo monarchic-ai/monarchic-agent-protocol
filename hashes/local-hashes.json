@@ -1,8 +1,8 @@
 {
   "version": "v1",
   "scope": "local",
-  "artifact_count": 213,
-  "combined_sha256": "e22cb32760e48121bcc1a032e7ee735893efdc1233381f303ff7246e508e7c74",
+  "artifact_count": 219,
+  "combined_sha256": "e435bf78c1b39a981963c356587b5b1b91d591a87973c5b899559d5e4e1bd7d5",
   "artifacts": [
     {
       "path": "Cargo.lock",
@@ -170,7 +170,7 @@
     },
     {
       "path": "src/csharp/MonarchicAgentProtocol.cs",
-      "sha256": "6fcd38d91d844d2c51dfe0b39a80363dab4a05bee8c32b6d2678c41be58f9a16"
+      "sha256": "a4cbedeaaefb1a7bee4a5f498a7c84e87e334c7a899d7823b956b4078a749248"
     },
     {
       "path": "src/dart/lib/monarchic_agent_protocol.dart",
@@ -178,23 +178,23 @@
     },
     {
       "path": "src/dart/lib/monarchic_agent_protocol.pb.dart",
-      "sha256": "b467eb22bebb50195a4281e4ba6903aebfe1c35b32a825818c688f123034a267"
+      "sha256": "cad7020b0dc239203c25239fbfd0be69143eb98bf2917a8bbffc91a95c5937f7"
     },
     {
       "path": "src/dart/lib/monarchic_agent_protocol.pbenum.dart",
-      "sha256": "8ee96d9b02de89104ca1847229fda832964b61f1bc264519b608274fb0d3e2e6"
+      "sha256": "cf13d6fd48d0efb596e894aa51d6e701f8bfc33d62ab75a39a68b87eece64347"
     },
     {
       "path": "src/dart/lib/monarchic_agent_protocol.pbjson.dart",
-      "sha256": "0d82aba01d498637ccda344a61fb01763285be397608569c62402dd4d5c9e4d6"
+      "sha256": "f14bc9e14729410042ad38ac9821d088c80d9ec0f45338fdf6c316bb5acf4f53"
     },
     {
       "path": "src/dart/lib/monarchic_agent_protocol.pbserver.dart",
-      "sha256": "27f8c2521f44d091ba1239f73acb99a0c7dc092e55019132394e6f7a813ed1b5"
+      "sha256": "b937220909ab543b8ebe9ac43f57d9e231e59dc3dcad8a9b19631f7ec2f92c2a"
     },
     {
       "path": "src/go/github.com/monarchic-ai/monarchic-agent-protocol/src/go/monarchic/agent_protocol/v1/monarchic_agent_protocol.pb.go",
-      "sha256": "f2c4647a66c3c352036fa45e36c01949297e148b8bd17091d3676ca2cc60c486"
+      "sha256": "49789edae79d6d9483c30f77bf883092bfa798a409f2c1211d06a325d5952391"
     },
     {
       "path": "src/go/monarchic/agent_protocol/v1/monarchic_agent_protocol.pb.go",
@@ -386,7 +386,7 @@
     },
     {
       "path": "src/java/ai/monarchic/agent_protocol/v1/LeaseRejectionReason.java",
-      "sha256": "6d89dce41956633da18ffadb23cb6a087f3bc86c99dba34e1aeff1b3081740db"
+      "sha256": "147575108cbfbccef16acbeaf1ce256643ab4023cb273219c3a96866754cdada"
     },
     {
       "path": "src/java/ai/monarchic/agent_protocol/v1/LeaseStatus.java",
@@ -398,7 +398,7 @@
     },
     {
       "path": "src/java/ai/monarchic/agent_protocol/v1/MonarchicAgentProtocolV1.java",
-      "sha256": "f8d026f47c359ef8d00995bf4488aec08fe1c29657448914fac3adb5f33adffd"
+      "sha256": "7a3832182cea4c4246a0b99538e131c1f2c3b50109376423b3c78e8c59ae85f4"
     },
     {
       "path": "src/java/ai/monarchic/agent_protocol/v1/ObjectiveSpec.java",
@@ -539,6 +539,22 @@
     {
       "path": "src/java/ai/monarchic/agent_protocol/v1/ReportStepStartedResponseOrBuilder.java",
       "sha256": "579ad77f9c84073e2181c540a3aee59eb4a5d8f77cb1ebd6410ead8048efce8a"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/ResumeLeaseRequest.java",
+      "sha256": "449cf67baf2800c09c3ef124fdfb2aeae1ce1eab78584b9a40603c408beb49b2"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/ResumeLeaseRequestOrBuilder.java",
+      "sha256": "fd289fb62fc8c829f23f65f6d2384a2c9731cfaeecacf9c82f195364664a7f4c"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/ResumeLeaseResponse.java",
+      "sha256": "5832c1a30dfa740346867f6321241b4005708a7e800a84ad73d397d7b688cb94"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/ResumeLeaseResponseOrBuilder.java",
+      "sha256": "5d3f93b54b5ccbdf90e1b7a01e1fd7ca1dd6e887ea99b20f042e33a5e850e4fb"
     },
     {
       "path": "src/java/ai/monarchic/agent_protocol/v1/RoleProvenance.java",
@@ -686,7 +702,7 @@
     },
     {
       "path": "src/php/Monarchic/AgentProtocol/V1/LeaseRejectionReason.php",
-      "sha256": "1fae7dbac538dae6603e7a5962870be5d4ce1512ef0f90b64c77c7bf5686f8ab"
+      "sha256": "67addbaccbad79f551ef0163b17deb5c6fb54c562c512d781955b9b585c63a8f"
     },
     {
       "path": "src/php/Monarchic/AgentProtocol/V1/LeaseStatus.php",
@@ -694,7 +710,7 @@
     },
     {
       "path": "src/php/Monarchic/AgentProtocol/V1/Metadata/MonarchicAgentProtocol.php",
-      "sha256": "3dcf1f96a376c09bc3c6107543b46e98b46ee03ba826b03669eda8afcf759b98"
+      "sha256": "321c2b086d166298047dc8352a21866fc19e202382f889b7e5457909eb60d322"
     },
     {
       "path": "src/php/Monarchic/AgentProtocol/V1/ObjectiveSpec.php",
@@ -773,6 +789,14 @@
       "sha256": "b34fc61ded5f8d9970f3759ca0e1ac9883762006955a21a1ca5e427a7f6ddc8a"
     },
     {
+      "path": "src/php/Monarchic/AgentProtocol/V1/ResumeLeaseRequest.php",
+      "sha256": "26b969210631ae7f2e7a6e645baf7cf1bb3c416de2136b4fe07f02e82950ff98"
+    },
+    {
+      "path": "src/php/Monarchic/AgentProtocol/V1/ResumeLeaseResponse.php",
+      "sha256": "a29c87f66d32e87a61aa539de6771eb2f282e4e49b8fb2f8147442a74d05e69a"
+    },
+    {
       "path": "src/php/Monarchic/AgentProtocol/V1/RoleProvenance.php",
       "sha256": "ce8c1bf8dd5e760e1705ad5b49d33c8d47b2895a4c170f9ea707e5f3e6fc109b"
     },
@@ -806,7 +830,7 @@
     },
     {
       "path": "src/python/monarchic_agent_protocol/monarchic_agent_protocol_pb2.py",
-      "sha256": "6033354f0a448ed874dc108e1ada24738ce5e7774e4951fbf2288bfa871cc273"
+      "sha256": "50a9e8d2249dc2aae99464275b0a3fcbbb69ac296961bb294cbda8f04c13625e"
     },
     {
       "path": "src/ruby/monarchic_agent_protocol.rb",
@@ -814,7 +838,7 @@
     },
     {
       "path": "src/ruby/monarchic_agent_protocol_pb.rb",
-      "sha256": "d2f08a74658604428c7bcc8ba38a0a6bcfd4ed24a43d5e1229f19caff73f83c6"
+      "sha256": "cc3ed31b749f77ed91986e58abae8b2596b4b83b66bb13592a417d46a836e225"
     },
     {
       "path": "src/rust/artifact.rs",

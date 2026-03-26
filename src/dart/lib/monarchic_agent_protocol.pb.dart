@@ -4818,6 +4818,275 @@ class RenewLeaseResponse extends $pb.GeneratedMessage {
   $0.Struct ensureExtensions() => $_ensure(6);
 }
 
+class ResumeLeaseRequest extends $pb.GeneratedMessage {
+  factory ResumeLeaseRequest({
+    $core.String? contractVersion,
+    $core.String? runnerId,
+    $core.String? sessionId,
+    LeaseRef? lease,
+    $0.Struct? extensions,
+  }) {
+    final result = create();
+    if (contractVersion != null) result.contractVersion = contractVersion;
+    if (runnerId != null) result.runnerId = runnerId;
+    if (sessionId != null) result.sessionId = sessionId;
+    if (lease != null) result.lease = lease;
+    if (extensions != null) result.extensions = extensions;
+    return result;
+  }
+
+  ResumeLeaseRequest._();
+
+  factory ResumeLeaseRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory ResumeLeaseRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ResumeLeaseRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'contractVersion')
+    ..aOS(2, _omitFieldNames ? '' : 'runnerId')
+    ..aOS(3, _omitFieldNames ? '' : 'sessionId')
+    ..aOM<LeaseRef>(4, _omitFieldNames ? '' : 'lease',
+        subBuilder: LeaseRef.create)
+    ..aOM<$0.Struct>(5, _omitFieldNames ? '' : 'extensions',
+        subBuilder: $0.Struct.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ResumeLeaseRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ResumeLeaseRequest copyWith(void Function(ResumeLeaseRequest) updates) =>
+      super.copyWith((message) => updates(message as ResumeLeaseRequest))
+          as ResumeLeaseRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ResumeLeaseRequest create() => ResumeLeaseRequest._();
+  @$core.override
+  ResumeLeaseRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static ResumeLeaseRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ResumeLeaseRequest>(create);
+  static ResumeLeaseRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get contractVersion => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set contractVersion($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasContractVersion() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearContractVersion() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get runnerId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set runnerId($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasRunnerId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearRunnerId() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get sessionId => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set sessionId($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasSessionId() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearSessionId() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  LeaseRef get lease => $_getN(3);
+  @$pb.TagNumber(4)
+  set lease(LeaseRef value) => $_setField(4, value);
+  @$pb.TagNumber(4)
+  $core.bool hasLease() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearLease() => $_clearField(4);
+  @$pb.TagNumber(4)
+  LeaseRef ensureLease() => $_ensure(3);
+
+  @$pb.TagNumber(5)
+  $0.Struct get extensions => $_getN(4);
+  @$pb.TagNumber(5)
+  set extensions($0.Struct value) => $_setField(5, value);
+  @$pb.TagNumber(5)
+  $core.bool hasExtensions() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearExtensions() => $_clearField(5);
+  @$pb.TagNumber(5)
+  $0.Struct ensureExtensions() => $_ensure(4);
+}
+
+class ResumeLeaseResponse extends $pb.GeneratedMessage {
+  factory ResumeLeaseResponse({
+    $core.String? contractVersion,
+    $core.String? orchestratorId,
+    $core.bool? accepted,
+    Lease? lease,
+    $fixnum.Int64? expiresAtMs,
+    $core.String? currentFencingToken,
+    LeaseRejectionReason? reason,
+    $core.String? message,
+    $0.Struct? extensions,
+  }) {
+    final result = create();
+    if (contractVersion != null) result.contractVersion = contractVersion;
+    if (orchestratorId != null) result.orchestratorId = orchestratorId;
+    if (accepted != null) result.accepted = accepted;
+    if (lease != null) result.lease = lease;
+    if (expiresAtMs != null) result.expiresAtMs = expiresAtMs;
+    if (currentFencingToken != null)
+      result.currentFencingToken = currentFencingToken;
+    if (reason != null) result.reason = reason;
+    if (message != null) result.message = message;
+    if (extensions != null) result.extensions = extensions;
+    return result;
+  }
+
+  ResumeLeaseResponse._();
+
+  factory ResumeLeaseResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory ResumeLeaseResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ResumeLeaseResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'contractVersion')
+    ..aOS(2, _omitFieldNames ? '' : 'orchestratorId')
+    ..aOB(3, _omitFieldNames ? '' : 'accepted')
+    ..aOM<Lease>(4, _omitFieldNames ? '' : 'lease', subBuilder: Lease.create)
+    ..a<$fixnum.Int64>(
+        5, _omitFieldNames ? '' : 'expiresAtMs', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(6, _omitFieldNames ? '' : 'currentFencingToken')
+    ..aE<LeaseRejectionReason>(7, _omitFieldNames ? '' : 'reason',
+        enumValues: LeaseRejectionReason.values)
+    ..aOS(8, _omitFieldNames ? '' : 'message')
+    ..aOM<$0.Struct>(9, _omitFieldNames ? '' : 'extensions',
+        subBuilder: $0.Struct.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ResumeLeaseResponse clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ResumeLeaseResponse copyWith(void Function(ResumeLeaseResponse) updates) =>
+      super.copyWith((message) => updates(message as ResumeLeaseResponse))
+          as ResumeLeaseResponse;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ResumeLeaseResponse create() => ResumeLeaseResponse._();
+  @$core.override
+  ResumeLeaseResponse createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static ResumeLeaseResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ResumeLeaseResponse>(create);
+  static ResumeLeaseResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get contractVersion => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set contractVersion($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasContractVersion() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearContractVersion() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get orchestratorId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set orchestratorId($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasOrchestratorId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearOrchestratorId() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.bool get accepted => $_getBF(2);
+  @$pb.TagNumber(3)
+  set accepted($core.bool value) => $_setBool(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasAccepted() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearAccepted() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  Lease get lease => $_getN(3);
+  @$pb.TagNumber(4)
+  set lease(Lease value) => $_setField(4, value);
+  @$pb.TagNumber(4)
+  $core.bool hasLease() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearLease() => $_clearField(4);
+  @$pb.TagNumber(4)
+  Lease ensureLease() => $_ensure(3);
+
+  @$pb.TagNumber(5)
+  $fixnum.Int64 get expiresAtMs => $_getI64(4);
+  @$pb.TagNumber(5)
+  set expiresAtMs($fixnum.Int64 value) => $_setInt64(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasExpiresAtMs() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearExpiresAtMs() => $_clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get currentFencingToken => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set currentFencingToken($core.String value) => $_setString(5, value);
+  @$pb.TagNumber(6)
+  $core.bool hasCurrentFencingToken() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearCurrentFencingToken() => $_clearField(6);
+
+  @$pb.TagNumber(7)
+  LeaseRejectionReason get reason => $_getN(6);
+  @$pb.TagNumber(7)
+  set reason(LeaseRejectionReason value) => $_setField(7, value);
+  @$pb.TagNumber(7)
+  $core.bool hasReason() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearReason() => $_clearField(7);
+
+  @$pb.TagNumber(8)
+  $core.String get message => $_getSZ(7);
+  @$pb.TagNumber(8)
+  set message($core.String value) => $_setString(7, value);
+  @$pb.TagNumber(8)
+  $core.bool hasMessage() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearMessage() => $_clearField(8);
+
+  @$pb.TagNumber(9)
+  $0.Struct get extensions => $_getN(8);
+  @$pb.TagNumber(9)
+  set extensions($0.Struct value) => $_setField(9, value);
+  @$pb.TagNumber(9)
+  $core.bool hasExtensions() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearExtensions() => $_clearField(9);
+  @$pb.TagNumber(9)
+  $0.Struct ensureExtensions() => $_ensure(8);
+}
+
 class ReportStepStartedRequest extends $pb.GeneratedMessage {
   factory ReportStepStartedRequest({
     $core.String? contractVersion,
@@ -5847,6 +6116,10 @@ class RunnerControlServiceApi {
           $pb.ClientContext? ctx, RenewLeaseRequest request) =>
       _client.invoke<RenewLeaseResponse>(ctx, 'RunnerControlService',
           'RenewLease', request, RenewLeaseResponse());
+  $async.Future<ResumeLeaseResponse> resumeLease(
+          $pb.ClientContext? ctx, ResumeLeaseRequest request) =>
+      _client.invoke<ResumeLeaseResponse>(ctx, 'RunnerControlService',
+          'ResumeLease', request, ResumeLeaseResponse());
   $async.Future<ReportStepStartedResponse> reportStepStarted(
           $pb.ClientContext? ctx, ReportStepStartedRequest request) =>
       _client.invoke<ReportStepStartedResponse>(ctx, 'RunnerControlService',
