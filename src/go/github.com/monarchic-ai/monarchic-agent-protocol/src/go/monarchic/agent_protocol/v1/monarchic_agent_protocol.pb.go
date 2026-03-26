@@ -144,6 +144,61 @@ func (OutcomeDecision) EnumDescriptor() ([]byte, []int) {
 	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{1}
 }
 
+type IntentClass int32
+
+const (
+	IntentClass_INTENT_CLASS_UNSPECIFIED IntentClass = 0
+	IntentClass_INTENT_CLASS_INSPECT     IntentClass = 1
+	IntentClass_INTENT_CLASS_VALIDATE    IntentClass = 2
+	IntentClass_INTENT_CLASS_EXECUTE     IntentClass = 3
+	IntentClass_INTENT_CLASS_VERIFY      IntentClass = 4
+)
+
+// Enum value maps for IntentClass.
+var (
+	IntentClass_name = map[int32]string{
+		0: "INTENT_CLASS_UNSPECIFIED",
+		1: "INTENT_CLASS_INSPECT",
+		2: "INTENT_CLASS_VALIDATE",
+		3: "INTENT_CLASS_EXECUTE",
+		4: "INTENT_CLASS_VERIFY",
+	}
+	IntentClass_value = map[string]int32{
+		"INTENT_CLASS_UNSPECIFIED": 0,
+		"INTENT_CLASS_INSPECT":     1,
+		"INTENT_CLASS_VALIDATE":    2,
+		"INTENT_CLASS_EXECUTE":     3,
+		"INTENT_CLASS_VERIFY":      4,
+	}
+)
+
+func (x IntentClass) Enum() *IntentClass {
+	p := new(IntentClass)
+	*p = x
+	return p
+}
+
+func (x IntentClass) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (IntentClass) Descriptor() protoreflect.EnumDescriptor {
+	return file_monarchic_agent_protocol_proto_enumTypes[2].Descriptor()
+}
+
+func (IntentClass) Type() protoreflect.EnumType {
+	return &file_monarchic_agent_protocol_proto_enumTypes[2]
+}
+
+func (x IntentClass) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use IntentClass.Descriptor instead.
+func (IntentClass) EnumDescriptor() ([]byte, []int) {
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{2}
+}
+
 type PlanStatus int32
 
 const (
@@ -195,11 +250,11 @@ func (x PlanStatus) String() string {
 }
 
 func (PlanStatus) Descriptor() protoreflect.EnumDescriptor {
-	return file_monarchic_agent_protocol_proto_enumTypes[2].Descriptor()
+	return file_monarchic_agent_protocol_proto_enumTypes[3].Descriptor()
 }
 
 func (PlanStatus) Type() protoreflect.EnumType {
-	return &file_monarchic_agent_protocol_proto_enumTypes[2]
+	return &file_monarchic_agent_protocol_proto_enumTypes[3]
 }
 
 func (x PlanStatus) Number() protoreflect.EnumNumber {
@@ -208,7 +263,7 @@ func (x PlanStatus) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use PlanStatus.Descriptor instead.
 func (PlanStatus) EnumDescriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{2}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{3}
 }
 
 type ArtifactKind int32
@@ -271,11 +326,11 @@ func (x ArtifactKind) String() string {
 }
 
 func (ArtifactKind) Descriptor() protoreflect.EnumDescriptor {
-	return file_monarchic_agent_protocol_proto_enumTypes[3].Descriptor()
+	return file_monarchic_agent_protocol_proto_enumTypes[4].Descriptor()
 }
 
 func (ArtifactKind) Type() protoreflect.EnumType {
-	return &file_monarchic_agent_protocol_proto_enumTypes[3]
+	return &file_monarchic_agent_protocol_proto_enumTypes[4]
 }
 
 func (x ArtifactKind) Number() protoreflect.EnumNumber {
@@ -284,7 +339,7 @@ func (x ArtifactKind) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ArtifactKind.Descriptor instead.
 func (ArtifactKind) EnumDescriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{3}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{4}
 }
 
 type PlanStepKind int32
@@ -335,11 +390,11 @@ func (x PlanStepKind) String() string {
 }
 
 func (PlanStepKind) Descriptor() protoreflect.EnumDescriptor {
-	return file_monarchic_agent_protocol_proto_enumTypes[4].Descriptor()
+	return file_monarchic_agent_protocol_proto_enumTypes[5].Descriptor()
 }
 
 func (PlanStepKind) Type() protoreflect.EnumType {
-	return &file_monarchic_agent_protocol_proto_enumTypes[4]
+	return &file_monarchic_agent_protocol_proto_enumTypes[5]
 }
 
 func (x PlanStepKind) Number() protoreflect.EnumNumber {
@@ -348,7 +403,7 @@ func (x PlanStepKind) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use PlanStepKind.Descriptor instead.
 func (PlanStepKind) EnumDescriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{4}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{5}
 }
 
 type ReplanStrategy int32
@@ -390,11 +445,11 @@ func (x ReplanStrategy) String() string {
 }
 
 func (ReplanStrategy) Descriptor() protoreflect.EnumDescriptor {
-	return file_monarchic_agent_protocol_proto_enumTypes[5].Descriptor()
+	return file_monarchic_agent_protocol_proto_enumTypes[6].Descriptor()
 }
 
 func (ReplanStrategy) Type() protoreflect.EnumType {
-	return &file_monarchic_agent_protocol_proto_enumTypes[5]
+	return &file_monarchic_agent_protocol_proto_enumTypes[6]
 }
 
 func (x ReplanStrategy) Number() protoreflect.EnumNumber {
@@ -403,7 +458,7 @@ func (x ReplanStrategy) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ReplanStrategy.Descriptor instead.
 func (ReplanStrategy) EnumDescriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{5}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{6}
 }
 
 type LeaseLifecycleState int32
@@ -451,11 +506,11 @@ func (x LeaseLifecycleState) String() string {
 }
 
 func (LeaseLifecycleState) Descriptor() protoreflect.EnumDescriptor {
-	return file_monarchic_agent_protocol_proto_enumTypes[6].Descriptor()
+	return file_monarchic_agent_protocol_proto_enumTypes[7].Descriptor()
 }
 
 func (LeaseLifecycleState) Type() protoreflect.EnumType {
-	return &file_monarchic_agent_protocol_proto_enumTypes[6]
+	return &file_monarchic_agent_protocol_proto_enumTypes[7]
 }
 
 func (x LeaseLifecycleState) Number() protoreflect.EnumNumber {
@@ -464,7 +519,7 @@ func (x LeaseLifecycleState) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use LeaseLifecycleState.Descriptor instead.
 func (LeaseLifecycleState) EnumDescriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{6}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{7}
 }
 
 type RunLifecycleState int32
@@ -518,11 +573,11 @@ func (x RunLifecycleState) String() string {
 }
 
 func (RunLifecycleState) Descriptor() protoreflect.EnumDescriptor {
-	return file_monarchic_agent_protocol_proto_enumTypes[7].Descriptor()
+	return file_monarchic_agent_protocol_proto_enumTypes[8].Descriptor()
 }
 
 func (RunLifecycleState) Type() protoreflect.EnumType {
-	return &file_monarchic_agent_protocol_proto_enumTypes[7]
+	return &file_monarchic_agent_protocol_proto_enumTypes[8]
 }
 
 func (x RunLifecycleState) Number() protoreflect.EnumNumber {
@@ -531,7 +586,7 @@ func (x RunLifecycleState) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RunLifecycleState.Descriptor instead.
 func (RunLifecycleState) EnumDescriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{7}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{8}
 }
 
 type StepLifecycleState int32
@@ -585,11 +640,11 @@ func (x StepLifecycleState) String() string {
 }
 
 func (StepLifecycleState) Descriptor() protoreflect.EnumDescriptor {
-	return file_monarchic_agent_protocol_proto_enumTypes[8].Descriptor()
+	return file_monarchic_agent_protocol_proto_enumTypes[9].Descriptor()
 }
 
 func (StepLifecycleState) Type() protoreflect.EnumType {
-	return &file_monarchic_agent_protocol_proto_enumTypes[8]
+	return &file_monarchic_agent_protocol_proto_enumTypes[9]
 }
 
 func (x StepLifecycleState) Number() protoreflect.EnumNumber {
@@ -598,7 +653,7 @@ func (x StepLifecycleState) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use StepLifecycleState.Descriptor instead.
 func (StepLifecycleState) EnumDescriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{8}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{9}
 }
 
 type LeaseRejectionReason int32
@@ -652,11 +707,11 @@ func (x LeaseRejectionReason) String() string {
 }
 
 func (LeaseRejectionReason) Descriptor() protoreflect.EnumDescriptor {
-	return file_monarchic_agent_protocol_proto_enumTypes[9].Descriptor()
+	return file_monarchic_agent_protocol_proto_enumTypes[10].Descriptor()
 }
 
 func (LeaseRejectionReason) Type() protoreflect.EnumType {
-	return &file_monarchic_agent_protocol_proto_enumTypes[9]
+	return &file_monarchic_agent_protocol_proto_enumTypes[10]
 }
 
 func (x LeaseRejectionReason) Number() protoreflect.EnumNumber {
@@ -665,7 +720,7 @@ func (x LeaseRejectionReason) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use LeaseRejectionReason.Descriptor instead.
 func (LeaseRejectionReason) EnumDescriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{9}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{10}
 }
 
 type RecoveryEventKind int32
@@ -716,11 +771,11 @@ func (x RecoveryEventKind) String() string {
 }
 
 func (RecoveryEventKind) Descriptor() protoreflect.EnumDescriptor {
-	return file_monarchic_agent_protocol_proto_enumTypes[10].Descriptor()
+	return file_monarchic_agent_protocol_proto_enumTypes[11].Descriptor()
 }
 
 func (RecoveryEventKind) Type() protoreflect.EnumType {
-	return &file_monarchic_agent_protocol_proto_enumTypes[10]
+	return &file_monarchic_agent_protocol_proto_enumTypes[11]
 }
 
 func (x RecoveryEventKind) Number() protoreflect.EnumNumber {
@@ -729,7 +784,7 @@ func (x RecoveryEventKind) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RecoveryEventKind.Descriptor instead.
 func (RecoveryEventKind) EnumDescriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{10}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{11}
 }
 
 type DatasetRef struct {
@@ -1515,6 +1570,7 @@ type Intent struct {
 	Goal          string                 `protobuf:"bytes,7,opt,name=goal,proto3" json:"goal,omitempty"`
 	Constraints   *structpb.Struct       `protobuf:"bytes,8,opt,name=constraints,proto3" json:"constraints,omitempty"`
 	ContextDigest string                 `protobuf:"bytes,9,opt,name=context_digest,json=contextDigest,proto3" json:"context_digest,omitempty"`
+	IntentClass   IntentClass            `protobuf:"varint,10,opt,name=intent_class,json=intentClass,proto3,enum=monarchic.agent_protocol.v1.IntentClass" json:"intent_class,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1610,6 +1666,13 @@ func (x *Intent) GetContextDigest() string {
 		return x.ContextDigest
 	}
 	return ""
+}
+
+func (x *Intent) GetIntentClass() IntentClass {
+	if x != nil {
+		return x.IntentClass
+	}
+	return IntentClass_INTENT_CLASS_UNSPECIFIED
 }
 
 type RoleProvenance struct {
@@ -5434,7 +5497,7 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"\x11_task_spec_sha256B\x12\n" +
 	"\x10_pipeline_sha256B\x11\n" +
 	"\x0f_command_sha256B\x11\n" +
-	"\x0f_source_task_id\"\xc3\x02\n" +
+	"\x0f_source_task_id\"\x90\x03\n" +
 	"\x06Intent\x12\x1b\n" +
 	"\tintent_id\x18\x01 \x01(\tR\bintentId\x12!\n" +
 	"\fsubmitted_at\x18\x02 \x01(\x04R\vsubmittedAt\x12\x1c\n" +
@@ -5446,7 +5509,9 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"target_ref\x18\x06 \x01(\tR\ttargetRef\x12\x12\n" +
 	"\x04goal\x18\a \x01(\tR\x04goal\x129\n" +
 	"\vconstraints\x18\b \x01(\v2\x17.google.protobuf.StructR\vconstraints\x12%\n" +
-	"\x0econtext_digest\x18\t \x01(\tR\rcontextDigest\"s\n" +
+	"\x0econtext_digest\x18\t \x01(\tR\rcontextDigest\x12K\n" +
+	"\fintent_class\x18\n" +
+	" \x01(\x0e2(.monarchic.agent_protocol.v1.IntentClassR\vintentClass\"s\n" +
 	"\x0eRoleProvenance\x12\x1b\n" +
 	"\trole_name\x18\x01 \x01(\tR\broleName\x12#\n" +
 	"\rtemplate_hash\x18\x02 \x01(\tR\ftemplateHash\x12\x1f\n" +
@@ -5942,6 +6007,12 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"\n" +
 	"\x06REJECT\x10\x03\x12\f\n" +
 	"\bESCALATE\x10\x04*\x93\x01\n" +
+	"\vIntentClass\x12\x1c\n" +
+	"\x18INTENT_CLASS_UNSPECIFIED\x10\x00\x12\x18\n" +
+	"\x14INTENT_CLASS_INSPECT\x10\x01\x12\x19\n" +
+	"\x15INTENT_CLASS_VALIDATE\x10\x02\x12\x18\n" +
+	"\x14INTENT_CLASS_EXECUTE\x10\x03\x12\x17\n" +
+	"\x13INTENT_CLASS_VERIFY\x10\x04*\x93\x01\n" +
 	"\n" +
 	"PlanStatus\x12\x1b\n" +
 	"\x17PLAN_STATUS_UNSPECIFIED\x10\x00\x12\t\n" +
@@ -6058,211 +6129,213 @@ func file_monarchic_agent_protocol_proto_rawDescGZIP() []byte {
 	return file_monarchic_agent_protocol_proto_rawDescData
 }
 
-var file_monarchic_agent_protocol_proto_enumTypes = make([]protoimpl.EnumInfo, 11)
+var file_monarchic_agent_protocol_proto_enumTypes = make([]protoimpl.EnumInfo, 12)
 var file_monarchic_agent_protocol_proto_msgTypes = make([]protoimpl.MessageInfo, 48)
 var file_monarchic_agent_protocol_proto_goTypes = []any{
 	(AgentRole)(0),                     // 0: monarchic.agent_protocol.v1.AgentRole
 	(OutcomeDecision)(0),               // 1: monarchic.agent_protocol.v1.OutcomeDecision
-	(PlanStatus)(0),                    // 2: monarchic.agent_protocol.v1.PlanStatus
-	(ArtifactKind)(0),                  // 3: monarchic.agent_protocol.v1.ArtifactKind
-	(PlanStepKind)(0),                  // 4: monarchic.agent_protocol.v1.PlanStepKind
-	(ReplanStrategy)(0),                // 5: monarchic.agent_protocol.v1.ReplanStrategy
-	(LeaseLifecycleState)(0),           // 6: monarchic.agent_protocol.v1.LeaseLifecycleState
-	(RunLifecycleState)(0),             // 7: monarchic.agent_protocol.v1.RunLifecycleState
-	(StepLifecycleState)(0),            // 8: monarchic.agent_protocol.v1.StepLifecycleState
-	(LeaseRejectionReason)(0),          // 9: monarchic.agent_protocol.v1.LeaseRejectionReason
-	(RecoveryEventKind)(0),             // 10: monarchic.agent_protocol.v1.RecoveryEventKind
-	(*DatasetRef)(nil),                 // 11: monarchic.agent_protocol.v1.DatasetRef
-	(*AcceptanceCriteria)(nil),         // 12: monarchic.agent_protocol.v1.AcceptanceCriteria
-	(*ExperimentSpec)(nil),             // 13: monarchic.agent_protocol.v1.ExperimentSpec
-	(*ObjectiveSpec)(nil),              // 14: monarchic.agent_protocol.v1.ObjectiveSpec
-	(*EvalResult)(nil),                 // 15: monarchic.agent_protocol.v1.EvalResult
-	(*FailureClass)(nil),               // 16: monarchic.agent_protocol.v1.FailureClass
-	(*Provenance)(nil),                 // 17: monarchic.agent_protocol.v1.Provenance
-	(*Intent)(nil),                     // 18: monarchic.agent_protocol.v1.Intent
-	(*RoleProvenance)(nil),             // 19: monarchic.agent_protocol.v1.RoleProvenance
-	(*PlanProvenance)(nil),             // 20: monarchic.agent_protocol.v1.PlanProvenance
-	(*FailureDetail)(nil),              // 21: monarchic.agent_protocol.v1.FailureDetail
-	(*ReplanPolicy)(nil),               // 22: monarchic.agent_protocol.v1.ReplanPolicy
-	(*StepOutputExpectation)(nil),      // 23: monarchic.agent_protocol.v1.StepOutputExpectation
-	(*PlanStep)(nil),                   // 24: monarchic.agent_protocol.v1.PlanStep
-	(*Plan)(nil),                       // 25: monarchic.agent_protocol.v1.Plan
-	(*ExecutionReceipt)(nil),           // 26: monarchic.agent_protocol.v1.ExecutionReceipt
-	(*Task)(nil),                       // 27: monarchic.agent_protocol.v1.Task
-	(*Artifact)(nil),                   // 28: monarchic.agent_protocol.v1.Artifact
-	(*Event)(nil),                      // 29: monarchic.agent_protocol.v1.Event
-	(*GateResult)(nil),                 // 30: monarchic.agent_protocol.v1.GateResult
-	(*RunOutcome)(nil),                 // 31: monarchic.agent_protocol.v1.RunOutcome
-	(*RunContext)(nil),                 // 32: monarchic.agent_protocol.v1.RunContext
-	(*RunnerCapabilities)(nil),         // 33: monarchic.agent_protocol.v1.RunnerCapabilities
-	(*LeaseRef)(nil),                   // 34: monarchic.agent_protocol.v1.LeaseRef
-	(*FencingToken)(nil),               // 35: monarchic.agent_protocol.v1.FencingToken
-	(*Lease)(nil),                      // 36: monarchic.agent_protocol.v1.Lease
-	(*RecoveryEvent)(nil),              // 37: monarchic.agent_protocol.v1.RecoveryEvent
-	(*LeaseStatus)(nil),                // 38: monarchic.agent_protocol.v1.LeaseStatus
-	(*CancellationIntent)(nil),         // 39: monarchic.agent_protocol.v1.CancellationIntent
-	(*LeaseAssignment)(nil),            // 40: monarchic.agent_protocol.v1.LeaseAssignment
-	(*RegisterRunnerRequest)(nil),      // 41: monarchic.agent_protocol.v1.RegisterRunnerRequest
-	(*RegisterRunnerResponse)(nil),     // 42: monarchic.agent_protocol.v1.RegisterRunnerResponse
-	(*HeartbeatRequest)(nil),           // 43: monarchic.agent_protocol.v1.HeartbeatRequest
-	(*HeartbeatResponse)(nil),          // 44: monarchic.agent_protocol.v1.HeartbeatResponse
-	(*AcquireLeaseRequest)(nil),        // 45: monarchic.agent_protocol.v1.AcquireLeaseRequest
-	(*AcquireLeaseResponse)(nil),       // 46: monarchic.agent_protocol.v1.AcquireLeaseResponse
-	(*RenewLeaseRequest)(nil),          // 47: monarchic.agent_protocol.v1.RenewLeaseRequest
-	(*RenewLeaseResponse)(nil),         // 48: monarchic.agent_protocol.v1.RenewLeaseResponse
-	(*ResumeLeaseRequest)(nil),         // 49: monarchic.agent_protocol.v1.ResumeLeaseRequest
-	(*ResumeLeaseResponse)(nil),        // 50: monarchic.agent_protocol.v1.ResumeLeaseResponse
-	(*ReportStepStartedRequest)(nil),   // 51: monarchic.agent_protocol.v1.ReportStepStartedRequest
-	(*ReportStepStartedResponse)(nil),  // 52: monarchic.agent_protocol.v1.ReportStepStartedResponse
-	(*ReportStepProgressRequest)(nil),  // 53: monarchic.agent_protocol.v1.ReportStepProgressRequest
-	(*ReportStepProgressResponse)(nil), // 54: monarchic.agent_protocol.v1.ReportStepProgressResponse
-	(*ReportStepOutcomeRequest)(nil),   // 55: monarchic.agent_protocol.v1.ReportStepOutcomeRequest
-	(*ReportStepOutcomeResponse)(nil),  // 56: monarchic.agent_protocol.v1.ReportStepOutcomeResponse
-	(*AckCancellationRequest)(nil),     // 57: monarchic.agent_protocol.v1.AckCancellationRequest
-	(*AckCancellationResponse)(nil),    // 58: monarchic.agent_protocol.v1.AckCancellationResponse
-	(*structpb.Struct)(nil),            // 59: google.protobuf.Struct
+	(IntentClass)(0),                   // 2: monarchic.agent_protocol.v1.IntentClass
+	(PlanStatus)(0),                    // 3: monarchic.agent_protocol.v1.PlanStatus
+	(ArtifactKind)(0),                  // 4: monarchic.agent_protocol.v1.ArtifactKind
+	(PlanStepKind)(0),                  // 5: monarchic.agent_protocol.v1.PlanStepKind
+	(ReplanStrategy)(0),                // 6: monarchic.agent_protocol.v1.ReplanStrategy
+	(LeaseLifecycleState)(0),           // 7: monarchic.agent_protocol.v1.LeaseLifecycleState
+	(RunLifecycleState)(0),             // 8: monarchic.agent_protocol.v1.RunLifecycleState
+	(StepLifecycleState)(0),            // 9: monarchic.agent_protocol.v1.StepLifecycleState
+	(LeaseRejectionReason)(0),          // 10: monarchic.agent_protocol.v1.LeaseRejectionReason
+	(RecoveryEventKind)(0),             // 11: monarchic.agent_protocol.v1.RecoveryEventKind
+	(*DatasetRef)(nil),                 // 12: monarchic.agent_protocol.v1.DatasetRef
+	(*AcceptanceCriteria)(nil),         // 13: monarchic.agent_protocol.v1.AcceptanceCriteria
+	(*ExperimentSpec)(nil),             // 14: monarchic.agent_protocol.v1.ExperimentSpec
+	(*ObjectiveSpec)(nil),              // 15: monarchic.agent_protocol.v1.ObjectiveSpec
+	(*EvalResult)(nil),                 // 16: monarchic.agent_protocol.v1.EvalResult
+	(*FailureClass)(nil),               // 17: monarchic.agent_protocol.v1.FailureClass
+	(*Provenance)(nil),                 // 18: monarchic.agent_protocol.v1.Provenance
+	(*Intent)(nil),                     // 19: monarchic.agent_protocol.v1.Intent
+	(*RoleProvenance)(nil),             // 20: monarchic.agent_protocol.v1.RoleProvenance
+	(*PlanProvenance)(nil),             // 21: monarchic.agent_protocol.v1.PlanProvenance
+	(*FailureDetail)(nil),              // 22: monarchic.agent_protocol.v1.FailureDetail
+	(*ReplanPolicy)(nil),               // 23: monarchic.agent_protocol.v1.ReplanPolicy
+	(*StepOutputExpectation)(nil),      // 24: monarchic.agent_protocol.v1.StepOutputExpectation
+	(*PlanStep)(nil),                   // 25: monarchic.agent_protocol.v1.PlanStep
+	(*Plan)(nil),                       // 26: monarchic.agent_protocol.v1.Plan
+	(*ExecutionReceipt)(nil),           // 27: monarchic.agent_protocol.v1.ExecutionReceipt
+	(*Task)(nil),                       // 28: monarchic.agent_protocol.v1.Task
+	(*Artifact)(nil),                   // 29: monarchic.agent_protocol.v1.Artifact
+	(*Event)(nil),                      // 30: monarchic.agent_protocol.v1.Event
+	(*GateResult)(nil),                 // 31: monarchic.agent_protocol.v1.GateResult
+	(*RunOutcome)(nil),                 // 32: monarchic.agent_protocol.v1.RunOutcome
+	(*RunContext)(nil),                 // 33: monarchic.agent_protocol.v1.RunContext
+	(*RunnerCapabilities)(nil),         // 34: monarchic.agent_protocol.v1.RunnerCapabilities
+	(*LeaseRef)(nil),                   // 35: monarchic.agent_protocol.v1.LeaseRef
+	(*FencingToken)(nil),               // 36: monarchic.agent_protocol.v1.FencingToken
+	(*Lease)(nil),                      // 37: monarchic.agent_protocol.v1.Lease
+	(*RecoveryEvent)(nil),              // 38: monarchic.agent_protocol.v1.RecoveryEvent
+	(*LeaseStatus)(nil),                // 39: monarchic.agent_protocol.v1.LeaseStatus
+	(*CancellationIntent)(nil),         // 40: monarchic.agent_protocol.v1.CancellationIntent
+	(*LeaseAssignment)(nil),            // 41: monarchic.agent_protocol.v1.LeaseAssignment
+	(*RegisterRunnerRequest)(nil),      // 42: monarchic.agent_protocol.v1.RegisterRunnerRequest
+	(*RegisterRunnerResponse)(nil),     // 43: monarchic.agent_protocol.v1.RegisterRunnerResponse
+	(*HeartbeatRequest)(nil),           // 44: monarchic.agent_protocol.v1.HeartbeatRequest
+	(*HeartbeatResponse)(nil),          // 45: monarchic.agent_protocol.v1.HeartbeatResponse
+	(*AcquireLeaseRequest)(nil),        // 46: monarchic.agent_protocol.v1.AcquireLeaseRequest
+	(*AcquireLeaseResponse)(nil),       // 47: monarchic.agent_protocol.v1.AcquireLeaseResponse
+	(*RenewLeaseRequest)(nil),          // 48: monarchic.agent_protocol.v1.RenewLeaseRequest
+	(*RenewLeaseResponse)(nil),         // 49: monarchic.agent_protocol.v1.RenewLeaseResponse
+	(*ResumeLeaseRequest)(nil),         // 50: monarchic.agent_protocol.v1.ResumeLeaseRequest
+	(*ResumeLeaseResponse)(nil),        // 51: monarchic.agent_protocol.v1.ResumeLeaseResponse
+	(*ReportStepStartedRequest)(nil),   // 52: monarchic.agent_protocol.v1.ReportStepStartedRequest
+	(*ReportStepStartedResponse)(nil),  // 53: monarchic.agent_protocol.v1.ReportStepStartedResponse
+	(*ReportStepProgressRequest)(nil),  // 54: monarchic.agent_protocol.v1.ReportStepProgressRequest
+	(*ReportStepProgressResponse)(nil), // 55: monarchic.agent_protocol.v1.ReportStepProgressResponse
+	(*ReportStepOutcomeRequest)(nil),   // 56: monarchic.agent_protocol.v1.ReportStepOutcomeRequest
+	(*ReportStepOutcomeResponse)(nil),  // 57: monarchic.agent_protocol.v1.ReportStepOutcomeResponse
+	(*AckCancellationRequest)(nil),     // 58: monarchic.agent_protocol.v1.AckCancellationRequest
+	(*AckCancellationResponse)(nil),    // 59: monarchic.agent_protocol.v1.AckCancellationResponse
+	(*structpb.Struct)(nil),            // 60: google.protobuf.Struct
 }
 var file_monarchic_agent_protocol_proto_depIdxs = []int32{
-	59,  // 0: monarchic.agent_protocol.v1.DatasetRef.extensions:type_name -> google.protobuf.Struct
-	59,  // 1: monarchic.agent_protocol.v1.AcceptanceCriteria.extensions:type_name -> google.protobuf.Struct
-	11,  // 2: monarchic.agent_protocol.v1.ExperimentSpec.dataset_refs:type_name -> monarchic.agent_protocol.v1.DatasetRef
-	12,  // 3: monarchic.agent_protocol.v1.ExperimentSpec.acceptance:type_name -> monarchic.agent_protocol.v1.AcceptanceCriteria
-	59,  // 4: monarchic.agent_protocol.v1.ExperimentSpec.constraints:type_name -> google.protobuf.Struct
-	59,  // 5: monarchic.agent_protocol.v1.ExperimentSpec.extensions:type_name -> google.protobuf.Struct
-	59,  // 6: monarchic.agent_protocol.v1.ObjectiveSpec.extensions:type_name -> google.protobuf.Struct
-	59,  // 7: monarchic.agent_protocol.v1.EvalResult.extensions:type_name -> google.protobuf.Struct
-	59,  // 8: monarchic.agent_protocol.v1.FailureClass.extensions:type_name -> google.protobuf.Struct
-	11,  // 9: monarchic.agent_protocol.v1.Provenance.dataset_refs:type_name -> monarchic.agent_protocol.v1.DatasetRef
-	59,  // 10: monarchic.agent_protocol.v1.Provenance.extensions:type_name -> google.protobuf.Struct
-	59,  // 11: monarchic.agent_protocol.v1.Intent.constraints:type_name -> google.protobuf.Struct
-	19,  // 12: monarchic.agent_protocol.v1.PlanProvenance.role:type_name -> monarchic.agent_protocol.v1.RoleProvenance
-	59,  // 13: monarchic.agent_protocol.v1.FailureDetail.details:type_name -> google.protobuf.Struct
-	5,   // 14: monarchic.agent_protocol.v1.ReplanPolicy.strategy:type_name -> monarchic.agent_protocol.v1.ReplanStrategy
-	3,   // 15: monarchic.agent_protocol.v1.StepOutputExpectation.kind:type_name -> monarchic.agent_protocol.v1.ArtifactKind
-	59,  // 16: monarchic.agent_protocol.v1.PlanStep.task_template:type_name -> google.protobuf.Struct
-	21,  // 17: monarchic.agent_protocol.v1.PlanStep.failure:type_name -> monarchic.agent_protocol.v1.FailureDetail
-	4,   // 18: monarchic.agent_protocol.v1.PlanStep.kind:type_name -> monarchic.agent_protocol.v1.PlanStepKind
-	59,  // 19: monarchic.agent_protocol.v1.PlanStep.inputs:type_name -> google.protobuf.Struct
-	23,  // 20: monarchic.agent_protocol.v1.PlanStep.expected_outputs:type_name -> monarchic.agent_protocol.v1.StepOutputExpectation
-	2,   // 21: monarchic.agent_protocol.v1.Plan.status:type_name -> monarchic.agent_protocol.v1.PlanStatus
-	20,  // 22: monarchic.agent_protocol.v1.Plan.provenance:type_name -> monarchic.agent_protocol.v1.PlanProvenance
-	24,  // 23: monarchic.agent_protocol.v1.Plan.steps:type_name -> monarchic.agent_protocol.v1.PlanStep
-	22,  // 24: monarchic.agent_protocol.v1.Plan.replan_policy:type_name -> monarchic.agent_protocol.v1.ReplanPolicy
-	2,   // 25: monarchic.agent_protocol.v1.ExecutionReceipt.status:type_name -> monarchic.agent_protocol.v1.PlanStatus
-	21,  // 26: monarchic.agent_protocol.v1.ExecutionReceipt.failure:type_name -> monarchic.agent_protocol.v1.FailureDetail
-	0,   // 27: monarchic.agent_protocol.v1.Task.role:type_name -> monarchic.agent_protocol.v1.AgentRole
-	59,  // 28: monarchic.agent_protocol.v1.Task.inputs:type_name -> google.protobuf.Struct
-	59,  // 29: monarchic.agent_protocol.v1.Task.constraints:type_name -> google.protobuf.Struct
-	32,  // 30: monarchic.agent_protocol.v1.Task.run_context:type_name -> monarchic.agent_protocol.v1.RunContext
-	59,  // 31: monarchic.agent_protocol.v1.Task.extensions:type_name -> google.protobuf.Struct
-	13,  // 32: monarchic.agent_protocol.v1.Task.experiment_spec:type_name -> monarchic.agent_protocol.v1.ExperimentSpec
-	14,  // 33: monarchic.agent_protocol.v1.Task.objective_spec:type_name -> monarchic.agent_protocol.v1.ObjectiveSpec
-	59,  // 34: monarchic.agent_protocol.v1.Artifact.extensions:type_name -> google.protobuf.Struct
-	17,  // 35: monarchic.agent_protocol.v1.Artifact.provenance:type_name -> monarchic.agent_protocol.v1.Provenance
-	11,  // 36: monarchic.agent_protocol.v1.Artifact.dataset_refs:type_name -> monarchic.agent_protocol.v1.DatasetRef
-	15,  // 37: monarchic.agent_protocol.v1.Artifact.eval_results:type_name -> monarchic.agent_protocol.v1.EvalResult
-	13,  // 38: monarchic.agent_protocol.v1.Artifact.experiment_spec:type_name -> monarchic.agent_protocol.v1.ExperimentSpec
-	59,  // 39: monarchic.agent_protocol.v1.Event.extensions:type_name -> google.protobuf.Struct
-	17,  // 40: monarchic.agent_protocol.v1.Event.provenance:type_name -> monarchic.agent_protocol.v1.Provenance
-	15,  // 41: monarchic.agent_protocol.v1.Event.eval_results:type_name -> monarchic.agent_protocol.v1.EvalResult
-	16,  // 42: monarchic.agent_protocol.v1.Event.failure_class:type_name -> monarchic.agent_protocol.v1.FailureClass
-	59,  // 43: monarchic.agent_protocol.v1.GateResult.evidence:type_name -> google.protobuf.Struct
-	59,  // 44: monarchic.agent_protocol.v1.GateResult.extensions:type_name -> google.protobuf.Struct
-	16,  // 45: monarchic.agent_protocol.v1.GateResult.failure_class:type_name -> monarchic.agent_protocol.v1.FailureClass
-	1,   // 46: monarchic.agent_protocol.v1.RunOutcome.objective_decision:type_name -> monarchic.agent_protocol.v1.OutcomeDecision
-	1,   // 47: monarchic.agent_protocol.v1.RunOutcome.cost_decision:type_name -> monarchic.agent_protocol.v1.OutcomeDecision
-	1,   // 48: monarchic.agent_protocol.v1.RunOutcome.risk_decision:type_name -> monarchic.agent_protocol.v1.OutcomeDecision
-	1,   // 49: monarchic.agent_protocol.v1.RunOutcome.final_decision:type_name -> monarchic.agent_protocol.v1.OutcomeDecision
-	59,  // 50: monarchic.agent_protocol.v1.RunOutcome.evidence:type_name -> google.protobuf.Struct
-	59,  // 51: monarchic.agent_protocol.v1.RunOutcome.extensions:type_name -> google.protobuf.Struct
-	59,  // 52: monarchic.agent_protocol.v1.RunContext.extensions:type_name -> google.protobuf.Struct
-	0,   // 53: monarchic.agent_protocol.v1.RunnerCapabilities.supported_roles:type_name -> monarchic.agent_protocol.v1.AgentRole
-	59,  // 54: monarchic.agent_protocol.v1.RunnerCapabilities.extensions:type_name -> google.protobuf.Struct
-	59,  // 55: monarchic.agent_protocol.v1.FencingToken.extensions:type_name -> google.protobuf.Struct
-	35,  // 56: monarchic.agent_protocol.v1.Lease.fencing_token:type_name -> monarchic.agent_protocol.v1.FencingToken
-	6,   // 57: monarchic.agent_protocol.v1.Lease.status:type_name -> monarchic.agent_protocol.v1.LeaseLifecycleState
-	59,  // 58: monarchic.agent_protocol.v1.Lease.extensions:type_name -> google.protobuf.Struct
-	10,  // 59: monarchic.agent_protocol.v1.RecoveryEvent.kind:type_name -> monarchic.agent_protocol.v1.RecoveryEventKind
-	59,  // 60: monarchic.agent_protocol.v1.RecoveryEvent.details:type_name -> google.protobuf.Struct
-	7,   // 61: monarchic.agent_protocol.v1.RecoveryEvent.run_state:type_name -> monarchic.agent_protocol.v1.RunLifecycleState
-	8,   // 62: monarchic.agent_protocol.v1.RecoveryEvent.step_state:type_name -> monarchic.agent_protocol.v1.StepLifecycleState
-	9,   // 63: monarchic.agent_protocol.v1.RecoveryEvent.lease_rejection_reason:type_name -> monarchic.agent_protocol.v1.LeaseRejectionReason
-	34,  // 64: monarchic.agent_protocol.v1.LeaseStatus.lease:type_name -> monarchic.agent_protocol.v1.LeaseRef
-	21,  // 65: monarchic.agent_protocol.v1.LeaseStatus.failure:type_name -> monarchic.agent_protocol.v1.FailureDetail
-	59,  // 66: monarchic.agent_protocol.v1.LeaseStatus.extensions:type_name -> google.protobuf.Struct
-	34,  // 67: monarchic.agent_protocol.v1.CancellationIntent.lease:type_name -> monarchic.agent_protocol.v1.LeaseRef
-	59,  // 68: monarchic.agent_protocol.v1.CancellationIntent.extensions:type_name -> google.protobuf.Struct
-	34,  // 69: monarchic.agent_protocol.v1.LeaseAssignment.lease:type_name -> monarchic.agent_protocol.v1.LeaseRef
-	27,  // 70: monarchic.agent_protocol.v1.LeaseAssignment.task:type_name -> monarchic.agent_protocol.v1.Task
-	59,  // 71: monarchic.agent_protocol.v1.LeaseAssignment.extensions:type_name -> google.protobuf.Struct
-	33,  // 72: monarchic.agent_protocol.v1.RegisterRunnerRequest.capabilities:type_name -> monarchic.agent_protocol.v1.RunnerCapabilities
-	59,  // 73: monarchic.agent_protocol.v1.RegisterRunnerRequest.extensions:type_name -> google.protobuf.Struct
-	59,  // 74: monarchic.agent_protocol.v1.RegisterRunnerResponse.extensions:type_name -> google.protobuf.Struct
-	38,  // 75: monarchic.agent_protocol.v1.HeartbeatRequest.active_leases:type_name -> monarchic.agent_protocol.v1.LeaseStatus
-	59,  // 76: monarchic.agent_protocol.v1.HeartbeatRequest.extensions:type_name -> google.protobuf.Struct
-	39,  // 77: monarchic.agent_protocol.v1.HeartbeatResponse.cancellations:type_name -> monarchic.agent_protocol.v1.CancellationIntent
-	59,  // 78: monarchic.agent_protocol.v1.HeartbeatResponse.extensions:type_name -> google.protobuf.Struct
-	59,  // 79: monarchic.agent_protocol.v1.AcquireLeaseRequest.extensions:type_name -> google.protobuf.Struct
-	40,  // 80: monarchic.agent_protocol.v1.AcquireLeaseResponse.assignment:type_name -> monarchic.agent_protocol.v1.LeaseAssignment
-	39,  // 81: monarchic.agent_protocol.v1.AcquireLeaseResponse.cancellations:type_name -> monarchic.agent_protocol.v1.CancellationIntent
-	59,  // 82: monarchic.agent_protocol.v1.AcquireLeaseResponse.extensions:type_name -> google.protobuf.Struct
-	34,  // 83: monarchic.agent_protocol.v1.RenewLeaseRequest.lease:type_name -> monarchic.agent_protocol.v1.LeaseRef
-	59,  // 84: monarchic.agent_protocol.v1.RenewLeaseRequest.extensions:type_name -> google.protobuf.Struct
-	39,  // 85: monarchic.agent_protocol.v1.RenewLeaseResponse.cancellations:type_name -> monarchic.agent_protocol.v1.CancellationIntent
-	21,  // 86: monarchic.agent_protocol.v1.RenewLeaseResponse.failure:type_name -> monarchic.agent_protocol.v1.FailureDetail
-	59,  // 87: monarchic.agent_protocol.v1.RenewLeaseResponse.extensions:type_name -> google.protobuf.Struct
-	34,  // 88: monarchic.agent_protocol.v1.ResumeLeaseRequest.lease:type_name -> monarchic.agent_protocol.v1.LeaseRef
-	59,  // 89: monarchic.agent_protocol.v1.ResumeLeaseRequest.extensions:type_name -> google.protobuf.Struct
-	36,  // 90: monarchic.agent_protocol.v1.ResumeLeaseResponse.lease:type_name -> monarchic.agent_protocol.v1.Lease
-	9,   // 91: monarchic.agent_protocol.v1.ResumeLeaseResponse.reason:type_name -> monarchic.agent_protocol.v1.LeaseRejectionReason
-	59,  // 92: monarchic.agent_protocol.v1.ResumeLeaseResponse.extensions:type_name -> google.protobuf.Struct
-	34,  // 93: monarchic.agent_protocol.v1.ReportStepStartedRequest.lease:type_name -> monarchic.agent_protocol.v1.LeaseRef
-	59,  // 94: monarchic.agent_protocol.v1.ReportStepStartedRequest.extensions:type_name -> google.protobuf.Struct
-	21,  // 95: monarchic.agent_protocol.v1.ReportStepStartedResponse.failure:type_name -> monarchic.agent_protocol.v1.FailureDetail
-	59,  // 96: monarchic.agent_protocol.v1.ReportStepStartedResponse.extensions:type_name -> google.protobuf.Struct
-	34,  // 97: monarchic.agent_protocol.v1.ReportStepProgressRequest.lease:type_name -> monarchic.agent_protocol.v1.LeaseRef
-	29,  // 98: monarchic.agent_protocol.v1.ReportStepProgressRequest.events:type_name -> monarchic.agent_protocol.v1.Event
-	28,  // 99: monarchic.agent_protocol.v1.ReportStepProgressRequest.artifacts:type_name -> monarchic.agent_protocol.v1.Artifact
-	59,  // 100: monarchic.agent_protocol.v1.ReportStepProgressRequest.extensions:type_name -> google.protobuf.Struct
-	39,  // 101: monarchic.agent_protocol.v1.ReportStepProgressResponse.cancellations:type_name -> monarchic.agent_protocol.v1.CancellationIntent
-	21,  // 102: monarchic.agent_protocol.v1.ReportStepProgressResponse.failure:type_name -> monarchic.agent_protocol.v1.FailureDetail
-	59,  // 103: monarchic.agent_protocol.v1.ReportStepProgressResponse.extensions:type_name -> google.protobuf.Struct
-	34,  // 104: monarchic.agent_protocol.v1.ReportStepOutcomeRequest.lease:type_name -> monarchic.agent_protocol.v1.LeaseRef
-	2,   // 105: monarchic.agent_protocol.v1.ReportStepOutcomeRequest.status:type_name -> monarchic.agent_protocol.v1.PlanStatus
-	29,  // 106: monarchic.agent_protocol.v1.ReportStepOutcomeRequest.events:type_name -> monarchic.agent_protocol.v1.Event
-	28,  // 107: monarchic.agent_protocol.v1.ReportStepOutcomeRequest.artifacts:type_name -> monarchic.agent_protocol.v1.Artifact
-	31,  // 108: monarchic.agent_protocol.v1.ReportStepOutcomeRequest.run_outcome:type_name -> monarchic.agent_protocol.v1.RunOutcome
-	21,  // 109: monarchic.agent_protocol.v1.ReportStepOutcomeRequest.failure:type_name -> monarchic.agent_protocol.v1.FailureDetail
-	59,  // 110: monarchic.agent_protocol.v1.ReportStepOutcomeRequest.extensions:type_name -> google.protobuf.Struct
-	21,  // 111: monarchic.agent_protocol.v1.ReportStepOutcomeResponse.failure:type_name -> monarchic.agent_protocol.v1.FailureDetail
-	59,  // 112: monarchic.agent_protocol.v1.ReportStepOutcomeResponse.extensions:type_name -> google.protobuf.Struct
-	34,  // 113: monarchic.agent_protocol.v1.AckCancellationRequest.lease:type_name -> monarchic.agent_protocol.v1.LeaseRef
-	59,  // 114: monarchic.agent_protocol.v1.AckCancellationRequest.extensions:type_name -> google.protobuf.Struct
-	21,  // 115: monarchic.agent_protocol.v1.AckCancellationResponse.failure:type_name -> monarchic.agent_protocol.v1.FailureDetail
-	59,  // 116: monarchic.agent_protocol.v1.AckCancellationResponse.extensions:type_name -> google.protobuf.Struct
-	41,  // 117: monarchic.agent_protocol.v1.RunnerControlService.RegisterRunner:input_type -> monarchic.agent_protocol.v1.RegisterRunnerRequest
-	43,  // 118: monarchic.agent_protocol.v1.RunnerControlService.Heartbeat:input_type -> monarchic.agent_protocol.v1.HeartbeatRequest
-	45,  // 119: monarchic.agent_protocol.v1.RunnerControlService.AcquireLease:input_type -> monarchic.agent_protocol.v1.AcquireLeaseRequest
-	47,  // 120: monarchic.agent_protocol.v1.RunnerControlService.RenewLease:input_type -> monarchic.agent_protocol.v1.RenewLeaseRequest
-	49,  // 121: monarchic.agent_protocol.v1.RunnerControlService.ResumeLease:input_type -> monarchic.agent_protocol.v1.ResumeLeaseRequest
-	51,  // 122: monarchic.agent_protocol.v1.RunnerControlService.ReportStepStarted:input_type -> monarchic.agent_protocol.v1.ReportStepStartedRequest
-	53,  // 123: monarchic.agent_protocol.v1.RunnerControlService.ReportStepProgress:input_type -> monarchic.agent_protocol.v1.ReportStepProgressRequest
-	55,  // 124: monarchic.agent_protocol.v1.RunnerControlService.ReportStepOutcome:input_type -> monarchic.agent_protocol.v1.ReportStepOutcomeRequest
-	57,  // 125: monarchic.agent_protocol.v1.RunnerControlService.AckCancellation:input_type -> monarchic.agent_protocol.v1.AckCancellationRequest
-	42,  // 126: monarchic.agent_protocol.v1.RunnerControlService.RegisterRunner:output_type -> monarchic.agent_protocol.v1.RegisterRunnerResponse
-	44,  // 127: monarchic.agent_protocol.v1.RunnerControlService.Heartbeat:output_type -> monarchic.agent_protocol.v1.HeartbeatResponse
-	46,  // 128: monarchic.agent_protocol.v1.RunnerControlService.AcquireLease:output_type -> monarchic.agent_protocol.v1.AcquireLeaseResponse
-	48,  // 129: monarchic.agent_protocol.v1.RunnerControlService.RenewLease:output_type -> monarchic.agent_protocol.v1.RenewLeaseResponse
-	50,  // 130: monarchic.agent_protocol.v1.RunnerControlService.ResumeLease:output_type -> monarchic.agent_protocol.v1.ResumeLeaseResponse
-	52,  // 131: monarchic.agent_protocol.v1.RunnerControlService.ReportStepStarted:output_type -> monarchic.agent_protocol.v1.ReportStepStartedResponse
-	54,  // 132: monarchic.agent_protocol.v1.RunnerControlService.ReportStepProgress:output_type -> monarchic.agent_protocol.v1.ReportStepProgressResponse
-	56,  // 133: monarchic.agent_protocol.v1.RunnerControlService.ReportStepOutcome:output_type -> monarchic.agent_protocol.v1.ReportStepOutcomeResponse
-	58,  // 134: monarchic.agent_protocol.v1.RunnerControlService.AckCancellation:output_type -> monarchic.agent_protocol.v1.AckCancellationResponse
-	126, // [126:135] is the sub-list for method output_type
-	117, // [117:126] is the sub-list for method input_type
-	117, // [117:117] is the sub-list for extension type_name
-	117, // [117:117] is the sub-list for extension extendee
-	0,   // [0:117] is the sub-list for field type_name
+	60,  // 0: monarchic.agent_protocol.v1.DatasetRef.extensions:type_name -> google.protobuf.Struct
+	60,  // 1: monarchic.agent_protocol.v1.AcceptanceCriteria.extensions:type_name -> google.protobuf.Struct
+	12,  // 2: monarchic.agent_protocol.v1.ExperimentSpec.dataset_refs:type_name -> monarchic.agent_protocol.v1.DatasetRef
+	13,  // 3: monarchic.agent_protocol.v1.ExperimentSpec.acceptance:type_name -> monarchic.agent_protocol.v1.AcceptanceCriteria
+	60,  // 4: monarchic.agent_protocol.v1.ExperimentSpec.constraints:type_name -> google.protobuf.Struct
+	60,  // 5: monarchic.agent_protocol.v1.ExperimentSpec.extensions:type_name -> google.protobuf.Struct
+	60,  // 6: monarchic.agent_protocol.v1.ObjectiveSpec.extensions:type_name -> google.protobuf.Struct
+	60,  // 7: monarchic.agent_protocol.v1.EvalResult.extensions:type_name -> google.protobuf.Struct
+	60,  // 8: monarchic.agent_protocol.v1.FailureClass.extensions:type_name -> google.protobuf.Struct
+	12,  // 9: monarchic.agent_protocol.v1.Provenance.dataset_refs:type_name -> monarchic.agent_protocol.v1.DatasetRef
+	60,  // 10: monarchic.agent_protocol.v1.Provenance.extensions:type_name -> google.protobuf.Struct
+	60,  // 11: monarchic.agent_protocol.v1.Intent.constraints:type_name -> google.protobuf.Struct
+	2,   // 12: monarchic.agent_protocol.v1.Intent.intent_class:type_name -> monarchic.agent_protocol.v1.IntentClass
+	20,  // 13: monarchic.agent_protocol.v1.PlanProvenance.role:type_name -> monarchic.agent_protocol.v1.RoleProvenance
+	60,  // 14: monarchic.agent_protocol.v1.FailureDetail.details:type_name -> google.protobuf.Struct
+	6,   // 15: monarchic.agent_protocol.v1.ReplanPolicy.strategy:type_name -> monarchic.agent_protocol.v1.ReplanStrategy
+	4,   // 16: monarchic.agent_protocol.v1.StepOutputExpectation.kind:type_name -> monarchic.agent_protocol.v1.ArtifactKind
+	60,  // 17: monarchic.agent_protocol.v1.PlanStep.task_template:type_name -> google.protobuf.Struct
+	22,  // 18: monarchic.agent_protocol.v1.PlanStep.failure:type_name -> monarchic.agent_protocol.v1.FailureDetail
+	5,   // 19: monarchic.agent_protocol.v1.PlanStep.kind:type_name -> monarchic.agent_protocol.v1.PlanStepKind
+	60,  // 20: monarchic.agent_protocol.v1.PlanStep.inputs:type_name -> google.protobuf.Struct
+	24,  // 21: monarchic.agent_protocol.v1.PlanStep.expected_outputs:type_name -> monarchic.agent_protocol.v1.StepOutputExpectation
+	3,   // 22: monarchic.agent_protocol.v1.Plan.status:type_name -> monarchic.agent_protocol.v1.PlanStatus
+	21,  // 23: monarchic.agent_protocol.v1.Plan.provenance:type_name -> monarchic.agent_protocol.v1.PlanProvenance
+	25,  // 24: monarchic.agent_protocol.v1.Plan.steps:type_name -> monarchic.agent_protocol.v1.PlanStep
+	23,  // 25: monarchic.agent_protocol.v1.Plan.replan_policy:type_name -> monarchic.agent_protocol.v1.ReplanPolicy
+	3,   // 26: monarchic.agent_protocol.v1.ExecutionReceipt.status:type_name -> monarchic.agent_protocol.v1.PlanStatus
+	22,  // 27: monarchic.agent_protocol.v1.ExecutionReceipt.failure:type_name -> monarchic.agent_protocol.v1.FailureDetail
+	0,   // 28: monarchic.agent_protocol.v1.Task.role:type_name -> monarchic.agent_protocol.v1.AgentRole
+	60,  // 29: monarchic.agent_protocol.v1.Task.inputs:type_name -> google.protobuf.Struct
+	60,  // 30: monarchic.agent_protocol.v1.Task.constraints:type_name -> google.protobuf.Struct
+	33,  // 31: monarchic.agent_protocol.v1.Task.run_context:type_name -> monarchic.agent_protocol.v1.RunContext
+	60,  // 32: monarchic.agent_protocol.v1.Task.extensions:type_name -> google.protobuf.Struct
+	14,  // 33: monarchic.agent_protocol.v1.Task.experiment_spec:type_name -> monarchic.agent_protocol.v1.ExperimentSpec
+	15,  // 34: monarchic.agent_protocol.v1.Task.objective_spec:type_name -> monarchic.agent_protocol.v1.ObjectiveSpec
+	60,  // 35: monarchic.agent_protocol.v1.Artifact.extensions:type_name -> google.protobuf.Struct
+	18,  // 36: monarchic.agent_protocol.v1.Artifact.provenance:type_name -> monarchic.agent_protocol.v1.Provenance
+	12,  // 37: monarchic.agent_protocol.v1.Artifact.dataset_refs:type_name -> monarchic.agent_protocol.v1.DatasetRef
+	16,  // 38: monarchic.agent_protocol.v1.Artifact.eval_results:type_name -> monarchic.agent_protocol.v1.EvalResult
+	14,  // 39: monarchic.agent_protocol.v1.Artifact.experiment_spec:type_name -> monarchic.agent_protocol.v1.ExperimentSpec
+	60,  // 40: monarchic.agent_protocol.v1.Event.extensions:type_name -> google.protobuf.Struct
+	18,  // 41: monarchic.agent_protocol.v1.Event.provenance:type_name -> monarchic.agent_protocol.v1.Provenance
+	16,  // 42: monarchic.agent_protocol.v1.Event.eval_results:type_name -> monarchic.agent_protocol.v1.EvalResult
+	17,  // 43: monarchic.agent_protocol.v1.Event.failure_class:type_name -> monarchic.agent_protocol.v1.FailureClass
+	60,  // 44: monarchic.agent_protocol.v1.GateResult.evidence:type_name -> google.protobuf.Struct
+	60,  // 45: monarchic.agent_protocol.v1.GateResult.extensions:type_name -> google.protobuf.Struct
+	17,  // 46: monarchic.agent_protocol.v1.GateResult.failure_class:type_name -> monarchic.agent_protocol.v1.FailureClass
+	1,   // 47: monarchic.agent_protocol.v1.RunOutcome.objective_decision:type_name -> monarchic.agent_protocol.v1.OutcomeDecision
+	1,   // 48: monarchic.agent_protocol.v1.RunOutcome.cost_decision:type_name -> monarchic.agent_protocol.v1.OutcomeDecision
+	1,   // 49: monarchic.agent_protocol.v1.RunOutcome.risk_decision:type_name -> monarchic.agent_protocol.v1.OutcomeDecision
+	1,   // 50: monarchic.agent_protocol.v1.RunOutcome.final_decision:type_name -> monarchic.agent_protocol.v1.OutcomeDecision
+	60,  // 51: monarchic.agent_protocol.v1.RunOutcome.evidence:type_name -> google.protobuf.Struct
+	60,  // 52: monarchic.agent_protocol.v1.RunOutcome.extensions:type_name -> google.protobuf.Struct
+	60,  // 53: monarchic.agent_protocol.v1.RunContext.extensions:type_name -> google.protobuf.Struct
+	0,   // 54: monarchic.agent_protocol.v1.RunnerCapabilities.supported_roles:type_name -> monarchic.agent_protocol.v1.AgentRole
+	60,  // 55: monarchic.agent_protocol.v1.RunnerCapabilities.extensions:type_name -> google.protobuf.Struct
+	60,  // 56: monarchic.agent_protocol.v1.FencingToken.extensions:type_name -> google.protobuf.Struct
+	36,  // 57: monarchic.agent_protocol.v1.Lease.fencing_token:type_name -> monarchic.agent_protocol.v1.FencingToken
+	7,   // 58: monarchic.agent_protocol.v1.Lease.status:type_name -> monarchic.agent_protocol.v1.LeaseLifecycleState
+	60,  // 59: monarchic.agent_protocol.v1.Lease.extensions:type_name -> google.protobuf.Struct
+	11,  // 60: monarchic.agent_protocol.v1.RecoveryEvent.kind:type_name -> monarchic.agent_protocol.v1.RecoveryEventKind
+	60,  // 61: monarchic.agent_protocol.v1.RecoveryEvent.details:type_name -> google.protobuf.Struct
+	8,   // 62: monarchic.agent_protocol.v1.RecoveryEvent.run_state:type_name -> monarchic.agent_protocol.v1.RunLifecycleState
+	9,   // 63: monarchic.agent_protocol.v1.RecoveryEvent.step_state:type_name -> monarchic.agent_protocol.v1.StepLifecycleState
+	10,  // 64: monarchic.agent_protocol.v1.RecoveryEvent.lease_rejection_reason:type_name -> monarchic.agent_protocol.v1.LeaseRejectionReason
+	35,  // 65: monarchic.agent_protocol.v1.LeaseStatus.lease:type_name -> monarchic.agent_protocol.v1.LeaseRef
+	22,  // 66: monarchic.agent_protocol.v1.LeaseStatus.failure:type_name -> monarchic.agent_protocol.v1.FailureDetail
+	60,  // 67: monarchic.agent_protocol.v1.LeaseStatus.extensions:type_name -> google.protobuf.Struct
+	35,  // 68: monarchic.agent_protocol.v1.CancellationIntent.lease:type_name -> monarchic.agent_protocol.v1.LeaseRef
+	60,  // 69: monarchic.agent_protocol.v1.CancellationIntent.extensions:type_name -> google.protobuf.Struct
+	35,  // 70: monarchic.agent_protocol.v1.LeaseAssignment.lease:type_name -> monarchic.agent_protocol.v1.LeaseRef
+	28,  // 71: monarchic.agent_protocol.v1.LeaseAssignment.task:type_name -> monarchic.agent_protocol.v1.Task
+	60,  // 72: monarchic.agent_protocol.v1.LeaseAssignment.extensions:type_name -> google.protobuf.Struct
+	34,  // 73: monarchic.agent_protocol.v1.RegisterRunnerRequest.capabilities:type_name -> monarchic.agent_protocol.v1.RunnerCapabilities
+	60,  // 74: monarchic.agent_protocol.v1.RegisterRunnerRequest.extensions:type_name -> google.protobuf.Struct
+	60,  // 75: monarchic.agent_protocol.v1.RegisterRunnerResponse.extensions:type_name -> google.protobuf.Struct
+	39,  // 76: monarchic.agent_protocol.v1.HeartbeatRequest.active_leases:type_name -> monarchic.agent_protocol.v1.LeaseStatus
+	60,  // 77: monarchic.agent_protocol.v1.HeartbeatRequest.extensions:type_name -> google.protobuf.Struct
+	40,  // 78: monarchic.agent_protocol.v1.HeartbeatResponse.cancellations:type_name -> monarchic.agent_protocol.v1.CancellationIntent
+	60,  // 79: monarchic.agent_protocol.v1.HeartbeatResponse.extensions:type_name -> google.protobuf.Struct
+	60,  // 80: monarchic.agent_protocol.v1.AcquireLeaseRequest.extensions:type_name -> google.protobuf.Struct
+	41,  // 81: monarchic.agent_protocol.v1.AcquireLeaseResponse.assignment:type_name -> monarchic.agent_protocol.v1.LeaseAssignment
+	40,  // 82: monarchic.agent_protocol.v1.AcquireLeaseResponse.cancellations:type_name -> monarchic.agent_protocol.v1.CancellationIntent
+	60,  // 83: monarchic.agent_protocol.v1.AcquireLeaseResponse.extensions:type_name -> google.protobuf.Struct
+	35,  // 84: monarchic.agent_protocol.v1.RenewLeaseRequest.lease:type_name -> monarchic.agent_protocol.v1.LeaseRef
+	60,  // 85: monarchic.agent_protocol.v1.RenewLeaseRequest.extensions:type_name -> google.protobuf.Struct
+	40,  // 86: monarchic.agent_protocol.v1.RenewLeaseResponse.cancellations:type_name -> monarchic.agent_protocol.v1.CancellationIntent
+	22,  // 87: monarchic.agent_protocol.v1.RenewLeaseResponse.failure:type_name -> monarchic.agent_protocol.v1.FailureDetail
+	60,  // 88: monarchic.agent_protocol.v1.RenewLeaseResponse.extensions:type_name -> google.protobuf.Struct
+	35,  // 89: monarchic.agent_protocol.v1.ResumeLeaseRequest.lease:type_name -> monarchic.agent_protocol.v1.LeaseRef
+	60,  // 90: monarchic.agent_protocol.v1.ResumeLeaseRequest.extensions:type_name -> google.protobuf.Struct
+	37,  // 91: monarchic.agent_protocol.v1.ResumeLeaseResponse.lease:type_name -> monarchic.agent_protocol.v1.Lease
+	10,  // 92: monarchic.agent_protocol.v1.ResumeLeaseResponse.reason:type_name -> monarchic.agent_protocol.v1.LeaseRejectionReason
+	60,  // 93: monarchic.agent_protocol.v1.ResumeLeaseResponse.extensions:type_name -> google.protobuf.Struct
+	35,  // 94: monarchic.agent_protocol.v1.ReportStepStartedRequest.lease:type_name -> monarchic.agent_protocol.v1.LeaseRef
+	60,  // 95: monarchic.agent_protocol.v1.ReportStepStartedRequest.extensions:type_name -> google.protobuf.Struct
+	22,  // 96: monarchic.agent_protocol.v1.ReportStepStartedResponse.failure:type_name -> monarchic.agent_protocol.v1.FailureDetail
+	60,  // 97: monarchic.agent_protocol.v1.ReportStepStartedResponse.extensions:type_name -> google.protobuf.Struct
+	35,  // 98: monarchic.agent_protocol.v1.ReportStepProgressRequest.lease:type_name -> monarchic.agent_protocol.v1.LeaseRef
+	30,  // 99: monarchic.agent_protocol.v1.ReportStepProgressRequest.events:type_name -> monarchic.agent_protocol.v1.Event
+	29,  // 100: monarchic.agent_protocol.v1.ReportStepProgressRequest.artifacts:type_name -> monarchic.agent_protocol.v1.Artifact
+	60,  // 101: monarchic.agent_protocol.v1.ReportStepProgressRequest.extensions:type_name -> google.protobuf.Struct
+	40,  // 102: monarchic.agent_protocol.v1.ReportStepProgressResponse.cancellations:type_name -> monarchic.agent_protocol.v1.CancellationIntent
+	22,  // 103: monarchic.agent_protocol.v1.ReportStepProgressResponse.failure:type_name -> monarchic.agent_protocol.v1.FailureDetail
+	60,  // 104: monarchic.agent_protocol.v1.ReportStepProgressResponse.extensions:type_name -> google.protobuf.Struct
+	35,  // 105: monarchic.agent_protocol.v1.ReportStepOutcomeRequest.lease:type_name -> monarchic.agent_protocol.v1.LeaseRef
+	3,   // 106: monarchic.agent_protocol.v1.ReportStepOutcomeRequest.status:type_name -> monarchic.agent_protocol.v1.PlanStatus
+	30,  // 107: monarchic.agent_protocol.v1.ReportStepOutcomeRequest.events:type_name -> monarchic.agent_protocol.v1.Event
+	29,  // 108: monarchic.agent_protocol.v1.ReportStepOutcomeRequest.artifacts:type_name -> monarchic.agent_protocol.v1.Artifact
+	32,  // 109: monarchic.agent_protocol.v1.ReportStepOutcomeRequest.run_outcome:type_name -> monarchic.agent_protocol.v1.RunOutcome
+	22,  // 110: monarchic.agent_protocol.v1.ReportStepOutcomeRequest.failure:type_name -> monarchic.agent_protocol.v1.FailureDetail
+	60,  // 111: monarchic.agent_protocol.v1.ReportStepOutcomeRequest.extensions:type_name -> google.protobuf.Struct
+	22,  // 112: monarchic.agent_protocol.v1.ReportStepOutcomeResponse.failure:type_name -> monarchic.agent_protocol.v1.FailureDetail
+	60,  // 113: monarchic.agent_protocol.v1.ReportStepOutcomeResponse.extensions:type_name -> google.protobuf.Struct
+	35,  // 114: monarchic.agent_protocol.v1.AckCancellationRequest.lease:type_name -> monarchic.agent_protocol.v1.LeaseRef
+	60,  // 115: monarchic.agent_protocol.v1.AckCancellationRequest.extensions:type_name -> google.protobuf.Struct
+	22,  // 116: monarchic.agent_protocol.v1.AckCancellationResponse.failure:type_name -> monarchic.agent_protocol.v1.FailureDetail
+	60,  // 117: monarchic.agent_protocol.v1.AckCancellationResponse.extensions:type_name -> google.protobuf.Struct
+	42,  // 118: monarchic.agent_protocol.v1.RunnerControlService.RegisterRunner:input_type -> monarchic.agent_protocol.v1.RegisterRunnerRequest
+	44,  // 119: monarchic.agent_protocol.v1.RunnerControlService.Heartbeat:input_type -> monarchic.agent_protocol.v1.HeartbeatRequest
+	46,  // 120: monarchic.agent_protocol.v1.RunnerControlService.AcquireLease:input_type -> monarchic.agent_protocol.v1.AcquireLeaseRequest
+	48,  // 121: monarchic.agent_protocol.v1.RunnerControlService.RenewLease:input_type -> monarchic.agent_protocol.v1.RenewLeaseRequest
+	50,  // 122: monarchic.agent_protocol.v1.RunnerControlService.ResumeLease:input_type -> monarchic.agent_protocol.v1.ResumeLeaseRequest
+	52,  // 123: monarchic.agent_protocol.v1.RunnerControlService.ReportStepStarted:input_type -> monarchic.agent_protocol.v1.ReportStepStartedRequest
+	54,  // 124: monarchic.agent_protocol.v1.RunnerControlService.ReportStepProgress:input_type -> monarchic.agent_protocol.v1.ReportStepProgressRequest
+	56,  // 125: monarchic.agent_protocol.v1.RunnerControlService.ReportStepOutcome:input_type -> monarchic.agent_protocol.v1.ReportStepOutcomeRequest
+	58,  // 126: monarchic.agent_protocol.v1.RunnerControlService.AckCancellation:input_type -> monarchic.agent_protocol.v1.AckCancellationRequest
+	43,  // 127: monarchic.agent_protocol.v1.RunnerControlService.RegisterRunner:output_type -> monarchic.agent_protocol.v1.RegisterRunnerResponse
+	45,  // 128: monarchic.agent_protocol.v1.RunnerControlService.Heartbeat:output_type -> monarchic.agent_protocol.v1.HeartbeatResponse
+	47,  // 129: monarchic.agent_protocol.v1.RunnerControlService.AcquireLease:output_type -> monarchic.agent_protocol.v1.AcquireLeaseResponse
+	49,  // 130: monarchic.agent_protocol.v1.RunnerControlService.RenewLease:output_type -> monarchic.agent_protocol.v1.RenewLeaseResponse
+	51,  // 131: monarchic.agent_protocol.v1.RunnerControlService.ResumeLease:output_type -> monarchic.agent_protocol.v1.ResumeLeaseResponse
+	53,  // 132: monarchic.agent_protocol.v1.RunnerControlService.ReportStepStarted:output_type -> monarchic.agent_protocol.v1.ReportStepStartedResponse
+	55,  // 133: monarchic.agent_protocol.v1.RunnerControlService.ReportStepProgress:output_type -> monarchic.agent_protocol.v1.ReportStepProgressResponse
+	57,  // 134: monarchic.agent_protocol.v1.RunnerControlService.ReportStepOutcome:output_type -> monarchic.agent_protocol.v1.ReportStepOutcomeResponse
+	59,  // 135: monarchic.agent_protocol.v1.RunnerControlService.AckCancellation:output_type -> monarchic.agent_protocol.v1.AckCancellationResponse
+	127, // [127:136] is the sub-list for method output_type
+	118, // [118:127] is the sub-list for method input_type
+	118, // [118:118] is the sub-list for extension type_name
+	118, // [118:118] is the sub-list for extension extendee
+	0,   // [0:118] is the sub-list for field type_name
 }
 
 func init() { file_monarchic_agent_protocol_proto_init() }
@@ -6298,7 +6371,7 @@ func file_monarchic_agent_protocol_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_monarchic_agent_protocol_proto_rawDesc), len(file_monarchic_agent_protocol_proto_rawDesc)),
-			NumEnums:      11,
+			NumEnums:      12,
 			NumMessages:   48,
 			NumExtensions: 0,
 			NumServices:   1,

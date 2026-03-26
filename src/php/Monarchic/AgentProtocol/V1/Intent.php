@@ -50,6 +50,10 @@ class Intent extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string context_digest = 9;</code>
      */
     protected $context_digest = '';
+    /**
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.IntentClass intent_class = 10;</code>
+     */
+    protected $intent_class = 0;
 
     /**
      * Constructor.
@@ -66,6 +70,7 @@ class Intent extends \Google\Protobuf\Internal\Message
      *     @type string $goal
      *     @type \Google\Protobuf\Struct $constraints
      *     @type string $context_digest
+     *     @type int $intent_class
      * }
      */
     public function __construct($data = NULL) {
@@ -277,6 +282,28 @@ class Intent extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->context_digest = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.IntentClass intent_class = 10;</code>
+     * @return int
+     */
+    public function getIntentClass()
+    {
+        return $this->intent_class;
+    }
+
+    /**
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.IntentClass intent_class = 10;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setIntentClass($var)
+    {
+        GPBUtil::checkEnum($var, \Monarchic\AgentProtocol\V1\IntentClass::class);
+        $this->intent_class = $var;
 
         return $this;
     }

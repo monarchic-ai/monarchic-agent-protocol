@@ -12,7 +12,7 @@ pub const PROTOCOL_VERSION: &str = "v1";
 pub mod client_boundary {
     pub use crate::artifact::{ArtifactDescriptor, ArtifactKind};
     pub use crate::blocking::{BlockedOutcome, BlockedOutcomeScope};
-    pub use crate::intent::Intent;
+    pub use crate::intent::{Intent, IntentClass};
     pub use crate::plan::{
         Plan, PlanStep, PlanStepKind, ReplanPolicy, ReplanStrategy, StepOutputExpectation,
     };
@@ -45,7 +45,8 @@ pub use monarchic::agent_protocol::v1::{
     AcquireLeaseResponse, AgentRole, Artifact, ArtifactKind, CancellationIntent, DatasetRef,
     EvalResult, Event, ExecutionReceipt, ExperimentSpec, FailureClass, FailureDetail,
     FencingToken, GateResult, HeartbeatRequest, HeartbeatResponse, Intent, Lease,
-    LeaseAssignment, LeaseLifecycleState, LeaseRef, LeaseRejectionReason, LeaseStatus, Plan,
+    IntentClass, LeaseAssignment, LeaseLifecycleState, LeaseRef, LeaseRejectionReason,
+    LeaseStatus, Plan,
     PlanProvenance, PlanStatus, PlanStep, PlanStepKind, Provenance, RecoveryEvent,
     RecoveryEventKind, RegisterRunnerRequest, RegisterRunnerResponse, RenewLeaseRequest,
     RenewLeaseResponse, ReportStepOutcomeRequest, ReportStepOutcomeResponse,

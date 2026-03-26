@@ -79,6 +79,34 @@ class OutcomeDecision extends $pb.ProtobufEnum {
   const OutcomeDecision._(super.value, super.name);
 }
 
+class IntentClass extends $pb.ProtobufEnum {
+  static const IntentClass INTENT_CLASS_UNSPECIFIED =
+      IntentClass._(0, _omitEnumNames ? '' : 'INTENT_CLASS_UNSPECIFIED');
+  static const IntentClass INTENT_CLASS_INSPECT =
+      IntentClass._(1, _omitEnumNames ? '' : 'INTENT_CLASS_INSPECT');
+  static const IntentClass INTENT_CLASS_VALIDATE =
+      IntentClass._(2, _omitEnumNames ? '' : 'INTENT_CLASS_VALIDATE');
+  static const IntentClass INTENT_CLASS_EXECUTE =
+      IntentClass._(3, _omitEnumNames ? '' : 'INTENT_CLASS_EXECUTE');
+  static const IntentClass INTENT_CLASS_VERIFY =
+      IntentClass._(4, _omitEnumNames ? '' : 'INTENT_CLASS_VERIFY');
+
+  static const $core.List<IntentClass> values = <IntentClass>[
+    INTENT_CLASS_UNSPECIFIED,
+    INTENT_CLASS_INSPECT,
+    INTENT_CLASS_VALIDATE,
+    INTENT_CLASS_EXECUTE,
+    INTENT_CLASS_VERIFY,
+  ];
+
+  static final $core.List<IntentClass?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 4);
+  static IntentClass? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const IntentClass._(super.value, super.name);
+}
+
 class PlanStatus extends $pb.ProtobufEnum {
   static const PlanStatus PLAN_STATUS_UNSPECIFIED =
       PlanStatus._(0, _omitEnumNames ? '' : 'PLAN_STATUS_UNSPECIFIED');
