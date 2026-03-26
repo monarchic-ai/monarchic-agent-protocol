@@ -8,6 +8,12 @@ Track schema edits in reverse chronological order. Each entry must include:
 - `validation`
 
 ## 2026-03-25
+- task_id: task-proto-007
+- summary: Added canonical intent_class to the planning Intent contract across the protobuf and client-boundary Rust surfaces, with unspecified-default compatibility for older JSON artifacts.
+- schema_files: schemas/v1/monarchic_agent_protocol.proto
+- validation: bash scripts/lint-schemas.sh && bash scripts/test-proto.sh && cargo test -q && bash scripts/update-local-hashes.sh
+
+## 2026-03-25
 - task_id: task-proto-006
 - summary: Added canonical protobuf planning-boundary contracts for Intent and typed plan metadata, including step kind, replan policy, expected outputs, and input intent lineage on Plan and PlanStep.
 - schema_files: schemas/v1/monarchic_agent_protocol.proto

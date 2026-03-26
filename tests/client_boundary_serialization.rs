@@ -1,7 +1,7 @@
 use std::{fs, path::PathBuf};
 
 use monarchic_agent_protocol::client_boundary::{
-    ArtifactDescriptor, BlockedOutcome, ExecutionReceipt, Intent, Plan, PlanStep,
+    ArtifactDescriptor, BlockedOutcome, ExecutionReceipt, Intent, IntentClass, Plan, PlanStep,
     ReviewDecision, VerificationReceipt,
 };
 use serde::{de::DeserializeOwned, Serialize};
@@ -44,6 +44,25 @@ fn load_fixture_value(relative: &str) -> Value {
 #[test]
 fn intent_fixture_round_trips_canonically() {
     assert_fixture_round_trip::<Intent>("intent.minimal.json");
+}
+
+#[test]
+fn intent_defaults_to_unspecified_class_when_missing() {
+    let mut value = load_fixture_value("intent.minimal.json");
+    value
+        .as_object_mut()
+        .expect("intent object")
+        .remove("intent_class");
+    let parsed: Intent = serde_json::from_value(value).expect("deserialize intent without class");
+
+    assert_eq!(parsed.intent_class, IntentClass::Unspecified);
+}
+
+#[test]
+fn intent_rejects_invalid_intent_class() {
+    let mut value = load_fixture_value("intent.minimal.json");
+    value["intent_class"] = Value::String(String::from("nonsense"));
+    assert!(serde_json::from_value::<Intent>(value).is_err());
 }
 
 #[test]

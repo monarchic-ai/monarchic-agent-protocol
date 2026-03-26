@@ -57,6 +57,24 @@ final $typed_data.Uint8List outcomeDecisionDescriptor = $convert.base64Decode(
     'Cg9PdXRjb21lRGVjaXNpb24SIAocT1VUQ09NRV9ERUNJU0lPTl9VTlNQRUNJRklFRBAAEgoKBk'
     'FDQ0VQVBABEgsKB0lURVJBVEUQAhIKCgZSRUpFQ1QQAxIMCghFU0NBTEFURRAE');
 
+@$core.Deprecated('Use intentClassDescriptor instead')
+const IntentClass$json = {
+  '1': 'IntentClass',
+  '2': [
+    {'1': 'INTENT_CLASS_UNSPECIFIED', '2': 0},
+    {'1': 'INTENT_CLASS_INSPECT', '2': 1},
+    {'1': 'INTENT_CLASS_VALIDATE', '2': 2},
+    {'1': 'INTENT_CLASS_EXECUTE', '2': 3},
+    {'1': 'INTENT_CLASS_VERIFY', '2': 4},
+  ],
+};
+
+/// Descriptor for `IntentClass`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List intentClassDescriptor = $convert.base64Decode(
+    'CgtJbnRlbnRDbGFzcxIcChhJTlRFTlRfQ0xBU1NfVU5TUEVDSUZJRUQQABIYChRJTlRFTlRfQ0'
+    'xBU1NfSU5TUEVDVBABEhkKFUlOVEVOVF9DTEFTU19WQUxJREFURRACEhgKFElOVEVOVF9DTEFT'
+    'U19FWEVDVVRFEAMSFwoTSU5URU5UX0NMQVNTX1ZFUklGWRAE');
+
 @$core.Deprecated('Use planStatusDescriptor instead')
 const PlanStatus$json = {
   '1': 'PlanStatus',
@@ -759,6 +777,14 @@ const Intent$json = {
       '10': 'constraints'
     },
     {'1': 'context_digest', '3': 9, '4': 1, '5': 9, '10': 'contextDigest'},
+    {
+      '1': 'intent_class',
+      '3': 10,
+      '4': 1,
+      '5': 14,
+      '6': '.monarchic.agent_protocol.v1.IntentClass',
+      '10': 'intentClass'
+    },
   ],
 };
 
@@ -769,7 +795,9 @@ final $typed_data.Uint8List intentDescriptor = $convert.base64Decode(
     'eV92ZXJzaW9uGAQgASgJUg1wb2xpY3lWZXJzaW9uEh8KC3RhcmdldF9yZXBvGAUgASgJUgp0YX'
     'JnZXRSZXBvEh0KCnRhcmdldF9yZWYYBiABKAlSCXRhcmdldFJlZhISCgRnb2FsGAcgASgJUgRn'
     'b2FsEjkKC2NvbnN0cmFpbnRzGAggASgLMhcuZ29vZ2xlLnByb3RvYnVmLlN0cnVjdFILY29uc3'
-    'RyYWludHMSJQoOY29udGV4dF9kaWdlc3QYCSABKAlSDWNvbnRleHREaWdlc3Q=');
+    'RyYWludHMSJQoOY29udGV4dF9kaWdlc3QYCSABKAlSDWNvbnRleHREaWdlc3QSSwoMaW50ZW50'
+    'X2NsYXNzGAogASgOMigubW9uYXJjaGljLmFnZW50X3Byb3RvY29sLnYxLkludGVudENsYXNzUg'
+    'tpbnRlbnRDbGFzcw==');
 
 @$core.Deprecated('Use roleProvenanceDescriptor instead')
 const RoleProvenance$json = {

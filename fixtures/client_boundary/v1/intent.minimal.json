@@ -6,6 +6,7 @@
   "target_repo": "monarchic-ai/monarch",
   "target_ref": "refs/heads/main",
   "goal": "Remove direct control ownership from monarch.",
+  "intent_class": "validate",
   "constraints": {
     "allow_merge": false,
     "max_replans": 2
