@@ -119,5 +119,212 @@ class PlanStatus extends $pb.ProtobufEnum {
   const PlanStatus._(super.value, super.name);
 }
 
+class LeaseLifecycleState extends $pb.ProtobufEnum {
+  static const LeaseLifecycleState LEASE_LIFECYCLE_STATE_UNSPECIFIED =
+      LeaseLifecycleState._(
+          0, _omitEnumNames ? '' : 'LEASE_LIFECYCLE_STATE_UNSPECIFIED');
+  static const LeaseLifecycleState LEASE_ISSUED =
+      LeaseLifecycleState._(1, _omitEnumNames ? '' : 'LEASE_ISSUED');
+  static const LeaseLifecycleState LEASE_ACTIVE =
+      LeaseLifecycleState._(2, _omitEnumNames ? '' : 'LEASE_ACTIVE');
+  static const LeaseLifecycleState LEASE_RELEASED =
+      LeaseLifecycleState._(3, _omitEnumNames ? '' : 'LEASE_RELEASED');
+  static const LeaseLifecycleState LEASE_EXPIRED =
+      LeaseLifecycleState._(4, _omitEnumNames ? '' : 'LEASE_EXPIRED');
+  static const LeaseLifecycleState LEASE_CANCELLED =
+      LeaseLifecycleState._(5, _omitEnumNames ? '' : 'LEASE_CANCELLED');
+  static const LeaseLifecycleState LEASE_REJECTED =
+      LeaseLifecycleState._(6, _omitEnumNames ? '' : 'LEASE_REJECTED');
+
+  static const $core.List<LeaseLifecycleState> values = <LeaseLifecycleState>[
+    LEASE_LIFECYCLE_STATE_UNSPECIFIED,
+    LEASE_ISSUED,
+    LEASE_ACTIVE,
+    LEASE_RELEASED,
+    LEASE_EXPIRED,
+    LEASE_CANCELLED,
+    LEASE_REJECTED,
+  ];
+
+  static final $core.List<LeaseLifecycleState?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 6);
+  static LeaseLifecycleState? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const LeaseLifecycleState._(super.value, super.name);
+}
+
+class RunLifecycleState extends $pb.ProtobufEnum {
+  static const RunLifecycleState RUN_LIFECYCLE_STATE_UNSPECIFIED =
+      RunLifecycleState._(
+          0, _omitEnumNames ? '' : 'RUN_LIFECYCLE_STATE_UNSPECIFIED');
+  static const RunLifecycleState RUN_PENDING =
+      RunLifecycleState._(1, _omitEnumNames ? '' : 'RUN_PENDING');
+  static const RunLifecycleState RUN_EXECUTING =
+      RunLifecycleState._(2, _omitEnumNames ? '' : 'RUN_EXECUTING');
+  static const RunLifecycleState RUN_PAUSED =
+      RunLifecycleState._(3, _omitEnumNames ? '' : 'RUN_PAUSED');
+  static const RunLifecycleState RUN_CANCELLING =
+      RunLifecycleState._(4, _omitEnumNames ? '' : 'RUN_CANCELLING');
+  static const RunLifecycleState RUN_CANCELLED =
+      RunLifecycleState._(5, _omitEnumNames ? '' : 'RUN_CANCELLED');
+  static const RunLifecycleState RUN_FAILED =
+      RunLifecycleState._(6, _omitEnumNames ? '' : 'RUN_FAILED');
+  static const RunLifecycleState RUN_COMPLETE =
+      RunLifecycleState._(7, _omitEnumNames ? '' : 'RUN_COMPLETE');
+  static const RunLifecycleState RUN_BLOCKED =
+      RunLifecycleState._(8, _omitEnumNames ? '' : 'RUN_BLOCKED');
+
+  static const $core.List<RunLifecycleState> values = <RunLifecycleState>[
+    RUN_LIFECYCLE_STATE_UNSPECIFIED,
+    RUN_PENDING,
+    RUN_EXECUTING,
+    RUN_PAUSED,
+    RUN_CANCELLING,
+    RUN_CANCELLED,
+    RUN_FAILED,
+    RUN_COMPLETE,
+    RUN_BLOCKED,
+  ];
+
+  static final $core.List<RunLifecycleState?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 8);
+  static RunLifecycleState? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const RunLifecycleState._(super.value, super.name);
+}
+
+class StepLifecycleState extends $pb.ProtobufEnum {
+  static const StepLifecycleState STEP_LIFECYCLE_STATE_UNSPECIFIED =
+      StepLifecycleState._(
+          0, _omitEnumNames ? '' : 'STEP_LIFECYCLE_STATE_UNSPECIFIED');
+  static const StepLifecycleState STEP_PENDING =
+      StepLifecycleState._(1, _omitEnumNames ? '' : 'STEP_PENDING');
+  static const StepLifecycleState STEP_READY =
+      StepLifecycleState._(2, _omitEnumNames ? '' : 'STEP_READY');
+  static const StepLifecycleState STEP_LEASED =
+      StepLifecycleState._(3, _omitEnumNames ? '' : 'STEP_LEASED');
+  static const StepLifecycleState STEP_RUNNING =
+      StepLifecycleState._(4, _omitEnumNames ? '' : 'STEP_RUNNING');
+  static const StepLifecycleState STEP_COMPLETE =
+      StepLifecycleState._(5, _omitEnumNames ? '' : 'STEP_COMPLETE');
+  static const StepLifecycleState STEP_FAILED =
+      StepLifecycleState._(6, _omitEnumNames ? '' : 'STEP_FAILED');
+  static const StepLifecycleState STEP_CANCELLED =
+      StepLifecycleState._(7, _omitEnumNames ? '' : 'STEP_CANCELLED');
+  static const StepLifecycleState STEP_BLOCKED =
+      StepLifecycleState._(8, _omitEnumNames ? '' : 'STEP_BLOCKED');
+
+  static const $core.List<StepLifecycleState> values = <StepLifecycleState>[
+    STEP_LIFECYCLE_STATE_UNSPECIFIED,
+    STEP_PENDING,
+    STEP_READY,
+    STEP_LEASED,
+    STEP_RUNNING,
+    STEP_COMPLETE,
+    STEP_FAILED,
+    STEP_CANCELLED,
+    STEP_BLOCKED,
+  ];
+
+  static final $core.List<StepLifecycleState?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 8);
+  static StepLifecycleState? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const StepLifecycleState._(super.value, super.name);
+}
+
+class LeaseRejectionReason extends $pb.ProtobufEnum {
+  static const LeaseRejectionReason LEASE_REJECTION_REASON_UNSPECIFIED =
+      LeaseRejectionReason._(
+          0, _omitEnumNames ? '' : 'LEASE_REJECTION_REASON_UNSPECIFIED');
+  static const LeaseRejectionReason LEASE_REJECTION_STALE_FENCING_TOKEN =
+      LeaseRejectionReason._(
+          1, _omitEnumNames ? '' : 'LEASE_REJECTION_STALE_FENCING_TOKEN');
+  static const LeaseRejectionReason LEASE_REJECTION_EXPIRED =
+      LeaseRejectionReason._(
+          2, _omitEnumNames ? '' : 'LEASE_REJECTION_EXPIRED');
+  static const LeaseRejectionReason LEASE_REJECTION_SESSION_MISMATCH =
+      LeaseRejectionReason._(
+          3, _omitEnumNames ? '' : 'LEASE_REJECTION_SESSION_MISMATCH');
+  static const LeaseRejectionReason LEASE_REJECTION_UNKNOWN_LEASE =
+      LeaseRejectionReason._(
+          4, _omitEnumNames ? '' : 'LEASE_REJECTION_UNKNOWN_LEASE');
+  static const LeaseRejectionReason LEASE_REJECTION_STEP_ALREADY_TERMINAL =
+      LeaseRejectionReason._(
+          5, _omitEnumNames ? '' : 'LEASE_REJECTION_STEP_ALREADY_TERMINAL');
+  static const LeaseRejectionReason LEASE_REJECTION_RUN_NOT_EXECUTABLE =
+      LeaseRejectionReason._(
+          6, _omitEnumNames ? '' : 'LEASE_REJECTION_RUN_NOT_EXECUTABLE');
+  static const LeaseRejectionReason LEASE_REJECTION_DEPENDENCY_BLOCKED =
+      LeaseRejectionReason._(
+          7, _omitEnumNames ? '' : 'LEASE_REJECTION_DEPENDENCY_BLOCKED');
+
+  static const $core.List<LeaseRejectionReason> values = <LeaseRejectionReason>[
+    LEASE_REJECTION_REASON_UNSPECIFIED,
+    LEASE_REJECTION_STALE_FENCING_TOKEN,
+    LEASE_REJECTION_EXPIRED,
+    LEASE_REJECTION_SESSION_MISMATCH,
+    LEASE_REJECTION_UNKNOWN_LEASE,
+    LEASE_REJECTION_STEP_ALREADY_TERMINAL,
+    LEASE_REJECTION_RUN_NOT_EXECUTABLE,
+    LEASE_REJECTION_DEPENDENCY_BLOCKED,
+  ];
+
+  static final $core.List<LeaseRejectionReason?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 7);
+  static LeaseRejectionReason? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const LeaseRejectionReason._(super.value, super.name);
+}
+
+class RecoveryEventKind extends $pb.ProtobufEnum {
+  static const RecoveryEventKind RECOVERY_EVENT_KIND_UNSPECIFIED =
+      RecoveryEventKind._(
+          0, _omitEnumNames ? '' : 'RECOVERY_EVENT_KIND_UNSPECIFIED');
+  static const RecoveryEventKind RECOVERY_EVENT_ORCHESTRATOR_STARTED =
+      RecoveryEventKind._(
+          1, _omitEnumNames ? '' : 'RECOVERY_EVENT_ORCHESTRATOR_STARTED');
+  static const RecoveryEventKind RECOVERY_EVENT_STATE_RELOADED =
+      RecoveryEventKind._(
+          2, _omitEnumNames ? '' : 'RECOVERY_EVENT_STATE_RELOADED');
+  static const RecoveryEventKind RECOVERY_EVENT_LEASE_RESTORED =
+      RecoveryEventKind._(
+          3, _omitEnumNames ? '' : 'RECOVERY_EVENT_LEASE_RESTORED');
+  static const RecoveryEventKind RECOVERY_EVENT_LEASE_REJECTED =
+      RecoveryEventKind._(
+          4, _omitEnumNames ? '' : 'RECOVERY_EVENT_LEASE_REJECTED');
+  static const RecoveryEventKind RECOVERY_EVENT_STEP_REQUEUED =
+      RecoveryEventKind._(
+          5, _omitEnumNames ? '' : 'RECOVERY_EVENT_STEP_REQUEUED');
+  static const RecoveryEventKind RECOVERY_EVENT_STEP_BLOCKED =
+      RecoveryEventKind._(
+          6, _omitEnumNames ? '' : 'RECOVERY_EVENT_STEP_BLOCKED');
+  static const RecoveryEventKind RECOVERY_EVENT_RUN_RECOVERED =
+      RecoveryEventKind._(
+          7, _omitEnumNames ? '' : 'RECOVERY_EVENT_RUN_RECOVERED');
+
+  static const $core.List<RecoveryEventKind> values = <RecoveryEventKind>[
+    RECOVERY_EVENT_KIND_UNSPECIFIED,
+    RECOVERY_EVENT_ORCHESTRATOR_STARTED,
+    RECOVERY_EVENT_STATE_RELOADED,
+    RECOVERY_EVENT_LEASE_RESTORED,
+    RECOVERY_EVENT_LEASE_REJECTED,
+    RECOVERY_EVENT_STEP_REQUEUED,
+    RECOVERY_EVENT_STEP_BLOCKED,
+    RECOVERY_EVENT_RUN_RECOVERED,
+  ];
+
+  static final $core.List<RecoveryEventKind?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 7);
+  static RecoveryEventKind? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const RecoveryEventKind._(super.value, super.name);
+}
+
 const $core.bool _omitEnumNames =
     $core.bool.fromEnvironment('protobuf.omit_enum_names');

@@ -68,9 +68,11 @@ pub enum RecoveryEventKind {
 #[serde(deny_unknown_fields)]
 pub struct FencingToken {
     pub token: String,
-    pub issued_at: u64,
+    pub issued_at_ms: u64,
     pub issuer: String,
     pub scope: String,
+    #[serde(default, skip_serializing_if = "BTreeMap::is_empty")]
+    pub extensions: BTreeMap<String, Value>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
@@ -84,9 +86,11 @@ pub struct Lease {
     pub runner_id: String,
     pub session_id: String,
     pub fencing_token: FencingToken,
-    pub issued_at: u64,
-    pub expires_at: u64,
+    pub issued_at_ms: u64,
+    pub expires_at_ms: u64,
     pub status: LeaseLifecycleState,
+    #[serde(default, skip_serializing_if = "BTreeMap::is_empty")]
+    pub extensions: BTreeMap<String, Value>,
 }
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -98,7 +102,7 @@ pub struct RecoveryEvent {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub step_id: Option<String>,
     pub kind: RecoveryEventKind,
-    pub occurred_at: u64,
+    pub occurred_at_ms: u64,
     pub actor: String,
     pub details: BTreeMap<String, Value>,
     pub contract_version: String,
@@ -108,4 +112,6 @@ pub struct RecoveryEvent {
     pub step_state: Option<StepLifecycleState>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub lease_rejection_reason: Option<LeaseRejectionReason>,
+    #[serde(default, skip_serializing_if = "BTreeMap::is_empty")]
+    pub extensions: BTreeMap<String, Value>,
 }

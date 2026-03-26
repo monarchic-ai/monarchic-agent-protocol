@@ -4,7 +4,7 @@
   "plan_id": "plan-123",
   "step_id": "step-1",
   "kind": "lease_rejected",
-  "occurred_at": 1742950900000,
+  "occurred_at_ms": 1742950900000,
   "actor": "orchestrator-a",
   "details": {
     "reason": "stale fencing token",
