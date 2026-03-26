@@ -261,6 +261,118 @@ class ReplanStrategy extends $pb.ProtobufEnum {
   const ReplanStrategy._(super.value, super.name);
 }
 
+class VerificationStatus extends $pb.ProtobufEnum {
+  static const VerificationStatus VERIFICATION_STATUS_UNSPECIFIED =
+      VerificationStatus._(
+          0, _omitEnumNames ? '' : 'VERIFICATION_STATUS_UNSPECIFIED');
+  static const VerificationStatus VERIFICATION_STATUS_PENDING =
+      VerificationStatus._(
+          1, _omitEnumNames ? '' : 'VERIFICATION_STATUS_PENDING');
+  static const VerificationStatus VERIFICATION_STATUS_PASSED =
+      VerificationStatus._(
+          2, _omitEnumNames ? '' : 'VERIFICATION_STATUS_PASSED');
+  static const VerificationStatus VERIFICATION_STATUS_FAILED =
+      VerificationStatus._(
+          3, _omitEnumNames ? '' : 'VERIFICATION_STATUS_FAILED');
+  static const VerificationStatus VERIFICATION_STATUS_BLOCKED =
+      VerificationStatus._(
+          4, _omitEnumNames ? '' : 'VERIFICATION_STATUS_BLOCKED');
+
+  static const $core.List<VerificationStatus> values = <VerificationStatus>[
+    VERIFICATION_STATUS_UNSPECIFIED,
+    VERIFICATION_STATUS_PENDING,
+    VERIFICATION_STATUS_PASSED,
+    VERIFICATION_STATUS_FAILED,
+    VERIFICATION_STATUS_BLOCKED,
+  ];
+
+  static final $core.List<VerificationStatus?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 4);
+  static VerificationStatus? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const VerificationStatus._(super.value, super.name);
+}
+
+class VerificationCheckStatus extends $pb.ProtobufEnum {
+  static const VerificationCheckStatus VERIFICATION_CHECK_STATUS_UNSPECIFIED =
+      VerificationCheckStatus._(
+          0, _omitEnumNames ? '' : 'VERIFICATION_CHECK_STATUS_UNSPECIFIED');
+  static const VerificationCheckStatus VERIFICATION_CHECK_STATUS_PASSED =
+      VerificationCheckStatus._(
+          1, _omitEnumNames ? '' : 'VERIFICATION_CHECK_STATUS_PASSED');
+  static const VerificationCheckStatus VERIFICATION_CHECK_STATUS_FAILED =
+      VerificationCheckStatus._(
+          2, _omitEnumNames ? '' : 'VERIFICATION_CHECK_STATUS_FAILED');
+  static const VerificationCheckStatus VERIFICATION_CHECK_STATUS_BLOCKED =
+      VerificationCheckStatus._(
+          3, _omitEnumNames ? '' : 'VERIFICATION_CHECK_STATUS_BLOCKED');
+  static const VerificationCheckStatus VERIFICATION_CHECK_STATUS_SKIPPED =
+      VerificationCheckStatus._(
+          4, _omitEnumNames ? '' : 'VERIFICATION_CHECK_STATUS_SKIPPED');
+
+  static const $core.List<VerificationCheckStatus> values =
+      <VerificationCheckStatus>[
+    VERIFICATION_CHECK_STATUS_UNSPECIFIED,
+    VERIFICATION_CHECK_STATUS_PASSED,
+    VERIFICATION_CHECK_STATUS_FAILED,
+    VERIFICATION_CHECK_STATUS_BLOCKED,
+    VERIFICATION_CHECK_STATUS_SKIPPED,
+  ];
+
+  static final $core.List<VerificationCheckStatus?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 4);
+  static VerificationCheckStatus? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const VerificationCheckStatus._(super.value, super.name);
+}
+
+class BlockedOutcomeScope extends $pb.ProtobufEnum {
+  static const BlockedOutcomeScope BLOCKED_OUTCOME_SCOPE_UNSPECIFIED =
+      BlockedOutcomeScope._(
+          0, _omitEnumNames ? '' : 'BLOCKED_OUTCOME_SCOPE_UNSPECIFIED');
+  static const BlockedOutcomeScope BLOCKED_OUTCOME_SCOPE_INTENT =
+      BlockedOutcomeScope._(
+          1, _omitEnumNames ? '' : 'BLOCKED_OUTCOME_SCOPE_INTENT');
+  static const BlockedOutcomeScope BLOCKED_OUTCOME_SCOPE_PLAN =
+      BlockedOutcomeScope._(
+          2, _omitEnumNames ? '' : 'BLOCKED_OUTCOME_SCOPE_PLAN');
+  static const BlockedOutcomeScope BLOCKED_OUTCOME_SCOPE_STEP =
+      BlockedOutcomeScope._(
+          3, _omitEnumNames ? '' : 'BLOCKED_OUTCOME_SCOPE_STEP');
+  static const BlockedOutcomeScope BLOCKED_OUTCOME_SCOPE_RUN =
+      BlockedOutcomeScope._(
+          4, _omitEnumNames ? '' : 'BLOCKED_OUTCOME_SCOPE_RUN');
+  static const BlockedOutcomeScope BLOCKED_OUTCOME_SCOPE_VERIFICATION =
+      BlockedOutcomeScope._(
+          5, _omitEnumNames ? '' : 'BLOCKED_OUTCOME_SCOPE_VERIFICATION');
+  static const BlockedOutcomeScope BLOCKED_OUTCOME_SCOPE_MERGE =
+      BlockedOutcomeScope._(
+          6, _omitEnumNames ? '' : 'BLOCKED_OUTCOME_SCOPE_MERGE');
+  static const BlockedOutcomeScope BLOCKED_OUTCOME_SCOPE_RELEASE =
+      BlockedOutcomeScope._(
+          7, _omitEnumNames ? '' : 'BLOCKED_OUTCOME_SCOPE_RELEASE');
+
+  static const $core.List<BlockedOutcomeScope> values = <BlockedOutcomeScope>[
+    BLOCKED_OUTCOME_SCOPE_UNSPECIFIED,
+    BLOCKED_OUTCOME_SCOPE_INTENT,
+    BLOCKED_OUTCOME_SCOPE_PLAN,
+    BLOCKED_OUTCOME_SCOPE_STEP,
+    BLOCKED_OUTCOME_SCOPE_RUN,
+    BLOCKED_OUTCOME_SCOPE_VERIFICATION,
+    BLOCKED_OUTCOME_SCOPE_MERGE,
+    BLOCKED_OUTCOME_SCOPE_RELEASE,
+  ];
+
+  static final $core.List<BlockedOutcomeScope?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 7);
+  static BlockedOutcomeScope? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const BlockedOutcomeScope._(super.value, super.name);
+}
+
 class LeaseLifecycleState extends $pb.ProtobufEnum {
   static const LeaseLifecycleState LEASE_LIFECYCLE_STATE_UNSPECIFIED =
       LeaseLifecycleState._(

@@ -1545,6 +1545,134 @@ class FailureDetail extends $pb.GeneratedMessage {
   $0.Struct ensureDetails() => $_ensure(3);
 }
 
+class ArtifactDescriptor extends $pb.GeneratedMessage {
+  factory ArtifactDescriptor({
+    $core.String? artifactId,
+    ArtifactKind? kind,
+    $core.String? digest,
+    $core.String? mediaType,
+    $core.String? logicalName,
+    $core.String? producer,
+    $core.String? contractVersion,
+  }) {
+    final result = create();
+    if (artifactId != null) result.artifactId = artifactId;
+    if (kind != null) result.kind = kind;
+    if (digest != null) result.digest = digest;
+    if (mediaType != null) result.mediaType = mediaType;
+    if (logicalName != null) result.logicalName = logicalName;
+    if (producer != null) result.producer = producer;
+    if (contractVersion != null) result.contractVersion = contractVersion;
+    return result;
+  }
+
+  ArtifactDescriptor._();
+
+  factory ArtifactDescriptor.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory ArtifactDescriptor.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ArtifactDescriptor',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'artifactId')
+    ..aE<ArtifactKind>(2, _omitFieldNames ? '' : 'kind',
+        enumValues: ArtifactKind.values)
+    ..aOS(3, _omitFieldNames ? '' : 'digest')
+    ..aOS(4, _omitFieldNames ? '' : 'mediaType')
+    ..aOS(5, _omitFieldNames ? '' : 'logicalName')
+    ..aOS(6, _omitFieldNames ? '' : 'producer')
+    ..aOS(7, _omitFieldNames ? '' : 'contractVersion')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ArtifactDescriptor clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ArtifactDescriptor copyWith(void Function(ArtifactDescriptor) updates) =>
+      super.copyWith((message) => updates(message as ArtifactDescriptor))
+          as ArtifactDescriptor;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ArtifactDescriptor create() => ArtifactDescriptor._();
+  @$core.override
+  ArtifactDescriptor createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static ArtifactDescriptor getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ArtifactDescriptor>(create);
+  static ArtifactDescriptor? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get artifactId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set artifactId($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasArtifactId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearArtifactId() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  ArtifactKind get kind => $_getN(1);
+  @$pb.TagNumber(2)
+  set kind(ArtifactKind value) => $_setField(2, value);
+  @$pb.TagNumber(2)
+  $core.bool hasKind() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearKind() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get digest => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set digest($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasDigest() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearDigest() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get mediaType => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set mediaType($core.String value) => $_setString(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasMediaType() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearMediaType() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get logicalName => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set logicalName($core.String value) => $_setString(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasLogicalName() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearLogicalName() => $_clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get producer => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set producer($core.String value) => $_setString(5, value);
+  @$pb.TagNumber(6)
+  $core.bool hasProducer() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearProducer() => $_clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.String get contractVersion => $_getSZ(6);
+  @$pb.TagNumber(7)
+  set contractVersion($core.String value) => $_setString(6, value);
+  @$pb.TagNumber(7)
+  $core.bool hasContractVersion() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearContractVersion() => $_clearField(7);
+}
+
 class ReplanPolicy extends $pb.GeneratedMessage {
   factory ReplanPolicy({
     ReplanStrategy? strategy,
@@ -2209,6 +2337,354 @@ class ExecutionReceipt extends $pb.GeneratedMessage {
   $core.bool hasGeneratedAtMs() => $_has(9);
   @$pb.TagNumber(10)
   void clearGeneratedAtMs() => $_clearField(10);
+}
+
+class VerificationCheck extends $pb.GeneratedMessage {
+  factory VerificationCheck({
+    $core.String? checkId,
+    $core.String? name,
+    VerificationCheckStatus? status,
+    $core.String? message,
+    $core.Iterable<$core.String>? artifactIds,
+  }) {
+    final result = create();
+    if (checkId != null) result.checkId = checkId;
+    if (name != null) result.name = name;
+    if (status != null) result.status = status;
+    if (message != null) result.message = message;
+    if (artifactIds != null) result.artifactIds.addAll(artifactIds);
+    return result;
+  }
+
+  VerificationCheck._();
+
+  factory VerificationCheck.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory VerificationCheck.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'VerificationCheck',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'checkId')
+    ..aOS(2, _omitFieldNames ? '' : 'name')
+    ..aE<VerificationCheckStatus>(3, _omitFieldNames ? '' : 'status',
+        enumValues: VerificationCheckStatus.values)
+    ..aOS(4, _omitFieldNames ? '' : 'message')
+    ..pPS(5, _omitFieldNames ? '' : 'artifactIds')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  VerificationCheck clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  VerificationCheck copyWith(void Function(VerificationCheck) updates) =>
+      super.copyWith((message) => updates(message as VerificationCheck))
+          as VerificationCheck;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static VerificationCheck create() => VerificationCheck._();
+  @$core.override
+  VerificationCheck createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static VerificationCheck getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<VerificationCheck>(create);
+  static VerificationCheck? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get checkId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set checkId($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasCheckId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCheckId() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get name => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set name($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasName() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearName() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  VerificationCheckStatus get status => $_getN(2);
+  @$pb.TagNumber(3)
+  set status(VerificationCheckStatus value) => $_setField(3, value);
+  @$pb.TagNumber(3)
+  $core.bool hasStatus() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearStatus() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get message => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set message($core.String value) => $_setString(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasMessage() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearMessage() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  $pb.PbList<$core.String> get artifactIds => $_getList(4);
+}
+
+class BlockedOutcome extends $pb.GeneratedMessage {
+  factory BlockedOutcome({
+    $core.String? code,
+    BlockedOutcomeScope? scope,
+    $core.String? message,
+    $0.Struct? details,
+    $core.Iterable<ArtifactDescriptor>? blockingArtifacts,
+  }) {
+    final result = create();
+    if (code != null) result.code = code;
+    if (scope != null) result.scope = scope;
+    if (message != null) result.message = message;
+    if (details != null) result.details = details;
+    if (blockingArtifacts != null)
+      result.blockingArtifacts.addAll(blockingArtifacts);
+    return result;
+  }
+
+  BlockedOutcome._();
+
+  factory BlockedOutcome.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory BlockedOutcome.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'BlockedOutcome',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'code')
+    ..aE<BlockedOutcomeScope>(2, _omitFieldNames ? '' : 'scope',
+        enumValues: BlockedOutcomeScope.values)
+    ..aOS(3, _omitFieldNames ? '' : 'message')
+    ..aOM<$0.Struct>(4, _omitFieldNames ? '' : 'details',
+        subBuilder: $0.Struct.create)
+    ..pPM<ArtifactDescriptor>(5, _omitFieldNames ? '' : 'blockingArtifacts',
+        subBuilder: ArtifactDescriptor.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  BlockedOutcome clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  BlockedOutcome copyWith(void Function(BlockedOutcome) updates) =>
+      super.copyWith((message) => updates(message as BlockedOutcome))
+          as BlockedOutcome;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static BlockedOutcome create() => BlockedOutcome._();
+  @$core.override
+  BlockedOutcome createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static BlockedOutcome getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<BlockedOutcome>(create);
+  static BlockedOutcome? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get code => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set code($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasCode() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCode() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  BlockedOutcomeScope get scope => $_getN(1);
+  @$pb.TagNumber(2)
+  set scope(BlockedOutcomeScope value) => $_setField(2, value);
+  @$pb.TagNumber(2)
+  $core.bool hasScope() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearScope() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get message => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set message($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasMessage() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearMessage() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $0.Struct get details => $_getN(3);
+  @$pb.TagNumber(4)
+  set details($0.Struct value) => $_setField(4, value);
+  @$pb.TagNumber(4)
+  $core.bool hasDetails() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearDetails() => $_clearField(4);
+  @$pb.TagNumber(4)
+  $0.Struct ensureDetails() => $_ensure(3);
+
+  @$pb.TagNumber(5)
+  $pb.PbList<ArtifactDescriptor> get blockingArtifacts => $_getList(4);
+}
+
+class VerificationReceipt extends $pb.GeneratedMessage {
+  factory VerificationReceipt({
+    $core.String? contractVersion,
+    $core.String? verificationId,
+    $core.String? planId,
+    $core.Iterable<$core.String>? executionReceiptIds,
+    $core.String? verificationPolicyVersion,
+    VerificationStatus? status,
+    $core.Iterable<VerificationCheck>? checks,
+    $core.Iterable<BlockedOutcome>? blockedOutcomes,
+    $core.Iterable<$core.String>? artifactDigestSet,
+    $fixnum.Int64? verifiedAtMs,
+  }) {
+    final result = create();
+    if (contractVersion != null) result.contractVersion = contractVersion;
+    if (verificationId != null) result.verificationId = verificationId;
+    if (planId != null) result.planId = planId;
+    if (executionReceiptIds != null)
+      result.executionReceiptIds.addAll(executionReceiptIds);
+    if (verificationPolicyVersion != null)
+      result.verificationPolicyVersion = verificationPolicyVersion;
+    if (status != null) result.status = status;
+    if (checks != null) result.checks.addAll(checks);
+    if (blockedOutcomes != null) result.blockedOutcomes.addAll(blockedOutcomes);
+    if (artifactDigestSet != null)
+      result.artifactDigestSet.addAll(artifactDigestSet);
+    if (verifiedAtMs != null) result.verifiedAtMs = verifiedAtMs;
+    return result;
+  }
+
+  VerificationReceipt._();
+
+  factory VerificationReceipt.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory VerificationReceipt.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'VerificationReceipt',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'contractVersion')
+    ..aOS(2, _omitFieldNames ? '' : 'verificationId')
+    ..aOS(3, _omitFieldNames ? '' : 'planId')
+    ..pPS(4, _omitFieldNames ? '' : 'executionReceiptIds')
+    ..aOS(5, _omitFieldNames ? '' : 'verificationPolicyVersion')
+    ..aE<VerificationStatus>(6, _omitFieldNames ? '' : 'status',
+        enumValues: VerificationStatus.values)
+    ..pPM<VerificationCheck>(7, _omitFieldNames ? '' : 'checks',
+        subBuilder: VerificationCheck.create)
+    ..pPM<BlockedOutcome>(8, _omitFieldNames ? '' : 'blockedOutcomes',
+        subBuilder: BlockedOutcome.create)
+    ..pPS(9, _omitFieldNames ? '' : 'artifactDigestSet')
+    ..a<$fixnum.Int64>(
+        10, _omitFieldNames ? '' : 'verifiedAtMs', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  VerificationReceipt clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  VerificationReceipt copyWith(void Function(VerificationReceipt) updates) =>
+      super.copyWith((message) => updates(message as VerificationReceipt))
+          as VerificationReceipt;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static VerificationReceipt create() => VerificationReceipt._();
+  @$core.override
+  VerificationReceipt createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static VerificationReceipt getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<VerificationReceipt>(create);
+  static VerificationReceipt? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get contractVersion => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set contractVersion($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasContractVersion() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearContractVersion() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get verificationId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set verificationId($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasVerificationId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearVerificationId() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get planId => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set planId($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasPlanId() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearPlanId() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $pb.PbList<$core.String> get executionReceiptIds => $_getList(3);
+
+  @$pb.TagNumber(5)
+  $core.String get verificationPolicyVersion => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set verificationPolicyVersion($core.String value) => $_setString(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasVerificationPolicyVersion() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearVerificationPolicyVersion() => $_clearField(5);
+
+  @$pb.TagNumber(6)
+  VerificationStatus get status => $_getN(5);
+  @$pb.TagNumber(6)
+  set status(VerificationStatus value) => $_setField(6, value);
+  @$pb.TagNumber(6)
+  $core.bool hasStatus() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearStatus() => $_clearField(6);
+
+  @$pb.TagNumber(7)
+  $pb.PbList<VerificationCheck> get checks => $_getList(6);
+
+  @$pb.TagNumber(8)
+  $pb.PbList<BlockedOutcome> get blockedOutcomes => $_getList(7);
+
+  @$pb.TagNumber(9)
+  $pb.PbList<$core.String> get artifactDigestSet => $_getList(8);
+
+  @$pb.TagNumber(10)
+  $fixnum.Int64 get verifiedAtMs => $_getI64(9);
+  @$pb.TagNumber(10)
+  set verifiedAtMs($fixnum.Int64 value) => $_setInt64(9, value);
+  @$pb.TagNumber(10)
+  $core.bool hasVerifiedAtMs() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearVerifiedAtMs() => $_clearField(10);
 }
 
 class Task extends $pb.GeneratedMessage {
