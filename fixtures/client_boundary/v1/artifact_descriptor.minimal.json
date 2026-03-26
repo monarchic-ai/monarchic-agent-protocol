@@ -1,0 +1,9 @@
+{
+  "artifact_id": "artifact-123",
+  "kind": "execution_receipt",
+  "digest": "sha256:artifact-123",
+  "media_type": "application/json",
+  "logical_name": "execution-receipt.json",
+  "producer": "monarchic-ops",
+  "contract_version": "v1"
+}
