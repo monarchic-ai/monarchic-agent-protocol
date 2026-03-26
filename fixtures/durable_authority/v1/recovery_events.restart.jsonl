@@ -1,0 +1,2 @@
+{"event_id":"recovery-001","run_id":"run-123","plan_id":"plan-123","kind":"orchestrator_started","occurred_at_ms":1742950800000,"actor":"orchestrator-a","details":{"mode":"restart"},"contract_version":"v1","run_state":"executing"}
+{"event_id":"recovery-002","run_id":"run-123","plan_id":"plan-123","step_id":"step-1","kind":"lease_restored","occurred_at_ms":1742950810000,"actor":"orchestrator-a","details":{"lease_id":"lease-123","runner_id":"runner-a"},"contract_version":"v1","run_state":"executing","step_state":"leased"}

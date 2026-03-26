@@ -1,1 +1,2 @@
 pub const CLIENT_BOUNDARY_CONTRACT_VERSION: &str = "v1";
+pub const DURABLE_AUTHORITY_CONTRACT_VERSION: &str = "v1";
