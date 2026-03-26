@@ -96,6 +96,57 @@ fn verification_receipt_fixture_round_trips_canonically() {
 }
 
 #[test]
+fn verification_receipt_defaults_contract_version_when_missing() {
+    let mut value = load_fixture_value("verification_receipt.minimal.json");
+    value
+        .as_object_mut()
+        .expect("verification receipt object")
+        .remove("contract_version");
+    let parsed: VerificationReceipt =
+        serde_json::from_value(value).expect("deserialize verification receipt without version");
+
+    assert_eq!(parsed.contract_version, monarchic_agent_protocol::PROTOCOL_VERSION);
+}
+
+#[test]
+fn verification_receipt_defaults_execution_receipt_ids_when_missing() {
+    let mut value = load_fixture_value("verification_receipt.minimal.json");
+    value
+        .as_object_mut()
+        .expect("verification receipt object")
+        .remove("execution_receipt_ids");
+    let parsed: VerificationReceipt = serde_json::from_value(value)
+        .expect("deserialize verification receipt without execution ids");
+
+    assert!(parsed.execution_receipt_ids.is_empty());
+}
+
+#[test]
+fn passed_verification_receipt_rejects_blocked_outcomes() {
+    let mut value = load_fixture_value("verification_receipt.minimal.json");
+    value["blocked_outcomes"] =
+        serde_json::to_value(vec![serde_json::from_str::<Value>(&read_fixture("blocked_outcome.minimal.json")).expect("blocked fixture")]).expect("serialize blocked outcomes");
+    assert!(serde_json::from_value::<VerificationReceipt>(value).is_err());
+}
+
+#[test]
+fn blocked_verification_receipt_requires_blocked_outcomes() {
+    let mut value = load_fixture_value("verification_receipt.minimal.json");
+    value["status"] = Value::String(String::from("blocked"));
+    value["blocked_outcomes"] = Value::Array(Vec::new());
+    assert!(serde_json::from_value::<VerificationReceipt>(value).is_err());
+}
+
+#[test]
+fn failed_verification_receipt_requires_failure_signal() {
+    let mut value = load_fixture_value("verification_receipt.minimal.json");
+    value["status"] = Value::String(String::from("failed"));
+    value["checks"][0]["status"] = Value::String(String::from("passed"));
+    value["blocked_outcomes"] = Value::Array(Vec::new());
+    assert!(serde_json::from_value::<VerificationReceipt>(value).is_err());
+}
+
+#[test]
 fn review_decision_fixture_round_trips_canonically() {
     assert_fixture_round_trip::<ReviewDecision>("review_decision.minimal.json");
 }

@@ -6,39 +6,31 @@
 package ai.monarchic.agent_protocol.v1;
 
 /**
- * Protobuf enum {@code monarchic.agent_protocol.v1.LeaseLifecycleState}
+ * Protobuf enum {@code monarchic.agent_protocol.v1.VerificationStatus}
  */
 @com.google.protobuf.Generated
-public enum LeaseLifecycleState
+public enum VerificationStatus
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>LEASE_LIFECYCLE_STATE_UNSPECIFIED = 0;</code>
+   * <code>VERIFICATION_STATUS_UNSPECIFIED = 0;</code>
    */
-  LEASE_LIFECYCLE_STATE_UNSPECIFIED(0),
+  VERIFICATION_STATUS_UNSPECIFIED(0),
   /**
-   * <code>LEASE_ISSUED = 1;</code>
+   * <code>VERIFICATION_STATUS_PENDING = 1;</code>
    */
-  LEASE_ISSUED(1),
+  VERIFICATION_STATUS_PENDING(1),
   /**
-   * <code>LEASE_ACTIVE = 2;</code>
+   * <code>VERIFICATION_STATUS_PASSED = 2;</code>
    */
-  LEASE_ACTIVE(2),
+  VERIFICATION_STATUS_PASSED(2),
   /**
-   * <code>LEASE_RELEASED = 3;</code>
+   * <code>VERIFICATION_STATUS_FAILED = 3;</code>
    */
-  LEASE_RELEASED(3),
+  VERIFICATION_STATUS_FAILED(3),
   /**
-   * <code>LEASE_EXPIRED = 4;</code>
+   * <code>VERIFICATION_STATUS_BLOCKED = 4;</code>
    */
-  LEASE_EXPIRED(4),
-  /**
-   * <code>LEASE_CANCELLED = 5;</code>
-   */
-  LEASE_CANCELLED(5),
-  /**
-   * <code>LEASE_REJECTED = 6;</code>
-   */
-  LEASE_REJECTED(6),
+  VERIFICATION_STATUS_BLOCKED(4),
   UNRECOGNIZED(-1),
   ;
 
@@ -49,36 +41,28 @@ public enum LeaseLifecycleState
       /* minor= */ 32,
       /* patch= */ 1,
       /* suffix= */ "",
-      LeaseLifecycleState.class.getName());
+      VerificationStatus.class.getName());
   }
   /**
-   * <code>LEASE_LIFECYCLE_STATE_UNSPECIFIED = 0;</code>
+   * <code>VERIFICATION_STATUS_UNSPECIFIED = 0;</code>
    */
-  public static final int LEASE_LIFECYCLE_STATE_UNSPECIFIED_VALUE = 0;
+  public static final int VERIFICATION_STATUS_UNSPECIFIED_VALUE = 0;
   /**
-   * <code>LEASE_ISSUED = 1;</code>
+   * <code>VERIFICATION_STATUS_PENDING = 1;</code>
    */
-  public static final int LEASE_ISSUED_VALUE = 1;
+  public static final int VERIFICATION_STATUS_PENDING_VALUE = 1;
   /**
-   * <code>LEASE_ACTIVE = 2;</code>
+   * <code>VERIFICATION_STATUS_PASSED = 2;</code>
    */
-  public static final int LEASE_ACTIVE_VALUE = 2;
+  public static final int VERIFICATION_STATUS_PASSED_VALUE = 2;
   /**
-   * <code>LEASE_RELEASED = 3;</code>
+   * <code>VERIFICATION_STATUS_FAILED = 3;</code>
    */
-  public static final int LEASE_RELEASED_VALUE = 3;
+  public static final int VERIFICATION_STATUS_FAILED_VALUE = 3;
   /**
-   * <code>LEASE_EXPIRED = 4;</code>
+   * <code>VERIFICATION_STATUS_BLOCKED = 4;</code>
    */
-  public static final int LEASE_EXPIRED_VALUE = 4;
-  /**
-   * <code>LEASE_CANCELLED = 5;</code>
-   */
-  public static final int LEASE_CANCELLED_VALUE = 5;
-  /**
-   * <code>LEASE_REJECTED = 6;</code>
-   */
-  public static final int LEASE_REJECTED_VALUE = 6;
+  public static final int VERIFICATION_STATUS_BLOCKED_VALUE = 4;
 
 
   public final int getNumber() {
@@ -95,7 +79,7 @@ public enum LeaseLifecycleState
    * @deprecated Use {@link #forNumber(int)} instead.
    */
   @java.lang.Deprecated
-  public static LeaseLifecycleState valueOf(int value) {
+  public static VerificationStatus valueOf(int value) {
     return forNumber(value);
   }
 
@@ -103,28 +87,26 @@ public enum LeaseLifecycleState
    * @param value The numeric wire value of the corresponding enum entry.
    * @return The enum associated with the given numeric wire value.
    */
-  public static LeaseLifecycleState forNumber(int value) {
+  public static VerificationStatus forNumber(int value) {
     switch (value) {
-      case 0: return LEASE_LIFECYCLE_STATE_UNSPECIFIED;
-      case 1: return LEASE_ISSUED;
-      case 2: return LEASE_ACTIVE;
-      case 3: return LEASE_RELEASED;
-      case 4: return LEASE_EXPIRED;
-      case 5: return LEASE_CANCELLED;
-      case 6: return LEASE_REJECTED;
+      case 0: return VERIFICATION_STATUS_UNSPECIFIED;
+      case 1: return VERIFICATION_STATUS_PENDING;
+      case 2: return VERIFICATION_STATUS_PASSED;
+      case 3: return VERIFICATION_STATUS_FAILED;
+      case 4: return VERIFICATION_STATUS_BLOCKED;
       default: return null;
     }
   }
 
-  public static com.google.protobuf.Internal.EnumLiteMap<LeaseLifecycleState>
+  public static com.google.protobuf.Internal.EnumLiteMap<VerificationStatus>
       internalGetValueMap() {
     return internalValueMap;
   }
   private static final com.google.protobuf.Internal.EnumLiteMap<
-      LeaseLifecycleState> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<LeaseLifecycleState>() {
-          public LeaseLifecycleState findValueByNumber(int number) {
-            return LeaseLifecycleState.forNumber(number);
+      VerificationStatus> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<VerificationStatus>() {
+          public VerificationStatus findValueByNumber(int number) {
+            return VerificationStatus.forNumber(number);
           }
         };
 
@@ -142,12 +124,12 @@ public enum LeaseLifecycleState
   }
   public static com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.getDescriptor().getEnumTypes().get(10);
+    return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.getDescriptor().getEnumTypes().get(7);
   }
 
-  private static final LeaseLifecycleState[] VALUES = values();
+  private static final VerificationStatus[] VALUES = values();
 
-  public static LeaseLifecycleState valueOf(
+  public static VerificationStatus valueOf(
       com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
     if (desc.getType() != getDescriptor()) {
       throw new java.lang.IllegalArgumentException(
@@ -161,10 +143,10 @@ public enum LeaseLifecycleState
 
   private final int value;
 
-  private LeaseLifecycleState(int value) {
+  private VerificationStatus(int value) {
     this.value = value;
   }
 
-  // @@protoc_insertion_point(enum_scope:monarchic.agent_protocol.v1.LeaseLifecycleState)
+  // @@protoc_insertion_point(enum_scope:monarchic.agent_protocol.v1.VerificationStatus)
 }
 

@@ -1,6 +1,10 @@
 {
+  "contract_version": "v1",
   "verification_id": "verification-123",
   "plan_id": "plan-123",
+  "execution_receipt_ids": [
+    "receipt-123"
+  ],
   "verification_policy_version": "verification-policy-v1",
   "status": "passed",
   "checks": [
