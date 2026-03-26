@@ -1,0 +1,1 @@
+pub const CLIENT_BOUNDARY_CONTRACT_VERSION: &str = "v1";
