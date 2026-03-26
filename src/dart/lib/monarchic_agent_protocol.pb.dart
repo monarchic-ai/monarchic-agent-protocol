@@ -1119,6 +1119,7 @@ class Intent extends $pb.GeneratedMessage {
     $core.String? goal,
     $0.Struct? constraints,
     $core.String? contextDigest,
+    IntentClass? intentClass,
   }) {
     final result = create();
     if (intentId != null) result.intentId = intentId;
@@ -1130,6 +1131,7 @@ class Intent extends $pb.GeneratedMessage {
     if (goal != null) result.goal = goal;
     if (constraints != null) result.constraints = constraints;
     if (contextDigest != null) result.contextDigest = contextDigest;
+    if (intentClass != null) result.intentClass = intentClass;
     return result;
   }
 
@@ -1159,6 +1161,8 @@ class Intent extends $pb.GeneratedMessage {
     ..aOM<$0.Struct>(8, _omitFieldNames ? '' : 'constraints',
         subBuilder: $0.Struct.create)
     ..aOS(9, _omitFieldNames ? '' : 'contextDigest')
+    ..aE<IntentClass>(10, _omitFieldNames ? '' : 'intentClass',
+        enumValues: IntentClass.values)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -1261,6 +1265,15 @@ class Intent extends $pb.GeneratedMessage {
   $core.bool hasContextDigest() => $_has(8);
   @$pb.TagNumber(9)
   void clearContextDigest() => $_clearField(9);
+
+  @$pb.TagNumber(10)
+  IntentClass get intentClass => $_getN(9);
+  @$pb.TagNumber(10)
+  set intentClass(IntentClass value) => $_setField(10, value);
+  @$pb.TagNumber(10)
+  $core.bool hasIntentClass() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearIntentClass() => $_clearField(10);
 }
 
 class RoleProvenance extends $pb.GeneratedMessage {

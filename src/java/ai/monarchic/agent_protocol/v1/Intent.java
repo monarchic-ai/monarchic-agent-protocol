@@ -35,6 +35,7 @@ private static final long serialVersionUID = 0L;
     targetRef_ = "";
     goal_ = "";
     contextDigest_ = "";
+    intentClass_ = 0;
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -361,6 +362,24 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int INTENT_CLASS_FIELD_NUMBER = 10;
+  private int intentClass_ = 0;
+  /**
+   * <code>.monarchic.agent_protocol.v1.IntentClass intent_class = 10;</code>
+   * @return The enum numeric value on the wire for intentClass.
+   */
+  @java.lang.Override public int getIntentClassValue() {
+    return intentClass_;
+  }
+  /**
+   * <code>.monarchic.agent_protocol.v1.IntentClass intent_class = 10;</code>
+   * @return The intentClass.
+   */
+  @java.lang.Override public ai.monarchic.agent_protocol.v1.IntentClass getIntentClass() {
+    ai.monarchic.agent_protocol.v1.IntentClass result = ai.monarchic.agent_protocol.v1.IntentClass.forNumber(intentClass_);
+    return result == null ? ai.monarchic.agent_protocol.v1.IntentClass.UNRECOGNIZED : result;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -402,6 +421,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(contextDigest_)) {
       com.google.protobuf.GeneratedMessage.writeString(output, 9, contextDigest_);
     }
+    if (intentClass_ != ai.monarchic.agent_protocol.v1.IntentClass.INTENT_CLASS_UNSPECIFIED.getNumber()) {
+      output.writeEnum(10, intentClass_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -440,6 +462,10 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(contextDigest_)) {
       size += com.google.protobuf.GeneratedMessage.computeStringSize(9, contextDigest_);
     }
+    if (intentClass_ != ai.monarchic.agent_protocol.v1.IntentClass.INTENT_CLASS_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(10, intentClass_);
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -476,6 +502,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getContextDigest()
         .equals(other.getContextDigest())) return false;
+    if (intentClass_ != other.intentClass_) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -508,6 +535,8 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + CONTEXT_DIGEST_FIELD_NUMBER;
     hash = (53 * hash) + getContextDigest().hashCode();
+    hash = (37 * hash) + INTENT_CLASS_FIELD_NUMBER;
+    hash = (53 * hash) + intentClass_;
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -658,6 +687,7 @@ private static final long serialVersionUID = 0L;
         constraintsBuilder_ = null;
       }
       contextDigest_ = "";
+      intentClass_ = 0;
       return this;
     }
 
@@ -722,6 +752,9 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000100) != 0)) {
         result.contextDigest_ = contextDigest_;
       }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.intentClass_ = intentClass_;
+      }
       result.bitField0_ |= to_bitField0_;
     }
 
@@ -777,6 +810,9 @@ private static final long serialVersionUID = 0L;
         contextDigest_ = other.contextDigest_;
         bitField0_ |= 0x00000100;
         onChanged();
+      }
+      if (other.intentClass_ != 0) {
+        setIntentClassValue(other.getIntentClassValue());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -851,6 +887,11 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000100;
               break;
             } // case 74
+            case 80: {
+              intentClass_ = input.readEnum();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 80
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -1521,6 +1562,57 @@ private static final long serialVersionUID = 0L;
       checkByteStringIsUtf8(value);
       contextDigest_ = value;
       bitField0_ |= 0x00000100;
+      onChanged();
+      return this;
+    }
+
+    private int intentClass_ = 0;
+    /**
+     * <code>.monarchic.agent_protocol.v1.IntentClass intent_class = 10;</code>
+     * @return The enum numeric value on the wire for intentClass.
+     */
+    @java.lang.Override public int getIntentClassValue() {
+      return intentClass_;
+    }
+    /**
+     * <code>.monarchic.agent_protocol.v1.IntentClass intent_class = 10;</code>
+     * @param value The enum numeric value on the wire for intentClass to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIntentClassValue(int value) {
+      intentClass_ = value;
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.monarchic.agent_protocol.v1.IntentClass intent_class = 10;</code>
+     * @return The intentClass.
+     */
+    @java.lang.Override
+    public ai.monarchic.agent_protocol.v1.IntentClass getIntentClass() {
+      ai.monarchic.agent_protocol.v1.IntentClass result = ai.monarchic.agent_protocol.v1.IntentClass.forNumber(intentClass_);
+      return result == null ? ai.monarchic.agent_protocol.v1.IntentClass.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>.monarchic.agent_protocol.v1.IntentClass intent_class = 10;</code>
+     * @param value The intentClass to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIntentClass(ai.monarchic.agent_protocol.v1.IntentClass value) {
+      if (value == null) { throw new NullPointerException(); }
+      bitField0_ |= 0x00000200;
+      intentClass_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.monarchic.agent_protocol.v1.IntentClass intent_class = 10;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearIntentClass() {
+      bitField0_ = (bitField0_ & ~0x00000200);
+      intentClass_ = 0;
       onChanged();
       return this;
     }
