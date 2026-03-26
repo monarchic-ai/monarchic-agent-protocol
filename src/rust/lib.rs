@@ -42,13 +42,15 @@ pub mod monarchic {
 
 pub use monarchic::agent_protocol::v1::{
     AcceptanceCriteria, AckCancellationRequest, AckCancellationResponse, AcquireLeaseRequest,
-    AcquireLeaseResponse, AgentRole, Artifact, CancellationIntent, DatasetRef, EvalResult, Event,
-    ExecutionReceipt, ExperimentSpec, FailureClass, FailureDetail, FencingToken, GateResult,
-    HeartbeatRequest, HeartbeatResponse, Lease, LeaseAssignment, LeaseLifecycleState,
-    LeaseRef, LeaseRejectionReason, LeaseStatus, Plan, PlanProvenance, PlanStatus, PlanStep,
-    Provenance, RecoveryEvent, RecoveryEventKind, RegisterRunnerRequest, RegisterRunnerResponse,
-    RenewLeaseRequest, RenewLeaseResponse, ReportStepOutcomeRequest, ReportStepOutcomeResponse,
+    AcquireLeaseResponse, AgentRole, Artifact, ArtifactKind, CancellationIntent, DatasetRef,
+    EvalResult, Event, ExecutionReceipt, ExperimentSpec, FailureClass, FailureDetail,
+    FencingToken, GateResult, HeartbeatRequest, HeartbeatResponse, Intent, Lease,
+    LeaseAssignment, LeaseLifecycleState, LeaseRef, LeaseRejectionReason, LeaseStatus, Plan,
+    PlanProvenance, PlanStatus, PlanStep, PlanStepKind, Provenance, RecoveryEvent,
+    RecoveryEventKind, RegisterRunnerRequest, RegisterRunnerResponse, RenewLeaseRequest,
+    RenewLeaseResponse, ReportStepOutcomeRequest, ReportStepOutcomeResponse,
     ReportStepProgressRequest, ReportStepProgressResponse, ReportStepStartedRequest,
-    ReportStepStartedResponse, ResumeLeaseRequest, ResumeLeaseResponse, RoleProvenance,
-    RunContext, RunLifecycleState, RunnerCapabilities, StepLifecycleState, Task,
+    ReportStepStartedResponse, ReplanPolicy, ReplanStrategy, ResumeLeaseRequest,
+    ResumeLeaseResponse, RoleProvenance, RunContext, RunLifecycleState, RunnerCapabilities,
+    StepLifecycleState, StepOutputExpectation, Task,
 };

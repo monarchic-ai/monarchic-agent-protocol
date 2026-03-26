@@ -32,6 +32,11 @@ private static final long serialVersionUID = 0L;
     description_ = "";
     dependsOn_ =
         com.google.protobuf.LazyStringArrayList.emptyList();
+    taskId_ = "";
+    kind_ = 0;
+    expectedOutputs_ = java.util.Collections.emptyList();
+    policyTags_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -215,6 +220,175 @@ private static final long serialVersionUID = 0L;
     return failure_ == null ? ai.monarchic.agent_protocol.v1.FailureDetail.getDefaultInstance() : failure_;
   }
 
+  public static final int TASK_ID_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object taskId_ = "";
+  /**
+   * <code>optional string task_id = 6;</code>
+   * @return Whether the taskId field is set.
+   */
+  @java.lang.Override
+  public boolean hasTaskId() {
+    return ((bitField0_ & 0x00000004) != 0);
+  }
+  /**
+   * <code>optional string task_id = 6;</code>
+   * @return The taskId.
+   */
+  @java.lang.Override
+  public java.lang.String getTaskId() {
+    java.lang.Object ref = taskId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      taskId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>optional string task_id = 6;</code>
+   * @return The bytes for taskId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getTaskIdBytes() {
+    java.lang.Object ref = taskId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      taskId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int KIND_FIELD_NUMBER = 7;
+  private int kind_ = 0;
+  /**
+   * <code>.monarchic.agent_protocol.v1.PlanStepKind kind = 7;</code>
+   * @return The enum numeric value on the wire for kind.
+   */
+  @java.lang.Override public int getKindValue() {
+    return kind_;
+  }
+  /**
+   * <code>.monarchic.agent_protocol.v1.PlanStepKind kind = 7;</code>
+   * @return The kind.
+   */
+  @java.lang.Override public ai.monarchic.agent_protocol.v1.PlanStepKind getKind() {
+    ai.monarchic.agent_protocol.v1.PlanStepKind result = ai.monarchic.agent_protocol.v1.PlanStepKind.forNumber(kind_);
+    return result == null ? ai.monarchic.agent_protocol.v1.PlanStepKind.UNRECOGNIZED : result;
+  }
+
+  public static final int INPUTS_FIELD_NUMBER = 8;
+  private com.google.protobuf.Struct inputs_;
+  /**
+   * <code>.google.protobuf.Struct inputs = 8;</code>
+   * @return Whether the inputs field is set.
+   */
+  @java.lang.Override
+  public boolean hasInputs() {
+    return ((bitField0_ & 0x00000008) != 0);
+  }
+  /**
+   * <code>.google.protobuf.Struct inputs = 8;</code>
+   * @return The inputs.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Struct getInputs() {
+    return inputs_ == null ? com.google.protobuf.Struct.getDefaultInstance() : inputs_;
+  }
+  /**
+   * <code>.google.protobuf.Struct inputs = 8;</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.StructOrBuilder getInputsOrBuilder() {
+    return inputs_ == null ? com.google.protobuf.Struct.getDefaultInstance() : inputs_;
+  }
+
+  public static final int EXPECTED_OUTPUTS_FIELD_NUMBER = 9;
+  @SuppressWarnings("serial")
+  private java.util.List<ai.monarchic.agent_protocol.v1.StepOutputExpectation> expectedOutputs_;
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>
+   */
+  @java.lang.Override
+  public java.util.List<ai.monarchic.agent_protocol.v1.StepOutputExpectation> getExpectedOutputsList() {
+    return expectedOutputs_;
+  }
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends ai.monarchic.agent_protocol.v1.StepOutputExpectationOrBuilder> 
+      getExpectedOutputsOrBuilderList() {
+    return expectedOutputs_;
+  }
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>
+   */
+  @java.lang.Override
+  public int getExpectedOutputsCount() {
+    return expectedOutputs_.size();
+  }
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>
+   */
+  @java.lang.Override
+  public ai.monarchic.agent_protocol.v1.StepOutputExpectation getExpectedOutputs(int index) {
+    return expectedOutputs_.get(index);
+  }
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>
+   */
+  @java.lang.Override
+  public ai.monarchic.agent_protocol.v1.StepOutputExpectationOrBuilder getExpectedOutputsOrBuilder(
+      int index) {
+    return expectedOutputs_.get(index);
+  }
+
+  public static final int POLICY_TAGS_FIELD_NUMBER = 10;
+  @SuppressWarnings("serial")
+  private com.google.protobuf.LazyStringArrayList policyTags_ =
+      com.google.protobuf.LazyStringArrayList.emptyList();
+  /**
+   * <code>repeated string policy_tags = 10;</code>
+   * @return A list containing the policyTags.
+   */
+  public com.google.protobuf.ProtocolStringList
+      getPolicyTagsList() {
+    return policyTags_;
+  }
+  /**
+   * <code>repeated string policy_tags = 10;</code>
+   * @return The count of policyTags.
+   */
+  public int getPolicyTagsCount() {
+    return policyTags_.size();
+  }
+  /**
+   * <code>repeated string policy_tags = 10;</code>
+   * @param index The index of the element to return.
+   * @return The policyTags at the given index.
+   */
+  public java.lang.String getPolicyTags(int index) {
+    return policyTags_.get(index);
+  }
+  /**
+   * <code>repeated string policy_tags = 10;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the policyTags at the given index.
+   */
+  public com.google.protobuf.ByteString
+      getPolicyTagsBytes(int index) {
+    return policyTags_.getByteString(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -243,6 +417,21 @@ private static final long serialVersionUID = 0L;
     }
     if (((bitField0_ & 0x00000002) != 0)) {
       output.writeMessage(5, getFailure());
+    }
+    if (((bitField0_ & 0x00000004) != 0)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 6, taskId_);
+    }
+    if (kind_ != ai.monarchic.agent_protocol.v1.PlanStepKind.PLAN_STEP_KIND_UNSPECIFIED.getNumber()) {
+      output.writeEnum(7, kind_);
+    }
+    if (((bitField0_ & 0x00000008) != 0)) {
+      output.writeMessage(8, getInputs());
+    }
+    for (int i = 0; i < expectedOutputs_.size(); i++) {
+      output.writeMessage(9, expectedOutputs_.get(i));
+    }
+    for (int i = 0; i < policyTags_.size(); i++) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 10, policyTags_.getRaw(i));
     }
     getUnknownFields().writeTo(output);
   }
@@ -275,6 +464,29 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, getFailure());
     }
+    if (((bitField0_ & 0x00000004) != 0)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(6, taskId_);
+    }
+    if (kind_ != ai.monarchic.agent_protocol.v1.PlanStepKind.PLAN_STEP_KIND_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(7, kind_);
+    }
+    if (((bitField0_ & 0x00000008) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(8, getInputs());
+    }
+    for (int i = 0; i < expectedOutputs_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(9, expectedOutputs_.get(i));
+    }
+    {
+      int dataSize = 0;
+      for (int i = 0; i < policyTags_.size(); i++) {
+        dataSize += computeStringSizeNoTag(policyTags_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getPolicyTagsList().size();
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -306,6 +518,21 @@ private static final long serialVersionUID = 0L;
       if (!getFailure()
           .equals(other.getFailure())) return false;
     }
+    if (hasTaskId() != other.hasTaskId()) return false;
+    if (hasTaskId()) {
+      if (!getTaskId()
+          .equals(other.getTaskId())) return false;
+    }
+    if (kind_ != other.kind_) return false;
+    if (hasInputs() != other.hasInputs()) return false;
+    if (hasInputs()) {
+      if (!getInputs()
+          .equals(other.getInputs())) return false;
+    }
+    if (!getExpectedOutputsList()
+        .equals(other.getExpectedOutputsList())) return false;
+    if (!getPolicyTagsList()
+        .equals(other.getPolicyTagsList())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -332,6 +559,24 @@ private static final long serialVersionUID = 0L;
     if (hasFailure()) {
       hash = (37 * hash) + FAILURE_FIELD_NUMBER;
       hash = (53 * hash) + getFailure().hashCode();
+    }
+    if (hasTaskId()) {
+      hash = (37 * hash) + TASK_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getTaskId().hashCode();
+    }
+    hash = (37 * hash) + KIND_FIELD_NUMBER;
+    hash = (53 * hash) + kind_;
+    if (hasInputs()) {
+      hash = (37 * hash) + INPUTS_FIELD_NUMBER;
+      hash = (53 * hash) + getInputs().hashCode();
+    }
+    if (getExpectedOutputsCount() > 0) {
+      hash = (37 * hash) + EXPECTED_OUTPUTS_FIELD_NUMBER;
+      hash = (53 * hash) + getExpectedOutputsList().hashCode();
+    }
+    if (getPolicyTagsCount() > 0) {
+      hash = (37 * hash) + POLICY_TAGS_FIELD_NUMBER;
+      hash = (53 * hash) + getPolicyTagsList().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -465,6 +710,8 @@ private static final long serialVersionUID = 0L;
               .alwaysUseFieldBuilders) {
         internalGetTaskTemplateFieldBuilder();
         internalGetFailureFieldBuilder();
+        internalGetInputsFieldBuilder();
+        internalGetExpectedOutputsFieldBuilder();
       }
     }
     @java.lang.Override
@@ -485,6 +732,22 @@ private static final long serialVersionUID = 0L;
         failureBuilder_.dispose();
         failureBuilder_ = null;
       }
+      taskId_ = "";
+      kind_ = 0;
+      inputs_ = null;
+      if (inputsBuilder_ != null) {
+        inputsBuilder_.dispose();
+        inputsBuilder_ = null;
+      }
+      if (expectedOutputsBuilder_ == null) {
+        expectedOutputs_ = java.util.Collections.emptyList();
+      } else {
+        expectedOutputs_ = null;
+        expectedOutputsBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000100);
+      policyTags_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
       return this;
     }
 
@@ -511,9 +774,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public ai.monarchic.agent_protocol.v1.PlanStep buildPartial() {
       ai.monarchic.agent_protocol.v1.PlanStep result = new ai.monarchic.agent_protocol.v1.PlanStep(this);
+      buildPartialRepeatedFields(result);
       if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(ai.monarchic.agent_protocol.v1.PlanStep result) {
+      if (expectedOutputsBuilder_ == null) {
+        if (((bitField0_ & 0x00000100) != 0)) {
+          expectedOutputs_ = java.util.Collections.unmodifiableList(expectedOutputs_);
+          bitField0_ = (bitField0_ & ~0x00000100);
+        }
+        result.expectedOutputs_ = expectedOutputs_;
+      } else {
+        result.expectedOutputs_ = expectedOutputsBuilder_.build();
+      }
     }
 
     private void buildPartial0(ai.monarchic.agent_protocol.v1.PlanStep result) {
@@ -540,6 +816,23 @@ private static final long serialVersionUID = 0L;
             ? failure_
             : failureBuilder_.build();
         to_bitField0_ |= 0x00000002;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.taskId_ = taskId_;
+        to_bitField0_ |= 0x00000004;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.kind_ = kind_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.inputs_ = inputsBuilder_ == null
+            ? inputs_
+            : inputsBuilder_.build();
+        to_bitField0_ |= 0x00000008;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        policyTags_.makeImmutable();
+        result.policyTags_ = policyTags_;
       }
       result.bitField0_ |= to_bitField0_;
     }
@@ -581,6 +874,53 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasFailure()) {
         mergeFailure(other.getFailure());
+      }
+      if (other.hasTaskId()) {
+        taskId_ = other.taskId_;
+        bitField0_ |= 0x00000020;
+        onChanged();
+      }
+      if (other.kind_ != 0) {
+        setKindValue(other.getKindValue());
+      }
+      if (other.hasInputs()) {
+        mergeInputs(other.getInputs());
+      }
+      if (expectedOutputsBuilder_ == null) {
+        if (!other.expectedOutputs_.isEmpty()) {
+          if (expectedOutputs_.isEmpty()) {
+            expectedOutputs_ = other.expectedOutputs_;
+            bitField0_ = (bitField0_ & ~0x00000100);
+          } else {
+            ensureExpectedOutputsIsMutable();
+            expectedOutputs_.addAll(other.expectedOutputs_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.expectedOutputs_.isEmpty()) {
+          if (expectedOutputsBuilder_.isEmpty()) {
+            expectedOutputsBuilder_.dispose();
+            expectedOutputsBuilder_ = null;
+            expectedOutputs_ = other.expectedOutputs_;
+            bitField0_ = (bitField0_ & ~0x00000100);
+            expectedOutputsBuilder_ = 
+              com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                 internalGetExpectedOutputsFieldBuilder() : null;
+          } else {
+            expectedOutputsBuilder_.addAllMessages(other.expectedOutputs_);
+          }
+        }
+      }
+      if (!other.policyTags_.isEmpty()) {
+        if (policyTags_.isEmpty()) {
+          policyTags_ = other.policyTags_;
+          bitField0_ |= 0x00000200;
+        } else {
+          ensurePolicyTagsIsMutable();
+          policyTags_.addAll(other.policyTags_);
+        }
+        onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -638,6 +978,42 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000010;
               break;
             } // case 42
+            case 50: {
+              taskId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 56: {
+              kind_ = input.readEnum();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            case 66: {
+              input.readMessage(
+                  internalGetInputsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 74: {
+              ai.monarchic.agent_protocol.v1.StepOutputExpectation m =
+                  input.readMessage(
+                      ai.monarchic.agent_protocol.v1.StepOutputExpectation.parser(),
+                      extensionRegistry);
+              if (expectedOutputsBuilder_ == null) {
+                ensureExpectedOutputsIsMutable();
+                expectedOutputs_.add(m);
+              } else {
+                expectedOutputsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 74
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensurePolicyTagsIsMutable();
+              policyTags_.add(s);
+              break;
+            } // case 82
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -1150,6 +1526,608 @@ private static final long serialVersionUID = 0L;
         failure_ = null;
       }
       return failureBuilder_;
+    }
+
+    private java.lang.Object taskId_ = "";
+    /**
+     * <code>optional string task_id = 6;</code>
+     * @return Whether the taskId field is set.
+     */
+    public boolean hasTaskId() {
+      return ((bitField0_ & 0x00000020) != 0);
+    }
+    /**
+     * <code>optional string task_id = 6;</code>
+     * @return The taskId.
+     */
+    public java.lang.String getTaskId() {
+      java.lang.Object ref = taskId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        taskId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>optional string task_id = 6;</code>
+     * @return The bytes for taskId.
+     */
+    public com.google.protobuf.ByteString
+        getTaskIdBytes() {
+      java.lang.Object ref = taskId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        taskId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>optional string task_id = 6;</code>
+     * @param value The taskId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTaskId(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      taskId_ = value;
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional string task_id = 6;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTaskId() {
+      taskId_ = getDefaultInstance().getTaskId();
+      bitField0_ = (bitField0_ & ~0x00000020);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional string task_id = 6;</code>
+     * @param value The bytes for taskId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTaskIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      taskId_ = value;
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+
+    private int kind_ = 0;
+    /**
+     * <code>.monarchic.agent_protocol.v1.PlanStepKind kind = 7;</code>
+     * @return The enum numeric value on the wire for kind.
+     */
+    @java.lang.Override public int getKindValue() {
+      return kind_;
+    }
+    /**
+     * <code>.monarchic.agent_protocol.v1.PlanStepKind kind = 7;</code>
+     * @param value The enum numeric value on the wire for kind to set.
+     * @return This builder for chaining.
+     */
+    public Builder setKindValue(int value) {
+      kind_ = value;
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.monarchic.agent_protocol.v1.PlanStepKind kind = 7;</code>
+     * @return The kind.
+     */
+    @java.lang.Override
+    public ai.monarchic.agent_protocol.v1.PlanStepKind getKind() {
+      ai.monarchic.agent_protocol.v1.PlanStepKind result = ai.monarchic.agent_protocol.v1.PlanStepKind.forNumber(kind_);
+      return result == null ? ai.monarchic.agent_protocol.v1.PlanStepKind.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>.monarchic.agent_protocol.v1.PlanStepKind kind = 7;</code>
+     * @param value The kind to set.
+     * @return This builder for chaining.
+     */
+    public Builder setKind(ai.monarchic.agent_protocol.v1.PlanStepKind value) {
+      if (value == null) { throw new NullPointerException(); }
+      bitField0_ |= 0x00000040;
+      kind_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.monarchic.agent_protocol.v1.PlanStepKind kind = 7;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearKind() {
+      bitField0_ = (bitField0_ & ~0x00000040);
+      kind_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.Struct inputs_;
+    private com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> inputsBuilder_;
+    /**
+     * <code>.google.protobuf.Struct inputs = 8;</code>
+     * @return Whether the inputs field is set.
+     */
+    public boolean hasInputs() {
+      return ((bitField0_ & 0x00000080) != 0);
+    }
+    /**
+     * <code>.google.protobuf.Struct inputs = 8;</code>
+     * @return The inputs.
+     */
+    public com.google.protobuf.Struct getInputs() {
+      if (inputsBuilder_ == null) {
+        return inputs_ == null ? com.google.protobuf.Struct.getDefaultInstance() : inputs_;
+      } else {
+        return inputsBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.google.protobuf.Struct inputs = 8;</code>
+     */
+    public Builder setInputs(com.google.protobuf.Struct value) {
+      if (inputsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        inputs_ = value;
+      } else {
+        inputsBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000080;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Struct inputs = 8;</code>
+     */
+    public Builder setInputs(
+        com.google.protobuf.Struct.Builder builderForValue) {
+      if (inputsBuilder_ == null) {
+        inputs_ = builderForValue.build();
+      } else {
+        inputsBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000080;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Struct inputs = 8;</code>
+     */
+    public Builder mergeInputs(com.google.protobuf.Struct value) {
+      if (inputsBuilder_ == null) {
+        if (((bitField0_ & 0x00000080) != 0) &&
+          inputs_ != null &&
+          inputs_ != com.google.protobuf.Struct.getDefaultInstance()) {
+          getInputsBuilder().mergeFrom(value);
+        } else {
+          inputs_ = value;
+        }
+      } else {
+        inputsBuilder_.mergeFrom(value);
+      }
+      if (inputs_ != null) {
+        bitField0_ |= 0x00000080;
+        onChanged();
+      }
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Struct inputs = 8;</code>
+     */
+    public Builder clearInputs() {
+      bitField0_ = (bitField0_ & ~0x00000080);
+      inputs_ = null;
+      if (inputsBuilder_ != null) {
+        inputsBuilder_.dispose();
+        inputsBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Struct inputs = 8;</code>
+     */
+    public com.google.protobuf.Struct.Builder getInputsBuilder() {
+      bitField0_ |= 0x00000080;
+      onChanged();
+      return internalGetInputsFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.google.protobuf.Struct inputs = 8;</code>
+     */
+    public com.google.protobuf.StructOrBuilder getInputsOrBuilder() {
+      if (inputsBuilder_ != null) {
+        return inputsBuilder_.getMessageOrBuilder();
+      } else {
+        return inputs_ == null ?
+            com.google.protobuf.Struct.getDefaultInstance() : inputs_;
+      }
+    }
+    /**
+     * <code>.google.protobuf.Struct inputs = 8;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+        internalGetInputsFieldBuilder() {
+      if (inputsBuilder_ == null) {
+        inputsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>(
+                getInputs(),
+                getParentForChildren(),
+                isClean());
+        inputs_ = null;
+      }
+      return inputsBuilder_;
+    }
+
+    private java.util.List<ai.monarchic.agent_protocol.v1.StepOutputExpectation> expectedOutputs_ =
+      java.util.Collections.emptyList();
+    private void ensureExpectedOutputsIsMutable() {
+      if (!((bitField0_ & 0x00000100) != 0)) {
+        expectedOutputs_ = new java.util.ArrayList<ai.monarchic.agent_protocol.v1.StepOutputExpectation>(expectedOutputs_);
+        bitField0_ |= 0x00000100;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilder<
+        ai.monarchic.agent_protocol.v1.StepOutputExpectation, ai.monarchic.agent_protocol.v1.StepOutputExpectation.Builder, ai.monarchic.agent_protocol.v1.StepOutputExpectationOrBuilder> expectedOutputsBuilder_;
+
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>
+     */
+    public java.util.List<ai.monarchic.agent_protocol.v1.StepOutputExpectation> getExpectedOutputsList() {
+      if (expectedOutputsBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(expectedOutputs_);
+      } else {
+        return expectedOutputsBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>
+     */
+    public int getExpectedOutputsCount() {
+      if (expectedOutputsBuilder_ == null) {
+        return expectedOutputs_.size();
+      } else {
+        return expectedOutputsBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.StepOutputExpectation getExpectedOutputs(int index) {
+      if (expectedOutputsBuilder_ == null) {
+        return expectedOutputs_.get(index);
+      } else {
+        return expectedOutputsBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>
+     */
+    public Builder setExpectedOutputs(
+        int index, ai.monarchic.agent_protocol.v1.StepOutputExpectation value) {
+      if (expectedOutputsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureExpectedOutputsIsMutable();
+        expectedOutputs_.set(index, value);
+        onChanged();
+      } else {
+        expectedOutputsBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>
+     */
+    public Builder setExpectedOutputs(
+        int index, ai.monarchic.agent_protocol.v1.StepOutputExpectation.Builder builderForValue) {
+      if (expectedOutputsBuilder_ == null) {
+        ensureExpectedOutputsIsMutable();
+        expectedOutputs_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        expectedOutputsBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>
+     */
+    public Builder addExpectedOutputs(ai.monarchic.agent_protocol.v1.StepOutputExpectation value) {
+      if (expectedOutputsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureExpectedOutputsIsMutable();
+        expectedOutputs_.add(value);
+        onChanged();
+      } else {
+        expectedOutputsBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>
+     */
+    public Builder addExpectedOutputs(
+        int index, ai.monarchic.agent_protocol.v1.StepOutputExpectation value) {
+      if (expectedOutputsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureExpectedOutputsIsMutable();
+        expectedOutputs_.add(index, value);
+        onChanged();
+      } else {
+        expectedOutputsBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>
+     */
+    public Builder addExpectedOutputs(
+        ai.monarchic.agent_protocol.v1.StepOutputExpectation.Builder builderForValue) {
+      if (expectedOutputsBuilder_ == null) {
+        ensureExpectedOutputsIsMutable();
+        expectedOutputs_.add(builderForValue.build());
+        onChanged();
+      } else {
+        expectedOutputsBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>
+     */
+    public Builder addExpectedOutputs(
+        int index, ai.monarchic.agent_protocol.v1.StepOutputExpectation.Builder builderForValue) {
+      if (expectedOutputsBuilder_ == null) {
+        ensureExpectedOutputsIsMutable();
+        expectedOutputs_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        expectedOutputsBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>
+     */
+    public Builder addAllExpectedOutputs(
+        java.lang.Iterable<? extends ai.monarchic.agent_protocol.v1.StepOutputExpectation> values) {
+      if (expectedOutputsBuilder_ == null) {
+        ensureExpectedOutputsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, expectedOutputs_);
+        onChanged();
+      } else {
+        expectedOutputsBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>
+     */
+    public Builder clearExpectedOutputs() {
+      if (expectedOutputsBuilder_ == null) {
+        expectedOutputs_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000100);
+        onChanged();
+      } else {
+        expectedOutputsBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>
+     */
+    public Builder removeExpectedOutputs(int index) {
+      if (expectedOutputsBuilder_ == null) {
+        ensureExpectedOutputsIsMutable();
+        expectedOutputs_.remove(index);
+        onChanged();
+      } else {
+        expectedOutputsBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.StepOutputExpectation.Builder getExpectedOutputsBuilder(
+        int index) {
+      return internalGetExpectedOutputsFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.StepOutputExpectationOrBuilder getExpectedOutputsOrBuilder(
+        int index) {
+      if (expectedOutputsBuilder_ == null) {
+        return expectedOutputs_.get(index);  } else {
+        return expectedOutputsBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>
+     */
+    public java.util.List<? extends ai.monarchic.agent_protocol.v1.StepOutputExpectationOrBuilder> 
+         getExpectedOutputsOrBuilderList() {
+      if (expectedOutputsBuilder_ != null) {
+        return expectedOutputsBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(expectedOutputs_);
+      }
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.StepOutputExpectation.Builder addExpectedOutputsBuilder() {
+      return internalGetExpectedOutputsFieldBuilder().addBuilder(
+          ai.monarchic.agent_protocol.v1.StepOutputExpectation.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.StepOutputExpectation.Builder addExpectedOutputsBuilder(
+        int index) {
+      return internalGetExpectedOutputsFieldBuilder().addBuilder(
+          index, ai.monarchic.agent_protocol.v1.StepOutputExpectation.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>
+     */
+    public java.util.List<ai.monarchic.agent_protocol.v1.StepOutputExpectation.Builder> 
+         getExpectedOutputsBuilderList() {
+      return internalGetExpectedOutputsFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilder<
+        ai.monarchic.agent_protocol.v1.StepOutputExpectation, ai.monarchic.agent_protocol.v1.StepOutputExpectation.Builder, ai.monarchic.agent_protocol.v1.StepOutputExpectationOrBuilder> 
+        internalGetExpectedOutputsFieldBuilder() {
+      if (expectedOutputsBuilder_ == null) {
+        expectedOutputsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            ai.monarchic.agent_protocol.v1.StepOutputExpectation, ai.monarchic.agent_protocol.v1.StepOutputExpectation.Builder, ai.monarchic.agent_protocol.v1.StepOutputExpectationOrBuilder>(
+                expectedOutputs_,
+                ((bitField0_ & 0x00000100) != 0),
+                getParentForChildren(),
+                isClean());
+        expectedOutputs_ = null;
+      }
+      return expectedOutputsBuilder_;
+    }
+
+    private com.google.protobuf.LazyStringArrayList policyTags_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
+    private void ensurePolicyTagsIsMutable() {
+      if (!policyTags_.isModifiable()) {
+        policyTags_ = new com.google.protobuf.LazyStringArrayList(policyTags_);
+      }
+      bitField0_ |= 0x00000200;
+    }
+    /**
+     * <code>repeated string policy_tags = 10;</code>
+     * @return A list containing the policyTags.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getPolicyTagsList() {
+      policyTags_.makeImmutable();
+      return policyTags_;
+    }
+    /**
+     * <code>repeated string policy_tags = 10;</code>
+     * @return The count of policyTags.
+     */
+    public int getPolicyTagsCount() {
+      return policyTags_.size();
+    }
+    /**
+     * <code>repeated string policy_tags = 10;</code>
+     * @param index The index of the element to return.
+     * @return The policyTags at the given index.
+     */
+    public java.lang.String getPolicyTags(int index) {
+      return policyTags_.get(index);
+    }
+    /**
+     * <code>repeated string policy_tags = 10;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the policyTags at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getPolicyTagsBytes(int index) {
+      return policyTags_.getByteString(index);
+    }
+    /**
+     * <code>repeated string policy_tags = 10;</code>
+     * @param index The index to set the value at.
+     * @param value The policyTags to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPolicyTags(
+        int index, java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensurePolicyTagsIsMutable();
+      policyTags_.set(index, value);
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string policy_tags = 10;</code>
+     * @param value The policyTags to add.
+     * @return This builder for chaining.
+     */
+    public Builder addPolicyTags(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensurePolicyTagsIsMutable();
+      policyTags_.add(value);
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string policy_tags = 10;</code>
+     * @param values The policyTags to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllPolicyTags(
+        java.lang.Iterable<java.lang.String> values) {
+      ensurePolicyTagsIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, policyTags_);
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string policy_tags = 10;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPolicyTags() {
+      policyTags_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
+      bitField0_ = (bitField0_ & ~0x00000200);;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string policy_tags = 10;</code>
+     * @param value The bytes of the policyTags to add.
+     * @return This builder for chaining.
+     */
+    public Builder addPolicyTagsBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      ensurePolicyTagsIsMutable();
+      policyTags_.add(value);
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
     }
 
     // @@protoc_insertion_point(builder_scope:monarchic.agent_protocol.v1.PlanStep)

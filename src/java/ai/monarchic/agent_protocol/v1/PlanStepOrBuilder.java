@@ -88,4 +88,96 @@ public interface PlanStepOrBuilder extends
    * <code>optional .monarchic.agent_protocol.v1.FailureDetail failure = 5;</code>
    */
   ai.monarchic.agent_protocol.v1.FailureDetailOrBuilder getFailureOrBuilder();
+
+  /**
+   * <code>optional string task_id = 6;</code>
+   * @return Whether the taskId field is set.
+   */
+  boolean hasTaskId();
+  /**
+   * <code>optional string task_id = 6;</code>
+   * @return The taskId.
+   */
+  java.lang.String getTaskId();
+  /**
+   * <code>optional string task_id = 6;</code>
+   * @return The bytes for taskId.
+   */
+  com.google.protobuf.ByteString
+      getTaskIdBytes();
+
+  /**
+   * <code>.monarchic.agent_protocol.v1.PlanStepKind kind = 7;</code>
+   * @return The enum numeric value on the wire for kind.
+   */
+  int getKindValue();
+  /**
+   * <code>.monarchic.agent_protocol.v1.PlanStepKind kind = 7;</code>
+   * @return The kind.
+   */
+  ai.monarchic.agent_protocol.v1.PlanStepKind getKind();
+
+  /**
+   * <code>.google.protobuf.Struct inputs = 8;</code>
+   * @return Whether the inputs field is set.
+   */
+  boolean hasInputs();
+  /**
+   * <code>.google.protobuf.Struct inputs = 8;</code>
+   * @return The inputs.
+   */
+  com.google.protobuf.Struct getInputs();
+  /**
+   * <code>.google.protobuf.Struct inputs = 8;</code>
+   */
+  com.google.protobuf.StructOrBuilder getInputsOrBuilder();
+
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>
+   */
+  java.util.List<ai.monarchic.agent_protocol.v1.StepOutputExpectation> 
+      getExpectedOutputsList();
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>
+   */
+  ai.monarchic.agent_protocol.v1.StepOutputExpectation getExpectedOutputs(int index);
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>
+   */
+  int getExpectedOutputsCount();
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>
+   */
+  java.util.List<? extends ai.monarchic.agent_protocol.v1.StepOutputExpectationOrBuilder> 
+      getExpectedOutputsOrBuilderList();
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>
+   */
+  ai.monarchic.agent_protocol.v1.StepOutputExpectationOrBuilder getExpectedOutputsOrBuilder(
+      int index);
+
+  /**
+   * <code>repeated string policy_tags = 10;</code>
+   * @return A list containing the policyTags.
+   */
+  java.util.List<java.lang.String>
+      getPolicyTagsList();
+  /**
+   * <code>repeated string policy_tags = 10;</code>
+   * @return The count of policyTags.
+   */
+  int getPolicyTagsCount();
+  /**
+   * <code>repeated string policy_tags = 10;</code>
+   * @param index The index of the element to return.
+   * @return The policyTags at the given index.
+   */
+  java.lang.String getPolicyTags(int index);
+  /**
+   * <code>repeated string policy_tags = 10;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the policyTags at the given index.
+   */
+  com.google.protobuf.ByteString
+      getPolicyTagsBytes(int index);
 }

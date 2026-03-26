@@ -119,6 +119,18 @@ message Provenance {
   google.protobuf.Struct extensions = 14;
 }
 
+message Intent {
+  string intent_id = 1;
+  uint64 submitted_at = 2;
+  string submitter = 3;
+  string policy_version = 4;
+  string target_repo = 5;
+  string target_ref = 6;
+  string goal = 7;
+  google.protobuf.Struct constraints = 8;
+  string context_digest = 9;
+}
+
 enum PlanStatus {
   PLAN_STATUS_UNSPECIFIED = 0;
   DRAFT = 1;
@@ -151,12 +163,61 @@ message FailureDetail {
   google.protobuf.Struct details = 4;
 }
 
+enum ArtifactKind {
+  ARTIFACT_KIND_UNSPECIFIED = 0;
+  ARTIFACT_KIND_PLAN = 1;
+  ARTIFACT_KIND_EXECUTION_RECEIPT = 2;
+  ARTIFACT_KIND_VERIFICATION_RECEIPT = 3;
+  ARTIFACT_KIND_EVENT_LOG = 4;
+  ARTIFACT_KIND_DIGEST_MANIFEST = 5;
+  ARTIFACT_KIND_PROOF_MANIFEST = 6;
+  ARTIFACT_KIND_PATCH = 7;
+  ARTIFACT_KIND_TEST_REPORT = 8;
+  ARTIFACT_KIND_BUILD_LOG = 9;
+  ARTIFACT_KIND_BUNDLE = 10;
+  ARTIFACT_KIND_CUSTOM = 11;
+}
+
+enum PlanStepKind {
+  PLAN_STEP_KIND_UNSPECIFIED = 0;
+  PLAN_STEP_KIND_ANALYSIS = 1;
+  PLAN_STEP_KIND_EXECUTION = 2;
+  PLAN_STEP_KIND_VERIFICATION = 3;
+  PLAN_STEP_KIND_REVIEW = 4;
+  PLAN_STEP_KIND_MERGE = 5;
+  PLAN_STEP_KIND_RELEASE = 6;
+  PLAN_STEP_KIND_CUSTOM = 7;
+}
+
+enum ReplanStrategy {
+  REPLAN_STRATEGY_UNSPECIFIED = 0;
+  REPLAN_STRATEGY_RETRY = 1;
+  REPLAN_STRATEGY_REPAIR = 2;
+  REPLAN_STRATEGY_ESCALATE = 3;
+  REPLAN_STRATEGY_BLOCK = 4;
+}
+
+message ReplanPolicy {
+  ReplanStrategy strategy = 1;
+  uint32 max_attempts = 2;
+}
+
+message StepOutputExpectation {
+  ArtifactKind kind = 1;
+  string logical_name = 2;
+}
+
 message PlanStep {
   string step_id = 1;
   string description = 2;
   repeated string depends_on = 3;
   google.protobuf.Struct task_template = 4;
   optional FailureDetail failure = 5;
+  optional string task_id = 6;
+  PlanStepKind kind = 7;
+  google.protobuf.Struct inputs = 8;
+  repeated StepOutputExpectation expected_outputs = 9;
+  repeated string policy_tags = 10;
 }
 
 message Plan {
@@ -169,6 +230,11 @@ message Plan {
   uint64 updated_at_ms = 7;
   PlanProvenance provenance = 8;
   repeated PlanStep steps = 9;
+  optional string intent_id = 10;
+  optional string plan_version = 11;
+  optional string planner_version = 12;
+  ReplanPolicy replan_policy = 13;
+  optional string input_digest = 14;
 }
 
 message ExecutionReceipt {
