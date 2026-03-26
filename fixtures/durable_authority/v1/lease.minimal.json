@@ -1,0 +1,18 @@
+{
+  "lease_id": "lease-123",
+  "run_id": "run-123",
+  "plan_id": "plan-123",
+  "step_id": "step-1",
+  "task_id": "task-1",
+  "runner_id": "runner-a",
+  "session_id": "session-a",
+  "fencing_token": {
+    "token": "fence-run-123-step-1-0001",
+    "issued_at_ms": 1742950800000,
+    "issuer": "orchestrator-a",
+    "scope": "run:run-123/step:step-1"
+  },
+  "issued_at_ms": 1742950800000,
+  "expires_at_ms": 1742950860000,
+  "status": "active"
+}

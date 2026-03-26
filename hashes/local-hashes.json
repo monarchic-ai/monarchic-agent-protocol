@@ -1,8 +1,8 @@
 {
   "version": "v1",
   "scope": "local",
-  "artifact_count": 193,
-  "combined_sha256": "6e7a44b20e02e8378b667522a4e402969d2be2f7bbbb9129c412cfd5ff179453",
+  "artifact_count": 213,
+  "combined_sha256": "f068aca90486b2d086846214357847bd9e158bfba33850f529a86f93dbeb34c3",
   "artifacts": [
     {
       "path": "Cargo.lock",
@@ -118,7 +118,7 @@
     },
     {
       "path": "schemas/v1/monarchic_agent_protocol.proto",
-      "sha256": "45494af776ea1fe614f9847d097aa97e4fc66eb8c8b06b20552a4caa9df37805"
+      "sha256": "ffa7c5842ce205d70de113c5e2142492d09ef93c667a1e55f26539862ec98fe5"
     },
     {
       "path": "schemas/v1/objective_spec.json",
@@ -170,7 +170,7 @@
     },
     {
       "path": "src/csharp/MonarchicAgentProtocol.cs",
-      "sha256": "028be791ad2b65a114dc435037f5c8360717862406450b667962502725c7b72f"
+      "sha256": "6fcd38d91d844d2c51dfe0b39a80363dab4a05bee8c32b6d2678c41be58f9a16"
     },
     {
       "path": "src/dart/lib/monarchic_agent_protocol.dart",
@@ -178,15 +178,15 @@
     },
     {
       "path": "src/dart/lib/monarchic_agent_protocol.pb.dart",
-      "sha256": "0e2706773c5d452d9610ddb1d1ff08afecab70bfd5e4ed63c07e8809a02ac38c"
+      "sha256": "b467eb22bebb50195a4281e4ba6903aebfe1c35b32a825818c688f123034a267"
     },
     {
       "path": "src/dart/lib/monarchic_agent_protocol.pbenum.dart",
-      "sha256": "1517ef2829a930ea7a2a9a275e01e7b1ff19708eeb94c874a7a20db0c7f8b727"
+      "sha256": "8ee96d9b02de89104ca1847229fda832964b61f1bc264519b608274fb0d3e2e6"
     },
     {
       "path": "src/dart/lib/monarchic_agent_protocol.pbjson.dart",
-      "sha256": "e70ed4dba5c31fceb558d3bc522e85383b232c4cd6a9834aa3c277b35e770ec2"
+      "sha256": "0d82aba01d498637ccda344a61fb01763285be397608569c62402dd4d5c9e4d6"
     },
     {
       "path": "src/dart/lib/monarchic_agent_protocol.pbserver.dart",
@@ -194,7 +194,7 @@
     },
     {
       "path": "src/go/github.com/monarchic-ai/monarchic-agent-protocol/src/go/monarchic/agent_protocol/v1/monarchic_agent_protocol.pb.go",
-      "sha256": "eca56e17c0b1b0daba581b41e276d41035d476eeba5036624eddb5b5a64300ad"
+      "sha256": "f2c4647a66c3c352036fa45e36c01949297e148b8bd17091d3676ca2cc60c486"
     },
     {
       "path": "src/go/monarchic/agent_protocol/v1/monarchic_agent_protocol.pb.go",
@@ -325,6 +325,14 @@
       "sha256": "ec88fff59cd6006bcf38ad4ea6b3891e74d84f66d398fa380e07367f9bd61769"
     },
     {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/FencingToken.java",
+      "sha256": "350bd84a36c28b25c5d93fb23b6ff4347149ba1889bd5cd7d8bf33c9e811115a"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/FencingTokenOrBuilder.java",
+      "sha256": "e2b7c07b19c98bfc277276da195f6b691cd7d6b06035778133884934c2fa4354"
+    },
+    {
       "path": "src/java/ai/monarchic/agent_protocol/v1/GateResult.java",
       "sha256": "7b6d9909fdba714580592f93aae926a17891b5f564edb600e79664179a7e3fa3"
     },
@@ -349,6 +357,10 @@
       "sha256": "11f9f2f985ace0c0d11da3f058c7e12b9f128eb83d5ee5c7456a97911c69e1e4"
     },
     {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/Lease.java",
+      "sha256": "57c6d7b01981aadebce7312e413e958982a1f2d187a3d430c00cc05c6bf48a08"
+    },
+    {
       "path": "src/java/ai/monarchic/agent_protocol/v1/LeaseAssignment.java",
       "sha256": "176dacf00546094d71f794a8a4fc442f6a8aaed6891af6979ff1aa41acd26a73"
     },
@@ -357,12 +369,24 @@
       "sha256": "83b5b765e26442e13fb4d64b9ec1d3ebcebf666d1b58f5cef4ed3e376ae7bb29"
     },
     {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/LeaseLifecycleState.java",
+      "sha256": "d1f451254984165ebaf51c93fc2e2338a1b9dc71fd36adc9340915cf117c89a3"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/LeaseOrBuilder.java",
+      "sha256": "72ea4f84a53526eb9a66ec697ab406069e9ac52458d4d4d8449da324786451eb"
+    },
+    {
       "path": "src/java/ai/monarchic/agent_protocol/v1/LeaseRef.java",
       "sha256": "e7a0ae5c311660a09c361e8126c4d99e70dc8d9f523f15da08d8248ff85ae424"
     },
     {
       "path": "src/java/ai/monarchic/agent_protocol/v1/LeaseRefOrBuilder.java",
       "sha256": "81366bc6324427da10079b4645144bbc7e8cc53e85de90c2a6d2f21d90cc3b8b"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/LeaseRejectionReason.java",
+      "sha256": "6d89dce41956633da18ffadb23cb6a087f3bc86c99dba34e1aeff1b3081740db"
     },
     {
       "path": "src/java/ai/monarchic/agent_protocol/v1/LeaseStatus.java",
@@ -374,7 +398,7 @@
     },
     {
       "path": "src/java/ai/monarchic/agent_protocol/v1/MonarchicAgentProtocolV1.java",
-      "sha256": "2aea0eefefb9063c1bc552242be38c0806f4e78e5fa5ad7a3cfc58e0481a4b26"
+      "sha256": "f8d026f47c359ef8d00995bf4488aec08fe1c29657448914fac3adb5f33adffd"
     },
     {
       "path": "src/java/ai/monarchic/agent_protocol/v1/ObjectiveSpec.java",
@@ -423,6 +447,18 @@
     {
       "path": "src/java/ai/monarchic/agent_protocol/v1/ProvenanceOrBuilder.java",
       "sha256": "48c7268b6e326d37eeb9f9fd228f408e23386c94f1666b7f839bbe0c7a8de7ea"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/RecoveryEvent.java",
+      "sha256": "339c303614fefe086fbf82930688724169dd2c0caf82aeb90a8c67d56c00c3de"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/RecoveryEventKind.java",
+      "sha256": "3b654e915d3e2bcf482f34a647f69d4bdf418a21aa4a9ee375a05136e22aa22c"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/RecoveryEventOrBuilder.java",
+      "sha256": "aff26dc4080e7cbf1cc2d4d5c4b05fad878a5856b58129d6c98f9fd3447f0676"
     },
     {
       "path": "src/java/ai/monarchic/agent_protocol/v1/RegisterRunnerRequest.java",
@@ -521,6 +557,10 @@
       "sha256": "089e3e79816c3f0cd09c56f63c942d9c65a28101d137aadf98782bd008b094c5"
     },
     {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/RunLifecycleState.java",
+      "sha256": "85e53cec35ce9071ee32978bbcccdb3804973d79665a65a1fb9295dc490d4960"
+    },
+    {
       "path": "src/java/ai/monarchic/agent_protocol/v1/RunOutcome.java",
       "sha256": "3f34988cbe5570a3994d1faf575e57b3c505f985340b5e3e0bbea071bda70d04"
     },
@@ -535,6 +575,10 @@
     {
       "path": "src/java/ai/monarchic/agent_protocol/v1/RunnerCapabilitiesOrBuilder.java",
       "sha256": "cd7334723f48d1fade7cc2a5f82de5c1fc6c1870f6156298d3e330a277c37836"
+    },
+    {
+      "path": "src/java/ai/monarchic/agent_protocol/v1/StepLifecycleState.java",
+      "sha256": "3382adbe8b16dce92f783900a360935707e3edd68c67d250cdd83a2bc9c3f1e2"
     },
     {
       "path": "src/java/ai/monarchic/agent_protocol/v1/Task.java",
@@ -609,6 +653,10 @@
       "sha256": "95b86d1be33586d7e5f31a793a6e1bd62ee26bd9c00645fe72bee86e9b1ca942"
     },
     {
+      "path": "src/php/Monarchic/AgentProtocol/V1/FencingToken.php",
+      "sha256": "d01edca08e5205c742ff47c87074a9b0c9a170a2a4717ca80d3088d578171991"
+    },
+    {
       "path": "src/php/Monarchic/AgentProtocol/V1/GateResult.php",
       "sha256": "6189808d9643bd7a08a43264cb1da9579d07a308c1b2c397413332ab2790e467"
     },
@@ -621,12 +669,24 @@
       "sha256": "4471f7b599ebb8b262fb517825dafd55c1d3a1f48577f2636165df0ec79f9091"
     },
     {
+      "path": "src/php/Monarchic/AgentProtocol/V1/Lease.php",
+      "sha256": "6688bafd7958918aa1c41d03ae419a80051a7cb6bc27d83eeb4c29735bd3dc02"
+    },
+    {
       "path": "src/php/Monarchic/AgentProtocol/V1/LeaseAssignment.php",
       "sha256": "1db1fd2f9cd4b670e31de6bc3529832bed0a844b33f6207615fcb23a7e56217b"
     },
     {
+      "path": "src/php/Monarchic/AgentProtocol/V1/LeaseLifecycleState.php",
+      "sha256": "d42add35e8001babe7e3ca5c0dde697cd83f033885bb7405abd3259987fe1317"
+    },
+    {
       "path": "src/php/Monarchic/AgentProtocol/V1/LeaseRef.php",
       "sha256": "b06c898b0b71780ff1886c72f86940ecd57098faeff6e8aff28564fe63221f80"
+    },
+    {
+      "path": "src/php/Monarchic/AgentProtocol/V1/LeaseRejectionReason.php",
+      "sha256": "1fae7dbac538dae6603e7a5962870be5d4ce1512ef0f90b64c77c7bf5686f8ab"
     },
     {
       "path": "src/php/Monarchic/AgentProtocol/V1/LeaseStatus.php",
@@ -634,7 +694,7 @@
     },
     {
       "path": "src/php/Monarchic/AgentProtocol/V1/Metadata/MonarchicAgentProtocol.php",
-      "sha256": "e2bea4c0329c986e31bb0c6ef39bb8cfebd882a10cf1ee0aadd38343b35c3ac3"
+      "sha256": "3dcf1f96a376c09bc3c6107543b46e98b46ee03ba826b03669eda8afcf759b98"
     },
     {
       "path": "src/php/Monarchic/AgentProtocol/V1/ObjectiveSpec.php",
@@ -663,6 +723,14 @@
     {
       "path": "src/php/Monarchic/AgentProtocol/V1/Provenance.php",
       "sha256": "1651c9c4ff384f67b6852107f6b968a5554c95052b1017c59b93de2307016f30"
+    },
+    {
+      "path": "src/php/Monarchic/AgentProtocol/V1/RecoveryEvent.php",
+      "sha256": "8de83a35f35c2c1a4d7ceb44a699f5acfefbff118267d064517015eab73ab7f9"
+    },
+    {
+      "path": "src/php/Monarchic/AgentProtocol/V1/RecoveryEventKind.php",
+      "sha256": "190ce1aa782e7295712b71f27a238adb0878870207d070dde162be8dd4bcf044"
     },
     {
       "path": "src/php/Monarchic/AgentProtocol/V1/RegisterRunnerRequest.php",
@@ -713,12 +781,20 @@
       "sha256": "8429502b3a09db04a6f7e5c1a32828f6a06ef7963a8ec6945bd7435ae9257b89"
     },
     {
+      "path": "src/php/Monarchic/AgentProtocol/V1/RunLifecycleState.php",
+      "sha256": "09203060515042006c911f10ce33dac5593b743e2be5e7be106e416a43af00ce"
+    },
+    {
       "path": "src/php/Monarchic/AgentProtocol/V1/RunOutcome.php",
       "sha256": "1930df36d2c42f2fb3efb98f6914ebc0b427db01350e6f1448efbf49b62f9610"
     },
     {
       "path": "src/php/Monarchic/AgentProtocol/V1/RunnerCapabilities.php",
       "sha256": "0e6e10620cd79a85b0ba5e51a08ee32ec276866a8a1805f215675d842836ffc8"
+    },
+    {
+      "path": "src/php/Monarchic/AgentProtocol/V1/StepLifecycleState.php",
+      "sha256": "15cfbde5cf5491a8e5727b7c78ac022803dd882b49e7038e9430d48544f97d85"
     },
     {
       "path": "src/php/Monarchic/AgentProtocol/V1/Task.php",
@@ -730,7 +806,7 @@
     },
     {
       "path": "src/python/monarchic_agent_protocol/monarchic_agent_protocol_pb2.py",
-      "sha256": "d39407343b21131da2a33945c096facc402a29c0117f065d33d77f58107fdec5"
+      "sha256": "6033354f0a448ed874dc108e1ada24738ce5e7774e4951fbf2288bfa871cc273"
     },
     {
       "path": "src/ruby/monarchic_agent_protocol.rb",
@@ -738,11 +814,15 @@
     },
     {
       "path": "src/ruby/monarchic_agent_protocol_pb.rb",
-      "sha256": "1af1637ea051c7f3a56d8f9599e54f9a6d1a3e9fa3336f5dda76caa91f77db8a"
+      "sha256": "d2f08a74658604428c7bcc8ba38a0a6bcfd4ed24a43d5e1229f19caff73f83c6"
     },
     {
       "path": "src/rust/artifact.rs",
       "sha256": "ab647c1872f7604590e8ee8af5378f01da2787f3abe3340ce054afb64f250021"
+    },
+    {
+      "path": "src/rust/authority.rs",
+      "sha256": "d545d4e50f902f2e828d797e8570fb6f9cbf058a4a242988dd36e03074b376f4"
     },
     {
       "path": "src/rust/blocking.rs",
@@ -754,7 +834,7 @@
     },
     {
       "path": "src/rust/lib.rs",
-      "sha256": "5ef6c5ae4d26c6a55a4b01398aa4615f18c7ee0002bd2d3ff658271c3e4120cd"
+      "sha256": "c0216482be9cefaa87058ac1676696928b9f64ce1ccdf92663bba76d3ab45677"
     },
     {
       "path": "src/rust/plan.rs",
@@ -770,7 +850,7 @@
     },
     {
       "path": "src/rust/version.rs",
-      "sha256": "483abecb3c52ac7bd7d50d59b3c2c0accc935754241dfeb7df3ea1d480b16298"
+      "sha256": "3df423aeec3e50250b9f42a477144f2c1fb8f1cea80ed3213d6636fd820572be"
     },
     {
       "path": "src/ts/index.ts",

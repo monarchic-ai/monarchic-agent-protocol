@@ -1,0 +1,17 @@
+{
+  "event_id": "recovery-001",
+  "run_id": "run-123",
+  "plan_id": "plan-123",
+  "step_id": "step-1",
+  "kind": "lease_rejected",
+  "occurred_at_ms": 1742950900000,
+  "actor": "orchestrator-a",
+  "details": {
+    "reason": "stale fencing token",
+    "runner_id": "runner-a"
+  },
+  "contract_version": "v1",
+  "run_state": "executing",
+  "step_state": "blocked",
+  "lease_rejection_reason": "stale_fencing_token"
+}

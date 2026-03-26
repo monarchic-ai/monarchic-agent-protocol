@@ -1,3 +1,4 @@
+mod authority;
 mod artifact;
 mod blocking;
 mod intent;
@@ -23,6 +24,14 @@ pub mod client_boundary {
     pub use crate::version::CLIENT_BOUNDARY_CONTRACT_VERSION;
 }
 
+pub mod durable_authority {
+    pub use crate::authority::{
+        FencingToken, Lease, LeaseLifecycleState, LeaseRejectionReason, RecoveryEvent,
+        RecoveryEventKind, RunLifecycleState, StepLifecycleState,
+    };
+    pub use crate::version::DURABLE_AUTHORITY_CONTRACT_VERSION;
+}
+
 pub mod monarchic {
     pub mod agent_protocol {
         pub mod v1 {
@@ -33,12 +42,13 @@ pub mod monarchic {
 
 pub use monarchic::agent_protocol::v1::{
     AcceptanceCriteria, AckCancellationRequest, AckCancellationResponse, AcquireLeaseRequest,
-    AcquireLeaseResponse, AgentRole, Artifact, CancellationIntent, DatasetRef, EvalResult,
-    Event, ExecutionReceipt, ExperimentSpec, FailureClass, FailureDetail, GateResult,
-    HeartbeatRequest, HeartbeatResponse, LeaseAssignment, LeaseRef, LeaseStatus, Plan,
-    PlanProvenance, PlanStatus, PlanStep, Provenance, RegisterRunnerRequest,
-    RegisterRunnerResponse, RenewLeaseRequest, RenewLeaseResponse, ReportStepOutcomeRequest,
-    ReportStepOutcomeResponse, ReportStepProgressRequest, ReportStepProgressResponse,
-    ReportStepStartedRequest, ReportStepStartedResponse, RoleProvenance, RunContext,
-    RunnerCapabilities, Task,
+    AcquireLeaseResponse, AgentRole, Artifact, CancellationIntent, DatasetRef, EvalResult, Event,
+    ExecutionReceipt, ExperimentSpec, FailureClass, FailureDetail, FencingToken, GateResult,
+    HeartbeatRequest, HeartbeatResponse, Lease, LeaseAssignment, LeaseLifecycleState,
+    LeaseRef, LeaseRejectionReason, LeaseStatus, Plan, PlanProvenance, PlanStatus, PlanStep,
+    Provenance, RecoveryEvent, RecoveryEventKind, RegisterRunnerRequest, RegisterRunnerResponse,
+    RenewLeaseRequest, RenewLeaseResponse, ReportStepOutcomeRequest, ReportStepOutcomeResponse,
+    ReportStepProgressRequest, ReportStepProgressResponse, ReportStepStartedRequest,
+    ReportStepStartedResponse, RoleProvenance, RunContext, RunLifecycleState,
+    RunnerCapabilities, StepLifecycleState, Task,
 };
