@@ -75,6 +75,21 @@ Frozen v1 client-boundary types:
 Canonical JSON fixtures for these contracts live under `fixtures/client_boundary/v1/`.
 Legacy runtime compatibility fixtures live under `fixtures/client_boundary/v0/`.
 
+### Durable authority contracts
+
+The Rust crate also exposes a frozen durable-authority surface under `monarchic_agent_protocol::durable_authority`.
+
+Frozen v1 durable-authority types:
+
+- `FencingToken`
+- `Lease`
+- `RunLifecycleState`
+- `StepLifecycleState`
+- `LeaseRejectionReason`
+- `RecoveryEvent`
+
+Canonical JSON fixtures for these contracts live under `fixtures/durable_authority/v1/`.
+
 ### Schema summary
 
 JSON Schema files are generated from the protobuf definitions. Do not edit them by hand.

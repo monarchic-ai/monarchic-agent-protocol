@@ -288,6 +288,100 @@ message LeaseRef {
   string task_id = 6;
 }
 
+enum LeaseLifecycleState {
+  LEASE_LIFECYCLE_STATE_UNSPECIFIED = 0;
+  LEASE_ISSUED = 1;
+  LEASE_ACTIVE = 2;
+  LEASE_RELEASED = 3;
+  LEASE_EXPIRED = 4;
+  LEASE_CANCELLED = 5;
+  LEASE_REJECTED = 6;
+}
+
+enum RunLifecycleState {
+  RUN_LIFECYCLE_STATE_UNSPECIFIED = 0;
+  RUN_PENDING = 1;
+  RUN_EXECUTING = 2;
+  RUN_PAUSED = 3;
+  RUN_CANCELLING = 4;
+  RUN_CANCELLED = 5;
+  RUN_FAILED = 6;
+  RUN_COMPLETE = 7;
+  RUN_BLOCKED = 8;
+}
+
+enum StepLifecycleState {
+  STEP_LIFECYCLE_STATE_UNSPECIFIED = 0;
+  STEP_PENDING = 1;
+  STEP_READY = 2;
+  STEP_LEASED = 3;
+  STEP_RUNNING = 4;
+  STEP_COMPLETE = 5;
+  STEP_FAILED = 6;
+  STEP_CANCELLED = 7;
+  STEP_BLOCKED = 8;
+}
+
+enum LeaseRejectionReason {
+  LEASE_REJECTION_REASON_UNSPECIFIED = 0;
+  LEASE_REJECTION_STALE_FENCING_TOKEN = 1;
+  LEASE_REJECTION_EXPIRED = 2;
+  LEASE_REJECTION_SESSION_MISMATCH = 3;
+  LEASE_REJECTION_UNKNOWN_LEASE = 4;
+  LEASE_REJECTION_STEP_ALREADY_TERMINAL = 5;
+  LEASE_REJECTION_RUN_NOT_EXECUTABLE = 6;
+  LEASE_REJECTION_DEPENDENCY_BLOCKED = 7;
+}
+
+enum RecoveryEventKind {
+  RECOVERY_EVENT_KIND_UNSPECIFIED = 0;
+  RECOVERY_EVENT_ORCHESTRATOR_STARTED = 1;
+  RECOVERY_EVENT_STATE_RELOADED = 2;
+  RECOVERY_EVENT_LEASE_RESTORED = 3;
+  RECOVERY_EVENT_LEASE_REJECTED = 4;
+  RECOVERY_EVENT_STEP_REQUEUED = 5;
+  RECOVERY_EVENT_STEP_BLOCKED = 6;
+  RECOVERY_EVENT_RUN_RECOVERED = 7;
+}
+
+message FencingToken {
+  string token = 1;
+  uint64 issued_at_ms = 2;
+  string issuer = 3;
+  string scope = 4;
+  google.protobuf.Struct extensions = 5;
+}
+
+message Lease {
+  string lease_id = 1;
+  string run_id = 2;
+  string plan_id = 3;
+  string step_id = 4;
+  string task_id = 5;
+  string runner_id = 6;
+  string session_id = 7;
+  FencingToken fencing_token = 8;
+  uint64 issued_at_ms = 9;
+  uint64 expires_at_ms = 10;
+  LeaseLifecycleState status = 11;
+  google.protobuf.Struct extensions = 12;
+}
+
+message RecoveryEvent {
+  string event_id = 1;
+  string run_id = 2;
+  string plan_id = 3;
+  optional string step_id = 4;
+  RecoveryEventKind kind = 5;
+  uint64 occurred_at_ms = 6;
+  string actor = 7;
+  google.protobuf.Struct details = 8;
+  string contract_version = 9;
+  optional RunLifecycleState run_state = 10;
+  optional StepLifecycleState step_state = 11;
+  optional LeaseRejectionReason lease_rejection_reason = 12;
+}
+
 message LeaseStatus {
   LeaseRef lease = 1;
   string state = 2;

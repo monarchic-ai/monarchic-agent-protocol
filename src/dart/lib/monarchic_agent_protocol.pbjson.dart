@@ -79,6 +79,121 @@ final $typed_data.Uint8List planStatusDescriptor = $convert.base64Decode(
     'dQTEFOTkVEEAISDQoJRVhFQ1VUSU5HEAMSDAoIQ09NUExFVEUQBBILCgdCT1VOREVEEAUSCgoG'
     'RkFJTEVEEAYSDQoJQ0FOQ0VMTEVEEAcSCwoHVU5LTk9XThAI');
 
+@$core.Deprecated('Use leaseLifecycleStateDescriptor instead')
+const LeaseLifecycleState$json = {
+  '1': 'LeaseLifecycleState',
+  '2': [
+    {'1': 'LEASE_LIFECYCLE_STATE_UNSPECIFIED', '2': 0},
+    {'1': 'LEASE_ISSUED', '2': 1},
+    {'1': 'LEASE_ACTIVE', '2': 2},
+    {'1': 'LEASE_RELEASED', '2': 3},
+    {'1': 'LEASE_EXPIRED', '2': 4},
+    {'1': 'LEASE_CANCELLED', '2': 5},
+    {'1': 'LEASE_REJECTED', '2': 6},
+  ],
+};
+
+/// Descriptor for `LeaseLifecycleState`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List leaseLifecycleStateDescriptor = $convert.base64Decode(
+    'ChNMZWFzZUxpZmVjeWNsZVN0YXRlEiUKIUxFQVNFX0xJRkVDWUNMRV9TVEFURV9VTlNQRUNJRk'
+    'lFRBAAEhAKDExFQVNFX0lTU1VFRBABEhAKDExFQVNFX0FDVElWRRACEhIKDkxFQVNFX1JFTEVB'
+    'U0VEEAMSEQoNTEVBU0VfRVhQSVJFRBAEEhMKD0xFQVNFX0NBTkNFTExFRBAFEhIKDkxFQVNFX1'
+    'JFSkVDVEVEEAY=');
+
+@$core.Deprecated('Use runLifecycleStateDescriptor instead')
+const RunLifecycleState$json = {
+  '1': 'RunLifecycleState',
+  '2': [
+    {'1': 'RUN_LIFECYCLE_STATE_UNSPECIFIED', '2': 0},
+    {'1': 'RUN_PENDING', '2': 1},
+    {'1': 'RUN_EXECUTING', '2': 2},
+    {'1': 'RUN_PAUSED', '2': 3},
+    {'1': 'RUN_CANCELLING', '2': 4},
+    {'1': 'RUN_CANCELLED', '2': 5},
+    {'1': 'RUN_FAILED', '2': 6},
+    {'1': 'RUN_COMPLETE', '2': 7},
+    {'1': 'RUN_BLOCKED', '2': 8},
+  ],
+};
+
+/// Descriptor for `RunLifecycleState`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List runLifecycleStateDescriptor = $convert.base64Decode(
+    'ChFSdW5MaWZlY3ljbGVTdGF0ZRIjCh9SVU5fTElGRUNZQ0xFX1NUQVRFX1VOU1BFQ0lGSUVEEA'
+    'ASDwoLUlVOX1BFTkRJTkcQARIRCg1SVU5fRVhFQ1VUSU5HEAISDgoKUlVOX1BBVVNFRBADEhIK'
+    'DlJVTl9DQU5DRUxMSU5HEAQSEQoNUlVOX0NBTkNFTExFRBAFEg4KClJVTl9GQUlMRUQQBhIQCg'
+    'xSVU5fQ09NUExFVEUQBxIPCgtSVU5fQkxPQ0tFRBAI');
+
+@$core.Deprecated('Use stepLifecycleStateDescriptor instead')
+const StepLifecycleState$json = {
+  '1': 'StepLifecycleState',
+  '2': [
+    {'1': 'STEP_LIFECYCLE_STATE_UNSPECIFIED', '2': 0},
+    {'1': 'STEP_PENDING', '2': 1},
+    {'1': 'STEP_READY', '2': 2},
+    {'1': 'STEP_LEASED', '2': 3},
+    {'1': 'STEP_RUNNING', '2': 4},
+    {'1': 'STEP_COMPLETE', '2': 5},
+    {'1': 'STEP_FAILED', '2': 6},
+    {'1': 'STEP_CANCELLED', '2': 7},
+    {'1': 'STEP_BLOCKED', '2': 8},
+  ],
+};
+
+/// Descriptor for `StepLifecycleState`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List stepLifecycleStateDescriptor = $convert.base64Decode(
+    'ChJTdGVwTGlmZWN5Y2xlU3RhdGUSJAogU1RFUF9MSUZFQ1lDTEVfU1RBVEVfVU5TUEVDSUZJRU'
+    'QQABIQCgxTVEVQX1BFTkRJTkcQARIOCgpTVEVQX1JFQURZEAISDwoLU1RFUF9MRUFTRUQQAxIQ'
+    'CgxTVEVQX1JVTk5JTkcQBBIRCg1TVEVQX0NPTVBMRVRFEAUSDwoLU1RFUF9GQUlMRUQQBhISCg'
+    '5TVEVQX0NBTkNFTExFRBAHEhAKDFNURVBfQkxPQ0tFRBAI');
+
+@$core.Deprecated('Use leaseRejectionReasonDescriptor instead')
+const LeaseRejectionReason$json = {
+  '1': 'LeaseRejectionReason',
+  '2': [
+    {'1': 'LEASE_REJECTION_REASON_UNSPECIFIED', '2': 0},
+    {'1': 'LEASE_REJECTION_STALE_FENCING_TOKEN', '2': 1},
+    {'1': 'LEASE_REJECTION_EXPIRED', '2': 2},
+    {'1': 'LEASE_REJECTION_SESSION_MISMATCH', '2': 3},
+    {'1': 'LEASE_REJECTION_UNKNOWN_LEASE', '2': 4},
+    {'1': 'LEASE_REJECTION_STEP_ALREADY_TERMINAL', '2': 5},
+    {'1': 'LEASE_REJECTION_RUN_NOT_EXECUTABLE', '2': 6},
+    {'1': 'LEASE_REJECTION_DEPENDENCY_BLOCKED', '2': 7},
+  ],
+};
+
+/// Descriptor for `LeaseRejectionReason`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List leaseRejectionReasonDescriptor = $convert.base64Decode(
+    'ChRMZWFzZVJlamVjdGlvblJlYXNvbhImCiJMRUFTRV9SRUpFQ1RJT05fUkVBU09OX1VOU1BFQ0'
+    'lGSUVEEAASJwojTEVBU0VfUkVKRUNUSU9OX1NUQUxFX0ZFTkNJTkdfVE9LRU4QARIbChdMRUFT'
+    'RV9SRUpFQ1RJT05fRVhQSVJFRBACEiQKIExFQVNFX1JFSkVDVElPTl9TRVNTSU9OX01JU01BVE'
+    'NIEAMSIQodTEVBU0VfUkVKRUNUSU9OX1VOS05PV05fTEVBU0UQBBIpCiVMRUFTRV9SRUpFQ1RJ'
+    'T05fU1RFUF9BTFJFQURZX1RFUk1JTkFMEAUSJgoiTEVBU0VfUkVKRUNUSU9OX1JVTl9OT1RfRV'
+    'hFQ1VUQUJMRRAGEiYKIkxFQVNFX1JFSkVDVElPTl9ERVBFTkRFTkNZX0JMT0NLRUQQBw==');
+
+@$core.Deprecated('Use recoveryEventKindDescriptor instead')
+const RecoveryEventKind$json = {
+  '1': 'RecoveryEventKind',
+  '2': [
+    {'1': 'RECOVERY_EVENT_KIND_UNSPECIFIED', '2': 0},
+    {'1': 'RECOVERY_EVENT_ORCHESTRATOR_STARTED', '2': 1},
+    {'1': 'RECOVERY_EVENT_STATE_RELOADED', '2': 2},
+    {'1': 'RECOVERY_EVENT_LEASE_RESTORED', '2': 3},
+    {'1': 'RECOVERY_EVENT_LEASE_REJECTED', '2': 4},
+    {'1': 'RECOVERY_EVENT_STEP_REQUEUED', '2': 5},
+    {'1': 'RECOVERY_EVENT_STEP_BLOCKED', '2': 6},
+    {'1': 'RECOVERY_EVENT_RUN_RECOVERED', '2': 7},
+  ],
+};
+
+/// Descriptor for `RecoveryEventKind`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List recoveryEventKindDescriptor = $convert.base64Decode(
+    'ChFSZWNvdmVyeUV2ZW50S2luZBIjCh9SRUNPVkVSWV9FVkVOVF9LSU5EX1VOU1BFQ0lGSUVEEA'
+    'ASJwojUkVDT1ZFUllfRVZFTlRfT1JDSEVTVFJBVE9SX1NUQVJURUQQARIhCh1SRUNPVkVSWV9F'
+    'VkVOVF9TVEFURV9SRUxPQURFRBACEiEKHVJFQ09WRVJZX0VWRU5UX0xFQVNFX1JFU1RPUkVEEA'
+    'MSIQodUkVDT1ZFUllfRVZFTlRfTEVBU0VfUkVKRUNURUQQBBIgChxSRUNPVkVSWV9FVkVOVF9T'
+    'VEVQX1JFUVVFVUVEEAUSHwobUkVDT1ZFUllfRVZFTlRfU1RFUF9CTE9DS0VEEAYSIAocUkVDT1'
+    'ZFUllfRVZFTlRfUlVOX1JFQ09WRVJFRBAH');
+
 @$core.Deprecated('Use datasetRefDescriptor instead')
 const DatasetRef$json = {
   '1': 'DatasetRef',
@@ -1282,6 +1397,174 @@ final $typed_data.Uint8List leaseRefDescriptor = $convert.base64Decode(
     'IgASgJUgxmZW5jaW5nVG9rZW4SFQoGcnVuX2lkGAMgASgJUgVydW5JZBIXCgdwbGFuX2lkGAQg'
     'ASgJUgZwbGFuSWQSFwoHc3RlcF9pZBgFIAEoCVIGc3RlcElkEhcKB3Rhc2tfaWQYBiABKAlSBn'
     'Rhc2tJZA==');
+
+@$core.Deprecated('Use fencingTokenDescriptor instead')
+const FencingToken$json = {
+  '1': 'FencingToken',
+  '2': [
+    {'1': 'token', '3': 1, '4': 1, '5': 9, '10': 'token'},
+    {'1': 'issued_at_ms', '3': 2, '4': 1, '5': 4, '10': 'issuedAtMs'},
+    {'1': 'issuer', '3': 3, '4': 1, '5': 9, '10': 'issuer'},
+    {'1': 'scope', '3': 4, '4': 1, '5': 9, '10': 'scope'},
+    {
+      '1': 'extensions',
+      '3': 5,
+      '4': 1,
+      '5': 11,
+      '6': '.google.protobuf.Struct',
+      '10': 'extensions'
+    },
+  ],
+};
+
+/// Descriptor for `FencingToken`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List fencingTokenDescriptor = $convert.base64Decode(
+    'CgxGZW5jaW5nVG9rZW4SFAoFdG9rZW4YASABKAlSBXRva2VuEiAKDGlzc3VlZF9hdF9tcxgCIA'
+    'EoBFIKaXNzdWVkQXRNcxIWCgZpc3N1ZXIYAyABKAlSBmlzc3VlchIUCgVzY29wZRgEIAEoCVIF'
+    'c2NvcGUSNwoKZXh0ZW5zaW9ucxgFIAEoCzIXLmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3RSCmV4dG'
+    'Vuc2lvbnM=');
+
+@$core.Deprecated('Use leaseDescriptor instead')
+const Lease$json = {
+  '1': 'Lease',
+  '2': [
+    {'1': 'lease_id', '3': 1, '4': 1, '5': 9, '10': 'leaseId'},
+    {'1': 'run_id', '3': 2, '4': 1, '5': 9, '10': 'runId'},
+    {'1': 'plan_id', '3': 3, '4': 1, '5': 9, '10': 'planId'},
+    {'1': 'step_id', '3': 4, '4': 1, '5': 9, '10': 'stepId'},
+    {'1': 'task_id', '3': 5, '4': 1, '5': 9, '10': 'taskId'},
+    {'1': 'runner_id', '3': 6, '4': 1, '5': 9, '10': 'runnerId'},
+    {'1': 'session_id', '3': 7, '4': 1, '5': 9, '10': 'sessionId'},
+    {
+      '1': 'fencing_token',
+      '3': 8,
+      '4': 1,
+      '5': 11,
+      '6': '.monarchic.agent_protocol.v1.FencingToken',
+      '10': 'fencingToken'
+    },
+    {'1': 'issued_at_ms', '3': 9, '4': 1, '5': 4, '10': 'issuedAtMs'},
+    {'1': 'expires_at_ms', '3': 10, '4': 1, '5': 4, '10': 'expiresAtMs'},
+    {
+      '1': 'status',
+      '3': 11,
+      '4': 1,
+      '5': 14,
+      '6': '.monarchic.agent_protocol.v1.LeaseLifecycleState',
+      '10': 'status'
+    },
+    {
+      '1': 'extensions',
+      '3': 12,
+      '4': 1,
+      '5': 11,
+      '6': '.google.protobuf.Struct',
+      '10': 'extensions'
+    },
+  ],
+};
+
+/// Descriptor for `Lease`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List leaseDescriptor = $convert.base64Decode(
+    'CgVMZWFzZRIZCghsZWFzZV9pZBgBIAEoCVIHbGVhc2VJZBIVCgZydW5faWQYAiABKAlSBXJ1bk'
+    'lkEhcKB3BsYW5faWQYAyABKAlSBnBsYW5JZBIXCgdzdGVwX2lkGAQgASgJUgZzdGVwSWQSFwoH'
+    'dGFza19pZBgFIAEoCVIGdGFza0lkEhsKCXJ1bm5lcl9pZBgGIAEoCVIIcnVubmVySWQSHQoKc2'
+    'Vzc2lvbl9pZBgHIAEoCVIJc2Vzc2lvbklkEk4KDWZlbmNpbmdfdG9rZW4YCCABKAsyKS5tb25h'
+    'cmNoaWMuYWdlbnRfcHJvdG9jb2wudjEuRmVuY2luZ1Rva2VuUgxmZW5jaW5nVG9rZW4SIAoMaX'
+    'NzdWVkX2F0X21zGAkgASgEUgppc3N1ZWRBdE1zEiIKDWV4cGlyZXNfYXRfbXMYCiABKARSC2V4'
+    'cGlyZXNBdE1zEkgKBnN0YXR1cxgLIAEoDjIwLm1vbmFyY2hpYy5hZ2VudF9wcm90b2NvbC52MS'
+    '5MZWFzZUxpZmVjeWNsZVN0YXRlUgZzdGF0dXMSNwoKZXh0ZW5zaW9ucxgMIAEoCzIXLmdvb2ds'
+    'ZS5wcm90b2J1Zi5TdHJ1Y3RSCmV4dGVuc2lvbnM=');
+
+@$core.Deprecated('Use recoveryEventDescriptor instead')
+const RecoveryEvent$json = {
+  '1': 'RecoveryEvent',
+  '2': [
+    {'1': 'event_id', '3': 1, '4': 1, '5': 9, '10': 'eventId'},
+    {'1': 'run_id', '3': 2, '4': 1, '5': 9, '10': 'runId'},
+    {'1': 'plan_id', '3': 3, '4': 1, '5': 9, '10': 'planId'},
+    {
+      '1': 'step_id',
+      '3': 4,
+      '4': 1,
+      '5': 9,
+      '9': 0,
+      '10': 'stepId',
+      '17': true
+    },
+    {
+      '1': 'kind',
+      '3': 5,
+      '4': 1,
+      '5': 14,
+      '6': '.monarchic.agent_protocol.v1.RecoveryEventKind',
+      '10': 'kind'
+    },
+    {'1': 'occurred_at_ms', '3': 6, '4': 1, '5': 4, '10': 'occurredAtMs'},
+    {'1': 'actor', '3': 7, '4': 1, '5': 9, '10': 'actor'},
+    {
+      '1': 'details',
+      '3': 8,
+      '4': 1,
+      '5': 11,
+      '6': '.google.protobuf.Struct',
+      '10': 'details'
+    },
+    {'1': 'contract_version', '3': 9, '4': 1, '5': 9, '10': 'contractVersion'},
+    {
+      '1': 'run_state',
+      '3': 10,
+      '4': 1,
+      '5': 14,
+      '6': '.monarchic.agent_protocol.v1.RunLifecycleState',
+      '9': 1,
+      '10': 'runState',
+      '17': true
+    },
+    {
+      '1': 'step_state',
+      '3': 11,
+      '4': 1,
+      '5': 14,
+      '6': '.monarchic.agent_protocol.v1.StepLifecycleState',
+      '9': 2,
+      '10': 'stepState',
+      '17': true
+    },
+    {
+      '1': 'lease_rejection_reason',
+      '3': 12,
+      '4': 1,
+      '5': 14,
+      '6': '.monarchic.agent_protocol.v1.LeaseRejectionReason',
+      '9': 3,
+      '10': 'leaseRejectionReason',
+      '17': true
+    },
+  ],
+  '8': [
+    {'1': '_step_id'},
+    {'1': '_run_state'},
+    {'1': '_step_state'},
+    {'1': '_lease_rejection_reason'},
+  ],
+};
+
+/// Descriptor for `RecoveryEvent`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List recoveryEventDescriptor = $convert.base64Decode(
+    'Cg1SZWNvdmVyeUV2ZW50EhkKCGV2ZW50X2lkGAEgASgJUgdldmVudElkEhUKBnJ1bl9pZBgCIA'
+    'EoCVIFcnVuSWQSFwoHcGxhbl9pZBgDIAEoCVIGcGxhbklkEhwKB3N0ZXBfaWQYBCABKAlIAFIG'
+    'c3RlcElkiAEBEkIKBGtpbmQYBSABKA4yLi5tb25hcmNoaWMuYWdlbnRfcHJvdG9jb2wudjEuUm'
+    'Vjb3ZlcnlFdmVudEtpbmRSBGtpbmQSJAoOb2NjdXJyZWRfYXRfbXMYBiABKARSDG9jY3VycmVk'
+    'QXRNcxIUCgVhY3RvchgHIAEoCVIFYWN0b3ISMQoHZGV0YWlscxgIIAEoCzIXLmdvb2dsZS5wcm'
+    '90b2J1Zi5TdHJ1Y3RSB2RldGFpbHMSKQoQY29udHJhY3RfdmVyc2lvbhgJIAEoCVIPY29udHJh'
+    'Y3RWZXJzaW9uElAKCXJ1bl9zdGF0ZRgKIAEoDjIuLm1vbmFyY2hpYy5hZ2VudF9wcm90b2NvbC'
+    '52MS5SdW5MaWZlY3ljbGVTdGF0ZUgBUghydW5TdGF0ZYgBARJTCgpzdGVwX3N0YXRlGAsgASgO'
+    'Mi8ubW9uYXJjaGljLmFnZW50X3Byb3RvY29sLnYxLlN0ZXBMaWZlY3ljbGVTdGF0ZUgCUglzdG'
+    'VwU3RhdGWIAQESbAoWbGVhc2VfcmVqZWN0aW9uX3JlYXNvbhgMIAEoDjIxLm1vbmFyY2hpYy5h'
+    'Z2VudF9wcm90b2NvbC52MS5MZWFzZVJlamVjdGlvblJlYXNvbkgDUhRsZWFzZVJlamVjdGlvbl'
+    'JlYXNvbogBAUIKCghfc3RlcF9pZEIMCgpfcnVuX3N0YXRlQg0KC19zdGVwX3N0YXRlQhkKF19s'
+    'ZWFzZV9yZWplY3Rpb25fcmVhc29u');
 
 @$core.Deprecated('Use leaseStatusDescriptor instead')
 const LeaseStatus$json = {
