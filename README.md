@@ -57,6 +57,24 @@ For languages that do not use protobuf bindings, exchange protocol objects as JS
 - Each v1 object requires `version: "v1"`.
 - New versions must be added under a new directory (e.g. `schemas/v2/`) without changing existing v1 files.
 
+### Client boundary contracts
+
+The Rust crate also exposes a frozen client-boundary surface under `monarchic_agent_protocol::client_boundary`.
+
+Frozen v1 client-boundary types:
+
+- `Intent`
+- `Plan`
+- `PlanStep`
+- `ExecutionReceipt`
+- `VerificationReceipt`
+- `ReviewDecision`
+- `BlockedOutcome`
+- `ArtifactDescriptor`
+
+Canonical JSON fixtures for these contracts live under `fixtures/client_boundary/v1/`.
+Legacy runtime compatibility fixtures live under `fixtures/client_boundary/v0/`.
+
 ### Schema summary
 
 JSON Schema files are generated from the protobuf definitions. Do not edit them by hand.

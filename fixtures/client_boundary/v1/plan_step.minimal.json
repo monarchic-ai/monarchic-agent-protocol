@@ -1,0 +1,20 @@
+{
+  "step_id": "step-1",
+  "task_id": "task-1",
+  "kind": "execution",
+  "description": "Implement the typed client facade.",
+  "dependencies": [],
+  "inputs": {
+    "repo": "monarchic-ai/libmonarchic"
+  },
+  "expected_outputs": [
+    {
+      "kind": "patch",
+      "logical_name": "facade-diff"
+    }
+  ],
+  "policy_tags": [
+    "client-boundary",
+    "typed"
+  ]
+}

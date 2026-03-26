@@ -1,0 +1,22 @@
+{
+  "verification_id": "verification-123",
+  "plan_id": "plan-123",
+  "verification_policy_version": "verification-policy-v1",
+  "status": "passed",
+  "checks": [
+    {
+      "check_id": "check-1",
+      "name": "cargo-test",
+      "status": "passed",
+      "message": "All targeted tests passed.",
+      "artifact_ids": [
+        "artifact-verify-1"
+      ]
+    }
+  ],
+  "blocked_outcomes": [],
+  "artifact_digest_set": [
+    "sha256:artifact-verify-1"
+  ],
+  "verified_at": 1742870405000
+}

@@ -43,6 +43,10 @@ public enum AgentRole
    * <code>OPS = 7;</code>
    */
   OPS(7),
+  /**
+   * <code>PUBLISHER = 8;</code>
+   */
+  PUBLISHER(8),
   UNRECOGNIZED(-1),
   ;
 
@@ -87,6 +91,10 @@ public enum AgentRole
    * <code>OPS = 7;</code>
    */
   public static final int OPS_VALUE = 7;
+  /**
+   * <code>PUBLISHER = 8;</code>
+   */
+  public static final int PUBLISHER_VALUE = 8;
 
 
   public final int getNumber() {
@@ -121,6 +129,7 @@ public enum AgentRole
       case 5: return REVIEWER;
       case 6: return SECURITY;
       case 7: return OPS;
+      case 8: return PUBLISHER;
       default: return null;
     }
   }

@@ -1,0 +1,15 @@
+{
+  "contract_version": "v1",
+  "run_id": "legacy-run-123",
+  "plan_id": "legacy-plan-123",
+  "plan_hash": "sha256:legacy-plan",
+  "task_hashes": [
+    "sha256:legacy-task-1"
+  ],
+  "artifact_hashes": [
+    "sha256:legacy-artifact-1"
+  ],
+  "outcome_hash": "sha256:legacy-output",
+  "status": "complete",
+  "generated_at_ms": 1742870407000
+}
