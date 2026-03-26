@@ -158,6 +158,7 @@ const LeaseRejectionReason$json = {
     {'1': 'LEASE_REJECTION_STEP_ALREADY_TERMINAL', '2': 5},
     {'1': 'LEASE_REJECTION_RUN_NOT_EXECUTABLE', '2': 6},
     {'1': 'LEASE_REJECTION_DEPENDENCY_BLOCKED', '2': 7},
+    {'1': 'LEASE_REJECTION_LEASE_SUPERSEDED', '2': 8},
   ],
 };
 
@@ -168,7 +169,8 @@ final $typed_data.Uint8List leaseRejectionReasonDescriptor = $convert.base64Deco
     'RV9SRUpFQ1RJT05fRVhQSVJFRBACEiQKIExFQVNFX1JFSkVDVElPTl9TRVNTSU9OX01JU01BVE'
     'NIEAMSIQodTEVBU0VfUkVKRUNUSU9OX1VOS05PV05fTEVBU0UQBBIpCiVMRUFTRV9SRUpFQ1RJ'
     'T05fU1RFUF9BTFJFQURZX1RFUk1JTkFMEAUSJgoiTEVBU0VfUkVKRUNUSU9OX1JVTl9OT1RfRV'
-    'hFQ1VUQUJMRRAGEiYKIkxFQVNFX1JFSkVDVElPTl9ERVBFTkRFTkNZX0JMT0NLRUQQBw==');
+    'hFQ1VUQUJMRRAGEiYKIkxFQVNFX1JFSkVDVElPTl9ERVBFTkRFTkNZX0JMT0NLRUQQBxIkCiBM'
+    'RUFTRV9SRUpFQ1RJT05fTEVBU0VfU1VQRVJTRURFRBAI');
 
 @$core.Deprecated('Use recoveryEventKindDescriptor instead')
 const RecoveryEventKind$json = {
@@ -1995,6 +1997,94 @@ final $typed_data.Uint8List renewLeaseResponseDescriptor = $convert.base64Decode
     'eHRlbnNpb25zGAcgASgLMhcuZ29vZ2xlLnByb3RvYnVmLlN0cnVjdFIKZXh0ZW5zaW9uc0IKCg'
     'hfZmFpbHVyZQ==');
 
+@$core.Deprecated('Use resumeLeaseRequestDescriptor instead')
+const ResumeLeaseRequest$json = {
+  '1': 'ResumeLeaseRequest',
+  '2': [
+    {'1': 'contract_version', '3': 1, '4': 1, '5': 9, '10': 'contractVersion'},
+    {'1': 'runner_id', '3': 2, '4': 1, '5': 9, '10': 'runnerId'},
+    {'1': 'session_id', '3': 3, '4': 1, '5': 9, '10': 'sessionId'},
+    {
+      '1': 'lease',
+      '3': 4,
+      '4': 1,
+      '5': 11,
+      '6': '.monarchic.agent_protocol.v1.LeaseRef',
+      '10': 'lease'
+    },
+    {
+      '1': 'extensions',
+      '3': 5,
+      '4': 1,
+      '5': 11,
+      '6': '.google.protobuf.Struct',
+      '10': 'extensions'
+    },
+  ],
+};
+
+/// Descriptor for `ResumeLeaseRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List resumeLeaseRequestDescriptor = $convert.base64Decode(
+    'ChJSZXN1bWVMZWFzZVJlcXVlc3QSKQoQY29udHJhY3RfdmVyc2lvbhgBIAEoCVIPY29udHJhY3'
+    'RWZXJzaW9uEhsKCXJ1bm5lcl9pZBgCIAEoCVIIcnVubmVySWQSHQoKc2Vzc2lvbl9pZBgDIAEo'
+    'CVIJc2Vzc2lvbklkEjsKBWxlYXNlGAQgASgLMiUubW9uYXJjaGljLmFnZW50X3Byb3RvY29sLn'
+    'YxLkxlYXNlUmVmUgVsZWFzZRI3CgpleHRlbnNpb25zGAUgASgLMhcuZ29vZ2xlLnByb3RvYnVm'
+    'LlN0cnVjdFIKZXh0ZW5zaW9ucw==');
+
+@$core.Deprecated('Use resumeLeaseResponseDescriptor instead')
+const ResumeLeaseResponse$json = {
+  '1': 'ResumeLeaseResponse',
+  '2': [
+    {'1': 'contract_version', '3': 1, '4': 1, '5': 9, '10': 'contractVersion'},
+    {'1': 'orchestrator_id', '3': 2, '4': 1, '5': 9, '10': 'orchestratorId'},
+    {'1': 'accepted', '3': 3, '4': 1, '5': 8, '10': 'accepted'},
+    {
+      '1': 'lease',
+      '3': 4,
+      '4': 1,
+      '5': 11,
+      '6': '.monarchic.agent_protocol.v1.Lease',
+      '10': 'lease'
+    },
+    {'1': 'expires_at_ms', '3': 5, '4': 1, '5': 4, '10': 'expiresAtMs'},
+    {
+      '1': 'current_fencing_token',
+      '3': 6,
+      '4': 1,
+      '5': 9,
+      '10': 'currentFencingToken'
+    },
+    {
+      '1': 'reason',
+      '3': 7,
+      '4': 1,
+      '5': 14,
+      '6': '.monarchic.agent_protocol.v1.LeaseRejectionReason',
+      '10': 'reason'
+    },
+    {'1': 'message', '3': 8, '4': 1, '5': 9, '10': 'message'},
+    {
+      '1': 'extensions',
+      '3': 9,
+      '4': 1,
+      '5': 11,
+      '6': '.google.protobuf.Struct',
+      '10': 'extensions'
+    },
+  ],
+};
+
+/// Descriptor for `ResumeLeaseResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List resumeLeaseResponseDescriptor = $convert.base64Decode(
+    'ChNSZXN1bWVMZWFzZVJlc3BvbnNlEikKEGNvbnRyYWN0X3ZlcnNpb24YASABKAlSD2NvbnRyYW'
+    'N0VmVyc2lvbhInCg9vcmNoZXN0cmF0b3JfaWQYAiABKAlSDm9yY2hlc3RyYXRvcklkEhoKCGFj'
+    'Y2VwdGVkGAMgASgIUghhY2NlcHRlZBI4CgVsZWFzZRgEIAEoCzIiLm1vbmFyY2hpYy5hZ2VudF'
+    '9wcm90b2NvbC52MS5MZWFzZVIFbGVhc2USIgoNZXhwaXJlc19hdF9tcxgFIAEoBFILZXhwaXJl'
+    'c0F0TXMSMgoVY3VycmVudF9mZW5jaW5nX3Rva2VuGAYgASgJUhNjdXJyZW50RmVuY2luZ1Rva2'
+    'VuEkkKBnJlYXNvbhgHIAEoDjIxLm1vbmFyY2hpYy5hZ2VudF9wcm90b2NvbC52MS5MZWFzZVJl'
+    'amVjdGlvblJlYXNvblIGcmVhc29uEhgKB21lc3NhZ2UYCCABKAlSB21lc3NhZ2USNwoKZXh0ZW'
+    '5zaW9ucxgJIAEoCzIXLmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3RSCmV4dGVuc2lvbnM=');
+
 @$core.Deprecated('Use reportStepStartedRequestDescriptor instead')
 const ReportStepStartedRequest$json = {
   '1': 'ReportStepStartedRequest',
@@ -2414,6 +2504,11 @@ const $core.Map<$core.String, $core.dynamic> RunnerControlServiceBase$json = {
       '3': '.monarchic.agent_protocol.v1.RenewLeaseResponse'
     },
     {
+      '1': 'ResumeLease',
+      '2': '.monarchic.agent_protocol.v1.ResumeLeaseRequest',
+      '3': '.monarchic.agent_protocol.v1.ResumeLeaseResponse'
+    },
+    {
       '1': 'ReportStepStarted',
       '2': '.monarchic.agent_protocol.v1.ReportStepStartedRequest',
       '3': '.monarchic.agent_protocol.v1.ReportStepStartedResponse'
@@ -2466,6 +2561,10 @@ const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>>
   '.monarchic.agent_protocol.v1.ObjectiveSpec': ObjectiveSpec$json,
   '.monarchic.agent_protocol.v1.RenewLeaseRequest': RenewLeaseRequest$json,
   '.monarchic.agent_protocol.v1.RenewLeaseResponse': RenewLeaseResponse$json,
+  '.monarchic.agent_protocol.v1.ResumeLeaseRequest': ResumeLeaseRequest$json,
+  '.monarchic.agent_protocol.v1.ResumeLeaseResponse': ResumeLeaseResponse$json,
+  '.monarchic.agent_protocol.v1.Lease': Lease$json,
+  '.monarchic.agent_protocol.v1.FencingToken': FencingToken$json,
   '.monarchic.agent_protocol.v1.ReportStepStartedRequest':
       ReportStepStartedRequest$json,
   '.monarchic.agent_protocol.v1.ReportStepStartedResponse':
@@ -2500,14 +2599,16 @@ final $typed_data.Uint8List runnerControlServiceDescriptor = $convert.base64Deco
     'NoaWMuYWdlbnRfcHJvdG9jb2wudjEuQWNxdWlyZUxlYXNlUmVxdWVzdBoxLm1vbmFyY2hpYy5h'
     'Z2VudF9wcm90b2NvbC52MS5BY3F1aXJlTGVhc2VSZXNwb25zZRJtCgpSZW5ld0xlYXNlEi4ubW'
     '9uYXJjaGljLmFnZW50X3Byb3RvY29sLnYxLlJlbmV3TGVhc2VSZXF1ZXN0Gi8ubW9uYXJjaGlj'
-    'LmFnZW50X3Byb3RvY29sLnYxLlJlbmV3TGVhc2VSZXNwb25zZRKCAQoRUmVwb3J0U3RlcFN0YX'
-    'J0ZWQSNS5tb25hcmNoaWMuYWdlbnRfcHJvdG9jb2wudjEuUmVwb3J0U3RlcFN0YXJ0ZWRSZXF1'
-    'ZXN0GjYubW9uYXJjaGljLmFnZW50X3Byb3RvY29sLnYxLlJlcG9ydFN0ZXBTdGFydGVkUmVzcG'
-    '9uc2UShQEKElJlcG9ydFN0ZXBQcm9ncmVzcxI2Lm1vbmFyY2hpYy5hZ2VudF9wcm90b2NvbC52'
-    'MS5SZXBvcnRTdGVwUHJvZ3Jlc3NSZXF1ZXN0GjcubW9uYXJjaGljLmFnZW50X3Byb3RvY29sLn'
-    'YxLlJlcG9ydFN0ZXBQcm9ncmVzc1Jlc3BvbnNlEoIBChFSZXBvcnRTdGVwT3V0Y29tZRI1Lm1v'
-    'bmFyY2hpYy5hZ2VudF9wcm90b2NvbC52MS5SZXBvcnRTdGVwT3V0Y29tZVJlcXVlc3QaNi5tb2'
-    '5hcmNoaWMuYWdlbnRfcHJvdG9jb2wudjEuUmVwb3J0U3RlcE91dGNvbWVSZXNwb25zZRJ8Cg9B'
-    'Y2tDYW5jZWxsYXRpb24SMy5tb25hcmNoaWMuYWdlbnRfcHJvdG9jb2wudjEuQWNrQ2FuY2VsbG'
-    'F0aW9uUmVxdWVzdBo0Lm1vbmFyY2hpYy5hZ2VudF9wcm90b2NvbC52MS5BY2tDYW5jZWxsYXRp'
-    'b25SZXNwb25zZQ==');
+    'LmFnZW50X3Byb3RvY29sLnYxLlJlbmV3TGVhc2VSZXNwb25zZRJwCgtSZXN1bWVMZWFzZRIvLm'
+    '1vbmFyY2hpYy5hZ2VudF9wcm90b2NvbC52MS5SZXN1bWVMZWFzZVJlcXVlc3QaMC5tb25hcmNo'
+    'aWMuYWdlbnRfcHJvdG9jb2wudjEuUmVzdW1lTGVhc2VSZXNwb25zZRKCAQoRUmVwb3J0U3RlcF'
+    'N0YXJ0ZWQSNS5tb25hcmNoaWMuYWdlbnRfcHJvdG9jb2wudjEuUmVwb3J0U3RlcFN0YXJ0ZWRS'
+    'ZXF1ZXN0GjYubW9uYXJjaGljLmFnZW50X3Byb3RvY29sLnYxLlJlcG9ydFN0ZXBTdGFydGVkUm'
+    'VzcG9uc2UShQEKElJlcG9ydFN0ZXBQcm9ncmVzcxI2Lm1vbmFyY2hpYy5hZ2VudF9wcm90b2Nv'
+    'bC52MS5SZXBvcnRTdGVwUHJvZ3Jlc3NSZXF1ZXN0GjcubW9uYXJjaGljLmFnZW50X3Byb3RvY2'
+    '9sLnYxLlJlcG9ydFN0ZXBQcm9ncmVzc1Jlc3BvbnNlEoIBChFSZXBvcnRTdGVwT3V0Y29tZRI1'
+    'Lm1vbmFyY2hpYy5hZ2VudF9wcm90b2NvbC52MS5SZXBvcnRTdGVwT3V0Y29tZVJlcXVlc3QaNi'
+    '5tb25hcmNoaWMuYWdlbnRfcHJvdG9jb2wudjEuUmVwb3J0U3RlcE91dGNvbWVSZXNwb25zZRJ8'
+    'Cg9BY2tDYW5jZWxsYXRpb24SMy5tb25hcmNoaWMuYWdlbnRfcHJvdG9jb2wudjEuQWNrQ2FuY2'
+    'VsbGF0aW9uUmVxdWVzdBo0Lm1vbmFyY2hpYy5hZ2VudF9wcm90b2NvbC52MS5BY2tDYW5jZWxs'
+    'YXRpb25SZXNwb25zZQ==');

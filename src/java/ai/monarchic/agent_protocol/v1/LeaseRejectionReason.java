@@ -43,6 +43,10 @@ public enum LeaseRejectionReason
    * <code>LEASE_REJECTION_DEPENDENCY_BLOCKED = 7;</code>
    */
   LEASE_REJECTION_DEPENDENCY_BLOCKED(7),
+  /**
+   * <code>LEASE_REJECTION_LEASE_SUPERSEDED = 8;</code>
+   */
+  LEASE_REJECTION_LEASE_SUPERSEDED(8),
   UNRECOGNIZED(-1),
   ;
 
@@ -87,6 +91,10 @@ public enum LeaseRejectionReason
    * <code>LEASE_REJECTION_DEPENDENCY_BLOCKED = 7;</code>
    */
   public static final int LEASE_REJECTION_DEPENDENCY_BLOCKED_VALUE = 7;
+  /**
+   * <code>LEASE_REJECTION_LEASE_SUPERSEDED = 8;</code>
+   */
+  public static final int LEASE_REJECTION_LEASE_SUPERSEDED_VALUE = 8;
 
 
   public final int getNumber() {
@@ -121,6 +129,7 @@ public enum LeaseRejectionReason
       case 5: return LEASE_REJECTION_STEP_ALREADY_TERMINAL;
       case 6: return LEASE_REJECTION_RUN_NOT_EXECUTABLE;
       case 7: return LEASE_REJECTION_DEPENDENCY_BLOCKED;
+      case 8: return LEASE_REJECTION_LEASE_SUPERSEDED;
       default: return null;
     }
   }

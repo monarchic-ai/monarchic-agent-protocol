@@ -261,6 +261,9 @@ class LeaseRejectionReason extends $pb.ProtobufEnum {
   static const LeaseRejectionReason LEASE_REJECTION_DEPENDENCY_BLOCKED =
       LeaseRejectionReason._(
           7, _omitEnumNames ? '' : 'LEASE_REJECTION_DEPENDENCY_BLOCKED');
+  static const LeaseRejectionReason LEASE_REJECTION_LEASE_SUPERSEDED =
+      LeaseRejectionReason._(
+          8, _omitEnumNames ? '' : 'LEASE_REJECTION_LEASE_SUPERSEDED');
 
   static const $core.List<LeaseRejectionReason> values = <LeaseRejectionReason>[
     LEASE_REJECTION_REASON_UNSPECIFIED,
@@ -271,10 +274,11 @@ class LeaseRejectionReason extends $pb.ProtobufEnum {
     LEASE_REJECTION_STEP_ALREADY_TERMINAL,
     LEASE_REJECTION_RUN_NOT_EXECUTABLE,
     LEASE_REJECTION_DEPENDENCY_BLOCKED,
+    LEASE_REJECTION_LEASE_SUPERSEDED,
   ];
 
   static final $core.List<LeaseRejectionReason?> _byValue =
-      $pb.ProtobufEnum.$_initByValueList(values, 7);
+      $pb.ProtobufEnum.$_initByValueList(values, 8);
   static LeaseRejectionReason? valueOf($core.int value) =>
       value < 0 || value >= _byValue.length ? null : _byValue[value];
 
