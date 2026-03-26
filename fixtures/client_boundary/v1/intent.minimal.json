@@ -1,0 +1,14 @@
+{
+  "intent_id": "intent-123",
+  "submitted_at": 1742870400000,
+  "submitter": "omniscoder",
+  "policy_version": "policy-v1",
+  "target_repo": "monarchic-ai/monarch",
+  "target_ref": "refs/heads/main",
+  "goal": "Remove direct control ownership from monarch.",
+  "constraints": {
+    "allow_merge": false,
+    "max_replans": 2
+  },
+  "context_digest": "sha256:intent-context"
+}

@@ -28,6 +28,8 @@ class AgentRole extends $pb.ProtobufEnum {
   static const AgentRole SECURITY =
       AgentRole._(6, _omitEnumNames ? '' : 'SECURITY');
   static const AgentRole OPS = AgentRole._(7, _omitEnumNames ? '' : 'OPS');
+  static const AgentRole PUBLISHER =
+      AgentRole._(8, _omitEnumNames ? '' : 'PUBLISHER');
 
   static const $core.List<AgentRole> values = <AgentRole>[
     AGENT_ROLE_UNSPECIFIED,
@@ -38,10 +40,11 @@ class AgentRole extends $pb.ProtobufEnum {
     REVIEWER,
     SECURITY,
     OPS,
+    PUBLISHER,
   ];
 
   static final $core.List<AgentRole?> _byValue =
-      $pb.ProtobufEnum.$_initByValueList(values, 7);
+      $pb.ProtobufEnum.$_initByValueList(values, 8);
   static AgentRole? valueOf($core.int value) =>
       value < 0 || value >= _byValue.length ? null : _byValue[value];
 
@@ -74,6 +77,46 @@ class OutcomeDecision extends $pb.ProtobufEnum {
       value < 0 || value >= _byValue.length ? null : _byValue[value];
 
   const OutcomeDecision._(super.value, super.name);
+}
+
+class PlanStatus extends $pb.ProtobufEnum {
+  static const PlanStatus PLAN_STATUS_UNSPECIFIED =
+      PlanStatus._(0, _omitEnumNames ? '' : 'PLAN_STATUS_UNSPECIFIED');
+  static const PlanStatus DRAFT =
+      PlanStatus._(1, _omitEnumNames ? '' : 'DRAFT');
+  static const PlanStatus PLANNED =
+      PlanStatus._(2, _omitEnumNames ? '' : 'PLANNED');
+  static const PlanStatus EXECUTING =
+      PlanStatus._(3, _omitEnumNames ? '' : 'EXECUTING');
+  static const PlanStatus COMPLETE =
+      PlanStatus._(4, _omitEnumNames ? '' : 'COMPLETE');
+  static const PlanStatus BOUNDED =
+      PlanStatus._(5, _omitEnumNames ? '' : 'BOUNDED');
+  static const PlanStatus FAILED =
+      PlanStatus._(6, _omitEnumNames ? '' : 'FAILED');
+  static const PlanStatus CANCELLED =
+      PlanStatus._(7, _omitEnumNames ? '' : 'CANCELLED');
+  static const PlanStatus UNKNOWN =
+      PlanStatus._(8, _omitEnumNames ? '' : 'UNKNOWN');
+
+  static const $core.List<PlanStatus> values = <PlanStatus>[
+    PLAN_STATUS_UNSPECIFIED,
+    DRAFT,
+    PLANNED,
+    EXECUTING,
+    COMPLETE,
+    BOUNDED,
+    FAILED,
+    CANCELLED,
+    UNKNOWN,
+  ];
+
+  static final $core.List<PlanStatus?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 8);
+  static PlanStatus? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const PlanStatus._(super.value, super.name);
 }
 
 const $core.bool _omitEnumNames =

@@ -1,0 +1,20 @@
+{
+  "code": "verification-failed",
+  "scope": "verification",
+  "message": "Verification receipt reported a failing required check.",
+  "details": {
+    "check": "cargo-test",
+    "required": true
+  },
+  "blocking_artifacts": [
+    {
+      "artifact_id": "artifact-verify-1",
+      "kind": "verification_receipt",
+      "digest": "sha256:verify-1",
+      "media_type": "application/json",
+      "logical_name": "verification-receipt.json",
+      "producer": "monarchic-ops",
+      "contract_version": "v1"
+    }
+  ]
+}

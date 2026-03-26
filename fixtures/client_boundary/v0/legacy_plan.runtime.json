@@ -1,0 +1,29 @@
+{
+  "contract_version": "v1",
+  "plan_id": "legacy-plan-123",
+  "run_id": "legacy-run-123",
+  "objective": "Legacy runtime plan",
+  "status": "planned",
+  "created_at_ms": 1742870400000,
+  "updated_at_ms": 1742870400500,
+  "provenance": {
+    "generated_by": "legacy-planner",
+    "policy_profile": "legacy-default",
+    "generated_at_ms": 1742870400000,
+    "role": {
+      "role_name": "reviewer",
+      "template_hash": "sha256:template",
+      "render_hash": "sha256:render"
+    }
+  },
+  "steps": [
+    {
+      "step_id": "legacy-step-1",
+      "description": "Legacy execution step",
+      "depends_on": [],
+      "task_template": {
+        "repo": "monarchic-ai/monarch"
+      }
+    }
+  ]
+}

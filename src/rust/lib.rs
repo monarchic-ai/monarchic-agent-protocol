@@ -1,4 +1,27 @@
+mod artifact;
+mod blocking;
+mod intent;
+mod plan;
+mod receipt;
+mod review;
+mod version;
+
 pub const PROTOCOL_VERSION: &str = "v1";
+
+pub mod client_boundary {
+    pub use crate::artifact::{ArtifactDescriptor, ArtifactKind};
+    pub use crate::blocking::{BlockedOutcome, BlockedOutcomeScope};
+    pub use crate::intent::Intent;
+    pub use crate::plan::{
+        Plan, PlanStep, PlanStepKind, ReplanPolicy, ReplanStrategy, StepOutputExpectation,
+    };
+    pub use crate::receipt::{
+        ExecutionReceipt, ExecutionStatus, VerificationCheck, VerificationCheckStatus,
+        VerificationReceipt, VerificationStatus,
+    };
+    pub use crate::review::{ReviewDecision, ReviewDecisionScope, ReviewDisposition};
+    pub use crate::version::CLIENT_BOUNDARY_CONTRACT_VERSION;
+}
 
 pub mod monarchic {
     pub mod agent_protocol {

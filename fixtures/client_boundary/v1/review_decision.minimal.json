@@ -1,0 +1,9 @@
+{
+  "decision_id": "decision-123",
+  "plan_id": "plan-123",
+  "scope": "pull_request",
+  "actor": "reviewer-bot",
+  "decision": "approve",
+  "reason": "Verification receipts are green and the diff matches scope.",
+  "created_at": 1742870406000
+}
