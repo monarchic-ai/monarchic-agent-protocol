@@ -6,31 +6,31 @@
 package ai.monarchic.agent_protocol.v1;
 
 /**
- * Protobuf enum {@code monarchic.agent_protocol.v1.ReplanStrategy}
+ * Protobuf enum {@code monarchic.agent_protocol.v1.IntentClass}
  */
 @com.google.protobuf.Generated
-public enum ReplanStrategy
+public enum IntentClass
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>REPLAN_STRATEGY_UNSPECIFIED = 0;</code>
+   * <code>INTENT_CLASS_UNSPECIFIED = 0;</code>
    */
-  REPLAN_STRATEGY_UNSPECIFIED(0),
+  INTENT_CLASS_UNSPECIFIED(0),
   /**
-   * <code>REPLAN_STRATEGY_RETRY = 1;</code>
+   * <code>INTENT_CLASS_INSPECT = 1;</code>
    */
-  REPLAN_STRATEGY_RETRY(1),
+  INTENT_CLASS_INSPECT(1),
   /**
-   * <code>REPLAN_STRATEGY_REPAIR = 2;</code>
+   * <code>INTENT_CLASS_VALIDATE = 2;</code>
    */
-  REPLAN_STRATEGY_REPAIR(2),
+  INTENT_CLASS_VALIDATE(2),
   /**
-   * <code>REPLAN_STRATEGY_ESCALATE = 3;</code>
+   * <code>INTENT_CLASS_EXECUTE = 3;</code>
    */
-  REPLAN_STRATEGY_ESCALATE(3),
+  INTENT_CLASS_EXECUTE(3),
   /**
-   * <code>REPLAN_STRATEGY_BLOCK = 4;</code>
+   * <code>INTENT_CLASS_VERIFY = 4;</code>
    */
-  REPLAN_STRATEGY_BLOCK(4),
+  INTENT_CLASS_VERIFY(4),
   UNRECOGNIZED(-1),
   ;
 
@@ -41,28 +41,28 @@ public enum ReplanStrategy
       /* minor= */ 32,
       /* patch= */ 1,
       /* suffix= */ "",
-      ReplanStrategy.class.getName());
+      IntentClass.class.getName());
   }
   /**
-   * <code>REPLAN_STRATEGY_UNSPECIFIED = 0;</code>
+   * <code>INTENT_CLASS_UNSPECIFIED = 0;</code>
    */
-  public static final int REPLAN_STRATEGY_UNSPECIFIED_VALUE = 0;
+  public static final int INTENT_CLASS_UNSPECIFIED_VALUE = 0;
   /**
-   * <code>REPLAN_STRATEGY_RETRY = 1;</code>
+   * <code>INTENT_CLASS_INSPECT = 1;</code>
    */
-  public static final int REPLAN_STRATEGY_RETRY_VALUE = 1;
+  public static final int INTENT_CLASS_INSPECT_VALUE = 1;
   /**
-   * <code>REPLAN_STRATEGY_REPAIR = 2;</code>
+   * <code>INTENT_CLASS_VALIDATE = 2;</code>
    */
-  public static final int REPLAN_STRATEGY_REPAIR_VALUE = 2;
+  public static final int INTENT_CLASS_VALIDATE_VALUE = 2;
   /**
-   * <code>REPLAN_STRATEGY_ESCALATE = 3;</code>
+   * <code>INTENT_CLASS_EXECUTE = 3;</code>
    */
-  public static final int REPLAN_STRATEGY_ESCALATE_VALUE = 3;
+  public static final int INTENT_CLASS_EXECUTE_VALUE = 3;
   /**
-   * <code>REPLAN_STRATEGY_BLOCK = 4;</code>
+   * <code>INTENT_CLASS_VERIFY = 4;</code>
    */
-  public static final int REPLAN_STRATEGY_BLOCK_VALUE = 4;
+  public static final int INTENT_CLASS_VERIFY_VALUE = 4;
 
 
   public final int getNumber() {
@@ -79,7 +79,7 @@ public enum ReplanStrategy
    * @deprecated Use {@link #forNumber(int)} instead.
    */
   @java.lang.Deprecated
-  public static ReplanStrategy valueOf(int value) {
+  public static IntentClass valueOf(int value) {
     return forNumber(value);
   }
 
@@ -87,26 +87,26 @@ public enum ReplanStrategy
    * @param value The numeric wire value of the corresponding enum entry.
    * @return The enum associated with the given numeric wire value.
    */
-  public static ReplanStrategy forNumber(int value) {
+  public static IntentClass forNumber(int value) {
     switch (value) {
-      case 0: return REPLAN_STRATEGY_UNSPECIFIED;
-      case 1: return REPLAN_STRATEGY_RETRY;
-      case 2: return REPLAN_STRATEGY_REPAIR;
-      case 3: return REPLAN_STRATEGY_ESCALATE;
-      case 4: return REPLAN_STRATEGY_BLOCK;
+      case 0: return INTENT_CLASS_UNSPECIFIED;
+      case 1: return INTENT_CLASS_INSPECT;
+      case 2: return INTENT_CLASS_VALIDATE;
+      case 3: return INTENT_CLASS_EXECUTE;
+      case 4: return INTENT_CLASS_VERIFY;
       default: return null;
     }
   }
 
-  public static com.google.protobuf.Internal.EnumLiteMap<ReplanStrategy>
+  public static com.google.protobuf.Internal.EnumLiteMap<IntentClass>
       internalGetValueMap() {
     return internalValueMap;
   }
   private static final com.google.protobuf.Internal.EnumLiteMap<
-      ReplanStrategy> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<ReplanStrategy>() {
-          public ReplanStrategy findValueByNumber(int number) {
-            return ReplanStrategy.forNumber(number);
+      IntentClass> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<IntentClass>() {
+          public IntentClass findValueByNumber(int number) {
+            return IntentClass.forNumber(number);
           }
         };
 
@@ -124,12 +124,12 @@ public enum ReplanStrategy
   }
   public static com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.getDescriptor().getEnumTypes().get(6);
+    return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.getDescriptor().getEnumTypes().get(2);
   }
 
-  private static final ReplanStrategy[] VALUES = values();
+  private static final IntentClass[] VALUES = values();
 
-  public static ReplanStrategy valueOf(
+  public static IntentClass valueOf(
       com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
     if (desc.getType() != getDescriptor()) {
       throw new java.lang.IllegalArgumentException(
@@ -143,10 +143,10 @@ public enum ReplanStrategy
 
   private final int value;
 
-  private ReplanStrategy(int value) {
+  private IntentClass(int value) {
     this.value = value;
   }
 
-  // @@protoc_insertion_point(enum_scope:monarchic.agent_protocol.v1.ReplanStrategy)
+  // @@protoc_insertion_point(enum_scope:monarchic.agent_protocol.v1.IntentClass)
 }
 

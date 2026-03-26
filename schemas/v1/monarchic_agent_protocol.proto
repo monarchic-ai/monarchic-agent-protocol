@@ -119,6 +119,14 @@ message Provenance {
   google.protobuf.Struct extensions = 14;
 }
 
+enum IntentClass {
+  INTENT_CLASS_UNSPECIFIED = 0;
+  INTENT_CLASS_INSPECT = 1;
+  INTENT_CLASS_VALIDATE = 2;
+  INTENT_CLASS_EXECUTE = 3;
+  INTENT_CLASS_VERIFY = 4;
+}
+
 message Intent {
   string intent_id = 1;
   uint64 submitted_at = 2;
@@ -129,6 +137,7 @@ message Intent {
   string goal = 7;
   google.protobuf.Struct constraints = 8;
   string context_digest = 9;
+  IntentClass intent_class = 10;
 }
 
 enum PlanStatus {

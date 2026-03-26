@@ -114,4 +114,15 @@ public interface IntentOrBuilder extends
    */
   com.google.protobuf.ByteString
       getContextDigestBytes();
+
+  /**
+   * <code>.monarchic.agent_protocol.v1.IntentClass intent_class = 10;</code>
+   * @return The enum numeric value on the wire for intentClass.
+   */
+  int getIntentClassValue();
+  /**
+   * <code>.monarchic.agent_protocol.v1.IntentClass intent_class = 10;</code>
+   * @return The intentClass.
+   */
+  ai.monarchic.agent_protocol.v1.IntentClass getIntentClass();
 }
