@@ -1,0 +1,6 @@
+{
+  "token": "fence-run-123-step-1-0001",
+  "issued_at": 1742950800000,
+  "issuer": "orchestrator-a",
+  "scope": "run:run-123/step:step-1"
+}
