@@ -187,6 +187,16 @@ enum ArtifactKind {
   ARTIFACT_KIND_CUSTOM = 11;
 }
 
+message ArtifactDescriptor {
+  string artifact_id = 1;
+  ArtifactKind kind = 2;
+  string digest = 3;
+  string media_type = 4;
+  string logical_name = 5;
+  string producer = 6;
+  string contract_version = 7;
+}
+
 enum PlanStepKind {
   PLAN_STEP_KIND_UNSPECIFIED = 0;
   PLAN_STEP_KIND_ANALYSIS = 1;
@@ -257,6 +267,62 @@ message ExecutionReceipt {
   PlanStatus status = 8;
   optional FailureDetail failure = 9;
   uint64 generated_at_ms = 10;
+}
+
+enum VerificationStatus {
+  VERIFICATION_STATUS_UNSPECIFIED = 0;
+  VERIFICATION_STATUS_PENDING = 1;
+  VERIFICATION_STATUS_PASSED = 2;
+  VERIFICATION_STATUS_FAILED = 3;
+  VERIFICATION_STATUS_BLOCKED = 4;
+}
+
+enum VerificationCheckStatus {
+  VERIFICATION_CHECK_STATUS_UNSPECIFIED = 0;
+  VERIFICATION_CHECK_STATUS_PASSED = 1;
+  VERIFICATION_CHECK_STATUS_FAILED = 2;
+  VERIFICATION_CHECK_STATUS_BLOCKED = 3;
+  VERIFICATION_CHECK_STATUS_SKIPPED = 4;
+}
+
+enum BlockedOutcomeScope {
+  BLOCKED_OUTCOME_SCOPE_UNSPECIFIED = 0;
+  BLOCKED_OUTCOME_SCOPE_INTENT = 1;
+  BLOCKED_OUTCOME_SCOPE_PLAN = 2;
+  BLOCKED_OUTCOME_SCOPE_STEP = 3;
+  BLOCKED_OUTCOME_SCOPE_RUN = 4;
+  BLOCKED_OUTCOME_SCOPE_VERIFICATION = 5;
+  BLOCKED_OUTCOME_SCOPE_MERGE = 6;
+  BLOCKED_OUTCOME_SCOPE_RELEASE = 7;
+}
+
+message VerificationCheck {
+  string check_id = 1;
+  string name = 2;
+  VerificationCheckStatus status = 3;
+  string message = 4;
+  repeated string artifact_ids = 5;
+}
+
+message BlockedOutcome {
+  string code = 1;
+  BlockedOutcomeScope scope = 2;
+  string message = 3;
+  google.protobuf.Struct details = 4;
+  repeated ArtifactDescriptor blocking_artifacts = 5;
+}
+
+message VerificationReceipt {
+  string contract_version = 1;
+  string verification_id = 2;
+  string plan_id = 3;
+  repeated string execution_receipt_ids = 4;
+  string verification_policy_version = 5;
+  VerificationStatus status = 6;
+  repeated VerificationCheck checks = 7;
+  repeated BlockedOutcome blocked_outcomes = 8;
+  repeated string artifact_digest_set = 9;
+  uint64 verified_at_ms = 10;
 }
 
 message Task {

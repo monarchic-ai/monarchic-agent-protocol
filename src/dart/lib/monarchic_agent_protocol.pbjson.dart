@@ -167,6 +167,68 @@ final $typed_data.Uint8List replanStrategyDescriptor = $convert.base64Decode(
     'BMQU5fU1RSQVRFR1lfUkVUUlkQARIaChZSRVBMQU5fU1RSQVRFR1lfUkVQQUlSEAISHAoYUkVQ'
     'TEFOX1NUUkFURUdZX0VTQ0FMQVRFEAMSGQoVUkVQTEFOX1NUUkFURUdZX0JMT0NLEAQ=');
 
+@$core.Deprecated('Use verificationStatusDescriptor instead')
+const VerificationStatus$json = {
+  '1': 'VerificationStatus',
+  '2': [
+    {'1': 'VERIFICATION_STATUS_UNSPECIFIED', '2': 0},
+    {'1': 'VERIFICATION_STATUS_PENDING', '2': 1},
+    {'1': 'VERIFICATION_STATUS_PASSED', '2': 2},
+    {'1': 'VERIFICATION_STATUS_FAILED', '2': 3},
+    {'1': 'VERIFICATION_STATUS_BLOCKED', '2': 4},
+  ],
+};
+
+/// Descriptor for `VerificationStatus`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List verificationStatusDescriptor = $convert.base64Decode(
+    'ChJWZXJpZmljYXRpb25TdGF0dXMSIwofVkVSSUZJQ0FUSU9OX1NUQVRVU19VTlNQRUNJRklFRB'
+    'AAEh8KG1ZFUklGSUNBVElPTl9TVEFUVVNfUEVORElORxABEh4KGlZFUklGSUNBVElPTl9TVEFU'
+    'VVNfUEFTU0VEEAISHgoaVkVSSUZJQ0FUSU9OX1NUQVRVU19GQUlMRUQQAxIfChtWRVJJRklDQV'
+    'RJT05fU1RBVFVTX0JMT0NLRUQQBA==');
+
+@$core.Deprecated('Use verificationCheckStatusDescriptor instead')
+const VerificationCheckStatus$json = {
+  '1': 'VerificationCheckStatus',
+  '2': [
+    {'1': 'VERIFICATION_CHECK_STATUS_UNSPECIFIED', '2': 0},
+    {'1': 'VERIFICATION_CHECK_STATUS_PASSED', '2': 1},
+    {'1': 'VERIFICATION_CHECK_STATUS_FAILED', '2': 2},
+    {'1': 'VERIFICATION_CHECK_STATUS_BLOCKED', '2': 3},
+    {'1': 'VERIFICATION_CHECK_STATUS_SKIPPED', '2': 4},
+  ],
+};
+
+/// Descriptor for `VerificationCheckStatus`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List verificationCheckStatusDescriptor = $convert.base64Decode(
+    'ChdWZXJpZmljYXRpb25DaGVja1N0YXR1cxIpCiVWRVJJRklDQVRJT05fQ0hFQ0tfU1RBVFVTX1'
+    'VOU1BFQ0lGSUVEEAASJAogVkVSSUZJQ0FUSU9OX0NIRUNLX1NUQVRVU19QQVNTRUQQARIkCiBW'
+    'RVJJRklDQVRJT05fQ0hFQ0tfU1RBVFVTX0ZBSUxFRBACEiUKIVZFUklGSUNBVElPTl9DSEVDS1'
+    '9TVEFUVVNfQkxPQ0tFRBADEiUKIVZFUklGSUNBVElPTl9DSEVDS19TVEFUVVNfU0tJUFBFRBAE');
+
+@$core.Deprecated('Use blockedOutcomeScopeDescriptor instead')
+const BlockedOutcomeScope$json = {
+  '1': 'BlockedOutcomeScope',
+  '2': [
+    {'1': 'BLOCKED_OUTCOME_SCOPE_UNSPECIFIED', '2': 0},
+    {'1': 'BLOCKED_OUTCOME_SCOPE_INTENT', '2': 1},
+    {'1': 'BLOCKED_OUTCOME_SCOPE_PLAN', '2': 2},
+    {'1': 'BLOCKED_OUTCOME_SCOPE_STEP', '2': 3},
+    {'1': 'BLOCKED_OUTCOME_SCOPE_RUN', '2': 4},
+    {'1': 'BLOCKED_OUTCOME_SCOPE_VERIFICATION', '2': 5},
+    {'1': 'BLOCKED_OUTCOME_SCOPE_MERGE', '2': 6},
+    {'1': 'BLOCKED_OUTCOME_SCOPE_RELEASE', '2': 7},
+  ],
+};
+
+/// Descriptor for `BlockedOutcomeScope`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List blockedOutcomeScopeDescriptor = $convert.base64Decode(
+    'ChNCbG9ja2VkT3V0Y29tZVNjb3BlEiUKIUJMT0NLRURfT1VUQ09NRV9TQ09QRV9VTlNQRUNJRk'
+    'lFRBAAEiAKHEJMT0NLRURfT1VUQ09NRV9TQ09QRV9JTlRFTlQQARIeChpCTE9DS0VEX09VVENP'
+    'TUVfU0NPUEVfUExBThACEh4KGkJMT0NLRURfT1VUQ09NRV9TQ09QRV9TVEVQEAMSHQoZQkxPQ0'
+    'tFRF9PVVRDT01FX1NDT1BFX1JVThAEEiYKIkJMT0NLRURfT1VUQ09NRV9TQ09QRV9WRVJJRklD'
+    'QVRJT04QBRIfChtCTE9DS0VEX09VVENPTUVfU0NPUEVfTUVSR0UQBhIhCh1CTE9DS0VEX09VVE'
+    'NPTUVfU0NPUEVfUkVMRUFTRRAH');
+
 @$core.Deprecated('Use leaseLifecycleStateDescriptor instead')
 const LeaseLifecycleState$json = {
   '1': 'LeaseLifecycleState',
@@ -879,6 +941,36 @@ final $typed_data.Uint8List failureDetailDescriptor = $convert.base64Decode(
     'RlEhgKB21lc3NhZ2UYAyABKAlSB21lc3NhZ2USMQoHZGV0YWlscxgEIAEoCzIXLmdvb2dsZS5w'
     'cm90b2J1Zi5TdHJ1Y3RSB2RldGFpbHM=');
 
+@$core.Deprecated('Use artifactDescriptorDescriptor instead')
+const ArtifactDescriptor$json = {
+  '1': 'ArtifactDescriptor',
+  '2': [
+    {'1': 'artifact_id', '3': 1, '4': 1, '5': 9, '10': 'artifactId'},
+    {
+      '1': 'kind',
+      '3': 2,
+      '4': 1,
+      '5': 14,
+      '6': '.monarchic.agent_protocol.v1.ArtifactKind',
+      '10': 'kind'
+    },
+    {'1': 'digest', '3': 3, '4': 1, '5': 9, '10': 'digest'},
+    {'1': 'media_type', '3': 4, '4': 1, '5': 9, '10': 'mediaType'},
+    {'1': 'logical_name', '3': 5, '4': 1, '5': 9, '10': 'logicalName'},
+    {'1': 'producer', '3': 6, '4': 1, '5': 9, '10': 'producer'},
+    {'1': 'contract_version', '3': 7, '4': 1, '5': 9, '10': 'contractVersion'},
+  ],
+};
+
+/// Descriptor for `ArtifactDescriptor`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List artifactDescriptorDescriptor = $convert.base64Decode(
+    'ChJBcnRpZmFjdERlc2NyaXB0b3ISHwoLYXJ0aWZhY3RfaWQYASABKAlSCmFydGlmYWN0SWQSPQ'
+    'oEa2luZBgCIAEoDjIpLm1vbmFyY2hpYy5hZ2VudF9wcm90b2NvbC52MS5BcnRpZmFjdEtpbmRS'
+    'BGtpbmQSFgoGZGlnZXN0GAMgASgJUgZkaWdlc3QSHQoKbWVkaWFfdHlwZRgEIAEoCVIJbWVkaW'
+    'FUeXBlEiEKDGxvZ2ljYWxfbmFtZRgFIAEoCVILbG9naWNhbE5hbWUSGgoIcHJvZHVjZXIYBiAB'
+    'KAlSCHByb2R1Y2VyEikKEGNvbnRyYWN0X3ZlcnNpb24YByABKAlSD2NvbnRyYWN0VmVyc2lvbg'
+    '==');
+
 @$core.Deprecated('Use replanPolicyDescriptor instead')
 const ReplanPolicy$json = {
   '1': 'ReplanPolicy',
@@ -1153,6 +1245,144 @@ final $typed_data.Uint8List executionReceiptDescriptor = $convert.base64Decode(
     'dlbnRfcHJvdG9jb2wudjEuUGxhblN0YXR1c1IGc3RhdHVzEkkKB2ZhaWx1cmUYCSABKAsyKi5t'
     'b25hcmNoaWMuYWdlbnRfcHJvdG9jb2wudjEuRmFpbHVyZURldGFpbEgAUgdmYWlsdXJliAEBEi'
     'YKD2dlbmVyYXRlZF9hdF9tcxgKIAEoBFINZ2VuZXJhdGVkQXRNc0IKCghfZmFpbHVyZQ==');
+
+@$core.Deprecated('Use verificationCheckDescriptor instead')
+const VerificationCheck$json = {
+  '1': 'VerificationCheck',
+  '2': [
+    {'1': 'check_id', '3': 1, '4': 1, '5': 9, '10': 'checkId'},
+    {'1': 'name', '3': 2, '4': 1, '5': 9, '10': 'name'},
+    {
+      '1': 'status',
+      '3': 3,
+      '4': 1,
+      '5': 14,
+      '6': '.monarchic.agent_protocol.v1.VerificationCheckStatus',
+      '10': 'status'
+    },
+    {'1': 'message', '3': 4, '4': 1, '5': 9, '10': 'message'},
+    {'1': 'artifact_ids', '3': 5, '4': 3, '5': 9, '10': 'artifactIds'},
+  ],
+};
+
+/// Descriptor for `VerificationCheck`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List verificationCheckDescriptor = $convert.base64Decode(
+    'ChFWZXJpZmljYXRpb25DaGVjaxIZCghjaGVja19pZBgBIAEoCVIHY2hlY2tJZBISCgRuYW1lGA'
+    'IgASgJUgRuYW1lEkwKBnN0YXR1cxgDIAEoDjI0Lm1vbmFyY2hpYy5hZ2VudF9wcm90b2NvbC52'
+    'MS5WZXJpZmljYXRpb25DaGVja1N0YXR1c1IGc3RhdHVzEhgKB21lc3NhZ2UYBCABKAlSB21lc3'
+    'NhZ2USIQoMYXJ0aWZhY3RfaWRzGAUgAygJUgthcnRpZmFjdElkcw==');
+
+@$core.Deprecated('Use blockedOutcomeDescriptor instead')
+const BlockedOutcome$json = {
+  '1': 'BlockedOutcome',
+  '2': [
+    {'1': 'code', '3': 1, '4': 1, '5': 9, '10': 'code'},
+    {
+      '1': 'scope',
+      '3': 2,
+      '4': 1,
+      '5': 14,
+      '6': '.monarchic.agent_protocol.v1.BlockedOutcomeScope',
+      '10': 'scope'
+    },
+    {'1': 'message', '3': 3, '4': 1, '5': 9, '10': 'message'},
+    {
+      '1': 'details',
+      '3': 4,
+      '4': 1,
+      '5': 11,
+      '6': '.google.protobuf.Struct',
+      '10': 'details'
+    },
+    {
+      '1': 'blocking_artifacts',
+      '3': 5,
+      '4': 3,
+      '5': 11,
+      '6': '.monarchic.agent_protocol.v1.ArtifactDescriptor',
+      '10': 'blockingArtifacts'
+    },
+  ],
+};
+
+/// Descriptor for `BlockedOutcome`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List blockedOutcomeDescriptor = $convert.base64Decode(
+    'Cg5CbG9ja2VkT3V0Y29tZRISCgRjb2RlGAEgASgJUgRjb2RlEkYKBXNjb3BlGAIgASgOMjAubW'
+    '9uYXJjaGljLmFnZW50X3Byb3RvY29sLnYxLkJsb2NrZWRPdXRjb21lU2NvcGVSBXNjb3BlEhgK'
+    'B21lc3NhZ2UYAyABKAlSB21lc3NhZ2USMQoHZGV0YWlscxgEIAEoCzIXLmdvb2dsZS5wcm90b2'
+    'J1Zi5TdHJ1Y3RSB2RldGFpbHMSXgoSYmxvY2tpbmdfYXJ0aWZhY3RzGAUgAygLMi8ubW9uYXJj'
+    'aGljLmFnZW50X3Byb3RvY29sLnYxLkFydGlmYWN0RGVzY3JpcHRvclIRYmxvY2tpbmdBcnRpZm'
+    'FjdHM=');
+
+@$core.Deprecated('Use verificationReceiptDescriptor instead')
+const VerificationReceipt$json = {
+  '1': 'VerificationReceipt',
+  '2': [
+    {'1': 'contract_version', '3': 1, '4': 1, '5': 9, '10': 'contractVersion'},
+    {'1': 'verification_id', '3': 2, '4': 1, '5': 9, '10': 'verificationId'},
+    {'1': 'plan_id', '3': 3, '4': 1, '5': 9, '10': 'planId'},
+    {
+      '1': 'execution_receipt_ids',
+      '3': 4,
+      '4': 3,
+      '5': 9,
+      '10': 'executionReceiptIds'
+    },
+    {
+      '1': 'verification_policy_version',
+      '3': 5,
+      '4': 1,
+      '5': 9,
+      '10': 'verificationPolicyVersion'
+    },
+    {
+      '1': 'status',
+      '3': 6,
+      '4': 1,
+      '5': 14,
+      '6': '.monarchic.agent_protocol.v1.VerificationStatus',
+      '10': 'status'
+    },
+    {
+      '1': 'checks',
+      '3': 7,
+      '4': 3,
+      '5': 11,
+      '6': '.monarchic.agent_protocol.v1.VerificationCheck',
+      '10': 'checks'
+    },
+    {
+      '1': 'blocked_outcomes',
+      '3': 8,
+      '4': 3,
+      '5': 11,
+      '6': '.monarchic.agent_protocol.v1.BlockedOutcome',
+      '10': 'blockedOutcomes'
+    },
+    {
+      '1': 'artifact_digest_set',
+      '3': 9,
+      '4': 3,
+      '5': 9,
+      '10': 'artifactDigestSet'
+    },
+    {'1': 'verified_at_ms', '3': 10, '4': 1, '5': 4, '10': 'verifiedAtMs'},
+  ],
+};
+
+/// Descriptor for `VerificationReceipt`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List verificationReceiptDescriptor = $convert.base64Decode(
+    'ChNWZXJpZmljYXRpb25SZWNlaXB0EikKEGNvbnRyYWN0X3ZlcnNpb24YASABKAlSD2NvbnRyYW'
+    'N0VmVyc2lvbhInCg92ZXJpZmljYXRpb25faWQYAiABKAlSDnZlcmlmaWNhdGlvbklkEhcKB3Bs'
+    'YW5faWQYAyABKAlSBnBsYW5JZBIyChVleGVjdXRpb25fcmVjZWlwdF9pZHMYBCADKAlSE2V4ZW'
+    'N1dGlvblJlY2VpcHRJZHMSPgobdmVyaWZpY2F0aW9uX3BvbGljeV92ZXJzaW9uGAUgASgJUhl2'
+    'ZXJpZmljYXRpb25Qb2xpY3lWZXJzaW9uEkcKBnN0YXR1cxgGIAEoDjIvLm1vbmFyY2hpYy5hZ2'
+    'VudF9wcm90b2NvbC52MS5WZXJpZmljYXRpb25TdGF0dXNSBnN0YXR1cxJGCgZjaGVja3MYByAD'
+    'KAsyLi5tb25hcmNoaWMuYWdlbnRfcHJvdG9jb2wudjEuVmVyaWZpY2F0aW9uQ2hlY2tSBmNoZW'
+    'NrcxJWChBibG9ja2VkX291dGNvbWVzGAggAygLMisubW9uYXJjaGljLmFnZW50X3Byb3RvY29s'
+    'LnYxLkJsb2NrZWRPdXRjb21lUg9ibG9ja2VkT3V0Y29tZXMSLgoTYXJ0aWZhY3RfZGlnZXN0X3'
+    'NldBgJIAMoCVIRYXJ0aWZhY3REaWdlc3RTZXQSJAoOdmVyaWZpZWRfYXRfbXMYCiABKARSDHZl'
+    'cmlmaWVkQXRNcw==');
 
 @$core.Deprecated('Use taskDescriptor instead')
 const Task$json = {
