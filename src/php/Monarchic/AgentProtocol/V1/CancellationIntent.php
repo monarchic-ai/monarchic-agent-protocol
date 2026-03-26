@@ -77,8 +77,9 @@ class CancellationIntent extends \Google\Protobuf\Internal\Message
      * @param \Monarchic\AgentProtocol\V1\LeaseRef $var
      * @return $this
      */
-    public function setLease(\Monarchic\AgentProtocol\V1\LeaseRef|null $var)
+    public function setLease($var)
     {
+        GPBUtil::checkMessage($var, \Monarchic\AgentProtocol\V1\LeaseRef::class);
         $this->lease = $var;
 
         return $this;
@@ -98,9 +99,9 @@ class CancellationIntent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setReason(string $var)
+    public function setReason($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->reason = $var;
 
         return $this;
@@ -120,7 +121,7 @@ class CancellationIntent extends \Google\Protobuf\Internal\Message
      * @param int|string $var
      * @return $this
      */
-    public function setRequestedAtMs(int|string $var)
+    public function setRequestedAtMs($var)
     {
         GPBUtil::checkUint64($var);
         $this->requested_at_ms = $var;
@@ -142,8 +143,9 @@ class CancellationIntent extends \Google\Protobuf\Internal\Message
      * @param bool $var
      * @return $this
      */
-    public function setForce(bool $var)
+    public function setForce($var)
     {
+        GPBUtil::checkBool($var);
         $this->force = $var;
 
         return $this;
@@ -173,8 +175,9 @@ class CancellationIntent extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Struct $var
      * @return $this
      */
-    public function setExtensions(\Google\Protobuf\Struct|null $var)
+    public function setExtensions($var)
     {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->extensions = $var;
 
         return $this;

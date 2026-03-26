@@ -57,9 +57,9 @@ class RoleProvenance extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setRoleName(string $var)
+    public function setRoleName($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->role_name = $var;
 
         return $this;
@@ -79,9 +79,9 @@ class RoleProvenance extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setTemplateHash(string $var)
+    public function setTemplateHash($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->template_hash = $var;
 
         return $this;
@@ -101,9 +101,9 @@ class RoleProvenance extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setRenderHash(string $var)
+    public function setRenderHash($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->render_hash = $var;
 
         return $this;

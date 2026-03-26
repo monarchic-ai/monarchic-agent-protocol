@@ -122,9 +122,9 @@ class RunOutcome extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setVersion(string $var)
+    public function setVersion($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->version = $var;
 
         return $this;
@@ -144,9 +144,9 @@ class RunOutcome extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setTaskId(string $var)
+    public function setTaskId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->task_id = $var;
 
         return $this;
@@ -176,9 +176,9 @@ class RunOutcome extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setRunId(string $var)
+    public function setRunId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->run_id = $var;
 
         return $this;
@@ -208,9 +208,9 @@ class RunOutcome extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setObjectiveMetric(string $var)
+    public function setObjectiveMetric($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->objective_metric = $var;
 
         return $this;
@@ -240,8 +240,9 @@ class RunOutcome extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setObjectiveScore(float $var)
+    public function setObjectiveScore($var)
     {
+        GPBUtil::checkDouble($var);
         $this->objective_score = $var;
 
         return $this;
@@ -249,7 +250,7 @@ class RunOutcome extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.monarchic.agent_protocol.v1.OutcomeDecision objective_decision = 6;</code>
-     * @return int one of the values in {@see \Monarchic\AgentProtocol\V1\OutcomeDecision}
+     * @return int
      */
     public function getObjectiveDecision()
     {
@@ -258,10 +259,10 @@ class RunOutcome extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.monarchic.agent_protocol.v1.OutcomeDecision objective_decision = 6;</code>
-     * @param int $var one of the values in {@see \Monarchic\AgentProtocol\V1\OutcomeDecision}
+     * @param int $var
      * @return $this
      */
-    public function setObjectiveDecision(int $var)
+    public function setObjectiveDecision($var)
     {
         GPBUtil::checkEnum($var, \Monarchic\AgentProtocol\V1\OutcomeDecision::class);
         $this->objective_decision = $var;
@@ -293,8 +294,9 @@ class RunOutcome extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setEstimatedCostUsd(float $var)
+    public function setEstimatedCostUsd($var)
     {
+        GPBUtil::checkDouble($var);
         $this->estimated_cost_usd = $var;
 
         return $this;
@@ -324,8 +326,9 @@ class RunOutcome extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setBudgetLimitUsd(float $var)
+    public function setBudgetLimitUsd($var)
     {
+        GPBUtil::checkDouble($var);
         $this->budget_limit_usd = $var;
 
         return $this;
@@ -333,7 +336,7 @@ class RunOutcome extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.monarchic.agent_protocol.v1.OutcomeDecision cost_decision = 9;</code>
-     * @return int one of the values in {@see \Monarchic\AgentProtocol\V1\OutcomeDecision}
+     * @return int
      */
     public function getCostDecision()
     {
@@ -342,10 +345,10 @@ class RunOutcome extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.monarchic.agent_protocol.v1.OutcomeDecision cost_decision = 9;</code>
-     * @param int $var one of the values in {@see \Monarchic\AgentProtocol\V1\OutcomeDecision}
+     * @param int $var
      * @return $this
      */
-    public function setCostDecision(int $var)
+    public function setCostDecision($var)
     {
         GPBUtil::checkEnum($var, \Monarchic\AgentProtocol\V1\OutcomeDecision::class);
         $this->cost_decision = $var;
@@ -377,9 +380,9 @@ class RunOutcome extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setRiskLevel(string $var)
+    public function setRiskLevel($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->risk_level = $var;
 
         return $this;
@@ -409,9 +412,9 @@ class RunOutcome extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setRiskSummary(string $var)
+    public function setRiskSummary($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->risk_summary = $var;
 
         return $this;
@@ -419,7 +422,7 @@ class RunOutcome extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.monarchic.agent_protocol.v1.OutcomeDecision risk_decision = 12;</code>
-     * @return int one of the values in {@see \Monarchic\AgentProtocol\V1\OutcomeDecision}
+     * @return int
      */
     public function getRiskDecision()
     {
@@ -428,10 +431,10 @@ class RunOutcome extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.monarchic.agent_protocol.v1.OutcomeDecision risk_decision = 12;</code>
-     * @param int $var one of the values in {@see \Monarchic\AgentProtocol\V1\OutcomeDecision}
+     * @param int $var
      * @return $this
      */
-    public function setRiskDecision(int $var)
+    public function setRiskDecision($var)
     {
         GPBUtil::checkEnum($var, \Monarchic\AgentProtocol\V1\OutcomeDecision::class);
         $this->risk_decision = $var;
@@ -441,7 +444,7 @@ class RunOutcome extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.monarchic.agent_protocol.v1.OutcomeDecision final_decision = 13;</code>
-     * @return int one of the values in {@see \Monarchic\AgentProtocol\V1\OutcomeDecision}
+     * @return int
      */
     public function getFinalDecision()
     {
@@ -450,10 +453,10 @@ class RunOutcome extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.monarchic.agent_protocol.v1.OutcomeDecision final_decision = 13;</code>
-     * @param int $var one of the values in {@see \Monarchic\AgentProtocol\V1\OutcomeDecision}
+     * @param int $var
      * @return $this
      */
-    public function setFinalDecision(int $var)
+    public function setFinalDecision($var)
     {
         GPBUtil::checkEnum($var, \Monarchic\AgentProtocol\V1\OutcomeDecision::class);
         $this->final_decision = $var;
@@ -485,9 +488,9 @@ class RunOutcome extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setSummary(string $var)
+    public function setSummary($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->summary = $var;
 
         return $this;
@@ -517,8 +520,9 @@ class RunOutcome extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Struct $var
      * @return $this
      */
-    public function setEvidence(\Google\Protobuf\Struct|null $var)
+    public function setEvidence($var)
     {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->evidence = $var;
 
         return $this;
@@ -548,8 +552,9 @@ class RunOutcome extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Struct $var
      * @return $this
      */
-    public function setExtensions(\Google\Protobuf\Struct|null $var)
+    public function setExtensions($var)
     {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->extensions = $var;
 
         return $this;

@@ -97,9 +97,9 @@ class Artifact extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setVersion(string $var)
+    public function setVersion($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->version = $var;
 
         return $this;
@@ -119,9 +119,9 @@ class Artifact extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setArtifactId(string $var)
+    public function setArtifactId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->artifact_id = $var;
 
         return $this;
@@ -141,9 +141,9 @@ class Artifact extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setType(string $var)
+    public function setType($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->type = $var;
 
         return $this;
@@ -163,9 +163,9 @@ class Artifact extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setSummary(string $var)
+    public function setSummary($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->summary = $var;
 
         return $this;
@@ -185,9 +185,9 @@ class Artifact extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPath(string $var)
+    public function setPath($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->path = $var;
 
         return $this;
@@ -207,9 +207,9 @@ class Artifact extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setTaskId(string $var)
+    public function setTaskId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->task_id = $var;
 
         return $this;
@@ -239,8 +239,9 @@ class Artifact extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Struct $var
      * @return $this
      */
-    public function setExtensions(\Google\Protobuf\Struct|null $var)
+    public function setExtensions($var)
     {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->extensions = $var;
 
         return $this;
@@ -270,8 +271,9 @@ class Artifact extends \Google\Protobuf\Internal\Message
      * @param \Monarchic\AgentProtocol\V1\Provenance $var
      * @return $this
      */
-    public function setProvenance(\Monarchic\AgentProtocol\V1\Provenance|null $var)
+    public function setProvenance($var)
     {
+        GPBUtil::checkMessage($var, \Monarchic\AgentProtocol\V1\Provenance::class);
         $this->provenance = $var;
 
         return $this;
@@ -291,7 +293,7 @@ class Artifact extends \Google\Protobuf\Internal\Message
      * @param \Monarchic\AgentProtocol\V1\DatasetRef[] $var
      * @return $this
      */
-    public function setDatasetRefs(array|RepeatedField $var)
+    public function setDatasetRefs($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Monarchic\AgentProtocol\V1\DatasetRef::class);
         $this->dataset_refs = $arr;
@@ -313,7 +315,7 @@ class Artifact extends \Google\Protobuf\Internal\Message
      * @param \Monarchic\AgentProtocol\V1\EvalResult[] $var
      * @return $this
      */
-    public function setEvalResults(array|RepeatedField $var)
+    public function setEvalResults($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Monarchic\AgentProtocol\V1\EvalResult::class);
         $this->eval_results = $arr;
@@ -345,8 +347,9 @@ class Artifact extends \Google\Protobuf\Internal\Message
      * @param \Monarchic\AgentProtocol\V1\ExperimentSpec $var
      * @return $this
      */
-    public function setExperimentSpec(\Monarchic\AgentProtocol\V1\ExperimentSpec|null $var)
+    public function setExperimentSpec($var)
     {
+        GPBUtil::checkMessage($var, \Monarchic\AgentProtocol\V1\ExperimentSpec::class);
         $this->experiment_spec = $var;
 
         return $this;

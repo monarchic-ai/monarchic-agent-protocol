@@ -67,9 +67,9 @@ class HeartbeatResponse extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setContractVersion(string $var)
+    public function setContractVersion($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->contract_version = $var;
 
         return $this;
@@ -89,9 +89,9 @@ class HeartbeatResponse extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setOrchestratorId(string $var)
+    public function setOrchestratorId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->orchestrator_id = $var;
 
         return $this;
@@ -111,7 +111,7 @@ class HeartbeatResponse extends \Google\Protobuf\Internal\Message
      * @param int|string $var
      * @return $this
      */
-    public function setNextHeartbeatMs(int|string $var)
+    public function setNextHeartbeatMs($var)
     {
         GPBUtil::checkUint64($var);
         $this->next_heartbeat_ms = $var;
@@ -133,7 +133,7 @@ class HeartbeatResponse extends \Google\Protobuf\Internal\Message
      * @param \Monarchic\AgentProtocol\V1\CancellationIntent[] $var
      * @return $this
      */
-    public function setCancellations(array|RepeatedField $var)
+    public function setCancellations($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Monarchic\AgentProtocol\V1\CancellationIntent::class);
         $this->cancellations = $arr;
@@ -165,8 +165,9 @@ class HeartbeatResponse extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Struct $var
      * @return $this
      */
-    public function setExtensions(\Google\Protobuf\Struct|null $var)
+    public function setExtensions($var)
     {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->extensions = $var;
 
         return $this;

@@ -72,9 +72,9 @@ class ReportStepStartedRequest extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setContractVersion(string $var)
+    public function setContractVersion($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->contract_version = $var;
 
         return $this;
@@ -94,9 +94,9 @@ class ReportStepStartedRequest extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setRunnerId(string $var)
+    public function setRunnerId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->runner_id = $var;
 
         return $this;
@@ -116,9 +116,9 @@ class ReportStepStartedRequest extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setSessionId(string $var)
+    public function setSessionId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->session_id = $var;
 
         return $this;
@@ -148,8 +148,9 @@ class ReportStepStartedRequest extends \Google\Protobuf\Internal\Message
      * @param \Monarchic\AgentProtocol\V1\LeaseRef $var
      * @return $this
      */
-    public function setLease(\Monarchic\AgentProtocol\V1\LeaseRef|null $var)
+    public function setLease($var)
     {
+        GPBUtil::checkMessage($var, \Monarchic\AgentProtocol\V1\LeaseRef::class);
         $this->lease = $var;
 
         return $this;
@@ -169,9 +170,9 @@ class ReportStepStartedRequest extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setStartedAt(string $var)
+    public function setStartedAt($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->started_at = $var;
 
         return $this;
@@ -201,8 +202,9 @@ class ReportStepStartedRequest extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Struct $var
      * @return $this
      */
-    public function setExtensions(\Google\Protobuf\Struct|null $var)
+    public function setExtensions($var)
     {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->extensions = $var;
 
         return $this;

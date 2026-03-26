@@ -77,9 +77,9 @@ class RunContext extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setVersion(string $var)
+    public function setVersion($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->version = $var;
 
         return $this;
@@ -99,9 +99,9 @@ class RunContext extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setRepo(string $var)
+    public function setRepo($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->repo = $var;
 
         return $this;
@@ -121,9 +121,9 @@ class RunContext extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setWorktree(string $var)
+    public function setWorktree($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->worktree = $var;
 
         return $this;
@@ -143,9 +143,9 @@ class RunContext extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setImage(string $var)
+    public function setImage($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->image = $var;
 
         return $this;
@@ -165,9 +165,9 @@ class RunContext extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setRunner(string $var)
+    public function setRunner($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->runner = $var;
 
         return $this;
@@ -187,7 +187,7 @@ class RunContext extends \Google\Protobuf\Internal\Message
      * @param string[] $var
      * @return $this
      */
-    public function setLabels(array|RepeatedField $var)
+    public function setLabels($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
         $this->labels = $arr;
@@ -219,8 +219,9 @@ class RunContext extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Struct $var
      * @return $this
      */
-    public function setExtensions(\Google\Protobuf\Struct|null $var)
+    public function setExtensions($var)
     {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->extensions = $var;
 
         return $this;

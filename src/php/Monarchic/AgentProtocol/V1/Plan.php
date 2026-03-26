@@ -87,9 +87,9 @@ class Plan extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setContractVersion(string $var)
+    public function setContractVersion($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->contract_version = $var;
 
         return $this;
@@ -109,9 +109,9 @@ class Plan extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPlanId(string $var)
+    public function setPlanId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->plan_id = $var;
 
         return $this;
@@ -141,9 +141,9 @@ class Plan extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setRunId(string $var)
+    public function setRunId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->run_id = $var;
 
         return $this;
@@ -163,9 +163,9 @@ class Plan extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setObjective(string $var)
+    public function setObjective($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->objective = $var;
 
         return $this;
@@ -173,7 +173,7 @@ class Plan extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.monarchic.agent_protocol.v1.PlanStatus status = 5;</code>
-     * @return int one of the values in {@see \Monarchic\AgentProtocol\V1\PlanStatus}
+     * @return int
      */
     public function getStatus()
     {
@@ -182,10 +182,10 @@ class Plan extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.monarchic.agent_protocol.v1.PlanStatus status = 5;</code>
-     * @param int $var one of the values in {@see \Monarchic\AgentProtocol\V1\PlanStatus}
+     * @param int $var
      * @return $this
      */
-    public function setStatus(int $var)
+    public function setStatus($var)
     {
         GPBUtil::checkEnum($var, \Monarchic\AgentProtocol\V1\PlanStatus::class);
         $this->status = $var;
@@ -207,7 +207,7 @@ class Plan extends \Google\Protobuf\Internal\Message
      * @param int|string $var
      * @return $this
      */
-    public function setCreatedAtMs(int|string $var)
+    public function setCreatedAtMs($var)
     {
         GPBUtil::checkUint64($var);
         $this->created_at_ms = $var;
@@ -229,7 +229,7 @@ class Plan extends \Google\Protobuf\Internal\Message
      * @param int|string $var
      * @return $this
      */
-    public function setUpdatedAtMs(int|string $var)
+    public function setUpdatedAtMs($var)
     {
         GPBUtil::checkUint64($var);
         $this->updated_at_ms = $var;
@@ -261,8 +261,9 @@ class Plan extends \Google\Protobuf\Internal\Message
      * @param \Monarchic\AgentProtocol\V1\PlanProvenance $var
      * @return $this
      */
-    public function setProvenance(\Monarchic\AgentProtocol\V1\PlanProvenance|null $var)
+    public function setProvenance($var)
     {
+        GPBUtil::checkMessage($var, \Monarchic\AgentProtocol\V1\PlanProvenance::class);
         $this->provenance = $var;
 
         return $this;
@@ -282,7 +283,7 @@ class Plan extends \Google\Protobuf\Internal\Message
      * @param \Monarchic\AgentProtocol\V1\PlanStep[] $var
      * @return $this
      */
-    public function setSteps(array|RepeatedField $var)
+    public function setSteps($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Monarchic\AgentProtocol\V1\PlanStep::class);
         $this->steps = $arr;

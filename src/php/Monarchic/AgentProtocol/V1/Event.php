@@ -92,9 +92,9 @@ class Event extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setVersion(string $var)
+    public function setVersion($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->version = $var;
 
         return $this;
@@ -114,9 +114,9 @@ class Event extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setEventType(string $var)
+    public function setEventType($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->event_type = $var;
 
         return $this;
@@ -136,9 +136,9 @@ class Event extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setTimestamp(string $var)
+    public function setTimestamp($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->timestamp = $var;
 
         return $this;
@@ -158,9 +158,9 @@ class Event extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setTaskId(string $var)
+    public function setTaskId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->task_id = $var;
 
         return $this;
@@ -180,9 +180,9 @@ class Event extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setStatus(string $var)
+    public function setStatus($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->status = $var;
 
         return $this;
@@ -212,9 +212,9 @@ class Event extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setMessage(string $var)
+    public function setMessage($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->message = $var;
 
         return $this;
@@ -244,8 +244,9 @@ class Event extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Struct $var
      * @return $this
      */
-    public function setExtensions(\Google\Protobuf\Struct|null $var)
+    public function setExtensions($var)
     {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->extensions = $var;
 
         return $this;
@@ -275,8 +276,9 @@ class Event extends \Google\Protobuf\Internal\Message
      * @param \Monarchic\AgentProtocol\V1\Provenance $var
      * @return $this
      */
-    public function setProvenance(\Monarchic\AgentProtocol\V1\Provenance|null $var)
+    public function setProvenance($var)
     {
+        GPBUtil::checkMessage($var, \Monarchic\AgentProtocol\V1\Provenance::class);
         $this->provenance = $var;
 
         return $this;
@@ -296,7 +298,7 @@ class Event extends \Google\Protobuf\Internal\Message
      * @param \Monarchic\AgentProtocol\V1\EvalResult[] $var
      * @return $this
      */
-    public function setEvalResults(array|RepeatedField $var)
+    public function setEvalResults($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Monarchic\AgentProtocol\V1\EvalResult::class);
         $this->eval_results = $arr;
@@ -328,8 +330,9 @@ class Event extends \Google\Protobuf\Internal\Message
      * @param \Monarchic\AgentProtocol\V1\FailureClass $var
      * @return $this
      */
-    public function setFailureClass(\Monarchic\AgentProtocol\V1\FailureClass|null $var)
+    public function setFailureClass($var)
     {
+        GPBUtil::checkMessage($var, \Monarchic\AgentProtocol\V1\FailureClass::class);
         $this->failure_class = $var;
 
         return $this;

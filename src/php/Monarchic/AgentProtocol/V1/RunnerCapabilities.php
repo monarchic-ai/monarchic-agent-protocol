@@ -85,9 +85,9 @@ class RunnerCapabilities extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPlatform(string $var)
+    public function setPlatform($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->platform = $var;
 
         return $this;
@@ -107,9 +107,9 @@ class RunnerCapabilities extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setRuntime(string $var)
+    public function setRuntime($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->runtime = $var;
 
         return $this;
@@ -117,7 +117,7 @@ class RunnerCapabilities extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>repeated .monarchic.agent_protocol.v1.AgentRole supported_roles = 3;</code>
-     * @return RepeatedField<int> one of the values in {@see \Monarchic\AgentProtocol\V1\AgentRole}
+     * @return RepeatedField<int>
      */
     public function getSupportedRoles()
     {
@@ -126,10 +126,10 @@ class RunnerCapabilities extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>repeated .monarchic.agent_protocol.v1.AgentRole supported_roles = 3;</code>
-     * @param int[] $var one of the values in {@see \Monarchic\AgentProtocol\V1\AgentRole}
+     * @param int[] $var
      * @return $this
      */
-    public function setSupportedRoles(array|RepeatedField $var)
+    public function setSupportedRoles($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::ENUM, \Monarchic\AgentProtocol\V1\AgentRole::class);
         $this->supported_roles = $arr;
@@ -151,7 +151,7 @@ class RunnerCapabilities extends \Google\Protobuf\Internal\Message
      * @param string[] $var
      * @return $this
      */
-    public function setSupportedTaskVersions(array|RepeatedField $var)
+    public function setSupportedTaskVersions($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
         $this->supported_task_versions = $arr;
@@ -173,7 +173,7 @@ class RunnerCapabilities extends \Google\Protobuf\Internal\Message
      * @param string[] $var
      * @return $this
      */
-    public function setLabels(array|RepeatedField $var)
+    public function setLabels($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
         $this->labels = $arr;
@@ -195,8 +195,9 @@ class RunnerCapabilities extends \Google\Protobuf\Internal\Message
      * @param bool $var
      * @return $this
      */
-    public function setSupportsInteractivePty(bool $var)
+    public function setSupportsInteractivePty($var)
     {
+        GPBUtil::checkBool($var);
         $this->supports_interactive_pty = $var;
 
         return $this;
@@ -216,8 +217,9 @@ class RunnerCapabilities extends \Google\Protobuf\Internal\Message
      * @param bool $var
      * @return $this
      */
-    public function setSupportsResume(bool $var)
+    public function setSupportsResume($var)
     {
+        GPBUtil::checkBool($var);
         $this->supports_resume = $var;
 
         return $this;
@@ -247,8 +249,9 @@ class RunnerCapabilities extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Struct $var
      * @return $this
      */
-    public function setExtensions(\Google\Protobuf\Struct|null $var)
+    public function setExtensions($var)
     {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->extensions = $var;
 
         return $this;

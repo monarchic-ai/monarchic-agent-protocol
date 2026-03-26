@@ -77,8 +77,9 @@ class LeaseAssignment extends \Google\Protobuf\Internal\Message
      * @param \Monarchic\AgentProtocol\V1\LeaseRef $var
      * @return $this
      */
-    public function setLease(\Monarchic\AgentProtocol\V1\LeaseRef|null $var)
+    public function setLease($var)
     {
+        GPBUtil::checkMessage($var, \Monarchic\AgentProtocol\V1\LeaseRef::class);
         $this->lease = $var;
 
         return $this;
@@ -108,8 +109,9 @@ class LeaseAssignment extends \Google\Protobuf\Internal\Message
      * @param \Monarchic\AgentProtocol\V1\Task $var
      * @return $this
      */
-    public function setTask(\Monarchic\AgentProtocol\V1\Task|null $var)
+    public function setTask($var)
     {
+        GPBUtil::checkMessage($var, \Monarchic\AgentProtocol\V1\Task::class);
         $this->task = $var;
 
         return $this;
@@ -129,7 +131,7 @@ class LeaseAssignment extends \Google\Protobuf\Internal\Message
      * @param int|string $var
      * @return $this
      */
-    public function setIssuedAtMs(int|string $var)
+    public function setIssuedAtMs($var)
     {
         GPBUtil::checkUint64($var);
         $this->issued_at_ms = $var;
@@ -151,7 +153,7 @@ class LeaseAssignment extends \Google\Protobuf\Internal\Message
      * @param int|string $var
      * @return $this
      */
-    public function setLeaseTtlMs(int|string $var)
+    public function setLeaseTtlMs($var)
     {
         GPBUtil::checkUint64($var);
         $this->lease_ttl_ms = $var;
@@ -183,8 +185,9 @@ class LeaseAssignment extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Struct $var
      * @return $this
      */
-    public function setExtensions(\Google\Protobuf\Struct|null $var)
+    public function setExtensions($var)
     {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->extensions = $var;
 
         return $this;

@@ -102,9 +102,9 @@ class Lease extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setLeaseId(string $var)
+    public function setLeaseId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->lease_id = $var;
 
         return $this;
@@ -124,9 +124,9 @@ class Lease extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setRunId(string $var)
+    public function setRunId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->run_id = $var;
 
         return $this;
@@ -146,9 +146,9 @@ class Lease extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPlanId(string $var)
+    public function setPlanId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->plan_id = $var;
 
         return $this;
@@ -168,9 +168,9 @@ class Lease extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setStepId(string $var)
+    public function setStepId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->step_id = $var;
 
         return $this;
@@ -190,9 +190,9 @@ class Lease extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setTaskId(string $var)
+    public function setTaskId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->task_id = $var;
 
         return $this;
@@ -212,9 +212,9 @@ class Lease extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setRunnerId(string $var)
+    public function setRunnerId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->runner_id = $var;
 
         return $this;
@@ -234,9 +234,9 @@ class Lease extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setSessionId(string $var)
+    public function setSessionId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->session_id = $var;
 
         return $this;
@@ -266,8 +266,9 @@ class Lease extends \Google\Protobuf\Internal\Message
      * @param \Monarchic\AgentProtocol\V1\FencingToken $var
      * @return $this
      */
-    public function setFencingToken(\Monarchic\AgentProtocol\V1\FencingToken|null $var)
+    public function setFencingToken($var)
     {
+        GPBUtil::checkMessage($var, \Monarchic\AgentProtocol\V1\FencingToken::class);
         $this->fencing_token = $var;
 
         return $this;
@@ -287,7 +288,7 @@ class Lease extends \Google\Protobuf\Internal\Message
      * @param int|string $var
      * @return $this
      */
-    public function setIssuedAtMs(int|string $var)
+    public function setIssuedAtMs($var)
     {
         GPBUtil::checkUint64($var);
         $this->issued_at_ms = $var;
@@ -309,7 +310,7 @@ class Lease extends \Google\Protobuf\Internal\Message
      * @param int|string $var
      * @return $this
      */
-    public function setExpiresAtMs(int|string $var)
+    public function setExpiresAtMs($var)
     {
         GPBUtil::checkUint64($var);
         $this->expires_at_ms = $var;
@@ -319,7 +320,7 @@ class Lease extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.monarchic.agent_protocol.v1.LeaseLifecycleState status = 11;</code>
-     * @return int one of the values in {@see \Monarchic\AgentProtocol\V1\LeaseLifecycleState}
+     * @return int
      */
     public function getStatus()
     {
@@ -328,10 +329,10 @@ class Lease extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.monarchic.agent_protocol.v1.LeaseLifecycleState status = 11;</code>
-     * @param int $var one of the values in {@see \Monarchic\AgentProtocol\V1\LeaseLifecycleState}
+     * @param int $var
      * @return $this
      */
-    public function setStatus(int $var)
+    public function setStatus($var)
     {
         GPBUtil::checkEnum($var, \Monarchic\AgentProtocol\V1\LeaseLifecycleState::class);
         $this->status = $var;
@@ -363,8 +364,9 @@ class Lease extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Struct $var
      * @return $this
      */
-    public function setExtensions(\Google\Protobuf\Struct|null $var)
+    public function setExtensions($var)
     {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->extensions = $var;
 
         return $this;

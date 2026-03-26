@@ -102,9 +102,9 @@ class RecoveryEvent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setEventId(string $var)
+    public function setEventId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->event_id = $var;
 
         return $this;
@@ -124,9 +124,9 @@ class RecoveryEvent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setRunId(string $var)
+    public function setRunId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->run_id = $var;
 
         return $this;
@@ -146,9 +146,9 @@ class RecoveryEvent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPlanId(string $var)
+    public function setPlanId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->plan_id = $var;
 
         return $this;
@@ -178,9 +178,9 @@ class RecoveryEvent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setStepId(string $var)
+    public function setStepId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->step_id = $var;
 
         return $this;
@@ -188,7 +188,7 @@ class RecoveryEvent extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.monarchic.agent_protocol.v1.RecoveryEventKind kind = 5;</code>
-     * @return int one of the values in {@see \Monarchic\AgentProtocol\V1\RecoveryEventKind}
+     * @return int
      */
     public function getKind()
     {
@@ -197,10 +197,10 @@ class RecoveryEvent extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.monarchic.agent_protocol.v1.RecoveryEventKind kind = 5;</code>
-     * @param int $var one of the values in {@see \Monarchic\AgentProtocol\V1\RecoveryEventKind}
+     * @param int $var
      * @return $this
      */
-    public function setKind(int $var)
+    public function setKind($var)
     {
         GPBUtil::checkEnum($var, \Monarchic\AgentProtocol\V1\RecoveryEventKind::class);
         $this->kind = $var;
@@ -222,7 +222,7 @@ class RecoveryEvent extends \Google\Protobuf\Internal\Message
      * @param int|string $var
      * @return $this
      */
-    public function setOccurredAtMs(int|string $var)
+    public function setOccurredAtMs($var)
     {
         GPBUtil::checkUint64($var);
         $this->occurred_at_ms = $var;
@@ -244,9 +244,9 @@ class RecoveryEvent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setActor(string $var)
+    public function setActor($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->actor = $var;
 
         return $this;
@@ -276,8 +276,9 @@ class RecoveryEvent extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Struct $var
      * @return $this
      */
-    public function setDetails(\Google\Protobuf\Struct|null $var)
+    public function setDetails($var)
     {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->details = $var;
 
         return $this;
@@ -297,9 +298,9 @@ class RecoveryEvent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setContractVersion(string $var)
+    public function setContractVersion($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->contract_version = $var;
 
         return $this;
@@ -307,7 +308,7 @@ class RecoveryEvent extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>optional .monarchic.agent_protocol.v1.RunLifecycleState run_state = 10;</code>
-     * @return int one of the values in {@see \Monarchic\AgentProtocol\V1\RunLifecycleState}
+     * @return int
      */
     public function getRunState()
     {
@@ -326,10 +327,10 @@ class RecoveryEvent extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>optional .monarchic.agent_protocol.v1.RunLifecycleState run_state = 10;</code>
-     * @param int $var one of the values in {@see \Monarchic\AgentProtocol\V1\RunLifecycleState}
+     * @param int $var
      * @return $this
      */
-    public function setRunState(int $var)
+    public function setRunState($var)
     {
         GPBUtil::checkEnum($var, \Monarchic\AgentProtocol\V1\RunLifecycleState::class);
         $this->run_state = $var;
@@ -339,7 +340,7 @@ class RecoveryEvent extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>optional .monarchic.agent_protocol.v1.StepLifecycleState step_state = 11;</code>
-     * @return int one of the values in {@see \Monarchic\AgentProtocol\V1\StepLifecycleState}
+     * @return int
      */
     public function getStepState()
     {
@@ -358,10 +359,10 @@ class RecoveryEvent extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>optional .monarchic.agent_protocol.v1.StepLifecycleState step_state = 11;</code>
-     * @param int $var one of the values in {@see \Monarchic\AgentProtocol\V1\StepLifecycleState}
+     * @param int $var
      * @return $this
      */
-    public function setStepState(int $var)
+    public function setStepState($var)
     {
         GPBUtil::checkEnum($var, \Monarchic\AgentProtocol\V1\StepLifecycleState::class);
         $this->step_state = $var;
@@ -371,7 +372,7 @@ class RecoveryEvent extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>optional .monarchic.agent_protocol.v1.LeaseRejectionReason lease_rejection_reason = 12;</code>
-     * @return int one of the values in {@see \Monarchic\AgentProtocol\V1\LeaseRejectionReason}
+     * @return int
      */
     public function getLeaseRejectionReason()
     {
@@ -390,10 +391,10 @@ class RecoveryEvent extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>optional .monarchic.agent_protocol.v1.LeaseRejectionReason lease_rejection_reason = 12;</code>
-     * @param int $var one of the values in {@see \Monarchic\AgentProtocol\V1\LeaseRejectionReason}
+     * @param int $var
      * @return $this
      */
-    public function setLeaseRejectionReason(int $var)
+    public function setLeaseRejectionReason($var)
     {
         GPBUtil::checkEnum($var, \Monarchic\AgentProtocol\V1\LeaseRejectionReason::class);
         $this->lease_rejection_reason = $var;

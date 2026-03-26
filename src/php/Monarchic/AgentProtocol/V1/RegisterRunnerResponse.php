@@ -72,9 +72,9 @@ class RegisterRunnerResponse extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setContractVersion(string $var)
+    public function setContractVersion($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->contract_version = $var;
 
         return $this;
@@ -94,9 +94,9 @@ class RegisterRunnerResponse extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setOrchestratorId(string $var)
+    public function setOrchestratorId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->orchestrator_id = $var;
 
         return $this;
@@ -116,9 +116,9 @@ class RegisterRunnerResponse extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setSessionId(string $var)
+    public function setSessionId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->session_id = $var;
 
         return $this;
@@ -138,7 +138,7 @@ class RegisterRunnerResponse extends \Google\Protobuf\Internal\Message
      * @param int|string $var
      * @return $this
      */
-    public function setHeartbeatIntervalMs(int|string $var)
+    public function setHeartbeatIntervalMs($var)
     {
         GPBUtil::checkUint64($var);
         $this->heartbeat_interval_ms = $var;
@@ -160,7 +160,7 @@ class RegisterRunnerResponse extends \Google\Protobuf\Internal\Message
      * @param int|string $var
      * @return $this
      */
-    public function setLeasePollIntervalMs(int|string $var)
+    public function setLeasePollIntervalMs($var)
     {
         GPBUtil::checkUint64($var);
         $this->lease_poll_interval_ms = $var;
@@ -192,8 +192,9 @@ class RegisterRunnerResponse extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Struct $var
      * @return $this
      */
-    public function setExtensions(\Google\Protobuf\Struct|null $var)
+    public function setExtensions($var)
     {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->extensions = $var;
 
         return $this;

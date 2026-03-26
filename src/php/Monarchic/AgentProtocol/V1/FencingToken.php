@@ -67,9 +67,9 @@ class FencingToken extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setToken(string $var)
+    public function setToken($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->token = $var;
 
         return $this;
@@ -89,7 +89,7 @@ class FencingToken extends \Google\Protobuf\Internal\Message
      * @param int|string $var
      * @return $this
      */
-    public function setIssuedAtMs(int|string $var)
+    public function setIssuedAtMs($var)
     {
         GPBUtil::checkUint64($var);
         $this->issued_at_ms = $var;
@@ -111,9 +111,9 @@ class FencingToken extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setIssuer(string $var)
+    public function setIssuer($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->issuer = $var;
 
         return $this;
@@ -133,9 +133,9 @@ class FencingToken extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setScope(string $var)
+    public function setScope($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->scope = $var;
 
         return $this;
@@ -165,8 +165,9 @@ class FencingToken extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Struct $var
      * @return $this
      */
-    public function setExtensions(\Google\Protobuf\Struct|null $var)
+    public function setExtensions($var)
     {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->extensions = $var;
 
         return $this;

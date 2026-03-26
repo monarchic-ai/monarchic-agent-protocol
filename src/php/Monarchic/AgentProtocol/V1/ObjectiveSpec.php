@@ -92,9 +92,9 @@ class ObjectiveSpec extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setMetricKey(string $var)
+    public function setMetricKey($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->metric_key = $var;
 
         return $this;
@@ -114,9 +114,9 @@ class ObjectiveSpec extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setDirection(string $var)
+    public function setDirection($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->direction = $var;
 
         return $this;
@@ -146,8 +146,9 @@ class ObjectiveSpec extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setTarget(float $var)
+    public function setTarget($var)
     {
+        GPBUtil::checkDouble($var);
         $this->target = $var;
 
         return $this;
@@ -177,8 +178,9 @@ class ObjectiveSpec extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setMinDelta(float $var)
+    public function setMinDelta($var)
     {
+        GPBUtil::checkDouble($var);
         $this->min_delta = $var;
 
         return $this;
@@ -208,8 +210,9 @@ class ObjectiveSpec extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setTolerance(float $var)
+    public function setTolerance($var)
     {
+        GPBUtil::checkDouble($var);
         $this->tolerance = $var;
 
         return $this;
@@ -239,9 +242,9 @@ class ObjectiveSpec extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setReportFile(string $var)
+    public function setReportFile($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->report_file = $var;
 
         return $this;
@@ -271,9 +274,9 @@ class ObjectiveSpec extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setReportTaskId(string $var)
+    public function setReportTaskId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->report_task_id = $var;
 
         return $this;
@@ -303,8 +306,9 @@ class ObjectiveSpec extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setWeight(float $var)
+    public function setWeight($var)
     {
+        GPBUtil::checkDouble($var);
         $this->weight = $var;
 
         return $this;
@@ -334,9 +338,9 @@ class ObjectiveSpec extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setDescription(string $var)
+    public function setDescription($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->description = $var;
 
         return $this;
@@ -366,8 +370,9 @@ class ObjectiveSpec extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Struct $var
      * @return $this
      */
-    public function setExtensions(\Google\Protobuf\Struct|null $var)
+    public function setExtensions($var)
     {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->extensions = $var;
 
         return $this;

@@ -77,9 +77,9 @@ class GateResult extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setVersion(string $var)
+    public function setVersion($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->version = $var;
 
         return $this;
@@ -99,9 +99,9 @@ class GateResult extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setGate(string $var)
+    public function setGate($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->gate = $var;
 
         return $this;
@@ -121,9 +121,9 @@ class GateResult extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setStatus(string $var)
+    public function setStatus($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->status = $var;
 
         return $this;
@@ -153,9 +153,9 @@ class GateResult extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setReason(string $var)
+    public function setReason($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->reason = $var;
 
         return $this;
@@ -185,8 +185,9 @@ class GateResult extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Struct $var
      * @return $this
      */
-    public function setEvidence(\Google\Protobuf\Struct|null $var)
+    public function setEvidence($var)
     {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->evidence = $var;
 
         return $this;
@@ -216,8 +217,9 @@ class GateResult extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Struct $var
      * @return $this
      */
-    public function setExtensions(\Google\Protobuf\Struct|null $var)
+    public function setExtensions($var)
     {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->extensions = $var;
 
         return $this;
@@ -247,8 +249,9 @@ class GateResult extends \Google\Protobuf\Internal\Message
      * @param \Monarchic\AgentProtocol\V1\FailureClass $var
      * @return $this
      */
-    public function setFailureClass(\Monarchic\AgentProtocol\V1\FailureClass|null $var)
+    public function setFailureClass($var)
     {
+        GPBUtil::checkMessage($var, \Monarchic\AgentProtocol\V1\FailureClass::class);
         $this->failure_class = $var;
 
         return $this;

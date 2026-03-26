@@ -75,9 +75,9 @@ class LeaseRef extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setLeaseId(string $var)
+    public function setLeaseId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->lease_id = $var;
 
         return $this;
@@ -97,9 +97,9 @@ class LeaseRef extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setFencingToken(string $var)
+    public function setFencingToken($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->fencing_token = $var;
 
         return $this;
@@ -119,9 +119,9 @@ class LeaseRef extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setRunId(string $var)
+    public function setRunId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->run_id = $var;
 
         return $this;
@@ -141,9 +141,9 @@ class LeaseRef extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPlanId(string $var)
+    public function setPlanId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->plan_id = $var;
 
         return $this;
@@ -163,9 +163,9 @@ class LeaseRef extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setStepId(string $var)
+    public function setStepId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->step_id = $var;
 
         return $this;
@@ -185,9 +185,9 @@ class LeaseRef extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setTaskId(string $var)
+    public function setTaskId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->task_id = $var;
 
         return $this;

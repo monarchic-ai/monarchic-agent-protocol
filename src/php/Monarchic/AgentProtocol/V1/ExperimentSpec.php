@@ -87,9 +87,9 @@ class ExperimentSpec extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setExperimentId(string $var)
+    public function setExperimentId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->experiment_id = $var;
 
         return $this;
@@ -109,9 +109,9 @@ class ExperimentSpec extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setObjective(string $var)
+    public function setObjective($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->objective = $var;
 
         return $this;
@@ -141,9 +141,9 @@ class ExperimentSpec extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setHypothesis(string $var)
+    public function setHypothesis($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->hypothesis = $var;
 
         return $this;
@@ -173,9 +173,9 @@ class ExperimentSpec extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setModelFamily(string $var)
+    public function setModelFamily($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->model_family = $var;
 
         return $this;
@@ -195,7 +195,7 @@ class ExperimentSpec extends \Google\Protobuf\Internal\Message
      * @param int[]|string[] $var
      * @return $this
      */
-    public function setSeeds(array|RepeatedField $var)
+    public function setSeeds($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::INT64);
         $this->seeds = $arr;
@@ -217,7 +217,7 @@ class ExperimentSpec extends \Google\Protobuf\Internal\Message
      * @param \Monarchic\AgentProtocol\V1\DatasetRef[] $var
      * @return $this
      */
-    public function setDatasetRefs(array|RepeatedField $var)
+    public function setDatasetRefs($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Monarchic\AgentProtocol\V1\DatasetRef::class);
         $this->dataset_refs = $arr;
@@ -249,8 +249,9 @@ class ExperimentSpec extends \Google\Protobuf\Internal\Message
      * @param \Monarchic\AgentProtocol\V1\AcceptanceCriteria $var
      * @return $this
      */
-    public function setAcceptance(\Monarchic\AgentProtocol\V1\AcceptanceCriteria|null $var)
+    public function setAcceptance($var)
     {
+        GPBUtil::checkMessage($var, \Monarchic\AgentProtocol\V1\AcceptanceCriteria::class);
         $this->acceptance = $var;
 
         return $this;
@@ -280,8 +281,9 @@ class ExperimentSpec extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Struct $var
      * @return $this
      */
-    public function setConstraints(\Google\Protobuf\Struct|null $var)
+    public function setConstraints($var)
     {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->constraints = $var;
 
         return $this;
@@ -311,8 +313,9 @@ class ExperimentSpec extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Struct $var
      * @return $this
      */
-    public function setExtensions(\Google\Protobuf\Struct|null $var)
+    public function setExtensions($var)
     {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->extensions = $var;
 
         return $this;

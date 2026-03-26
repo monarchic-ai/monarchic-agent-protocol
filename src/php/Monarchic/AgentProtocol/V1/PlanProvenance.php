@@ -62,9 +62,9 @@ class PlanProvenance extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setGeneratedBy(string $var)
+    public function setGeneratedBy($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->generated_by = $var;
 
         return $this;
@@ -94,9 +94,9 @@ class PlanProvenance extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPolicyProfile(string $var)
+    public function setPolicyProfile($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->policy_profile = $var;
 
         return $this;
@@ -116,7 +116,7 @@ class PlanProvenance extends \Google\Protobuf\Internal\Message
      * @param int|string $var
      * @return $this
      */
-    public function setGeneratedAtMs(int|string $var)
+    public function setGeneratedAtMs($var)
     {
         GPBUtil::checkUint64($var);
         $this->generated_at_ms = $var;
@@ -148,8 +148,9 @@ class PlanProvenance extends \Google\Protobuf\Internal\Message
      * @param \Monarchic\AgentProtocol\V1\RoleProvenance $var
      * @return $this
      */
-    public function setRole(\Monarchic\AgentProtocol\V1\RoleProvenance|null $var)
+    public function setRole($var)
     {
+        GPBUtil::checkMessage($var, \Monarchic\AgentProtocol\V1\RoleProvenance::class);
         $this->role = $var;
 
         return $this;

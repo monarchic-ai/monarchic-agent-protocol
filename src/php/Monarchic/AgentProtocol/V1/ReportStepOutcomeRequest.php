@@ -97,9 +97,9 @@ class ReportStepOutcomeRequest extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setContractVersion(string $var)
+    public function setContractVersion($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->contract_version = $var;
 
         return $this;
@@ -119,9 +119,9 @@ class ReportStepOutcomeRequest extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setRunnerId(string $var)
+    public function setRunnerId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->runner_id = $var;
 
         return $this;
@@ -141,9 +141,9 @@ class ReportStepOutcomeRequest extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setSessionId(string $var)
+    public function setSessionId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->session_id = $var;
 
         return $this;
@@ -173,8 +173,9 @@ class ReportStepOutcomeRequest extends \Google\Protobuf\Internal\Message
      * @param \Monarchic\AgentProtocol\V1\LeaseRef $var
      * @return $this
      */
-    public function setLease(\Monarchic\AgentProtocol\V1\LeaseRef|null $var)
+    public function setLease($var)
     {
+        GPBUtil::checkMessage($var, \Monarchic\AgentProtocol\V1\LeaseRef::class);
         $this->lease = $var;
 
         return $this;
@@ -182,7 +183,7 @@ class ReportStepOutcomeRequest extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.monarchic.agent_protocol.v1.PlanStatus status = 5;</code>
-     * @return int one of the values in {@see \Monarchic\AgentProtocol\V1\PlanStatus}
+     * @return int
      */
     public function getStatus()
     {
@@ -191,10 +192,10 @@ class ReportStepOutcomeRequest extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.monarchic.agent_protocol.v1.PlanStatus status = 5;</code>
-     * @param int $var one of the values in {@see \Monarchic\AgentProtocol\V1\PlanStatus}
+     * @param int $var
      * @return $this
      */
-    public function setStatus(int $var)
+    public function setStatus($var)
     {
         GPBUtil::checkEnum($var, \Monarchic\AgentProtocol\V1\PlanStatus::class);
         $this->status = $var;
@@ -216,7 +217,7 @@ class ReportStepOutcomeRequest extends \Google\Protobuf\Internal\Message
      * @param \Monarchic\AgentProtocol\V1\Event[] $var
      * @return $this
      */
-    public function setEvents(array|RepeatedField $var)
+    public function setEvents($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Monarchic\AgentProtocol\V1\Event::class);
         $this->events = $arr;
@@ -238,7 +239,7 @@ class ReportStepOutcomeRequest extends \Google\Protobuf\Internal\Message
      * @param \Monarchic\AgentProtocol\V1\Artifact[] $var
      * @return $this
      */
-    public function setArtifacts(array|RepeatedField $var)
+    public function setArtifacts($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Monarchic\AgentProtocol\V1\Artifact::class);
         $this->artifacts = $arr;
@@ -270,8 +271,9 @@ class ReportStepOutcomeRequest extends \Google\Protobuf\Internal\Message
      * @param \Monarchic\AgentProtocol\V1\RunOutcome $var
      * @return $this
      */
-    public function setRunOutcome(\Monarchic\AgentProtocol\V1\RunOutcome|null $var)
+    public function setRunOutcome($var)
     {
+        GPBUtil::checkMessage($var, \Monarchic\AgentProtocol\V1\RunOutcome::class);
         $this->run_outcome = $var;
 
         return $this;
@@ -301,8 +303,9 @@ class ReportStepOutcomeRequest extends \Google\Protobuf\Internal\Message
      * @param \Monarchic\AgentProtocol\V1\FailureDetail $var
      * @return $this
      */
-    public function setFailure(\Monarchic\AgentProtocol\V1\FailureDetail|null $var)
+    public function setFailure($var)
     {
+        GPBUtil::checkMessage($var, \Monarchic\AgentProtocol\V1\FailureDetail::class);
         $this->failure = $var;
 
         return $this;
@@ -322,9 +325,9 @@ class ReportStepOutcomeRequest extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setFinishedAt(string $var)
+    public function setFinishedAt($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->finished_at = $var;
 
         return $this;
@@ -354,8 +357,9 @@ class ReportStepOutcomeRequest extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Struct $var
      * @return $this
      */
-    public function setExtensions(\Google\Protobuf\Struct|null $var)
+    public function setExtensions($var)
     {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->extensions = $var;
 
         return $this;

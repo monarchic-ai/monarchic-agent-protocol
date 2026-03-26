@@ -92,9 +92,9 @@ class ExecutionReceipt extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setContractVersion(string $var)
+    public function setContractVersion($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->contract_version = $var;
 
         return $this;
@@ -114,9 +114,9 @@ class ExecutionReceipt extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setRunId(string $var)
+    public function setRunId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->run_id = $var;
 
         return $this;
@@ -136,9 +136,9 @@ class ExecutionReceipt extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPlanId(string $var)
+    public function setPlanId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->plan_id = $var;
 
         return $this;
@@ -158,9 +158,9 @@ class ExecutionReceipt extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPlanHash(string $var)
+    public function setPlanHash($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->plan_hash = $var;
 
         return $this;
@@ -180,7 +180,7 @@ class ExecutionReceipt extends \Google\Protobuf\Internal\Message
      * @param string[] $var
      * @return $this
      */
-    public function setTaskHashes(array|RepeatedField $var)
+    public function setTaskHashes($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
         $this->task_hashes = $arr;
@@ -202,7 +202,7 @@ class ExecutionReceipt extends \Google\Protobuf\Internal\Message
      * @param string[] $var
      * @return $this
      */
-    public function setArtifactHashes(array|RepeatedField $var)
+    public function setArtifactHashes($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
         $this->artifact_hashes = $arr;
@@ -224,9 +224,9 @@ class ExecutionReceipt extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setOutcomeHash(string $var)
+    public function setOutcomeHash($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->outcome_hash = $var;
 
         return $this;
@@ -234,7 +234,7 @@ class ExecutionReceipt extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.monarchic.agent_protocol.v1.PlanStatus status = 8;</code>
-     * @return int one of the values in {@see \Monarchic\AgentProtocol\V1\PlanStatus}
+     * @return int
      */
     public function getStatus()
     {
@@ -243,10 +243,10 @@ class ExecutionReceipt extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.monarchic.agent_protocol.v1.PlanStatus status = 8;</code>
-     * @param int $var one of the values in {@see \Monarchic\AgentProtocol\V1\PlanStatus}
+     * @param int $var
      * @return $this
      */
-    public function setStatus(int $var)
+    public function setStatus($var)
     {
         GPBUtil::checkEnum($var, \Monarchic\AgentProtocol\V1\PlanStatus::class);
         $this->status = $var;
@@ -278,8 +278,9 @@ class ExecutionReceipt extends \Google\Protobuf\Internal\Message
      * @param \Monarchic\AgentProtocol\V1\FailureDetail $var
      * @return $this
      */
-    public function setFailure(\Monarchic\AgentProtocol\V1\FailureDetail|null $var)
+    public function setFailure($var)
     {
+        GPBUtil::checkMessage($var, \Monarchic\AgentProtocol\V1\FailureDetail::class);
         $this->failure = $var;
 
         return $this;
@@ -299,7 +300,7 @@ class ExecutionReceipt extends \Google\Protobuf\Internal\Message
      * @param int|string $var
      * @return $this
      */
-    public function setGeneratedAtMs(int|string $var)
+    public function setGeneratedAtMs($var)
     {
         GPBUtil::checkUint64($var);
         $this->generated_at_ms = $var;

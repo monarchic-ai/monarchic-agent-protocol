@@ -67,9 +67,9 @@ class RegisterRunnerRequest extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setContractVersion(string $var)
+    public function setContractVersion($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->contract_version = $var;
 
         return $this;
@@ -89,9 +89,9 @@ class RegisterRunnerRequest extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setRunnerId(string $var)
+    public function setRunnerId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->runner_id = $var;
 
         return $this;
@@ -121,8 +121,9 @@ class RegisterRunnerRequest extends \Google\Protobuf\Internal\Message
      * @param \Monarchic\AgentProtocol\V1\RunnerCapabilities $var
      * @return $this
      */
-    public function setCapabilities(\Monarchic\AgentProtocol\V1\RunnerCapabilities|null $var)
+    public function setCapabilities($var)
     {
+        GPBUtil::checkMessage($var, \Monarchic\AgentProtocol\V1\RunnerCapabilities::class);
         $this->capabilities = $var;
 
         return $this;
@@ -142,7 +143,7 @@ class RegisterRunnerRequest extends \Google\Protobuf\Internal\Message
      * @param int $var
      * @return $this
      */
-    public function setMaxParallelLeases(int $var)
+    public function setMaxParallelLeases($var)
     {
         GPBUtil::checkUint32($var);
         $this->max_parallel_leases = $var;
@@ -174,8 +175,9 @@ class RegisterRunnerRequest extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Struct $var
      * @return $this
      */
-    public function setExtensions(\Google\Protobuf\Struct|null $var)
+    public function setExtensions($var)
     {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->extensions = $var;
 
         return $this;

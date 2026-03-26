@@ -67,9 +67,9 @@ class PlanStep extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setStepId(string $var)
+    public function setStepId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->step_id = $var;
 
         return $this;
@@ -89,9 +89,9 @@ class PlanStep extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setDescription(string $var)
+    public function setDescription($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->description = $var;
 
         return $this;
@@ -111,7 +111,7 @@ class PlanStep extends \Google\Protobuf\Internal\Message
      * @param string[] $var
      * @return $this
      */
-    public function setDependsOn(array|RepeatedField $var)
+    public function setDependsOn($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
         $this->depends_on = $arr;
@@ -143,8 +143,9 @@ class PlanStep extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Struct $var
      * @return $this
      */
-    public function setTaskTemplate(\Google\Protobuf\Struct|null $var)
+    public function setTaskTemplate($var)
     {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->task_template = $var;
 
         return $this;
@@ -174,8 +175,9 @@ class PlanStep extends \Google\Protobuf\Internal\Message
      * @param \Monarchic\AgentProtocol\V1\FailureDetail $var
      * @return $this
      */
-    public function setFailure(\Monarchic\AgentProtocol\V1\FailureDetail|null $var)
+    public function setFailure($var)
     {
+        GPBUtil::checkMessage($var, \Monarchic\AgentProtocol\V1\FailureDetail::class);
         $this->failure = $var;
 
         return $this;

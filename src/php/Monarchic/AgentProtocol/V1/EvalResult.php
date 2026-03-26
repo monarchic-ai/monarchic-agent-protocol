@@ -87,9 +87,9 @@ class EvalResult extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setMetric(string $var)
+    public function setMetric($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->metric = $var;
 
         return $this;
@@ -109,8 +109,9 @@ class EvalResult extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setValue(float $var)
+    public function setValue($var)
     {
+        GPBUtil::checkDouble($var);
         $this->value = $var;
 
         return $this;
@@ -140,8 +141,9 @@ class EvalResult extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setLowerCi(float $var)
+    public function setLowerCi($var)
     {
+        GPBUtil::checkDouble($var);
         $this->lower_ci = $var;
 
         return $this;
@@ -171,8 +173,9 @@ class EvalResult extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setUpperCi(float $var)
+    public function setUpperCi($var)
     {
+        GPBUtil::checkDouble($var);
         $this->upper_ci = $var;
 
         return $this;
@@ -202,8 +205,9 @@ class EvalResult extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setVariance(float $var)
+    public function setVariance($var)
     {
+        GPBUtil::checkDouble($var);
         $this->variance = $var;
 
         return $this;
@@ -215,7 +219,7 @@ class EvalResult extends \Google\Protobuf\Internal\Message
      */
     public function getSeed()
     {
-        return isset($this->seed) ? $this->seed : GPBUtil::compatibleInt64(0, '0');
+        return isset($this->seed) ? $this->seed : 0;
     }
 
     public function hasSeed()
@@ -233,7 +237,7 @@ class EvalResult extends \Google\Protobuf\Internal\Message
      * @param int|string $var
      * @return $this
      */
-    public function setSeed(int|string $var)
+    public function setSeed($var)
     {
         GPBUtil::checkInt64($var);
         $this->seed = $var;
@@ -255,8 +259,9 @@ class EvalResult extends \Google\Protobuf\Internal\Message
      * @param bool $var
      * @return $this
      */
-    public function setPassed(bool $var)
+    public function setPassed($var)
     {
+        GPBUtil::checkBool($var);
         $this->passed = $var;
 
         return $this;
@@ -286,9 +291,9 @@ class EvalResult extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setNotes(string $var)
+    public function setNotes($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->notes = $var;
 
         return $this;
@@ -318,8 +323,9 @@ class EvalResult extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Struct $var
      * @return $this
      */
-    public function setExtensions(\Google\Protobuf\Struct|null $var)
+    public function setExtensions($var)
     {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->extensions = $var;
 
         return $this;

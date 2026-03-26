@@ -82,9 +82,9 @@ class DatasetRef extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setDatasetId(string $var)
+    public function setDatasetId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->dataset_id = $var;
 
         return $this;
@@ -114,9 +114,9 @@ class DatasetRef extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setUri(string $var)
+    public function setUri($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->uri = $var;
 
         return $this;
@@ -136,9 +136,9 @@ class DatasetRef extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setSha256(string $var)
+    public function setSha256($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->sha256 = $var;
 
         return $this;
@@ -158,9 +158,9 @@ class DatasetRef extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setFormat(string $var)
+    public function setFormat($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->format = $var;
 
         return $this;
@@ -190,9 +190,9 @@ class DatasetRef extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setSplit(string $var)
+    public function setSplit($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->split = $var;
 
         return $this;
@@ -204,7 +204,7 @@ class DatasetRef extends \Google\Protobuf\Internal\Message
      */
     public function getSizeBytes()
     {
-        return isset($this->size_bytes) ? $this->size_bytes : GPBUtil::compatibleInt64(0, '0');
+        return isset($this->size_bytes) ? $this->size_bytes : 0;
     }
 
     public function hasSizeBytes()
@@ -222,7 +222,7 @@ class DatasetRef extends \Google\Protobuf\Internal\Message
      * @param int|string $var
      * @return $this
      */
-    public function setSizeBytes(int|string $var)
+    public function setSizeBytes($var)
     {
         GPBUtil::checkUint64($var);
         $this->size_bytes = $var;
@@ -254,9 +254,9 @@ class DatasetRef extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setDescription(string $var)
+    public function setDescription($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->description = $var;
 
         return $this;
@@ -286,8 +286,9 @@ class DatasetRef extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Struct $var
      * @return $this
      */
-    public function setExtensions(\Google\Protobuf\Struct|null $var)
+    public function setExtensions($var)
     {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->extensions = $var;
 
         return $this;

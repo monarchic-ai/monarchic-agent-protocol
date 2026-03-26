@@ -77,9 +77,9 @@ class AcceptanceCriteria extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setMetric(string $var)
+    public function setMetric($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->metric = $var;
 
         return $this;
@@ -99,9 +99,9 @@ class AcceptanceCriteria extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setDirection(string $var)
+    public function setDirection($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->direction = $var;
 
         return $this;
@@ -121,8 +121,9 @@ class AcceptanceCriteria extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setThreshold(float $var)
+    public function setThreshold($var)
     {
+        GPBUtil::checkDouble($var);
         $this->threshold = $var;
 
         return $this;
@@ -152,8 +153,9 @@ class AcceptanceCriteria extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setMinEffectSize(float $var)
+    public function setMinEffectSize($var)
     {
+        GPBUtil::checkDouble($var);
         $this->min_effect_size = $var;
 
         return $this;
@@ -183,8 +185,9 @@ class AcceptanceCriteria extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setMaxVariance(float $var)
+    public function setMaxVariance($var)
     {
+        GPBUtil::checkDouble($var);
         $this->max_variance = $var;
 
         return $this;
@@ -214,8 +217,9 @@ class AcceptanceCriteria extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setConfidenceLevel(float $var)
+    public function setConfidenceLevel($var)
     {
+        GPBUtil::checkDouble($var);
         $this->confidence_level = $var;
 
         return $this;
@@ -245,8 +249,9 @@ class AcceptanceCriteria extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Struct $var
      * @return $this
      */
-    public function setExtensions(\Google\Protobuf\Struct|null $var)
+    public function setExtensions($var)
     {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->extensions = $var;
 
         return $this;

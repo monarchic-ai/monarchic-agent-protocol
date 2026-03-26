@@ -62,9 +62,9 @@ class FailureDetail extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setClass(string $var)
+    public function setClass($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->class = $var;
 
         return $this;
@@ -84,9 +84,9 @@ class FailureDetail extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setCode(string $var)
+    public function setCode($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->code = $var;
 
         return $this;
@@ -106,9 +106,9 @@ class FailureDetail extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setMessage(string $var)
+    public function setMessage($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->message = $var;
 
         return $this;
@@ -138,8 +138,9 @@ class FailureDetail extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Struct $var
      * @return $this
      */
-    public function setDetails(\Google\Protobuf\Struct|null $var)
+    public function setDetails($var)
     {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->details = $var;
 
         return $this;

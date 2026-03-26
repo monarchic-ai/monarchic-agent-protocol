@@ -112,9 +112,9 @@ class Provenance extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPromptSha256(string $var)
+    public function setPromptSha256($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->prompt_sha256 = $var;
 
         return $this;
@@ -134,9 +134,9 @@ class Provenance extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setCodeSha256(string $var)
+    public function setCodeSha256($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->code_sha256 = $var;
 
         return $this;
@@ -156,7 +156,7 @@ class Provenance extends \Google\Protobuf\Internal\Message
      * @param string[] $var
      * @return $this
      */
-    public function setDatasetSha256(array|RepeatedField $var)
+    public function setDatasetSha256($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
         $this->dataset_sha256 = $arr;
@@ -178,9 +178,9 @@ class Provenance extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setRuntime(string $var)
+    public function setRuntime($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->runtime = $var;
 
         return $this;
@@ -210,9 +210,9 @@ class Provenance extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setModel(string $var)
+    public function setModel($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->model = $var;
 
         return $this;
@@ -232,9 +232,9 @@ class Provenance extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setRunner(string $var)
+    public function setRunner($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->runner = $var;
 
         return $this;
@@ -254,9 +254,9 @@ class Provenance extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setOrchestrator(string $var)
+    public function setOrchestrator($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->orchestrator = $var;
 
         return $this;
@@ -286,9 +286,9 @@ class Provenance extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setTaskSpecSha256(string $var)
+    public function setTaskSpecSha256($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->task_spec_sha256 = $var;
 
         return $this;
@@ -318,9 +318,9 @@ class Provenance extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPipelineSha256(string $var)
+    public function setPipelineSha256($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->pipeline_sha256 = $var;
 
         return $this;
@@ -350,9 +350,9 @@ class Provenance extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setCommandSha256(string $var)
+    public function setCommandSha256($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->command_sha256 = $var;
 
         return $this;
@@ -372,9 +372,9 @@ class Provenance extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setCreatedAt(string $var)
+    public function setCreatedAt($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->created_at = $var;
 
         return $this;
@@ -404,9 +404,9 @@ class Provenance extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setSourceTaskId(string $var)
+    public function setSourceTaskId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->source_task_id = $var;
 
         return $this;
@@ -426,7 +426,7 @@ class Provenance extends \Google\Protobuf\Internal\Message
      * @param \Monarchic\AgentProtocol\V1\DatasetRef[] $var
      * @return $this
      */
-    public function setDatasetRefs(array|RepeatedField $var)
+    public function setDatasetRefs($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Monarchic\AgentProtocol\V1\DatasetRef::class);
         $this->dataset_refs = $arr;
@@ -458,8 +458,9 @@ class Provenance extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Struct $var
      * @return $this
      */
-    public function setExtensions(\Google\Protobuf\Struct|null $var)
+    public function setExtensions($var)
     {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->extensions = $var;
 
         return $this;

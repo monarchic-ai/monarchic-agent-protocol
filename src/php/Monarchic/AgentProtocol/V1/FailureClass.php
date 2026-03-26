@@ -82,9 +82,9 @@ class FailureClass extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setCategory(string $var)
+    public function setCategory($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->category = $var;
 
         return $this;
@@ -104,9 +104,9 @@ class FailureClass extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setCode(string $var)
+    public function setCode($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->code = $var;
 
         return $this;
@@ -126,8 +126,9 @@ class FailureClass extends \Google\Protobuf\Internal\Message
      * @param bool $var
      * @return $this
      */
-    public function setRetryable(bool $var)
+    public function setRetryable($var)
     {
+        GPBUtil::checkBool($var);
         $this->retryable = $var;
 
         return $this;
@@ -157,9 +158,9 @@ class FailureClass extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setDetail(string $var)
+    public function setDetail($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->detail = $var;
 
         return $this;
@@ -189,9 +190,9 @@ class FailureClass extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setScope(string $var)
+    public function setScope($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->scope = $var;
 
         return $this;
@@ -221,9 +222,9 @@ class FailureClass extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setSource(string $var)
+    public function setSource($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->source = $var;
 
         return $this;
@@ -253,9 +254,9 @@ class FailureClass extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setNextAction(string $var)
+    public function setNextAction($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->next_action = $var;
 
         return $this;
@@ -285,8 +286,9 @@ class FailureClass extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Struct $var
      * @return $this
      */
-    public function setExtensions(\Google\Protobuf\Struct|null $var)
+    public function setExtensions($var)
     {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->extensions = $var;
 
         return $this;

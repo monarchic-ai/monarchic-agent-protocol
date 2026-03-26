@@ -97,9 +97,9 @@ class Task extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setVersion(string $var)
+    public function setVersion($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->version = $var;
 
         return $this;
@@ -119,9 +119,9 @@ class Task extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setTaskId(string $var)
+    public function setTaskId($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->task_id = $var;
 
         return $this;
@@ -129,7 +129,7 @@ class Task extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.monarchic.agent_protocol.v1.AgentRole role = 3;</code>
-     * @return int one of the values in {@see \Monarchic\AgentProtocol\V1\AgentRole}
+     * @return int
      */
     public function getRole()
     {
@@ -138,10 +138,10 @@ class Task extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.monarchic.agent_protocol.v1.AgentRole role = 3;</code>
-     * @param int $var one of the values in {@see \Monarchic\AgentProtocol\V1\AgentRole}
+     * @param int $var
      * @return $this
      */
-    public function setRole(int $var)
+    public function setRole($var)
     {
         GPBUtil::checkEnum($var, \Monarchic\AgentProtocol\V1\AgentRole::class);
         $this->role = $var;
@@ -163,9 +163,9 @@ class Task extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setGoal(string $var)
+    public function setGoal($var)
     {
-        GPBUtil::checkString($var, true);
+        GPBUtil::checkString($var, True);
         $this->goal = $var;
 
         return $this;
@@ -195,8 +195,9 @@ class Task extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Struct $var
      * @return $this
      */
-    public function setInputs(\Google\Protobuf\Struct|null $var)
+    public function setInputs($var)
     {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->inputs = $var;
 
         return $this;
@@ -226,8 +227,9 @@ class Task extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Struct $var
      * @return $this
      */
-    public function setConstraints(\Google\Protobuf\Struct|null $var)
+    public function setConstraints($var)
     {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->constraints = $var;
 
         return $this;
@@ -247,7 +249,7 @@ class Task extends \Google\Protobuf\Internal\Message
      * @param string[] $var
      * @return $this
      */
-    public function setGatesRequired(array|RepeatedField $var)
+    public function setGatesRequired($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
         $this->gates_required = $arr;
@@ -279,8 +281,9 @@ class Task extends \Google\Protobuf\Internal\Message
      * @param \Monarchic\AgentProtocol\V1\RunContext $var
      * @return $this
      */
-    public function setRunContext(\Monarchic\AgentProtocol\V1\RunContext|null $var)
+    public function setRunContext($var)
     {
+        GPBUtil::checkMessage($var, \Monarchic\AgentProtocol\V1\RunContext::class);
         $this->run_context = $var;
 
         return $this;
@@ -310,8 +313,9 @@ class Task extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Struct $var
      * @return $this
      */
-    public function setExtensions(\Google\Protobuf\Struct|null $var)
+    public function setExtensions($var)
     {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->extensions = $var;
 
         return $this;
@@ -341,8 +345,9 @@ class Task extends \Google\Protobuf\Internal\Message
      * @param \Monarchic\AgentProtocol\V1\ExperimentSpec $var
      * @return $this
      */
-    public function setExperimentSpec(\Monarchic\AgentProtocol\V1\ExperimentSpec|null $var)
+    public function setExperimentSpec($var)
     {
+        GPBUtil::checkMessage($var, \Monarchic\AgentProtocol\V1\ExperimentSpec::class);
         $this->experiment_spec = $var;
 
         return $this;
@@ -372,8 +377,9 @@ class Task extends \Google\Protobuf\Internal\Message
      * @param \Monarchic\AgentProtocol\V1\ObjectiveSpec $var
      * @return $this
      */
-    public function setObjectiveSpec(\Monarchic\AgentProtocol\V1\ObjectiveSpec|null $var)
+    public function setObjectiveSpec($var)
     {
+        GPBUtil::checkMessage($var, \Monarchic\AgentProtocol\V1\ObjectiveSpec::class);
         $this->objective_spec = $var;
 
         return $this;
