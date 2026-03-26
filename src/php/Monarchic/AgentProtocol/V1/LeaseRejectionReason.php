@@ -44,6 +44,10 @@ class LeaseRejectionReason
      * Generated from protobuf enum <code>LEASE_REJECTION_DEPENDENCY_BLOCKED = 7;</code>
      */
     const LEASE_REJECTION_DEPENDENCY_BLOCKED = 7;
+    /**
+     * Generated from protobuf enum <code>LEASE_REJECTION_LEASE_SUPERSEDED = 8;</code>
+     */
+    const LEASE_REJECTION_LEASE_SUPERSEDED = 8;
 
     private static $valueToName = [
         self::LEASE_REJECTION_REASON_UNSPECIFIED => 'LEASE_REJECTION_REASON_UNSPECIFIED',
@@ -54,6 +58,7 @@ class LeaseRejectionReason
         self::LEASE_REJECTION_STEP_ALREADY_TERMINAL => 'LEASE_REJECTION_STEP_ALREADY_TERMINAL',
         self::LEASE_REJECTION_RUN_NOT_EXECUTABLE => 'LEASE_REJECTION_RUN_NOT_EXECUTABLE',
         self::LEASE_REJECTION_DEPENDENCY_BLOCKED => 'LEASE_REJECTION_DEPENDENCY_BLOCKED',
+        self::LEASE_REJECTION_LEASE_SUPERSEDED => 'LEASE_REJECTION_LEASE_SUPERSEDED',
     ];
 
     public static function name($value)

@@ -49,6 +49,6 @@ pub use monarchic::agent_protocol::v1::{
     Provenance, RecoveryEvent, RecoveryEventKind, RegisterRunnerRequest, RegisterRunnerResponse,
     RenewLeaseRequest, RenewLeaseResponse, ReportStepOutcomeRequest, ReportStepOutcomeResponse,
     ReportStepProgressRequest, ReportStepProgressResponse, ReportStepStartedRequest,
-    ReportStepStartedResponse, RoleProvenance, RunContext, RunLifecycleState,
-    RunnerCapabilities, StepLifecycleState, Task,
+    ReportStepStartedResponse, ResumeLeaseRequest, ResumeLeaseResponse, RoleProvenance,
+    RunContext, RunLifecycleState, RunnerCapabilities, StepLifecycleState, Task,
 };
