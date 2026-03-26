@@ -502,6 +502,7 @@ namespace Monarchic.AgentProtocol.V1 {
   #endregion
 
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class DatasetRef : pb::IMessage<DatasetRef>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -569,11 +570,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "uri" field.</summary>
     public const int UriFieldNumber = 2;
+    private readonly static string UriDefaultValue = "";
+
     private string uri_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Uri {
-      get { return uri_ ?? ""; }
+      get { return uri_ ?? UriDefaultValue; }
       set {
         uri_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
@@ -617,11 +620,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "split" field.</summary>
     public const int SplitFieldNumber = 5;
+    private readonly static string SplitDefaultValue = "";
+
     private string split_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Split {
-      get { return split_ ?? ""; }
+      get { return split_ ?? SplitDefaultValue; }
       set {
         split_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
@@ -641,11 +646,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "size_bytes" field.</summary>
     public const int SizeBytesFieldNumber = 6;
+    private readonly static ulong SizeBytesDefaultValue = 0UL;
+
     private ulong sizeBytes_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ulong SizeBytes {
-      get { if ((_hasBits0 & 1) != 0) { return sizeBytes_; } else { return 0UL; } }
+      get { if ((_hasBits0 & 1) != 0) { return sizeBytes_; } else { return SizeBytesDefaultValue; } }
       set {
         _hasBits0 |= 1;
         sizeBytes_ = value;
@@ -666,11 +673,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "description" field.</summary>
     public const int DescriptionFieldNumber = 7;
+    private readonly static string DescriptionDefaultValue = "";
+
     private string description_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Description {
-      get { return description_ ?? ""; }
+      get { return description_ ?? DescriptionDefaultValue; }
       set {
         description_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
@@ -914,7 +923,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -964,7 +977,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -1010,6 +1027,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class AcceptanceCriteria : pb::IMessage<AcceptanceCriteria>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1100,11 +1118,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "min_effect_size" field.</summary>
     public const int MinEffectSizeFieldNumber = 4;
+    private readonly static double MinEffectSizeDefaultValue = 0D;
+
     private double minEffectSize_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public double MinEffectSize {
-      get { if ((_hasBits0 & 1) != 0) { return minEffectSize_; } else { return 0D; } }
+      get { if ((_hasBits0 & 1) != 0) { return minEffectSize_; } else { return MinEffectSizeDefaultValue; } }
       set {
         _hasBits0 |= 1;
         minEffectSize_ = value;
@@ -1125,11 +1145,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "max_variance" field.</summary>
     public const int MaxVarianceFieldNumber = 5;
+    private readonly static double MaxVarianceDefaultValue = 0D;
+
     private double maxVariance_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public double MaxVariance {
-      get { if ((_hasBits0 & 2) != 0) { return maxVariance_; } else { return 0D; } }
+      get { if ((_hasBits0 & 2) != 0) { return maxVariance_; } else { return MaxVarianceDefaultValue; } }
       set {
         _hasBits0 |= 2;
         maxVariance_ = value;
@@ -1150,11 +1172,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "confidence_level" field.</summary>
     public const int ConfidenceLevelFieldNumber = 6;
+    private readonly static double ConfidenceLevelDefaultValue = 0D;
+
     private double confidenceLevel_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public double ConfidenceLevel {
-      get { if ((_hasBits0 & 4) != 0) { return confidenceLevel_; } else { return 0D; } }
+      get { if ((_hasBits0 & 4) != 0) { return confidenceLevel_; } else { return ConfidenceLevelDefaultValue; } }
       set {
         _hasBits0 |= 4;
         confidenceLevel_ = value;
@@ -1383,7 +1407,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -1429,7 +1457,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -1471,6 +1503,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ExperimentSpec : pb::IMessage<ExperimentSpec>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1549,11 +1582,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "hypothesis" field.</summary>
     public const int HypothesisFieldNumber = 3;
+    private readonly static string HypothesisDefaultValue = "";
+
     private string hypothesis_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Hypothesis {
-      get { return hypothesis_ ?? ""; }
+      get { return hypothesis_ ?? HypothesisDefaultValue; }
       set {
         hypothesis_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
@@ -1573,11 +1608,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "model_family" field.</summary>
     public const int ModelFamilyFieldNumber = 4;
+    private readonly static string ModelFamilyDefaultValue = "";
+
     private string modelFamily_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string ModelFamily {
-      get { return modelFamily_ ?? ""; }
+      get { return modelFamily_ ?? ModelFamilyDefaultValue; }
       set {
         modelFamily_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
@@ -1869,7 +1906,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -1930,7 +1971,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -1987,6 +2032,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ObjectiveSpec : pb::IMessage<ObjectiveSpec>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2068,11 +2114,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "target" field.</summary>
     public const int TargetFieldNumber = 3;
+    private readonly static double TargetDefaultValue = 0D;
+
     private double target_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public double Target {
-      get { if ((_hasBits0 & 1) != 0) { return target_; } else { return 0D; } }
+      get { if ((_hasBits0 & 1) != 0) { return target_; } else { return TargetDefaultValue; } }
       set {
         _hasBits0 |= 1;
         target_ = value;
@@ -2093,11 +2141,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "min_delta" field.</summary>
     public const int MinDeltaFieldNumber = 4;
+    private readonly static double MinDeltaDefaultValue = 0D;
+
     private double minDelta_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public double MinDelta {
-      get { if ((_hasBits0 & 2) != 0) { return minDelta_; } else { return 0D; } }
+      get { if ((_hasBits0 & 2) != 0) { return minDelta_; } else { return MinDeltaDefaultValue; } }
       set {
         _hasBits0 |= 2;
         minDelta_ = value;
@@ -2118,11 +2168,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "tolerance" field.</summary>
     public const int ToleranceFieldNumber = 5;
+    private readonly static double ToleranceDefaultValue = 0D;
+
     private double tolerance_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public double Tolerance {
-      get { if ((_hasBits0 & 4) != 0) { return tolerance_; } else { return 0D; } }
+      get { if ((_hasBits0 & 4) != 0) { return tolerance_; } else { return ToleranceDefaultValue; } }
       set {
         _hasBits0 |= 4;
         tolerance_ = value;
@@ -2143,11 +2195,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "report_file" field.</summary>
     public const int ReportFileFieldNumber = 6;
+    private readonly static string ReportFileDefaultValue = "";
+
     private string reportFile_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string ReportFile {
-      get { return reportFile_ ?? ""; }
+      get { return reportFile_ ?? ReportFileDefaultValue; }
       set {
         reportFile_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
@@ -2167,11 +2221,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "report_task_id" field.</summary>
     public const int ReportTaskIdFieldNumber = 7;
+    private readonly static string ReportTaskIdDefaultValue = "";
+
     private string reportTaskId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string ReportTaskId {
-      get { return reportTaskId_ ?? ""; }
+      get { return reportTaskId_ ?? ReportTaskIdDefaultValue; }
       set {
         reportTaskId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
@@ -2191,11 +2247,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "weight" field.</summary>
     public const int WeightFieldNumber = 8;
+    private readonly static double WeightDefaultValue = 0D;
+
     private double weight_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public double Weight {
-      get { if ((_hasBits0 & 8) != 0) { return weight_; } else { return 0D; } }
+      get { if ((_hasBits0 & 8) != 0) { return weight_; } else { return WeightDefaultValue; } }
       set {
         _hasBits0 |= 8;
         weight_ = value;
@@ -2216,11 +2274,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "description" field.</summary>
     public const int DescriptionFieldNumber = 9;
+    private readonly static string DescriptionDefaultValue = "";
+
     private string description_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Description {
-      get { return description_ ?? ""; }
+      get { return description_ ?? DescriptionDefaultValue; }
       set {
         description_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
@@ -2496,7 +2556,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -2554,7 +2618,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -2608,6 +2676,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class EvalResult : pb::IMessage<EvalResult>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2688,11 +2757,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "lower_ci" field.</summary>
     public const int LowerCiFieldNumber = 3;
+    private readonly static double LowerCiDefaultValue = 0D;
+
     private double lowerCi_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public double LowerCi {
-      get { if ((_hasBits0 & 1) != 0) { return lowerCi_; } else { return 0D; } }
+      get { if ((_hasBits0 & 1) != 0) { return lowerCi_; } else { return LowerCiDefaultValue; } }
       set {
         _hasBits0 |= 1;
         lowerCi_ = value;
@@ -2713,11 +2784,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "upper_ci" field.</summary>
     public const int UpperCiFieldNumber = 4;
+    private readonly static double UpperCiDefaultValue = 0D;
+
     private double upperCi_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public double UpperCi {
-      get { if ((_hasBits0 & 2) != 0) { return upperCi_; } else { return 0D; } }
+      get { if ((_hasBits0 & 2) != 0) { return upperCi_; } else { return UpperCiDefaultValue; } }
       set {
         _hasBits0 |= 2;
         upperCi_ = value;
@@ -2738,11 +2811,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "variance" field.</summary>
     public const int VarianceFieldNumber = 5;
+    private readonly static double VarianceDefaultValue = 0D;
+
     private double variance_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public double Variance {
-      get { if ((_hasBits0 & 4) != 0) { return variance_; } else { return 0D; } }
+      get { if ((_hasBits0 & 4) != 0) { return variance_; } else { return VarianceDefaultValue; } }
       set {
         _hasBits0 |= 4;
         variance_ = value;
@@ -2763,11 +2838,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "seed" field.</summary>
     public const int SeedFieldNumber = 6;
+    private readonly static long SeedDefaultValue = 0L;
+
     private long seed_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public long Seed {
-      get { if ((_hasBits0 & 8) != 0) { return seed_; } else { return 0L; } }
+      get { if ((_hasBits0 & 8) != 0) { return seed_; } else { return SeedDefaultValue; } }
       set {
         _hasBits0 |= 8;
         seed_ = value;
@@ -2800,11 +2877,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "notes" field.</summary>
     public const int NotesFieldNumber = 8;
+    private readonly static string NotesDefaultValue = "";
+
     private string notes_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Notes {
-      get { return notes_ ?? ""; }
+      get { return notes_ ?? NotesDefaultValue; }
       set {
         notes_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
@@ -3064,7 +3143,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -3118,7 +3201,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -3168,6 +3255,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class FailureClass : pb::IMessage<FailureClass>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3257,11 +3345,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "detail" field.</summary>
     public const int DetailFieldNumber = 4;
+    private readonly static string DetailDefaultValue = "";
+
     private string detail_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Detail {
-      get { return detail_ ?? ""; }
+      get { return detail_ ?? DetailDefaultValue; }
       set {
         detail_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
@@ -3281,11 +3371,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "scope" field.</summary>
     public const int ScopeFieldNumber = 5;
+    private readonly static string ScopeDefaultValue = "";
+
     private string scope_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Scope {
-      get { return scope_ ?? ""; }
+      get { return scope_ ?? ScopeDefaultValue; }
       set {
         scope_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
@@ -3305,11 +3397,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "source" field.</summary>
     public const int SourceFieldNumber = 6;
+    private readonly static string SourceDefaultValue = "";
+
     private string source_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Source {
-      get { return source_ ?? ""; }
+      get { return source_ ?? SourceDefaultValue; }
       set {
         source_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
@@ -3329,11 +3423,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "next_action" field.</summary>
     public const int NextActionFieldNumber = 7;
+    private readonly static string NextActionDefaultValue = "";
+
     private string nextAction_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string NextAction {
-      get { return nextAction_ ?? ""; }
+      get { return nextAction_ ?? NextActionDefaultValue; }
       set {
         nextAction_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
@@ -3577,7 +3673,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -3627,7 +3727,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -3673,6 +3777,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class Provenance : pb::IMessage<Provenance>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3779,11 +3884,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "model" field.</summary>
     public const int ModelFieldNumber = 5;
+    private readonly static string ModelDefaultValue = "";
+
     private string model_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Model {
-      get { return model_ ?? ""; }
+      get { return model_ ?? ModelDefaultValue; }
       set {
         model_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
@@ -3827,11 +3934,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "task_spec_sha256" field.</summary>
     public const int TaskSpecSha256FieldNumber = 8;
+    private readonly static string TaskSpecSha256DefaultValue = "";
+
     private string taskSpecSha256_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string TaskSpecSha256 {
-      get { return taskSpecSha256_ ?? ""; }
+      get { return taskSpecSha256_ ?? TaskSpecSha256DefaultValue; }
       set {
         taskSpecSha256_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
@@ -3851,11 +3960,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "pipeline_sha256" field.</summary>
     public const int PipelineSha256FieldNumber = 9;
+    private readonly static string PipelineSha256DefaultValue = "";
+
     private string pipelineSha256_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string PipelineSha256 {
-      get { return pipelineSha256_ ?? ""; }
+      get { return pipelineSha256_ ?? PipelineSha256DefaultValue; }
       set {
         pipelineSha256_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
@@ -3875,11 +3986,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "command_sha256" field.</summary>
     public const int CommandSha256FieldNumber = 10;
+    private readonly static string CommandSha256DefaultValue = "";
+
     private string commandSha256_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string CommandSha256 {
-      get { return commandSha256_ ?? ""; }
+      get { return commandSha256_ ?? CommandSha256DefaultValue; }
       set {
         commandSha256_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
@@ -3911,11 +4024,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "source_task_id" field.</summary>
     public const int SourceTaskIdFieldNumber = 12;
+    private readonly static string SourceTaskIdDefaultValue = "";
+
     private string sourceTaskId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string SourceTaskId {
-      get { return sourceTaskId_ ?? ""; }
+      get { return sourceTaskId_ ?? SourceTaskIdDefaultValue; }
       set {
         sourceTaskId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
@@ -4246,7 +4361,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -4320,7 +4439,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -4390,6 +4513,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class RoleProvenance : pb::IMessage<RoleProvenance>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4603,7 +4727,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -4630,7 +4758,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -4653,6 +4785,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class PlanProvenance : pb::IMessage<PlanProvenance>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4714,11 +4847,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "policy_profile" field.</summary>
     public const int PolicyProfileFieldNumber = 2;
+    private readonly static string PolicyProfileDefaultValue = "";
+
     private string policyProfile_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string PolicyProfile {
-      get { return policyProfile_ ?? ""; }
+      get { return policyProfile_ ?? PolicyProfileDefaultValue; }
       set {
         policyProfile_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
@@ -4910,7 +5045,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -4944,7 +5083,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -4974,6 +5117,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class FailureDetail : pb::IMessage<FailureDetail>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -5219,7 +5363,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -5253,7 +5401,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -5283,6 +5435,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class PlanStep : pb::IMessage<PlanStep>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -5549,7 +5702,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -5590,7 +5747,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -5627,6 +5788,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class Plan : pb::IMessage<Plan>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -5705,11 +5867,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "run_id" field.</summary>
     public const int RunIdFieldNumber = 3;
+    private readonly static string RunIdDefaultValue = "";
+
     private string runId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string RunId {
-      get { return runId_ ?? ""; }
+      get { return runId_ ?? RunIdDefaultValue; }
       set {
         runId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
@@ -6018,7 +6182,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -6072,7 +6240,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -6122,6 +6294,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ExecutionReceipt : pb::IMessage<ExecutionReceipt>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -6519,7 +6692,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -6577,7 +6754,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -6631,6 +6812,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class Task : pb::IMessage<Task>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -7083,7 +7265,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -7160,7 +7346,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -7233,6 +7423,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class Artifact : pb::IMessage<Artifact>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -7665,7 +7856,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -7733,7 +7928,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -7797,6 +7996,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class Event : pb::IMessage<Event>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -7912,11 +8112,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "message" field.</summary>
     public const int MessageFieldNumber = 6;
+    private readonly static string MessageDefaultValue = "";
+
     private string message_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Message {
-      get { return message_ ?? ""; }
+      get { return message_ ?? MessageDefaultValue; }
       set {
         message_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
@@ -8223,7 +8425,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -8287,7 +8493,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -8347,6 +8557,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class GateResult : pb::IMessage<GateResult>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -8435,11 +8646,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "reason" field.</summary>
     public const int ReasonFieldNumber = 4;
+    private readonly static string ReasonDefaultValue = "";
+
     private string reason_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Reason {
-      get { return reason_ ?? ""; }
+      get { return reason_ ?? ReasonDefaultValue; }
       set {
         reason_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
@@ -8697,7 +8910,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -8749,7 +8966,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -8797,6 +9018,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class RunOutcome : pb::IMessage<RunOutcome>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -8884,11 +9106,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "run_id" field.</summary>
     public const int RunIdFieldNumber = 3;
+    private readonly static string RunIdDefaultValue = "";
+
     private string runId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string RunId {
-      get { return runId_ ?? ""; }
+      get { return runId_ ?? RunIdDefaultValue; }
       set {
         runId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
@@ -8908,11 +9132,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "objective_metric" field.</summary>
     public const int ObjectiveMetricFieldNumber = 4;
+    private readonly static string ObjectiveMetricDefaultValue = "";
+
     private string objectiveMetric_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string ObjectiveMetric {
-      get { return objectiveMetric_ ?? ""; }
+      get { return objectiveMetric_ ?? ObjectiveMetricDefaultValue; }
       set {
         objectiveMetric_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
@@ -8932,11 +9158,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "objective_score" field.</summary>
     public const int ObjectiveScoreFieldNumber = 5;
+    private readonly static double ObjectiveScoreDefaultValue = 0D;
+
     private double objectiveScore_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public double ObjectiveScore {
-      get { if ((_hasBits0 & 1) != 0) { return objectiveScore_; } else { return 0D; } }
+      get { if ((_hasBits0 & 1) != 0) { return objectiveScore_; } else { return ObjectiveScoreDefaultValue; } }
       set {
         _hasBits0 |= 1;
         objectiveScore_ = value;
@@ -8969,11 +9197,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "estimated_cost_usd" field.</summary>
     public const int EstimatedCostUsdFieldNumber = 7;
+    private readonly static double EstimatedCostUsdDefaultValue = 0D;
+
     private double estimatedCostUsd_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public double EstimatedCostUsd {
-      get { if ((_hasBits0 & 2) != 0) { return estimatedCostUsd_; } else { return 0D; } }
+      get { if ((_hasBits0 & 2) != 0) { return estimatedCostUsd_; } else { return EstimatedCostUsdDefaultValue; } }
       set {
         _hasBits0 |= 2;
         estimatedCostUsd_ = value;
@@ -8994,11 +9224,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "budget_limit_usd" field.</summary>
     public const int BudgetLimitUsdFieldNumber = 8;
+    private readonly static double BudgetLimitUsdDefaultValue = 0D;
+
     private double budgetLimitUsd_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public double BudgetLimitUsd {
-      get { if ((_hasBits0 & 4) != 0) { return budgetLimitUsd_; } else { return 0D; } }
+      get { if ((_hasBits0 & 4) != 0) { return budgetLimitUsd_; } else { return BudgetLimitUsdDefaultValue; } }
       set {
         _hasBits0 |= 4;
         budgetLimitUsd_ = value;
@@ -9031,11 +9263,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "risk_level" field.</summary>
     public const int RiskLevelFieldNumber = 10;
+    private readonly static string RiskLevelDefaultValue = "";
+
     private string riskLevel_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string RiskLevel {
-      get { return riskLevel_ ?? ""; }
+      get { return riskLevel_ ?? RiskLevelDefaultValue; }
       set {
         riskLevel_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
@@ -9055,11 +9289,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "risk_summary" field.</summary>
     public const int RiskSummaryFieldNumber = 11;
+    private readonly static string RiskSummaryDefaultValue = "";
+
     private string riskSummary_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string RiskSummary {
-      get { return riskSummary_ ?? ""; }
+      get { return riskSummary_ ?? RiskSummaryDefaultValue; }
       set {
         riskSummary_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
@@ -9103,11 +9339,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "summary" field.</summary>
     public const int SummaryFieldNumber = 14;
+    private readonly static string SummaryDefaultValue = "";
+
     private string summary_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Summary {
-      get { return summary_ ?? ""; }
+      get { return summary_ ?? SummaryDefaultValue; }
       set {
         summary_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
@@ -9494,7 +9732,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -9579,7 +9821,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -9660,6 +9906,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class RunContext : pb::IMessage<RunContext>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -9981,7 +10228,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -10027,7 +10278,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -10073,6 +10328,7 @@ namespace Monarchic.AgentProtocol.V1 {
   /// RunnerCapabilities declares the stable machine-facing features a runner can
   /// advertise when joining the control plane.
   /// </summary>
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class RunnerCapabilities : pb::IMessage<RunnerCapabilities>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -10401,7 +10657,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -10452,7 +10712,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -10503,6 +10767,7 @@ namespace Monarchic.AgentProtocol.V1 {
   /// LeaseRef is the canonical identity for a runner-owned execution lease. The
   /// fencing_token must change whenever orchestrator ownership changes.
   /// </summary>
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class LeaseRef : pb::IMessage<LeaseRef>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -10803,7 +11068,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -10842,7 +11111,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -10877,6 +11150,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class FencingToken : pb::IMessage<FencingToken>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -11151,7 +11425,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -11189,7 +11467,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -11223,6 +11505,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class Lease : pb::IMessage<Lease>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -11703,7 +11986,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -11772,7 +12059,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -11837,6 +12128,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class RecoveryEvent : pb::IMessage<RecoveryEvent>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -11932,11 +12224,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "step_id" field.</summary>
     public const int StepIdFieldNumber = 4;
+    private readonly static string StepIdDefaultValue = "";
+
     private string stepId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string StepId {
-      get { return stepId_ ?? ""; }
+      get { return stepId_ ?? StepIdDefaultValue; }
       set {
         stepId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
@@ -12016,11 +12310,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "run_state" field.</summary>
     public const int RunStateFieldNumber = 10;
+    private readonly static global::Monarchic.AgentProtocol.V1.RunLifecycleState RunStateDefaultValue = global::Monarchic.AgentProtocol.V1.RunLifecycleState.Unspecified;
+
     private global::Monarchic.AgentProtocol.V1.RunLifecycleState runState_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Monarchic.AgentProtocol.V1.RunLifecycleState RunState {
-      get { if ((_hasBits0 & 1) != 0) { return runState_; } else { return global::Monarchic.AgentProtocol.V1.RunLifecycleState.Unspecified; } }
+      get { if ((_hasBits0 & 1) != 0) { return runState_; } else { return RunStateDefaultValue; } }
       set {
         _hasBits0 |= 1;
         runState_ = value;
@@ -12041,11 +12337,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "step_state" field.</summary>
     public const int StepStateFieldNumber = 11;
+    private readonly static global::Monarchic.AgentProtocol.V1.StepLifecycleState StepStateDefaultValue = global::Monarchic.AgentProtocol.V1.StepLifecycleState.Unspecified;
+
     private global::Monarchic.AgentProtocol.V1.StepLifecycleState stepState_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Monarchic.AgentProtocol.V1.StepLifecycleState StepState {
-      get { if ((_hasBits0 & 2) != 0) { return stepState_; } else { return global::Monarchic.AgentProtocol.V1.StepLifecycleState.Unspecified; } }
+      get { if ((_hasBits0 & 2) != 0) { return stepState_; } else { return StepStateDefaultValue; } }
       set {
         _hasBits0 |= 2;
         stepState_ = value;
@@ -12066,11 +12364,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "lease_rejection_reason" field.</summary>
     public const int LeaseRejectionReasonFieldNumber = 12;
+    private readonly static global::Monarchic.AgentProtocol.V1.LeaseRejectionReason LeaseRejectionReasonDefaultValue = global::Monarchic.AgentProtocol.V1.LeaseRejectionReason.Unspecified;
+
     private global::Monarchic.AgentProtocol.V1.LeaseRejectionReason leaseRejectionReason_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Monarchic.AgentProtocol.V1.LeaseRejectionReason LeaseRejectionReason {
-      get { if ((_hasBits0 & 4) != 0) { return leaseRejectionReason_; } else { return global::Monarchic.AgentProtocol.V1.LeaseRejectionReason.Unspecified; } }
+      get { if ((_hasBits0 & 4) != 0) { return leaseRejectionReason_; } else { return LeaseRejectionReasonDefaultValue; } }
       set {
         _hasBits0 |= 4;
         leaseRejectionReason_ = value;
@@ -12367,7 +12667,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -12433,7 +12737,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -12495,6 +12803,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class LeaseStatus : pb::IMessage<LeaseStatus>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -12775,7 +13084,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -12819,7 +13132,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -12859,6 +13176,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CancellationIntent : pb::IMessage<CancellationIntent>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -13136,7 +13454,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -13177,7 +13499,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -13214,6 +13540,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class LeaseAssignment : pb::IMessage<LeaseAssignment>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -13494,7 +13821,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -13538,7 +13869,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -13578,6 +13913,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class RegisterRunnerRequest : pb::IMessage<RegisterRunnerRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -13855,7 +14191,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -13896,7 +14236,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -13933,6 +14277,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class RegisterRunnerResponse : pb::IMessage<RegisterRunnerResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -14236,7 +14581,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -14278,7 +14627,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -14316,6 +14669,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class HeartbeatRequest : pb::IMessage<HeartbeatRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -14579,7 +14933,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -14617,7 +14975,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -14651,6 +15013,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class HeartbeatResponse : pb::IMessage<HeartbeatResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -14914,7 +15277,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -14952,7 +15319,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -14986,6 +15357,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class AcquireLeaseRequest : pb::IMessage<AcquireLeaseRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -15278,7 +15650,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -15320,7 +15696,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -15358,6 +15738,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class AcquireLeaseResponse : pb::IMessage<AcquireLeaseResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -15653,7 +16034,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -15698,7 +16083,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -15739,6 +16128,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class RenewLeaseRequest : pb::IMessage<RenewLeaseRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -16016,7 +16406,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -16057,7 +16451,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -16094,6 +16492,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class RenewLeaseResponse : pb::IMessage<RenewLeaseResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -16418,7 +16817,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -16467,7 +16870,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -16512,6 +16919,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ReportStepStartedRequest : pb::IMessage<ReportStepStartedRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -16818,7 +17226,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -16863,7 +17275,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -16904,6 +17320,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ReportStepStartedResponse : pb::IMessage<ReportStepStartedResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -17181,7 +17598,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -17222,7 +17643,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -17259,6 +17684,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ReportStepProgressRequest : pb::IMessage<ReportStepProgressRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -17572,7 +17998,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -17621,7 +18051,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -17666,6 +18100,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ReportStepProgressResponse : pb::IMessage<ReportStepProgressResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -17961,7 +18396,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -18006,7 +18445,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -18047,6 +18490,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ReportStepOutcomeRequest : pb::IMessage<ReportStepOutcomeRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -18482,7 +18926,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -18553,7 +19001,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -18620,6 +19072,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ReportStepOutcomeResponse : pb::IMessage<ReportStepOutcomeResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -18897,7 +19350,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -18938,7 +19395,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -18975,6 +19436,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class AckCancellationRequest : pb::IMessage<AckCancellationRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -19087,11 +19549,13 @@ namespace Monarchic.AgentProtocol.V1 {
 
     /// <summary>Field number for the "message" field.</summary>
     public const int MessageFieldNumber = 6;
+    private readonly static string MessageDefaultValue = "";
+
     private string message_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Message {
-      get { return message_ ?? ""; }
+      get { return message_ ?? MessageDefaultValue; }
       set {
         message_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
@@ -19322,7 +19786,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -19371,7 +19839,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -19416,6 +19888,7 @@ namespace Monarchic.AgentProtocol.V1 {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class AckCancellationResponse : pb::IMessage<AckCancellationResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -19693,7 +20166,11 @@ namespace Monarchic.AgentProtocol.V1 {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -19734,7 +20211,11 @@ namespace Monarchic.AgentProtocol.V1 {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
