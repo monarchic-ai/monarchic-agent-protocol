@@ -119,6 +119,120 @@ class PlanStatus extends $pb.ProtobufEnum {
   const PlanStatus._(super.value, super.name);
 }
 
+class ArtifactKind extends $pb.ProtobufEnum {
+  static const ArtifactKind ARTIFACT_KIND_UNSPECIFIED =
+      ArtifactKind._(0, _omitEnumNames ? '' : 'ARTIFACT_KIND_UNSPECIFIED');
+  static const ArtifactKind ARTIFACT_KIND_PLAN =
+      ArtifactKind._(1, _omitEnumNames ? '' : 'ARTIFACT_KIND_PLAN');
+  static const ArtifactKind ARTIFACT_KIND_EXECUTION_RECEIPT = ArtifactKind._(
+      2, _omitEnumNames ? '' : 'ARTIFACT_KIND_EXECUTION_RECEIPT');
+  static const ArtifactKind ARTIFACT_KIND_VERIFICATION_RECEIPT = ArtifactKind._(
+      3, _omitEnumNames ? '' : 'ARTIFACT_KIND_VERIFICATION_RECEIPT');
+  static const ArtifactKind ARTIFACT_KIND_EVENT_LOG =
+      ArtifactKind._(4, _omitEnumNames ? '' : 'ARTIFACT_KIND_EVENT_LOG');
+  static const ArtifactKind ARTIFACT_KIND_DIGEST_MANIFEST =
+      ArtifactKind._(5, _omitEnumNames ? '' : 'ARTIFACT_KIND_DIGEST_MANIFEST');
+  static const ArtifactKind ARTIFACT_KIND_PROOF_MANIFEST =
+      ArtifactKind._(6, _omitEnumNames ? '' : 'ARTIFACT_KIND_PROOF_MANIFEST');
+  static const ArtifactKind ARTIFACT_KIND_PATCH =
+      ArtifactKind._(7, _omitEnumNames ? '' : 'ARTIFACT_KIND_PATCH');
+  static const ArtifactKind ARTIFACT_KIND_TEST_REPORT =
+      ArtifactKind._(8, _omitEnumNames ? '' : 'ARTIFACT_KIND_TEST_REPORT');
+  static const ArtifactKind ARTIFACT_KIND_BUILD_LOG =
+      ArtifactKind._(9, _omitEnumNames ? '' : 'ARTIFACT_KIND_BUILD_LOG');
+  static const ArtifactKind ARTIFACT_KIND_BUNDLE =
+      ArtifactKind._(10, _omitEnumNames ? '' : 'ARTIFACT_KIND_BUNDLE');
+  static const ArtifactKind ARTIFACT_KIND_CUSTOM =
+      ArtifactKind._(11, _omitEnumNames ? '' : 'ARTIFACT_KIND_CUSTOM');
+
+  static const $core.List<ArtifactKind> values = <ArtifactKind>[
+    ARTIFACT_KIND_UNSPECIFIED,
+    ARTIFACT_KIND_PLAN,
+    ARTIFACT_KIND_EXECUTION_RECEIPT,
+    ARTIFACT_KIND_VERIFICATION_RECEIPT,
+    ARTIFACT_KIND_EVENT_LOG,
+    ARTIFACT_KIND_DIGEST_MANIFEST,
+    ARTIFACT_KIND_PROOF_MANIFEST,
+    ARTIFACT_KIND_PATCH,
+    ARTIFACT_KIND_TEST_REPORT,
+    ARTIFACT_KIND_BUILD_LOG,
+    ARTIFACT_KIND_BUNDLE,
+    ARTIFACT_KIND_CUSTOM,
+  ];
+
+  static final $core.List<ArtifactKind?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 11);
+  static ArtifactKind? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const ArtifactKind._(super.value, super.name);
+}
+
+class PlanStepKind extends $pb.ProtobufEnum {
+  static const PlanStepKind PLAN_STEP_KIND_UNSPECIFIED =
+      PlanStepKind._(0, _omitEnumNames ? '' : 'PLAN_STEP_KIND_UNSPECIFIED');
+  static const PlanStepKind PLAN_STEP_KIND_ANALYSIS =
+      PlanStepKind._(1, _omitEnumNames ? '' : 'PLAN_STEP_KIND_ANALYSIS');
+  static const PlanStepKind PLAN_STEP_KIND_EXECUTION =
+      PlanStepKind._(2, _omitEnumNames ? '' : 'PLAN_STEP_KIND_EXECUTION');
+  static const PlanStepKind PLAN_STEP_KIND_VERIFICATION =
+      PlanStepKind._(3, _omitEnumNames ? '' : 'PLAN_STEP_KIND_VERIFICATION');
+  static const PlanStepKind PLAN_STEP_KIND_REVIEW =
+      PlanStepKind._(4, _omitEnumNames ? '' : 'PLAN_STEP_KIND_REVIEW');
+  static const PlanStepKind PLAN_STEP_KIND_MERGE =
+      PlanStepKind._(5, _omitEnumNames ? '' : 'PLAN_STEP_KIND_MERGE');
+  static const PlanStepKind PLAN_STEP_KIND_RELEASE =
+      PlanStepKind._(6, _omitEnumNames ? '' : 'PLAN_STEP_KIND_RELEASE');
+  static const PlanStepKind PLAN_STEP_KIND_CUSTOM =
+      PlanStepKind._(7, _omitEnumNames ? '' : 'PLAN_STEP_KIND_CUSTOM');
+
+  static const $core.List<PlanStepKind> values = <PlanStepKind>[
+    PLAN_STEP_KIND_UNSPECIFIED,
+    PLAN_STEP_KIND_ANALYSIS,
+    PLAN_STEP_KIND_EXECUTION,
+    PLAN_STEP_KIND_VERIFICATION,
+    PLAN_STEP_KIND_REVIEW,
+    PLAN_STEP_KIND_MERGE,
+    PLAN_STEP_KIND_RELEASE,
+    PLAN_STEP_KIND_CUSTOM,
+  ];
+
+  static final $core.List<PlanStepKind?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 7);
+  static PlanStepKind? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const PlanStepKind._(super.value, super.name);
+}
+
+class ReplanStrategy extends $pb.ProtobufEnum {
+  static const ReplanStrategy REPLAN_STRATEGY_UNSPECIFIED =
+      ReplanStrategy._(0, _omitEnumNames ? '' : 'REPLAN_STRATEGY_UNSPECIFIED');
+  static const ReplanStrategy REPLAN_STRATEGY_RETRY =
+      ReplanStrategy._(1, _omitEnumNames ? '' : 'REPLAN_STRATEGY_RETRY');
+  static const ReplanStrategy REPLAN_STRATEGY_REPAIR =
+      ReplanStrategy._(2, _omitEnumNames ? '' : 'REPLAN_STRATEGY_REPAIR');
+  static const ReplanStrategy REPLAN_STRATEGY_ESCALATE =
+      ReplanStrategy._(3, _omitEnumNames ? '' : 'REPLAN_STRATEGY_ESCALATE');
+  static const ReplanStrategy REPLAN_STRATEGY_BLOCK =
+      ReplanStrategy._(4, _omitEnumNames ? '' : 'REPLAN_STRATEGY_BLOCK');
+
+  static const $core.List<ReplanStrategy> values = <ReplanStrategy>[
+    REPLAN_STRATEGY_UNSPECIFIED,
+    REPLAN_STRATEGY_RETRY,
+    REPLAN_STRATEGY_REPAIR,
+    REPLAN_STRATEGY_ESCALATE,
+    REPLAN_STRATEGY_BLOCK,
+  ];
+
+  static final $core.List<ReplanStrategy?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 4);
+  static ReplanStrategy? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const ReplanStrategy._(super.value, super.name);
+}
+
 class LeaseLifecycleState extends $pb.ProtobufEnum {
   static const LeaseLifecycleState LEASE_LIFECYCLE_STATE_UNSPECIFIED =
       LeaseLifecycleState._(

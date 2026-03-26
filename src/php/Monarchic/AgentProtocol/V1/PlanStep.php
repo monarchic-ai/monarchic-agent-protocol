@@ -34,6 +34,26 @@ class PlanStep extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>optional .monarchic.agent_protocol.v1.FailureDetail failure = 5;</code>
      */
     protected $failure = null;
+    /**
+     * Generated from protobuf field <code>optional string task_id = 6;</code>
+     */
+    protected $task_id = null;
+    /**
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.PlanStepKind kind = 7;</code>
+     */
+    protected $kind = 0;
+    /**
+     * Generated from protobuf field <code>.google.protobuf.Struct inputs = 8;</code>
+     */
+    protected $inputs = null;
+    /**
+     * Generated from protobuf field <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>
+     */
+    private $expected_outputs;
+    /**
+     * Generated from protobuf field <code>repeated string policy_tags = 10;</code>
+     */
+    private $policy_tags;
 
     /**
      * Constructor.
@@ -46,6 +66,11 @@ class PlanStep extends \Google\Protobuf\Internal\Message
      *     @type string[] $depends_on
      *     @type \Google\Protobuf\Struct $task_template
      *     @type \Monarchic\AgentProtocol\V1\FailureDetail $failure
+     *     @type string $task_id
+     *     @type int $kind
+     *     @type \Google\Protobuf\Struct $inputs
+     *     @type \Monarchic\AgentProtocol\V1\StepOutputExpectation[] $expected_outputs
+     *     @type string[] $policy_tags
      * }
      */
     public function __construct($data = NULL) {
@@ -179,6 +204,136 @@ class PlanStep extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Monarchic\AgentProtocol\V1\FailureDetail::class);
         $this->failure = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string task_id = 6;</code>
+     * @return string
+     */
+    public function getTaskId()
+    {
+        return isset($this->task_id) ? $this->task_id : '';
+    }
+
+    public function hasTaskId()
+    {
+        return isset($this->task_id);
+    }
+
+    public function clearTaskId()
+    {
+        unset($this->task_id);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string task_id = 6;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setTaskId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->task_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.PlanStepKind kind = 7;</code>
+     * @return int
+     */
+    public function getKind()
+    {
+        return $this->kind;
+    }
+
+    /**
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.PlanStepKind kind = 7;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setKind($var)
+    {
+        GPBUtil::checkEnum($var, \Monarchic\AgentProtocol\V1\PlanStepKind::class);
+        $this->kind = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.google.protobuf.Struct inputs = 8;</code>
+     * @return \Google\Protobuf\Struct|null
+     */
+    public function getInputs()
+    {
+        return $this->inputs;
+    }
+
+    public function hasInputs()
+    {
+        return isset($this->inputs);
+    }
+
+    public function clearInputs()
+    {
+        unset($this->inputs);
+    }
+
+    /**
+     * Generated from protobuf field <code>.google.protobuf.Struct inputs = 8;</code>
+     * @param \Google\Protobuf\Struct $var
+     * @return $this
+     */
+    public function setInputs($var)
+    {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
+        $this->inputs = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>
+     * @return RepeatedField<\Monarchic\AgentProtocol\V1\StepOutputExpectation>
+     */
+    public function getExpectedOutputs()
+    {
+        return $this->expected_outputs;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>
+     * @param \Monarchic\AgentProtocol\V1\StepOutputExpectation[] $var
+     * @return $this
+     */
+    public function setExpectedOutputs($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Monarchic\AgentProtocol\V1\StepOutputExpectation::class);
+        $this->expected_outputs = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated string policy_tags = 10;</code>
+     * @return RepeatedField<string>
+     */
+    public function getPolicyTags()
+    {
+        return $this->policy_tags;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated string policy_tags = 10;</code>
+     * @param string[] $var
+     * @return $this
+     */
+    public function setPolicyTags($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
+        $this->policy_tags = $arr;
 
         return $this;
     }
