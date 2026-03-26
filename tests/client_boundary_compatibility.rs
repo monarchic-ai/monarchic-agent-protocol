@@ -68,14 +68,14 @@ struct LegacyExecutionReceipt {
     generated_at_ms: u64,
 }
 
-fn value_to_btree_map(value: Value) -> BTreeMap<String, Value> {
+fn value_to_btree_map(value: Value) -> Result<BTreeMap<String, Value>, String> {
     match value {
-        Value::Object(map) => map.into_iter().collect(),
-        _ => BTreeMap::new(),
+        Value::Object(map) => Ok(map.into_iter().collect()),
+        other => Err(format!("legacy task_template must be an object, got {other}")),
     }
 }
 
-fn upgrade_legacy_plan(legacy: LegacyPlan) -> Plan {
+fn upgrade_legacy_plan(legacy: LegacyPlan) -> Result<Plan, String> {
     let _ = (
         &legacy.contract_version,
         &legacy.objective,
@@ -87,7 +87,7 @@ fn upgrade_legacy_plan(legacy: LegacyPlan) -> Plan {
     if let Some(role) = &legacy.provenance.role {
         let _ = (&role.role_name, &role.template_hash, &role.render_hash);
     }
-    Plan {
+    Ok(Plan {
         plan_id: legacy.plan_id.clone(),
         intent_id: legacy
             .run_id
@@ -99,51 +99,57 @@ fn upgrade_legacy_plan(legacy: LegacyPlan) -> Plan {
         steps: legacy
             .steps
             .into_iter()
-            .map(|step| PlanStep {
-                step_id: step.step_id.clone(),
-                task_id: step.step_id,
-                kind: PlanStepKind::Custom,
-                description: step.description,
-                dependencies: step.depends_on,
-                inputs: value_to_btree_map(step.task_template),
-                expected_outputs: Vec::new(),
-                policy_tags: vec![String::from("legacy-compat")],
+            .map(|step| {
+                Result::<PlanStep, String>::Ok(PlanStep {
+                    step_id: step.step_id.clone(),
+                    task_id: step.step_id,
+                    kind: PlanStepKind::Custom,
+                    description: step.description,
+                    dependencies: step.depends_on,
+                    inputs: value_to_btree_map(step.task_template)?,
+                    expected_outputs: Vec::new(),
+                    policy_tags: vec![String::from("legacy-compat")],
+                })
             })
-            .collect(),
+            .collect::<Result<Vec<_>, _>>()?,
         replan_policy: ReplanPolicy {
             strategy: ReplanStrategy::Repair,
             max_attempts: 1,
         },
         input_digest: format!("legacy-plan:{}", legacy.plan_id),
-    }
+    })
 }
 
-fn map_legacy_execution_status(status: &str) -> ExecutionStatus {
+fn map_legacy_execution_status(status: &str) -> Result<ExecutionStatus, String> {
     match status {
-        "complete" => ExecutionStatus::Completed,
-        "failed" => ExecutionStatus::Failed,
-        "cancelled" => ExecutionStatus::Cancelled,
-        "blocked" => ExecutionStatus::Blocked,
-        "running" => ExecutionStatus::Running,
-        _ => ExecutionStatus::Pending,
+        "complete" => Ok(ExecutionStatus::Completed),
+        "failed" => Ok(ExecutionStatus::Failed),
+        "cancelled" => Ok(ExecutionStatus::Cancelled),
+        "blocked" => Ok(ExecutionStatus::Blocked),
+        "running" => Ok(ExecutionStatus::Running),
+        other => Err(format!("unknown legacy execution status '{other}'")),
     }
 }
 
-fn upgrade_legacy_execution_receipt(legacy: LegacyExecutionReceipt) -> ExecutionReceipt {
+fn upgrade_legacy_execution_receipt(legacy: LegacyExecutionReceipt) -> Result<ExecutionReceipt, String> {
     let _ = &legacy.contract_version;
-    let primary_task = legacy
-        .task_hashes
-        .first()
-        .cloned()
-        .unwrap_or_else(|| String::from("legacy-task"));
-    ExecutionReceipt {
+    let primary_task = match legacy.task_hashes.as_slice() {
+        [] => String::from("legacy-task"),
+        [task_hash] => task_hash.clone(),
+        _ => {
+            return Err(String::from(
+                "legacy execution receipt contains multiple task hashes and cannot be losslessly upgraded",
+            ))
+        }
+    };
+    Ok(ExecutionReceipt {
         receipt_id: format!("legacy-receipt:{}:{}", legacy.plan_id, legacy.run_id),
         plan_id: legacy.plan_id.clone(),
         step_id: String::from("legacy-step"),
         task_id: primary_task,
         runner_id: String::from("legacy-runner"),
         contract_version: String::from("v1"),
-        status: map_legacy_execution_status(&legacy.status),
+        status: map_legacy_execution_status(&legacy.status)?,
         started_at: legacy.generated_at_ms,
         finished_at: legacy.generated_at_ms,
         artifact_descriptors: legacy
@@ -162,14 +168,14 @@ fn upgrade_legacy_execution_receipt(legacy: LegacyExecutionReceipt) -> Execution
             .collect(),
         event_digest: legacy.plan_hash,
         output_digest: legacy.outcome_hash,
-    }
+    })
 }
 
 #[test]
 fn upgrades_legacy_runtime_plan_fixture() {
     let legacy: LegacyPlan =
         serde_json::from_str(&read_fixture("legacy_plan.runtime.json")).expect("legacy plan");
-    let upgraded = upgrade_legacy_plan(legacy);
+    let upgraded = upgrade_legacy_plan(legacy).expect("upgrade legacy plan");
 
     assert_eq!(upgraded.plan_id, "legacy-plan-123");
     assert_eq!(upgraded.intent_id, "legacy-run-123");
@@ -184,7 +190,8 @@ fn upgrades_legacy_runtime_execution_receipt_fixture() {
     let legacy: LegacyExecutionReceipt =
         serde_json::from_str(&read_fixture("legacy_execution_receipt.runtime.json"))
             .expect("legacy receipt");
-    let upgraded = upgrade_legacy_execution_receipt(legacy);
+    let upgraded =
+        upgrade_legacy_execution_receipt(legacy).expect("upgrade legacy execution receipt");
 
     assert_eq!(upgraded.plan_id, "legacy-plan-123");
     assert_eq!(upgraded.contract_version, "v1");
@@ -192,4 +199,56 @@ fn upgrades_legacy_runtime_execution_receipt_fixture() {
     assert_eq!(upgraded.artifact_descriptors.len(), 1);
     assert_eq!(upgraded.event_digest, "sha256:legacy-plan");
     assert_eq!(upgraded.output_digest, "sha256:legacy-output");
+}
+
+#[test]
+fn legacy_execution_receipt_rejects_unknown_status() {
+    let error = map_legacy_execution_status("mystery").expect_err("unknown status should fail");
+    assert!(error.contains("unknown legacy execution status"));
+}
+
+#[test]
+fn legacy_execution_receipt_rejects_multiple_task_hashes() {
+    let error = upgrade_legacy_execution_receipt(LegacyExecutionReceipt {
+        contract_version: String::from("v0"),
+        run_id: String::from("legacy-run-123"),
+        plan_id: String::from("legacy-plan-123"),
+        plan_hash: String::from("sha256:legacy-plan"),
+        task_hashes: vec![String::from("task-a"), String::from("task-b")],
+        artifact_hashes: vec![String::from("sha256:artifact")],
+        outcome_hash: String::from("sha256:legacy-output"),
+        status: String::from("complete"),
+        generated_at_ms: 1,
+    })
+    .expect_err("multiple task hashes should fail");
+
+    assert!(error.contains("multiple task hashes"));
+}
+
+#[test]
+fn legacy_plan_rejects_non_object_task_template() {
+    let error = upgrade_legacy_plan(LegacyPlan {
+        contract_version: String::from("v0"),
+        plan_id: String::from("legacy-plan-123"),
+        run_id: Some(String::from("legacy-run-123")),
+        objective: String::from("legacy objective"),
+        status: String::from("complete"),
+        created_at_ms: 1,
+        updated_at_ms: 1,
+        provenance: LegacyPlanProvenance {
+            generated_by: String::from("legacy-planner"),
+            policy_profile: None,
+            generated_at_ms: 1,
+            role: None,
+        },
+        steps: vec![LegacyPlanStep {
+            step_id: String::from("step-1"),
+            description: String::from("desc"),
+            depends_on: Vec::new(),
+            task_template: Value::String(String::from("bad")),
+        }],
+    })
+    .expect_err("non-object task template should fail");
+
+    assert!(error.contains("task_template must be an object"));
 }
