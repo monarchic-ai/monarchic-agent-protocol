@@ -60,6 +60,8 @@ pub enum RecoveryEventKind {
     StateReloaded,
     LeaseRestored,
     LeaseRejected,
+    CancellationRequested,
+    CancellationAcknowledged,
     StepRequeued,
     StepBlocked,
     RunRecovered,

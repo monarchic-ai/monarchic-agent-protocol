@@ -43,6 +43,14 @@ public enum RecoveryEventKind
    * <code>RECOVERY_EVENT_RUN_RECOVERED = 7;</code>
    */
   RECOVERY_EVENT_RUN_RECOVERED(7),
+  /**
+   * <code>RECOVERY_EVENT_CANCELLATION_REQUESTED = 8;</code>
+   */
+  RECOVERY_EVENT_CANCELLATION_REQUESTED(8),
+  /**
+   * <code>RECOVERY_EVENT_CANCELLATION_ACKNOWLEDGED = 9;</code>
+   */
+  RECOVERY_EVENT_CANCELLATION_ACKNOWLEDGED(9),
   UNRECOGNIZED(-1),
   ;
 
@@ -87,6 +95,14 @@ public enum RecoveryEventKind
    * <code>RECOVERY_EVENT_RUN_RECOVERED = 7;</code>
    */
   public static final int RECOVERY_EVENT_RUN_RECOVERED_VALUE = 7;
+  /**
+   * <code>RECOVERY_EVENT_CANCELLATION_REQUESTED = 8;</code>
+   */
+  public static final int RECOVERY_EVENT_CANCELLATION_REQUESTED_VALUE = 8;
+  /**
+   * <code>RECOVERY_EVENT_CANCELLATION_ACKNOWLEDGED = 9;</code>
+   */
+  public static final int RECOVERY_EVENT_CANCELLATION_ACKNOWLEDGED_VALUE = 9;
 
 
   public final int getNumber() {
@@ -121,6 +137,8 @@ public enum RecoveryEventKind
       case 5: return RECOVERY_EVENT_STEP_REQUEUED;
       case 6: return RECOVERY_EVENT_STEP_BLOCKED;
       case 7: return RECOVERY_EVENT_RUN_RECOVERED;
+      case 8: return RECOVERY_EVENT_CANCELLATION_REQUESTED;
+      case 9: return RECOVERY_EVENT_CANCELLATION_ACKNOWLEDGED;
       default: return null;
     }
   }
