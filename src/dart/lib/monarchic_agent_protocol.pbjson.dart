@@ -284,6 +284,43 @@ final $typed_data.Uint8List rerunTriggerDescriptor = $convert.base64Decode(
     'CgxSZXJ1blRyaWdnZXISHQoZUkVSVU5fVFJJR0dFUl9VTlNQRUNJRklFRBAAEiEKHVJFUlVOX1'
     'RSSUdHRVJfUkVWSUVXX0RFQ0lTSU9OEAESGAoUUkVSVU5fVFJJR0dFUl9NQU5VQUwQAg==');
 
+@$core.Deprecated('Use rerunSelectionStrategyDescriptor instead')
+const RerunSelectionStrategy$json = {
+  '1': 'RerunSelectionStrategy',
+  '2': [
+    {'1': 'RERUN_SELECTION_STRATEGY_UNSPECIFIED', '2': 0},
+    {'1': 'RERUN_SELECTION_STRATEGY_TASK_IDS', '2': 1},
+    {'1': 'RERUN_SELECTION_STRATEGY_STEP_IDS', '2': 2},
+    {'1': 'RERUN_SELECTION_STRATEGY_PATHS', '2': 3},
+  ],
+};
+
+/// Descriptor for `RerunSelectionStrategy`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List rerunSelectionStrategyDescriptor = $convert.base64Decode(
+    'ChZSZXJ1blNlbGVjdGlvblN0cmF0ZWd5EigKJFJFUlVOX1NFTEVDVElPTl9TVFJBVEVHWV9VTl'
+    'NQRUNJRklFRBAAEiUKIVJFUlVOX1NFTEVDVElPTl9TVFJBVEVHWV9UQVNLX0lEUxABEiUKIVJF'
+    'UlVOX1NFTEVDVElPTl9TVFJBVEVHWV9TVEVQX0lEUxACEiIKHlJFUlVOX1NFTEVDVElPTl9TVF'
+    'JBVEVHWV9QQVRIUxAD');
+
+@$core.Deprecated('Use rerunExecutionStatusDescriptor instead')
+const RerunExecutionStatus$json = {
+  '1': 'RerunExecutionStatus',
+  '2': [
+    {'1': 'RERUN_EXECUTION_STATUS_UNSPECIFIED', '2': 0},
+    {'1': 'RERUN_EXECUTION_STATUS_PENDING', '2': 1},
+    {'1': 'RERUN_EXECUTION_STATUS_SUCCEEDED', '2': 2},
+    {'1': 'RERUN_EXECUTION_STATUS_FAILED', '2': 3},
+    {'1': 'RERUN_EXECUTION_STATUS_PARTIAL', '2': 4},
+  ],
+};
+
+/// Descriptor for `RerunExecutionStatus`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List rerunExecutionStatusDescriptor = $convert.base64Decode(
+    'ChRSZXJ1bkV4ZWN1dGlvblN0YXR1cxImCiJSRVJVTl9FWEVDVVRJT05fU1RBVFVTX1VOU1BFQ0'
+    'lGSUVEEAASIgoeUkVSVU5fRVhFQ1VUSU9OX1NUQVRVU19QRU5ESU5HEAESJAogUkVSVU5fRVhF'
+    'Q1VUSU9OX1NUQVRVU19TVUNDRUVERUQQAhIhCh1SRVJVTl9FWEVDVVRJT05fU1RBVFVTX0ZBSU'
+    'xFRBADEiIKHlJFUlVOX0VYRUNVVElPTl9TVEFUVVNfUEFSVElBTBAE');
+
 @$core.Deprecated('Use leaseLifecycleStateDescriptor instead')
 const LeaseLifecycleState$json = {
   '1': 'LeaseLifecycleState',
@@ -1519,6 +1556,78 @@ final $typed_data.Uint8List rerunScopeDescriptor = $convert.base64Decode(
     'IAMoCVIHdGFza0lkcxIZCghzdGVwX2lkcxgHIAMoCVIHc3RlcElkcxIUCgVwYXRocxgIIAMoCV'
     'IFcGF0aHMSHQoKY3JlYXRlZF9hdBgJIAEoBFIJY3JlYXRlZEF0QhUKE19zb3VyY2VfZGVjaXNp'
     'b25faWQ=');
+
+@$core.Deprecated('Use rerunExecutionResultDescriptor instead')
+const RerunExecutionResult$json = {
+  '1': 'RerunExecutionResult',
+  '2': [
+    {'1': 'result_id', '3': 1, '4': 1, '5': 9, '10': 'resultId'},
+    {'1': 'plan_id', '3': 2, '4': 1, '5': 9, '10': 'planId'},
+    {'1': 'rerun_scope_id', '3': 3, '4': 1, '5': 9, '10': 'rerunScopeId'},
+    {
+      '1': 'source_decision_id',
+      '3': 4,
+      '4': 1,
+      '5': 9,
+      '9': 0,
+      '10': 'sourceDecisionId',
+      '17': true
+    },
+    {
+      '1': 'trigger',
+      '3': 5,
+      '4': 1,
+      '5': 14,
+      '6': '.monarchic.agent_protocol.v1.RerunTrigger',
+      '10': 'trigger'
+    },
+    {
+      '1': 'matched_strategy',
+      '3': 6,
+      '4': 1,
+      '5': 14,
+      '6': '.monarchic.agent_protocol.v1.RerunSelectionStrategy',
+      '10': 'matchedStrategy'
+    },
+    {'1': 'root_tasks', '3': 7, '4': 3, '5': 9, '10': 'rootTasks'},
+    {'1': 'selected_tasks', '3': 8, '4': 3, '5': 9, '10': 'selectedTasks'},
+    {'1': 'matched_paths', '3': 9, '4': 3, '5': 9, '10': 'matchedPaths'},
+    {'1': 'reason', '3': 10, '4': 1, '5': 9, '10': 'reason'},
+    {
+      '1': 'status',
+      '3': 11,
+      '4': 1,
+      '5': 14,
+      '6': '.monarchic.agent_protocol.v1.RerunExecutionStatus',
+      '10': 'status'
+    },
+    {'1': 'completed_tasks', '3': 12, '4': 3, '5': 9, '10': 'completedTasks'},
+    {'1': 'failed_tasks', '3': 13, '4': 3, '5': 9, '10': 'failedTasks'},
+    {'1': 'skipped_tasks', '3': 14, '4': 3, '5': 9, '10': 'skippedTasks'},
+    {'1': 'created_at', '3': 15, '4': 1, '5': 4, '10': 'createdAt'},
+    {'1': 'updated_at', '3': 16, '4': 1, '5': 4, '10': 'updatedAt'},
+  ],
+  '8': [
+    {'1': '_source_decision_id'},
+  ],
+};
+
+/// Descriptor for `RerunExecutionResult`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List rerunExecutionResultDescriptor = $convert.base64Decode(
+    'ChRSZXJ1bkV4ZWN1dGlvblJlc3VsdBIbCglyZXN1bHRfaWQYASABKAlSCHJlc3VsdElkEhcKB3'
+    'BsYW5faWQYAiABKAlSBnBsYW5JZBIkCg5yZXJ1bl9zY29wZV9pZBgDIAEoCVIMcmVydW5TY29w'
+    'ZUlkEjEKEnNvdXJjZV9kZWNpc2lvbl9pZBgEIAEoCUgAUhBzb3VyY2VEZWNpc2lvbklkiAEBEk'
+    'MKB3RyaWdnZXIYBSABKA4yKS5tb25hcmNoaWMuYWdlbnRfcHJvdG9jb2wudjEuUmVydW5Ucmln'
+    'Z2VyUgd0cmlnZ2VyEl4KEG1hdGNoZWRfc3RyYXRlZ3kYBiABKA4yMy5tb25hcmNoaWMuYWdlbn'
+    'RfcHJvdG9jb2wudjEuUmVydW5TZWxlY3Rpb25TdHJhdGVneVIPbWF0Y2hlZFN0cmF0ZWd5Eh0K'
+    'CnJvb3RfdGFza3MYByADKAlSCXJvb3RUYXNrcxIlCg5zZWxlY3RlZF90YXNrcxgIIAMoCVINc2'
+    'VsZWN0ZWRUYXNrcxIjCg1tYXRjaGVkX3BhdGhzGAkgAygJUgxtYXRjaGVkUGF0aHMSFgoGcmVh'
+    'c29uGAogASgJUgZyZWFzb24SSQoGc3RhdHVzGAsgASgOMjEubW9uYXJjaGljLmFnZW50X3Byb3'
+    'RvY29sLnYxLlJlcnVuRXhlY3V0aW9uU3RhdHVzUgZzdGF0dXMSJwoPY29tcGxldGVkX3Rhc2tz'
+    'GAwgAygJUg5jb21wbGV0ZWRUYXNrcxIhCgxmYWlsZWRfdGFza3MYDSADKAlSC2ZhaWxlZFRhc2'
+    'tzEiMKDXNraXBwZWRfdGFza3MYDiADKAlSDHNraXBwZWRUYXNrcxIdCgpjcmVhdGVkX2F0GA8g'
+    'ASgEUgljcmVhdGVkQXQSHQoKdXBkYXRlZF9hdBgQIAEoBFIJdXBkYXRlZEF0QhUKE19zb3VyY2'
+    'VfZGVjaXNpb25faWQ=');
 
 @$core.Deprecated('Use taskDescriptor instead')
 const Task$json = {

@@ -463,6 +463,69 @@ class RerunTrigger extends $pb.ProtobufEnum {
   const RerunTrigger._(super.value, super.name);
 }
 
+class RerunSelectionStrategy extends $pb.ProtobufEnum {
+  static const RerunSelectionStrategy RERUN_SELECTION_STRATEGY_UNSPECIFIED =
+      RerunSelectionStrategy._(
+          0, _omitEnumNames ? '' : 'RERUN_SELECTION_STRATEGY_UNSPECIFIED');
+  static const RerunSelectionStrategy RERUN_SELECTION_STRATEGY_TASK_IDS =
+      RerunSelectionStrategy._(
+          1, _omitEnumNames ? '' : 'RERUN_SELECTION_STRATEGY_TASK_IDS');
+  static const RerunSelectionStrategy RERUN_SELECTION_STRATEGY_STEP_IDS =
+      RerunSelectionStrategy._(
+          2, _omitEnumNames ? '' : 'RERUN_SELECTION_STRATEGY_STEP_IDS');
+  static const RerunSelectionStrategy RERUN_SELECTION_STRATEGY_PATHS =
+      RerunSelectionStrategy._(
+          3, _omitEnumNames ? '' : 'RERUN_SELECTION_STRATEGY_PATHS');
+
+  static const $core.List<RerunSelectionStrategy> values =
+      <RerunSelectionStrategy>[
+    RERUN_SELECTION_STRATEGY_UNSPECIFIED,
+    RERUN_SELECTION_STRATEGY_TASK_IDS,
+    RERUN_SELECTION_STRATEGY_STEP_IDS,
+    RERUN_SELECTION_STRATEGY_PATHS,
+  ];
+
+  static final $core.List<RerunSelectionStrategy?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 3);
+  static RerunSelectionStrategy? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const RerunSelectionStrategy._(super.value, super.name);
+}
+
+class RerunExecutionStatus extends $pb.ProtobufEnum {
+  static const RerunExecutionStatus RERUN_EXECUTION_STATUS_UNSPECIFIED =
+      RerunExecutionStatus._(
+          0, _omitEnumNames ? '' : 'RERUN_EXECUTION_STATUS_UNSPECIFIED');
+  static const RerunExecutionStatus RERUN_EXECUTION_STATUS_PENDING =
+      RerunExecutionStatus._(
+          1, _omitEnumNames ? '' : 'RERUN_EXECUTION_STATUS_PENDING');
+  static const RerunExecutionStatus RERUN_EXECUTION_STATUS_SUCCEEDED =
+      RerunExecutionStatus._(
+          2, _omitEnumNames ? '' : 'RERUN_EXECUTION_STATUS_SUCCEEDED');
+  static const RerunExecutionStatus RERUN_EXECUTION_STATUS_FAILED =
+      RerunExecutionStatus._(
+          3, _omitEnumNames ? '' : 'RERUN_EXECUTION_STATUS_FAILED');
+  static const RerunExecutionStatus RERUN_EXECUTION_STATUS_PARTIAL =
+      RerunExecutionStatus._(
+          4, _omitEnumNames ? '' : 'RERUN_EXECUTION_STATUS_PARTIAL');
+
+  static const $core.List<RerunExecutionStatus> values = <RerunExecutionStatus>[
+    RERUN_EXECUTION_STATUS_UNSPECIFIED,
+    RERUN_EXECUTION_STATUS_PENDING,
+    RERUN_EXECUTION_STATUS_SUCCEEDED,
+    RERUN_EXECUTION_STATUS_FAILED,
+    RERUN_EXECUTION_STATUS_PARTIAL,
+  ];
+
+  static final $core.List<RerunExecutionStatus?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 4);
+  static RerunExecutionStatus? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const RerunExecutionStatus._(super.value, super.name);
+}
+
 class LeaseLifecycleState extends $pb.ProtobufEnum {
   static const LeaseLifecycleState LEASE_LIFECYCLE_STATE_UNSPECIFIED =
       LeaseLifecycleState._(
