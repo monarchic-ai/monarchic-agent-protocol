@@ -2,7 +2,7 @@
   "version": "v1",
   "scope": "local",
   "artifact_count": 266,
-  "combined_sha256": "e3a96a392cb0a6da522cbbe2e15a2f7a692f98931377fcd653dbbd47b7109951",
+  "combined_sha256": "ffe882521cde37aa2e9b78e86fe7a9118c8c4e97fdaad1d1605af0b7ead57a68",
   "artifacts": [
     {
       "path": "Cargo.lock",
@@ -118,7 +118,7 @@
     },
     {
       "path": "schemas/v1/monarchic_agent_protocol.proto",
-      "sha256": "a2279d1febe8a4f18dd32b9240dd788f8e30ca63dc50e0533cdc94eb98cab069"
+      "sha256": "4f6249780934538bd1b582125cb0e32be95f4426895b36030a949be0341a4a84"
     },
     {
       "path": "schemas/v1/objective_spec.json",
@@ -1046,7 +1046,7 @@
     },
     {
       "path": "src/rust/lib.rs",
-      "sha256": "bc894253fd237fcc7ad26a39e1a3aa3a124adc652894879e0f3201b5a650840b"
+      "sha256": "1c12e453bf760d0fda08d7fc9f2cf0156b53f4460d7b3fc66240330aeb2b98d1"
     },
     {
       "path": "src/rust/plan.rs",
@@ -1058,7 +1058,7 @@
     },
     {
       "path": "src/rust/review.rs",
-      "sha256": "c2fb49264d0fee026546b887a0de77e9192638a1befcb56cf2a653eded0b871f"
+      "sha256": "a6ec93d04ba851c060e9982af50a5ec9ab43eba30246cead7252381a3a6c6ddf"
     },
     {
       "path": "src/rust/version.rs",
