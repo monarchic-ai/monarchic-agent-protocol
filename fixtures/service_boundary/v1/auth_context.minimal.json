@@ -1,0 +1,21 @@
+{
+  "contract_version": "v1",
+  "auth_context_id": "auth-ctx-123",
+  "principal": {
+    "principal_id": "principal-123",
+    "provider": "monarchic-ops",
+    "display_name": "automation-bot"
+  },
+  "tenant": {
+    "tenant_id": "tenant-123",
+    "display_name": "default-tenant"
+  },
+  "mechanism": "shared_secret",
+  "credential_id": "runner-control-secret-v1",
+  "scopes": [
+    "control.acquire",
+    "control.resume"
+  ],
+  "issued_at": 1742870410000,
+  "expires_at": 1742874010000
+}

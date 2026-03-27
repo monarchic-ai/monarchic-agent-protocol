@@ -216,6 +216,32 @@ private static final long serialVersionUID = 0L;
     return extensions_ == null ? com.google.protobuf.Struct.getDefaultInstance() : extensions_;
   }
 
+  public static final int AUTH_CONTEXT_FIELD_NUMBER = 6;
+  private ai.monarchic.agent_protocol.v1.AuthContext authContext_;
+  /**
+   * <code>optional .monarchic.agent_protocol.v1.AuthContext auth_context = 6;</code>
+   * @return Whether the authContext field is set.
+   */
+  @java.lang.Override
+  public boolean hasAuthContext() {
+    return ((bitField0_ & 0x00000004) != 0);
+  }
+  /**
+   * <code>optional .monarchic.agent_protocol.v1.AuthContext auth_context = 6;</code>
+   * @return The authContext.
+   */
+  @java.lang.Override
+  public ai.monarchic.agent_protocol.v1.AuthContext getAuthContext() {
+    return authContext_ == null ? ai.monarchic.agent_protocol.v1.AuthContext.getDefaultInstance() : authContext_;
+  }
+  /**
+   * <code>optional .monarchic.agent_protocol.v1.AuthContext auth_context = 6;</code>
+   */
+  @java.lang.Override
+  public ai.monarchic.agent_protocol.v1.AuthContextOrBuilder getAuthContextOrBuilder() {
+    return authContext_ == null ? ai.monarchic.agent_protocol.v1.AuthContext.getDefaultInstance() : authContext_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -245,6 +271,9 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000002) != 0)) {
       output.writeMessage(5, getExtensions());
     }
+    if (((bitField0_ & 0x00000004) != 0)) {
+      output.writeMessage(6, getAuthContext());
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -270,6 +299,10 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000002) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, getExtensions());
+    }
+    if (((bitField0_ & 0x00000004) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(6, getAuthContext());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -302,6 +335,11 @@ private static final long serialVersionUID = 0L;
       if (!getExtensions()
           .equals(other.getExtensions())) return false;
     }
+    if (hasAuthContext() != other.hasAuthContext()) return false;
+    if (hasAuthContext()) {
+      if (!getAuthContext()
+          .equals(other.getAuthContext())) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -326,6 +364,10 @@ private static final long serialVersionUID = 0L;
     if (hasExtensions()) {
       hash = (37 * hash) + EXTENSIONS_FIELD_NUMBER;
       hash = (53 * hash) + getExtensions().hashCode();
+    }
+    if (hasAuthContext()) {
+      hash = (37 * hash) + AUTH_CONTEXT_FIELD_NUMBER;
+      hash = (53 * hash) + getAuthContext().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -459,6 +501,7 @@ private static final long serialVersionUID = 0L;
               .alwaysUseFieldBuilders) {
         internalGetLeaseFieldBuilder();
         internalGetExtensionsFieldBuilder();
+        internalGetAuthContextFieldBuilder();
       }
     }
     @java.lang.Override
@@ -477,6 +520,11 @@ private static final long serialVersionUID = 0L;
       if (extensionsBuilder_ != null) {
         extensionsBuilder_.dispose();
         extensionsBuilder_ = null;
+      }
+      authContext_ = null;
+      if (authContextBuilder_ != null) {
+        authContextBuilder_.dispose();
+        authContextBuilder_ = null;
       }
       return this;
     }
@@ -533,6 +581,12 @@ private static final long serialVersionUID = 0L;
             : extensionsBuilder_.build();
         to_bitField0_ |= 0x00000002;
       }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.authContext_ = authContextBuilder_ == null
+            ? authContext_
+            : authContextBuilder_.build();
+        to_bitField0_ |= 0x00000004;
+      }
       result.bitField0_ |= to_bitField0_;
     }
 
@@ -568,6 +622,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasExtensions()) {
         mergeExtensions(other.getExtensions());
+      }
+      if (other.hasAuthContext()) {
+        mergeAuthContext(other.getAuthContext());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -624,6 +681,13 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000010;
               break;
             } // case 42
+            case 50: {
+              input.readMessage(
+                  internalGetAuthContextFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -1097,6 +1161,127 @@ private static final long serialVersionUID = 0L;
         extensions_ = null;
       }
       return extensionsBuilder_;
+    }
+
+    private ai.monarchic.agent_protocol.v1.AuthContext authContext_;
+    private com.google.protobuf.SingleFieldBuilder<
+        ai.monarchic.agent_protocol.v1.AuthContext, ai.monarchic.agent_protocol.v1.AuthContext.Builder, ai.monarchic.agent_protocol.v1.AuthContextOrBuilder> authContextBuilder_;
+    /**
+     * <code>optional .monarchic.agent_protocol.v1.AuthContext auth_context = 6;</code>
+     * @return Whether the authContext field is set.
+     */
+    public boolean hasAuthContext() {
+      return ((bitField0_ & 0x00000020) != 0);
+    }
+    /**
+     * <code>optional .monarchic.agent_protocol.v1.AuthContext auth_context = 6;</code>
+     * @return The authContext.
+     */
+    public ai.monarchic.agent_protocol.v1.AuthContext getAuthContext() {
+      if (authContextBuilder_ == null) {
+        return authContext_ == null ? ai.monarchic.agent_protocol.v1.AuthContext.getDefaultInstance() : authContext_;
+      } else {
+        return authContextBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>optional .monarchic.agent_protocol.v1.AuthContext auth_context = 6;</code>
+     */
+    public Builder setAuthContext(ai.monarchic.agent_protocol.v1.AuthContext value) {
+      if (authContextBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        authContext_ = value;
+      } else {
+        authContextBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional .monarchic.agent_protocol.v1.AuthContext auth_context = 6;</code>
+     */
+    public Builder setAuthContext(
+        ai.monarchic.agent_protocol.v1.AuthContext.Builder builderForValue) {
+      if (authContextBuilder_ == null) {
+        authContext_ = builderForValue.build();
+      } else {
+        authContextBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional .monarchic.agent_protocol.v1.AuthContext auth_context = 6;</code>
+     */
+    public Builder mergeAuthContext(ai.monarchic.agent_protocol.v1.AuthContext value) {
+      if (authContextBuilder_ == null) {
+        if (((bitField0_ & 0x00000020) != 0) &&
+          authContext_ != null &&
+          authContext_ != ai.monarchic.agent_protocol.v1.AuthContext.getDefaultInstance()) {
+          getAuthContextBuilder().mergeFrom(value);
+        } else {
+          authContext_ = value;
+        }
+      } else {
+        authContextBuilder_.mergeFrom(value);
+      }
+      if (authContext_ != null) {
+        bitField0_ |= 0x00000020;
+        onChanged();
+      }
+      return this;
+    }
+    /**
+     * <code>optional .monarchic.agent_protocol.v1.AuthContext auth_context = 6;</code>
+     */
+    public Builder clearAuthContext() {
+      bitField0_ = (bitField0_ & ~0x00000020);
+      authContext_ = null;
+      if (authContextBuilder_ != null) {
+        authContextBuilder_.dispose();
+        authContextBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional .monarchic.agent_protocol.v1.AuthContext auth_context = 6;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.AuthContext.Builder getAuthContextBuilder() {
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return internalGetAuthContextFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>optional .monarchic.agent_protocol.v1.AuthContext auth_context = 6;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.AuthContextOrBuilder getAuthContextOrBuilder() {
+      if (authContextBuilder_ != null) {
+        return authContextBuilder_.getMessageOrBuilder();
+      } else {
+        return authContext_ == null ?
+            ai.monarchic.agent_protocol.v1.AuthContext.getDefaultInstance() : authContext_;
+      }
+    }
+    /**
+     * <code>optional .monarchic.agent_protocol.v1.AuthContext auth_context = 6;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        ai.monarchic.agent_protocol.v1.AuthContext, ai.monarchic.agent_protocol.v1.AuthContext.Builder, ai.monarchic.agent_protocol.v1.AuthContextOrBuilder> 
+        internalGetAuthContextFieldBuilder() {
+      if (authContextBuilder_ == null) {
+        authContextBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            ai.monarchic.agent_protocol.v1.AuthContext, ai.monarchic.agent_protocol.v1.AuthContext.Builder, ai.monarchic.agent_protocol.v1.AuthContextOrBuilder>(
+                getAuthContext(),
+                getParentForChildren(),
+                isClean());
+        authContext_ = null;
+      }
+      return authContextBuilder_;
     }
 
     // @@protoc_insertion_point(builder_scope:monarchic.agent_protocol.v1.RenewLeaseRequest)

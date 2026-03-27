@@ -1,0 +1,20 @@
+{
+  "contract_version": "v1",
+  "usage_id": "usage-123",
+  "principal": {
+    "principal_id": "principal-123",
+    "provider": "monarchic-orchestrator",
+    "display_name": "control-plane"
+  },
+  "tenant": {
+    "tenant_id": "tenant-123",
+    "display_name": "default-tenant"
+  },
+  "run_id": "run-123",
+  "plan_id": "plan-123",
+  "category": "control_plane",
+  "metric_name": "heartbeat_requests",
+  "quantity": 4,
+  "unit": "requests",
+  "recorded_at": 1742870412000
+}
