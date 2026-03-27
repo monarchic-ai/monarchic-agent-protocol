@@ -58,3 +58,55 @@ pub struct RerunScope {
     pub paths: Vec<String>,
     pub created_at: u64,
 }
+
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, Default)]
+#[serde(rename_all = "snake_case")]
+pub enum RerunSelectionStrategy {
+    #[default]
+    Unspecified,
+    TaskIds,
+    StepIds,
+    Paths,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, Default)]
+#[serde(rename_all = "snake_case")]
+pub enum RerunExecutionStatus {
+    #[default]
+    Unspecified,
+    Pending,
+    Succeeded,
+    Failed,
+    Partial,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct RerunExecutionResult {
+    pub result_id: String,
+    pub plan_id: String,
+    pub rerun_scope_id: String,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub source_decision_id: Option<String>,
+    #[serde(default)]
+    pub trigger: RerunTrigger,
+    #[serde(default)]
+    pub matched_strategy: RerunSelectionStrategy,
+    #[serde(default)]
+    pub root_tasks: Vec<String>,
+    #[serde(default)]
+    pub selected_tasks: Vec<String>,
+    #[serde(default)]
+    pub matched_paths: Vec<String>,
+    pub reason: String,
+    #[serde(default)]
+    pub status: RerunExecutionStatus,
+    #[serde(default)]
+    pub completed_tasks: Vec<String>,
+    #[serde(default)]
+    pub failed_tasks: Vec<String>,
+    #[serde(default)]
+    pub skipped_tasks: Vec<String>,
+    pub created_at: u64,
+    pub updated_at: u64,
+}

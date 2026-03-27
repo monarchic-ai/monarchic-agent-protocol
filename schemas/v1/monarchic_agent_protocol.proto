@@ -370,6 +370,40 @@ message RerunScope {
   uint64 created_at = 9;
 }
 
+enum RerunSelectionStrategy {
+  RERUN_SELECTION_STRATEGY_UNSPECIFIED = 0;
+  RERUN_SELECTION_STRATEGY_TASK_IDS = 1;
+  RERUN_SELECTION_STRATEGY_STEP_IDS = 2;
+  RERUN_SELECTION_STRATEGY_PATHS = 3;
+}
+
+enum RerunExecutionStatus {
+  RERUN_EXECUTION_STATUS_UNSPECIFIED = 0;
+  RERUN_EXECUTION_STATUS_PENDING = 1;
+  RERUN_EXECUTION_STATUS_SUCCEEDED = 2;
+  RERUN_EXECUTION_STATUS_FAILED = 3;
+  RERUN_EXECUTION_STATUS_PARTIAL = 4;
+}
+
+message RerunExecutionResult {
+  string result_id = 1;
+  string plan_id = 2;
+  string rerun_scope_id = 3;
+  optional string source_decision_id = 4;
+  RerunTrigger trigger = 5;
+  RerunSelectionStrategy matched_strategy = 6;
+  repeated string root_tasks = 7;
+  repeated string selected_tasks = 8;
+  repeated string matched_paths = 9;
+  string reason = 10;
+  RerunExecutionStatus status = 11;
+  repeated string completed_tasks = 12;
+  repeated string failed_tasks = 13;
+  repeated string skipped_tasks = 14;
+  uint64 created_at = 15;
+  uint64 updated_at = 16;
+}
+
 message Task {
   string version = 1;
   string task_id = 2;

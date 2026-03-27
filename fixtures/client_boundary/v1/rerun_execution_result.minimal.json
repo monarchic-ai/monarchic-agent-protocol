@@ -1,0 +1,29 @@
+{
+  "result_id": "rerun-result-001",
+  "plan_id": "plan-001",
+  "rerun_scope_id": "rerun-scope-001",
+  "source_decision_id": "review-decision-001",
+  "trigger": "review_decision",
+  "matched_strategy": "paths",
+  "root_tasks": [
+    "task-a"
+  ],
+  "selected_tasks": [
+    "task-a",
+    "task-b"
+  ],
+  "matched_paths": [
+    "src/auth.rs"
+  ],
+  "reason": "Review requested rerun for auth changes.",
+  "status": "partial",
+  "completed_tasks": [
+    "task-a"
+  ],
+  "failed_tasks": [],
+  "skipped_tasks": [
+    "task-b"
+  ],
+  "created_at": 1743018000000,
+  "updated_at": 1743018060000
+}
