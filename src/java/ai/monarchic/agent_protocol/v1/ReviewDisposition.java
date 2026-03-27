@@ -6,39 +6,31 @@
 package ai.monarchic.agent_protocol.v1;
 
 /**
- * Protobuf enum {@code monarchic.agent_protocol.v1.LeaseLifecycleState}
+ * Protobuf enum {@code monarchic.agent_protocol.v1.ReviewDisposition}
  */
 @com.google.protobuf.Generated
-public enum LeaseLifecycleState
+public enum ReviewDisposition
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>LEASE_LIFECYCLE_STATE_UNSPECIFIED = 0;</code>
+   * <code>REVIEW_DISPOSITION_UNSPECIFIED = 0;</code>
    */
-  LEASE_LIFECYCLE_STATE_UNSPECIFIED(0),
+  REVIEW_DISPOSITION_UNSPECIFIED(0),
   /**
-   * <code>LEASE_ISSUED = 1;</code>
+   * <code>REVIEW_DISPOSITION_APPROVE = 1;</code>
    */
-  LEASE_ISSUED(1),
+  REVIEW_DISPOSITION_APPROVE(1),
   /**
-   * <code>LEASE_ACTIVE = 2;</code>
+   * <code>REVIEW_DISPOSITION_REQUEST_CHANGES = 2;</code>
    */
-  LEASE_ACTIVE(2),
+  REVIEW_DISPOSITION_REQUEST_CHANGES(2),
   /**
-   * <code>LEASE_RELEASED = 3;</code>
+   * <code>REVIEW_DISPOSITION_REJECT = 3;</code>
    */
-  LEASE_RELEASED(3),
+  REVIEW_DISPOSITION_REJECT(3),
   /**
-   * <code>LEASE_EXPIRED = 4;</code>
+   * <code>REVIEW_DISPOSITION_DEFER = 4;</code>
    */
-  LEASE_EXPIRED(4),
-  /**
-   * <code>LEASE_CANCELLED = 5;</code>
-   */
-  LEASE_CANCELLED(5),
-  /**
-   * <code>LEASE_REJECTED = 6;</code>
-   */
-  LEASE_REJECTED(6),
+  REVIEW_DISPOSITION_DEFER(4),
   UNRECOGNIZED(-1),
   ;
 
@@ -49,36 +41,28 @@ public enum LeaseLifecycleState
       /* minor= */ 32,
       /* patch= */ 1,
       /* suffix= */ "",
-      LeaseLifecycleState.class.getName());
+      ReviewDisposition.class.getName());
   }
   /**
-   * <code>LEASE_LIFECYCLE_STATE_UNSPECIFIED = 0;</code>
+   * <code>REVIEW_DISPOSITION_UNSPECIFIED = 0;</code>
    */
-  public static final int LEASE_LIFECYCLE_STATE_UNSPECIFIED_VALUE = 0;
+  public static final int REVIEW_DISPOSITION_UNSPECIFIED_VALUE = 0;
   /**
-   * <code>LEASE_ISSUED = 1;</code>
+   * <code>REVIEW_DISPOSITION_APPROVE = 1;</code>
    */
-  public static final int LEASE_ISSUED_VALUE = 1;
+  public static final int REVIEW_DISPOSITION_APPROVE_VALUE = 1;
   /**
-   * <code>LEASE_ACTIVE = 2;</code>
+   * <code>REVIEW_DISPOSITION_REQUEST_CHANGES = 2;</code>
    */
-  public static final int LEASE_ACTIVE_VALUE = 2;
+  public static final int REVIEW_DISPOSITION_REQUEST_CHANGES_VALUE = 2;
   /**
-   * <code>LEASE_RELEASED = 3;</code>
+   * <code>REVIEW_DISPOSITION_REJECT = 3;</code>
    */
-  public static final int LEASE_RELEASED_VALUE = 3;
+  public static final int REVIEW_DISPOSITION_REJECT_VALUE = 3;
   /**
-   * <code>LEASE_EXPIRED = 4;</code>
+   * <code>REVIEW_DISPOSITION_DEFER = 4;</code>
    */
-  public static final int LEASE_EXPIRED_VALUE = 4;
-  /**
-   * <code>LEASE_CANCELLED = 5;</code>
-   */
-  public static final int LEASE_CANCELLED_VALUE = 5;
-  /**
-   * <code>LEASE_REJECTED = 6;</code>
-   */
-  public static final int LEASE_REJECTED_VALUE = 6;
+  public static final int REVIEW_DISPOSITION_DEFER_VALUE = 4;
 
 
   public final int getNumber() {
@@ -95,7 +79,7 @@ public enum LeaseLifecycleState
    * @deprecated Use {@link #forNumber(int)} instead.
    */
   @java.lang.Deprecated
-  public static LeaseLifecycleState valueOf(int value) {
+  public static ReviewDisposition valueOf(int value) {
     return forNumber(value);
   }
 
@@ -103,28 +87,26 @@ public enum LeaseLifecycleState
    * @param value The numeric wire value of the corresponding enum entry.
    * @return The enum associated with the given numeric wire value.
    */
-  public static LeaseLifecycleState forNumber(int value) {
+  public static ReviewDisposition forNumber(int value) {
     switch (value) {
-      case 0: return LEASE_LIFECYCLE_STATE_UNSPECIFIED;
-      case 1: return LEASE_ISSUED;
-      case 2: return LEASE_ACTIVE;
-      case 3: return LEASE_RELEASED;
-      case 4: return LEASE_EXPIRED;
-      case 5: return LEASE_CANCELLED;
-      case 6: return LEASE_REJECTED;
+      case 0: return REVIEW_DISPOSITION_UNSPECIFIED;
+      case 1: return REVIEW_DISPOSITION_APPROVE;
+      case 2: return REVIEW_DISPOSITION_REQUEST_CHANGES;
+      case 3: return REVIEW_DISPOSITION_REJECT;
+      case 4: return REVIEW_DISPOSITION_DEFER;
       default: return null;
     }
   }
 
-  public static com.google.protobuf.Internal.EnumLiteMap<LeaseLifecycleState>
+  public static com.google.protobuf.Internal.EnumLiteMap<ReviewDisposition>
       internalGetValueMap() {
     return internalValueMap;
   }
   private static final com.google.protobuf.Internal.EnumLiteMap<
-      LeaseLifecycleState> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<LeaseLifecycleState>() {
-          public LeaseLifecycleState findValueByNumber(int number) {
-            return LeaseLifecycleState.forNumber(number);
+      ReviewDisposition> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<ReviewDisposition>() {
+          public ReviewDisposition findValueByNumber(int number) {
+            return ReviewDisposition.forNumber(number);
           }
         };
 
@@ -142,12 +124,12 @@ public enum LeaseLifecycleState
   }
   public static com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.getDescriptor().getEnumTypes().get(13);
+    return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.getDescriptor().getEnumTypes().get(11);
   }
 
-  private static final LeaseLifecycleState[] VALUES = values();
+  private static final ReviewDisposition[] VALUES = values();
 
-  public static LeaseLifecycleState valueOf(
+  public static ReviewDisposition valueOf(
       com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
     if (desc.getType() != getDescriptor()) {
       throw new java.lang.IllegalArgumentException(
@@ -161,10 +143,10 @@ public enum LeaseLifecycleState
 
   private final int value;
 
-  private LeaseLifecycleState(int value) {
+  private ReviewDisposition(int value) {
     this.value = value;
   }
 
-  // @@protoc_insertion_point(enum_scope:monarchic.agent_protocol.v1.LeaseLifecycleState)
+  // @@protoc_insertion_point(enum_scope:monarchic.agent_protocol.v1.ReviewDisposition)
 }
 
