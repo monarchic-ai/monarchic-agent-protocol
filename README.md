@@ -180,6 +180,23 @@ owned by the orchestrator.
 `TaskMessageAck` records recipient acknowledgement state separately so mailbox
 delivery can remain append-only and auditable.
 
+Recommended acknowledgement semantics:
+
+- `received`: the recipient has seen the message in its inbox
+- `accepted`: the recipient accepts the request and plans to act on it
+- `rejected`: the recipient explicitly declines or cannot act on it
+- `resolved`: the recipient completed the requested follow-up or supplied the
+  final response
+
+Recommended routing semantics:
+
+- message ids should be unique within one run
+- sender and recipient should be tasks from the same run
+- `reply_to`, when present, should reference an earlier message id from the
+  same run log
+- `requires_ack=true` should imply at least one corresponding
+  `TaskMessageAck` record from the recipient
+
 ### AgentRole
 
 Enum values:
