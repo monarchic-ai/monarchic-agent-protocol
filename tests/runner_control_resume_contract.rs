@@ -46,6 +46,7 @@ fn resume_lease_request_round_trips_over_protobuf_wire() {
         session_id: String::from("session-a"),
         lease: Some(sample_lease_ref()),
         extensions: None,
+        auth_context: None,
     };
 
     let encoded = request.encode_to_vec();

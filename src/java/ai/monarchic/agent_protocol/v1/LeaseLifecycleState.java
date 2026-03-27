@@ -142,7 +142,7 @@ public enum LeaseLifecycleState
   }
   public static com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.getDescriptor().getEnumTypes().get(16);
+    return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.getDescriptor().getEnumTypes().get(19);
   }
 
   private static final LeaseLifecycleState[] VALUES = values();

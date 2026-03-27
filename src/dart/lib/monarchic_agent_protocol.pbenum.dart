@@ -202,6 +202,102 @@ class ArtifactKind extends $pb.ProtobufEnum {
   const ArtifactKind._(super.value, super.name);
 }
 
+class AuthMechanism extends $pb.ProtobufEnum {
+  static const AuthMechanism AUTH_MECHANISM_UNSPECIFIED =
+      AuthMechanism._(0, _omitEnumNames ? '' : 'AUTH_MECHANISM_UNSPECIFIED');
+  static const AuthMechanism AUTH_MECHANISM_SHARED_SECRET =
+      AuthMechanism._(1, _omitEnumNames ? '' : 'AUTH_MECHANISM_SHARED_SECRET');
+  static const AuthMechanism AUTH_MECHANISM_BEARER_TOKEN =
+      AuthMechanism._(2, _omitEnumNames ? '' : 'AUTH_MECHANISM_BEARER_TOKEN');
+  static const AuthMechanism AUTH_MECHANISM_SIGNED_TOKEN =
+      AuthMechanism._(3, _omitEnumNames ? '' : 'AUTH_MECHANISM_SIGNED_TOKEN');
+  static const AuthMechanism AUTH_MECHANISM_MUTUAL_TLS =
+      AuthMechanism._(4, _omitEnumNames ? '' : 'AUTH_MECHANISM_MUTUAL_TLS');
+  static const AuthMechanism AUTH_MECHANISM_CUSTOM =
+      AuthMechanism._(5, _omitEnumNames ? '' : 'AUTH_MECHANISM_CUSTOM');
+
+  static const $core.List<AuthMechanism> values = <AuthMechanism>[
+    AUTH_MECHANISM_UNSPECIFIED,
+    AUTH_MECHANISM_SHARED_SECRET,
+    AUTH_MECHANISM_BEARER_TOKEN,
+    AUTH_MECHANISM_SIGNED_TOKEN,
+    AUTH_MECHANISM_MUTUAL_TLS,
+    AUTH_MECHANISM_CUSTOM,
+  ];
+
+  static final $core.List<AuthMechanism?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 5);
+  static AuthMechanism? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const AuthMechanism._(super.value, super.name);
+}
+
+class UsageCategory extends $pb.ProtobufEnum {
+  static const UsageCategory USAGE_CATEGORY_UNSPECIFIED =
+      UsageCategory._(0, _omitEnumNames ? '' : 'USAGE_CATEGORY_UNSPECIFIED');
+  static const UsageCategory USAGE_CATEGORY_CONTROL_PLANE =
+      UsageCategory._(1, _omitEnumNames ? '' : 'USAGE_CATEGORY_CONTROL_PLANE');
+  static const UsageCategory USAGE_CATEGORY_EXECUTION =
+      UsageCategory._(2, _omitEnumNames ? '' : 'USAGE_CATEGORY_EXECUTION');
+  static const UsageCategory USAGE_CATEGORY_VERIFICATION =
+      UsageCategory._(3, _omitEnumNames ? '' : 'USAGE_CATEGORY_VERIFICATION');
+  static const UsageCategory USAGE_CATEGORY_AUDIT_EXPORT =
+      UsageCategory._(4, _omitEnumNames ? '' : 'USAGE_CATEGORY_AUDIT_EXPORT');
+  static const UsageCategory USAGE_CATEGORY_CUSTOM =
+      UsageCategory._(5, _omitEnumNames ? '' : 'USAGE_CATEGORY_CUSTOM');
+
+  static const $core.List<UsageCategory> values = <UsageCategory>[
+    USAGE_CATEGORY_UNSPECIFIED,
+    USAGE_CATEGORY_CONTROL_PLANE,
+    USAGE_CATEGORY_EXECUTION,
+    USAGE_CATEGORY_VERIFICATION,
+    USAGE_CATEGORY_AUDIT_EXPORT,
+    USAGE_CATEGORY_CUSTOM,
+  ];
+
+  static final $core.List<UsageCategory?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 5);
+  static UsageCategory? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const UsageCategory._(super.value, super.name);
+}
+
+class UsageUnit extends $pb.ProtobufEnum {
+  static const UsageUnit USAGE_UNIT_UNSPECIFIED =
+      UsageUnit._(0, _omitEnumNames ? '' : 'USAGE_UNIT_UNSPECIFIED');
+  static const UsageUnit USAGE_UNIT_REQUESTS =
+      UsageUnit._(1, _omitEnumNames ? '' : 'USAGE_UNIT_REQUESTS');
+  static const UsageUnit USAGE_UNIT_MILLISECONDS =
+      UsageUnit._(2, _omitEnumNames ? '' : 'USAGE_UNIT_MILLISECONDS');
+  static const UsageUnit USAGE_UNIT_BYTES =
+      UsageUnit._(3, _omitEnumNames ? '' : 'USAGE_UNIT_BYTES');
+  static const UsageUnit USAGE_UNIT_TOKENS =
+      UsageUnit._(4, _omitEnumNames ? '' : 'USAGE_UNIT_TOKENS');
+  static const UsageUnit USAGE_UNIT_RUNS =
+      UsageUnit._(5, _omitEnumNames ? '' : 'USAGE_UNIT_RUNS');
+  static const UsageUnit USAGE_UNIT_CUSTOM =
+      UsageUnit._(6, _omitEnumNames ? '' : 'USAGE_UNIT_CUSTOM');
+
+  static const $core.List<UsageUnit> values = <UsageUnit>[
+    USAGE_UNIT_UNSPECIFIED,
+    USAGE_UNIT_REQUESTS,
+    USAGE_UNIT_MILLISECONDS,
+    USAGE_UNIT_BYTES,
+    USAGE_UNIT_TOKENS,
+    USAGE_UNIT_RUNS,
+    USAGE_UNIT_CUSTOM,
+  ];
+
+  static final $core.List<UsageUnit?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 6);
+  static UsageUnit? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const UsageUnit._(super.value, super.name);
+}
+
 class PlanStepKind extends $pb.ProtobufEnum {
   static const PlanStepKind PLAN_STEP_KIND_UNSPECIFIED =
       PlanStepKind._(0, _omitEnumNames ? '' : 'PLAN_STEP_KIND_UNSPECIFIED');

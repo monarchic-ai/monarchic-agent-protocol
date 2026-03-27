@@ -1810,6 +1810,649 @@ class DigestManifest extends $pb.GeneratedMessage {
   $pb.PbList<ArtifactDescriptor> get artifactDescriptors => $_getList(7);
 }
 
+class PrincipalRef extends $pb.GeneratedMessage {
+  factory PrincipalRef({
+    $core.String? principalId,
+    $core.String? provider,
+    $core.String? displayName,
+  }) {
+    final result = create();
+    if (principalId != null) result.principalId = principalId;
+    if (provider != null) result.provider = provider;
+    if (displayName != null) result.displayName = displayName;
+    return result;
+  }
+
+  PrincipalRef._();
+
+  factory PrincipalRef.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory PrincipalRef.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'PrincipalRef',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'principalId')
+    ..aOS(2, _omitFieldNames ? '' : 'provider')
+    ..aOS(3, _omitFieldNames ? '' : 'displayName')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  PrincipalRef clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  PrincipalRef copyWith(void Function(PrincipalRef) updates) =>
+      super.copyWith((message) => updates(message as PrincipalRef))
+          as PrincipalRef;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static PrincipalRef create() => PrincipalRef._();
+  @$core.override
+  PrincipalRef createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static PrincipalRef getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<PrincipalRef>(create);
+  static PrincipalRef? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get principalId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set principalId($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasPrincipalId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearPrincipalId() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get provider => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set provider($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasProvider() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearProvider() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get displayName => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set displayName($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasDisplayName() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearDisplayName() => $_clearField(3);
+}
+
+class TenantRef extends $pb.GeneratedMessage {
+  factory TenantRef({
+    $core.String? tenantId,
+    $core.String? displayName,
+  }) {
+    final result = create();
+    if (tenantId != null) result.tenantId = tenantId;
+    if (displayName != null) result.displayName = displayName;
+    return result;
+  }
+
+  TenantRef._();
+
+  factory TenantRef.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory TenantRef.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'TenantRef',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'tenantId')
+    ..aOS(2, _omitFieldNames ? '' : 'displayName')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  TenantRef clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  TenantRef copyWith(void Function(TenantRef) updates) =>
+      super.copyWith((message) => updates(message as TenantRef)) as TenantRef;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static TenantRef create() => TenantRef._();
+  @$core.override
+  TenantRef createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static TenantRef getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<TenantRef>(create);
+  static TenantRef? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get tenantId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set tenantId($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasTenantId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearTenantId() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get displayName => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set displayName($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasDisplayName() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearDisplayName() => $_clearField(2);
+}
+
+class AuthContext extends $pb.GeneratedMessage {
+  factory AuthContext({
+    $core.String? contractVersion,
+    $core.String? authContextId,
+    PrincipalRef? principal,
+    TenantRef? tenant,
+    AuthMechanism? mechanism,
+    $core.String? credentialId,
+    $core.Iterable<$core.String>? scopes,
+    $fixnum.Int64? issuedAt,
+    $fixnum.Int64? expiresAt,
+  }) {
+    final result = create();
+    if (contractVersion != null) result.contractVersion = contractVersion;
+    if (authContextId != null) result.authContextId = authContextId;
+    if (principal != null) result.principal = principal;
+    if (tenant != null) result.tenant = tenant;
+    if (mechanism != null) result.mechanism = mechanism;
+    if (credentialId != null) result.credentialId = credentialId;
+    if (scopes != null) result.scopes.addAll(scopes);
+    if (issuedAt != null) result.issuedAt = issuedAt;
+    if (expiresAt != null) result.expiresAt = expiresAt;
+    return result;
+  }
+
+  AuthContext._();
+
+  factory AuthContext.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory AuthContext.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'AuthContext',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'contractVersion')
+    ..aOS(2, _omitFieldNames ? '' : 'authContextId')
+    ..aOM<PrincipalRef>(3, _omitFieldNames ? '' : 'principal',
+        subBuilder: PrincipalRef.create)
+    ..aOM<TenantRef>(4, _omitFieldNames ? '' : 'tenant',
+        subBuilder: TenantRef.create)
+    ..aE<AuthMechanism>(5, _omitFieldNames ? '' : 'mechanism',
+        enumValues: AuthMechanism.values)
+    ..aOS(6, _omitFieldNames ? '' : 'credentialId')
+    ..pPS(7, _omitFieldNames ? '' : 'scopes')
+    ..a<$fixnum.Int64>(
+        8, _omitFieldNames ? '' : 'issuedAt', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        9, _omitFieldNames ? '' : 'expiresAt', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  AuthContext clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  AuthContext copyWith(void Function(AuthContext) updates) =>
+      super.copyWith((message) => updates(message as AuthContext))
+          as AuthContext;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static AuthContext create() => AuthContext._();
+  @$core.override
+  AuthContext createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static AuthContext getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<AuthContext>(create);
+  static AuthContext? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get contractVersion => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set contractVersion($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasContractVersion() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearContractVersion() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get authContextId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set authContextId($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasAuthContextId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearAuthContextId() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  PrincipalRef get principal => $_getN(2);
+  @$pb.TagNumber(3)
+  set principal(PrincipalRef value) => $_setField(3, value);
+  @$pb.TagNumber(3)
+  $core.bool hasPrincipal() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearPrincipal() => $_clearField(3);
+  @$pb.TagNumber(3)
+  PrincipalRef ensurePrincipal() => $_ensure(2);
+
+  @$pb.TagNumber(4)
+  TenantRef get tenant => $_getN(3);
+  @$pb.TagNumber(4)
+  set tenant(TenantRef value) => $_setField(4, value);
+  @$pb.TagNumber(4)
+  $core.bool hasTenant() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearTenant() => $_clearField(4);
+  @$pb.TagNumber(4)
+  TenantRef ensureTenant() => $_ensure(3);
+
+  @$pb.TagNumber(5)
+  AuthMechanism get mechanism => $_getN(4);
+  @$pb.TagNumber(5)
+  set mechanism(AuthMechanism value) => $_setField(5, value);
+  @$pb.TagNumber(5)
+  $core.bool hasMechanism() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearMechanism() => $_clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get credentialId => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set credentialId($core.String value) => $_setString(5, value);
+  @$pb.TagNumber(6)
+  $core.bool hasCredentialId() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearCredentialId() => $_clearField(6);
+
+  @$pb.TagNumber(7)
+  $pb.PbList<$core.String> get scopes => $_getList(6);
+
+  @$pb.TagNumber(8)
+  $fixnum.Int64 get issuedAt => $_getI64(7);
+  @$pb.TagNumber(8)
+  set issuedAt($fixnum.Int64 value) => $_setInt64(7, value);
+  @$pb.TagNumber(8)
+  $core.bool hasIssuedAt() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearIssuedAt() => $_clearField(8);
+
+  @$pb.TagNumber(9)
+  $fixnum.Int64 get expiresAt => $_getI64(8);
+  @$pb.TagNumber(9)
+  set expiresAt($fixnum.Int64 value) => $_setInt64(8, value);
+  @$pb.TagNumber(9)
+  $core.bool hasExpiresAt() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearExpiresAt() => $_clearField(9);
+}
+
+class UsageRecord extends $pb.GeneratedMessage {
+  factory UsageRecord({
+    $core.String? contractVersion,
+    $core.String? usageId,
+    PrincipalRef? principal,
+    TenantRef? tenant,
+    $core.String? runId,
+    $core.String? planId,
+    UsageCategory? category,
+    $core.String? metricName,
+    $fixnum.Int64? quantity,
+    UsageUnit? unit,
+    $fixnum.Int64? recordedAt,
+  }) {
+    final result = create();
+    if (contractVersion != null) result.contractVersion = contractVersion;
+    if (usageId != null) result.usageId = usageId;
+    if (principal != null) result.principal = principal;
+    if (tenant != null) result.tenant = tenant;
+    if (runId != null) result.runId = runId;
+    if (planId != null) result.planId = planId;
+    if (category != null) result.category = category;
+    if (metricName != null) result.metricName = metricName;
+    if (quantity != null) result.quantity = quantity;
+    if (unit != null) result.unit = unit;
+    if (recordedAt != null) result.recordedAt = recordedAt;
+    return result;
+  }
+
+  UsageRecord._();
+
+  factory UsageRecord.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory UsageRecord.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'UsageRecord',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'contractVersion')
+    ..aOS(2, _omitFieldNames ? '' : 'usageId')
+    ..aOM<PrincipalRef>(3, _omitFieldNames ? '' : 'principal',
+        subBuilder: PrincipalRef.create)
+    ..aOM<TenantRef>(4, _omitFieldNames ? '' : 'tenant',
+        subBuilder: TenantRef.create)
+    ..aOS(5, _omitFieldNames ? '' : 'runId')
+    ..aOS(6, _omitFieldNames ? '' : 'planId')
+    ..aE<UsageCategory>(7, _omitFieldNames ? '' : 'category',
+        enumValues: UsageCategory.values)
+    ..aOS(8, _omitFieldNames ? '' : 'metricName')
+    ..a<$fixnum.Int64>(
+        9, _omitFieldNames ? '' : 'quantity', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aE<UsageUnit>(10, _omitFieldNames ? '' : 'unit',
+        enumValues: UsageUnit.values)
+    ..a<$fixnum.Int64>(
+        11, _omitFieldNames ? '' : 'recordedAt', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  UsageRecord clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  UsageRecord copyWith(void Function(UsageRecord) updates) =>
+      super.copyWith((message) => updates(message as UsageRecord))
+          as UsageRecord;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static UsageRecord create() => UsageRecord._();
+  @$core.override
+  UsageRecord createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static UsageRecord getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<UsageRecord>(create);
+  static UsageRecord? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get contractVersion => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set contractVersion($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasContractVersion() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearContractVersion() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get usageId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set usageId($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasUsageId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearUsageId() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  PrincipalRef get principal => $_getN(2);
+  @$pb.TagNumber(3)
+  set principal(PrincipalRef value) => $_setField(3, value);
+  @$pb.TagNumber(3)
+  $core.bool hasPrincipal() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearPrincipal() => $_clearField(3);
+  @$pb.TagNumber(3)
+  PrincipalRef ensurePrincipal() => $_ensure(2);
+
+  @$pb.TagNumber(4)
+  TenantRef get tenant => $_getN(3);
+  @$pb.TagNumber(4)
+  set tenant(TenantRef value) => $_setField(4, value);
+  @$pb.TagNumber(4)
+  $core.bool hasTenant() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearTenant() => $_clearField(4);
+  @$pb.TagNumber(4)
+  TenantRef ensureTenant() => $_ensure(3);
+
+  @$pb.TagNumber(5)
+  $core.String get runId => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set runId($core.String value) => $_setString(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasRunId() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearRunId() => $_clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get planId => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set planId($core.String value) => $_setString(5, value);
+  @$pb.TagNumber(6)
+  $core.bool hasPlanId() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearPlanId() => $_clearField(6);
+
+  @$pb.TagNumber(7)
+  UsageCategory get category => $_getN(6);
+  @$pb.TagNumber(7)
+  set category(UsageCategory value) => $_setField(7, value);
+  @$pb.TagNumber(7)
+  $core.bool hasCategory() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearCategory() => $_clearField(7);
+
+  @$pb.TagNumber(8)
+  $core.String get metricName => $_getSZ(7);
+  @$pb.TagNumber(8)
+  set metricName($core.String value) => $_setString(7, value);
+  @$pb.TagNumber(8)
+  $core.bool hasMetricName() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearMetricName() => $_clearField(8);
+
+  @$pb.TagNumber(9)
+  $fixnum.Int64 get quantity => $_getI64(8);
+  @$pb.TagNumber(9)
+  set quantity($fixnum.Int64 value) => $_setInt64(8, value);
+  @$pb.TagNumber(9)
+  $core.bool hasQuantity() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearQuantity() => $_clearField(9);
+
+  @$pb.TagNumber(10)
+  UsageUnit get unit => $_getN(9);
+  @$pb.TagNumber(10)
+  set unit(UsageUnit value) => $_setField(10, value);
+  @$pb.TagNumber(10)
+  $core.bool hasUnit() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearUnit() => $_clearField(10);
+
+  @$pb.TagNumber(11)
+  $fixnum.Int64 get recordedAt => $_getI64(10);
+  @$pb.TagNumber(11)
+  set recordedAt($fixnum.Int64 value) => $_setInt64(10, value);
+  @$pb.TagNumber(11)
+  $core.bool hasRecordedAt() => $_has(10);
+  @$pb.TagNumber(11)
+  void clearRecordedAt() => $_clearField(11);
+}
+
+class AuditExportManifest extends $pb.GeneratedMessage {
+  factory AuditExportManifest({
+    $core.String? contractVersion,
+    $core.String? exportId,
+    PrincipalRef? principal,
+    TenantRef? tenant,
+    $core.String? runId,
+    $core.String? planId,
+    $fixnum.Int64? exportedAt,
+    $core.String? combinedDigest,
+    $core.Iterable<ArtifactDescriptor>? artifactDescriptors,
+  }) {
+    final result = create();
+    if (contractVersion != null) result.contractVersion = contractVersion;
+    if (exportId != null) result.exportId = exportId;
+    if (principal != null) result.principal = principal;
+    if (tenant != null) result.tenant = tenant;
+    if (runId != null) result.runId = runId;
+    if (planId != null) result.planId = planId;
+    if (exportedAt != null) result.exportedAt = exportedAt;
+    if (combinedDigest != null) result.combinedDigest = combinedDigest;
+    if (artifactDescriptors != null)
+      result.artifactDescriptors.addAll(artifactDescriptors);
+    return result;
+  }
+
+  AuditExportManifest._();
+
+  factory AuditExportManifest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory AuditExportManifest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'AuditExportManifest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'contractVersion')
+    ..aOS(2, _omitFieldNames ? '' : 'exportId')
+    ..aOM<PrincipalRef>(3, _omitFieldNames ? '' : 'principal',
+        subBuilder: PrincipalRef.create)
+    ..aOM<TenantRef>(4, _omitFieldNames ? '' : 'tenant',
+        subBuilder: TenantRef.create)
+    ..aOS(5, _omitFieldNames ? '' : 'runId')
+    ..aOS(6, _omitFieldNames ? '' : 'planId')
+    ..a<$fixnum.Int64>(
+        7, _omitFieldNames ? '' : 'exportedAt', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(8, _omitFieldNames ? '' : 'combinedDigest')
+    ..pPM<ArtifactDescriptor>(9, _omitFieldNames ? '' : 'artifactDescriptors',
+        subBuilder: ArtifactDescriptor.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  AuditExportManifest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  AuditExportManifest copyWith(void Function(AuditExportManifest) updates) =>
+      super.copyWith((message) => updates(message as AuditExportManifest))
+          as AuditExportManifest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static AuditExportManifest create() => AuditExportManifest._();
+  @$core.override
+  AuditExportManifest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static AuditExportManifest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<AuditExportManifest>(create);
+  static AuditExportManifest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get contractVersion => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set contractVersion($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasContractVersion() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearContractVersion() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get exportId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set exportId($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasExportId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearExportId() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  PrincipalRef get principal => $_getN(2);
+  @$pb.TagNumber(3)
+  set principal(PrincipalRef value) => $_setField(3, value);
+  @$pb.TagNumber(3)
+  $core.bool hasPrincipal() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearPrincipal() => $_clearField(3);
+  @$pb.TagNumber(3)
+  PrincipalRef ensurePrincipal() => $_ensure(2);
+
+  @$pb.TagNumber(4)
+  TenantRef get tenant => $_getN(3);
+  @$pb.TagNumber(4)
+  set tenant(TenantRef value) => $_setField(4, value);
+  @$pb.TagNumber(4)
+  $core.bool hasTenant() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearTenant() => $_clearField(4);
+  @$pb.TagNumber(4)
+  TenantRef ensureTenant() => $_ensure(3);
+
+  @$pb.TagNumber(5)
+  $core.String get runId => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set runId($core.String value) => $_setString(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasRunId() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearRunId() => $_clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get planId => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set planId($core.String value) => $_setString(5, value);
+  @$pb.TagNumber(6)
+  $core.bool hasPlanId() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearPlanId() => $_clearField(6);
+
+  @$pb.TagNumber(7)
+  $fixnum.Int64 get exportedAt => $_getI64(6);
+  @$pb.TagNumber(7)
+  set exportedAt($fixnum.Int64 value) => $_setInt64(6, value);
+  @$pb.TagNumber(7)
+  $core.bool hasExportedAt() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearExportedAt() => $_clearField(7);
+
+  @$pb.TagNumber(8)
+  $core.String get combinedDigest => $_getSZ(7);
+  @$pb.TagNumber(8)
+  set combinedDigest($core.String value) => $_setString(7, value);
+  @$pb.TagNumber(8)
+  $core.bool hasCombinedDigest() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearCombinedDigest() => $_clearField(8);
+
+  @$pb.TagNumber(9)
+  $pb.PbList<ArtifactDescriptor> get artifactDescriptors => $_getList(8);
+}
+
 class ReplanPolicy extends $pb.GeneratedMessage {
   factory ReplanPolicy({
     ReplanStrategy? strategy,
@@ -6172,6 +6815,7 @@ class RegisterRunnerRequest extends $pb.GeneratedMessage {
     RunnerCapabilities? capabilities,
     $core.int? maxParallelLeases,
     $0.Struct? extensions,
+    AuthContext? authContext,
   }) {
     final result = create();
     if (contractVersion != null) result.contractVersion = contractVersion;
@@ -6179,6 +6823,7 @@ class RegisterRunnerRequest extends $pb.GeneratedMessage {
     if (capabilities != null) result.capabilities = capabilities;
     if (maxParallelLeases != null) result.maxParallelLeases = maxParallelLeases;
     if (extensions != null) result.extensions = extensions;
+    if (authContext != null) result.authContext = authContext;
     return result;
   }
 
@@ -6204,6 +6849,8 @@ class RegisterRunnerRequest extends $pb.GeneratedMessage {
         fieldType: $pb.PbFieldType.OU3)
     ..aOM<$0.Struct>(5, _omitFieldNames ? '' : 'extensions',
         subBuilder: $0.Struct.create)
+    ..aOM<AuthContext>(6, _omitFieldNames ? '' : 'authContext',
+        subBuilder: AuthContext.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -6274,6 +6921,17 @@ class RegisterRunnerRequest extends $pb.GeneratedMessage {
   void clearExtensions() => $_clearField(5);
   @$pb.TagNumber(5)
   $0.Struct ensureExtensions() => $_ensure(4);
+
+  @$pb.TagNumber(6)
+  AuthContext get authContext => $_getN(5);
+  @$pb.TagNumber(6)
+  set authContext(AuthContext value) => $_setField(6, value);
+  @$pb.TagNumber(6)
+  $core.bool hasAuthContext() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearAuthContext() => $_clearField(6);
+  @$pb.TagNumber(6)
+  AuthContext ensureAuthContext() => $_ensure(5);
 }
 
 class RegisterRunnerResponse extends $pb.GeneratedMessage {
@@ -6408,6 +7066,7 @@ class HeartbeatRequest extends $pb.GeneratedMessage {
     $core.String? sessionId,
     $core.Iterable<LeaseStatus>? activeLeases,
     $0.Struct? extensions,
+    AuthContext? authContext,
   }) {
     final result = create();
     if (contractVersion != null) result.contractVersion = contractVersion;
@@ -6415,6 +7074,7 @@ class HeartbeatRequest extends $pb.GeneratedMessage {
     if (sessionId != null) result.sessionId = sessionId;
     if (activeLeases != null) result.activeLeases.addAll(activeLeases);
     if (extensions != null) result.extensions = extensions;
+    if (authContext != null) result.authContext = authContext;
     return result;
   }
 
@@ -6439,6 +7099,8 @@ class HeartbeatRequest extends $pb.GeneratedMessage {
         subBuilder: LeaseStatus.create)
     ..aOM<$0.Struct>(5, _omitFieldNames ? '' : 'extensions',
         subBuilder: $0.Struct.create)
+    ..aOM<AuthContext>(6, _omitFieldNames ? '' : 'authContext',
+        subBuilder: AuthContext.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -6500,6 +7162,17 @@ class HeartbeatRequest extends $pb.GeneratedMessage {
   void clearExtensions() => $_clearField(5);
   @$pb.TagNumber(5)
   $0.Struct ensureExtensions() => $_ensure(4);
+
+  @$pb.TagNumber(6)
+  AuthContext get authContext => $_getN(5);
+  @$pb.TagNumber(6)
+  set authContext(AuthContext value) => $_setField(6, value);
+  @$pb.TagNumber(6)
+  $core.bool hasAuthContext() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearAuthContext() => $_clearField(6);
+  @$pb.TagNumber(6)
+  AuthContext ensureAuthContext() => $_ensure(5);
 }
 
 class HeartbeatResponse extends $pb.GeneratedMessage {
@@ -6613,6 +7286,7 @@ class AcquireLeaseRequest extends $pb.GeneratedMessage {
     $core.int? availableSlots,
     $core.Iterable<$core.String>? activeLeaseIds,
     $0.Struct? extensions,
+    AuthContext? authContext,
   }) {
     final result = create();
     if (contractVersion != null) result.contractVersion = contractVersion;
@@ -6621,6 +7295,7 @@ class AcquireLeaseRequest extends $pb.GeneratedMessage {
     if (availableSlots != null) result.availableSlots = availableSlots;
     if (activeLeaseIds != null) result.activeLeaseIds.addAll(activeLeaseIds);
     if (extensions != null) result.extensions = extensions;
+    if (authContext != null) result.authContext = authContext;
     return result;
   }
 
@@ -6646,6 +7321,8 @@ class AcquireLeaseRequest extends $pb.GeneratedMessage {
     ..pPS(5, _omitFieldNames ? '' : 'activeLeaseIds')
     ..aOM<$0.Struct>(6, _omitFieldNames ? '' : 'extensions',
         subBuilder: $0.Struct.create)
+    ..aOM<AuthContext>(7, _omitFieldNames ? '' : 'authContext',
+        subBuilder: AuthContext.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -6716,6 +7393,17 @@ class AcquireLeaseRequest extends $pb.GeneratedMessage {
   void clearExtensions() => $_clearField(6);
   @$pb.TagNumber(6)
   $0.Struct ensureExtensions() => $_ensure(5);
+
+  @$pb.TagNumber(7)
+  AuthContext get authContext => $_getN(6);
+  @$pb.TagNumber(7)
+  set authContext(AuthContext value) => $_setField(7, value);
+  @$pb.TagNumber(7)
+  $core.bool hasAuthContext() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearAuthContext() => $_clearField(7);
+  @$pb.TagNumber(7)
+  AuthContext ensureAuthContext() => $_ensure(6);
 }
 
 class AcquireLeaseResponse extends $pb.GeneratedMessage {
@@ -6843,6 +7531,7 @@ class RenewLeaseRequest extends $pb.GeneratedMessage {
     $core.String? sessionId,
     LeaseRef? lease,
     $0.Struct? extensions,
+    AuthContext? authContext,
   }) {
     final result = create();
     if (contractVersion != null) result.contractVersion = contractVersion;
@@ -6850,6 +7539,7 @@ class RenewLeaseRequest extends $pb.GeneratedMessage {
     if (sessionId != null) result.sessionId = sessionId;
     if (lease != null) result.lease = lease;
     if (extensions != null) result.extensions = extensions;
+    if (authContext != null) result.authContext = authContext;
     return result;
   }
 
@@ -6874,6 +7564,8 @@ class RenewLeaseRequest extends $pb.GeneratedMessage {
         subBuilder: LeaseRef.create)
     ..aOM<$0.Struct>(5, _omitFieldNames ? '' : 'extensions',
         subBuilder: $0.Struct.create)
+    ..aOM<AuthContext>(6, _omitFieldNames ? '' : 'authContext',
+        subBuilder: AuthContext.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -6943,6 +7635,17 @@ class RenewLeaseRequest extends $pb.GeneratedMessage {
   void clearExtensions() => $_clearField(5);
   @$pb.TagNumber(5)
   $0.Struct ensureExtensions() => $_ensure(4);
+
+  @$pb.TagNumber(6)
+  AuthContext get authContext => $_getN(5);
+  @$pb.TagNumber(6)
+  set authContext(AuthContext value) => $_setField(6, value);
+  @$pb.TagNumber(6)
+  $core.bool hasAuthContext() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearAuthContext() => $_clearField(6);
+  @$pb.TagNumber(6)
+  AuthContext ensureAuthContext() => $_ensure(5);
 }
 
 class RenewLeaseResponse extends $pb.GeneratedMessage {
@@ -7082,6 +7785,7 @@ class ResumeLeaseRequest extends $pb.GeneratedMessage {
     $core.String? sessionId,
     LeaseRef? lease,
     $0.Struct? extensions,
+    AuthContext? authContext,
   }) {
     final result = create();
     if (contractVersion != null) result.contractVersion = contractVersion;
@@ -7089,6 +7793,7 @@ class ResumeLeaseRequest extends $pb.GeneratedMessage {
     if (sessionId != null) result.sessionId = sessionId;
     if (lease != null) result.lease = lease;
     if (extensions != null) result.extensions = extensions;
+    if (authContext != null) result.authContext = authContext;
     return result;
   }
 
@@ -7113,6 +7818,8 @@ class ResumeLeaseRequest extends $pb.GeneratedMessage {
         subBuilder: LeaseRef.create)
     ..aOM<$0.Struct>(5, _omitFieldNames ? '' : 'extensions',
         subBuilder: $0.Struct.create)
+    ..aOM<AuthContext>(6, _omitFieldNames ? '' : 'authContext',
+        subBuilder: AuthContext.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -7182,6 +7889,17 @@ class ResumeLeaseRequest extends $pb.GeneratedMessage {
   void clearExtensions() => $_clearField(5);
   @$pb.TagNumber(5)
   $0.Struct ensureExtensions() => $_ensure(4);
+
+  @$pb.TagNumber(6)
+  AuthContext get authContext => $_getN(5);
+  @$pb.TagNumber(6)
+  set authContext(AuthContext value) => $_setField(6, value);
+  @$pb.TagNumber(6)
+  $core.bool hasAuthContext() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearAuthContext() => $_clearField(6);
+  @$pb.TagNumber(6)
+  AuthContext ensureAuthContext() => $_ensure(5);
 }
 
 class ResumeLeaseResponse extends $pb.GeneratedMessage {
@@ -7352,6 +8070,7 @@ class ReportStepStartedRequest extends $pb.GeneratedMessage {
     LeaseRef? lease,
     $core.String? startedAt,
     $0.Struct? extensions,
+    AuthContext? authContext,
   }) {
     final result = create();
     if (contractVersion != null) result.contractVersion = contractVersion;
@@ -7360,6 +8079,7 @@ class ReportStepStartedRequest extends $pb.GeneratedMessage {
     if (lease != null) result.lease = lease;
     if (startedAt != null) result.startedAt = startedAt;
     if (extensions != null) result.extensions = extensions;
+    if (authContext != null) result.authContext = authContext;
     return result;
   }
 
@@ -7385,6 +8105,8 @@ class ReportStepStartedRequest extends $pb.GeneratedMessage {
     ..aOS(5, _omitFieldNames ? '' : 'startedAt')
     ..aOM<$0.Struct>(6, _omitFieldNames ? '' : 'extensions',
         subBuilder: $0.Struct.create)
+    ..aOM<AuthContext>(7, _omitFieldNames ? '' : 'authContext',
+        subBuilder: AuthContext.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -7464,6 +8186,17 @@ class ReportStepStartedRequest extends $pb.GeneratedMessage {
   void clearExtensions() => $_clearField(6);
   @$pb.TagNumber(6)
   $0.Struct ensureExtensions() => $_ensure(5);
+
+  @$pb.TagNumber(7)
+  AuthContext get authContext => $_getN(6);
+  @$pb.TagNumber(7)
+  set authContext(AuthContext value) => $_setField(7, value);
+  @$pb.TagNumber(7)
+  $core.bool hasAuthContext() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearAuthContext() => $_clearField(7);
+  @$pb.TagNumber(7)
+  AuthContext ensureAuthContext() => $_ensure(6);
 }
 
 class ReportStepStartedResponse extends $pb.GeneratedMessage {
@@ -7585,6 +8318,7 @@ class ReportStepProgressRequest extends $pb.GeneratedMessage {
     $core.Iterable<Event>? events,
     $core.Iterable<Artifact>? artifacts,
     $0.Struct? extensions,
+    AuthContext? authContext,
   }) {
     final result = create();
     if (contractVersion != null) result.contractVersion = contractVersion;
@@ -7594,6 +8328,7 @@ class ReportStepProgressRequest extends $pb.GeneratedMessage {
     if (events != null) result.events.addAll(events);
     if (artifacts != null) result.artifacts.addAll(artifacts);
     if (extensions != null) result.extensions = extensions;
+    if (authContext != null) result.authContext = authContext;
     return result;
   }
 
@@ -7621,6 +8356,8 @@ class ReportStepProgressRequest extends $pb.GeneratedMessage {
         subBuilder: Artifact.create)
     ..aOM<$0.Struct>(7, _omitFieldNames ? '' : 'extensions',
         subBuilder: $0.Struct.create)
+    ..aOM<AuthContext>(8, _omitFieldNames ? '' : 'authContext',
+        subBuilder: AuthContext.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -7697,6 +8434,17 @@ class ReportStepProgressRequest extends $pb.GeneratedMessage {
   void clearExtensions() => $_clearField(7);
   @$pb.TagNumber(7)
   $0.Struct ensureExtensions() => $_ensure(6);
+
+  @$pb.TagNumber(8)
+  AuthContext get authContext => $_getN(7);
+  @$pb.TagNumber(8)
+  set authContext(AuthContext value) => $_setField(8, value);
+  @$pb.TagNumber(8)
+  $core.bool hasAuthContext() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearAuthContext() => $_clearField(8);
+  @$pb.TagNumber(8)
+  AuthContext ensureAuthContext() => $_ensure(7);
 }
 
 class ReportStepProgressResponse extends $pb.GeneratedMessage {
@@ -7830,6 +8578,7 @@ class ReportStepOutcomeRequest extends $pb.GeneratedMessage {
     FailureDetail? failure,
     $core.String? finishedAt,
     $0.Struct? extensions,
+    AuthContext? authContext,
   }) {
     final result = create();
     if (contractVersion != null) result.contractVersion = contractVersion;
@@ -7843,6 +8592,7 @@ class ReportStepOutcomeRequest extends $pb.GeneratedMessage {
     if (failure != null) result.failure = failure;
     if (finishedAt != null) result.finishedAt = finishedAt;
     if (extensions != null) result.extensions = extensions;
+    if (authContext != null) result.authContext = authContext;
     return result;
   }
 
@@ -7877,6 +8627,8 @@ class ReportStepOutcomeRequest extends $pb.GeneratedMessage {
     ..aOS(10, _omitFieldNames ? '' : 'finishedAt')
     ..aOM<$0.Struct>(11, _omitFieldNames ? '' : 'extensions',
         subBuilder: $0.Struct.create)
+    ..aOM<AuthContext>(12, _omitFieldNames ? '' : 'authContext',
+        subBuilder: AuthContext.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -7993,6 +8745,17 @@ class ReportStepOutcomeRequest extends $pb.GeneratedMessage {
   void clearExtensions() => $_clearField(11);
   @$pb.TagNumber(11)
   $0.Struct ensureExtensions() => $_ensure(10);
+
+  @$pb.TagNumber(12)
+  AuthContext get authContext => $_getN(11);
+  @$pb.TagNumber(12)
+  set authContext(AuthContext value) => $_setField(12, value);
+  @$pb.TagNumber(12)
+  $core.bool hasAuthContext() => $_has(11);
+  @$pb.TagNumber(12)
+  void clearAuthContext() => $_clearField(12);
+  @$pb.TagNumber(12)
+  AuthContext ensureAuthContext() => $_ensure(11);
 }
 
 class ReportStepOutcomeResponse extends $pb.GeneratedMessage {
@@ -8114,6 +8877,7 @@ class AckCancellationRequest extends $pb.GeneratedMessage {
     $core.String? status,
     $core.String? message,
     $0.Struct? extensions,
+    AuthContext? authContext,
   }) {
     final result = create();
     if (contractVersion != null) result.contractVersion = contractVersion;
@@ -8123,6 +8887,7 @@ class AckCancellationRequest extends $pb.GeneratedMessage {
     if (status != null) result.status = status;
     if (message != null) result.message = message;
     if (extensions != null) result.extensions = extensions;
+    if (authContext != null) result.authContext = authContext;
     return result;
   }
 
@@ -8149,6 +8914,8 @@ class AckCancellationRequest extends $pb.GeneratedMessage {
     ..aOS(6, _omitFieldNames ? '' : 'message')
     ..aOM<$0.Struct>(7, _omitFieldNames ? '' : 'extensions',
         subBuilder: $0.Struct.create)
+    ..aOM<AuthContext>(8, _omitFieldNames ? '' : 'authContext',
+        subBuilder: AuthContext.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -8237,6 +9004,17 @@ class AckCancellationRequest extends $pb.GeneratedMessage {
   void clearExtensions() => $_clearField(7);
   @$pb.TagNumber(7)
   $0.Struct ensureExtensions() => $_ensure(6);
+
+  @$pb.TagNumber(8)
+  AuthContext get authContext => $_getN(7);
+  @$pb.TagNumber(8)
+  set authContext(AuthContext value) => $_setField(8, value);
+  @$pb.TagNumber(8)
+  $core.bool hasAuthContext() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearAuthContext() => $_clearField(8);
+  @$pb.TagNumber(8)
+  AuthContext ensureAuthContext() => $_ensure(7);
 }
 
 class AckCancellationResponse extends $pb.GeneratedMessage {

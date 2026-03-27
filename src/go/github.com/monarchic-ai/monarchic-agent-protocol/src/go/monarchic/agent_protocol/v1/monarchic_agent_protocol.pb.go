@@ -348,6 +348,183 @@ func (ArtifactKind) EnumDescriptor() ([]byte, []int) {
 	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{4}
 }
 
+type AuthMechanism int32
+
+const (
+	AuthMechanism_AUTH_MECHANISM_UNSPECIFIED   AuthMechanism = 0
+	AuthMechanism_AUTH_MECHANISM_SHARED_SECRET AuthMechanism = 1
+	AuthMechanism_AUTH_MECHANISM_BEARER_TOKEN  AuthMechanism = 2
+	AuthMechanism_AUTH_MECHANISM_SIGNED_TOKEN  AuthMechanism = 3
+	AuthMechanism_AUTH_MECHANISM_MUTUAL_TLS    AuthMechanism = 4
+	AuthMechanism_AUTH_MECHANISM_CUSTOM        AuthMechanism = 5
+)
+
+// Enum value maps for AuthMechanism.
+var (
+	AuthMechanism_name = map[int32]string{
+		0: "AUTH_MECHANISM_UNSPECIFIED",
+		1: "AUTH_MECHANISM_SHARED_SECRET",
+		2: "AUTH_MECHANISM_BEARER_TOKEN",
+		3: "AUTH_MECHANISM_SIGNED_TOKEN",
+		4: "AUTH_MECHANISM_MUTUAL_TLS",
+		5: "AUTH_MECHANISM_CUSTOM",
+	}
+	AuthMechanism_value = map[string]int32{
+		"AUTH_MECHANISM_UNSPECIFIED":   0,
+		"AUTH_MECHANISM_SHARED_SECRET": 1,
+		"AUTH_MECHANISM_BEARER_TOKEN":  2,
+		"AUTH_MECHANISM_SIGNED_TOKEN":  3,
+		"AUTH_MECHANISM_MUTUAL_TLS":    4,
+		"AUTH_MECHANISM_CUSTOM":        5,
+	}
+)
+
+func (x AuthMechanism) Enum() *AuthMechanism {
+	p := new(AuthMechanism)
+	*p = x
+	return p
+}
+
+func (x AuthMechanism) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (AuthMechanism) Descriptor() protoreflect.EnumDescriptor {
+	return file_monarchic_agent_protocol_proto_enumTypes[5].Descriptor()
+}
+
+func (AuthMechanism) Type() protoreflect.EnumType {
+	return &file_monarchic_agent_protocol_proto_enumTypes[5]
+}
+
+func (x AuthMechanism) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use AuthMechanism.Descriptor instead.
+func (AuthMechanism) EnumDescriptor() ([]byte, []int) {
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{5}
+}
+
+type UsageCategory int32
+
+const (
+	UsageCategory_USAGE_CATEGORY_UNSPECIFIED   UsageCategory = 0
+	UsageCategory_USAGE_CATEGORY_CONTROL_PLANE UsageCategory = 1
+	UsageCategory_USAGE_CATEGORY_EXECUTION     UsageCategory = 2
+	UsageCategory_USAGE_CATEGORY_VERIFICATION  UsageCategory = 3
+	UsageCategory_USAGE_CATEGORY_AUDIT_EXPORT  UsageCategory = 4
+	UsageCategory_USAGE_CATEGORY_CUSTOM        UsageCategory = 5
+)
+
+// Enum value maps for UsageCategory.
+var (
+	UsageCategory_name = map[int32]string{
+		0: "USAGE_CATEGORY_UNSPECIFIED",
+		1: "USAGE_CATEGORY_CONTROL_PLANE",
+		2: "USAGE_CATEGORY_EXECUTION",
+		3: "USAGE_CATEGORY_VERIFICATION",
+		4: "USAGE_CATEGORY_AUDIT_EXPORT",
+		5: "USAGE_CATEGORY_CUSTOM",
+	}
+	UsageCategory_value = map[string]int32{
+		"USAGE_CATEGORY_UNSPECIFIED":   0,
+		"USAGE_CATEGORY_CONTROL_PLANE": 1,
+		"USAGE_CATEGORY_EXECUTION":     2,
+		"USAGE_CATEGORY_VERIFICATION":  3,
+		"USAGE_CATEGORY_AUDIT_EXPORT":  4,
+		"USAGE_CATEGORY_CUSTOM":        5,
+	}
+)
+
+func (x UsageCategory) Enum() *UsageCategory {
+	p := new(UsageCategory)
+	*p = x
+	return p
+}
+
+func (x UsageCategory) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (UsageCategory) Descriptor() protoreflect.EnumDescriptor {
+	return file_monarchic_agent_protocol_proto_enumTypes[6].Descriptor()
+}
+
+func (UsageCategory) Type() protoreflect.EnumType {
+	return &file_monarchic_agent_protocol_proto_enumTypes[6]
+}
+
+func (x UsageCategory) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use UsageCategory.Descriptor instead.
+func (UsageCategory) EnumDescriptor() ([]byte, []int) {
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{6}
+}
+
+type UsageUnit int32
+
+const (
+	UsageUnit_USAGE_UNIT_UNSPECIFIED  UsageUnit = 0
+	UsageUnit_USAGE_UNIT_REQUESTS     UsageUnit = 1
+	UsageUnit_USAGE_UNIT_MILLISECONDS UsageUnit = 2
+	UsageUnit_USAGE_UNIT_BYTES        UsageUnit = 3
+	UsageUnit_USAGE_UNIT_TOKENS       UsageUnit = 4
+	UsageUnit_USAGE_UNIT_RUNS         UsageUnit = 5
+	UsageUnit_USAGE_UNIT_CUSTOM       UsageUnit = 6
+)
+
+// Enum value maps for UsageUnit.
+var (
+	UsageUnit_name = map[int32]string{
+		0: "USAGE_UNIT_UNSPECIFIED",
+		1: "USAGE_UNIT_REQUESTS",
+		2: "USAGE_UNIT_MILLISECONDS",
+		3: "USAGE_UNIT_BYTES",
+		4: "USAGE_UNIT_TOKENS",
+		5: "USAGE_UNIT_RUNS",
+		6: "USAGE_UNIT_CUSTOM",
+	}
+	UsageUnit_value = map[string]int32{
+		"USAGE_UNIT_UNSPECIFIED":  0,
+		"USAGE_UNIT_REQUESTS":     1,
+		"USAGE_UNIT_MILLISECONDS": 2,
+		"USAGE_UNIT_BYTES":        3,
+		"USAGE_UNIT_TOKENS":       4,
+		"USAGE_UNIT_RUNS":         5,
+		"USAGE_UNIT_CUSTOM":       6,
+	}
+)
+
+func (x UsageUnit) Enum() *UsageUnit {
+	p := new(UsageUnit)
+	*p = x
+	return p
+}
+
+func (x UsageUnit) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (UsageUnit) Descriptor() protoreflect.EnumDescriptor {
+	return file_monarchic_agent_protocol_proto_enumTypes[7].Descriptor()
+}
+
+func (UsageUnit) Type() protoreflect.EnumType {
+	return &file_monarchic_agent_protocol_proto_enumTypes[7]
+}
+
+func (x UsageUnit) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use UsageUnit.Descriptor instead.
+func (UsageUnit) EnumDescriptor() ([]byte, []int) {
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{7}
+}
+
 type PlanStepKind int32
 
 const (
@@ -396,11 +573,11 @@ func (x PlanStepKind) String() string {
 }
 
 func (PlanStepKind) Descriptor() protoreflect.EnumDescriptor {
-	return file_monarchic_agent_protocol_proto_enumTypes[5].Descriptor()
+	return file_monarchic_agent_protocol_proto_enumTypes[8].Descriptor()
 }
 
 func (PlanStepKind) Type() protoreflect.EnumType {
-	return &file_monarchic_agent_protocol_proto_enumTypes[5]
+	return &file_monarchic_agent_protocol_proto_enumTypes[8]
 }
 
 func (x PlanStepKind) Number() protoreflect.EnumNumber {
@@ -409,7 +586,7 @@ func (x PlanStepKind) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use PlanStepKind.Descriptor instead.
 func (PlanStepKind) EnumDescriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{5}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{8}
 }
 
 type ReplanStrategy int32
@@ -451,11 +628,11 @@ func (x ReplanStrategy) String() string {
 }
 
 func (ReplanStrategy) Descriptor() protoreflect.EnumDescriptor {
-	return file_monarchic_agent_protocol_proto_enumTypes[6].Descriptor()
+	return file_monarchic_agent_protocol_proto_enumTypes[9].Descriptor()
 }
 
 func (ReplanStrategy) Type() protoreflect.EnumType {
-	return &file_monarchic_agent_protocol_proto_enumTypes[6]
+	return &file_monarchic_agent_protocol_proto_enumTypes[9]
 }
 
 func (x ReplanStrategy) Number() protoreflect.EnumNumber {
@@ -464,7 +641,7 @@ func (x ReplanStrategy) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ReplanStrategy.Descriptor instead.
 func (ReplanStrategy) EnumDescriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{6}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{9}
 }
 
 type VerificationStatus int32
@@ -506,11 +683,11 @@ func (x VerificationStatus) String() string {
 }
 
 func (VerificationStatus) Descriptor() protoreflect.EnumDescriptor {
-	return file_monarchic_agent_protocol_proto_enumTypes[7].Descriptor()
+	return file_monarchic_agent_protocol_proto_enumTypes[10].Descriptor()
 }
 
 func (VerificationStatus) Type() protoreflect.EnumType {
-	return &file_monarchic_agent_protocol_proto_enumTypes[7]
+	return &file_monarchic_agent_protocol_proto_enumTypes[10]
 }
 
 func (x VerificationStatus) Number() protoreflect.EnumNumber {
@@ -519,7 +696,7 @@ func (x VerificationStatus) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use VerificationStatus.Descriptor instead.
 func (VerificationStatus) EnumDescriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{7}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{10}
 }
 
 type VerificationCheckStatus int32
@@ -561,11 +738,11 @@ func (x VerificationCheckStatus) String() string {
 }
 
 func (VerificationCheckStatus) Descriptor() protoreflect.EnumDescriptor {
-	return file_monarchic_agent_protocol_proto_enumTypes[8].Descriptor()
+	return file_monarchic_agent_protocol_proto_enumTypes[11].Descriptor()
 }
 
 func (VerificationCheckStatus) Type() protoreflect.EnumType {
-	return &file_monarchic_agent_protocol_proto_enumTypes[8]
+	return &file_monarchic_agent_protocol_proto_enumTypes[11]
 }
 
 func (x VerificationCheckStatus) Number() protoreflect.EnumNumber {
@@ -574,7 +751,7 @@ func (x VerificationCheckStatus) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use VerificationCheckStatus.Descriptor instead.
 func (VerificationCheckStatus) EnumDescriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{8}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{11}
 }
 
 type BlockedOutcomeScope int32
@@ -625,11 +802,11 @@ func (x BlockedOutcomeScope) String() string {
 }
 
 func (BlockedOutcomeScope) Descriptor() protoreflect.EnumDescriptor {
-	return file_monarchic_agent_protocol_proto_enumTypes[9].Descriptor()
+	return file_monarchic_agent_protocol_proto_enumTypes[12].Descriptor()
 }
 
 func (BlockedOutcomeScope) Type() protoreflect.EnumType {
-	return &file_monarchic_agent_protocol_proto_enumTypes[9]
+	return &file_monarchic_agent_protocol_proto_enumTypes[12]
 }
 
 func (x BlockedOutcomeScope) Number() protoreflect.EnumNumber {
@@ -638,7 +815,7 @@ func (x BlockedOutcomeScope) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use BlockedOutcomeScope.Descriptor instead.
 func (BlockedOutcomeScope) EnumDescriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{9}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{12}
 }
 
 type ReviewDecisionScope int32
@@ -683,11 +860,11 @@ func (x ReviewDecisionScope) String() string {
 }
 
 func (ReviewDecisionScope) Descriptor() protoreflect.EnumDescriptor {
-	return file_monarchic_agent_protocol_proto_enumTypes[10].Descriptor()
+	return file_monarchic_agent_protocol_proto_enumTypes[13].Descriptor()
 }
 
 func (ReviewDecisionScope) Type() protoreflect.EnumType {
-	return &file_monarchic_agent_protocol_proto_enumTypes[10]
+	return &file_monarchic_agent_protocol_proto_enumTypes[13]
 }
 
 func (x ReviewDecisionScope) Number() protoreflect.EnumNumber {
@@ -696,7 +873,7 @@ func (x ReviewDecisionScope) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ReviewDecisionScope.Descriptor instead.
 func (ReviewDecisionScope) EnumDescriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{10}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{13}
 }
 
 type ReviewDisposition int32
@@ -738,11 +915,11 @@ func (x ReviewDisposition) String() string {
 }
 
 func (ReviewDisposition) Descriptor() protoreflect.EnumDescriptor {
-	return file_monarchic_agent_protocol_proto_enumTypes[11].Descriptor()
+	return file_monarchic_agent_protocol_proto_enumTypes[14].Descriptor()
 }
 
 func (ReviewDisposition) Type() protoreflect.EnumType {
-	return &file_monarchic_agent_protocol_proto_enumTypes[11]
+	return &file_monarchic_agent_protocol_proto_enumTypes[14]
 }
 
 func (x ReviewDisposition) Number() protoreflect.EnumNumber {
@@ -751,7 +928,7 @@ func (x ReviewDisposition) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ReviewDisposition.Descriptor instead.
 func (ReviewDisposition) EnumDescriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{11}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{14}
 }
 
 type RerunTrigger int32
@@ -787,11 +964,11 @@ func (x RerunTrigger) String() string {
 }
 
 func (RerunTrigger) Descriptor() protoreflect.EnumDescriptor {
-	return file_monarchic_agent_protocol_proto_enumTypes[12].Descriptor()
+	return file_monarchic_agent_protocol_proto_enumTypes[15].Descriptor()
 }
 
 func (RerunTrigger) Type() protoreflect.EnumType {
-	return &file_monarchic_agent_protocol_proto_enumTypes[12]
+	return &file_monarchic_agent_protocol_proto_enumTypes[15]
 }
 
 func (x RerunTrigger) Number() protoreflect.EnumNumber {
@@ -800,7 +977,7 @@ func (x RerunTrigger) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RerunTrigger.Descriptor instead.
 func (RerunTrigger) EnumDescriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{12}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{15}
 }
 
 type RerunSelectionStrategy int32
@@ -839,11 +1016,11 @@ func (x RerunSelectionStrategy) String() string {
 }
 
 func (RerunSelectionStrategy) Descriptor() protoreflect.EnumDescriptor {
-	return file_monarchic_agent_protocol_proto_enumTypes[13].Descriptor()
+	return file_monarchic_agent_protocol_proto_enumTypes[16].Descriptor()
 }
 
 func (RerunSelectionStrategy) Type() protoreflect.EnumType {
-	return &file_monarchic_agent_protocol_proto_enumTypes[13]
+	return &file_monarchic_agent_protocol_proto_enumTypes[16]
 }
 
 func (x RerunSelectionStrategy) Number() protoreflect.EnumNumber {
@@ -852,7 +1029,7 @@ func (x RerunSelectionStrategy) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RerunSelectionStrategy.Descriptor instead.
 func (RerunSelectionStrategy) EnumDescriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{13}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{16}
 }
 
 type RerunExecutionStatus int32
@@ -894,11 +1071,11 @@ func (x RerunExecutionStatus) String() string {
 }
 
 func (RerunExecutionStatus) Descriptor() protoreflect.EnumDescriptor {
-	return file_monarchic_agent_protocol_proto_enumTypes[14].Descriptor()
+	return file_monarchic_agent_protocol_proto_enumTypes[17].Descriptor()
 }
 
 func (RerunExecutionStatus) Type() protoreflect.EnumType {
-	return &file_monarchic_agent_protocol_proto_enumTypes[14]
+	return &file_monarchic_agent_protocol_proto_enumTypes[17]
 }
 
 func (x RerunExecutionStatus) Number() protoreflect.EnumNumber {
@@ -907,7 +1084,7 @@ func (x RerunExecutionStatus) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RerunExecutionStatus.Descriptor instead.
 func (RerunExecutionStatus) EnumDescriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{14}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{17}
 }
 
 type RunEventStream int32
@@ -955,11 +1132,11 @@ func (x RunEventStream) String() string {
 }
 
 func (RunEventStream) Descriptor() protoreflect.EnumDescriptor {
-	return file_monarchic_agent_protocol_proto_enumTypes[15].Descriptor()
+	return file_monarchic_agent_protocol_proto_enumTypes[18].Descriptor()
 }
 
 func (RunEventStream) Type() protoreflect.EnumType {
-	return &file_monarchic_agent_protocol_proto_enumTypes[15]
+	return &file_monarchic_agent_protocol_proto_enumTypes[18]
 }
 
 func (x RunEventStream) Number() protoreflect.EnumNumber {
@@ -968,7 +1145,7 @@ func (x RunEventStream) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RunEventStream.Descriptor instead.
 func (RunEventStream) EnumDescriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{15}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{18}
 }
 
 type LeaseLifecycleState int32
@@ -1016,11 +1193,11 @@ func (x LeaseLifecycleState) String() string {
 }
 
 func (LeaseLifecycleState) Descriptor() protoreflect.EnumDescriptor {
-	return file_monarchic_agent_protocol_proto_enumTypes[16].Descriptor()
+	return file_monarchic_agent_protocol_proto_enumTypes[19].Descriptor()
 }
 
 func (LeaseLifecycleState) Type() protoreflect.EnumType {
-	return &file_monarchic_agent_protocol_proto_enumTypes[16]
+	return &file_monarchic_agent_protocol_proto_enumTypes[19]
 }
 
 func (x LeaseLifecycleState) Number() protoreflect.EnumNumber {
@@ -1029,7 +1206,7 @@ func (x LeaseLifecycleState) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use LeaseLifecycleState.Descriptor instead.
 func (LeaseLifecycleState) EnumDescriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{16}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{19}
 }
 
 type RunLifecycleState int32
@@ -1083,11 +1260,11 @@ func (x RunLifecycleState) String() string {
 }
 
 func (RunLifecycleState) Descriptor() protoreflect.EnumDescriptor {
-	return file_monarchic_agent_protocol_proto_enumTypes[17].Descriptor()
+	return file_monarchic_agent_protocol_proto_enumTypes[20].Descriptor()
 }
 
 func (RunLifecycleState) Type() protoreflect.EnumType {
-	return &file_monarchic_agent_protocol_proto_enumTypes[17]
+	return &file_monarchic_agent_protocol_proto_enumTypes[20]
 }
 
 func (x RunLifecycleState) Number() protoreflect.EnumNumber {
@@ -1096,7 +1273,7 @@ func (x RunLifecycleState) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RunLifecycleState.Descriptor instead.
 func (RunLifecycleState) EnumDescriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{17}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{20}
 }
 
 type StepLifecycleState int32
@@ -1150,11 +1327,11 @@ func (x StepLifecycleState) String() string {
 }
 
 func (StepLifecycleState) Descriptor() protoreflect.EnumDescriptor {
-	return file_monarchic_agent_protocol_proto_enumTypes[18].Descriptor()
+	return file_monarchic_agent_protocol_proto_enumTypes[21].Descriptor()
 }
 
 func (StepLifecycleState) Type() protoreflect.EnumType {
-	return &file_monarchic_agent_protocol_proto_enumTypes[18]
+	return &file_monarchic_agent_protocol_proto_enumTypes[21]
 }
 
 func (x StepLifecycleState) Number() protoreflect.EnumNumber {
@@ -1163,7 +1340,7 @@ func (x StepLifecycleState) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use StepLifecycleState.Descriptor instead.
 func (StepLifecycleState) EnumDescriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{18}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{21}
 }
 
 type LeaseRejectionReason int32
@@ -1217,11 +1394,11 @@ func (x LeaseRejectionReason) String() string {
 }
 
 func (LeaseRejectionReason) Descriptor() protoreflect.EnumDescriptor {
-	return file_monarchic_agent_protocol_proto_enumTypes[19].Descriptor()
+	return file_monarchic_agent_protocol_proto_enumTypes[22].Descriptor()
 }
 
 func (LeaseRejectionReason) Type() protoreflect.EnumType {
-	return &file_monarchic_agent_protocol_proto_enumTypes[19]
+	return &file_monarchic_agent_protocol_proto_enumTypes[22]
 }
 
 func (x LeaseRejectionReason) Number() protoreflect.EnumNumber {
@@ -1230,7 +1407,7 @@ func (x LeaseRejectionReason) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use LeaseRejectionReason.Descriptor instead.
 func (LeaseRejectionReason) EnumDescriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{19}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{22}
 }
 
 type RecoveryEventKind int32
@@ -1287,11 +1464,11 @@ func (x RecoveryEventKind) String() string {
 }
 
 func (RecoveryEventKind) Descriptor() protoreflect.EnumDescriptor {
-	return file_monarchic_agent_protocol_proto_enumTypes[20].Descriptor()
+	return file_monarchic_agent_protocol_proto_enumTypes[23].Descriptor()
 }
 
 func (RecoveryEventKind) Type() protoreflect.EnumType {
-	return &file_monarchic_agent_protocol_proto_enumTypes[20]
+	return &file_monarchic_agent_protocol_proto_enumTypes[23]
 }
 
 func (x RecoveryEventKind) Number() protoreflect.EnumNumber {
@@ -1300,7 +1477,7 @@ func (x RecoveryEventKind) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RecoveryEventKind.Descriptor instead.
 func (RecoveryEventKind) EnumDescriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{20}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{23}
 }
 
 type DatasetRef struct {
@@ -2579,6 +2756,458 @@ func (x *DigestManifest) GetArtifactDescriptors() []*ArtifactDescriptor {
 	return nil
 }
 
+type PrincipalRef struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	PrincipalId   string                 `protobuf:"bytes,1,opt,name=principal_id,json=principalId,proto3" json:"principal_id,omitempty"`
+	Provider      string                 `protobuf:"bytes,2,opt,name=provider,proto3" json:"provider,omitempty"`
+	DisplayName   *string                `protobuf:"bytes,3,opt,name=display_name,json=displayName,proto3,oneof" json:"display_name,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PrincipalRef) Reset() {
+	*x = PrincipalRef{}
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PrincipalRef) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PrincipalRef) ProtoMessage() {}
+
+func (x *PrincipalRef) ProtoReflect() protoreflect.Message {
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PrincipalRef.ProtoReflect.Descriptor instead.
+func (*PrincipalRef) Descriptor() ([]byte, []int) {
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *PrincipalRef) GetPrincipalId() string {
+	if x != nil {
+		return x.PrincipalId
+	}
+	return ""
+}
+
+func (x *PrincipalRef) GetProvider() string {
+	if x != nil {
+		return x.Provider
+	}
+	return ""
+}
+
+func (x *PrincipalRef) GetDisplayName() string {
+	if x != nil && x.DisplayName != nil {
+		return *x.DisplayName
+	}
+	return ""
+}
+
+type TenantRef struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	TenantId      string                 `protobuf:"bytes,1,opt,name=tenant_id,json=tenantId,proto3" json:"tenant_id,omitempty"`
+	DisplayName   *string                `protobuf:"bytes,2,opt,name=display_name,json=displayName,proto3,oneof" json:"display_name,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TenantRef) Reset() {
+	*x = TenantRef{}
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TenantRef) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TenantRef) ProtoMessage() {}
+
+func (x *TenantRef) ProtoReflect() protoreflect.Message {
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TenantRef.ProtoReflect.Descriptor instead.
+func (*TenantRef) Descriptor() ([]byte, []int) {
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *TenantRef) GetTenantId() string {
+	if x != nil {
+		return x.TenantId
+	}
+	return ""
+}
+
+func (x *TenantRef) GetDisplayName() string {
+	if x != nil && x.DisplayName != nil {
+		return *x.DisplayName
+	}
+	return ""
+}
+
+type AuthContext struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	ContractVersion string                 `protobuf:"bytes,1,opt,name=contract_version,json=contractVersion,proto3" json:"contract_version,omitempty"`
+	AuthContextId   string                 `protobuf:"bytes,2,opt,name=auth_context_id,json=authContextId,proto3" json:"auth_context_id,omitempty"`
+	Principal       *PrincipalRef          `protobuf:"bytes,3,opt,name=principal,proto3" json:"principal,omitempty"`
+	Tenant          *TenantRef             `protobuf:"bytes,4,opt,name=tenant,proto3" json:"tenant,omitempty"`
+	Mechanism       AuthMechanism          `protobuf:"varint,5,opt,name=mechanism,proto3,enum=monarchic.agent_protocol.v1.AuthMechanism" json:"mechanism,omitempty"`
+	CredentialId    string                 `protobuf:"bytes,6,opt,name=credential_id,json=credentialId,proto3" json:"credential_id,omitempty"`
+	Scopes          []string               `protobuf:"bytes,7,rep,name=scopes,proto3" json:"scopes,omitempty"`
+	IssuedAt        uint64                 `protobuf:"varint,8,opt,name=issued_at,json=issuedAt,proto3" json:"issued_at,omitempty"`
+	ExpiresAt       *uint64                `protobuf:"varint,9,opt,name=expires_at,json=expiresAt,proto3,oneof" json:"expires_at,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *AuthContext) Reset() {
+	*x = AuthContext{}
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AuthContext) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AuthContext) ProtoMessage() {}
+
+func (x *AuthContext) ProtoReflect() protoreflect.Message {
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AuthContext.ProtoReflect.Descriptor instead.
+func (*AuthContext) Descriptor() ([]byte, []int) {
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *AuthContext) GetContractVersion() string {
+	if x != nil {
+		return x.ContractVersion
+	}
+	return ""
+}
+
+func (x *AuthContext) GetAuthContextId() string {
+	if x != nil {
+		return x.AuthContextId
+	}
+	return ""
+}
+
+func (x *AuthContext) GetPrincipal() *PrincipalRef {
+	if x != nil {
+		return x.Principal
+	}
+	return nil
+}
+
+func (x *AuthContext) GetTenant() *TenantRef {
+	if x != nil {
+		return x.Tenant
+	}
+	return nil
+}
+
+func (x *AuthContext) GetMechanism() AuthMechanism {
+	if x != nil {
+		return x.Mechanism
+	}
+	return AuthMechanism_AUTH_MECHANISM_UNSPECIFIED
+}
+
+func (x *AuthContext) GetCredentialId() string {
+	if x != nil {
+		return x.CredentialId
+	}
+	return ""
+}
+
+func (x *AuthContext) GetScopes() []string {
+	if x != nil {
+		return x.Scopes
+	}
+	return nil
+}
+
+func (x *AuthContext) GetIssuedAt() uint64 {
+	if x != nil {
+		return x.IssuedAt
+	}
+	return 0
+}
+
+func (x *AuthContext) GetExpiresAt() uint64 {
+	if x != nil && x.ExpiresAt != nil {
+		return *x.ExpiresAt
+	}
+	return 0
+}
+
+type UsageRecord struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	ContractVersion string                 `protobuf:"bytes,1,opt,name=contract_version,json=contractVersion,proto3" json:"contract_version,omitempty"`
+	UsageId         string                 `protobuf:"bytes,2,opt,name=usage_id,json=usageId,proto3" json:"usage_id,omitempty"`
+	Principal       *PrincipalRef          `protobuf:"bytes,3,opt,name=principal,proto3" json:"principal,omitempty"`
+	Tenant          *TenantRef             `protobuf:"bytes,4,opt,name=tenant,proto3" json:"tenant,omitempty"`
+	RunId           *string                `protobuf:"bytes,5,opt,name=run_id,json=runId,proto3,oneof" json:"run_id,omitempty"`
+	PlanId          *string                `protobuf:"bytes,6,opt,name=plan_id,json=planId,proto3,oneof" json:"plan_id,omitempty"`
+	Category        UsageCategory          `protobuf:"varint,7,opt,name=category,proto3,enum=monarchic.agent_protocol.v1.UsageCategory" json:"category,omitempty"`
+	MetricName      string                 `protobuf:"bytes,8,opt,name=metric_name,json=metricName,proto3" json:"metric_name,omitempty"`
+	Quantity        uint64                 `protobuf:"varint,9,opt,name=quantity,proto3" json:"quantity,omitempty"`
+	Unit            UsageUnit              `protobuf:"varint,10,opt,name=unit,proto3,enum=monarchic.agent_protocol.v1.UsageUnit" json:"unit,omitempty"`
+	RecordedAt      uint64                 `protobuf:"varint,11,opt,name=recorded_at,json=recordedAt,proto3" json:"recorded_at,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *UsageRecord) Reset() {
+	*x = UsageRecord{}
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UsageRecord) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UsageRecord) ProtoMessage() {}
+
+func (x *UsageRecord) ProtoReflect() protoreflect.Message {
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UsageRecord.ProtoReflect.Descriptor instead.
+func (*UsageRecord) Descriptor() ([]byte, []int) {
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *UsageRecord) GetContractVersion() string {
+	if x != nil {
+		return x.ContractVersion
+	}
+	return ""
+}
+
+func (x *UsageRecord) GetUsageId() string {
+	if x != nil {
+		return x.UsageId
+	}
+	return ""
+}
+
+func (x *UsageRecord) GetPrincipal() *PrincipalRef {
+	if x != nil {
+		return x.Principal
+	}
+	return nil
+}
+
+func (x *UsageRecord) GetTenant() *TenantRef {
+	if x != nil {
+		return x.Tenant
+	}
+	return nil
+}
+
+func (x *UsageRecord) GetRunId() string {
+	if x != nil && x.RunId != nil {
+		return *x.RunId
+	}
+	return ""
+}
+
+func (x *UsageRecord) GetPlanId() string {
+	if x != nil && x.PlanId != nil {
+		return *x.PlanId
+	}
+	return ""
+}
+
+func (x *UsageRecord) GetCategory() UsageCategory {
+	if x != nil {
+		return x.Category
+	}
+	return UsageCategory_USAGE_CATEGORY_UNSPECIFIED
+}
+
+func (x *UsageRecord) GetMetricName() string {
+	if x != nil {
+		return x.MetricName
+	}
+	return ""
+}
+
+func (x *UsageRecord) GetQuantity() uint64 {
+	if x != nil {
+		return x.Quantity
+	}
+	return 0
+}
+
+func (x *UsageRecord) GetUnit() UsageUnit {
+	if x != nil {
+		return x.Unit
+	}
+	return UsageUnit_USAGE_UNIT_UNSPECIFIED
+}
+
+func (x *UsageRecord) GetRecordedAt() uint64 {
+	if x != nil {
+		return x.RecordedAt
+	}
+	return 0
+}
+
+type AuditExportManifest struct {
+	state               protoimpl.MessageState `protogen:"open.v1"`
+	ContractVersion     string                 `protobuf:"bytes,1,opt,name=contract_version,json=contractVersion,proto3" json:"contract_version,omitempty"`
+	ExportId            string                 `protobuf:"bytes,2,opt,name=export_id,json=exportId,proto3" json:"export_id,omitempty"`
+	Principal           *PrincipalRef          `protobuf:"bytes,3,opt,name=principal,proto3" json:"principal,omitempty"`
+	Tenant              *TenantRef             `protobuf:"bytes,4,opt,name=tenant,proto3" json:"tenant,omitempty"`
+	RunId               string                 `protobuf:"bytes,5,opt,name=run_id,json=runId,proto3" json:"run_id,omitempty"`
+	PlanId              string                 `protobuf:"bytes,6,opt,name=plan_id,json=planId,proto3" json:"plan_id,omitempty"`
+	ExportedAt          uint64                 `protobuf:"varint,7,opt,name=exported_at,json=exportedAt,proto3" json:"exported_at,omitempty"`
+	CombinedDigest      string                 `protobuf:"bytes,8,opt,name=combined_digest,json=combinedDigest,proto3" json:"combined_digest,omitempty"`
+	ArtifactDescriptors []*ArtifactDescriptor  `protobuf:"bytes,9,rep,name=artifact_descriptors,json=artifactDescriptors,proto3" json:"artifact_descriptors,omitempty"`
+	unknownFields       protoimpl.UnknownFields
+	sizeCache           protoimpl.SizeCache
+}
+
+func (x *AuditExportManifest) Reset() {
+	*x = AuditExportManifest{}
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AuditExportManifest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AuditExportManifest) ProtoMessage() {}
+
+func (x *AuditExportManifest) ProtoReflect() protoreflect.Message {
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AuditExportManifest.ProtoReflect.Descriptor instead.
+func (*AuditExportManifest) Descriptor() ([]byte, []int) {
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *AuditExportManifest) GetContractVersion() string {
+	if x != nil {
+		return x.ContractVersion
+	}
+	return ""
+}
+
+func (x *AuditExportManifest) GetExportId() string {
+	if x != nil {
+		return x.ExportId
+	}
+	return ""
+}
+
+func (x *AuditExportManifest) GetPrincipal() *PrincipalRef {
+	if x != nil {
+		return x.Principal
+	}
+	return nil
+}
+
+func (x *AuditExportManifest) GetTenant() *TenantRef {
+	if x != nil {
+		return x.Tenant
+	}
+	return nil
+}
+
+func (x *AuditExportManifest) GetRunId() string {
+	if x != nil {
+		return x.RunId
+	}
+	return ""
+}
+
+func (x *AuditExportManifest) GetPlanId() string {
+	if x != nil {
+		return x.PlanId
+	}
+	return ""
+}
+
+func (x *AuditExportManifest) GetExportedAt() uint64 {
+	if x != nil {
+		return x.ExportedAt
+	}
+	return 0
+}
+
+func (x *AuditExportManifest) GetCombinedDigest() string {
+	if x != nil {
+		return x.CombinedDigest
+	}
+	return ""
+}
+
+func (x *AuditExportManifest) GetArtifactDescriptors() []*ArtifactDescriptor {
+	if x != nil {
+		return x.ArtifactDescriptors
+	}
+	return nil
+}
+
 type ReplanPolicy struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Strategy      ReplanStrategy         `protobuf:"varint,1,opt,name=strategy,proto3,enum=monarchic.agent_protocol.v1.ReplanStrategy" json:"strategy,omitempty"`
@@ -2589,7 +3218,7 @@ type ReplanPolicy struct {
 
 func (x *ReplanPolicy) Reset() {
 	*x = ReplanPolicy{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[13]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2601,7 +3230,7 @@ func (x *ReplanPolicy) String() string {
 func (*ReplanPolicy) ProtoMessage() {}
 
 func (x *ReplanPolicy) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[13]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2614,7 +3243,7 @@ func (x *ReplanPolicy) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReplanPolicy.ProtoReflect.Descriptor instead.
 func (*ReplanPolicy) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{13}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *ReplanPolicy) GetStrategy() ReplanStrategy {
@@ -2641,7 +3270,7 @@ type StepOutputExpectation struct {
 
 func (x *StepOutputExpectation) Reset() {
 	*x = StepOutputExpectation{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[14]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2653,7 +3282,7 @@ func (x *StepOutputExpectation) String() string {
 func (*StepOutputExpectation) ProtoMessage() {}
 
 func (x *StepOutputExpectation) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[14]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2666,7 +3295,7 @@ func (x *StepOutputExpectation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StepOutputExpectation.ProtoReflect.Descriptor instead.
 func (*StepOutputExpectation) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{14}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *StepOutputExpectation) GetKind() ArtifactKind {
@@ -2701,7 +3330,7 @@ type PlanStep struct {
 
 func (x *PlanStep) Reset() {
 	*x = PlanStep{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[15]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2713,7 +3342,7 @@ func (x *PlanStep) String() string {
 func (*PlanStep) ProtoMessage() {}
 
 func (x *PlanStep) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[15]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2726,7 +3355,7 @@ func (x *PlanStep) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PlanStep.ProtoReflect.Descriptor instead.
 func (*PlanStep) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{15}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *PlanStep) GetStepId() string {
@@ -2821,7 +3450,7 @@ type Plan struct {
 
 func (x *Plan) Reset() {
 	*x = Plan{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[16]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2833,7 +3462,7 @@ func (x *Plan) String() string {
 func (*Plan) ProtoMessage() {}
 
 func (x *Plan) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[16]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2846,7 +3475,7 @@ func (x *Plan) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Plan.ProtoReflect.Descriptor instead.
 func (*Plan) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{16}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *Plan) GetContractVersion() string {
@@ -2965,7 +3594,7 @@ type ExecutionReceipt struct {
 
 func (x *ExecutionReceipt) Reset() {
 	*x = ExecutionReceipt{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[17]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2977,7 +3606,7 @@ func (x *ExecutionReceipt) String() string {
 func (*ExecutionReceipt) ProtoMessage() {}
 
 func (x *ExecutionReceipt) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[17]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2990,7 +3619,7 @@ func (x *ExecutionReceipt) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ExecutionReceipt.ProtoReflect.Descriptor instead.
 func (*ExecutionReceipt) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{17}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *ExecutionReceipt) GetContractVersion() string {
@@ -3076,7 +3705,7 @@ type VerificationCheck struct {
 
 func (x *VerificationCheck) Reset() {
 	*x = VerificationCheck{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[18]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3088,7 +3717,7 @@ func (x *VerificationCheck) String() string {
 func (*VerificationCheck) ProtoMessage() {}
 
 func (x *VerificationCheck) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[18]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3101,7 +3730,7 @@ func (x *VerificationCheck) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VerificationCheck.ProtoReflect.Descriptor instead.
 func (*VerificationCheck) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{18}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *VerificationCheck) GetCheckId() string {
@@ -3152,7 +3781,7 @@ type BlockedOutcome struct {
 
 func (x *BlockedOutcome) Reset() {
 	*x = BlockedOutcome{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[19]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3164,7 +3793,7 @@ func (x *BlockedOutcome) String() string {
 func (*BlockedOutcome) ProtoMessage() {}
 
 func (x *BlockedOutcome) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[19]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3177,7 +3806,7 @@ func (x *BlockedOutcome) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BlockedOutcome.ProtoReflect.Descriptor instead.
 func (*BlockedOutcome) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{19}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *BlockedOutcome) GetCode() string {
@@ -3233,7 +3862,7 @@ type VerificationReceipt struct {
 
 func (x *VerificationReceipt) Reset() {
 	*x = VerificationReceipt{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[20]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3245,7 +3874,7 @@ func (x *VerificationReceipt) String() string {
 func (*VerificationReceipt) ProtoMessage() {}
 
 func (x *VerificationReceipt) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[20]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3258,7 +3887,7 @@ func (x *VerificationReceipt) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VerificationReceipt.ProtoReflect.Descriptor instead.
 func (*VerificationReceipt) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{20}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *VerificationReceipt) GetContractVersion() string {
@@ -3346,7 +3975,7 @@ type ReviewDecision struct {
 
 func (x *ReviewDecision) Reset() {
 	*x = ReviewDecision{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[21]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3358,7 +3987,7 @@ func (x *ReviewDecision) String() string {
 func (*ReviewDecision) ProtoMessage() {}
 
 func (x *ReviewDecision) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[21]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3371,7 +4000,7 @@ func (x *ReviewDecision) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReviewDecision.ProtoReflect.Descriptor instead.
 func (*ReviewDecision) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{21}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *ReviewDecision) GetDecisionId() string {
@@ -3440,7 +4069,7 @@ type RerunScope struct {
 
 func (x *RerunScope) Reset() {
 	*x = RerunScope{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[22]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3452,7 +4081,7 @@ func (x *RerunScope) String() string {
 func (*RerunScope) ProtoMessage() {}
 
 func (x *RerunScope) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[22]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3465,7 +4094,7 @@ func (x *RerunScope) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RerunScope.ProtoReflect.Descriptor instead.
 func (*RerunScope) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{22}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *RerunScope) GetScopeId() string {
@@ -3555,7 +4184,7 @@ type RerunExecutionResult struct {
 
 func (x *RerunExecutionResult) Reset() {
 	*x = RerunExecutionResult{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[23]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3567,7 +4196,7 @@ func (x *RerunExecutionResult) String() string {
 func (*RerunExecutionResult) ProtoMessage() {}
 
 func (x *RerunExecutionResult) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[23]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3580,7 +4209,7 @@ func (x *RerunExecutionResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RerunExecutionResult.ProtoReflect.Descriptor instead.
 func (*RerunExecutionResult) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{23}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *RerunExecutionResult) GetResultId() string {
@@ -3715,7 +4344,7 @@ type PrLifecycleState struct {
 
 func (x *PrLifecycleState) Reset() {
 	*x = PrLifecycleState{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[24]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3727,7 +4356,7 @@ func (x *PrLifecycleState) String() string {
 func (*PrLifecycleState) ProtoMessage() {}
 
 func (x *PrLifecycleState) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[24]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3740,7 +4369,7 @@ func (x *PrLifecycleState) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PrLifecycleState.ProtoReflect.Descriptor instead.
 func (*PrLifecycleState) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{24}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *PrLifecycleState) GetStateId() string {
@@ -3846,7 +4475,7 @@ type Task struct {
 
 func (x *Task) Reset() {
 	*x = Task{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[25]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3858,7 +4487,7 @@ func (x *Task) String() string {
 func (*Task) ProtoMessage() {}
 
 func (x *Task) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[25]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3871,7 +4500,7 @@ func (x *Task) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Task.ProtoReflect.Descriptor instead.
 func (*Task) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{25}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *Task) GetVersion() string {
@@ -3970,7 +4599,7 @@ type Artifact struct {
 
 func (x *Artifact) Reset() {
 	*x = Artifact{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[26]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3982,7 +4611,7 @@ func (x *Artifact) String() string {
 func (*Artifact) ProtoMessage() {}
 
 func (x *Artifact) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[26]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3995,7 +4624,7 @@ func (x *Artifact) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Artifact.ProtoReflect.Descriptor instead.
 func (*Artifact) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{26}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *Artifact) GetVersion() string {
@@ -4093,7 +4722,7 @@ type Event struct {
 
 func (x *Event) Reset() {
 	*x = Event{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[27]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4105,7 +4734,7 @@ func (x *Event) String() string {
 func (*Event) ProtoMessage() {}
 
 func (x *Event) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[27]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4118,7 +4747,7 @@ func (x *Event) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Event.ProtoReflect.Descriptor instead.
 func (*Event) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{27}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *Event) GetVersion() string {
@@ -4212,7 +4841,7 @@ type RunEventRecord struct {
 
 func (x *RunEventRecord) Reset() {
 	*x = RunEventRecord{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[28]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4224,7 +4853,7 @@ func (x *RunEventRecord) String() string {
 func (*RunEventRecord) ProtoMessage() {}
 
 func (x *RunEventRecord) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[28]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4237,7 +4866,7 @@ func (x *RunEventRecord) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RunEventRecord.ProtoReflect.Descriptor instead.
 func (*RunEventRecord) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{28}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *RunEventRecord) GetContractVersion() string {
@@ -4353,7 +4982,7 @@ type TaskMessage struct {
 
 func (x *TaskMessage) Reset() {
 	*x = TaskMessage{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[29]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4365,7 +4994,7 @@ func (x *TaskMessage) String() string {
 func (*TaskMessage) ProtoMessage() {}
 
 func (x *TaskMessage) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[29]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4378,7 +5007,7 @@ func (x *TaskMessage) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TaskMessage.ProtoReflect.Descriptor instead.
 func (*TaskMessage) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{29}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *TaskMessage) GetVersion() string {
@@ -4495,7 +5124,7 @@ type TaskMessageAck struct {
 
 func (x *TaskMessageAck) Reset() {
 	*x = TaskMessageAck{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[30]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4507,7 +5136,7 @@ func (x *TaskMessageAck) String() string {
 func (*TaskMessageAck) ProtoMessage() {}
 
 func (x *TaskMessageAck) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[30]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4520,7 +5149,7 @@ func (x *TaskMessageAck) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TaskMessageAck.ProtoReflect.Descriptor instead.
 func (*TaskMessageAck) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{30}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *TaskMessageAck) GetVersion() string {
@@ -4594,7 +5223,7 @@ type GateResult struct {
 
 func (x *GateResult) Reset() {
 	*x = GateResult{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[31]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4606,7 +5235,7 @@ func (x *GateResult) String() string {
 func (*GateResult) ProtoMessage() {}
 
 func (x *GateResult) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[31]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4619,7 +5248,7 @@ func (x *GateResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GateResult.ProtoReflect.Descriptor instead.
 func (*GateResult) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{31}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *GateResult) GetVersion() string {
@@ -4695,7 +5324,7 @@ type RunOutcome struct {
 
 func (x *RunOutcome) Reset() {
 	*x = RunOutcome{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[32]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4707,7 +5336,7 @@ func (x *RunOutcome) String() string {
 func (*RunOutcome) ProtoMessage() {}
 
 func (x *RunOutcome) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[32]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4720,7 +5349,7 @@ func (x *RunOutcome) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RunOutcome.ProtoReflect.Descriptor instead.
 func (*RunOutcome) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{32}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *RunOutcome) GetVersion() string {
@@ -4850,7 +5479,7 @@ type RunContext struct {
 
 func (x *RunContext) Reset() {
 	*x = RunContext{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[33]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4862,7 +5491,7 @@ func (x *RunContext) String() string {
 func (*RunContext) ProtoMessage() {}
 
 func (x *RunContext) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[33]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4875,7 +5504,7 @@ func (x *RunContext) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RunContext.ProtoReflect.Descriptor instead.
 func (*RunContext) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{33}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *RunContext) GetVersion() string {
@@ -4945,7 +5574,7 @@ type RunnerCapabilities struct {
 
 func (x *RunnerCapabilities) Reset() {
 	*x = RunnerCapabilities{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[34]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4957,7 +5586,7 @@ func (x *RunnerCapabilities) String() string {
 func (*RunnerCapabilities) ProtoMessage() {}
 
 func (x *RunnerCapabilities) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[34]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4970,7 +5599,7 @@ func (x *RunnerCapabilities) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RunnerCapabilities.ProtoReflect.Descriptor instead.
 func (*RunnerCapabilities) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{34}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *RunnerCapabilities) GetPlatform() string {
@@ -5045,7 +5674,7 @@ type LeaseRef struct {
 
 func (x *LeaseRef) Reset() {
 	*x = LeaseRef{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[35]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5057,7 +5686,7 @@ func (x *LeaseRef) String() string {
 func (*LeaseRef) ProtoMessage() {}
 
 func (x *LeaseRef) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[35]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5070,7 +5699,7 @@ func (x *LeaseRef) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LeaseRef.ProtoReflect.Descriptor instead.
 func (*LeaseRef) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{35}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *LeaseRef) GetLeaseId() string {
@@ -5128,7 +5757,7 @@ type FencingToken struct {
 
 func (x *FencingToken) Reset() {
 	*x = FencingToken{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[36]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5140,7 +5769,7 @@ func (x *FencingToken) String() string {
 func (*FencingToken) ProtoMessage() {}
 
 func (x *FencingToken) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[36]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5153,7 +5782,7 @@ func (x *FencingToken) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FencingToken.ProtoReflect.Descriptor instead.
 func (*FencingToken) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{36}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{41}
 }
 
 func (x *FencingToken) GetToken() string {
@@ -5211,7 +5840,7 @@ type Lease struct {
 
 func (x *Lease) Reset() {
 	*x = Lease{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[37]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5223,7 +5852,7 @@ func (x *Lease) String() string {
 func (*Lease) ProtoMessage() {}
 
 func (x *Lease) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[37]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5236,7 +5865,7 @@ func (x *Lease) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Lease.ProtoReflect.Descriptor instead.
 func (*Lease) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{37}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *Lease) GetLeaseId() string {
@@ -5343,7 +5972,7 @@ type RecoveryEvent struct {
 
 func (x *RecoveryEvent) Reset() {
 	*x = RecoveryEvent{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[38]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5355,7 +5984,7 @@ func (x *RecoveryEvent) String() string {
 func (*RecoveryEvent) ProtoMessage() {}
 
 func (x *RecoveryEvent) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[38]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5368,7 +5997,7 @@ func (x *RecoveryEvent) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RecoveryEvent.ProtoReflect.Descriptor instead.
 func (*RecoveryEvent) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{38}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *RecoveryEvent) GetEventId() string {
@@ -5468,7 +6097,7 @@ type LeaseStatus struct {
 
 func (x *LeaseStatus) Reset() {
 	*x = LeaseStatus{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[39]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5480,7 +6109,7 @@ func (x *LeaseStatus) String() string {
 func (*LeaseStatus) ProtoMessage() {}
 
 func (x *LeaseStatus) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[39]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5493,7 +6122,7 @@ func (x *LeaseStatus) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LeaseStatus.ProtoReflect.Descriptor instead.
 func (*LeaseStatus) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{39}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *LeaseStatus) GetLease() *LeaseRef {
@@ -5544,7 +6173,7 @@ type CancellationIntent struct {
 
 func (x *CancellationIntent) Reset() {
 	*x = CancellationIntent{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[40]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5556,7 +6185,7 @@ func (x *CancellationIntent) String() string {
 func (*CancellationIntent) ProtoMessage() {}
 
 func (x *CancellationIntent) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[40]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5569,7 +6198,7 @@ func (x *CancellationIntent) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CancellationIntent.ProtoReflect.Descriptor instead.
 func (*CancellationIntent) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{40}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *CancellationIntent) GetLease() *LeaseRef {
@@ -5620,7 +6249,7 @@ type LeaseAssignment struct {
 
 func (x *LeaseAssignment) Reset() {
 	*x = LeaseAssignment{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[41]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5632,7 +6261,7 @@ func (x *LeaseAssignment) String() string {
 func (*LeaseAssignment) ProtoMessage() {}
 
 func (x *LeaseAssignment) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[41]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5645,7 +6274,7 @@ func (x *LeaseAssignment) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LeaseAssignment.ProtoReflect.Descriptor instead.
 func (*LeaseAssignment) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{41}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *LeaseAssignment) GetLease() *LeaseRef {
@@ -5690,13 +6319,14 @@ type RegisterRunnerRequest struct {
 	Capabilities      *RunnerCapabilities    `protobuf:"bytes,3,opt,name=capabilities,proto3" json:"capabilities,omitempty"`
 	MaxParallelLeases uint32                 `protobuf:"varint,4,opt,name=max_parallel_leases,json=maxParallelLeases,proto3" json:"max_parallel_leases,omitempty"`
 	Extensions        *structpb.Struct       `protobuf:"bytes,5,opt,name=extensions,proto3" json:"extensions,omitempty"`
+	AuthContext       *AuthContext           `protobuf:"bytes,6,opt,name=auth_context,json=authContext,proto3,oneof" json:"auth_context,omitempty"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }
 
 func (x *RegisterRunnerRequest) Reset() {
 	*x = RegisterRunnerRequest{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[42]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5708,7 +6338,7 @@ func (x *RegisterRunnerRequest) String() string {
 func (*RegisterRunnerRequest) ProtoMessage() {}
 
 func (x *RegisterRunnerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[42]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5721,7 +6351,7 @@ func (x *RegisterRunnerRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RegisterRunnerRequest.ProtoReflect.Descriptor instead.
 func (*RegisterRunnerRequest) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{42}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{47}
 }
 
 func (x *RegisterRunnerRequest) GetContractVersion() string {
@@ -5759,6 +6389,13 @@ func (x *RegisterRunnerRequest) GetExtensions() *structpb.Struct {
 	return nil
 }
 
+func (x *RegisterRunnerRequest) GetAuthContext() *AuthContext {
+	if x != nil {
+		return x.AuthContext
+	}
+	return nil
+}
+
 type RegisterRunnerResponse struct {
 	state               protoimpl.MessageState `protogen:"open.v1"`
 	ContractVersion     string                 `protobuf:"bytes,1,opt,name=contract_version,json=contractVersion,proto3" json:"contract_version,omitempty"`
@@ -5773,7 +6410,7 @@ type RegisterRunnerResponse struct {
 
 func (x *RegisterRunnerResponse) Reset() {
 	*x = RegisterRunnerResponse{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[43]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5785,7 +6422,7 @@ func (x *RegisterRunnerResponse) String() string {
 func (*RegisterRunnerResponse) ProtoMessage() {}
 
 func (x *RegisterRunnerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[43]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5798,7 +6435,7 @@ func (x *RegisterRunnerResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RegisterRunnerResponse.ProtoReflect.Descriptor instead.
 func (*RegisterRunnerResponse) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{43}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *RegisterRunnerResponse) GetContractVersion() string {
@@ -5850,13 +6487,14 @@ type HeartbeatRequest struct {
 	SessionId       string                 `protobuf:"bytes,3,opt,name=session_id,json=sessionId,proto3" json:"session_id,omitempty"`
 	ActiveLeases    []*LeaseStatus         `protobuf:"bytes,4,rep,name=active_leases,json=activeLeases,proto3" json:"active_leases,omitempty"`
 	Extensions      *structpb.Struct       `protobuf:"bytes,5,opt,name=extensions,proto3" json:"extensions,omitempty"`
+	AuthContext     *AuthContext           `protobuf:"bytes,6,opt,name=auth_context,json=authContext,proto3,oneof" json:"auth_context,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
 
 func (x *HeartbeatRequest) Reset() {
 	*x = HeartbeatRequest{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[44]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5868,7 +6506,7 @@ func (x *HeartbeatRequest) String() string {
 func (*HeartbeatRequest) ProtoMessage() {}
 
 func (x *HeartbeatRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[44]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5881,7 +6519,7 @@ func (x *HeartbeatRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HeartbeatRequest.ProtoReflect.Descriptor instead.
 func (*HeartbeatRequest) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{44}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{49}
 }
 
 func (x *HeartbeatRequest) GetContractVersion() string {
@@ -5919,6 +6557,13 @@ func (x *HeartbeatRequest) GetExtensions() *structpb.Struct {
 	return nil
 }
 
+func (x *HeartbeatRequest) GetAuthContext() *AuthContext {
+	if x != nil {
+		return x.AuthContext
+	}
+	return nil
+}
+
 type HeartbeatResponse struct {
 	state           protoimpl.MessageState `protogen:"open.v1"`
 	ContractVersion string                 `protobuf:"bytes,1,opt,name=contract_version,json=contractVersion,proto3" json:"contract_version,omitempty"`
@@ -5932,7 +6577,7 @@ type HeartbeatResponse struct {
 
 func (x *HeartbeatResponse) Reset() {
 	*x = HeartbeatResponse{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[45]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5944,7 +6589,7 @@ func (x *HeartbeatResponse) String() string {
 func (*HeartbeatResponse) ProtoMessage() {}
 
 func (x *HeartbeatResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[45]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5957,7 +6602,7 @@ func (x *HeartbeatResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HeartbeatResponse.ProtoReflect.Descriptor instead.
 func (*HeartbeatResponse) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{45}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{50}
 }
 
 func (x *HeartbeatResponse) GetContractVersion() string {
@@ -6003,13 +6648,14 @@ type AcquireLeaseRequest struct {
 	AvailableSlots  uint32                 `protobuf:"varint,4,opt,name=available_slots,json=availableSlots,proto3" json:"available_slots,omitempty"`
 	ActiveLeaseIds  []string               `protobuf:"bytes,5,rep,name=active_lease_ids,json=activeLeaseIds,proto3" json:"active_lease_ids,omitempty"`
 	Extensions      *structpb.Struct       `protobuf:"bytes,6,opt,name=extensions,proto3" json:"extensions,omitempty"`
+	AuthContext     *AuthContext           `protobuf:"bytes,7,opt,name=auth_context,json=authContext,proto3,oneof" json:"auth_context,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
 
 func (x *AcquireLeaseRequest) Reset() {
 	*x = AcquireLeaseRequest{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[46]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6021,7 +6667,7 @@ func (x *AcquireLeaseRequest) String() string {
 func (*AcquireLeaseRequest) ProtoMessage() {}
 
 func (x *AcquireLeaseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[46]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6034,7 +6680,7 @@ func (x *AcquireLeaseRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AcquireLeaseRequest.ProtoReflect.Descriptor instead.
 func (*AcquireLeaseRequest) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{46}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{51}
 }
 
 func (x *AcquireLeaseRequest) GetContractVersion() string {
@@ -6079,6 +6725,13 @@ func (x *AcquireLeaseRequest) GetExtensions() *structpb.Struct {
 	return nil
 }
 
+func (x *AcquireLeaseRequest) GetAuthContext() *AuthContext {
+	if x != nil {
+		return x.AuthContext
+	}
+	return nil
+}
+
 type AcquireLeaseResponse struct {
 	state           protoimpl.MessageState `protogen:"open.v1"`
 	ContractVersion string                 `protobuf:"bytes,1,opt,name=contract_version,json=contractVersion,proto3" json:"contract_version,omitempty"`
@@ -6093,7 +6746,7 @@ type AcquireLeaseResponse struct {
 
 func (x *AcquireLeaseResponse) Reset() {
 	*x = AcquireLeaseResponse{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[47]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6105,7 +6758,7 @@ func (x *AcquireLeaseResponse) String() string {
 func (*AcquireLeaseResponse) ProtoMessage() {}
 
 func (x *AcquireLeaseResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[47]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6118,7 +6771,7 @@ func (x *AcquireLeaseResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AcquireLeaseResponse.ProtoReflect.Descriptor instead.
 func (*AcquireLeaseResponse) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{47}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{52}
 }
 
 func (x *AcquireLeaseResponse) GetContractVersion() string {
@@ -6170,13 +6823,14 @@ type RenewLeaseRequest struct {
 	SessionId       string                 `protobuf:"bytes,3,opt,name=session_id,json=sessionId,proto3" json:"session_id,omitempty"`
 	Lease           *LeaseRef              `protobuf:"bytes,4,opt,name=lease,proto3" json:"lease,omitempty"`
 	Extensions      *structpb.Struct       `protobuf:"bytes,5,opt,name=extensions,proto3" json:"extensions,omitempty"`
+	AuthContext     *AuthContext           `protobuf:"bytes,6,opt,name=auth_context,json=authContext,proto3,oneof" json:"auth_context,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
 
 func (x *RenewLeaseRequest) Reset() {
 	*x = RenewLeaseRequest{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[48]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6188,7 +6842,7 @@ func (x *RenewLeaseRequest) String() string {
 func (*RenewLeaseRequest) ProtoMessage() {}
 
 func (x *RenewLeaseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[48]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6201,7 +6855,7 @@ func (x *RenewLeaseRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RenewLeaseRequest.ProtoReflect.Descriptor instead.
 func (*RenewLeaseRequest) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{48}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{53}
 }
 
 func (x *RenewLeaseRequest) GetContractVersion() string {
@@ -6239,6 +6893,13 @@ func (x *RenewLeaseRequest) GetExtensions() *structpb.Struct {
 	return nil
 }
 
+func (x *RenewLeaseRequest) GetAuthContext() *AuthContext {
+	if x != nil {
+		return x.AuthContext
+	}
+	return nil
+}
+
 type RenewLeaseResponse struct {
 	state           protoimpl.MessageState `protogen:"open.v1"`
 	ContractVersion string                 `protobuf:"bytes,1,opt,name=contract_version,json=contractVersion,proto3" json:"contract_version,omitempty"`
@@ -6254,7 +6915,7 @@ type RenewLeaseResponse struct {
 
 func (x *RenewLeaseResponse) Reset() {
 	*x = RenewLeaseResponse{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[49]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6266,7 +6927,7 @@ func (x *RenewLeaseResponse) String() string {
 func (*RenewLeaseResponse) ProtoMessage() {}
 
 func (x *RenewLeaseResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[49]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6279,7 +6940,7 @@ func (x *RenewLeaseResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RenewLeaseResponse.ProtoReflect.Descriptor instead.
 func (*RenewLeaseResponse) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{49}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *RenewLeaseResponse) GetContractVersion() string {
@@ -6338,13 +6999,14 @@ type ResumeLeaseRequest struct {
 	SessionId       string                 `protobuf:"bytes,3,opt,name=session_id,json=sessionId,proto3" json:"session_id,omitempty"`
 	Lease           *LeaseRef              `protobuf:"bytes,4,opt,name=lease,proto3" json:"lease,omitempty"`
 	Extensions      *structpb.Struct       `protobuf:"bytes,5,opt,name=extensions,proto3" json:"extensions,omitempty"`
+	AuthContext     *AuthContext           `protobuf:"bytes,6,opt,name=auth_context,json=authContext,proto3,oneof" json:"auth_context,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
 
 func (x *ResumeLeaseRequest) Reset() {
 	*x = ResumeLeaseRequest{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[50]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6356,7 +7018,7 @@ func (x *ResumeLeaseRequest) String() string {
 func (*ResumeLeaseRequest) ProtoMessage() {}
 
 func (x *ResumeLeaseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[50]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6369,7 +7031,7 @@ func (x *ResumeLeaseRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResumeLeaseRequest.ProtoReflect.Descriptor instead.
 func (*ResumeLeaseRequest) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{50}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{55}
 }
 
 func (x *ResumeLeaseRequest) GetContractVersion() string {
@@ -6407,6 +7069,13 @@ func (x *ResumeLeaseRequest) GetExtensions() *structpb.Struct {
 	return nil
 }
 
+func (x *ResumeLeaseRequest) GetAuthContext() *AuthContext {
+	if x != nil {
+		return x.AuthContext
+	}
+	return nil
+}
+
 type ResumeLeaseResponse struct {
 	state               protoimpl.MessageState `protogen:"open.v1"`
 	ContractVersion     string                 `protobuf:"bytes,1,opt,name=contract_version,json=contractVersion,proto3" json:"contract_version,omitempty"`
@@ -6424,7 +7093,7 @@ type ResumeLeaseResponse struct {
 
 func (x *ResumeLeaseResponse) Reset() {
 	*x = ResumeLeaseResponse{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[51]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6436,7 +7105,7 @@ func (x *ResumeLeaseResponse) String() string {
 func (*ResumeLeaseResponse) ProtoMessage() {}
 
 func (x *ResumeLeaseResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[51]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6449,7 +7118,7 @@ func (x *ResumeLeaseResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResumeLeaseResponse.ProtoReflect.Descriptor instead.
 func (*ResumeLeaseResponse) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{51}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{56}
 }
 
 func (x *ResumeLeaseResponse) GetContractVersion() string {
@@ -6523,13 +7192,14 @@ type ReportStepStartedRequest struct {
 	Lease           *LeaseRef              `protobuf:"bytes,4,opt,name=lease,proto3" json:"lease,omitempty"`
 	StartedAt       string                 `protobuf:"bytes,5,opt,name=started_at,json=startedAt,proto3" json:"started_at,omitempty"`
 	Extensions      *structpb.Struct       `protobuf:"bytes,6,opt,name=extensions,proto3" json:"extensions,omitempty"`
+	AuthContext     *AuthContext           `protobuf:"bytes,7,opt,name=auth_context,json=authContext,proto3,oneof" json:"auth_context,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
 
 func (x *ReportStepStartedRequest) Reset() {
 	*x = ReportStepStartedRequest{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[52]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6541,7 +7211,7 @@ func (x *ReportStepStartedRequest) String() string {
 func (*ReportStepStartedRequest) ProtoMessage() {}
 
 func (x *ReportStepStartedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[52]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6554,7 +7224,7 @@ func (x *ReportStepStartedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReportStepStartedRequest.ProtoReflect.Descriptor instead.
 func (*ReportStepStartedRequest) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{52}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{57}
 }
 
 func (x *ReportStepStartedRequest) GetContractVersion() string {
@@ -6599,6 +7269,13 @@ func (x *ReportStepStartedRequest) GetExtensions() *structpb.Struct {
 	return nil
 }
 
+func (x *ReportStepStartedRequest) GetAuthContext() *AuthContext {
+	if x != nil {
+		return x.AuthContext
+	}
+	return nil
+}
+
 type ReportStepStartedResponse struct {
 	state           protoimpl.MessageState `protogen:"open.v1"`
 	ContractVersion string                 `protobuf:"bytes,1,opt,name=contract_version,json=contractVersion,proto3" json:"contract_version,omitempty"`
@@ -6612,7 +7289,7 @@ type ReportStepStartedResponse struct {
 
 func (x *ReportStepStartedResponse) Reset() {
 	*x = ReportStepStartedResponse{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[53]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6624,7 +7301,7 @@ func (x *ReportStepStartedResponse) String() string {
 func (*ReportStepStartedResponse) ProtoMessage() {}
 
 func (x *ReportStepStartedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[53]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6637,7 +7314,7 @@ func (x *ReportStepStartedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReportStepStartedResponse.ProtoReflect.Descriptor instead.
 func (*ReportStepStartedResponse) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{53}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *ReportStepStartedResponse) GetContractVersion() string {
@@ -6684,13 +7361,14 @@ type ReportStepProgressRequest struct {
 	Events          []*Event               `protobuf:"bytes,5,rep,name=events,proto3" json:"events,omitempty"`
 	Artifacts       []*Artifact            `protobuf:"bytes,6,rep,name=artifacts,proto3" json:"artifacts,omitempty"`
 	Extensions      *structpb.Struct       `protobuf:"bytes,7,opt,name=extensions,proto3" json:"extensions,omitempty"`
+	AuthContext     *AuthContext           `protobuf:"bytes,8,opt,name=auth_context,json=authContext,proto3,oneof" json:"auth_context,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
 
 func (x *ReportStepProgressRequest) Reset() {
 	*x = ReportStepProgressRequest{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[54]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6702,7 +7380,7 @@ func (x *ReportStepProgressRequest) String() string {
 func (*ReportStepProgressRequest) ProtoMessage() {}
 
 func (x *ReportStepProgressRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[54]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6715,7 +7393,7 @@ func (x *ReportStepProgressRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReportStepProgressRequest.ProtoReflect.Descriptor instead.
 func (*ReportStepProgressRequest) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{54}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{59}
 }
 
 func (x *ReportStepProgressRequest) GetContractVersion() string {
@@ -6767,6 +7445,13 @@ func (x *ReportStepProgressRequest) GetExtensions() *structpb.Struct {
 	return nil
 }
 
+func (x *ReportStepProgressRequest) GetAuthContext() *AuthContext {
+	if x != nil {
+		return x.AuthContext
+	}
+	return nil
+}
+
 type ReportStepProgressResponse struct {
 	state           protoimpl.MessageState `protogen:"open.v1"`
 	ContractVersion string                 `protobuf:"bytes,1,opt,name=contract_version,json=contractVersion,proto3" json:"contract_version,omitempty"`
@@ -6781,7 +7466,7 @@ type ReportStepProgressResponse struct {
 
 func (x *ReportStepProgressResponse) Reset() {
 	*x = ReportStepProgressResponse{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[55]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6793,7 +7478,7 @@ func (x *ReportStepProgressResponse) String() string {
 func (*ReportStepProgressResponse) ProtoMessage() {}
 
 func (x *ReportStepProgressResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[55]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6806,7 +7491,7 @@ func (x *ReportStepProgressResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReportStepProgressResponse.ProtoReflect.Descriptor instead.
 func (*ReportStepProgressResponse) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{55}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{60}
 }
 
 func (x *ReportStepProgressResponse) GetContractVersion() string {
@@ -6864,13 +7549,14 @@ type ReportStepOutcomeRequest struct {
 	Failure         *FailureDetail         `protobuf:"bytes,9,opt,name=failure,proto3,oneof" json:"failure,omitempty"`
 	FinishedAt      string                 `protobuf:"bytes,10,opt,name=finished_at,json=finishedAt,proto3" json:"finished_at,omitempty"`
 	Extensions      *structpb.Struct       `protobuf:"bytes,11,opt,name=extensions,proto3" json:"extensions,omitempty"`
+	AuthContext     *AuthContext           `protobuf:"bytes,12,opt,name=auth_context,json=authContext,proto3,oneof" json:"auth_context,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
 
 func (x *ReportStepOutcomeRequest) Reset() {
 	*x = ReportStepOutcomeRequest{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[56]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6882,7 +7568,7 @@ func (x *ReportStepOutcomeRequest) String() string {
 func (*ReportStepOutcomeRequest) ProtoMessage() {}
 
 func (x *ReportStepOutcomeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[56]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6895,7 +7581,7 @@ func (x *ReportStepOutcomeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReportStepOutcomeRequest.ProtoReflect.Descriptor instead.
 func (*ReportStepOutcomeRequest) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{56}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{61}
 }
 
 func (x *ReportStepOutcomeRequest) GetContractVersion() string {
@@ -6975,6 +7661,13 @@ func (x *ReportStepOutcomeRequest) GetExtensions() *structpb.Struct {
 	return nil
 }
 
+func (x *ReportStepOutcomeRequest) GetAuthContext() *AuthContext {
+	if x != nil {
+		return x.AuthContext
+	}
+	return nil
+}
+
 type ReportStepOutcomeResponse struct {
 	state           protoimpl.MessageState `protogen:"open.v1"`
 	ContractVersion string                 `protobuf:"bytes,1,opt,name=contract_version,json=contractVersion,proto3" json:"contract_version,omitempty"`
@@ -6988,7 +7681,7 @@ type ReportStepOutcomeResponse struct {
 
 func (x *ReportStepOutcomeResponse) Reset() {
 	*x = ReportStepOutcomeResponse{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[57]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[62]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7000,7 +7693,7 @@ func (x *ReportStepOutcomeResponse) String() string {
 func (*ReportStepOutcomeResponse) ProtoMessage() {}
 
 func (x *ReportStepOutcomeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[57]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[62]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7013,7 +7706,7 @@ func (x *ReportStepOutcomeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReportStepOutcomeResponse.ProtoReflect.Descriptor instead.
 func (*ReportStepOutcomeResponse) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{57}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{62}
 }
 
 func (x *ReportStepOutcomeResponse) GetContractVersion() string {
@@ -7060,13 +7753,14 @@ type AckCancellationRequest struct {
 	Status          string                 `protobuf:"bytes,5,opt,name=status,proto3" json:"status,omitempty"`
 	Message         *string                `protobuf:"bytes,6,opt,name=message,proto3,oneof" json:"message,omitempty"`
 	Extensions      *structpb.Struct       `protobuf:"bytes,7,opt,name=extensions,proto3" json:"extensions,omitempty"`
+	AuthContext     *AuthContext           `protobuf:"bytes,8,opt,name=auth_context,json=authContext,proto3,oneof" json:"auth_context,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
 
 func (x *AckCancellationRequest) Reset() {
 	*x = AckCancellationRequest{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[58]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[63]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7078,7 +7772,7 @@ func (x *AckCancellationRequest) String() string {
 func (*AckCancellationRequest) ProtoMessage() {}
 
 func (x *AckCancellationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[58]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[63]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7091,7 +7785,7 @@ func (x *AckCancellationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AckCancellationRequest.ProtoReflect.Descriptor instead.
 func (*AckCancellationRequest) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{58}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{63}
 }
 
 func (x *AckCancellationRequest) GetContractVersion() string {
@@ -7143,6 +7837,13 @@ func (x *AckCancellationRequest) GetExtensions() *structpb.Struct {
 	return nil
 }
 
+func (x *AckCancellationRequest) GetAuthContext() *AuthContext {
+	if x != nil {
+		return x.AuthContext
+	}
+	return nil
+}
+
 type AckCancellationResponse struct {
 	state           protoimpl.MessageState `protogen:"open.v1"`
 	ContractVersion string                 `protobuf:"bytes,1,opt,name=contract_version,json=contractVersion,proto3" json:"contract_version,omitempty"`
@@ -7156,7 +7857,7 @@ type AckCancellationResponse struct {
 
 func (x *AckCancellationResponse) Reset() {
 	*x = AckCancellationResponse{}
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[59]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[64]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7168,7 +7869,7 @@ func (x *AckCancellationResponse) String() string {
 func (*AckCancellationResponse) ProtoMessage() {}
 
 func (x *AckCancellationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_monarchic_agent_protocol_proto_msgTypes[59]
+	mi := &file_monarchic_agent_protocol_proto_msgTypes[64]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7181,7 +7882,7 @@ func (x *AckCancellationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AckCancellationResponse.ProtoReflect.Descriptor instead.
 func (*AckCancellationResponse) Descriptor() ([]byte, []int) {
-	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{59}
+	return file_monarchic_agent_protocol_proto_rawDescGZIP(), []int{64}
 }
 
 func (x *AckCancellationResponse) GetContractVersion() string {
@@ -7409,7 +8110,57 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"created_at\x18\x05 \x01(\x04R\tcreatedAt\x12'\n" +
 	"\x0fcombined_digest\x18\x06 \x01(\tR\x0ecombinedDigest\x12!\n" +
 	"\fevent_digest\x18\a \x01(\tR\veventDigest\x12b\n" +
-	"\x14artifact_descriptors\x18\b \x03(\v2/.monarchic.agent_protocol.v1.ArtifactDescriptorR\x13artifactDescriptors\"z\n" +
+	"\x14artifact_descriptors\x18\b \x03(\v2/.monarchic.agent_protocol.v1.ArtifactDescriptorR\x13artifactDescriptors\"\x86\x01\n" +
+	"\fPrincipalRef\x12!\n" +
+	"\fprincipal_id\x18\x01 \x01(\tR\vprincipalId\x12\x1a\n" +
+	"\bprovider\x18\x02 \x01(\tR\bprovider\x12&\n" +
+	"\fdisplay_name\x18\x03 \x01(\tH\x00R\vdisplayName\x88\x01\x01B\x0f\n" +
+	"\r_display_name\"a\n" +
+	"\tTenantRef\x12\x1b\n" +
+	"\ttenant_id\x18\x01 \x01(\tR\btenantId\x12&\n" +
+	"\fdisplay_name\x18\x02 \x01(\tH\x00R\vdisplayName\x88\x01\x01B\x0f\n" +
+	"\r_display_name\"\xc0\x03\n" +
+	"\vAuthContext\x12)\n" +
+	"\x10contract_version\x18\x01 \x01(\tR\x0fcontractVersion\x12&\n" +
+	"\x0fauth_context_id\x18\x02 \x01(\tR\rauthContextId\x12G\n" +
+	"\tprincipal\x18\x03 \x01(\v2).monarchic.agent_protocol.v1.PrincipalRefR\tprincipal\x12>\n" +
+	"\x06tenant\x18\x04 \x01(\v2&.monarchic.agent_protocol.v1.TenantRefR\x06tenant\x12H\n" +
+	"\tmechanism\x18\x05 \x01(\x0e2*.monarchic.agent_protocol.v1.AuthMechanismR\tmechanism\x12#\n" +
+	"\rcredential_id\x18\x06 \x01(\tR\fcredentialId\x12\x16\n" +
+	"\x06scopes\x18\a \x03(\tR\x06scopes\x12\x1b\n" +
+	"\tissued_at\x18\b \x01(\x04R\bissuedAt\x12\"\n" +
+	"\n" +
+	"expires_at\x18\t \x01(\x04H\x00R\texpiresAt\x88\x01\x01B\r\n" +
+	"\v_expires_at\"\x8f\x04\n" +
+	"\vUsageRecord\x12)\n" +
+	"\x10contract_version\x18\x01 \x01(\tR\x0fcontractVersion\x12\x19\n" +
+	"\busage_id\x18\x02 \x01(\tR\ausageId\x12G\n" +
+	"\tprincipal\x18\x03 \x01(\v2).monarchic.agent_protocol.v1.PrincipalRefR\tprincipal\x12>\n" +
+	"\x06tenant\x18\x04 \x01(\v2&.monarchic.agent_protocol.v1.TenantRefR\x06tenant\x12\x1a\n" +
+	"\x06run_id\x18\x05 \x01(\tH\x00R\x05runId\x88\x01\x01\x12\x1c\n" +
+	"\aplan_id\x18\x06 \x01(\tH\x01R\x06planId\x88\x01\x01\x12F\n" +
+	"\bcategory\x18\a \x01(\x0e2*.monarchic.agent_protocol.v1.UsageCategoryR\bcategory\x12\x1f\n" +
+	"\vmetric_name\x18\b \x01(\tR\n" +
+	"metricName\x12\x1a\n" +
+	"\bquantity\x18\t \x01(\x04R\bquantity\x12:\n" +
+	"\x04unit\x18\n" +
+	" \x01(\x0e2&.monarchic.agent_protocol.v1.UsageUnitR\x04unit\x12\x1f\n" +
+	"\vrecorded_at\x18\v \x01(\x04R\n" +
+	"recordedAtB\t\n" +
+	"\a_run_idB\n" +
+	"\n" +
+	"\b_plan_id\"\xc4\x03\n" +
+	"\x13AuditExportManifest\x12)\n" +
+	"\x10contract_version\x18\x01 \x01(\tR\x0fcontractVersion\x12\x1b\n" +
+	"\texport_id\x18\x02 \x01(\tR\bexportId\x12G\n" +
+	"\tprincipal\x18\x03 \x01(\v2).monarchic.agent_protocol.v1.PrincipalRefR\tprincipal\x12>\n" +
+	"\x06tenant\x18\x04 \x01(\v2&.monarchic.agent_protocol.v1.TenantRefR\x06tenant\x12\x15\n" +
+	"\x06run_id\x18\x05 \x01(\tR\x05runId\x12\x17\n" +
+	"\aplan_id\x18\x06 \x01(\tR\x06planId\x12\x1f\n" +
+	"\vexported_at\x18\a \x01(\x04R\n" +
+	"exportedAt\x12'\n" +
+	"\x0fcombined_digest\x18\b \x01(\tR\x0ecombinedDigest\x12b\n" +
+	"\x14artifact_descriptors\x18\t \x03(\v2/.monarchic.agent_protocol.v1.ArtifactDescriptorR\x13artifactDescriptors\"z\n" +
 	"\fReplanPolicy\x12G\n" +
 	"\bstrategy\x18\x01 \x01(\x0e2+.monarchic.agent_protocol.v1.ReplanStrategyR\bstrategy\x12!\n" +
 	"\fmax_attempts\x18\x02 \x01(\rR\vmaxAttempts\"y\n" +
@@ -7830,7 +8581,7 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"leaseTtlMs\x127\n" +
 	"\n" +
 	"extensions\x18\x05 \x01(\v2\x17.google.protobuf.StructR\n" +
-	"extensions\"\x9d\x02\n" +
+	"extensions\"\x80\x03\n" +
 	"\x15RegisterRunnerRequest\x12)\n" +
 	"\x10contract_version\x18\x01 \x01(\tR\x0fcontractVersion\x12\x1b\n" +
 	"\trunner_id\x18\x02 \x01(\tR\brunnerId\x12S\n" +
@@ -7838,7 +8589,9 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"\x13max_parallel_leases\x18\x04 \x01(\rR\x11maxParallelLeases\x127\n" +
 	"\n" +
 	"extensions\x18\x05 \x01(\v2\x17.google.protobuf.StructR\n" +
-	"extensions\"\xad\x02\n" +
+	"extensions\x12P\n" +
+	"\fauth_context\x18\x06 \x01(\v2(.monarchic.agent_protocol.v1.AuthContextH\x00R\vauthContext\x88\x01\x01B\x0f\n" +
+	"\r_auth_context\"\xad\x02\n" +
 	"\x16RegisterRunnerResponse\x12)\n" +
 	"\x10contract_version\x18\x01 \x01(\tR\x0fcontractVersion\x12'\n" +
 	"\x0forchestrator_id\x18\x02 \x01(\tR\x0eorchestratorId\x12\x1d\n" +
@@ -7848,7 +8601,7 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"\x16lease_poll_interval_ms\x18\x05 \x01(\x04R\x13leasePollIntervalMs\x127\n" +
 	"\n" +
 	"extensions\x18\x06 \x01(\v2\x17.google.protobuf.StructR\n" +
-	"extensions\"\x81\x02\n" +
+	"extensions\"\xe4\x02\n" +
 	"\x10HeartbeatRequest\x12)\n" +
 	"\x10contract_version\x18\x01 \x01(\tR\x0fcontractVersion\x12\x1b\n" +
 	"\trunner_id\x18\x02 \x01(\tR\brunnerId\x12\x1d\n" +
@@ -7857,7 +8610,9 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"\ractive_leases\x18\x04 \x03(\v2(.monarchic.agent_protocol.v1.LeaseStatusR\factiveLeases\x127\n" +
 	"\n" +
 	"extensions\x18\x05 \x01(\v2\x17.google.protobuf.StructR\n" +
-	"extensions\"\xa3\x02\n" +
+	"extensions\x12P\n" +
+	"\fauth_context\x18\x06 \x01(\v2(.monarchic.agent_protocol.v1.AuthContextH\x00R\vauthContext\x88\x01\x01B\x0f\n" +
+	"\r_auth_context\"\xa3\x02\n" +
 	"\x11HeartbeatResponse\x12)\n" +
 	"\x10contract_version\x18\x01 \x01(\tR\x0fcontractVersion\x12'\n" +
 	"\x0forchestrator_id\x18\x02 \x01(\tR\x0eorchestratorId\x12*\n" +
@@ -7865,7 +8620,7 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"\rcancellations\x18\x04 \x03(\v2/.monarchic.agent_protocol.v1.CancellationIntentR\rcancellations\x127\n" +
 	"\n" +
 	"extensions\x18\x05 \x01(\v2\x17.google.protobuf.StructR\n" +
-	"extensions\"\x88\x02\n" +
+	"extensions\"\xeb\x02\n" +
 	"\x13AcquireLeaseRequest\x12)\n" +
 	"\x10contract_version\x18\x01 \x01(\tR\x0fcontractVersion\x12\x1b\n" +
 	"\trunner_id\x18\x02 \x01(\tR\brunnerId\x12\x1d\n" +
@@ -7875,7 +8630,9 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"\x10active_lease_ids\x18\x05 \x03(\tR\x0eactiveLeaseIds\x127\n" +
 	"\n" +
 	"extensions\x18\x06 \x01(\v2\x17.google.protobuf.StructR\n" +
-	"extensions\"\xee\x02\n" +
+	"extensions\x12P\n" +
+	"\fauth_context\x18\a \x01(\v2(.monarchic.agent_protocol.v1.AuthContextH\x00R\vauthContext\x88\x01\x01B\x0f\n" +
+	"\r_auth_context\"\xee\x02\n" +
 	"\x14AcquireLeaseResponse\x12)\n" +
 	"\x10contract_version\x18\x01 \x01(\tR\x0fcontractVersion\x12'\n" +
 	"\x0forchestrator_id\x18\x02 \x01(\tR\x0eorchestratorId\x12L\n" +
@@ -7886,7 +8643,7 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"\rcancellations\x18\x05 \x03(\v2/.monarchic.agent_protocol.v1.CancellationIntentR\rcancellations\x127\n" +
 	"\n" +
 	"extensions\x18\x06 \x01(\v2\x17.google.protobuf.StructR\n" +
-	"extensions\"\xf0\x01\n" +
+	"extensions\"\xd3\x02\n" +
 	"\x11RenewLeaseRequest\x12)\n" +
 	"\x10contract_version\x18\x01 \x01(\tR\x0fcontractVersion\x12\x1b\n" +
 	"\trunner_id\x18\x02 \x01(\tR\brunnerId\x12\x1d\n" +
@@ -7895,7 +8652,9 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"\x05lease\x18\x04 \x01(\v2%.monarchic.agent_protocol.v1.LeaseRefR\x05lease\x127\n" +
 	"\n" +
 	"extensions\x18\x05 \x01(\v2\x17.google.protobuf.StructR\n" +
-	"extensions\"\x8d\x03\n" +
+	"extensions\x12P\n" +
+	"\fauth_context\x18\x06 \x01(\v2(.monarchic.agent_protocol.v1.AuthContextH\x00R\vauthContext\x88\x01\x01B\x0f\n" +
+	"\r_auth_context\"\x8d\x03\n" +
 	"\x12RenewLeaseResponse\x12)\n" +
 	"\x10contract_version\x18\x01 \x01(\tR\x0fcontractVersion\x12'\n" +
 	"\x0forchestrator_id\x18\x02 \x01(\tR\x0eorchestratorId\x12\x1a\n" +
@@ -7908,7 +8667,7 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"extensions\x18\a \x01(\v2\x17.google.protobuf.StructR\n" +
 	"extensionsB\n" +
 	"\n" +
-	"\b_failure\"\xf1\x01\n" +
+	"\b_failure\"\xd4\x02\n" +
 	"\x12ResumeLeaseRequest\x12)\n" +
 	"\x10contract_version\x18\x01 \x01(\tR\x0fcontractVersion\x12\x1b\n" +
 	"\trunner_id\x18\x02 \x01(\tR\brunnerId\x12\x1d\n" +
@@ -7917,7 +8676,9 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"\x05lease\x18\x04 \x01(\v2%.monarchic.agent_protocol.v1.LeaseRefR\x05lease\x127\n" +
 	"\n" +
 	"extensions\x18\x05 \x01(\v2\x17.google.protobuf.StructR\n" +
-	"extensions\"\xb5\x03\n" +
+	"extensions\x12P\n" +
+	"\fauth_context\x18\x06 \x01(\v2(.monarchic.agent_protocol.v1.AuthContextH\x00R\vauthContext\x88\x01\x01B\x0f\n" +
+	"\r_auth_context\"\xb5\x03\n" +
 	"\x13ResumeLeaseResponse\x12)\n" +
 	"\x10contract_version\x18\x01 \x01(\tR\x0fcontractVersion\x12'\n" +
 	"\x0forchestrator_id\x18\x02 \x01(\tR\x0eorchestratorId\x12\x1a\n" +
@@ -7929,7 +8690,7 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"\amessage\x18\b \x01(\tR\amessage\x127\n" +
 	"\n" +
 	"extensions\x18\t \x01(\v2\x17.google.protobuf.StructR\n" +
-	"extensions\"\x96\x02\n" +
+	"extensions\"\xf9\x02\n" +
 	"\x18ReportStepStartedRequest\x12)\n" +
 	"\x10contract_version\x18\x01 \x01(\tR\x0fcontractVersion\x12\x1b\n" +
 	"\trunner_id\x18\x02 \x01(\tR\brunnerId\x12\x1d\n" +
@@ -7940,7 +8701,9 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"started_at\x18\x05 \x01(\tR\tstartedAt\x127\n" +
 	"\n" +
 	"extensions\x18\x06 \x01(\v2\x17.google.protobuf.StructR\n" +
-	"extensions\"\x9b\x02\n" +
+	"extensions\x12P\n" +
+	"\fauth_context\x18\a \x01(\v2(.monarchic.agent_protocol.v1.AuthContextH\x00R\vauthContext\x88\x01\x01B\x0f\n" +
+	"\r_auth_context\"\x9b\x02\n" +
 	"\x19ReportStepStartedResponse\x12)\n" +
 	"\x10contract_version\x18\x01 \x01(\tR\x0fcontractVersion\x12'\n" +
 	"\x0forchestrator_id\x18\x02 \x01(\tR\x0eorchestratorId\x12\x1a\n" +
@@ -7950,7 +8713,7 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"extensions\x18\x05 \x01(\v2\x17.google.protobuf.StructR\n" +
 	"extensionsB\n" +
 	"\n" +
-	"\b_failure\"\xf9\x02\n" +
+	"\b_failure\"\xdc\x03\n" +
 	"\x19ReportStepProgressRequest\x12)\n" +
 	"\x10contract_version\x18\x01 \x01(\tR\x0fcontractVersion\x12\x1b\n" +
 	"\trunner_id\x18\x02 \x01(\tR\brunnerId\x12\x1d\n" +
@@ -7961,7 +8724,9 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"\tartifacts\x18\x06 \x03(\v2%.monarchic.agent_protocol.v1.ArtifactR\tartifacts\x127\n" +
 	"\n" +
 	"extensions\x18\a \x01(\v2\x17.google.protobuf.StructR\n" +
-	"extensions\"\xf3\x02\n" +
+	"extensions\x12P\n" +
+	"\fauth_context\x18\b \x01(\v2(.monarchic.agent_protocol.v1.AuthContextH\x00R\vauthContext\x88\x01\x01B\x0f\n" +
+	"\r_auth_context\"\xf3\x02\n" +
 	"\x1aReportStepProgressResponse\x12)\n" +
 	"\x10contract_version\x18\x01 \x01(\tR\x0fcontractVersion\x12'\n" +
 	"\x0forchestrator_id\x18\x02 \x01(\tR\x0eorchestratorId\x12\x1a\n" +
@@ -7972,7 +8737,7 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"extensions\x18\x06 \x01(\v2\x17.google.protobuf.StructR\n" +
 	"extensionsB\n" +
 	"\n" +
-	"\b_failure\"\x90\x05\n" +
+	"\b_failure\"\xf3\x05\n" +
 	"\x18ReportStepOutcomeRequest\x12)\n" +
 	"\x10contract_version\x18\x01 \x01(\tR\x0fcontractVersion\x12\x1b\n" +
 	"\trunner_id\x18\x02 \x01(\tR\brunnerId\x12\x1d\n" +
@@ -7990,10 +8755,12 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"finishedAt\x127\n" +
 	"\n" +
 	"extensions\x18\v \x01(\v2\x17.google.protobuf.StructR\n" +
-	"extensionsB\x0e\n" +
+	"extensions\x12P\n" +
+	"\fauth_context\x18\f \x01(\v2(.monarchic.agent_protocol.v1.AuthContextH\x02R\vauthContext\x88\x01\x01B\x0e\n" +
 	"\f_run_outcomeB\n" +
 	"\n" +
-	"\b_failure\"\x9b\x02\n" +
+	"\b_failureB\x0f\n" +
+	"\r_auth_context\"\x9b\x02\n" +
 	"\x19ReportStepOutcomeResponse\x12)\n" +
 	"\x10contract_version\x18\x01 \x01(\tR\x0fcontractVersion\x12'\n" +
 	"\x0forchestrator_id\x18\x02 \x01(\tR\x0eorchestratorId\x12\x1a\n" +
@@ -8003,7 +8770,7 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"extensions\x18\x05 \x01(\v2\x17.google.protobuf.StructR\n" +
 	"extensionsB\n" +
 	"\n" +
-	"\b_failure\"\xb8\x02\n" +
+	"\b_failure\"\x9b\x03\n" +
 	"\x16AckCancellationRequest\x12)\n" +
 	"\x10contract_version\x18\x01 \x01(\tR\x0fcontractVersion\x12\x1b\n" +
 	"\trunner_id\x18\x02 \x01(\tR\brunnerId\x12\x1d\n" +
@@ -8014,9 +8781,11 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"\amessage\x18\x06 \x01(\tH\x00R\amessage\x88\x01\x01\x127\n" +
 	"\n" +
 	"extensions\x18\a \x01(\v2\x17.google.protobuf.StructR\n" +
-	"extensionsB\n" +
+	"extensions\x12P\n" +
+	"\fauth_context\x18\b \x01(\v2(.monarchic.agent_protocol.v1.AuthContextH\x01R\vauthContext\x88\x01\x01B\n" +
 	"\n" +
-	"\b_message\"\x99\x02\n" +
+	"\b_messageB\x0f\n" +
+	"\r_auth_context\"\x99\x02\n" +
 	"\x17AckCancellationResponse\x12)\n" +
 	"\x10contract_version\x18\x01 \x01(\tR\x0fcontractVersion\x12'\n" +
 	"\x0forchestrator_id\x18\x02 \x01(\tR\x0eorchestratorId\x12\x1a\n" +
@@ -8080,7 +8849,29 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"\x17ARTIFACT_KIND_BUILD_LOG\x10\t\x12\x18\n" +
 	"\x14ARTIFACT_KIND_BUNDLE\x10\n" +
 	"\x12\x18\n" +
-	"\x14ARTIFACT_KIND_CUSTOM\x10\v*\xf6\x01\n" +
+	"\x14ARTIFACT_KIND_CUSTOM\x10\v*\xcd\x01\n" +
+	"\rAuthMechanism\x12\x1e\n" +
+	"\x1aAUTH_MECHANISM_UNSPECIFIED\x10\x00\x12 \n" +
+	"\x1cAUTH_MECHANISM_SHARED_SECRET\x10\x01\x12\x1f\n" +
+	"\x1bAUTH_MECHANISM_BEARER_TOKEN\x10\x02\x12\x1f\n" +
+	"\x1bAUTH_MECHANISM_SIGNED_TOKEN\x10\x03\x12\x1d\n" +
+	"\x19AUTH_MECHANISM_MUTUAL_TLS\x10\x04\x12\x19\n" +
+	"\x15AUTH_MECHANISM_CUSTOM\x10\x05*\xcc\x01\n" +
+	"\rUsageCategory\x12\x1e\n" +
+	"\x1aUSAGE_CATEGORY_UNSPECIFIED\x10\x00\x12 \n" +
+	"\x1cUSAGE_CATEGORY_CONTROL_PLANE\x10\x01\x12\x1c\n" +
+	"\x18USAGE_CATEGORY_EXECUTION\x10\x02\x12\x1f\n" +
+	"\x1bUSAGE_CATEGORY_VERIFICATION\x10\x03\x12\x1f\n" +
+	"\x1bUSAGE_CATEGORY_AUDIT_EXPORT\x10\x04\x12\x19\n" +
+	"\x15USAGE_CATEGORY_CUSTOM\x10\x05*\xb6\x01\n" +
+	"\tUsageUnit\x12\x1a\n" +
+	"\x16USAGE_UNIT_UNSPECIFIED\x10\x00\x12\x17\n" +
+	"\x13USAGE_UNIT_REQUESTS\x10\x01\x12\x1b\n" +
+	"\x17USAGE_UNIT_MILLISECONDS\x10\x02\x12\x14\n" +
+	"\x10USAGE_UNIT_BYTES\x10\x03\x12\x15\n" +
+	"\x11USAGE_UNIT_TOKENS\x10\x04\x12\x13\n" +
+	"\x0fUSAGE_UNIT_RUNS\x10\x05\x12\x15\n" +
+	"\x11USAGE_UNIT_CUSTOM\x10\x06*\xf6\x01\n" +
 	"\fPlanStepKind\x12\x1e\n" +
 	"\x1aPLAN_STEP_KIND_UNSPECIFIED\x10\x00\x12\x1b\n" +
 	"\x17PLAN_STEP_KIND_ANALYSIS\x10\x01\x12\x1c\n" +
@@ -8230,258 +9021,285 @@ func file_monarchic_agent_protocol_proto_rawDescGZIP() []byte {
 	return file_monarchic_agent_protocol_proto_rawDescData
 }
 
-var file_monarchic_agent_protocol_proto_enumTypes = make([]protoimpl.EnumInfo, 21)
-var file_monarchic_agent_protocol_proto_msgTypes = make([]protoimpl.MessageInfo, 60)
+var file_monarchic_agent_protocol_proto_enumTypes = make([]protoimpl.EnumInfo, 24)
+var file_monarchic_agent_protocol_proto_msgTypes = make([]protoimpl.MessageInfo, 65)
 var file_monarchic_agent_protocol_proto_goTypes = []any{
 	(AgentRole)(0),                     // 0: monarchic.agent_protocol.v1.AgentRole
 	(OutcomeDecision)(0),               // 1: monarchic.agent_protocol.v1.OutcomeDecision
 	(IntentClass)(0),                   // 2: monarchic.agent_protocol.v1.IntentClass
 	(PlanStatus)(0),                    // 3: monarchic.agent_protocol.v1.PlanStatus
 	(ArtifactKind)(0),                  // 4: monarchic.agent_protocol.v1.ArtifactKind
-	(PlanStepKind)(0),                  // 5: monarchic.agent_protocol.v1.PlanStepKind
-	(ReplanStrategy)(0),                // 6: monarchic.agent_protocol.v1.ReplanStrategy
-	(VerificationStatus)(0),            // 7: monarchic.agent_protocol.v1.VerificationStatus
-	(VerificationCheckStatus)(0),       // 8: monarchic.agent_protocol.v1.VerificationCheckStatus
-	(BlockedOutcomeScope)(0),           // 9: monarchic.agent_protocol.v1.BlockedOutcomeScope
-	(ReviewDecisionScope)(0),           // 10: monarchic.agent_protocol.v1.ReviewDecisionScope
-	(ReviewDisposition)(0),             // 11: monarchic.agent_protocol.v1.ReviewDisposition
-	(RerunTrigger)(0),                  // 12: monarchic.agent_protocol.v1.RerunTrigger
-	(RerunSelectionStrategy)(0),        // 13: monarchic.agent_protocol.v1.RerunSelectionStrategy
-	(RerunExecutionStatus)(0),          // 14: monarchic.agent_protocol.v1.RerunExecutionStatus
-	(RunEventStream)(0),                // 15: monarchic.agent_protocol.v1.RunEventStream
-	(LeaseLifecycleState)(0),           // 16: monarchic.agent_protocol.v1.LeaseLifecycleState
-	(RunLifecycleState)(0),             // 17: monarchic.agent_protocol.v1.RunLifecycleState
-	(StepLifecycleState)(0),            // 18: monarchic.agent_protocol.v1.StepLifecycleState
-	(LeaseRejectionReason)(0),          // 19: monarchic.agent_protocol.v1.LeaseRejectionReason
-	(RecoveryEventKind)(0),             // 20: monarchic.agent_protocol.v1.RecoveryEventKind
-	(*DatasetRef)(nil),                 // 21: monarchic.agent_protocol.v1.DatasetRef
-	(*AcceptanceCriteria)(nil),         // 22: monarchic.agent_protocol.v1.AcceptanceCriteria
-	(*ExperimentSpec)(nil),             // 23: monarchic.agent_protocol.v1.ExperimentSpec
-	(*ObjectiveSpec)(nil),              // 24: monarchic.agent_protocol.v1.ObjectiveSpec
-	(*EvalResult)(nil),                 // 25: monarchic.agent_protocol.v1.EvalResult
-	(*FailureClass)(nil),               // 26: monarchic.agent_protocol.v1.FailureClass
-	(*Provenance)(nil),                 // 27: monarchic.agent_protocol.v1.Provenance
-	(*Intent)(nil),                     // 28: monarchic.agent_protocol.v1.Intent
-	(*RoleProvenance)(nil),             // 29: monarchic.agent_protocol.v1.RoleProvenance
-	(*PlanProvenance)(nil),             // 30: monarchic.agent_protocol.v1.PlanProvenance
-	(*FailureDetail)(nil),              // 31: monarchic.agent_protocol.v1.FailureDetail
-	(*ArtifactDescriptor)(nil),         // 32: monarchic.agent_protocol.v1.ArtifactDescriptor
-	(*DigestManifest)(nil),             // 33: monarchic.agent_protocol.v1.DigestManifest
-	(*ReplanPolicy)(nil),               // 34: monarchic.agent_protocol.v1.ReplanPolicy
-	(*StepOutputExpectation)(nil),      // 35: monarchic.agent_protocol.v1.StepOutputExpectation
-	(*PlanStep)(nil),                   // 36: monarchic.agent_protocol.v1.PlanStep
-	(*Plan)(nil),                       // 37: monarchic.agent_protocol.v1.Plan
-	(*ExecutionReceipt)(nil),           // 38: monarchic.agent_protocol.v1.ExecutionReceipt
-	(*VerificationCheck)(nil),          // 39: monarchic.agent_protocol.v1.VerificationCheck
-	(*BlockedOutcome)(nil),             // 40: monarchic.agent_protocol.v1.BlockedOutcome
-	(*VerificationReceipt)(nil),        // 41: monarchic.agent_protocol.v1.VerificationReceipt
-	(*ReviewDecision)(nil),             // 42: monarchic.agent_protocol.v1.ReviewDecision
-	(*RerunScope)(nil),                 // 43: monarchic.agent_protocol.v1.RerunScope
-	(*RerunExecutionResult)(nil),       // 44: monarchic.agent_protocol.v1.RerunExecutionResult
-	(*PrLifecycleState)(nil),           // 45: monarchic.agent_protocol.v1.PrLifecycleState
-	(*Task)(nil),                       // 46: monarchic.agent_protocol.v1.Task
-	(*Artifact)(nil),                   // 47: monarchic.agent_protocol.v1.Artifact
-	(*Event)(nil),                      // 48: monarchic.agent_protocol.v1.Event
-	(*RunEventRecord)(nil),             // 49: monarchic.agent_protocol.v1.RunEventRecord
-	(*TaskMessage)(nil),                // 50: monarchic.agent_protocol.v1.TaskMessage
-	(*TaskMessageAck)(nil),             // 51: monarchic.agent_protocol.v1.TaskMessageAck
-	(*GateResult)(nil),                 // 52: monarchic.agent_protocol.v1.GateResult
-	(*RunOutcome)(nil),                 // 53: monarchic.agent_protocol.v1.RunOutcome
-	(*RunContext)(nil),                 // 54: monarchic.agent_protocol.v1.RunContext
-	(*RunnerCapabilities)(nil),         // 55: monarchic.agent_protocol.v1.RunnerCapabilities
-	(*LeaseRef)(nil),                   // 56: monarchic.agent_protocol.v1.LeaseRef
-	(*FencingToken)(nil),               // 57: monarchic.agent_protocol.v1.FencingToken
-	(*Lease)(nil),                      // 58: monarchic.agent_protocol.v1.Lease
-	(*RecoveryEvent)(nil),              // 59: monarchic.agent_protocol.v1.RecoveryEvent
-	(*LeaseStatus)(nil),                // 60: monarchic.agent_protocol.v1.LeaseStatus
-	(*CancellationIntent)(nil),         // 61: monarchic.agent_protocol.v1.CancellationIntent
-	(*LeaseAssignment)(nil),            // 62: monarchic.agent_protocol.v1.LeaseAssignment
-	(*RegisterRunnerRequest)(nil),      // 63: monarchic.agent_protocol.v1.RegisterRunnerRequest
-	(*RegisterRunnerResponse)(nil),     // 64: monarchic.agent_protocol.v1.RegisterRunnerResponse
-	(*HeartbeatRequest)(nil),           // 65: monarchic.agent_protocol.v1.HeartbeatRequest
-	(*HeartbeatResponse)(nil),          // 66: monarchic.agent_protocol.v1.HeartbeatResponse
-	(*AcquireLeaseRequest)(nil),        // 67: monarchic.agent_protocol.v1.AcquireLeaseRequest
-	(*AcquireLeaseResponse)(nil),       // 68: monarchic.agent_protocol.v1.AcquireLeaseResponse
-	(*RenewLeaseRequest)(nil),          // 69: monarchic.agent_protocol.v1.RenewLeaseRequest
-	(*RenewLeaseResponse)(nil),         // 70: monarchic.agent_protocol.v1.RenewLeaseResponse
-	(*ResumeLeaseRequest)(nil),         // 71: monarchic.agent_protocol.v1.ResumeLeaseRequest
-	(*ResumeLeaseResponse)(nil),        // 72: monarchic.agent_protocol.v1.ResumeLeaseResponse
-	(*ReportStepStartedRequest)(nil),   // 73: monarchic.agent_protocol.v1.ReportStepStartedRequest
-	(*ReportStepStartedResponse)(nil),  // 74: monarchic.agent_protocol.v1.ReportStepStartedResponse
-	(*ReportStepProgressRequest)(nil),  // 75: monarchic.agent_protocol.v1.ReportStepProgressRequest
-	(*ReportStepProgressResponse)(nil), // 76: monarchic.agent_protocol.v1.ReportStepProgressResponse
-	(*ReportStepOutcomeRequest)(nil),   // 77: monarchic.agent_protocol.v1.ReportStepOutcomeRequest
-	(*ReportStepOutcomeResponse)(nil),  // 78: monarchic.agent_protocol.v1.ReportStepOutcomeResponse
-	(*AckCancellationRequest)(nil),     // 79: monarchic.agent_protocol.v1.AckCancellationRequest
-	(*AckCancellationResponse)(nil),    // 80: monarchic.agent_protocol.v1.AckCancellationResponse
-	(*structpb.Struct)(nil),            // 81: google.protobuf.Struct
+	(AuthMechanism)(0),                 // 5: monarchic.agent_protocol.v1.AuthMechanism
+	(UsageCategory)(0),                 // 6: monarchic.agent_protocol.v1.UsageCategory
+	(UsageUnit)(0),                     // 7: monarchic.agent_protocol.v1.UsageUnit
+	(PlanStepKind)(0),                  // 8: monarchic.agent_protocol.v1.PlanStepKind
+	(ReplanStrategy)(0),                // 9: monarchic.agent_protocol.v1.ReplanStrategy
+	(VerificationStatus)(0),            // 10: monarchic.agent_protocol.v1.VerificationStatus
+	(VerificationCheckStatus)(0),       // 11: monarchic.agent_protocol.v1.VerificationCheckStatus
+	(BlockedOutcomeScope)(0),           // 12: monarchic.agent_protocol.v1.BlockedOutcomeScope
+	(ReviewDecisionScope)(0),           // 13: monarchic.agent_protocol.v1.ReviewDecisionScope
+	(ReviewDisposition)(0),             // 14: monarchic.agent_protocol.v1.ReviewDisposition
+	(RerunTrigger)(0),                  // 15: monarchic.agent_protocol.v1.RerunTrigger
+	(RerunSelectionStrategy)(0),        // 16: monarchic.agent_protocol.v1.RerunSelectionStrategy
+	(RerunExecutionStatus)(0),          // 17: monarchic.agent_protocol.v1.RerunExecutionStatus
+	(RunEventStream)(0),                // 18: monarchic.agent_protocol.v1.RunEventStream
+	(LeaseLifecycleState)(0),           // 19: monarchic.agent_protocol.v1.LeaseLifecycleState
+	(RunLifecycleState)(0),             // 20: monarchic.agent_protocol.v1.RunLifecycleState
+	(StepLifecycleState)(0),            // 21: monarchic.agent_protocol.v1.StepLifecycleState
+	(LeaseRejectionReason)(0),          // 22: monarchic.agent_protocol.v1.LeaseRejectionReason
+	(RecoveryEventKind)(0),             // 23: monarchic.agent_protocol.v1.RecoveryEventKind
+	(*DatasetRef)(nil),                 // 24: monarchic.agent_protocol.v1.DatasetRef
+	(*AcceptanceCriteria)(nil),         // 25: monarchic.agent_protocol.v1.AcceptanceCriteria
+	(*ExperimentSpec)(nil),             // 26: monarchic.agent_protocol.v1.ExperimentSpec
+	(*ObjectiveSpec)(nil),              // 27: monarchic.agent_protocol.v1.ObjectiveSpec
+	(*EvalResult)(nil),                 // 28: monarchic.agent_protocol.v1.EvalResult
+	(*FailureClass)(nil),               // 29: monarchic.agent_protocol.v1.FailureClass
+	(*Provenance)(nil),                 // 30: monarchic.agent_protocol.v1.Provenance
+	(*Intent)(nil),                     // 31: monarchic.agent_protocol.v1.Intent
+	(*RoleProvenance)(nil),             // 32: monarchic.agent_protocol.v1.RoleProvenance
+	(*PlanProvenance)(nil),             // 33: monarchic.agent_protocol.v1.PlanProvenance
+	(*FailureDetail)(nil),              // 34: monarchic.agent_protocol.v1.FailureDetail
+	(*ArtifactDescriptor)(nil),         // 35: monarchic.agent_protocol.v1.ArtifactDescriptor
+	(*DigestManifest)(nil),             // 36: monarchic.agent_protocol.v1.DigestManifest
+	(*PrincipalRef)(nil),               // 37: monarchic.agent_protocol.v1.PrincipalRef
+	(*TenantRef)(nil),                  // 38: monarchic.agent_protocol.v1.TenantRef
+	(*AuthContext)(nil),                // 39: monarchic.agent_protocol.v1.AuthContext
+	(*UsageRecord)(nil),                // 40: monarchic.agent_protocol.v1.UsageRecord
+	(*AuditExportManifest)(nil),        // 41: monarchic.agent_protocol.v1.AuditExportManifest
+	(*ReplanPolicy)(nil),               // 42: monarchic.agent_protocol.v1.ReplanPolicy
+	(*StepOutputExpectation)(nil),      // 43: monarchic.agent_protocol.v1.StepOutputExpectation
+	(*PlanStep)(nil),                   // 44: monarchic.agent_protocol.v1.PlanStep
+	(*Plan)(nil),                       // 45: monarchic.agent_protocol.v1.Plan
+	(*ExecutionReceipt)(nil),           // 46: monarchic.agent_protocol.v1.ExecutionReceipt
+	(*VerificationCheck)(nil),          // 47: monarchic.agent_protocol.v1.VerificationCheck
+	(*BlockedOutcome)(nil),             // 48: monarchic.agent_protocol.v1.BlockedOutcome
+	(*VerificationReceipt)(nil),        // 49: monarchic.agent_protocol.v1.VerificationReceipt
+	(*ReviewDecision)(nil),             // 50: monarchic.agent_protocol.v1.ReviewDecision
+	(*RerunScope)(nil),                 // 51: monarchic.agent_protocol.v1.RerunScope
+	(*RerunExecutionResult)(nil),       // 52: monarchic.agent_protocol.v1.RerunExecutionResult
+	(*PrLifecycleState)(nil),           // 53: monarchic.agent_protocol.v1.PrLifecycleState
+	(*Task)(nil),                       // 54: monarchic.agent_protocol.v1.Task
+	(*Artifact)(nil),                   // 55: monarchic.agent_protocol.v1.Artifact
+	(*Event)(nil),                      // 56: monarchic.agent_protocol.v1.Event
+	(*RunEventRecord)(nil),             // 57: monarchic.agent_protocol.v1.RunEventRecord
+	(*TaskMessage)(nil),                // 58: monarchic.agent_protocol.v1.TaskMessage
+	(*TaskMessageAck)(nil),             // 59: monarchic.agent_protocol.v1.TaskMessageAck
+	(*GateResult)(nil),                 // 60: monarchic.agent_protocol.v1.GateResult
+	(*RunOutcome)(nil),                 // 61: monarchic.agent_protocol.v1.RunOutcome
+	(*RunContext)(nil),                 // 62: monarchic.agent_protocol.v1.RunContext
+	(*RunnerCapabilities)(nil),         // 63: monarchic.agent_protocol.v1.RunnerCapabilities
+	(*LeaseRef)(nil),                   // 64: monarchic.agent_protocol.v1.LeaseRef
+	(*FencingToken)(nil),               // 65: monarchic.agent_protocol.v1.FencingToken
+	(*Lease)(nil),                      // 66: monarchic.agent_protocol.v1.Lease
+	(*RecoveryEvent)(nil),              // 67: monarchic.agent_protocol.v1.RecoveryEvent
+	(*LeaseStatus)(nil),                // 68: monarchic.agent_protocol.v1.LeaseStatus
+	(*CancellationIntent)(nil),         // 69: monarchic.agent_protocol.v1.CancellationIntent
+	(*LeaseAssignment)(nil),            // 70: monarchic.agent_protocol.v1.LeaseAssignment
+	(*RegisterRunnerRequest)(nil),      // 71: monarchic.agent_protocol.v1.RegisterRunnerRequest
+	(*RegisterRunnerResponse)(nil),     // 72: monarchic.agent_protocol.v1.RegisterRunnerResponse
+	(*HeartbeatRequest)(nil),           // 73: monarchic.agent_protocol.v1.HeartbeatRequest
+	(*HeartbeatResponse)(nil),          // 74: monarchic.agent_protocol.v1.HeartbeatResponse
+	(*AcquireLeaseRequest)(nil),        // 75: monarchic.agent_protocol.v1.AcquireLeaseRequest
+	(*AcquireLeaseResponse)(nil),       // 76: monarchic.agent_protocol.v1.AcquireLeaseResponse
+	(*RenewLeaseRequest)(nil),          // 77: monarchic.agent_protocol.v1.RenewLeaseRequest
+	(*RenewLeaseResponse)(nil),         // 78: monarchic.agent_protocol.v1.RenewLeaseResponse
+	(*ResumeLeaseRequest)(nil),         // 79: monarchic.agent_protocol.v1.ResumeLeaseRequest
+	(*ResumeLeaseResponse)(nil),        // 80: monarchic.agent_protocol.v1.ResumeLeaseResponse
+	(*ReportStepStartedRequest)(nil),   // 81: monarchic.agent_protocol.v1.ReportStepStartedRequest
+	(*ReportStepStartedResponse)(nil),  // 82: monarchic.agent_protocol.v1.ReportStepStartedResponse
+	(*ReportStepProgressRequest)(nil),  // 83: monarchic.agent_protocol.v1.ReportStepProgressRequest
+	(*ReportStepProgressResponse)(nil), // 84: monarchic.agent_protocol.v1.ReportStepProgressResponse
+	(*ReportStepOutcomeRequest)(nil),   // 85: monarchic.agent_protocol.v1.ReportStepOutcomeRequest
+	(*ReportStepOutcomeResponse)(nil),  // 86: monarchic.agent_protocol.v1.ReportStepOutcomeResponse
+	(*AckCancellationRequest)(nil),     // 87: monarchic.agent_protocol.v1.AckCancellationRequest
+	(*AckCancellationResponse)(nil),    // 88: monarchic.agent_protocol.v1.AckCancellationResponse
+	(*structpb.Struct)(nil),            // 89: google.protobuf.Struct
 }
 var file_monarchic_agent_protocol_proto_depIdxs = []int32{
-	81,  // 0: monarchic.agent_protocol.v1.DatasetRef.extensions:type_name -> google.protobuf.Struct
-	81,  // 1: monarchic.agent_protocol.v1.AcceptanceCriteria.extensions:type_name -> google.protobuf.Struct
-	21,  // 2: monarchic.agent_protocol.v1.ExperimentSpec.dataset_refs:type_name -> monarchic.agent_protocol.v1.DatasetRef
-	22,  // 3: monarchic.agent_protocol.v1.ExperimentSpec.acceptance:type_name -> monarchic.agent_protocol.v1.AcceptanceCriteria
-	81,  // 4: monarchic.agent_protocol.v1.ExperimentSpec.constraints:type_name -> google.protobuf.Struct
-	81,  // 5: monarchic.agent_protocol.v1.ExperimentSpec.extensions:type_name -> google.protobuf.Struct
-	81,  // 6: monarchic.agent_protocol.v1.ObjectiveSpec.extensions:type_name -> google.protobuf.Struct
-	81,  // 7: monarchic.agent_protocol.v1.EvalResult.extensions:type_name -> google.protobuf.Struct
-	81,  // 8: monarchic.agent_protocol.v1.FailureClass.extensions:type_name -> google.protobuf.Struct
-	21,  // 9: monarchic.agent_protocol.v1.Provenance.dataset_refs:type_name -> monarchic.agent_protocol.v1.DatasetRef
-	81,  // 10: monarchic.agent_protocol.v1.Provenance.extensions:type_name -> google.protobuf.Struct
-	81,  // 11: monarchic.agent_protocol.v1.Intent.constraints:type_name -> google.protobuf.Struct
+	89,  // 0: monarchic.agent_protocol.v1.DatasetRef.extensions:type_name -> google.protobuf.Struct
+	89,  // 1: monarchic.agent_protocol.v1.AcceptanceCriteria.extensions:type_name -> google.protobuf.Struct
+	24,  // 2: monarchic.agent_protocol.v1.ExperimentSpec.dataset_refs:type_name -> monarchic.agent_protocol.v1.DatasetRef
+	25,  // 3: monarchic.agent_protocol.v1.ExperimentSpec.acceptance:type_name -> monarchic.agent_protocol.v1.AcceptanceCriteria
+	89,  // 4: monarchic.agent_protocol.v1.ExperimentSpec.constraints:type_name -> google.protobuf.Struct
+	89,  // 5: monarchic.agent_protocol.v1.ExperimentSpec.extensions:type_name -> google.protobuf.Struct
+	89,  // 6: monarchic.agent_protocol.v1.ObjectiveSpec.extensions:type_name -> google.protobuf.Struct
+	89,  // 7: monarchic.agent_protocol.v1.EvalResult.extensions:type_name -> google.protobuf.Struct
+	89,  // 8: monarchic.agent_protocol.v1.FailureClass.extensions:type_name -> google.protobuf.Struct
+	24,  // 9: monarchic.agent_protocol.v1.Provenance.dataset_refs:type_name -> monarchic.agent_protocol.v1.DatasetRef
+	89,  // 10: monarchic.agent_protocol.v1.Provenance.extensions:type_name -> google.protobuf.Struct
+	89,  // 11: monarchic.agent_protocol.v1.Intent.constraints:type_name -> google.protobuf.Struct
 	2,   // 12: monarchic.agent_protocol.v1.Intent.intent_class:type_name -> monarchic.agent_protocol.v1.IntentClass
-	29,  // 13: monarchic.agent_protocol.v1.PlanProvenance.role:type_name -> monarchic.agent_protocol.v1.RoleProvenance
-	81,  // 14: monarchic.agent_protocol.v1.FailureDetail.details:type_name -> google.protobuf.Struct
+	32,  // 13: monarchic.agent_protocol.v1.PlanProvenance.role:type_name -> monarchic.agent_protocol.v1.RoleProvenance
+	89,  // 14: monarchic.agent_protocol.v1.FailureDetail.details:type_name -> google.protobuf.Struct
 	4,   // 15: monarchic.agent_protocol.v1.ArtifactDescriptor.kind:type_name -> monarchic.agent_protocol.v1.ArtifactKind
-	32,  // 16: monarchic.agent_protocol.v1.DigestManifest.artifact_descriptors:type_name -> monarchic.agent_protocol.v1.ArtifactDescriptor
-	6,   // 17: monarchic.agent_protocol.v1.ReplanPolicy.strategy:type_name -> monarchic.agent_protocol.v1.ReplanStrategy
-	4,   // 18: monarchic.agent_protocol.v1.StepOutputExpectation.kind:type_name -> monarchic.agent_protocol.v1.ArtifactKind
-	81,  // 19: monarchic.agent_protocol.v1.PlanStep.task_template:type_name -> google.protobuf.Struct
-	31,  // 20: monarchic.agent_protocol.v1.PlanStep.failure:type_name -> monarchic.agent_protocol.v1.FailureDetail
-	5,   // 21: monarchic.agent_protocol.v1.PlanStep.kind:type_name -> monarchic.agent_protocol.v1.PlanStepKind
-	81,  // 22: monarchic.agent_protocol.v1.PlanStep.inputs:type_name -> google.protobuf.Struct
-	35,  // 23: monarchic.agent_protocol.v1.PlanStep.expected_outputs:type_name -> monarchic.agent_protocol.v1.StepOutputExpectation
-	3,   // 24: monarchic.agent_protocol.v1.Plan.status:type_name -> monarchic.agent_protocol.v1.PlanStatus
-	30,  // 25: monarchic.agent_protocol.v1.Plan.provenance:type_name -> monarchic.agent_protocol.v1.PlanProvenance
-	36,  // 26: monarchic.agent_protocol.v1.Plan.steps:type_name -> monarchic.agent_protocol.v1.PlanStep
-	34,  // 27: monarchic.agent_protocol.v1.Plan.replan_policy:type_name -> monarchic.agent_protocol.v1.ReplanPolicy
-	3,   // 28: monarchic.agent_protocol.v1.ExecutionReceipt.status:type_name -> monarchic.agent_protocol.v1.PlanStatus
-	31,  // 29: monarchic.agent_protocol.v1.ExecutionReceipt.failure:type_name -> monarchic.agent_protocol.v1.FailureDetail
-	8,   // 30: monarchic.agent_protocol.v1.VerificationCheck.status:type_name -> monarchic.agent_protocol.v1.VerificationCheckStatus
-	9,   // 31: monarchic.agent_protocol.v1.BlockedOutcome.scope:type_name -> monarchic.agent_protocol.v1.BlockedOutcomeScope
-	81,  // 32: monarchic.agent_protocol.v1.BlockedOutcome.details:type_name -> google.protobuf.Struct
-	32,  // 33: monarchic.agent_protocol.v1.BlockedOutcome.blocking_artifacts:type_name -> monarchic.agent_protocol.v1.ArtifactDescriptor
-	7,   // 34: monarchic.agent_protocol.v1.VerificationReceipt.status:type_name -> monarchic.agent_protocol.v1.VerificationStatus
-	39,  // 35: monarchic.agent_protocol.v1.VerificationReceipt.checks:type_name -> monarchic.agent_protocol.v1.VerificationCheck
-	40,  // 36: monarchic.agent_protocol.v1.VerificationReceipt.blocked_outcomes:type_name -> monarchic.agent_protocol.v1.BlockedOutcome
-	10,  // 37: monarchic.agent_protocol.v1.ReviewDecision.scope:type_name -> monarchic.agent_protocol.v1.ReviewDecisionScope
-	11,  // 38: monarchic.agent_protocol.v1.ReviewDecision.decision:type_name -> monarchic.agent_protocol.v1.ReviewDisposition
-	12,  // 39: monarchic.agent_protocol.v1.RerunScope.trigger:type_name -> monarchic.agent_protocol.v1.RerunTrigger
-	12,  // 40: monarchic.agent_protocol.v1.RerunExecutionResult.trigger:type_name -> monarchic.agent_protocol.v1.RerunTrigger
-	13,  // 41: monarchic.agent_protocol.v1.RerunExecutionResult.matched_strategy:type_name -> monarchic.agent_protocol.v1.RerunSelectionStrategy
-	14,  // 42: monarchic.agent_protocol.v1.RerunExecutionResult.status:type_name -> monarchic.agent_protocol.v1.RerunExecutionStatus
-	42,  // 43: monarchic.agent_protocol.v1.PrLifecycleState.review_decision:type_name -> monarchic.agent_protocol.v1.ReviewDecision
-	43,  // 44: monarchic.agent_protocol.v1.PrLifecycleState.rerun_scope:type_name -> monarchic.agent_protocol.v1.RerunScope
-	44,  // 45: monarchic.agent_protocol.v1.PrLifecycleState.rerun_result:type_name -> monarchic.agent_protocol.v1.RerunExecutionResult
-	41,  // 46: monarchic.agent_protocol.v1.PrLifecycleState.verification_receipt:type_name -> monarchic.agent_protocol.v1.VerificationReceipt
-	40,  // 47: monarchic.agent_protocol.v1.PrLifecycleState.blocked_outcomes:type_name -> monarchic.agent_protocol.v1.BlockedOutcome
-	0,   // 48: monarchic.agent_protocol.v1.Task.role:type_name -> monarchic.agent_protocol.v1.AgentRole
-	81,  // 49: monarchic.agent_protocol.v1.Task.inputs:type_name -> google.protobuf.Struct
-	81,  // 50: monarchic.agent_protocol.v1.Task.constraints:type_name -> google.protobuf.Struct
-	54,  // 51: monarchic.agent_protocol.v1.Task.run_context:type_name -> monarchic.agent_protocol.v1.RunContext
-	81,  // 52: monarchic.agent_protocol.v1.Task.extensions:type_name -> google.protobuf.Struct
-	23,  // 53: monarchic.agent_protocol.v1.Task.experiment_spec:type_name -> monarchic.agent_protocol.v1.ExperimentSpec
-	24,  // 54: monarchic.agent_protocol.v1.Task.objective_spec:type_name -> monarchic.agent_protocol.v1.ObjectiveSpec
-	81,  // 55: monarchic.agent_protocol.v1.Artifact.extensions:type_name -> google.protobuf.Struct
-	27,  // 56: monarchic.agent_protocol.v1.Artifact.provenance:type_name -> monarchic.agent_protocol.v1.Provenance
-	21,  // 57: monarchic.agent_protocol.v1.Artifact.dataset_refs:type_name -> monarchic.agent_protocol.v1.DatasetRef
-	25,  // 58: monarchic.agent_protocol.v1.Artifact.eval_results:type_name -> monarchic.agent_protocol.v1.EvalResult
-	23,  // 59: monarchic.agent_protocol.v1.Artifact.experiment_spec:type_name -> monarchic.agent_protocol.v1.ExperimentSpec
-	81,  // 60: monarchic.agent_protocol.v1.Event.extensions:type_name -> google.protobuf.Struct
-	27,  // 61: monarchic.agent_protocol.v1.Event.provenance:type_name -> monarchic.agent_protocol.v1.Provenance
-	25,  // 62: monarchic.agent_protocol.v1.Event.eval_results:type_name -> monarchic.agent_protocol.v1.EvalResult
-	26,  // 63: monarchic.agent_protocol.v1.Event.failure_class:type_name -> monarchic.agent_protocol.v1.FailureClass
-	15,  // 64: monarchic.agent_protocol.v1.RunEventRecord.stream:type_name -> monarchic.agent_protocol.v1.RunEventStream
-	81,  // 65: monarchic.agent_protocol.v1.TaskMessage.extensions:type_name -> google.protobuf.Struct
-	27,  // 66: monarchic.agent_protocol.v1.TaskMessage.provenance:type_name -> monarchic.agent_protocol.v1.Provenance
-	81,  // 67: monarchic.agent_protocol.v1.TaskMessageAck.extensions:type_name -> google.protobuf.Struct
-	81,  // 68: monarchic.agent_protocol.v1.GateResult.evidence:type_name -> google.protobuf.Struct
-	81,  // 69: monarchic.agent_protocol.v1.GateResult.extensions:type_name -> google.protobuf.Struct
-	26,  // 70: monarchic.agent_protocol.v1.GateResult.failure_class:type_name -> monarchic.agent_protocol.v1.FailureClass
-	1,   // 71: monarchic.agent_protocol.v1.RunOutcome.objective_decision:type_name -> monarchic.agent_protocol.v1.OutcomeDecision
-	1,   // 72: monarchic.agent_protocol.v1.RunOutcome.cost_decision:type_name -> monarchic.agent_protocol.v1.OutcomeDecision
-	1,   // 73: monarchic.agent_protocol.v1.RunOutcome.risk_decision:type_name -> monarchic.agent_protocol.v1.OutcomeDecision
-	1,   // 74: monarchic.agent_protocol.v1.RunOutcome.final_decision:type_name -> monarchic.agent_protocol.v1.OutcomeDecision
-	81,  // 75: monarchic.agent_protocol.v1.RunOutcome.evidence:type_name -> google.protobuf.Struct
-	81,  // 76: monarchic.agent_protocol.v1.RunOutcome.extensions:type_name -> google.protobuf.Struct
-	81,  // 77: monarchic.agent_protocol.v1.RunContext.extensions:type_name -> google.protobuf.Struct
-	0,   // 78: monarchic.agent_protocol.v1.RunnerCapabilities.supported_roles:type_name -> monarchic.agent_protocol.v1.AgentRole
-	81,  // 79: monarchic.agent_protocol.v1.RunnerCapabilities.extensions:type_name -> google.protobuf.Struct
-	81,  // 80: monarchic.agent_protocol.v1.FencingToken.extensions:type_name -> google.protobuf.Struct
-	57,  // 81: monarchic.agent_protocol.v1.Lease.fencing_token:type_name -> monarchic.agent_protocol.v1.FencingToken
-	16,  // 82: monarchic.agent_protocol.v1.Lease.status:type_name -> monarchic.agent_protocol.v1.LeaseLifecycleState
-	81,  // 83: monarchic.agent_protocol.v1.Lease.extensions:type_name -> google.protobuf.Struct
-	20,  // 84: monarchic.agent_protocol.v1.RecoveryEvent.kind:type_name -> monarchic.agent_protocol.v1.RecoveryEventKind
-	81,  // 85: monarchic.agent_protocol.v1.RecoveryEvent.details:type_name -> google.protobuf.Struct
-	17,  // 86: monarchic.agent_protocol.v1.RecoveryEvent.run_state:type_name -> monarchic.agent_protocol.v1.RunLifecycleState
-	18,  // 87: monarchic.agent_protocol.v1.RecoveryEvent.step_state:type_name -> monarchic.agent_protocol.v1.StepLifecycleState
-	19,  // 88: monarchic.agent_protocol.v1.RecoveryEvent.lease_rejection_reason:type_name -> monarchic.agent_protocol.v1.LeaseRejectionReason
-	56,  // 89: monarchic.agent_protocol.v1.LeaseStatus.lease:type_name -> monarchic.agent_protocol.v1.LeaseRef
-	31,  // 90: monarchic.agent_protocol.v1.LeaseStatus.failure:type_name -> monarchic.agent_protocol.v1.FailureDetail
-	81,  // 91: monarchic.agent_protocol.v1.LeaseStatus.extensions:type_name -> google.protobuf.Struct
-	56,  // 92: monarchic.agent_protocol.v1.CancellationIntent.lease:type_name -> monarchic.agent_protocol.v1.LeaseRef
-	81,  // 93: monarchic.agent_protocol.v1.CancellationIntent.extensions:type_name -> google.protobuf.Struct
-	56,  // 94: monarchic.agent_protocol.v1.LeaseAssignment.lease:type_name -> monarchic.agent_protocol.v1.LeaseRef
-	46,  // 95: monarchic.agent_protocol.v1.LeaseAssignment.task:type_name -> monarchic.agent_protocol.v1.Task
-	81,  // 96: monarchic.agent_protocol.v1.LeaseAssignment.extensions:type_name -> google.protobuf.Struct
-	55,  // 97: monarchic.agent_protocol.v1.RegisterRunnerRequest.capabilities:type_name -> monarchic.agent_protocol.v1.RunnerCapabilities
-	81,  // 98: monarchic.agent_protocol.v1.RegisterRunnerRequest.extensions:type_name -> google.protobuf.Struct
-	81,  // 99: monarchic.agent_protocol.v1.RegisterRunnerResponse.extensions:type_name -> google.protobuf.Struct
-	60,  // 100: monarchic.agent_protocol.v1.HeartbeatRequest.active_leases:type_name -> monarchic.agent_protocol.v1.LeaseStatus
-	81,  // 101: monarchic.agent_protocol.v1.HeartbeatRequest.extensions:type_name -> google.protobuf.Struct
-	61,  // 102: monarchic.agent_protocol.v1.HeartbeatResponse.cancellations:type_name -> monarchic.agent_protocol.v1.CancellationIntent
-	81,  // 103: monarchic.agent_protocol.v1.HeartbeatResponse.extensions:type_name -> google.protobuf.Struct
-	81,  // 104: monarchic.agent_protocol.v1.AcquireLeaseRequest.extensions:type_name -> google.protobuf.Struct
-	62,  // 105: monarchic.agent_protocol.v1.AcquireLeaseResponse.assignment:type_name -> monarchic.agent_protocol.v1.LeaseAssignment
-	61,  // 106: monarchic.agent_protocol.v1.AcquireLeaseResponse.cancellations:type_name -> monarchic.agent_protocol.v1.CancellationIntent
-	81,  // 107: monarchic.agent_protocol.v1.AcquireLeaseResponse.extensions:type_name -> google.protobuf.Struct
-	56,  // 108: monarchic.agent_protocol.v1.RenewLeaseRequest.lease:type_name -> monarchic.agent_protocol.v1.LeaseRef
-	81,  // 109: monarchic.agent_protocol.v1.RenewLeaseRequest.extensions:type_name -> google.protobuf.Struct
-	61,  // 110: monarchic.agent_protocol.v1.RenewLeaseResponse.cancellations:type_name -> monarchic.agent_protocol.v1.CancellationIntent
-	31,  // 111: monarchic.agent_protocol.v1.RenewLeaseResponse.failure:type_name -> monarchic.agent_protocol.v1.FailureDetail
-	81,  // 112: monarchic.agent_protocol.v1.RenewLeaseResponse.extensions:type_name -> google.protobuf.Struct
-	56,  // 113: monarchic.agent_protocol.v1.ResumeLeaseRequest.lease:type_name -> monarchic.agent_protocol.v1.LeaseRef
-	81,  // 114: monarchic.agent_protocol.v1.ResumeLeaseRequest.extensions:type_name -> google.protobuf.Struct
-	58,  // 115: monarchic.agent_protocol.v1.ResumeLeaseResponse.lease:type_name -> monarchic.agent_protocol.v1.Lease
-	19,  // 116: monarchic.agent_protocol.v1.ResumeLeaseResponse.reason:type_name -> monarchic.agent_protocol.v1.LeaseRejectionReason
-	81,  // 117: monarchic.agent_protocol.v1.ResumeLeaseResponse.extensions:type_name -> google.protobuf.Struct
-	56,  // 118: monarchic.agent_protocol.v1.ReportStepStartedRequest.lease:type_name -> monarchic.agent_protocol.v1.LeaseRef
-	81,  // 119: monarchic.agent_protocol.v1.ReportStepStartedRequest.extensions:type_name -> google.protobuf.Struct
-	31,  // 120: monarchic.agent_protocol.v1.ReportStepStartedResponse.failure:type_name -> monarchic.agent_protocol.v1.FailureDetail
-	81,  // 121: monarchic.agent_protocol.v1.ReportStepStartedResponse.extensions:type_name -> google.protobuf.Struct
-	56,  // 122: monarchic.agent_protocol.v1.ReportStepProgressRequest.lease:type_name -> monarchic.agent_protocol.v1.LeaseRef
-	48,  // 123: monarchic.agent_protocol.v1.ReportStepProgressRequest.events:type_name -> monarchic.agent_protocol.v1.Event
-	47,  // 124: monarchic.agent_protocol.v1.ReportStepProgressRequest.artifacts:type_name -> monarchic.agent_protocol.v1.Artifact
-	81,  // 125: monarchic.agent_protocol.v1.ReportStepProgressRequest.extensions:type_name -> google.protobuf.Struct
-	61,  // 126: monarchic.agent_protocol.v1.ReportStepProgressResponse.cancellations:type_name -> monarchic.agent_protocol.v1.CancellationIntent
-	31,  // 127: monarchic.agent_protocol.v1.ReportStepProgressResponse.failure:type_name -> monarchic.agent_protocol.v1.FailureDetail
-	81,  // 128: monarchic.agent_protocol.v1.ReportStepProgressResponse.extensions:type_name -> google.protobuf.Struct
-	56,  // 129: monarchic.agent_protocol.v1.ReportStepOutcomeRequest.lease:type_name -> monarchic.agent_protocol.v1.LeaseRef
-	3,   // 130: monarchic.agent_protocol.v1.ReportStepOutcomeRequest.status:type_name -> monarchic.agent_protocol.v1.PlanStatus
-	48,  // 131: monarchic.agent_protocol.v1.ReportStepOutcomeRequest.events:type_name -> monarchic.agent_protocol.v1.Event
-	47,  // 132: monarchic.agent_protocol.v1.ReportStepOutcomeRequest.artifacts:type_name -> monarchic.agent_protocol.v1.Artifact
-	53,  // 133: monarchic.agent_protocol.v1.ReportStepOutcomeRequest.run_outcome:type_name -> monarchic.agent_protocol.v1.RunOutcome
-	31,  // 134: monarchic.agent_protocol.v1.ReportStepOutcomeRequest.failure:type_name -> monarchic.agent_protocol.v1.FailureDetail
-	81,  // 135: monarchic.agent_protocol.v1.ReportStepOutcomeRequest.extensions:type_name -> google.protobuf.Struct
-	31,  // 136: monarchic.agent_protocol.v1.ReportStepOutcomeResponse.failure:type_name -> monarchic.agent_protocol.v1.FailureDetail
-	81,  // 137: monarchic.agent_protocol.v1.ReportStepOutcomeResponse.extensions:type_name -> google.protobuf.Struct
-	56,  // 138: monarchic.agent_protocol.v1.AckCancellationRequest.lease:type_name -> monarchic.agent_protocol.v1.LeaseRef
-	81,  // 139: monarchic.agent_protocol.v1.AckCancellationRequest.extensions:type_name -> google.protobuf.Struct
-	31,  // 140: monarchic.agent_protocol.v1.AckCancellationResponse.failure:type_name -> monarchic.agent_protocol.v1.FailureDetail
-	81,  // 141: monarchic.agent_protocol.v1.AckCancellationResponse.extensions:type_name -> google.protobuf.Struct
-	63,  // 142: monarchic.agent_protocol.v1.RunnerControlService.RegisterRunner:input_type -> monarchic.agent_protocol.v1.RegisterRunnerRequest
-	65,  // 143: monarchic.agent_protocol.v1.RunnerControlService.Heartbeat:input_type -> monarchic.agent_protocol.v1.HeartbeatRequest
-	67,  // 144: monarchic.agent_protocol.v1.RunnerControlService.AcquireLease:input_type -> monarchic.agent_protocol.v1.AcquireLeaseRequest
-	69,  // 145: monarchic.agent_protocol.v1.RunnerControlService.RenewLease:input_type -> monarchic.agent_protocol.v1.RenewLeaseRequest
-	71,  // 146: monarchic.agent_protocol.v1.RunnerControlService.ResumeLease:input_type -> monarchic.agent_protocol.v1.ResumeLeaseRequest
-	73,  // 147: monarchic.agent_protocol.v1.RunnerControlService.ReportStepStarted:input_type -> monarchic.agent_protocol.v1.ReportStepStartedRequest
-	75,  // 148: monarchic.agent_protocol.v1.RunnerControlService.ReportStepProgress:input_type -> monarchic.agent_protocol.v1.ReportStepProgressRequest
-	77,  // 149: monarchic.agent_protocol.v1.RunnerControlService.ReportStepOutcome:input_type -> monarchic.agent_protocol.v1.ReportStepOutcomeRequest
-	79,  // 150: monarchic.agent_protocol.v1.RunnerControlService.AckCancellation:input_type -> monarchic.agent_protocol.v1.AckCancellationRequest
-	64,  // 151: monarchic.agent_protocol.v1.RunnerControlService.RegisterRunner:output_type -> monarchic.agent_protocol.v1.RegisterRunnerResponse
-	66,  // 152: monarchic.agent_protocol.v1.RunnerControlService.Heartbeat:output_type -> monarchic.agent_protocol.v1.HeartbeatResponse
-	68,  // 153: monarchic.agent_protocol.v1.RunnerControlService.AcquireLease:output_type -> monarchic.agent_protocol.v1.AcquireLeaseResponse
-	70,  // 154: monarchic.agent_protocol.v1.RunnerControlService.RenewLease:output_type -> monarchic.agent_protocol.v1.RenewLeaseResponse
-	72,  // 155: monarchic.agent_protocol.v1.RunnerControlService.ResumeLease:output_type -> monarchic.agent_protocol.v1.ResumeLeaseResponse
-	74,  // 156: monarchic.agent_protocol.v1.RunnerControlService.ReportStepStarted:output_type -> monarchic.agent_protocol.v1.ReportStepStartedResponse
-	76,  // 157: monarchic.agent_protocol.v1.RunnerControlService.ReportStepProgress:output_type -> monarchic.agent_protocol.v1.ReportStepProgressResponse
-	78,  // 158: monarchic.agent_protocol.v1.RunnerControlService.ReportStepOutcome:output_type -> monarchic.agent_protocol.v1.ReportStepOutcomeResponse
-	80,  // 159: monarchic.agent_protocol.v1.RunnerControlService.AckCancellation:output_type -> monarchic.agent_protocol.v1.AckCancellationResponse
-	151, // [151:160] is the sub-list for method output_type
-	142, // [142:151] is the sub-list for method input_type
-	142, // [142:142] is the sub-list for extension type_name
-	142, // [142:142] is the sub-list for extension extendee
-	0,   // [0:142] is the sub-list for field type_name
+	35,  // 16: monarchic.agent_protocol.v1.DigestManifest.artifact_descriptors:type_name -> monarchic.agent_protocol.v1.ArtifactDescriptor
+	37,  // 17: monarchic.agent_protocol.v1.AuthContext.principal:type_name -> monarchic.agent_protocol.v1.PrincipalRef
+	38,  // 18: monarchic.agent_protocol.v1.AuthContext.tenant:type_name -> monarchic.agent_protocol.v1.TenantRef
+	5,   // 19: monarchic.agent_protocol.v1.AuthContext.mechanism:type_name -> monarchic.agent_protocol.v1.AuthMechanism
+	37,  // 20: monarchic.agent_protocol.v1.UsageRecord.principal:type_name -> monarchic.agent_protocol.v1.PrincipalRef
+	38,  // 21: monarchic.agent_protocol.v1.UsageRecord.tenant:type_name -> monarchic.agent_protocol.v1.TenantRef
+	6,   // 22: monarchic.agent_protocol.v1.UsageRecord.category:type_name -> monarchic.agent_protocol.v1.UsageCategory
+	7,   // 23: monarchic.agent_protocol.v1.UsageRecord.unit:type_name -> monarchic.agent_protocol.v1.UsageUnit
+	37,  // 24: monarchic.agent_protocol.v1.AuditExportManifest.principal:type_name -> monarchic.agent_protocol.v1.PrincipalRef
+	38,  // 25: monarchic.agent_protocol.v1.AuditExportManifest.tenant:type_name -> monarchic.agent_protocol.v1.TenantRef
+	35,  // 26: monarchic.agent_protocol.v1.AuditExportManifest.artifact_descriptors:type_name -> monarchic.agent_protocol.v1.ArtifactDescriptor
+	9,   // 27: monarchic.agent_protocol.v1.ReplanPolicy.strategy:type_name -> monarchic.agent_protocol.v1.ReplanStrategy
+	4,   // 28: monarchic.agent_protocol.v1.StepOutputExpectation.kind:type_name -> monarchic.agent_protocol.v1.ArtifactKind
+	89,  // 29: monarchic.agent_protocol.v1.PlanStep.task_template:type_name -> google.protobuf.Struct
+	34,  // 30: monarchic.agent_protocol.v1.PlanStep.failure:type_name -> monarchic.agent_protocol.v1.FailureDetail
+	8,   // 31: monarchic.agent_protocol.v1.PlanStep.kind:type_name -> monarchic.agent_protocol.v1.PlanStepKind
+	89,  // 32: monarchic.agent_protocol.v1.PlanStep.inputs:type_name -> google.protobuf.Struct
+	43,  // 33: monarchic.agent_protocol.v1.PlanStep.expected_outputs:type_name -> monarchic.agent_protocol.v1.StepOutputExpectation
+	3,   // 34: monarchic.agent_protocol.v1.Plan.status:type_name -> monarchic.agent_protocol.v1.PlanStatus
+	33,  // 35: monarchic.agent_protocol.v1.Plan.provenance:type_name -> monarchic.agent_protocol.v1.PlanProvenance
+	44,  // 36: monarchic.agent_protocol.v1.Plan.steps:type_name -> monarchic.agent_protocol.v1.PlanStep
+	42,  // 37: monarchic.agent_protocol.v1.Plan.replan_policy:type_name -> monarchic.agent_protocol.v1.ReplanPolicy
+	3,   // 38: monarchic.agent_protocol.v1.ExecutionReceipt.status:type_name -> monarchic.agent_protocol.v1.PlanStatus
+	34,  // 39: monarchic.agent_protocol.v1.ExecutionReceipt.failure:type_name -> monarchic.agent_protocol.v1.FailureDetail
+	11,  // 40: monarchic.agent_protocol.v1.VerificationCheck.status:type_name -> monarchic.agent_protocol.v1.VerificationCheckStatus
+	12,  // 41: monarchic.agent_protocol.v1.BlockedOutcome.scope:type_name -> monarchic.agent_protocol.v1.BlockedOutcomeScope
+	89,  // 42: monarchic.agent_protocol.v1.BlockedOutcome.details:type_name -> google.protobuf.Struct
+	35,  // 43: monarchic.agent_protocol.v1.BlockedOutcome.blocking_artifacts:type_name -> monarchic.agent_protocol.v1.ArtifactDescriptor
+	10,  // 44: monarchic.agent_protocol.v1.VerificationReceipt.status:type_name -> monarchic.agent_protocol.v1.VerificationStatus
+	47,  // 45: monarchic.agent_protocol.v1.VerificationReceipt.checks:type_name -> monarchic.agent_protocol.v1.VerificationCheck
+	48,  // 46: monarchic.agent_protocol.v1.VerificationReceipt.blocked_outcomes:type_name -> monarchic.agent_protocol.v1.BlockedOutcome
+	13,  // 47: monarchic.agent_protocol.v1.ReviewDecision.scope:type_name -> monarchic.agent_protocol.v1.ReviewDecisionScope
+	14,  // 48: monarchic.agent_protocol.v1.ReviewDecision.decision:type_name -> monarchic.agent_protocol.v1.ReviewDisposition
+	15,  // 49: monarchic.agent_protocol.v1.RerunScope.trigger:type_name -> monarchic.agent_protocol.v1.RerunTrigger
+	15,  // 50: monarchic.agent_protocol.v1.RerunExecutionResult.trigger:type_name -> monarchic.agent_protocol.v1.RerunTrigger
+	16,  // 51: monarchic.agent_protocol.v1.RerunExecutionResult.matched_strategy:type_name -> monarchic.agent_protocol.v1.RerunSelectionStrategy
+	17,  // 52: monarchic.agent_protocol.v1.RerunExecutionResult.status:type_name -> monarchic.agent_protocol.v1.RerunExecutionStatus
+	50,  // 53: monarchic.agent_protocol.v1.PrLifecycleState.review_decision:type_name -> monarchic.agent_protocol.v1.ReviewDecision
+	51,  // 54: monarchic.agent_protocol.v1.PrLifecycleState.rerun_scope:type_name -> monarchic.agent_protocol.v1.RerunScope
+	52,  // 55: monarchic.agent_protocol.v1.PrLifecycleState.rerun_result:type_name -> monarchic.agent_protocol.v1.RerunExecutionResult
+	49,  // 56: monarchic.agent_protocol.v1.PrLifecycleState.verification_receipt:type_name -> monarchic.agent_protocol.v1.VerificationReceipt
+	48,  // 57: monarchic.agent_protocol.v1.PrLifecycleState.blocked_outcomes:type_name -> monarchic.agent_protocol.v1.BlockedOutcome
+	0,   // 58: monarchic.agent_protocol.v1.Task.role:type_name -> monarchic.agent_protocol.v1.AgentRole
+	89,  // 59: monarchic.agent_protocol.v1.Task.inputs:type_name -> google.protobuf.Struct
+	89,  // 60: monarchic.agent_protocol.v1.Task.constraints:type_name -> google.protobuf.Struct
+	62,  // 61: monarchic.agent_protocol.v1.Task.run_context:type_name -> monarchic.agent_protocol.v1.RunContext
+	89,  // 62: monarchic.agent_protocol.v1.Task.extensions:type_name -> google.protobuf.Struct
+	26,  // 63: monarchic.agent_protocol.v1.Task.experiment_spec:type_name -> monarchic.agent_protocol.v1.ExperimentSpec
+	27,  // 64: monarchic.agent_protocol.v1.Task.objective_spec:type_name -> monarchic.agent_protocol.v1.ObjectiveSpec
+	89,  // 65: monarchic.agent_protocol.v1.Artifact.extensions:type_name -> google.protobuf.Struct
+	30,  // 66: monarchic.agent_protocol.v1.Artifact.provenance:type_name -> monarchic.agent_protocol.v1.Provenance
+	24,  // 67: monarchic.agent_protocol.v1.Artifact.dataset_refs:type_name -> monarchic.agent_protocol.v1.DatasetRef
+	28,  // 68: monarchic.agent_protocol.v1.Artifact.eval_results:type_name -> monarchic.agent_protocol.v1.EvalResult
+	26,  // 69: monarchic.agent_protocol.v1.Artifact.experiment_spec:type_name -> monarchic.agent_protocol.v1.ExperimentSpec
+	89,  // 70: monarchic.agent_protocol.v1.Event.extensions:type_name -> google.protobuf.Struct
+	30,  // 71: monarchic.agent_protocol.v1.Event.provenance:type_name -> monarchic.agent_protocol.v1.Provenance
+	28,  // 72: monarchic.agent_protocol.v1.Event.eval_results:type_name -> monarchic.agent_protocol.v1.EvalResult
+	29,  // 73: monarchic.agent_protocol.v1.Event.failure_class:type_name -> monarchic.agent_protocol.v1.FailureClass
+	18,  // 74: monarchic.agent_protocol.v1.RunEventRecord.stream:type_name -> monarchic.agent_protocol.v1.RunEventStream
+	89,  // 75: monarchic.agent_protocol.v1.TaskMessage.extensions:type_name -> google.protobuf.Struct
+	30,  // 76: monarchic.agent_protocol.v1.TaskMessage.provenance:type_name -> monarchic.agent_protocol.v1.Provenance
+	89,  // 77: monarchic.agent_protocol.v1.TaskMessageAck.extensions:type_name -> google.protobuf.Struct
+	89,  // 78: monarchic.agent_protocol.v1.GateResult.evidence:type_name -> google.protobuf.Struct
+	89,  // 79: monarchic.agent_protocol.v1.GateResult.extensions:type_name -> google.protobuf.Struct
+	29,  // 80: monarchic.agent_protocol.v1.GateResult.failure_class:type_name -> monarchic.agent_protocol.v1.FailureClass
+	1,   // 81: monarchic.agent_protocol.v1.RunOutcome.objective_decision:type_name -> monarchic.agent_protocol.v1.OutcomeDecision
+	1,   // 82: monarchic.agent_protocol.v1.RunOutcome.cost_decision:type_name -> monarchic.agent_protocol.v1.OutcomeDecision
+	1,   // 83: monarchic.agent_protocol.v1.RunOutcome.risk_decision:type_name -> monarchic.agent_protocol.v1.OutcomeDecision
+	1,   // 84: monarchic.agent_protocol.v1.RunOutcome.final_decision:type_name -> monarchic.agent_protocol.v1.OutcomeDecision
+	89,  // 85: monarchic.agent_protocol.v1.RunOutcome.evidence:type_name -> google.protobuf.Struct
+	89,  // 86: monarchic.agent_protocol.v1.RunOutcome.extensions:type_name -> google.protobuf.Struct
+	89,  // 87: monarchic.agent_protocol.v1.RunContext.extensions:type_name -> google.protobuf.Struct
+	0,   // 88: monarchic.agent_protocol.v1.RunnerCapabilities.supported_roles:type_name -> monarchic.agent_protocol.v1.AgentRole
+	89,  // 89: monarchic.agent_protocol.v1.RunnerCapabilities.extensions:type_name -> google.protobuf.Struct
+	89,  // 90: monarchic.agent_protocol.v1.FencingToken.extensions:type_name -> google.protobuf.Struct
+	65,  // 91: monarchic.agent_protocol.v1.Lease.fencing_token:type_name -> monarchic.agent_protocol.v1.FencingToken
+	19,  // 92: monarchic.agent_protocol.v1.Lease.status:type_name -> monarchic.agent_protocol.v1.LeaseLifecycleState
+	89,  // 93: monarchic.agent_protocol.v1.Lease.extensions:type_name -> google.protobuf.Struct
+	23,  // 94: monarchic.agent_protocol.v1.RecoveryEvent.kind:type_name -> monarchic.agent_protocol.v1.RecoveryEventKind
+	89,  // 95: monarchic.agent_protocol.v1.RecoveryEvent.details:type_name -> google.protobuf.Struct
+	20,  // 96: monarchic.agent_protocol.v1.RecoveryEvent.run_state:type_name -> monarchic.agent_protocol.v1.RunLifecycleState
+	21,  // 97: monarchic.agent_protocol.v1.RecoveryEvent.step_state:type_name -> monarchic.agent_protocol.v1.StepLifecycleState
+	22,  // 98: monarchic.agent_protocol.v1.RecoveryEvent.lease_rejection_reason:type_name -> monarchic.agent_protocol.v1.LeaseRejectionReason
+	64,  // 99: monarchic.agent_protocol.v1.LeaseStatus.lease:type_name -> monarchic.agent_protocol.v1.LeaseRef
+	34,  // 100: monarchic.agent_protocol.v1.LeaseStatus.failure:type_name -> monarchic.agent_protocol.v1.FailureDetail
+	89,  // 101: monarchic.agent_protocol.v1.LeaseStatus.extensions:type_name -> google.protobuf.Struct
+	64,  // 102: monarchic.agent_protocol.v1.CancellationIntent.lease:type_name -> monarchic.agent_protocol.v1.LeaseRef
+	89,  // 103: monarchic.agent_protocol.v1.CancellationIntent.extensions:type_name -> google.protobuf.Struct
+	64,  // 104: monarchic.agent_protocol.v1.LeaseAssignment.lease:type_name -> monarchic.agent_protocol.v1.LeaseRef
+	54,  // 105: monarchic.agent_protocol.v1.LeaseAssignment.task:type_name -> monarchic.agent_protocol.v1.Task
+	89,  // 106: monarchic.agent_protocol.v1.LeaseAssignment.extensions:type_name -> google.protobuf.Struct
+	63,  // 107: monarchic.agent_protocol.v1.RegisterRunnerRequest.capabilities:type_name -> monarchic.agent_protocol.v1.RunnerCapabilities
+	89,  // 108: monarchic.agent_protocol.v1.RegisterRunnerRequest.extensions:type_name -> google.protobuf.Struct
+	39,  // 109: monarchic.agent_protocol.v1.RegisterRunnerRequest.auth_context:type_name -> monarchic.agent_protocol.v1.AuthContext
+	89,  // 110: monarchic.agent_protocol.v1.RegisterRunnerResponse.extensions:type_name -> google.protobuf.Struct
+	68,  // 111: monarchic.agent_protocol.v1.HeartbeatRequest.active_leases:type_name -> monarchic.agent_protocol.v1.LeaseStatus
+	89,  // 112: monarchic.agent_protocol.v1.HeartbeatRequest.extensions:type_name -> google.protobuf.Struct
+	39,  // 113: monarchic.agent_protocol.v1.HeartbeatRequest.auth_context:type_name -> monarchic.agent_protocol.v1.AuthContext
+	69,  // 114: monarchic.agent_protocol.v1.HeartbeatResponse.cancellations:type_name -> monarchic.agent_protocol.v1.CancellationIntent
+	89,  // 115: monarchic.agent_protocol.v1.HeartbeatResponse.extensions:type_name -> google.protobuf.Struct
+	89,  // 116: monarchic.agent_protocol.v1.AcquireLeaseRequest.extensions:type_name -> google.protobuf.Struct
+	39,  // 117: monarchic.agent_protocol.v1.AcquireLeaseRequest.auth_context:type_name -> monarchic.agent_protocol.v1.AuthContext
+	70,  // 118: monarchic.agent_protocol.v1.AcquireLeaseResponse.assignment:type_name -> monarchic.agent_protocol.v1.LeaseAssignment
+	69,  // 119: monarchic.agent_protocol.v1.AcquireLeaseResponse.cancellations:type_name -> monarchic.agent_protocol.v1.CancellationIntent
+	89,  // 120: monarchic.agent_protocol.v1.AcquireLeaseResponse.extensions:type_name -> google.protobuf.Struct
+	64,  // 121: monarchic.agent_protocol.v1.RenewLeaseRequest.lease:type_name -> monarchic.agent_protocol.v1.LeaseRef
+	89,  // 122: monarchic.agent_protocol.v1.RenewLeaseRequest.extensions:type_name -> google.protobuf.Struct
+	39,  // 123: monarchic.agent_protocol.v1.RenewLeaseRequest.auth_context:type_name -> monarchic.agent_protocol.v1.AuthContext
+	69,  // 124: monarchic.agent_protocol.v1.RenewLeaseResponse.cancellations:type_name -> monarchic.agent_protocol.v1.CancellationIntent
+	34,  // 125: monarchic.agent_protocol.v1.RenewLeaseResponse.failure:type_name -> monarchic.agent_protocol.v1.FailureDetail
+	89,  // 126: monarchic.agent_protocol.v1.RenewLeaseResponse.extensions:type_name -> google.protobuf.Struct
+	64,  // 127: monarchic.agent_protocol.v1.ResumeLeaseRequest.lease:type_name -> monarchic.agent_protocol.v1.LeaseRef
+	89,  // 128: monarchic.agent_protocol.v1.ResumeLeaseRequest.extensions:type_name -> google.protobuf.Struct
+	39,  // 129: monarchic.agent_protocol.v1.ResumeLeaseRequest.auth_context:type_name -> monarchic.agent_protocol.v1.AuthContext
+	66,  // 130: monarchic.agent_protocol.v1.ResumeLeaseResponse.lease:type_name -> monarchic.agent_protocol.v1.Lease
+	22,  // 131: monarchic.agent_protocol.v1.ResumeLeaseResponse.reason:type_name -> monarchic.agent_protocol.v1.LeaseRejectionReason
+	89,  // 132: monarchic.agent_protocol.v1.ResumeLeaseResponse.extensions:type_name -> google.protobuf.Struct
+	64,  // 133: monarchic.agent_protocol.v1.ReportStepStartedRequest.lease:type_name -> monarchic.agent_protocol.v1.LeaseRef
+	89,  // 134: monarchic.agent_protocol.v1.ReportStepStartedRequest.extensions:type_name -> google.protobuf.Struct
+	39,  // 135: monarchic.agent_protocol.v1.ReportStepStartedRequest.auth_context:type_name -> monarchic.agent_protocol.v1.AuthContext
+	34,  // 136: monarchic.agent_protocol.v1.ReportStepStartedResponse.failure:type_name -> monarchic.agent_protocol.v1.FailureDetail
+	89,  // 137: monarchic.agent_protocol.v1.ReportStepStartedResponse.extensions:type_name -> google.protobuf.Struct
+	64,  // 138: monarchic.agent_protocol.v1.ReportStepProgressRequest.lease:type_name -> monarchic.agent_protocol.v1.LeaseRef
+	56,  // 139: monarchic.agent_protocol.v1.ReportStepProgressRequest.events:type_name -> monarchic.agent_protocol.v1.Event
+	55,  // 140: monarchic.agent_protocol.v1.ReportStepProgressRequest.artifacts:type_name -> monarchic.agent_protocol.v1.Artifact
+	89,  // 141: monarchic.agent_protocol.v1.ReportStepProgressRequest.extensions:type_name -> google.protobuf.Struct
+	39,  // 142: monarchic.agent_protocol.v1.ReportStepProgressRequest.auth_context:type_name -> monarchic.agent_protocol.v1.AuthContext
+	69,  // 143: monarchic.agent_protocol.v1.ReportStepProgressResponse.cancellations:type_name -> monarchic.agent_protocol.v1.CancellationIntent
+	34,  // 144: monarchic.agent_protocol.v1.ReportStepProgressResponse.failure:type_name -> monarchic.agent_protocol.v1.FailureDetail
+	89,  // 145: monarchic.agent_protocol.v1.ReportStepProgressResponse.extensions:type_name -> google.protobuf.Struct
+	64,  // 146: monarchic.agent_protocol.v1.ReportStepOutcomeRequest.lease:type_name -> monarchic.agent_protocol.v1.LeaseRef
+	3,   // 147: monarchic.agent_protocol.v1.ReportStepOutcomeRequest.status:type_name -> monarchic.agent_protocol.v1.PlanStatus
+	56,  // 148: monarchic.agent_protocol.v1.ReportStepOutcomeRequest.events:type_name -> monarchic.agent_protocol.v1.Event
+	55,  // 149: monarchic.agent_protocol.v1.ReportStepOutcomeRequest.artifacts:type_name -> monarchic.agent_protocol.v1.Artifact
+	61,  // 150: monarchic.agent_protocol.v1.ReportStepOutcomeRequest.run_outcome:type_name -> monarchic.agent_protocol.v1.RunOutcome
+	34,  // 151: monarchic.agent_protocol.v1.ReportStepOutcomeRequest.failure:type_name -> monarchic.agent_protocol.v1.FailureDetail
+	89,  // 152: monarchic.agent_protocol.v1.ReportStepOutcomeRequest.extensions:type_name -> google.protobuf.Struct
+	39,  // 153: monarchic.agent_protocol.v1.ReportStepOutcomeRequest.auth_context:type_name -> monarchic.agent_protocol.v1.AuthContext
+	34,  // 154: monarchic.agent_protocol.v1.ReportStepOutcomeResponse.failure:type_name -> monarchic.agent_protocol.v1.FailureDetail
+	89,  // 155: monarchic.agent_protocol.v1.ReportStepOutcomeResponse.extensions:type_name -> google.protobuf.Struct
+	64,  // 156: monarchic.agent_protocol.v1.AckCancellationRequest.lease:type_name -> monarchic.agent_protocol.v1.LeaseRef
+	89,  // 157: monarchic.agent_protocol.v1.AckCancellationRequest.extensions:type_name -> google.protobuf.Struct
+	39,  // 158: monarchic.agent_protocol.v1.AckCancellationRequest.auth_context:type_name -> monarchic.agent_protocol.v1.AuthContext
+	34,  // 159: monarchic.agent_protocol.v1.AckCancellationResponse.failure:type_name -> monarchic.agent_protocol.v1.FailureDetail
+	89,  // 160: monarchic.agent_protocol.v1.AckCancellationResponse.extensions:type_name -> google.protobuf.Struct
+	71,  // 161: monarchic.agent_protocol.v1.RunnerControlService.RegisterRunner:input_type -> monarchic.agent_protocol.v1.RegisterRunnerRequest
+	73,  // 162: monarchic.agent_protocol.v1.RunnerControlService.Heartbeat:input_type -> monarchic.agent_protocol.v1.HeartbeatRequest
+	75,  // 163: monarchic.agent_protocol.v1.RunnerControlService.AcquireLease:input_type -> monarchic.agent_protocol.v1.AcquireLeaseRequest
+	77,  // 164: monarchic.agent_protocol.v1.RunnerControlService.RenewLease:input_type -> monarchic.agent_protocol.v1.RenewLeaseRequest
+	79,  // 165: monarchic.agent_protocol.v1.RunnerControlService.ResumeLease:input_type -> monarchic.agent_protocol.v1.ResumeLeaseRequest
+	81,  // 166: monarchic.agent_protocol.v1.RunnerControlService.ReportStepStarted:input_type -> monarchic.agent_protocol.v1.ReportStepStartedRequest
+	83,  // 167: monarchic.agent_protocol.v1.RunnerControlService.ReportStepProgress:input_type -> monarchic.agent_protocol.v1.ReportStepProgressRequest
+	85,  // 168: monarchic.agent_protocol.v1.RunnerControlService.ReportStepOutcome:input_type -> monarchic.agent_protocol.v1.ReportStepOutcomeRequest
+	87,  // 169: monarchic.agent_protocol.v1.RunnerControlService.AckCancellation:input_type -> monarchic.agent_protocol.v1.AckCancellationRequest
+	72,  // 170: monarchic.agent_protocol.v1.RunnerControlService.RegisterRunner:output_type -> monarchic.agent_protocol.v1.RegisterRunnerResponse
+	74,  // 171: monarchic.agent_protocol.v1.RunnerControlService.Heartbeat:output_type -> monarchic.agent_protocol.v1.HeartbeatResponse
+	76,  // 172: monarchic.agent_protocol.v1.RunnerControlService.AcquireLease:output_type -> monarchic.agent_protocol.v1.AcquireLeaseResponse
+	78,  // 173: monarchic.agent_protocol.v1.RunnerControlService.RenewLease:output_type -> monarchic.agent_protocol.v1.RenewLeaseResponse
+	80,  // 174: monarchic.agent_protocol.v1.RunnerControlService.ResumeLease:output_type -> monarchic.agent_protocol.v1.ResumeLeaseResponse
+	82,  // 175: monarchic.agent_protocol.v1.RunnerControlService.ReportStepStarted:output_type -> monarchic.agent_protocol.v1.ReportStepStartedResponse
+	84,  // 176: monarchic.agent_protocol.v1.RunnerControlService.ReportStepProgress:output_type -> monarchic.agent_protocol.v1.ReportStepProgressResponse
+	86,  // 177: monarchic.agent_protocol.v1.RunnerControlService.ReportStepOutcome:output_type -> monarchic.agent_protocol.v1.ReportStepOutcomeResponse
+	88,  // 178: monarchic.agent_protocol.v1.RunnerControlService.AckCancellation:output_type -> monarchic.agent_protocol.v1.AckCancellationResponse
+	170, // [170:179] is the sub-list for method output_type
+	161, // [161:170] is the sub-list for method input_type
+	161, // [161:161] is the sub-list for extension type_name
+	161, // [161:161] is the sub-list for extension extendee
+	0,   // [0:161] is the sub-list for field type_name
 }
 
 func init() { file_monarchic_agent_protocol_proto_init() }
@@ -8497,34 +9315,45 @@ func file_monarchic_agent_protocol_proto_init() {
 	file_monarchic_agent_protocol_proto_msgTypes[5].OneofWrappers = []any{}
 	file_monarchic_agent_protocol_proto_msgTypes[6].OneofWrappers = []any{}
 	file_monarchic_agent_protocol_proto_msgTypes[9].OneofWrappers = []any{}
+	file_monarchic_agent_protocol_proto_msgTypes[13].OneofWrappers = []any{}
+	file_monarchic_agent_protocol_proto_msgTypes[14].OneofWrappers = []any{}
 	file_monarchic_agent_protocol_proto_msgTypes[15].OneofWrappers = []any{}
 	file_monarchic_agent_protocol_proto_msgTypes[16].OneofWrappers = []any{}
-	file_monarchic_agent_protocol_proto_msgTypes[17].OneofWrappers = []any{}
+	file_monarchic_agent_protocol_proto_msgTypes[20].OneofWrappers = []any{}
+	file_monarchic_agent_protocol_proto_msgTypes[21].OneofWrappers = []any{}
 	file_monarchic_agent_protocol_proto_msgTypes[22].OneofWrappers = []any{}
-	file_monarchic_agent_protocol_proto_msgTypes[23].OneofWrappers = []any{}
-	file_monarchic_agent_protocol_proto_msgTypes[24].OneofWrappers = []any{}
 	file_monarchic_agent_protocol_proto_msgTypes[27].OneofWrappers = []any{}
 	file_monarchic_agent_protocol_proto_msgTypes[28].OneofWrappers = []any{}
 	file_monarchic_agent_protocol_proto_msgTypes[29].OneofWrappers = []any{}
-	file_monarchic_agent_protocol_proto_msgTypes[30].OneofWrappers = []any{}
-	file_monarchic_agent_protocol_proto_msgTypes[31].OneofWrappers = []any{}
 	file_monarchic_agent_protocol_proto_msgTypes[32].OneofWrappers = []any{}
-	file_monarchic_agent_protocol_proto_msgTypes[38].OneofWrappers = []any{}
-	file_monarchic_agent_protocol_proto_msgTypes[39].OneofWrappers = []any{}
+	file_monarchic_agent_protocol_proto_msgTypes[33].OneofWrappers = []any{}
+	file_monarchic_agent_protocol_proto_msgTypes[34].OneofWrappers = []any{}
+	file_monarchic_agent_protocol_proto_msgTypes[35].OneofWrappers = []any{}
+	file_monarchic_agent_protocol_proto_msgTypes[36].OneofWrappers = []any{}
+	file_monarchic_agent_protocol_proto_msgTypes[37].OneofWrappers = []any{}
+	file_monarchic_agent_protocol_proto_msgTypes[43].OneofWrappers = []any{}
+	file_monarchic_agent_protocol_proto_msgTypes[44].OneofWrappers = []any{}
+	file_monarchic_agent_protocol_proto_msgTypes[47].OneofWrappers = []any{}
 	file_monarchic_agent_protocol_proto_msgTypes[49].OneofWrappers = []any{}
+	file_monarchic_agent_protocol_proto_msgTypes[51].OneofWrappers = []any{}
 	file_monarchic_agent_protocol_proto_msgTypes[53].OneofWrappers = []any{}
+	file_monarchic_agent_protocol_proto_msgTypes[54].OneofWrappers = []any{}
 	file_monarchic_agent_protocol_proto_msgTypes[55].OneofWrappers = []any{}
-	file_monarchic_agent_protocol_proto_msgTypes[56].OneofWrappers = []any{}
 	file_monarchic_agent_protocol_proto_msgTypes[57].OneofWrappers = []any{}
 	file_monarchic_agent_protocol_proto_msgTypes[58].OneofWrappers = []any{}
 	file_monarchic_agent_protocol_proto_msgTypes[59].OneofWrappers = []any{}
+	file_monarchic_agent_protocol_proto_msgTypes[60].OneofWrappers = []any{}
+	file_monarchic_agent_protocol_proto_msgTypes[61].OneofWrappers = []any{}
+	file_monarchic_agent_protocol_proto_msgTypes[62].OneofWrappers = []any{}
+	file_monarchic_agent_protocol_proto_msgTypes[63].OneofWrappers = []any{}
+	file_monarchic_agent_protocol_proto_msgTypes[64].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_monarchic_agent_protocol_proto_rawDesc), len(file_monarchic_agent_protocol_proto_rawDesc)),
-			NumEnums:      21,
-			NumMessages:   60,
+			NumEnums:      24,
+			NumMessages:   65,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
