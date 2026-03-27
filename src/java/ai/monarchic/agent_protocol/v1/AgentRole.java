@@ -47,6 +47,14 @@ public enum AgentRole
    * <code>PUBLISHER = 8;</code>
    */
   PUBLISHER(8),
+  /**
+   * <code>RESEARCHER = 9;</code>
+   */
+  RESEARCHER(9),
+  /**
+   * <code>VERIFICATION = 10;</code>
+   */
+  VERIFICATION(10),
   UNRECOGNIZED(-1),
   ;
 
@@ -95,6 +103,14 @@ public enum AgentRole
    * <code>PUBLISHER = 8;</code>
    */
   public static final int PUBLISHER_VALUE = 8;
+  /**
+   * <code>RESEARCHER = 9;</code>
+   */
+  public static final int RESEARCHER_VALUE = 9;
+  /**
+   * <code>VERIFICATION = 10;</code>
+   */
+  public static final int VERIFICATION_VALUE = 10;
 
 
   public final int getNumber() {
@@ -130,6 +146,8 @@ public enum AgentRole
       case 6: return SECURITY;
       case 7: return OPS;
       case 8: return PUBLISHER;
+      case 9: return RESEARCHER;
+      case 10: return VERIFICATION;
       default: return null;
     }
   }

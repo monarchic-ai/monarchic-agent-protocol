@@ -199,6 +199,17 @@ message ArtifactDescriptor {
   string contract_version = 7;
 }
 
+message DigestManifest {
+  string contract_version = 1;
+  string manifest_id = 2;
+  string run_id = 3;
+  string plan_id = 4;
+  uint64 created_at = 5;
+  string combined_digest = 6;
+  string event_digest = 7;
+  repeated ArtifactDescriptor artifact_descriptors = 8;
+}
+
 enum PlanStepKind {
   PLAN_STEP_KIND_UNSPECIFIED = 0;
   PLAN_STEP_KIND_ANALYSIS = 1;
@@ -460,6 +471,32 @@ message Event {
   Provenance provenance = 8;
   repeated EvalResult eval_results = 9;
   FailureClass failure_class = 10;
+}
+
+enum RunEventStream {
+  RUN_EVENT_STREAM_UNSPECIFIED = 0;
+  RUN_EVENT_STREAM_EXECUTION = 1;
+  RUN_EVENT_STREAM_RECOVERY = 2;
+  RUN_EVENT_STREAM_REVIEW = 3;
+  RUN_EVENT_STREAM_VERIFICATION = 4;
+  RUN_EVENT_STREAM_LIFECYCLE = 5;
+  RUN_EVENT_STREAM_CUSTOM = 6;
+}
+
+message RunEventRecord {
+  string contract_version = 1;
+  string event_id = 2;
+  string run_id = 3;
+  string plan_id = 4;
+  uint64 sequence = 5;
+  RunEventStream stream = 6;
+  uint64 recorded_at = 7;
+  optional string step_id = 8;
+  optional string task_id = 9;
+  string event_type = 10;
+  string status = 11;
+  optional string message = 12;
+  repeated string artifact_ids = 13;
 }
 
 message TaskMessage {

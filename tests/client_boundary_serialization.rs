@@ -1,8 +1,9 @@
 use std::{fs, path::PathBuf};
 
 use monarchic_agent_protocol::client_boundary::{
-    ArtifactDescriptor, BlockedOutcome, ExecutionReceipt, Intent, IntentClass, Plan, PlanStep,
-    PrLifecycleState, RerunExecutionResult, RerunScope, ReviewDecision, VerificationReceipt,
+    ArtifactDescriptor, BlockedOutcome, DigestManifest, ExecutionReceipt, Intent, IntentClass,
+    Plan, PlanStep, PrLifecycleState, RerunExecutionResult, RerunScope, ReviewDecision,
+    RunEventRecord, VerificationReceipt,
 };
 use serde::{de::DeserializeOwned, Serialize};
 use serde_json::Value;
@@ -73,6 +74,16 @@ fn artifact_descriptor_fixture_round_trips_canonically() {
 #[test]
 fn blocked_outcome_fixture_round_trips_canonically() {
     assert_fixture_round_trip::<BlockedOutcome>("blocked_outcome.minimal.json");
+}
+
+#[test]
+fn digest_manifest_fixture_round_trips_canonically() {
+    assert_fixture_round_trip::<DigestManifest>("digest_manifest.minimal.json");
+}
+
+#[test]
+fn run_event_record_fixture_round_trips_canonically() {
+    assert_fixture_round_trip::<RunEventRecord>("run_event_record.minimal.json");
 }
 
 #[test]
@@ -188,6 +199,20 @@ fn execution_receipt_rejects_missing_required_field() {
         .expect("receipt object")
         .remove("receipt_id");
     assert!(serde_json::from_value::<ExecutionReceipt>(value).is_err());
+}
+
+#[test]
+fn digest_manifest_rejects_missing_artifacts() {
+    let mut value = load_fixture_value("digest_manifest.minimal.json");
+    value["artifact_descriptors"] = Value::Array(Vec::new());
+    assert!(serde_json::from_value::<DigestManifest>(value).is_err());
+}
+
+#[test]
+fn run_event_record_rejects_invalid_stream() {
+    let mut value = load_fixture_value("run_event_record.minimal.json");
+    value["stream"] = Value::String(String::from("nonsense"));
+    assert!(serde_json::from_value::<RunEventRecord>(value).is_err());
 }
 
 #[test]

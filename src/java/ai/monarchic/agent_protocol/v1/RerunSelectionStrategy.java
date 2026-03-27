@@ -6,39 +6,27 @@
 package ai.monarchic.agent_protocol.v1;
 
 /**
- * Protobuf enum {@code monarchic.agent_protocol.v1.LeaseLifecycleState}
+ * Protobuf enum {@code monarchic.agent_protocol.v1.RerunSelectionStrategy}
  */
 @com.google.protobuf.Generated
-public enum LeaseLifecycleState
+public enum RerunSelectionStrategy
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>LEASE_LIFECYCLE_STATE_UNSPECIFIED = 0;</code>
+   * <code>RERUN_SELECTION_STRATEGY_UNSPECIFIED = 0;</code>
    */
-  LEASE_LIFECYCLE_STATE_UNSPECIFIED(0),
+  RERUN_SELECTION_STRATEGY_UNSPECIFIED(0),
   /**
-   * <code>LEASE_ISSUED = 1;</code>
+   * <code>RERUN_SELECTION_STRATEGY_TASK_IDS = 1;</code>
    */
-  LEASE_ISSUED(1),
+  RERUN_SELECTION_STRATEGY_TASK_IDS(1),
   /**
-   * <code>LEASE_ACTIVE = 2;</code>
+   * <code>RERUN_SELECTION_STRATEGY_STEP_IDS = 2;</code>
    */
-  LEASE_ACTIVE(2),
+  RERUN_SELECTION_STRATEGY_STEP_IDS(2),
   /**
-   * <code>LEASE_RELEASED = 3;</code>
+   * <code>RERUN_SELECTION_STRATEGY_PATHS = 3;</code>
    */
-  LEASE_RELEASED(3),
-  /**
-   * <code>LEASE_EXPIRED = 4;</code>
-   */
-  LEASE_EXPIRED(4),
-  /**
-   * <code>LEASE_CANCELLED = 5;</code>
-   */
-  LEASE_CANCELLED(5),
-  /**
-   * <code>LEASE_REJECTED = 6;</code>
-   */
-  LEASE_REJECTED(6),
+  RERUN_SELECTION_STRATEGY_PATHS(3),
   UNRECOGNIZED(-1),
   ;
 
@@ -49,36 +37,24 @@ public enum LeaseLifecycleState
       /* minor= */ 32,
       /* patch= */ 1,
       /* suffix= */ "",
-      LeaseLifecycleState.class.getName());
+      RerunSelectionStrategy.class.getName());
   }
   /**
-   * <code>LEASE_LIFECYCLE_STATE_UNSPECIFIED = 0;</code>
+   * <code>RERUN_SELECTION_STRATEGY_UNSPECIFIED = 0;</code>
    */
-  public static final int LEASE_LIFECYCLE_STATE_UNSPECIFIED_VALUE = 0;
+  public static final int RERUN_SELECTION_STRATEGY_UNSPECIFIED_VALUE = 0;
   /**
-   * <code>LEASE_ISSUED = 1;</code>
+   * <code>RERUN_SELECTION_STRATEGY_TASK_IDS = 1;</code>
    */
-  public static final int LEASE_ISSUED_VALUE = 1;
+  public static final int RERUN_SELECTION_STRATEGY_TASK_IDS_VALUE = 1;
   /**
-   * <code>LEASE_ACTIVE = 2;</code>
+   * <code>RERUN_SELECTION_STRATEGY_STEP_IDS = 2;</code>
    */
-  public static final int LEASE_ACTIVE_VALUE = 2;
+  public static final int RERUN_SELECTION_STRATEGY_STEP_IDS_VALUE = 2;
   /**
-   * <code>LEASE_RELEASED = 3;</code>
+   * <code>RERUN_SELECTION_STRATEGY_PATHS = 3;</code>
    */
-  public static final int LEASE_RELEASED_VALUE = 3;
-  /**
-   * <code>LEASE_EXPIRED = 4;</code>
-   */
-  public static final int LEASE_EXPIRED_VALUE = 4;
-  /**
-   * <code>LEASE_CANCELLED = 5;</code>
-   */
-  public static final int LEASE_CANCELLED_VALUE = 5;
-  /**
-   * <code>LEASE_REJECTED = 6;</code>
-   */
-  public static final int LEASE_REJECTED_VALUE = 6;
+  public static final int RERUN_SELECTION_STRATEGY_PATHS_VALUE = 3;
 
 
   public final int getNumber() {
@@ -95,7 +71,7 @@ public enum LeaseLifecycleState
    * @deprecated Use {@link #forNumber(int)} instead.
    */
   @java.lang.Deprecated
-  public static LeaseLifecycleState valueOf(int value) {
+  public static RerunSelectionStrategy valueOf(int value) {
     return forNumber(value);
   }
 
@@ -103,28 +79,25 @@ public enum LeaseLifecycleState
    * @param value The numeric wire value of the corresponding enum entry.
    * @return The enum associated with the given numeric wire value.
    */
-  public static LeaseLifecycleState forNumber(int value) {
+  public static RerunSelectionStrategy forNumber(int value) {
     switch (value) {
-      case 0: return LEASE_LIFECYCLE_STATE_UNSPECIFIED;
-      case 1: return LEASE_ISSUED;
-      case 2: return LEASE_ACTIVE;
-      case 3: return LEASE_RELEASED;
-      case 4: return LEASE_EXPIRED;
-      case 5: return LEASE_CANCELLED;
-      case 6: return LEASE_REJECTED;
+      case 0: return RERUN_SELECTION_STRATEGY_UNSPECIFIED;
+      case 1: return RERUN_SELECTION_STRATEGY_TASK_IDS;
+      case 2: return RERUN_SELECTION_STRATEGY_STEP_IDS;
+      case 3: return RERUN_SELECTION_STRATEGY_PATHS;
       default: return null;
     }
   }
 
-  public static com.google.protobuf.Internal.EnumLiteMap<LeaseLifecycleState>
+  public static com.google.protobuf.Internal.EnumLiteMap<RerunSelectionStrategy>
       internalGetValueMap() {
     return internalValueMap;
   }
   private static final com.google.protobuf.Internal.EnumLiteMap<
-      LeaseLifecycleState> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<LeaseLifecycleState>() {
-          public LeaseLifecycleState findValueByNumber(int number) {
-            return LeaseLifecycleState.forNumber(number);
+      RerunSelectionStrategy> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<RerunSelectionStrategy>() {
+          public RerunSelectionStrategy findValueByNumber(int number) {
+            return RerunSelectionStrategy.forNumber(number);
           }
         };
 
@@ -142,12 +115,12 @@ public enum LeaseLifecycleState
   }
   public static com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.getDescriptor().getEnumTypes().get(16);
+    return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.getDescriptor().getEnumTypes().get(13);
   }
 
-  private static final LeaseLifecycleState[] VALUES = values();
+  private static final RerunSelectionStrategy[] VALUES = values();
 
-  public static LeaseLifecycleState valueOf(
+  public static RerunSelectionStrategy valueOf(
       com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
     if (desc.getType() != getDescriptor()) {
       throw new java.lang.IllegalArgumentException(
@@ -161,10 +134,10 @@ public enum LeaseLifecycleState
 
   private final int value;
 
-  private LeaseLifecycleState(int value) {
+  private RerunSelectionStrategy(int value) {
     this.value = value;
   }
 
-  // @@protoc_insertion_point(enum_scope:monarchic.agent_protocol.v1.LeaseLifecycleState)
+  // @@protoc_insertion_point(enum_scope:monarchic.agent_protocol.v1.RerunSelectionStrategy)
 }
 

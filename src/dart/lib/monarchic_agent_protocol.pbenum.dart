@@ -30,6 +30,10 @@ class AgentRole extends $pb.ProtobufEnum {
   static const AgentRole OPS = AgentRole._(7, _omitEnumNames ? '' : 'OPS');
   static const AgentRole PUBLISHER =
       AgentRole._(8, _omitEnumNames ? '' : 'PUBLISHER');
+  static const AgentRole RESEARCHER =
+      AgentRole._(9, _omitEnumNames ? '' : 'RESEARCHER');
+  static const AgentRole VERIFICATION =
+      AgentRole._(10, _omitEnumNames ? '' : 'VERIFICATION');
 
   static const $core.List<AgentRole> values = <AgentRole>[
     AGENT_ROLE_UNSPECIFIED,
@@ -41,10 +45,12 @@ class AgentRole extends $pb.ProtobufEnum {
     SECURITY,
     OPS,
     PUBLISHER,
+    RESEARCHER,
+    VERIFICATION,
   ];
 
   static final $core.List<AgentRole?> _byValue =
-      $pb.ProtobufEnum.$_initByValueList(values, 8);
+      $pb.ProtobufEnum.$_initByValueList(values, 10);
   static AgentRole? valueOf($core.int value) =>
       value < 0 || value >= _byValue.length ? null : _byValue[value];
 
@@ -461,6 +467,103 @@ class RerunTrigger extends $pb.ProtobufEnum {
       value < 0 || value >= _byValue.length ? null : _byValue[value];
 
   const RerunTrigger._(super.value, super.name);
+}
+
+class RerunSelectionStrategy extends $pb.ProtobufEnum {
+  static const RerunSelectionStrategy RERUN_SELECTION_STRATEGY_UNSPECIFIED =
+      RerunSelectionStrategy._(
+          0, _omitEnumNames ? '' : 'RERUN_SELECTION_STRATEGY_UNSPECIFIED');
+  static const RerunSelectionStrategy RERUN_SELECTION_STRATEGY_TASK_IDS =
+      RerunSelectionStrategy._(
+          1, _omitEnumNames ? '' : 'RERUN_SELECTION_STRATEGY_TASK_IDS');
+  static const RerunSelectionStrategy RERUN_SELECTION_STRATEGY_STEP_IDS =
+      RerunSelectionStrategy._(
+          2, _omitEnumNames ? '' : 'RERUN_SELECTION_STRATEGY_STEP_IDS');
+  static const RerunSelectionStrategy RERUN_SELECTION_STRATEGY_PATHS =
+      RerunSelectionStrategy._(
+          3, _omitEnumNames ? '' : 'RERUN_SELECTION_STRATEGY_PATHS');
+
+  static const $core.List<RerunSelectionStrategy> values =
+      <RerunSelectionStrategy>[
+    RERUN_SELECTION_STRATEGY_UNSPECIFIED,
+    RERUN_SELECTION_STRATEGY_TASK_IDS,
+    RERUN_SELECTION_STRATEGY_STEP_IDS,
+    RERUN_SELECTION_STRATEGY_PATHS,
+  ];
+
+  static final $core.List<RerunSelectionStrategy?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 3);
+  static RerunSelectionStrategy? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const RerunSelectionStrategy._(super.value, super.name);
+}
+
+class RerunExecutionStatus extends $pb.ProtobufEnum {
+  static const RerunExecutionStatus RERUN_EXECUTION_STATUS_UNSPECIFIED =
+      RerunExecutionStatus._(
+          0, _omitEnumNames ? '' : 'RERUN_EXECUTION_STATUS_UNSPECIFIED');
+  static const RerunExecutionStatus RERUN_EXECUTION_STATUS_PENDING =
+      RerunExecutionStatus._(
+          1, _omitEnumNames ? '' : 'RERUN_EXECUTION_STATUS_PENDING');
+  static const RerunExecutionStatus RERUN_EXECUTION_STATUS_SUCCEEDED =
+      RerunExecutionStatus._(
+          2, _omitEnumNames ? '' : 'RERUN_EXECUTION_STATUS_SUCCEEDED');
+  static const RerunExecutionStatus RERUN_EXECUTION_STATUS_FAILED =
+      RerunExecutionStatus._(
+          3, _omitEnumNames ? '' : 'RERUN_EXECUTION_STATUS_FAILED');
+  static const RerunExecutionStatus RERUN_EXECUTION_STATUS_PARTIAL =
+      RerunExecutionStatus._(
+          4, _omitEnumNames ? '' : 'RERUN_EXECUTION_STATUS_PARTIAL');
+
+  static const $core.List<RerunExecutionStatus> values = <RerunExecutionStatus>[
+    RERUN_EXECUTION_STATUS_UNSPECIFIED,
+    RERUN_EXECUTION_STATUS_PENDING,
+    RERUN_EXECUTION_STATUS_SUCCEEDED,
+    RERUN_EXECUTION_STATUS_FAILED,
+    RERUN_EXECUTION_STATUS_PARTIAL,
+  ];
+
+  static final $core.List<RerunExecutionStatus?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 4);
+  static RerunExecutionStatus? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const RerunExecutionStatus._(super.value, super.name);
+}
+
+class RunEventStream extends $pb.ProtobufEnum {
+  static const RunEventStream RUN_EVENT_STREAM_UNSPECIFIED =
+      RunEventStream._(0, _omitEnumNames ? '' : 'RUN_EVENT_STREAM_UNSPECIFIED');
+  static const RunEventStream RUN_EVENT_STREAM_EXECUTION =
+      RunEventStream._(1, _omitEnumNames ? '' : 'RUN_EVENT_STREAM_EXECUTION');
+  static const RunEventStream RUN_EVENT_STREAM_RECOVERY =
+      RunEventStream._(2, _omitEnumNames ? '' : 'RUN_EVENT_STREAM_RECOVERY');
+  static const RunEventStream RUN_EVENT_STREAM_REVIEW =
+      RunEventStream._(3, _omitEnumNames ? '' : 'RUN_EVENT_STREAM_REVIEW');
+  static const RunEventStream RUN_EVENT_STREAM_VERIFICATION = RunEventStream._(
+      4, _omitEnumNames ? '' : 'RUN_EVENT_STREAM_VERIFICATION');
+  static const RunEventStream RUN_EVENT_STREAM_LIFECYCLE =
+      RunEventStream._(5, _omitEnumNames ? '' : 'RUN_EVENT_STREAM_LIFECYCLE');
+  static const RunEventStream RUN_EVENT_STREAM_CUSTOM =
+      RunEventStream._(6, _omitEnumNames ? '' : 'RUN_EVENT_STREAM_CUSTOM');
+
+  static const $core.List<RunEventStream> values = <RunEventStream>[
+    RUN_EVENT_STREAM_UNSPECIFIED,
+    RUN_EVENT_STREAM_EXECUTION,
+    RUN_EVENT_STREAM_RECOVERY,
+    RUN_EVENT_STREAM_REVIEW,
+    RUN_EVENT_STREAM_VERIFICATION,
+    RUN_EVENT_STREAM_LIFECYCLE,
+    RUN_EVENT_STREAM_CUSTOM,
+  ];
+
+  static final $core.List<RunEventStream?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 6);
+  static RunEventStream? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const RunEventStream._(super.value, super.name);
 }
 
 class LeaseLifecycleState extends $pb.ProtobufEnum {
