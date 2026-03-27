@@ -1,5 +1,7 @@
 use serde::{Deserialize, Serialize};
 
+use crate::{blocking::BlockedOutcome, receipt::VerificationReceipt};
+
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub enum ReviewDecisionScope {
@@ -108,5 +110,29 @@ pub struct RerunExecutionResult {
     #[serde(default)]
     pub skipped_tasks: Vec<String>,
     pub created_at: u64,
+    pub updated_at: u64,
+}
+
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct PrLifecycleState {
+    pub state_id: String,
+    pub plan_id: String,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub pr_number: Option<u64>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub pr_url: Option<String>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub review_decision: Option<ReviewDecision>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub rerun_scope: Option<RerunScope>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub rerun_result: Option<RerunExecutionResult>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub verification_receipt: Option<VerificationReceipt>,
+    pub merge_ready: bool,
+    pub release_ready: bool,
+    #[serde(default)]
+    pub blocked_outcomes: Vec<BlockedOutcome>,
     pub updated_at: u64,
 }
