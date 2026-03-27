@@ -1,0 +1,107 @@
+{
+  "state_id": "pr-lifecycle-state-001",
+  "plan_id": "plan-001",
+  "pr_number": 42,
+  "pr_url": "https://example.com/pr/42",
+  "review_decision": {
+    "decision_id": "review-decision-001",
+    "plan_id": "plan-001",
+    "scope": "pull_request",
+    "actor": "review-bot",
+    "decision": "request_changes",
+    "reason": "Review requested updates before merge.",
+    "created_at": 1743018000000
+  },
+  "rerun_scope": {
+    "scope_id": "rerun-scope-001",
+    "plan_id": "plan-001",
+    "trigger": "review_decision",
+    "reason": "Review requested updates before merge.",
+    "source_decision_id": "review-decision-001",
+    "task_ids": [],
+    "step_ids": [],
+    "paths": [
+      "src/auth.rs"
+    ],
+    "created_at": 1743018000000
+  },
+  "rerun_result": {
+    "result_id": "rerun-result-001",
+    "plan_id": "plan-001",
+    "rerun_scope_id": "rerun-scope-001",
+    "source_decision_id": "review-decision-001",
+    "trigger": "review_decision",
+    "matched_strategy": "paths",
+    "root_tasks": [
+      "task-a"
+    ],
+    "selected_tasks": [
+      "task-a",
+      "task-b"
+    ],
+    "matched_paths": [
+      "src/auth.rs"
+    ],
+    "reason": "Review requested rerun for auth changes.",
+    "status": "partial",
+    "completed_tasks": [
+      "task-a"
+    ],
+    "failed_tasks": [],
+    "skipped_tasks": [
+      "task-b"
+    ],
+    "created_at": 1743018000000,
+    "updated_at": 1743018060000
+  },
+  "verification_receipt": {
+    "contract_version": "v1",
+    "verification_id": "verification-001",
+    "plan_id": "plan-001",
+    "execution_receipt_ids": [
+      "execution-receipt-001"
+    ],
+    "verification_policy_version": "ops/verification/v1",
+    "status": "blocked",
+    "checks": [
+      {
+        "check_id": "check-001",
+        "name": "required-artifact-digests",
+        "status": "blocked",
+        "message": "One or more required artifact digests are missing.",
+        "artifact_ids": []
+      }
+    ],
+    "blocked_outcomes": [
+      {
+        "code": "required-artifact-digest-missing",
+        "scope": "verification",
+        "message": "A required artifact digest was not produced by execution.",
+        "details": {
+          "missing_digest": "sha256:artifact-a",
+          "plan_id": "plan-001"
+        },
+        "blocking_artifacts": []
+      }
+    ],
+    "artifact_digest_set": [
+      "sha256:artifact-b"
+    ],
+    "verified_at": 1743018120000
+  },
+  "merge_ready": false,
+  "release_ready": false,
+  "blocked_outcomes": [
+    {
+      "code": "verification-not-passed",
+      "scope": "merge",
+      "message": "Merge is blocked until verification passes.",
+      "details": {
+        "verification_id": "verification-001",
+        "verification_status": "blocked"
+      },
+      "blocking_artifacts": []
+    }
+  ],
+  "updated_at": 1743018120000
+}
