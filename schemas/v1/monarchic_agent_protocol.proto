@@ -404,6 +404,21 @@ message RerunExecutionResult {
   uint64 updated_at = 16;
 }
 
+message PrLifecycleState {
+  string state_id = 1;
+  string plan_id = 2;
+  optional uint64 pr_number = 3;
+  optional string pr_url = 4;
+  optional ReviewDecision review_decision = 5;
+  optional RerunScope rerun_scope = 6;
+  optional RerunExecutionResult rerun_result = 7;
+  optional VerificationReceipt verification_receipt = 8;
+  bool merge_ready = 9;
+  bool release_ready = 10;
+  repeated BlockedOutcome blocked_outcomes = 11;
+  uint64 updated_at = 12;
+}
+
 message Task {
   string version = 1;
   string task_id = 2;

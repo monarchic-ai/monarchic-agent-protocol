@@ -2,7 +2,7 @@ use std::{fs, path::PathBuf};
 
 use monarchic_agent_protocol::client_boundary::{
     ArtifactDescriptor, BlockedOutcome, ExecutionReceipt, Intent, IntentClass, Plan, PlanStep,
-    RerunExecutionResult, RerunScope, ReviewDecision, VerificationReceipt,
+    PrLifecycleState, RerunExecutionResult, RerunScope, ReviewDecision, VerificationReceipt,
 };
 use serde::{de::DeserializeOwned, Serialize};
 use serde_json::Value;
@@ -159,6 +159,11 @@ fn rerun_scope_fixture_round_trips_canonically() {
 #[test]
 fn rerun_execution_result_fixture_round_trips_canonically() {
     assert_fixture_round_trip::<RerunExecutionResult>("rerun_execution_result.minimal.json");
+}
+
+#[test]
+fn pr_lifecycle_state_fixture_round_trips_canonically() {
+    assert_fixture_round_trip::<PrLifecycleState>("pr_lifecycle_state.minimal.json");
 }
 
 #[test]
