@@ -1,0 +1,17 @@
+{
+  "contract_version": "v1",
+  "event_id": "event-123",
+  "run_id": "run-123",
+  "plan_id": "plan-123",
+  "sequence": 1,
+  "stream": "execution",
+  "recorded_at": 1742870402000,
+  "step_id": "step-1",
+  "task_id": "task-1",
+  "event_type": "task_started",
+  "status": "running",
+  "message": "started task-1",
+  "artifact_ids": [
+    "artifact-123"
+  ]
+}
