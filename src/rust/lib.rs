@@ -59,6 +59,6 @@ pub use monarchic::agent_protocol::v1::{
     PrLifecycleState, RerunExecutionResult, RerunExecutionStatus, RerunScope,
     RerunSelectionStrategy, RerunTrigger, ReviewDecision, ReviewDecisionScope,
     ReviewDisposition, RoleProvenance, RunContext, RunLifecycleState, RunnerCapabilities,
-    StepLifecycleState, StepOutputExpectation, Task, VerificationCheck,
+    StepLifecycleState, StepOutputExpectation, Task, TaskMessage, TaskMessageAck, VerificationCheck,
     VerificationCheckStatus, VerificationReceipt, VerificationStatus,
 };
