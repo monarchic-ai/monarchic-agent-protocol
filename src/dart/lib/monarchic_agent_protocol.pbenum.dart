@@ -757,6 +757,12 @@ class RecoveryEventKind extends $pb.ProtobufEnum {
   static const RecoveryEventKind RECOVERY_EVENT_RUN_RECOVERED =
       RecoveryEventKind._(
           7, _omitEnumNames ? '' : 'RECOVERY_EVENT_RUN_RECOVERED');
+  static const RecoveryEventKind RECOVERY_EVENT_CANCELLATION_REQUESTED =
+      RecoveryEventKind._(
+          8, _omitEnumNames ? '' : 'RECOVERY_EVENT_CANCELLATION_REQUESTED');
+  static const RecoveryEventKind RECOVERY_EVENT_CANCELLATION_ACKNOWLEDGED =
+      RecoveryEventKind._(
+          9, _omitEnumNames ? '' : 'RECOVERY_EVENT_CANCELLATION_ACKNOWLEDGED');
 
   static const $core.List<RecoveryEventKind> values = <RecoveryEventKind>[
     RECOVERY_EVENT_KIND_UNSPECIFIED,
@@ -767,10 +773,12 @@ class RecoveryEventKind extends $pb.ProtobufEnum {
     RECOVERY_EVENT_STEP_REQUEUED,
     RECOVERY_EVENT_STEP_BLOCKED,
     RECOVERY_EVENT_RUN_RECOVERED,
+    RECOVERY_EVENT_CANCELLATION_REQUESTED,
+    RECOVERY_EVENT_CANCELLATION_ACKNOWLEDGED,
   ];
 
   static final $core.List<RecoveryEventKind?> _byValue =
-      $pb.ProtobufEnum.$_initByValueList(values, 7);
+      $pb.ProtobufEnum.$_initByValueList(values, 9);
   static RecoveryEventKind? valueOf($core.int value) =>
       value < 0 || value >= _byValue.length ? null : _byValue[value];
 
