@@ -129,6 +129,67 @@ final $typed_data.Uint8List artifactKindDescriptor = $convert.base64Decode(
     'ZBQ1RfS0lORF9URVNUX1JFUE9SVBAIEhsKF0FSVElGQUNUX0tJTkRfQlVJTERfTE9HEAkSGAoU'
     'QVJUSUZBQ1RfS0lORF9CVU5ETEUQChIYChRBUlRJRkFDVF9LSU5EX0NVU1RPTRAL');
 
+@$core.Deprecated('Use authMechanismDescriptor instead')
+const AuthMechanism$json = {
+  '1': 'AuthMechanism',
+  '2': [
+    {'1': 'AUTH_MECHANISM_UNSPECIFIED', '2': 0},
+    {'1': 'AUTH_MECHANISM_SHARED_SECRET', '2': 1},
+    {'1': 'AUTH_MECHANISM_BEARER_TOKEN', '2': 2},
+    {'1': 'AUTH_MECHANISM_SIGNED_TOKEN', '2': 3},
+    {'1': 'AUTH_MECHANISM_MUTUAL_TLS', '2': 4},
+    {'1': 'AUTH_MECHANISM_CUSTOM', '2': 5},
+  ],
+};
+
+/// Descriptor for `AuthMechanism`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List authMechanismDescriptor = $convert.base64Decode(
+    'Cg1BdXRoTWVjaGFuaXNtEh4KGkFVVEhfTUVDSEFOSVNNX1VOU1BFQ0lGSUVEEAASIAocQVVUSF'
+    '9NRUNIQU5JU01fU0hBUkVEX1NFQ1JFVBABEh8KG0FVVEhfTUVDSEFOSVNNX0JFQVJFUl9UT0tF'
+    'ThACEh8KG0FVVEhfTUVDSEFOSVNNX1NJR05FRF9UT0tFThADEh0KGUFVVEhfTUVDSEFOSVNNX0'
+    '1VVFVBTF9UTFMQBBIZChVBVVRIX01FQ0hBTklTTV9DVVNUT00QBQ==');
+
+@$core.Deprecated('Use usageCategoryDescriptor instead')
+const UsageCategory$json = {
+  '1': 'UsageCategory',
+  '2': [
+    {'1': 'USAGE_CATEGORY_UNSPECIFIED', '2': 0},
+    {'1': 'USAGE_CATEGORY_CONTROL_PLANE', '2': 1},
+    {'1': 'USAGE_CATEGORY_EXECUTION', '2': 2},
+    {'1': 'USAGE_CATEGORY_VERIFICATION', '2': 3},
+    {'1': 'USAGE_CATEGORY_AUDIT_EXPORT', '2': 4},
+    {'1': 'USAGE_CATEGORY_CUSTOM', '2': 5},
+  ],
+};
+
+/// Descriptor for `UsageCategory`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List usageCategoryDescriptor = $convert.base64Decode(
+    'Cg1Vc2FnZUNhdGVnb3J5Eh4KGlVTQUdFX0NBVEVHT1JZX1VOU1BFQ0lGSUVEEAASIAocVVNBR0'
+    'VfQ0FURUdPUllfQ09OVFJPTF9QTEFORRABEhwKGFVTQUdFX0NBVEVHT1JZX0VYRUNVVElPThAC'
+    'Eh8KG1VTQUdFX0NBVEVHT1JZX1ZFUklGSUNBVElPThADEh8KG1VTQUdFX0NBVEVHT1JZX0FVRE'
+    'lUX0VYUE9SVBAEEhkKFVVTQUdFX0NBVEVHT1JZX0NVU1RPTRAF');
+
+@$core.Deprecated('Use usageUnitDescriptor instead')
+const UsageUnit$json = {
+  '1': 'UsageUnit',
+  '2': [
+    {'1': 'USAGE_UNIT_UNSPECIFIED', '2': 0},
+    {'1': 'USAGE_UNIT_REQUESTS', '2': 1},
+    {'1': 'USAGE_UNIT_MILLISECONDS', '2': 2},
+    {'1': 'USAGE_UNIT_BYTES', '2': 3},
+    {'1': 'USAGE_UNIT_TOKENS', '2': 4},
+    {'1': 'USAGE_UNIT_RUNS', '2': 5},
+    {'1': 'USAGE_UNIT_CUSTOM', '2': 6},
+  ],
+};
+
+/// Descriptor for `UsageUnit`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List usageUnitDescriptor = $convert.base64Decode(
+    'CglVc2FnZVVuaXQSGgoWVVNBR0VfVU5JVF9VTlNQRUNJRklFRBAAEhcKE1VTQUdFX1VOSVRfUk'
+    'VRVUVTVFMQARIbChdVU0FHRV9VTklUX01JTExJU0VDT05EUxACEhQKEFVTQUdFX1VOSVRfQllU'
+    'RVMQAxIVChFVU0FHRV9VTklUX1RPS0VOUxAEEhMKD1VTQUdFX1VOSVRfUlVOUxAFEhUKEVVTQU'
+    'dFX1VOSVRfQ1VTVE9NEAY=');
+
 @$core.Deprecated('Use planStepKindDescriptor instead')
 const PlanStepKind$json = {
   '1': 'PlanStepKind',
@@ -1123,6 +1184,238 @@ final $typed_data.Uint8List digestManifestDescriptor = $convert.base64Decode(
     'ZGlnZXN0GAcgASgJUgtldmVudERpZ2VzdBJiChRhcnRpZmFjdF9kZXNjcmlwdG9ycxgIIAMoCz'
     'IvLm1vbmFyY2hpYy5hZ2VudF9wcm90b2NvbC52MS5BcnRpZmFjdERlc2NyaXB0b3JSE2FydGlm'
     'YWN0RGVzY3JpcHRvcnM=');
+
+@$core.Deprecated('Use principalRefDescriptor instead')
+const PrincipalRef$json = {
+  '1': 'PrincipalRef',
+  '2': [
+    {'1': 'principal_id', '3': 1, '4': 1, '5': 9, '10': 'principalId'},
+    {'1': 'provider', '3': 2, '4': 1, '5': 9, '10': 'provider'},
+    {
+      '1': 'display_name',
+      '3': 3,
+      '4': 1,
+      '5': 9,
+      '9': 0,
+      '10': 'displayName',
+      '17': true
+    },
+  ],
+  '8': [
+    {'1': '_display_name'},
+  ],
+};
+
+/// Descriptor for `PrincipalRef`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List principalRefDescriptor = $convert.base64Decode(
+    'CgxQcmluY2lwYWxSZWYSIQoMcHJpbmNpcGFsX2lkGAEgASgJUgtwcmluY2lwYWxJZBIaCghwcm'
+    '92aWRlchgCIAEoCVIIcHJvdmlkZXISJgoMZGlzcGxheV9uYW1lGAMgASgJSABSC2Rpc3BsYXlO'
+    'YW1liAEBQg8KDV9kaXNwbGF5X25hbWU=');
+
+@$core.Deprecated('Use tenantRefDescriptor instead')
+const TenantRef$json = {
+  '1': 'TenantRef',
+  '2': [
+    {'1': 'tenant_id', '3': 1, '4': 1, '5': 9, '10': 'tenantId'},
+    {
+      '1': 'display_name',
+      '3': 2,
+      '4': 1,
+      '5': 9,
+      '9': 0,
+      '10': 'displayName',
+      '17': true
+    },
+  ],
+  '8': [
+    {'1': '_display_name'},
+  ],
+};
+
+/// Descriptor for `TenantRef`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List tenantRefDescriptor = $convert.base64Decode(
+    'CglUZW5hbnRSZWYSGwoJdGVuYW50X2lkGAEgASgJUgh0ZW5hbnRJZBImCgxkaXNwbGF5X25hbW'
+    'UYAiABKAlIAFILZGlzcGxheU5hbWWIAQFCDwoNX2Rpc3BsYXlfbmFtZQ==');
+
+@$core.Deprecated('Use authContextDescriptor instead')
+const AuthContext$json = {
+  '1': 'AuthContext',
+  '2': [
+    {'1': 'contract_version', '3': 1, '4': 1, '5': 9, '10': 'contractVersion'},
+    {'1': 'auth_context_id', '3': 2, '4': 1, '5': 9, '10': 'authContextId'},
+    {
+      '1': 'principal',
+      '3': 3,
+      '4': 1,
+      '5': 11,
+      '6': '.monarchic.agent_protocol.v1.PrincipalRef',
+      '10': 'principal'
+    },
+    {
+      '1': 'tenant',
+      '3': 4,
+      '4': 1,
+      '5': 11,
+      '6': '.monarchic.agent_protocol.v1.TenantRef',
+      '10': 'tenant'
+    },
+    {
+      '1': 'mechanism',
+      '3': 5,
+      '4': 1,
+      '5': 14,
+      '6': '.monarchic.agent_protocol.v1.AuthMechanism',
+      '10': 'mechanism'
+    },
+    {'1': 'credential_id', '3': 6, '4': 1, '5': 9, '10': 'credentialId'},
+    {'1': 'scopes', '3': 7, '4': 3, '5': 9, '10': 'scopes'},
+    {'1': 'issued_at', '3': 8, '4': 1, '5': 4, '10': 'issuedAt'},
+    {
+      '1': 'expires_at',
+      '3': 9,
+      '4': 1,
+      '5': 4,
+      '9': 0,
+      '10': 'expiresAt',
+      '17': true
+    },
+  ],
+  '8': [
+    {'1': '_expires_at'},
+  ],
+};
+
+/// Descriptor for `AuthContext`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List authContextDescriptor = $convert.base64Decode(
+    'CgtBdXRoQ29udGV4dBIpChBjb250cmFjdF92ZXJzaW9uGAEgASgJUg9jb250cmFjdFZlcnNpb2'
+    '4SJgoPYXV0aF9jb250ZXh0X2lkGAIgASgJUg1hdXRoQ29udGV4dElkEkcKCXByaW5jaXBhbBgD'
+    'IAEoCzIpLm1vbmFyY2hpYy5hZ2VudF9wcm90b2NvbC52MS5QcmluY2lwYWxSZWZSCXByaW5jaX'
+    'BhbBI+CgZ0ZW5hbnQYBCABKAsyJi5tb25hcmNoaWMuYWdlbnRfcHJvdG9jb2wudjEuVGVuYW50'
+    'UmVmUgZ0ZW5hbnQSSAoJbWVjaGFuaXNtGAUgASgOMioubW9uYXJjaGljLmFnZW50X3Byb3RvY2'
+    '9sLnYxLkF1dGhNZWNoYW5pc21SCW1lY2hhbmlzbRIjCg1jcmVkZW50aWFsX2lkGAYgASgJUgxj'
+    'cmVkZW50aWFsSWQSFgoGc2NvcGVzGAcgAygJUgZzY29wZXMSGwoJaXNzdWVkX2F0GAggASgEUg'
+    'hpc3N1ZWRBdBIiCgpleHBpcmVzX2F0GAkgASgESABSCWV4cGlyZXNBdIgBAUINCgtfZXhwaXJl'
+    'c19hdA==');
+
+@$core.Deprecated('Use usageRecordDescriptor instead')
+const UsageRecord$json = {
+  '1': 'UsageRecord',
+  '2': [
+    {'1': 'contract_version', '3': 1, '4': 1, '5': 9, '10': 'contractVersion'},
+    {'1': 'usage_id', '3': 2, '4': 1, '5': 9, '10': 'usageId'},
+    {
+      '1': 'principal',
+      '3': 3,
+      '4': 1,
+      '5': 11,
+      '6': '.monarchic.agent_protocol.v1.PrincipalRef',
+      '10': 'principal'
+    },
+    {
+      '1': 'tenant',
+      '3': 4,
+      '4': 1,
+      '5': 11,
+      '6': '.monarchic.agent_protocol.v1.TenantRef',
+      '10': 'tenant'
+    },
+    {'1': 'run_id', '3': 5, '4': 1, '5': 9, '9': 0, '10': 'runId', '17': true},
+    {
+      '1': 'plan_id',
+      '3': 6,
+      '4': 1,
+      '5': 9,
+      '9': 1,
+      '10': 'planId',
+      '17': true
+    },
+    {
+      '1': 'category',
+      '3': 7,
+      '4': 1,
+      '5': 14,
+      '6': '.monarchic.agent_protocol.v1.UsageCategory',
+      '10': 'category'
+    },
+    {'1': 'metric_name', '3': 8, '4': 1, '5': 9, '10': 'metricName'},
+    {'1': 'quantity', '3': 9, '4': 1, '5': 4, '10': 'quantity'},
+    {
+      '1': 'unit',
+      '3': 10,
+      '4': 1,
+      '5': 14,
+      '6': '.monarchic.agent_protocol.v1.UsageUnit',
+      '10': 'unit'
+    },
+    {'1': 'recorded_at', '3': 11, '4': 1, '5': 4, '10': 'recordedAt'},
+  ],
+  '8': [
+    {'1': '_run_id'},
+    {'1': '_plan_id'},
+  ],
+};
+
+/// Descriptor for `UsageRecord`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List usageRecordDescriptor = $convert.base64Decode(
+    'CgtVc2FnZVJlY29yZBIpChBjb250cmFjdF92ZXJzaW9uGAEgASgJUg9jb250cmFjdFZlcnNpb2'
+    '4SGQoIdXNhZ2VfaWQYAiABKAlSB3VzYWdlSWQSRwoJcHJpbmNpcGFsGAMgASgLMikubW9uYXJj'
+    'aGljLmFnZW50X3Byb3RvY29sLnYxLlByaW5jaXBhbFJlZlIJcHJpbmNpcGFsEj4KBnRlbmFudB'
+    'gEIAEoCzImLm1vbmFyY2hpYy5hZ2VudF9wcm90b2NvbC52MS5UZW5hbnRSZWZSBnRlbmFudBIa'
+    'CgZydW5faWQYBSABKAlIAFIFcnVuSWSIAQESHAoHcGxhbl9pZBgGIAEoCUgBUgZwbGFuSWSIAQ'
+    'ESRgoIY2F0ZWdvcnkYByABKA4yKi5tb25hcmNoaWMuYWdlbnRfcHJvdG9jb2wudjEuVXNhZ2VD'
+    'YXRlZ29yeVIIY2F0ZWdvcnkSHwoLbWV0cmljX25hbWUYCCABKAlSCm1ldHJpY05hbWUSGgoIcX'
+    'VhbnRpdHkYCSABKARSCHF1YW50aXR5EjoKBHVuaXQYCiABKA4yJi5tb25hcmNoaWMuYWdlbnRf'
+    'cHJvdG9jb2wudjEuVXNhZ2VVbml0UgR1bml0Eh8KC3JlY29yZGVkX2F0GAsgASgEUgpyZWNvcm'
+    'RlZEF0QgkKB19ydW5faWRCCgoIX3BsYW5faWQ=');
+
+@$core.Deprecated('Use auditExportManifestDescriptor instead')
+const AuditExportManifest$json = {
+  '1': 'AuditExportManifest',
+  '2': [
+    {'1': 'contract_version', '3': 1, '4': 1, '5': 9, '10': 'contractVersion'},
+    {'1': 'export_id', '3': 2, '4': 1, '5': 9, '10': 'exportId'},
+    {
+      '1': 'principal',
+      '3': 3,
+      '4': 1,
+      '5': 11,
+      '6': '.monarchic.agent_protocol.v1.PrincipalRef',
+      '10': 'principal'
+    },
+    {
+      '1': 'tenant',
+      '3': 4,
+      '4': 1,
+      '5': 11,
+      '6': '.monarchic.agent_protocol.v1.TenantRef',
+      '10': 'tenant'
+    },
+    {'1': 'run_id', '3': 5, '4': 1, '5': 9, '10': 'runId'},
+    {'1': 'plan_id', '3': 6, '4': 1, '5': 9, '10': 'planId'},
+    {'1': 'exported_at', '3': 7, '4': 1, '5': 4, '10': 'exportedAt'},
+    {'1': 'combined_digest', '3': 8, '4': 1, '5': 9, '10': 'combinedDigest'},
+    {
+      '1': 'artifact_descriptors',
+      '3': 9,
+      '4': 3,
+      '5': 11,
+      '6': '.monarchic.agent_protocol.v1.ArtifactDescriptor',
+      '10': 'artifactDescriptors'
+    },
+  ],
+};
+
+/// Descriptor for `AuditExportManifest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List auditExportManifestDescriptor = $convert.base64Decode(
+    'ChNBdWRpdEV4cG9ydE1hbmlmZXN0EikKEGNvbnRyYWN0X3ZlcnNpb24YASABKAlSD2NvbnRyYW'
+    'N0VmVyc2lvbhIbCglleHBvcnRfaWQYAiABKAlSCGV4cG9ydElkEkcKCXByaW5jaXBhbBgDIAEo'
+    'CzIpLm1vbmFyY2hpYy5hZ2VudF9wcm90b2NvbC52MS5QcmluY2lwYWxSZWZSCXByaW5jaXBhbB'
+    'I+CgZ0ZW5hbnQYBCABKAsyJi5tb25hcmNoaWMuYWdlbnRfcHJvdG9jb2wudjEuVGVuYW50UmVm'
+    'UgZ0ZW5hbnQSFQoGcnVuX2lkGAUgASgJUgVydW5JZBIXCgdwbGFuX2lkGAYgASgJUgZwbGFuSW'
+    'QSHwoLZXhwb3J0ZWRfYXQYByABKARSCmV4cG9ydGVkQXQSJwoPY29tYmluZWRfZGlnZXN0GAgg'
+    'ASgJUg5jb21iaW5lZERpZ2VzdBJiChRhcnRpZmFjdF9kZXNjcmlwdG9ycxgJIAMoCzIvLm1vbm'
+    'FyY2hpYy5hZ2VudF9wcm90b2NvbC52MS5BcnRpZmFjdERlc2NyaXB0b3JSE2FydGlmYWN0RGVz'
+    'Y3JpcHRvcnM=');
 
 @$core.Deprecated('Use replanPolicyDescriptor instead')
 const ReplanPolicy$json = {
@@ -2788,6 +3081,19 @@ const RegisterRunnerRequest$json = {
       '6': '.google.protobuf.Struct',
       '10': 'extensions'
     },
+    {
+      '1': 'auth_context',
+      '3': 6,
+      '4': 1,
+      '5': 11,
+      '6': '.monarchic.agent_protocol.v1.AuthContext',
+      '9': 0,
+      '10': 'authContext',
+      '17': true
+    },
+  ],
+  '8': [
+    {'1': '_auth_context'},
   ],
 };
 
@@ -2798,7 +3104,8 @@ final $typed_data.Uint8List registerRunnerRequestDescriptor = $convert.base64Dec
     'GAMgASgLMi8ubW9uYXJjaGljLmFnZW50X3Byb3RvY29sLnYxLlJ1bm5lckNhcGFiaWxpdGllc1'
     'IMY2FwYWJpbGl0aWVzEi4KE21heF9wYXJhbGxlbF9sZWFzZXMYBCABKA1SEW1heFBhcmFsbGVs'
     'TGVhc2VzEjcKCmV4dGVuc2lvbnMYBSABKAsyFy5nb29nbGUucHJvdG9idWYuU3RydWN0UgpleH'
-    'RlbnNpb25z');
+    'RlbnNpb25zElAKDGF1dGhfY29udGV4dBgGIAEoCzIoLm1vbmFyY2hpYy5hZ2VudF9wcm90b2Nv'
+    'bC52MS5BdXRoQ29udGV4dEgAUgthdXRoQ29udGV4dIgBAUIPCg1fYXV0aF9jb250ZXh0');
 
 @$core.Deprecated('Use registerRunnerResponseDescriptor instead')
 const RegisterRunnerResponse$json = {
@@ -2864,6 +3171,19 @@ const HeartbeatRequest$json = {
       '6': '.google.protobuf.Struct',
       '10': 'extensions'
     },
+    {
+      '1': 'auth_context',
+      '3': 6,
+      '4': 1,
+      '5': 11,
+      '6': '.monarchic.agent_protocol.v1.AuthContext',
+      '9': 0,
+      '10': 'authContext',
+      '17': true
+    },
+  ],
+  '8': [
+    {'1': '_auth_context'},
   ],
 };
 
@@ -2873,7 +3193,9 @@ final $typed_data.Uint8List heartbeatRequestDescriptor = $convert.base64Decode(
     'Vyc2lvbhIbCglydW5uZXJfaWQYAiABKAlSCHJ1bm5lcklkEh0KCnNlc3Npb25faWQYAyABKAlS'
     'CXNlc3Npb25JZBJNCg1hY3RpdmVfbGVhc2VzGAQgAygLMigubW9uYXJjaGljLmFnZW50X3Byb3'
     'RvY29sLnYxLkxlYXNlU3RhdHVzUgxhY3RpdmVMZWFzZXMSNwoKZXh0ZW5zaW9ucxgFIAEoCzIX'
-    'Lmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3RSCmV4dGVuc2lvbnM=');
+    'Lmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3RSCmV4dGVuc2lvbnMSUAoMYXV0aF9jb250ZXh0GAYgAS'
+    'gLMigubW9uYXJjaGljLmFnZW50X3Byb3RvY29sLnYxLkF1dGhDb250ZXh0SABSC2F1dGhDb250'
+    'ZXh0iAEBQg8KDV9hdXRoX2NvbnRleHQ=');
 
 @$core.Deprecated('Use heartbeatResponseDescriptor instead')
 const HeartbeatResponse$json = {
@@ -2927,6 +3249,19 @@ const AcquireLeaseRequest$json = {
       '6': '.google.protobuf.Struct',
       '10': 'extensions'
     },
+    {
+      '1': 'auth_context',
+      '3': 7,
+      '4': 1,
+      '5': 11,
+      '6': '.monarchic.agent_protocol.v1.AuthContext',
+      '9': 0,
+      '10': 'authContext',
+      '17': true
+    },
+  ],
+  '8': [
+    {'1': '_auth_context'},
   ],
 };
 
@@ -2936,7 +3271,9 @@ final $typed_data.Uint8List acquireLeaseRequestDescriptor = $convert.base64Decod
     'N0VmVyc2lvbhIbCglydW5uZXJfaWQYAiABKAlSCHJ1bm5lcklkEh0KCnNlc3Npb25faWQYAyAB'
     'KAlSCXNlc3Npb25JZBInCg9hdmFpbGFibGVfc2xvdHMYBCABKA1SDmF2YWlsYWJsZVNsb3RzEi'
     'gKEGFjdGl2ZV9sZWFzZV9pZHMYBSADKAlSDmFjdGl2ZUxlYXNlSWRzEjcKCmV4dGVuc2lvbnMY'
-    'BiABKAsyFy5nb29nbGUucHJvdG9idWYuU3RydWN0UgpleHRlbnNpb25z');
+    'BiABKAsyFy5nb29nbGUucHJvdG9idWYuU3RydWN0UgpleHRlbnNpb25zElAKDGF1dGhfY29udG'
+    'V4dBgHIAEoCzIoLm1vbmFyY2hpYy5hZ2VudF9wcm90b2NvbC52MS5BdXRoQ29udGV4dEgAUgth'
+    'dXRoQ29udGV4dIgBAUIPCg1fYXV0aF9jb250ZXh0');
 
 @$core.Deprecated('Use acquireLeaseResponseDescriptor instead')
 const AcquireLeaseResponse$json = {
@@ -3005,6 +3342,19 @@ const RenewLeaseRequest$json = {
       '6': '.google.protobuf.Struct',
       '10': 'extensions'
     },
+    {
+      '1': 'auth_context',
+      '3': 6,
+      '4': 1,
+      '5': 11,
+      '6': '.monarchic.agent_protocol.v1.AuthContext',
+      '9': 0,
+      '10': 'authContext',
+      '17': true
+    },
+  ],
+  '8': [
+    {'1': '_auth_context'},
   ],
 };
 
@@ -3014,7 +3364,9 @@ final $typed_data.Uint8List renewLeaseRequestDescriptor = $convert.base64Decode(
     'ZlcnNpb24SGwoJcnVubmVyX2lkGAIgASgJUghydW5uZXJJZBIdCgpzZXNzaW9uX2lkGAMgASgJ'
     'UglzZXNzaW9uSWQSOwoFbGVhc2UYBCABKAsyJS5tb25hcmNoaWMuYWdlbnRfcHJvdG9jb2wudj'
     'EuTGVhc2VSZWZSBWxlYXNlEjcKCmV4dGVuc2lvbnMYBSABKAsyFy5nb29nbGUucHJvdG9idWYu'
-    'U3RydWN0UgpleHRlbnNpb25z');
+    'U3RydWN0UgpleHRlbnNpb25zElAKDGF1dGhfY29udGV4dBgGIAEoCzIoLm1vbmFyY2hpYy5hZ2'
+    'VudF9wcm90b2NvbC52MS5BdXRoQ29udGV4dEgAUgthdXRoQ29udGV4dIgBAUIPCg1fYXV0aF9j'
+    'b250ZXh0');
 
 @$core.Deprecated('Use renewLeaseResponseDescriptor instead')
 const RenewLeaseResponse$json = {
@@ -3090,6 +3442,19 @@ const ResumeLeaseRequest$json = {
       '6': '.google.protobuf.Struct',
       '10': 'extensions'
     },
+    {
+      '1': 'auth_context',
+      '3': 6,
+      '4': 1,
+      '5': 11,
+      '6': '.monarchic.agent_protocol.v1.AuthContext',
+      '9': 0,
+      '10': 'authContext',
+      '17': true
+    },
+  ],
+  '8': [
+    {'1': '_auth_context'},
   ],
 };
 
@@ -3099,7 +3464,9 @@ final $typed_data.Uint8List resumeLeaseRequestDescriptor = $convert.base64Decode
     'RWZXJzaW9uEhsKCXJ1bm5lcl9pZBgCIAEoCVIIcnVubmVySWQSHQoKc2Vzc2lvbl9pZBgDIAEo'
     'CVIJc2Vzc2lvbklkEjsKBWxlYXNlGAQgASgLMiUubW9uYXJjaGljLmFnZW50X3Byb3RvY29sLn'
     'YxLkxlYXNlUmVmUgVsZWFzZRI3CgpleHRlbnNpb25zGAUgASgLMhcuZ29vZ2xlLnByb3RvYnVm'
-    'LlN0cnVjdFIKZXh0ZW5zaW9ucw==');
+    'LlN0cnVjdFIKZXh0ZW5zaW9ucxJQCgxhdXRoX2NvbnRleHQYBiABKAsyKC5tb25hcmNoaWMuYW'
+    'dlbnRfcHJvdG9jb2wudjEuQXV0aENvbnRleHRIAFILYXV0aENvbnRleHSIAQFCDwoNX2F1dGhf'
+    'Y29udGV4dA==');
 
 @$core.Deprecated('Use resumeLeaseResponseDescriptor instead')
 const ResumeLeaseResponse$json = {
@@ -3179,6 +3546,19 @@ const ReportStepStartedRequest$json = {
       '6': '.google.protobuf.Struct',
       '10': 'extensions'
     },
+    {
+      '1': 'auth_context',
+      '3': 7,
+      '4': 1,
+      '5': 11,
+      '6': '.monarchic.agent_protocol.v1.AuthContext',
+      '9': 0,
+      '10': 'authContext',
+      '17': true
+    },
+  ],
+  '8': [
+    {'1': '_auth_context'},
   ],
 };
 
@@ -3189,7 +3569,8 @@ final $typed_data.Uint8List reportStepStartedRequestDescriptor = $convert.base64
     'ZBgDIAEoCVIJc2Vzc2lvbklkEjsKBWxlYXNlGAQgASgLMiUubW9uYXJjaGljLmFnZW50X3Byb3'
     'RvY29sLnYxLkxlYXNlUmVmUgVsZWFzZRIdCgpzdGFydGVkX2F0GAUgASgJUglzdGFydGVkQXQS'
     'NwoKZXh0ZW5zaW9ucxgGIAEoCzIXLmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3RSCmV4dGVuc2lvbn'
-    'M=');
+    'MSUAoMYXV0aF9jb250ZXh0GAcgASgLMigubW9uYXJjaGljLmFnZW50X3Byb3RvY29sLnYxLkF1'
+    'dGhDb250ZXh0SABSC2F1dGhDb250ZXh0iAEBQg8KDV9hdXRoX2NvbnRleHQ=');
 
 @$core.Deprecated('Use reportStepStartedResponseDescriptor instead')
 const ReportStepStartedResponse$json = {
@@ -3270,6 +3651,19 @@ const ReportStepProgressRequest$json = {
       '6': '.google.protobuf.Struct',
       '10': 'extensions'
     },
+    {
+      '1': 'auth_context',
+      '3': 8,
+      '4': 1,
+      '5': 11,
+      '6': '.monarchic.agent_protocol.v1.AuthContext',
+      '9': 0,
+      '10': 'authContext',
+      '17': true
+    },
+  ],
+  '8': [
+    {'1': '_auth_context'},
   ],
 };
 
@@ -3281,7 +3675,9 @@ final $typed_data.Uint8List reportStepProgressRequestDescriptor = $convert.base6
     '90b2NvbC52MS5MZWFzZVJlZlIFbGVhc2USOgoGZXZlbnRzGAUgAygLMiIubW9uYXJjaGljLmFn'
     'ZW50X3Byb3RvY29sLnYxLkV2ZW50UgZldmVudHMSQwoJYXJ0aWZhY3RzGAYgAygLMiUubW9uYX'
     'JjaGljLmFnZW50X3Byb3RvY29sLnYxLkFydGlmYWN0UglhcnRpZmFjdHMSNwoKZXh0ZW5zaW9u'
-    'cxgHIAEoCzIXLmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3RSCmV4dGVuc2lvbnM=');
+    'cxgHIAEoCzIXLmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3RSCmV4dGVuc2lvbnMSUAoMYXV0aF9jb2'
+    '50ZXh0GAggASgLMigubW9uYXJjaGljLmFnZW50X3Byb3RvY29sLnYxLkF1dGhDb250ZXh0SABS'
+    'C2F1dGhDb250ZXh0iAEBQg8KDV9hdXRoX2NvbnRleHQ=');
 
 @$core.Deprecated('Use reportStepProgressResponseDescriptor instead')
 const ReportStepProgressResponse$json = {
@@ -3400,10 +3796,21 @@ const ReportStepOutcomeRequest$json = {
       '6': '.google.protobuf.Struct',
       '10': 'extensions'
     },
+    {
+      '1': 'auth_context',
+      '3': 12,
+      '4': 1,
+      '5': 11,
+      '6': '.monarchic.agent_protocol.v1.AuthContext',
+      '9': 2,
+      '10': 'authContext',
+      '17': true
+    },
   ],
   '8': [
     {'1': '_run_outcome'},
     {'1': '_failure'},
+    {'1': '_auth_context'},
   ],
 };
 
@@ -3420,7 +3827,9 @@ final $typed_data.Uint8List reportStepOutcomeRequestDescriptor = $convert.base64
     'bWVIAFIKcnVuT3V0Y29tZYgBARJJCgdmYWlsdXJlGAkgASgLMioubW9uYXJjaGljLmFnZW50X3'
     'Byb3RvY29sLnYxLkZhaWx1cmVEZXRhaWxIAVIHZmFpbHVyZYgBARIfCgtmaW5pc2hlZF9hdBgK'
     'IAEoCVIKZmluaXNoZWRBdBI3CgpleHRlbnNpb25zGAsgASgLMhcuZ29vZ2xlLnByb3RvYnVmLl'
-    'N0cnVjdFIKZXh0ZW5zaW9uc0IOCgxfcnVuX291dGNvbWVCCgoIX2ZhaWx1cmU=');
+    'N0cnVjdFIKZXh0ZW5zaW9ucxJQCgxhdXRoX2NvbnRleHQYDCABKAsyKC5tb25hcmNoaWMuYWdl'
+    'bnRfcHJvdG9jb2wudjEuQXV0aENvbnRleHRIAlILYXV0aENvbnRleHSIAQFCDgoMX3J1bl9vdX'
+    'Rjb21lQgoKCF9mYWlsdXJlQg8KDV9hdXRoX2NvbnRleHQ=');
 
 @$core.Deprecated('Use reportStepOutcomeResponseDescriptor instead')
 const ReportStepOutcomeResponse$json = {
@@ -3495,9 +3904,20 @@ const AckCancellationRequest$json = {
       '6': '.google.protobuf.Struct',
       '10': 'extensions'
     },
+    {
+      '1': 'auth_context',
+      '3': 8,
+      '4': 1,
+      '5': 11,
+      '6': '.monarchic.agent_protocol.v1.AuthContext',
+      '9': 1,
+      '10': 'authContext',
+      '17': true
+    },
   ],
   '8': [
     {'1': '_message'},
+    {'1': '_auth_context'},
   ],
 };
 
@@ -3508,7 +3928,9 @@ final $typed_data.Uint8List ackCancellationRequestDescriptor = $convert.base64De
     'AyABKAlSCXNlc3Npb25JZBI7CgVsZWFzZRgEIAEoCzIlLm1vbmFyY2hpYy5hZ2VudF9wcm90b2'
     'NvbC52MS5MZWFzZVJlZlIFbGVhc2USFgoGc3RhdHVzGAUgASgJUgZzdGF0dXMSHQoHbWVzc2Fn'
     'ZRgGIAEoCUgAUgdtZXNzYWdliAEBEjcKCmV4dGVuc2lvbnMYByABKAsyFy5nb29nbGUucHJvdG'
-    '9idWYuU3RydWN0UgpleHRlbnNpb25zQgoKCF9tZXNzYWdl');
+    '9idWYuU3RydWN0UgpleHRlbnNpb25zElAKDGF1dGhfY29udGV4dBgIIAEoCzIoLm1vbmFyY2hp'
+    'Yy5hZ2VudF9wcm90b2NvbC52MS5BdXRoQ29udGV4dEgBUgthdXRoQ29udGV4dIgBAUIKCghfbW'
+    'Vzc2FnZUIPCg1fYXV0aF9jb250ZXh0');
 
 @$core.Deprecated('Use ackCancellationResponseDescriptor instead')
 const AckCancellationResponse$json = {
@@ -3611,6 +4033,9 @@ const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>>
   '.google.protobuf.Struct.FieldsEntry': $0.Struct_FieldsEntry$json,
   '.google.protobuf.Value': $0.Value$json,
   '.google.protobuf.ListValue': $0.ListValue$json,
+  '.monarchic.agent_protocol.v1.AuthContext': AuthContext$json,
+  '.monarchic.agent_protocol.v1.PrincipalRef': PrincipalRef$json,
+  '.monarchic.agent_protocol.v1.TenantRef': TenantRef$json,
   '.monarchic.agent_protocol.v1.RegisterRunnerResponse':
       RegisterRunnerResponse$json,
   '.monarchic.agent_protocol.v1.HeartbeatRequest': HeartbeatRequest$json,

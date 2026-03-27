@@ -210,6 +210,83 @@ message DigestManifest {
   repeated ArtifactDescriptor artifact_descriptors = 8;
 }
 
+message PrincipalRef {
+  string principal_id = 1;
+  string provider = 2;
+  optional string display_name = 3;
+}
+
+message TenantRef {
+  string tenant_id = 1;
+  optional string display_name = 2;
+}
+
+enum AuthMechanism {
+  AUTH_MECHANISM_UNSPECIFIED = 0;
+  AUTH_MECHANISM_SHARED_SECRET = 1;
+  AUTH_MECHANISM_BEARER_TOKEN = 2;
+  AUTH_MECHANISM_SIGNED_TOKEN = 3;
+  AUTH_MECHANISM_MUTUAL_TLS = 4;
+  AUTH_MECHANISM_CUSTOM = 5;
+}
+
+message AuthContext {
+  string contract_version = 1;
+  string auth_context_id = 2;
+  PrincipalRef principal = 3;
+  TenantRef tenant = 4;
+  AuthMechanism mechanism = 5;
+  string credential_id = 6;
+  repeated string scopes = 7;
+  uint64 issued_at = 8;
+  optional uint64 expires_at = 9;
+}
+
+enum UsageCategory {
+  USAGE_CATEGORY_UNSPECIFIED = 0;
+  USAGE_CATEGORY_CONTROL_PLANE = 1;
+  USAGE_CATEGORY_EXECUTION = 2;
+  USAGE_CATEGORY_VERIFICATION = 3;
+  USAGE_CATEGORY_AUDIT_EXPORT = 4;
+  USAGE_CATEGORY_CUSTOM = 5;
+}
+
+enum UsageUnit {
+  USAGE_UNIT_UNSPECIFIED = 0;
+  USAGE_UNIT_REQUESTS = 1;
+  USAGE_UNIT_MILLISECONDS = 2;
+  USAGE_UNIT_BYTES = 3;
+  USAGE_UNIT_TOKENS = 4;
+  USAGE_UNIT_RUNS = 5;
+  USAGE_UNIT_CUSTOM = 6;
+}
+
+message UsageRecord {
+  string contract_version = 1;
+  string usage_id = 2;
+  PrincipalRef principal = 3;
+  TenantRef tenant = 4;
+  optional string run_id = 5;
+  optional string plan_id = 6;
+  UsageCategory category = 7;
+  string metric_name = 8;
+  uint64 quantity = 9;
+  UsageUnit unit = 10;
+  uint64 recorded_at = 11;
+}
+
+message AuditExportManifest {
+  string contract_version = 1;
+  string export_id = 2;
+  PrincipalRef principal = 3;
+  TenantRef tenant = 4;
+  string run_id = 5;
+  string plan_id = 6;
+  uint64 exported_at = 7;
+  string combined_digest = 8;
+  repeated ArtifactDescriptor artifact_descriptors = 9;
+}
+
 enum PlanStepKind {
   PLAN_STEP_KIND_UNSPECIFIED = 0;
   PLAN_STEP_KIND_ANALYSIS = 1;
@@ -717,6 +794,7 @@ message RegisterRunnerRequest {
   RunnerCapabilities capabilities = 3;
   uint32 max_parallel_leases = 4;
   google.protobuf.Struct extensions = 5;
+  optional AuthContext auth_context = 6;
 }
 
 message RegisterRunnerResponse {
@@ -734,6 +812,7 @@ message HeartbeatRequest {
   string session_id = 3;
   repeated LeaseStatus active_leases = 4;
   google.protobuf.Struct extensions = 5;
+  optional AuthContext auth_context = 6;
 }
 
 message HeartbeatResponse {
@@ -751,6 +830,7 @@ message AcquireLeaseRequest {
   uint32 available_slots = 4;
   repeated string active_lease_ids = 5;
   google.protobuf.Struct extensions = 6;
+  optional AuthContext auth_context = 7;
 }
 
 message AcquireLeaseResponse {
@@ -768,6 +848,7 @@ message RenewLeaseRequest {
   string session_id = 3;
   LeaseRef lease = 4;
   google.protobuf.Struct extensions = 5;
+  optional AuthContext auth_context = 6;
 }
 
 message RenewLeaseResponse {
@@ -786,6 +867,7 @@ message ResumeLeaseRequest {
   string session_id = 3;
   LeaseRef lease = 4;
   google.protobuf.Struct extensions = 5;
+  optional AuthContext auth_context = 6;
 }
 
 message ResumeLeaseResponse {
@@ -807,6 +889,7 @@ message ReportStepStartedRequest {
   LeaseRef lease = 4;
   string started_at = 5;
   google.protobuf.Struct extensions = 6;
+  optional AuthContext auth_context = 7;
 }
 
 message ReportStepStartedResponse {
@@ -825,6 +908,7 @@ message ReportStepProgressRequest {
   repeated Event events = 5;
   repeated Artifact artifacts = 6;
   google.protobuf.Struct extensions = 7;
+  optional AuthContext auth_context = 8;
 }
 
 message ReportStepProgressResponse {
@@ -848,6 +932,7 @@ message ReportStepOutcomeRequest {
   optional FailureDetail failure = 9;
   string finished_at = 10;
   google.protobuf.Struct extensions = 11;
+  optional AuthContext auth_context = 12;
 }
 
 message ReportStepOutcomeResponse {
@@ -866,6 +951,7 @@ message AckCancellationRequest {
   string status = 5;
   optional string message = 6;
   google.protobuf.Struct extensions = 7;
+  optional AuthContext auth_context = 8;
 }
 
 message AckCancellationResponse {

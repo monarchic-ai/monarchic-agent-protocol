@@ -124,7 +124,7 @@ public enum RerunExecutionStatus
   }
   public static com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.getDescriptor().getEnumTypes().get(14);
+    return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.getDescriptor().getEnumTypes().get(17);
   }
 
   private static final RerunExecutionStatus[] VALUES = values();

@@ -6,6 +6,7 @@ mod intent;
 mod plan;
 mod receipt;
 mod review;
+mod service;
 mod version;
 
 pub const PROTOCOL_VERSION: &str = "v1";
@@ -38,6 +39,14 @@ pub mod durable_authority {
     pub use crate::version::DURABLE_AUTHORITY_CONTRACT_VERSION;
 }
 
+pub mod service_boundary {
+    pub use crate::service::{
+        AuditExportManifest, AuthContext, AuthMechanism, PrincipalRef, TenantRef, UsageCategory,
+        UsageRecord, UsageUnit,
+    };
+    pub use crate::version::SERVICE_BOUNDARY_CONTRACT_VERSION;
+}
+
 pub mod monarchic {
     pub mod agent_protocol {
         pub mod v1 {
@@ -49,18 +58,20 @@ pub mod monarchic {
 pub use monarchic::agent_protocol::v1::{
     AcceptanceCriteria, AckCancellationRequest, AckCancellationResponse, AcquireLeaseRequest,
     AcquireLeaseResponse, AgentRole, Artifact, ArtifactDescriptor, ArtifactKind,
-    BlockedOutcome, BlockedOutcomeScope, CancellationIntent, DatasetRef, EvalResult, Event,
-    DigestManifest, ExecutionReceipt, ExperimentSpec, FailureClass, FailureDetail, FencingToken,
-    GateResult, HeartbeatRequest, HeartbeatResponse, Intent, IntentClass, Lease, LeaseAssignment,
-    LeaseLifecycleState, LeaseRef, LeaseRejectionReason, LeaseStatus, Plan, PlanProvenance,
-    PlanStatus, PlanStep, PlanStepKind, Provenance, RecoveryEvent, RecoveryEventKind,
+    AuditExportManifest, AuthContext, AuthMechanism, BlockedOutcome, BlockedOutcomeScope,
+    CancellationIntent, DatasetRef, DigestManifest, EvalResult, Event, ExecutionReceipt,
+    ExperimentSpec, FailureClass, FailureDetail, FencingToken, GateResult, HeartbeatRequest,
+    HeartbeatResponse, Intent, IntentClass, Lease, LeaseAssignment, LeaseLifecycleState,
+    LeaseRef, LeaseRejectionReason, LeaseStatus, Plan, PlanProvenance, PlanStatus, PlanStep,
+    PlanStepKind, PrincipalRef, PrLifecycleState, Provenance, RecoveryEvent, RecoveryEventKind,
     RegisterRunnerRequest, RegisterRunnerResponse, RenewLeaseRequest, RenewLeaseResponse,
-    ReportStepOutcomeRequest, ReportStepOutcomeResponse, ReportStepProgressRequest,
-    ReportStepProgressResponse, ReportStepStartedRequest, ReportStepStartedResponse,
-    ReplanPolicy, ReplanStrategy, ResumeLeaseRequest, ResumeLeaseResponse,
-    PrLifecycleState, RerunExecutionResult, RerunExecutionStatus, RerunScope,
-    RunEventRecord, RunEventStream, RerunSelectionStrategy, RerunTrigger, ReviewDecision, ReviewDecisionScope,
-    ReviewDisposition, RoleProvenance, RunContext, RunLifecycleState, RunnerCapabilities,
-    StepLifecycleState, StepOutputExpectation, Task, TaskMessage, TaskMessageAck, VerificationCheck,
-    VerificationCheckStatus, VerificationReceipt, VerificationStatus,
+    ReplanPolicy, ReplanStrategy, ReportStepOutcomeRequest, ReportStepOutcomeResponse,
+    ReportStepProgressRequest, ReportStepProgressResponse, ReportStepStartedRequest,
+    ReportStepStartedResponse, ResumeLeaseRequest, ResumeLeaseResponse,
+    RerunExecutionResult, RerunExecutionStatus, RerunScope, RerunSelectionStrategy,
+    RerunTrigger, ReviewDecision, ReviewDecisionScope, ReviewDisposition, RoleProvenance,
+    RunContext, RunEventRecord, RunEventStream, RunLifecycleState, RunnerCapabilities,
+    StepLifecycleState, StepOutputExpectation, Task, TaskMessage, TaskMessageAck, TenantRef,
+    UsageCategory, UsageRecord, UsageUnit, VerificationCheck, VerificationCheckStatus,
+    VerificationReceipt, VerificationStatus,
 };
