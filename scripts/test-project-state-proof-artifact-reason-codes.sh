@@ -3,7 +3,8 @@ set -euo pipefail
 
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 check_script="${repo_root}/scripts/test-project-state-proof-artifacts.sh"
-proof_path="${repo_root}/PROJECT_PROOF.json"
+fixture_root="${repo_root}/fixtures/project-state"
+proof_path="${fixture_root}/PROJECT_PROOF.json"
 
 if [[ ! -x "${check_script}" ]]; then
   echo "[test-project-state-proof-artifact-reason-codes] Missing executable: ${check_script}" >&2

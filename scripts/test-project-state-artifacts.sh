@@ -2,12 +2,17 @@
 set -euo pipefail
 
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-milestones_path="${repo_root}/PROJECT_MILESTONES.json"
-report_path="${repo_root}/PROJECT_STATUS.json"
-update_path="${repo_root}/PROJECT_SUMMARY.json"
-log_path="${repo_root}/PROJECT_ACTIVITY_LOG.json"
-proof_path="${repo_root}/PROJECT_PROOF.json"
-command_log_path="${repo_root}/PROJECT_COMMAND_LOG.json"
+fixture_root="${repo_root}/fixtures/project-state"
+state_root="${fixture_root}"
+if [[ ! -d "${state_root}" ]]; then
+  state_root="${repo_root}"
+fi
+milestones_path="${state_root}/PROJECT_MILESTONES.json"
+report_path="${state_root}/PROJECT_STATUS.json"
+update_path="${state_root}/PROJECT_SUMMARY.json"
+log_path="${state_root}/PROJECT_ACTIVITY_LOG.json"
+proof_path="${state_root}/PROJECT_PROOF.json"
+command_log_path="${state_root}/PROJECT_COMMAND_LOG.json"
 
 python_cmd=""
 if command -v python >/dev/null 2>&1; then
@@ -19,18 +24,28 @@ else
   exit 1
 fi
 
-"${python_cmd}" - "${milestones_path}" "${report_path}" "${update_path}" "${log_path}" "${proof_path}" "${command_log_path}" <<'PY'
+"${python_cmd}" - "${repo_root}" "${state_root}" "${milestones_path}" "${report_path}" "${update_path}" "${log_path}" "${proof_path}" "${command_log_path}" <<'PY'
 import json
 import re
 import sys
 from pathlib import Path
 
-milestones_path = Path(sys.argv[1])
-report_path = Path(sys.argv[2])
-update_path = Path(sys.argv[3])
-log_path = Path(sys.argv[4])
-proof_path = Path(sys.argv[5])
-command_log_path = Path(sys.argv[6])
+repo_root = Path(sys.argv[1])
+state_root = Path(sys.argv[2])
+milestones_path = Path(sys.argv[3])
+report_path = Path(sys.argv[4])
+update_path = Path(sys.argv[5])
+log_path = Path(sys.argv[6])
+proof_path = Path(sys.argv[7])
+command_log_path = Path(sys.argv[8])
+canonical_state_paths = {
+    "PROJECT_MILESTONES.json",
+    "PROJECT_STATUS.json",
+    "PROJECT_SUMMARY.json",
+    "PROJECT_ACTIVITY_LOG.json",
+    "PROJECT_PROOF.json",
+    "PROJECT_COMMAND_LOG.json",
+}
 
 required_milestone_keys = ["id", "title", "status", "completed_at", "notes"]
 required_report_keys = [
@@ -283,7 +298,9 @@ if file_list_overlap:
     )
 
 missing_report_paths = sorted(
-    path for path in report["changed_files"] if not (milestones_path.parent / path).is_file()
+    path
+    for path in report["changed_files"]
+    if not ((state_root if path in canonical_state_paths else repo_root) / path).is_file()
 )
 if missing_report_paths:
     fail(
@@ -292,7 +309,9 @@ if missing_report_paths:
     )
 
 missing_new_file_paths = sorted(
-    path for path in report["new_files"] if not (milestones_path.parent / path).is_file()
+    path
+    for path in report["new_files"]
+    if not ((state_root if path in canonical_state_paths else repo_root) / path).is_file()
 )
 if missing_new_file_paths:
     fail(

@@ -2,7 +2,12 @@
 set -euo pipefail
 
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-proof_path="${repo_root}/PROJECT_PROOF.json"
+fixture_root="${repo_root}/fixtures/project-state"
+state_root="${fixture_root}"
+if [[ ! -d "${state_root}" ]]; then
+  state_root="${repo_root}"
+fi
+proof_path="${state_root}/PROJECT_PROOF.json"
 
 python_cmd=""
 if command -v python >/dev/null 2>&1; then
