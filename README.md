@@ -151,6 +151,35 @@ All schemas allow additional properties for forward compatibility.
 `schemas/v1/agent_role.json` is a shared schema used by `task.json`.
 `schemas/v1/failure_class.json` is a shared schema used by `event.json` and `gate_result.json`.
 
+### TaskMessage and TaskMessageAck
+
+These types define the shared contract for orchestrator-mediated runner
+communication.
+
+They are intended for:
+
+- durable handoff messages between active tasks
+- clarification requests and responses
+- blocker notices
+- artifact-ready notifications
+- explicit acknowledgement state
+
+They are not intended to imply direct peer-to-peer runner transport. The
+protocol defines the message shape, but routing, persistence, and delivery are
+owned by the orchestrator.
+
+`TaskMessage` carries:
+
+- sender and recipient task ids
+- message kind
+- optional subject/body
+- referenced artifact ids
+- optional reply chaining
+- acknowledgement requirement
+
+`TaskMessageAck` records recipient acknowledgement state separately so mailbox
+delivery can remain append-only and auditable.
+
 ### AgentRole
 
 Enum values:
