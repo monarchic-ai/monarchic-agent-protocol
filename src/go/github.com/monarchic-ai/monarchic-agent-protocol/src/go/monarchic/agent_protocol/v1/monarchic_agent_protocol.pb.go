@@ -1236,14 +1236,16 @@ func (LeaseRejectionReason) EnumDescriptor() ([]byte, []int) {
 type RecoveryEventKind int32
 
 const (
-	RecoveryEventKind_RECOVERY_EVENT_KIND_UNSPECIFIED     RecoveryEventKind = 0
-	RecoveryEventKind_RECOVERY_EVENT_ORCHESTRATOR_STARTED RecoveryEventKind = 1
-	RecoveryEventKind_RECOVERY_EVENT_STATE_RELOADED       RecoveryEventKind = 2
-	RecoveryEventKind_RECOVERY_EVENT_LEASE_RESTORED       RecoveryEventKind = 3
-	RecoveryEventKind_RECOVERY_EVENT_LEASE_REJECTED       RecoveryEventKind = 4
-	RecoveryEventKind_RECOVERY_EVENT_STEP_REQUEUED        RecoveryEventKind = 5
-	RecoveryEventKind_RECOVERY_EVENT_STEP_BLOCKED         RecoveryEventKind = 6
-	RecoveryEventKind_RECOVERY_EVENT_RUN_RECOVERED        RecoveryEventKind = 7
+	RecoveryEventKind_RECOVERY_EVENT_KIND_UNSPECIFIED          RecoveryEventKind = 0
+	RecoveryEventKind_RECOVERY_EVENT_ORCHESTRATOR_STARTED      RecoveryEventKind = 1
+	RecoveryEventKind_RECOVERY_EVENT_STATE_RELOADED            RecoveryEventKind = 2
+	RecoveryEventKind_RECOVERY_EVENT_LEASE_RESTORED            RecoveryEventKind = 3
+	RecoveryEventKind_RECOVERY_EVENT_LEASE_REJECTED            RecoveryEventKind = 4
+	RecoveryEventKind_RECOVERY_EVENT_STEP_REQUEUED             RecoveryEventKind = 5
+	RecoveryEventKind_RECOVERY_EVENT_STEP_BLOCKED              RecoveryEventKind = 6
+	RecoveryEventKind_RECOVERY_EVENT_RUN_RECOVERED             RecoveryEventKind = 7
+	RecoveryEventKind_RECOVERY_EVENT_CANCELLATION_REQUESTED    RecoveryEventKind = 8
+	RecoveryEventKind_RECOVERY_EVENT_CANCELLATION_ACKNOWLEDGED RecoveryEventKind = 9
 )
 
 // Enum value maps for RecoveryEventKind.
@@ -1257,16 +1259,20 @@ var (
 		5: "RECOVERY_EVENT_STEP_REQUEUED",
 		6: "RECOVERY_EVENT_STEP_BLOCKED",
 		7: "RECOVERY_EVENT_RUN_RECOVERED",
+		8: "RECOVERY_EVENT_CANCELLATION_REQUESTED",
+		9: "RECOVERY_EVENT_CANCELLATION_ACKNOWLEDGED",
 	}
 	RecoveryEventKind_value = map[string]int32{
-		"RECOVERY_EVENT_KIND_UNSPECIFIED":     0,
-		"RECOVERY_EVENT_ORCHESTRATOR_STARTED": 1,
-		"RECOVERY_EVENT_STATE_RELOADED":       2,
-		"RECOVERY_EVENT_LEASE_RESTORED":       3,
-		"RECOVERY_EVENT_LEASE_REJECTED":       4,
-		"RECOVERY_EVENT_STEP_REQUEUED":        5,
-		"RECOVERY_EVENT_STEP_BLOCKED":         6,
-		"RECOVERY_EVENT_RUN_RECOVERED":        7,
+		"RECOVERY_EVENT_KIND_UNSPECIFIED":          0,
+		"RECOVERY_EVENT_ORCHESTRATOR_STARTED":      1,
+		"RECOVERY_EVENT_STATE_RELOADED":            2,
+		"RECOVERY_EVENT_LEASE_RESTORED":            3,
+		"RECOVERY_EVENT_LEASE_REJECTED":            4,
+		"RECOVERY_EVENT_STEP_REQUEUED":             5,
+		"RECOVERY_EVENT_STEP_BLOCKED":              6,
+		"RECOVERY_EVENT_RUN_RECOVERED":             7,
+		"RECOVERY_EVENT_CANCELLATION_REQUESTED":    8,
+		"RECOVERY_EVENT_CANCELLATION_ACKNOWLEDGED": 9,
 	}
 )
 
@@ -8187,7 +8193,7 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"%LEASE_REJECTION_STEP_ALREADY_TERMINAL\x10\x05\x12&\n" +
 	"\"LEASE_REJECTION_RUN_NOT_EXECUTABLE\x10\x06\x12&\n" +
 	"\"LEASE_REJECTION_DEPENDENCY_BLOCKED\x10\a\x12$\n" +
-	" LEASE_REJECTION_LEASE_SUPERSEDED\x10\b*\xaf\x02\n" +
+	" LEASE_REJECTION_LEASE_SUPERSEDED\x10\b*\x88\x03\n" +
 	"\x11RecoveryEventKind\x12#\n" +
 	"\x1fRECOVERY_EVENT_KIND_UNSPECIFIED\x10\x00\x12'\n" +
 	"#RECOVERY_EVENT_ORCHESTRATOR_STARTED\x10\x01\x12!\n" +
@@ -8196,7 +8202,9 @@ const file_monarchic_agent_protocol_proto_rawDesc = "" +
 	"\x1dRECOVERY_EVENT_LEASE_REJECTED\x10\x04\x12 \n" +
 	"\x1cRECOVERY_EVENT_STEP_REQUEUED\x10\x05\x12\x1f\n" +
 	"\x1bRECOVERY_EVENT_STEP_BLOCKED\x10\x06\x12 \n" +
-	"\x1cRECOVERY_EVENT_RUN_RECOVERED\x10\a2\xe3\b\n" +
+	"\x1cRECOVERY_EVENT_RUN_RECOVERED\x10\a\x12)\n" +
+	"%RECOVERY_EVENT_CANCELLATION_REQUESTED\x10\b\x12,\n" +
+	"(RECOVERY_EVENT_CANCELLATION_ACKNOWLEDGED\x10\t2\xe3\b\n" +
 	"\x14RunnerControlService\x12y\n" +
 	"\x0eRegisterRunner\x122.monarchic.agent_protocol.v1.RegisterRunnerRequest\x1a3.monarchic.agent_protocol.v1.RegisterRunnerResponse\x12j\n" +
 	"\tHeartbeat\x12-.monarchic.agent_protocol.v1.HeartbeatRequest\x1a..monarchic.agent_protocol.v1.HeartbeatResponse\x12s\n" +

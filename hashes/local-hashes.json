@@ -2,7 +2,7 @@
   "version": "v1",
   "scope": "local",
   "artifact_count": 291,
-  "combined_sha256": "3c6af8933ece7585c2c247c93fc1ce08240d08528ee2d3df3a1336bc921db903",
+  "combined_sha256": "c65c6b0479165061f0d3d265d2bc2ce8330afd5c8fcbc14e9a42d887d1936634",
   "artifacts": [
     {
       "path": "Cargo.lock",
@@ -118,7 +118,7 @@
     },
     {
       "path": "schemas/v1/monarchic_agent_protocol.proto",
-      "sha256": "cfd70139aac34383ad3022e2ba4ea1c2081a1defca7b0dd5bddc72d7c0b7b716"
+      "sha256": "3869286d9066ba2995bc19e96229f22d60edf7cb715c345a90cfe092df6f1ff9"
     },
     {
       "path": "schemas/v1/objective_spec.json",
@@ -170,7 +170,7 @@
     },
     {
       "path": "src/csharp/MonarchicAgentProtocol.cs",
-      "sha256": "77edae3363d6f38588c5fdf7e6c54bdcc557417ef3a3a854a7bf425c816ea0cf"
+      "sha256": "1520b3d4849379b2185437133828510209d529d3c7313a6bf13cb5979d26e568"
     },
     {
       "path": "src/dart/lib/monarchic_agent_protocol.dart",
@@ -182,11 +182,11 @@
     },
     {
       "path": "src/dart/lib/monarchic_agent_protocol.pbenum.dart",
-      "sha256": "f98702eb93bf86042b637a06251971fa201919a666837a23c10a788c2bfcfa87"
+      "sha256": "c3799238dec2f1b5f27be595d96216250c36bb4ca846f93cdf6c1426d0ba3a96"
     },
     {
       "path": "src/dart/lib/monarchic_agent_protocol.pbjson.dart",
-      "sha256": "cec78ca16923003b01d08d36fb20e205f9c00d75f575ee949f24137bffe94851"
+      "sha256": "f4ec02e78adb63059b5e89e77db56fdb4246315eb136618a369662253333d979"
     },
     {
       "path": "src/dart/lib/monarchic_agent_protocol.pbserver.dart",
@@ -194,7 +194,7 @@
     },
     {
       "path": "src/go/github.com/monarchic-ai/monarchic-agent-protocol/src/go/monarchic/agent_protocol/v1/monarchic_agent_protocol.pb.go",
-      "sha256": "df2c71e4958ebaaf9bfac9dde9dd3c483c63a480a68d38558270c956a6f07796"
+      "sha256": "894c60cdec79bb1d62ff89f721ceb40fa4688e27f2e5dba457dd9fe8d85030b3"
     },
     {
       "path": "src/go/monarchic/agent_protocol/v1/monarchic_agent_protocol.pb.go",
@@ -442,7 +442,7 @@
     },
     {
       "path": "src/java/ai/monarchic/agent_protocol/v1/MonarchicAgentProtocolV1.java",
-      "sha256": "75756b35e91d336771556ed58f296d11ea3cf829728d8ded88401163594c5f28"
+      "sha256": "d409f25e69993fb11058f1bfa4a0e18336b8249994f1938c6c6a1335fa3836e7"
     },
     {
       "path": "src/java/ai/monarchic/agent_protocol/v1/ObjectiveSpec.java",
@@ -510,7 +510,7 @@
     },
     {
       "path": "src/java/ai/monarchic/agent_protocol/v1/RecoveryEventKind.java",
-      "sha256": "f105bcf8830744a5746519bc771a9195fecec18f99ff0d34596ccf179bdadb70"
+      "sha256": "16102bb1934c8a0b522449147d3b83b106a794e2bc108c588dc39c0771b83b6d"
     },
     {
       "path": "src/java/ai/monarchic/agent_protocol/v1/RecoveryEventOrBuilder.java",
@@ -910,7 +910,7 @@
     },
     {
       "path": "src/php/Monarchic/AgentProtocol/V1/Metadata/MonarchicAgentProtocol.php",
-      "sha256": "da07a343e2195b1152f78720f6b70d19757863df250abf724a4c06d0de3895be"
+      "sha256": "c0043ff3f190ebb0c211f2cf12ce431f3b76a188f5113985a1ee8f61d3c216a5"
     },
     {
       "path": "src/php/Monarchic/AgentProtocol/V1/ObjectiveSpec.php",
@@ -954,7 +954,7 @@
     },
     {
       "path": "src/php/Monarchic/AgentProtocol/V1/RecoveryEventKind.php",
-      "sha256": "190ce1aa782e7295712b71f27a238adb0878870207d070dde162be8dd4bcf044"
+      "sha256": "41eaf1af7dec081734aea65f207254f76fb854d2cc9bac12f7ed0e16e21e9d82"
     },
     {
       "path": "src/php/Monarchic/AgentProtocol/V1/RegisterRunnerRequest.php",
@@ -1114,7 +1114,7 @@
     },
     {
       "path": "src/python/monarchic_agent_protocol/monarchic_agent_protocol_pb2.py",
-      "sha256": "c711391ccc12411efa2f449ece7f95527b790c1fa8b002abd63182e0f3318c58"
+      "sha256": "d8efdf26ff8d14c50be950f6106190cc62e9027ddc259a4357e8403cebc6d214"
     },
     {
       "path": "src/ruby/monarchic_agent_protocol.rb",
@@ -1122,7 +1122,7 @@
     },
     {
       "path": "src/ruby/monarchic_agent_protocol_pb.rb",
-      "sha256": "ef570402a810d024d08ba74c51e219d69f367da0389b88ca2b5b8f6d8cbc43d7"
+      "sha256": "cb71cf1ec0ef191970afc423d4c18b9d3cebdc18783a4dd76b8c900bdb5343d6"
     },
     {
       "path": "src/rust/artifact.rs",
@@ -1130,7 +1130,7 @@
     },
     {
       "path": "src/rust/authority.rs",
-      "sha256": "30af627a166cf9ceb29ba65bd8d8582d0724dce5e112d199bcebf0d3bc05feda"
+      "sha256": "57a2820f503e5729f8b9934edb9b1a5da0503eafe5ed5a09d30c232499a9d559"
     },
     {
       "path": "src/rust/blocking.rs",

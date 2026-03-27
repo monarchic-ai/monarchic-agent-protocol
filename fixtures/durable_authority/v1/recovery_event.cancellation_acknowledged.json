@@ -1,0 +1,19 @@
+{
+  "event_id": "recovery-4",
+  "run_id": "run-cancel",
+  "plan_id": "plan-cancel",
+  "step_id": "step-a",
+  "kind": "cancellation_acknowledged",
+  "occurred_at_ms": 1710000000789,
+  "actor": "orchestrator-control-plane",
+  "details": {
+    "lease_id": "lease-step-a-1",
+    "message": "stopping",
+    "runner_id": "runner-a",
+    "session_id": "session-a",
+    "status": "acknowledged"
+  },
+  "contract_version": "v1",
+  "run_state": "executing",
+  "step_state": "leased"
+}
