@@ -31,6 +31,8 @@ const AgentRole$json = {
     {'1': 'SECURITY', '2': 6},
     {'1': 'OPS', '2': 7},
     {'1': 'PUBLISHER', '2': 8},
+    {'1': 'RESEARCHER', '2': 9},
+    {'1': 'VERIFICATION', '2': 10},
   ],
 };
 
@@ -38,7 +40,8 @@ const AgentRole$json = {
 final $typed_data.Uint8List agentRoleDescriptor = $convert.base64Decode(
     'CglBZ2VudFJvbGUSGgoWQUdFTlRfUk9MRV9VTlNQRUNJRklFRBAAEhEKDVBST0RVQ1RfT1dORV'
     'IQARITCg9QUk9KRUNUX01BTkFHRVIQAhIHCgNERVYQAxIGCgJRQRAEEgwKCFJFVklFV0VSEAUS'
-    'DAoIU0VDVVJJVFkQBhIHCgNPUFMQBxINCglQVUJMSVNIRVIQCA==');
+    'DAoIU0VDVVJJVFkQBhIHCgNPUFMQBxINCglQVUJMSVNIRVIQCBIOCgpSRVNFQVJDSEVSEAkSEA'
+    'oMVkVSSUZJQ0FUSU9OEAo=');
 
 @$core.Deprecated('Use outcomeDecisionDescriptor instead')
 const OutcomeDecision$json = {
@@ -2061,6 +2064,108 @@ final $typed_data.Uint8List runEventRecordDescriptor = $convert.base64Decode(
     'X3R5cGUYCiABKAlSCWV2ZW50VHlwZRIWCgZzdGF0dXMYCyABKAlSBnN0YXR1cxIdCgdtZXNzYW'
     'dlGAwgASgJSAJSB21lc3NhZ2WIAQESIQoMYXJ0aWZhY3RfaWRzGA0gAygJUgthcnRpZmFjdElk'
     'c0IKCghfc3RlcF9pZEIKCghfdGFza19pZEIKCghfbWVzc2FnZQ==');
+
+@$core.Deprecated('Use taskMessageDescriptor instead')
+const TaskMessage$json = {
+  '1': 'TaskMessage',
+  '2': [
+    {'1': 'version', '3': 1, '4': 1, '5': 9, '10': 'version'},
+    {'1': 'message_id', '3': 2, '4': 1, '5': 9, '10': 'messageId'},
+    {'1': 'run_id', '3': 3, '4': 1, '5': 9, '10': 'runId'},
+    {'1': 'from_task_id', '3': 4, '4': 1, '5': 9, '10': 'fromTaskId'},
+    {'1': 'to_task_id', '3': 5, '4': 1, '5': 9, '10': 'toTaskId'},
+    {'1': 'kind', '3': 6, '4': 1, '5': 9, '10': 'kind'},
+    {
+      '1': 'subject',
+      '3': 7,
+      '4': 1,
+      '5': 9,
+      '9': 0,
+      '10': 'subject',
+      '17': true
+    },
+    {'1': 'body', '3': 8, '4': 1, '5': 9, '9': 1, '10': 'body', '17': true},
+    {'1': 'artifact_refs', '3': 9, '4': 3, '5': 9, '10': 'artifactRefs'},
+    {
+      '1': 'reply_to',
+      '3': 10,
+      '4': 1,
+      '5': 9,
+      '9': 2,
+      '10': 'replyTo',
+      '17': true
+    },
+    {'1': 'created_at', '3': 11, '4': 1, '5': 9, '10': 'createdAt'},
+    {'1': 'requires_ack', '3': 12, '4': 1, '5': 8, '10': 'requiresAck'},
+    {
+      '1': 'extensions',
+      '3': 13,
+      '4': 1,
+      '5': 11,
+      '6': '.google.protobuf.Struct',
+      '10': 'extensions'
+    },
+    {
+      '1': 'provenance',
+      '3': 14,
+      '4': 1,
+      '5': 11,
+      '6': '.monarchic.agent_protocol.v1.Provenance',
+      '10': 'provenance'
+    },
+  ],
+  '8': [
+    {'1': '_subject'},
+    {'1': '_body'},
+    {'1': '_reply_to'},
+  ],
+};
+
+/// Descriptor for `TaskMessage`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List taskMessageDescriptor = $convert.base64Decode(
+    'CgtUYXNrTWVzc2FnZRIYCgd2ZXJzaW9uGAEgASgJUgd2ZXJzaW9uEh0KCm1lc3NhZ2VfaWQYAi'
+    'ABKAlSCW1lc3NhZ2VJZBIVCgZydW5faWQYAyABKAlSBXJ1bklkEiAKDGZyb21fdGFza19pZBgE'
+    'IAEoCVIKZnJvbVRhc2tJZBIcCgp0b190YXNrX2lkGAUgASgJUgh0b1Rhc2tJZBISCgRraW5kGA'
+    'YgASgJUgRraW5kEh0KB3N1YmplY3QYByABKAlIAFIHc3ViamVjdIgBARIXCgRib2R5GAggASgJ'
+    'SAFSBGJvZHmIAQESIwoNYXJ0aWZhY3RfcmVmcxgJIAMoCVIMYXJ0aWZhY3RSZWZzEh4KCHJlcG'
+    'x5X3RvGAogASgJSAJSB3JlcGx5VG+IAQESHQoKY3JlYXRlZF9hdBgLIAEoCVIJY3JlYXRlZEF0'
+    'EiEKDHJlcXVpcmVzX2FjaxgMIAEoCFILcmVxdWlyZXNBY2sSNwoKZXh0ZW5zaW9ucxgNIAEoCz'
+    'IXLmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3RSCmV4dGVuc2lvbnMSRwoKcHJvdmVuYW5jZRgOIAEo'
+    'CzInLm1vbmFyY2hpYy5hZ2VudF9wcm90b2NvbC52MS5Qcm92ZW5hbmNlUgpwcm92ZW5hbmNlQg'
+    'oKCF9zdWJqZWN0QgcKBV9ib2R5QgsKCV9yZXBseV90bw==');
+
+@$core.Deprecated('Use taskMessageAckDescriptor instead')
+const TaskMessageAck$json = {
+  '1': 'TaskMessageAck',
+  '2': [
+    {'1': 'version', '3': 1, '4': 1, '5': 9, '10': 'version'},
+    {'1': 'message_id', '3': 2, '4': 1, '5': 9, '10': 'messageId'},
+    {'1': 'run_id', '3': 3, '4': 1, '5': 9, '10': 'runId'},
+    {'1': 'task_id', '3': 4, '4': 1, '5': 9, '10': 'taskId'},
+    {'1': 'acked_at', '3': 5, '4': 1, '5': 9, '10': 'ackedAt'},
+    {'1': 'status', '3': 6, '4': 1, '5': 9, '10': 'status'},
+    {'1': 'note', '3': 7, '4': 1, '5': 9, '9': 0, '10': 'note', '17': true},
+    {
+      '1': 'extensions',
+      '3': 8,
+      '4': 1,
+      '5': 11,
+      '6': '.google.protobuf.Struct',
+      '10': 'extensions'
+    },
+  ],
+  '8': [
+    {'1': '_note'},
+  ],
+};
+
+/// Descriptor for `TaskMessageAck`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List taskMessageAckDescriptor = $convert.base64Decode(
+    'Cg5UYXNrTWVzc2FnZUFjaxIYCgd2ZXJzaW9uGAEgASgJUgd2ZXJzaW9uEh0KCm1lc3NhZ2VfaW'
+    'QYAiABKAlSCW1lc3NhZ2VJZBIVCgZydW5faWQYAyABKAlSBXJ1bklkEhcKB3Rhc2tfaWQYBCAB'
+    'KAlSBnRhc2tJZBIZCghhY2tlZF9hdBgFIAEoCVIHYWNrZWRBdBIWCgZzdGF0dXMYBiABKAlSBn'
+    'N0YXR1cxIXCgRub3RlGAcgASgJSABSBG5vdGWIAQESNwoKZXh0ZW5zaW9ucxgIIAEoCzIXLmdv'
+    'b2dsZS5wcm90b2J1Zi5TdHJ1Y3RSCmV4dGVuc2lvbnNCBwoFX25vdGU=');
 
 @$core.Deprecated('Use gateResultDescriptor instead')
 const GateResult$json = {

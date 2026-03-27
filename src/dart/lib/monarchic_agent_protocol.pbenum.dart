@@ -30,6 +30,10 @@ class AgentRole extends $pb.ProtobufEnum {
   static const AgentRole OPS = AgentRole._(7, _omitEnumNames ? '' : 'OPS');
   static const AgentRole PUBLISHER =
       AgentRole._(8, _omitEnumNames ? '' : 'PUBLISHER');
+  static const AgentRole RESEARCHER =
+      AgentRole._(9, _omitEnumNames ? '' : 'RESEARCHER');
+  static const AgentRole VERIFICATION =
+      AgentRole._(10, _omitEnumNames ? '' : 'VERIFICATION');
 
   static const $core.List<AgentRole> values = <AgentRole>[
     AGENT_ROLE_UNSPECIFIED,
@@ -41,10 +45,12 @@ class AgentRole extends $pb.ProtobufEnum {
     SECURITY,
     OPS,
     PUBLISHER,
+    RESEARCHER,
+    VERIFICATION,
   ];
 
   static final $core.List<AgentRole?> _byValue =
-      $pb.ProtobufEnum.$_initByValueList(values, 8);
+      $pb.ProtobufEnum.$_initByValueList(values, 10);
   static AgentRole? valueOf($core.int value) =>
       value < 0 || value >= _byValue.length ? null : _byValue[value];
 

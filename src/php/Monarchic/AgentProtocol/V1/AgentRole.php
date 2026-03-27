@@ -48,6 +48,14 @@ class AgentRole
      * Generated from protobuf enum <code>PUBLISHER = 8;</code>
      */
     const PUBLISHER = 8;
+    /**
+     * Generated from protobuf enum <code>RESEARCHER = 9;</code>
+     */
+    const RESEARCHER = 9;
+    /**
+     * Generated from protobuf enum <code>VERIFICATION = 10;</code>
+     */
+    const VERIFICATION = 10;
 
     private static $valueToName = [
         self::AGENT_ROLE_UNSPECIFIED => 'AGENT_ROLE_UNSPECIFIED',
@@ -59,6 +67,8 @@ class AgentRole
         self::SECURITY => 'SECURITY',
         self::OPS => 'OPS',
         self::PUBLISHER => 'PUBLISHER',
+        self::RESEARCHER => 'RESEARCHER',
+        self::VERIFICATION => 'VERIFICATION',
     ];
 
     public static function name($value)

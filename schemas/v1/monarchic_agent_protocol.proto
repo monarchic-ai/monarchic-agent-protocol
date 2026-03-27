@@ -23,6 +23,8 @@ enum AgentRole {
   SECURITY = 6;
   OPS = 7;
   PUBLISHER = 8;
+  RESEARCHER = 9;
+  VERIFICATION = 10;
 }
 
 enum OutcomeDecision {
@@ -495,6 +497,34 @@ message RunEventRecord {
   string status = 11;
   optional string message = 12;
   repeated string artifact_ids = 13;
+}
+
+message TaskMessage {
+  string version = 1;
+  string message_id = 2;
+  string run_id = 3;
+  string from_task_id = 4;
+  string to_task_id = 5;
+  string kind = 6;
+  optional string subject = 7;
+  optional string body = 8;
+  repeated string artifact_refs = 9;
+  optional string reply_to = 10;
+  string created_at = 11;
+  bool requires_ack = 12;
+  google.protobuf.Struct extensions = 13;
+  Provenance provenance = 14;
+}
+
+message TaskMessageAck {
+  string version = 1;
+  string message_id = 2;
+  string run_id = 3;
+  string task_id = 4;
+  string acked_at = 5;
+  string status = 6;
+  optional string note = 7;
+  google.protobuf.Struct extensions = 8;
 }
 
 message GateResult {

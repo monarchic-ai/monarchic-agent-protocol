@@ -71,6 +71,8 @@
           "SECURITY",
           "OPS",
           "PUBLISHER",
+          "RESEARCHER",
+          "VERIFICATION",
           "product_owner",
           "project_manager",
           "dev",
@@ -78,7 +80,9 @@
           "reviewer",
           "security",
           "ops",
-          "publisher"
+          "publisher",
+          "researcher",
+          "verification"
         ],
         "type": "string"
       },

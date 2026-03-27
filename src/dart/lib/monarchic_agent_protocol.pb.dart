@@ -4219,6 +4219,359 @@ class RunEventRecord extends $pb.GeneratedMessage {
   $pb.PbList<$core.String> get artifactIds => $_getList(12);
 }
 
+class TaskMessage extends $pb.GeneratedMessage {
+  factory TaskMessage({
+    $core.String? version,
+    $core.String? messageId,
+    $core.String? runId,
+    $core.String? fromTaskId,
+    $core.String? toTaskId,
+    $core.String? kind,
+    $core.String? subject,
+    $core.String? body,
+    $core.Iterable<$core.String>? artifactRefs,
+    $core.String? replyTo,
+    $core.String? createdAt,
+    $core.bool? requiresAck,
+    $0.Struct? extensions,
+    Provenance? provenance,
+  }) {
+    final result = create();
+    if (version != null) result.version = version;
+    if (messageId != null) result.messageId = messageId;
+    if (runId != null) result.runId = runId;
+    if (fromTaskId != null) result.fromTaskId = fromTaskId;
+    if (toTaskId != null) result.toTaskId = toTaskId;
+    if (kind != null) result.kind = kind;
+    if (subject != null) result.subject = subject;
+    if (body != null) result.body = body;
+    if (artifactRefs != null) result.artifactRefs.addAll(artifactRefs);
+    if (replyTo != null) result.replyTo = replyTo;
+    if (createdAt != null) result.createdAt = createdAt;
+    if (requiresAck != null) result.requiresAck = requiresAck;
+    if (extensions != null) result.extensions = extensions;
+    if (provenance != null) result.provenance = provenance;
+    return result;
+  }
+
+  TaskMessage._();
+
+  factory TaskMessage.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory TaskMessage.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'TaskMessage',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'version')
+    ..aOS(2, _omitFieldNames ? '' : 'messageId')
+    ..aOS(3, _omitFieldNames ? '' : 'runId')
+    ..aOS(4, _omitFieldNames ? '' : 'fromTaskId')
+    ..aOS(5, _omitFieldNames ? '' : 'toTaskId')
+    ..aOS(6, _omitFieldNames ? '' : 'kind')
+    ..aOS(7, _omitFieldNames ? '' : 'subject')
+    ..aOS(8, _omitFieldNames ? '' : 'body')
+    ..pPS(9, _omitFieldNames ? '' : 'artifactRefs')
+    ..aOS(10, _omitFieldNames ? '' : 'replyTo')
+    ..aOS(11, _omitFieldNames ? '' : 'createdAt')
+    ..aOB(12, _omitFieldNames ? '' : 'requiresAck')
+    ..aOM<$0.Struct>(13, _omitFieldNames ? '' : 'extensions',
+        subBuilder: $0.Struct.create)
+    ..aOM<Provenance>(14, _omitFieldNames ? '' : 'provenance',
+        subBuilder: Provenance.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  TaskMessage clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  TaskMessage copyWith(void Function(TaskMessage) updates) =>
+      super.copyWith((message) => updates(message as TaskMessage))
+          as TaskMessage;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static TaskMessage create() => TaskMessage._();
+  @$core.override
+  TaskMessage createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static TaskMessage getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<TaskMessage>(create);
+  static TaskMessage? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get version => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set version($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasVersion() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearVersion() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get messageId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set messageId($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasMessageId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearMessageId() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get runId => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set runId($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasRunId() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearRunId() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get fromTaskId => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set fromTaskId($core.String value) => $_setString(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasFromTaskId() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearFromTaskId() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get toTaskId => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set toTaskId($core.String value) => $_setString(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasToTaskId() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearToTaskId() => $_clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get kind => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set kind($core.String value) => $_setString(5, value);
+  @$pb.TagNumber(6)
+  $core.bool hasKind() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearKind() => $_clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.String get subject => $_getSZ(6);
+  @$pb.TagNumber(7)
+  set subject($core.String value) => $_setString(6, value);
+  @$pb.TagNumber(7)
+  $core.bool hasSubject() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearSubject() => $_clearField(7);
+
+  @$pb.TagNumber(8)
+  $core.String get body => $_getSZ(7);
+  @$pb.TagNumber(8)
+  set body($core.String value) => $_setString(7, value);
+  @$pb.TagNumber(8)
+  $core.bool hasBody() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearBody() => $_clearField(8);
+
+  @$pb.TagNumber(9)
+  $pb.PbList<$core.String> get artifactRefs => $_getList(8);
+
+  @$pb.TagNumber(10)
+  $core.String get replyTo => $_getSZ(9);
+  @$pb.TagNumber(10)
+  set replyTo($core.String value) => $_setString(9, value);
+  @$pb.TagNumber(10)
+  $core.bool hasReplyTo() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearReplyTo() => $_clearField(10);
+
+  @$pb.TagNumber(11)
+  $core.String get createdAt => $_getSZ(10);
+  @$pb.TagNumber(11)
+  set createdAt($core.String value) => $_setString(10, value);
+  @$pb.TagNumber(11)
+  $core.bool hasCreatedAt() => $_has(10);
+  @$pb.TagNumber(11)
+  void clearCreatedAt() => $_clearField(11);
+
+  @$pb.TagNumber(12)
+  $core.bool get requiresAck => $_getBF(11);
+  @$pb.TagNumber(12)
+  set requiresAck($core.bool value) => $_setBool(11, value);
+  @$pb.TagNumber(12)
+  $core.bool hasRequiresAck() => $_has(11);
+  @$pb.TagNumber(12)
+  void clearRequiresAck() => $_clearField(12);
+
+  @$pb.TagNumber(13)
+  $0.Struct get extensions => $_getN(12);
+  @$pb.TagNumber(13)
+  set extensions($0.Struct value) => $_setField(13, value);
+  @$pb.TagNumber(13)
+  $core.bool hasExtensions() => $_has(12);
+  @$pb.TagNumber(13)
+  void clearExtensions() => $_clearField(13);
+  @$pb.TagNumber(13)
+  $0.Struct ensureExtensions() => $_ensure(12);
+
+  @$pb.TagNumber(14)
+  Provenance get provenance => $_getN(13);
+  @$pb.TagNumber(14)
+  set provenance(Provenance value) => $_setField(14, value);
+  @$pb.TagNumber(14)
+  $core.bool hasProvenance() => $_has(13);
+  @$pb.TagNumber(14)
+  void clearProvenance() => $_clearField(14);
+  @$pb.TagNumber(14)
+  Provenance ensureProvenance() => $_ensure(13);
+}
+
+class TaskMessageAck extends $pb.GeneratedMessage {
+  factory TaskMessageAck({
+    $core.String? version,
+    $core.String? messageId,
+    $core.String? runId,
+    $core.String? taskId,
+    $core.String? ackedAt,
+    $core.String? status,
+    $core.String? note,
+    $0.Struct? extensions,
+  }) {
+    final result = create();
+    if (version != null) result.version = version;
+    if (messageId != null) result.messageId = messageId;
+    if (runId != null) result.runId = runId;
+    if (taskId != null) result.taskId = taskId;
+    if (ackedAt != null) result.ackedAt = ackedAt;
+    if (status != null) result.status = status;
+    if (note != null) result.note = note;
+    if (extensions != null) result.extensions = extensions;
+    return result;
+  }
+
+  TaskMessageAck._();
+
+  factory TaskMessageAck.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory TaskMessageAck.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'TaskMessageAck',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'version')
+    ..aOS(2, _omitFieldNames ? '' : 'messageId')
+    ..aOS(3, _omitFieldNames ? '' : 'runId')
+    ..aOS(4, _omitFieldNames ? '' : 'taskId')
+    ..aOS(5, _omitFieldNames ? '' : 'ackedAt')
+    ..aOS(6, _omitFieldNames ? '' : 'status')
+    ..aOS(7, _omitFieldNames ? '' : 'note')
+    ..aOM<$0.Struct>(8, _omitFieldNames ? '' : 'extensions',
+        subBuilder: $0.Struct.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  TaskMessageAck clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  TaskMessageAck copyWith(void Function(TaskMessageAck) updates) =>
+      super.copyWith((message) => updates(message as TaskMessageAck))
+          as TaskMessageAck;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static TaskMessageAck create() => TaskMessageAck._();
+  @$core.override
+  TaskMessageAck createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static TaskMessageAck getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<TaskMessageAck>(create);
+  static TaskMessageAck? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get version => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set version($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasVersion() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearVersion() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get messageId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set messageId($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasMessageId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearMessageId() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get runId => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set runId($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasRunId() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearRunId() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get taskId => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set taskId($core.String value) => $_setString(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasTaskId() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearTaskId() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get ackedAt => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set ackedAt($core.String value) => $_setString(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasAckedAt() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearAckedAt() => $_clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get status => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set status($core.String value) => $_setString(5, value);
+  @$pb.TagNumber(6)
+  $core.bool hasStatus() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearStatus() => $_clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.String get note => $_getSZ(6);
+  @$pb.TagNumber(7)
+  set note($core.String value) => $_setString(6, value);
+  @$pb.TagNumber(7)
+  $core.bool hasNote() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearNote() => $_clearField(7);
+
+  @$pb.TagNumber(8)
+  $0.Struct get extensions => $_getN(7);
+  @$pb.TagNumber(8)
+  set extensions($0.Struct value) => $_setField(8, value);
+  @$pb.TagNumber(8)
+  $core.bool hasExtensions() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearExtensions() => $_clearField(8);
+  @$pb.TagNumber(8)
+  $0.Struct ensureExtensions() => $_ensure(7);
+}
+
 class GateResult extends $pb.GeneratedMessage {
   factory GateResult({
     $core.String? version,
