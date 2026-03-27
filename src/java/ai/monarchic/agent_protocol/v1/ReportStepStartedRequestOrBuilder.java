@@ -87,4 +87,19 @@ public interface ReportStepStartedRequestOrBuilder extends
    * <code>.google.protobuf.Struct extensions = 6;</code>
    */
   com.google.protobuf.StructOrBuilder getExtensionsOrBuilder();
+
+  /**
+   * <code>optional .monarchic.agent_protocol.v1.AuthContext auth_context = 7;</code>
+   * @return Whether the authContext field is set.
+   */
+  boolean hasAuthContext();
+  /**
+   * <code>optional .monarchic.agent_protocol.v1.AuthContext auth_context = 7;</code>
+   * @return The authContext.
+   */
+  ai.monarchic.agent_protocol.v1.AuthContext getAuthContext();
+  /**
+   * <code>optional .monarchic.agent_protocol.v1.AuthContext auth_context = 7;</code>
+   */
+  ai.monarchic.agent_protocol.v1.AuthContextOrBuilder getAuthContextOrBuilder();
 }

@@ -34,6 +34,10 @@ class HeartbeatRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.google.protobuf.Struct extensions = 5;</code>
      */
     protected $extensions = null;
+    /**
+     * Generated from protobuf field <code>optional .monarchic.agent_protocol.v1.AuthContext auth_context = 6;</code>
+     */
+    protected $auth_context = null;
 
     /**
      * Constructor.
@@ -46,6 +50,7 @@ class HeartbeatRequest extends \Google\Protobuf\Internal\Message
      *     @type string $session_id
      *     @type \Monarchic\AgentProtocol\V1\LeaseStatus[] $active_leases
      *     @type \Google\Protobuf\Struct $extensions
+     *     @type \Monarchic\AgentProtocol\V1\AuthContext $auth_context
      * }
      */
     public function __construct($data = NULL) {
@@ -169,6 +174,38 @@ class HeartbeatRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->extensions = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional .monarchic.agent_protocol.v1.AuthContext auth_context = 6;</code>
+     * @return \Monarchic\AgentProtocol\V1\AuthContext|null
+     */
+    public function getAuthContext()
+    {
+        return $this->auth_context;
+    }
+
+    public function hasAuthContext()
+    {
+        return isset($this->auth_context);
+    }
+
+    public function clearAuthContext()
+    {
+        unset($this->auth_context);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional .monarchic.agent_protocol.v1.AuthContext auth_context = 6;</code>
+     * @param \Monarchic\AgentProtocol\V1\AuthContext $var
+     * @return $this
+     */
+    public function setAuthContext($var)
+    {
+        GPBUtil::checkMessage($var, \Monarchic\AgentProtocol\V1\AuthContext::class);
+        $this->auth_context = $var;
 
         return $this;
     }
