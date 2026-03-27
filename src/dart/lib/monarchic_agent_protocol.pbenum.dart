@@ -373,6 +373,96 @@ class BlockedOutcomeScope extends $pb.ProtobufEnum {
   const BlockedOutcomeScope._(super.value, super.name);
 }
 
+class ReviewDecisionScope extends $pb.ProtobufEnum {
+  static const ReviewDecisionScope REVIEW_DECISION_SCOPE_UNSPECIFIED =
+      ReviewDecisionScope._(
+          0, _omitEnumNames ? '' : 'REVIEW_DECISION_SCOPE_UNSPECIFIED');
+  static const ReviewDecisionScope REVIEW_DECISION_SCOPE_PLAN =
+      ReviewDecisionScope._(
+          1, _omitEnumNames ? '' : 'REVIEW_DECISION_SCOPE_PLAN');
+  static const ReviewDecisionScope REVIEW_DECISION_SCOPE_STEP =
+      ReviewDecisionScope._(
+          2, _omitEnumNames ? '' : 'REVIEW_DECISION_SCOPE_STEP');
+  static const ReviewDecisionScope REVIEW_DECISION_SCOPE_PULL_REQUEST =
+      ReviewDecisionScope._(
+          3, _omitEnumNames ? '' : 'REVIEW_DECISION_SCOPE_PULL_REQUEST');
+  static const ReviewDecisionScope REVIEW_DECISION_SCOPE_VERIFICATION =
+      ReviewDecisionScope._(
+          4, _omitEnumNames ? '' : 'REVIEW_DECISION_SCOPE_VERIFICATION');
+  static const ReviewDecisionScope REVIEW_DECISION_SCOPE_RELEASE =
+      ReviewDecisionScope._(
+          5, _omitEnumNames ? '' : 'REVIEW_DECISION_SCOPE_RELEASE');
+
+  static const $core.List<ReviewDecisionScope> values = <ReviewDecisionScope>[
+    REVIEW_DECISION_SCOPE_UNSPECIFIED,
+    REVIEW_DECISION_SCOPE_PLAN,
+    REVIEW_DECISION_SCOPE_STEP,
+    REVIEW_DECISION_SCOPE_PULL_REQUEST,
+    REVIEW_DECISION_SCOPE_VERIFICATION,
+    REVIEW_DECISION_SCOPE_RELEASE,
+  ];
+
+  static final $core.List<ReviewDecisionScope?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 5);
+  static ReviewDecisionScope? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const ReviewDecisionScope._(super.value, super.name);
+}
+
+class ReviewDisposition extends $pb.ProtobufEnum {
+  static const ReviewDisposition REVIEW_DISPOSITION_UNSPECIFIED =
+      ReviewDisposition._(
+          0, _omitEnumNames ? '' : 'REVIEW_DISPOSITION_UNSPECIFIED');
+  static const ReviewDisposition REVIEW_DISPOSITION_APPROVE =
+      ReviewDisposition._(
+          1, _omitEnumNames ? '' : 'REVIEW_DISPOSITION_APPROVE');
+  static const ReviewDisposition REVIEW_DISPOSITION_REQUEST_CHANGES =
+      ReviewDisposition._(
+          2, _omitEnumNames ? '' : 'REVIEW_DISPOSITION_REQUEST_CHANGES');
+  static const ReviewDisposition REVIEW_DISPOSITION_REJECT =
+      ReviewDisposition._(3, _omitEnumNames ? '' : 'REVIEW_DISPOSITION_REJECT');
+  static const ReviewDisposition REVIEW_DISPOSITION_DEFER =
+      ReviewDisposition._(4, _omitEnumNames ? '' : 'REVIEW_DISPOSITION_DEFER');
+
+  static const $core.List<ReviewDisposition> values = <ReviewDisposition>[
+    REVIEW_DISPOSITION_UNSPECIFIED,
+    REVIEW_DISPOSITION_APPROVE,
+    REVIEW_DISPOSITION_REQUEST_CHANGES,
+    REVIEW_DISPOSITION_REJECT,
+    REVIEW_DISPOSITION_DEFER,
+  ];
+
+  static final $core.List<ReviewDisposition?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 4);
+  static ReviewDisposition? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const ReviewDisposition._(super.value, super.name);
+}
+
+class RerunTrigger extends $pb.ProtobufEnum {
+  static const RerunTrigger RERUN_TRIGGER_UNSPECIFIED =
+      RerunTrigger._(0, _omitEnumNames ? '' : 'RERUN_TRIGGER_UNSPECIFIED');
+  static const RerunTrigger RERUN_TRIGGER_REVIEW_DECISION =
+      RerunTrigger._(1, _omitEnumNames ? '' : 'RERUN_TRIGGER_REVIEW_DECISION');
+  static const RerunTrigger RERUN_TRIGGER_MANUAL =
+      RerunTrigger._(2, _omitEnumNames ? '' : 'RERUN_TRIGGER_MANUAL');
+
+  static const $core.List<RerunTrigger> values = <RerunTrigger>[
+    RERUN_TRIGGER_UNSPECIFIED,
+    RERUN_TRIGGER_REVIEW_DECISION,
+    RERUN_TRIGGER_MANUAL,
+  ];
+
+  static final $core.List<RerunTrigger?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 2);
+  static RerunTrigger? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const RerunTrigger._(super.value, super.name);
+}
+
 class LeaseLifecycleState extends $pb.ProtobufEnum {
   static const LeaseLifecycleState LEASE_LIFECYCLE_STATE_UNSPECIFIED =
       LeaseLifecycleState._(
