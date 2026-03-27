@@ -1075,6 +1075,7 @@ fn main() {
         version: PROTOCOL_VERSION.to_string(),
         task_id: "task-123".to_string(),
         role: AgentRole::Dev as i32,
+        role_id: "dev".to_string(),
         goal: "hello".to_string(),
         inputs: None,
         constraints: None,

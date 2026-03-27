@@ -512,6 +512,7 @@ message PrLifecycleState {
 message Task {
   string version = 1;
   string task_id = 2;
+  // Legacy enum role. Prefer role_id for new producers and consumers.
   AgentRole role = 3;
   string goal = 4;
   google.protobuf.Struct inputs = 5;
@@ -521,6 +522,9 @@ message Task {
   google.protobuf.Struct extensions = 9;
   ExperimentSpec experiment_spec = 10;
   ObjectiveSpec objective_spec = 11;
+  // Canonical open-ended role identifier. This allows built-in and custom
+  // roles without requiring protocol enum changes.
+  string role_id = 12;
 }
 
 message Artifact {
@@ -648,12 +652,15 @@ message RunContext {
 message RunnerCapabilities {
   string platform = 1;
   string runtime = 2;
+  // Legacy enum-based supported roles. Prefer supported_role_ids for new
+  // producers and consumers.
   repeated AgentRole supported_roles = 3;
   repeated string supported_task_versions = 4;
   repeated string labels = 5;
   bool supports_interactive_pty = 6;
   bool supports_resume = 7;
   google.protobuf.Struct extensions = 8;
+  repeated string supported_role_ids = 9;
 }
 
 // LeaseRef is the canonical identity for a runner-owned execution lease. The

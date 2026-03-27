@@ -52,6 +52,10 @@
     "inputs": {
       "$ref": "google.protobuf.Struct.schema.json"
     },
+    "role_id": {
+      "default": "",
+      "type": "string"
+    },
     "objective_spec": {
       "$ref": "monarchic.agent_protocol.v1.ObjectiveSpec.schema.json"
     },
@@ -108,8 +112,15 @@
   "required": [
     "version",
     "task_id",
-    "role",
     "goal"
+  ],
+  "anyOf": [
+    {
+      "required": ["role_id"]
+    },
+    {
+      "required": ["role"]
+    }
   ],
   "title": "Task",
   "type": "object"

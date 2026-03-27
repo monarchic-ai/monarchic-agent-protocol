@@ -13,7 +13,8 @@ export type AgentRole =
 export interface Task {
   version: ProtocolVersion;
   task_id: string;
-  role: AgentRole;
+  role_id: string;
+  role?: AgentRole | string;
   goal: string;
   inputs?: Record<string, unknown>;
   constraints?: Record<string, unknown>;
@@ -116,6 +117,18 @@ export interface RunContext {
   image: string;
   runner: string;
   labels?: string[];
+  [key: string]: unknown;
+}
+
+export interface RunnerCapabilities {
+  platform: string;
+  runtime: string;
+  supported_role_ids?: string[];
+  supported_roles?: (AgentRole | string)[];
+  supported_task_versions?: string[];
+  labels?: string[];
+  supports_interactive_pty: boolean;
+  supports_resume: boolean;
   [key: string]: unknown;
 }
 
