@@ -23,6 +23,8 @@ enum AgentRole {
   SECURITY = 6;
   OPS = 7;
   PUBLISHER = 8;
+  RESEARCHER = 9;
+  VERIFICATION = 10;
 }
 
 enum OutcomeDecision {
