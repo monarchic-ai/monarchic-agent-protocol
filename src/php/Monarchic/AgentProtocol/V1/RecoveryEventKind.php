@@ -44,6 +44,14 @@ class RecoveryEventKind
      * Generated from protobuf enum <code>RECOVERY_EVENT_RUN_RECOVERED = 7;</code>
      */
     const RECOVERY_EVENT_RUN_RECOVERED = 7;
+    /**
+     * Generated from protobuf enum <code>RECOVERY_EVENT_CANCELLATION_REQUESTED = 8;</code>
+     */
+    const RECOVERY_EVENT_CANCELLATION_REQUESTED = 8;
+    /**
+     * Generated from protobuf enum <code>RECOVERY_EVENT_CANCELLATION_ACKNOWLEDGED = 9;</code>
+     */
+    const RECOVERY_EVENT_CANCELLATION_ACKNOWLEDGED = 9;
 
     private static $valueToName = [
         self::RECOVERY_EVENT_KIND_UNSPECIFIED => 'RECOVERY_EVENT_KIND_UNSPECIFIED',
@@ -54,6 +62,8 @@ class RecoveryEventKind
         self::RECOVERY_EVENT_STEP_REQUEUED => 'RECOVERY_EVENT_STEP_REQUEUED',
         self::RECOVERY_EVENT_STEP_BLOCKED => 'RECOVERY_EVENT_STEP_BLOCKED',
         self::RECOVERY_EVENT_RUN_RECOVERED => 'RECOVERY_EVENT_RUN_RECOVERED',
+        self::RECOVERY_EVENT_CANCELLATION_REQUESTED => 'RECOVERY_EVENT_CANCELLATION_REQUESTED',
+        self::RECOVERY_EVENT_CANCELLATION_ACKNOWLEDGED => 'RECOVERY_EVENT_CANCELLATION_ACKNOWLEDGED',
     ];
 
     public static function name($value)

@@ -878,7 +878,7 @@ public final class MonarchicAgentProtocolV1 extends com.google.protobuf.Generate
       "N_STEP_ALREADY_TERMINAL\020\005\022&\n\"LEASE_REJEC" +
       "TION_RUN_NOT_EXECUTABLE\020\006\022&\n\"LEASE_REJEC" +
       "TION_DEPENDENCY_BLOCKED\020\007\022$\n LEASE_REJEC" +
-      "TION_LEASE_SUPERSEDED\020\010*\257\002\n\021RecoveryEven" +
+      "TION_LEASE_SUPERSEDED\020\010*\210\003\n\021RecoveryEven" +
       "tKind\022#\n\037RECOVERY_EVENT_KIND_UNSPECIFIED" +
       "\020\000\022\'\n#RECOVERY_EVENT_ORCHESTRATOR_STARTE" +
       "D\020\001\022!\n\035RECOVERY_EVENT_STATE_RELOADED\020\002\022!" +
@@ -886,42 +886,44 @@ public final class MonarchicAgentProtocolV1 extends com.google.protobuf.Generate
       "OVERY_EVENT_LEASE_REJECTED\020\004\022 \n\034RECOVERY" +
       "_EVENT_STEP_REQUEUED\020\005\022\037\n\033RECOVERY_EVENT" +
       "_STEP_BLOCKED\020\006\022 \n\034RECOVERY_EVENT_RUN_RE" +
-      "COVERED\020\0072\343\010\n\024RunnerControlService\022y\n\016Re" +
-      "gisterRunner\0222.monarchic.agent_protocol." +
-      "v1.RegisterRunnerRequest\0323.monarchic.age" +
-      "nt_protocol.v1.RegisterRunnerResponse\022j\n" +
-      "\tHeartbeat\022-.monarchic.agent_protocol.v1" +
-      ".HeartbeatRequest\032..monarchic.agent_prot" +
-      "ocol.v1.HeartbeatResponse\022s\n\014AcquireLeas" +
-      "e\0220.monarchic.agent_protocol.v1.AcquireL" +
-      "easeRequest\0321.monarchic.agent_protocol.v" +
-      "1.AcquireLeaseResponse\022m\n\nRenewLease\022..m" +
-      "onarchic.agent_protocol.v1.RenewLeaseReq" +
-      "uest\032/.monarchic.agent_protocol.v1.Renew" +
-      "LeaseResponse\022p\n\013ResumeLease\022/.monarchic" +
-      ".agent_protocol.v1.ResumeLeaseRequest\0320." +
+      "COVERED\020\007\022)\n%RECOVERY_EVENT_CANCELLATION" +
+      "_REQUESTED\020\010\022,\n(RECOVERY_EVENT_CANCELLAT" +
+      "ION_ACKNOWLEDGED\020\t2\343\010\n\024RunnerControlServ" +
+      "ice\022y\n\016RegisterRunner\0222.monarchic.agent_" +
+      "protocol.v1.RegisterRunnerRequest\0323.mona" +
+      "rchic.agent_protocol.v1.RegisterRunnerRe" +
+      "sponse\022j\n\tHeartbeat\022-.monarchic.agent_pr" +
+      "otocol.v1.HeartbeatRequest\032..monarchic.a" +
+      "gent_protocol.v1.HeartbeatResponse\022s\n\014Ac" +
+      "quireLease\0220.monarchic.agent_protocol.v1" +
+      ".AcquireLeaseRequest\0321.monarchic.agent_p" +
+      "rotocol.v1.AcquireLeaseResponse\022m\n\nRenew" +
+      "Lease\022..monarchic.agent_protocol.v1.Rene" +
+      "wLeaseRequest\032/.monarchic.agent_protocol" +
+      ".v1.RenewLeaseResponse\022p\n\013ResumeLease\022/." +
       "monarchic.agent_protocol.v1.ResumeLeaseR" +
-      "esponse\022\202\001\n\021ReportStepStarted\0225.monarchi" +
-      "c.agent_protocol.v1.ReportStepStartedReq" +
-      "uest\0326.monarchic.agent_protocol.v1.Repor" +
-      "tStepStartedResponse\022\205\001\n\022ReportStepProgr" +
-      "ess\0226.monarchic.agent_protocol.v1.Report" +
-      "StepProgressRequest\0327.monarchic.agent_pr" +
-      "otocol.v1.ReportStepProgressResponse\022\202\001\n" +
-      "\021ReportStepOutcome\0225.monarchic.agent_pro" +
-      "tocol.v1.ReportStepOutcomeRequest\0326.mona" +
-      "rchic.agent_protocol.v1.ReportStepOutcom" +
-      "eResponse\022|\n\017AckCancellation\0223.monarchic" +
-      ".agent_protocol.v1.AckCancellationReques" +
-      "t\0324.monarchic.agent_protocol.v1.AckCance" +
-      "llationResponseB\210\002\n\036ai.monarchic.agent_p" +
-      "rotocol.v1B\030MonarchicAgentProtocolV1P\001Zd" +
-      "github.com/monarchic-ai/monarchic-agent-" +
-      "protocol/src/go/monarchic/agent_protocol" +
-      "/v1;agent_protocolv1\242\002\003MAP\252\002\032Monarchic.A" +
-      "gentProtocol.V1\312\002\032Monarchic\\AgentProtoco" +
-      "l\\V1\342\002#Monarchic\\AgentProtocol\\V1\\Metada" +
-      "tab\006proto3"
+      "equest\0320.monarchic.agent_protocol.v1.Res" +
+      "umeLeaseResponse\022\202\001\n\021ReportStepStarted\0225" +
+      ".monarchic.agent_protocol.v1.ReportStepS" +
+      "tartedRequest\0326.monarchic.agent_protocol" +
+      ".v1.ReportStepStartedResponse\022\205\001\n\022Report" +
+      "StepProgress\0226.monarchic.agent_protocol." +
+      "v1.ReportStepProgressRequest\0327.monarchic" +
+      ".agent_protocol.v1.ReportStepProgressRes" +
+      "ponse\022\202\001\n\021ReportStepOutcome\0225.monarchic." +
+      "agent_protocol.v1.ReportStepOutcomeReque" +
+      "st\0326.monarchic.agent_protocol.v1.ReportS" +
+      "tepOutcomeResponse\022|\n\017AckCancellation\0223." +
+      "monarchic.agent_protocol.v1.AckCancellat" +
+      "ionRequest\0324.monarchic.agent_protocol.v1" +
+      ".AckCancellationResponseB\210\002\n\036ai.monarchi" +
+      "c.agent_protocol.v1B\030MonarchicAgentProto" +
+      "colV1P\001Zdgithub.com/monarchic-ai/monarch" +
+      "ic-agent-protocol/src/go/monarchic/agent" +
+      "_protocol/v1;agent_protocolv1\242\002\003MAP\252\002\032Mo" +
+      "narchic.AgentProtocol.V1\312\002\032Monarchic\\Age" +
+      "ntProtocol\\V1\342\002#Monarchic\\AgentProtocol\\" +
+      "V1\\Metadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

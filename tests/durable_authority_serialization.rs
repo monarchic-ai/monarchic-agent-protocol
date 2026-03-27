@@ -74,6 +74,8 @@ fn lease_rejection_reason_fixture_round_trips_canonically() {
 #[test]
 fn recovery_event_fixture_round_trips_canonically() {
     assert_fixture_round_trip::<RecoveryEvent>("recovery_event.lease_rejected.json");
+    assert_fixture_round_trip::<RecoveryEvent>("recovery_event.cancellation_requested.json");
+    assert_fixture_round_trip::<RecoveryEvent>("recovery_event.cancellation_acknowledged.json");
 }
 
 #[test]
