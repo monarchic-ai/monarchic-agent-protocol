@@ -2687,6 +2687,272 @@ class VerificationReceipt extends $pb.GeneratedMessage {
   void clearVerifiedAtMs() => $_clearField(10);
 }
 
+class ReviewDecision extends $pb.GeneratedMessage {
+  factory ReviewDecision({
+    $core.String? decisionId,
+    $core.String? planId,
+    ReviewDecisionScope? scope,
+    $core.String? actor,
+    ReviewDisposition? decision,
+    $core.String? reason,
+    $fixnum.Int64? createdAt,
+  }) {
+    final result = create();
+    if (decisionId != null) result.decisionId = decisionId;
+    if (planId != null) result.planId = planId;
+    if (scope != null) result.scope = scope;
+    if (actor != null) result.actor = actor;
+    if (decision != null) result.decision = decision;
+    if (reason != null) result.reason = reason;
+    if (createdAt != null) result.createdAt = createdAt;
+    return result;
+  }
+
+  ReviewDecision._();
+
+  factory ReviewDecision.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory ReviewDecision.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ReviewDecision',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'decisionId')
+    ..aOS(2, _omitFieldNames ? '' : 'planId')
+    ..aE<ReviewDecisionScope>(3, _omitFieldNames ? '' : 'scope',
+        enumValues: ReviewDecisionScope.values)
+    ..aOS(4, _omitFieldNames ? '' : 'actor')
+    ..aE<ReviewDisposition>(5, _omitFieldNames ? '' : 'decision',
+        enumValues: ReviewDisposition.values)
+    ..aOS(6, _omitFieldNames ? '' : 'reason')
+    ..a<$fixnum.Int64>(
+        7, _omitFieldNames ? '' : 'createdAt', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ReviewDecision clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ReviewDecision copyWith(void Function(ReviewDecision) updates) =>
+      super.copyWith((message) => updates(message as ReviewDecision))
+          as ReviewDecision;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ReviewDecision create() => ReviewDecision._();
+  @$core.override
+  ReviewDecision createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static ReviewDecision getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ReviewDecision>(create);
+  static ReviewDecision? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get decisionId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set decisionId($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasDecisionId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearDecisionId() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get planId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set planId($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasPlanId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearPlanId() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  ReviewDecisionScope get scope => $_getN(2);
+  @$pb.TagNumber(3)
+  set scope(ReviewDecisionScope value) => $_setField(3, value);
+  @$pb.TagNumber(3)
+  $core.bool hasScope() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearScope() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get actor => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set actor($core.String value) => $_setString(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasActor() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearActor() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  ReviewDisposition get decision => $_getN(4);
+  @$pb.TagNumber(5)
+  set decision(ReviewDisposition value) => $_setField(5, value);
+  @$pb.TagNumber(5)
+  $core.bool hasDecision() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearDecision() => $_clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get reason => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set reason($core.String value) => $_setString(5, value);
+  @$pb.TagNumber(6)
+  $core.bool hasReason() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearReason() => $_clearField(6);
+
+  @$pb.TagNumber(7)
+  $fixnum.Int64 get createdAt => $_getI64(6);
+  @$pb.TagNumber(7)
+  set createdAt($fixnum.Int64 value) => $_setInt64(6, value);
+  @$pb.TagNumber(7)
+  $core.bool hasCreatedAt() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearCreatedAt() => $_clearField(7);
+}
+
+class RerunScope extends $pb.GeneratedMessage {
+  factory RerunScope({
+    $core.String? scopeId,
+    $core.String? planId,
+    RerunTrigger? trigger,
+    $core.String? reason,
+    $core.String? sourceDecisionId,
+    $core.Iterable<$core.String>? taskIds,
+    $core.Iterable<$core.String>? stepIds,
+    $core.Iterable<$core.String>? paths,
+    $fixnum.Int64? createdAt,
+  }) {
+    final result = create();
+    if (scopeId != null) result.scopeId = scopeId;
+    if (planId != null) result.planId = planId;
+    if (trigger != null) result.trigger = trigger;
+    if (reason != null) result.reason = reason;
+    if (sourceDecisionId != null) result.sourceDecisionId = sourceDecisionId;
+    if (taskIds != null) result.taskIds.addAll(taskIds);
+    if (stepIds != null) result.stepIds.addAll(stepIds);
+    if (paths != null) result.paths.addAll(paths);
+    if (createdAt != null) result.createdAt = createdAt;
+    return result;
+  }
+
+  RerunScope._();
+
+  factory RerunScope.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory RerunScope.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'RerunScope',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'scopeId')
+    ..aOS(2, _omitFieldNames ? '' : 'planId')
+    ..aE<RerunTrigger>(3, _omitFieldNames ? '' : 'trigger',
+        enumValues: RerunTrigger.values)
+    ..aOS(4, _omitFieldNames ? '' : 'reason')
+    ..aOS(5, _omitFieldNames ? '' : 'sourceDecisionId')
+    ..pPS(6, _omitFieldNames ? '' : 'taskIds')
+    ..pPS(7, _omitFieldNames ? '' : 'stepIds')
+    ..pPS(8, _omitFieldNames ? '' : 'paths')
+    ..a<$fixnum.Int64>(
+        9, _omitFieldNames ? '' : 'createdAt', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  RerunScope clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  RerunScope copyWith(void Function(RerunScope) updates) =>
+      super.copyWith((message) => updates(message as RerunScope)) as RerunScope;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static RerunScope create() => RerunScope._();
+  @$core.override
+  RerunScope createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static RerunScope getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<RerunScope>(create);
+  static RerunScope? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get scopeId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set scopeId($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasScopeId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearScopeId() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get planId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set planId($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasPlanId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearPlanId() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  RerunTrigger get trigger => $_getN(2);
+  @$pb.TagNumber(3)
+  set trigger(RerunTrigger value) => $_setField(3, value);
+  @$pb.TagNumber(3)
+  $core.bool hasTrigger() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearTrigger() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get reason => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set reason($core.String value) => $_setString(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasReason() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearReason() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get sourceDecisionId => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set sourceDecisionId($core.String value) => $_setString(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasSourceDecisionId() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearSourceDecisionId() => $_clearField(5);
+
+  @$pb.TagNumber(6)
+  $pb.PbList<$core.String> get taskIds => $_getList(5);
+
+  @$pb.TagNumber(7)
+  $pb.PbList<$core.String> get stepIds => $_getList(6);
+
+  @$pb.TagNumber(8)
+  $pb.PbList<$core.String> get paths => $_getList(7);
+
+  @$pb.TagNumber(9)
+  $fixnum.Int64 get createdAt => $_getI64(8);
+  @$pb.TagNumber(9)
+  set createdAt($fixnum.Int64 value) => $_setInt64(8, value);
+  @$pb.TagNumber(9)
+  $core.bool hasCreatedAt() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearCreatedAt() => $_clearField(9);
+}
+
 class Task extends $pb.GeneratedMessage {
   factory Task({
     $core.String? version,

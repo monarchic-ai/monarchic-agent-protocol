@@ -69,6 +69,7 @@ Frozen v1 client-boundary types:
 - `ExecutionReceipt`
 - `VerificationReceipt`
 - `ReviewDecision`
+- `RerunScope`
 - `BlockedOutcome`
 - `ArtifactDescriptor`
 

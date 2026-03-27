@@ -229,6 +229,61 @@ final $typed_data.Uint8List blockedOutcomeScopeDescriptor = $convert.base64Decod
     'QVRJT04QBRIfChtCTE9DS0VEX09VVENPTUVfU0NPUEVfTUVSR0UQBhIhCh1CTE9DS0VEX09VVE'
     'NPTUVfU0NPUEVfUkVMRUFTRRAH');
 
+@$core.Deprecated('Use reviewDecisionScopeDescriptor instead')
+const ReviewDecisionScope$json = {
+  '1': 'ReviewDecisionScope',
+  '2': [
+    {'1': 'REVIEW_DECISION_SCOPE_UNSPECIFIED', '2': 0},
+    {'1': 'REVIEW_DECISION_SCOPE_PLAN', '2': 1},
+    {'1': 'REVIEW_DECISION_SCOPE_STEP', '2': 2},
+    {'1': 'REVIEW_DECISION_SCOPE_PULL_REQUEST', '2': 3},
+    {'1': 'REVIEW_DECISION_SCOPE_VERIFICATION', '2': 4},
+    {'1': 'REVIEW_DECISION_SCOPE_RELEASE', '2': 5},
+  ],
+};
+
+/// Descriptor for `ReviewDecisionScope`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List reviewDecisionScopeDescriptor = $convert.base64Decode(
+    'ChNSZXZpZXdEZWNpc2lvblNjb3BlEiUKIVJFVklFV19ERUNJU0lPTl9TQ09QRV9VTlNQRUNJRk'
+    'lFRBAAEh4KGlJFVklFV19ERUNJU0lPTl9TQ09QRV9QTEFOEAESHgoaUkVWSUVXX0RFQ0lTSU9O'
+    'X1NDT1BFX1NURVAQAhImCiJSRVZJRVdfREVDSVNJT05fU0NPUEVfUFVMTF9SRVFVRVNUEAMSJg'
+    'oiUkVWSUVXX0RFQ0lTSU9OX1NDT1BFX1ZFUklGSUNBVElPThAEEiEKHVJFVklFV19ERUNJU0lP'
+    'Tl9TQ09QRV9SRUxFQVNFEAU=');
+
+@$core.Deprecated('Use reviewDispositionDescriptor instead')
+const ReviewDisposition$json = {
+  '1': 'ReviewDisposition',
+  '2': [
+    {'1': 'REVIEW_DISPOSITION_UNSPECIFIED', '2': 0},
+    {'1': 'REVIEW_DISPOSITION_APPROVE', '2': 1},
+    {'1': 'REVIEW_DISPOSITION_REQUEST_CHANGES', '2': 2},
+    {'1': 'REVIEW_DISPOSITION_REJECT', '2': 3},
+    {'1': 'REVIEW_DISPOSITION_DEFER', '2': 4},
+  ],
+};
+
+/// Descriptor for `ReviewDisposition`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List reviewDispositionDescriptor = $convert.base64Decode(
+    'ChFSZXZpZXdEaXNwb3NpdGlvbhIiCh5SRVZJRVdfRElTUE9TSVRJT05fVU5TUEVDSUZJRUQQAB'
+    'IeChpSRVZJRVdfRElTUE9TSVRJT05fQVBQUk9WRRABEiYKIlJFVklFV19ESVNQT1NJVElPTl9S'
+    'RVFVRVNUX0NIQU5HRVMQAhIdChlSRVZJRVdfRElTUE9TSVRJT05fUkVKRUNUEAMSHAoYUkVWSU'
+    'VXX0RJU1BPU0lUSU9OX0RFRkVSEAQ=');
+
+@$core.Deprecated('Use rerunTriggerDescriptor instead')
+const RerunTrigger$json = {
+  '1': 'RerunTrigger',
+  '2': [
+    {'1': 'RERUN_TRIGGER_UNSPECIFIED', '2': 0},
+    {'1': 'RERUN_TRIGGER_REVIEW_DECISION', '2': 1},
+    {'1': 'RERUN_TRIGGER_MANUAL', '2': 2},
+  ],
+};
+
+/// Descriptor for `RerunTrigger`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List rerunTriggerDescriptor = $convert.base64Decode(
+    'CgxSZXJ1blRyaWdnZXISHQoZUkVSVU5fVFJJR0dFUl9VTlNQRUNJRklFRBAAEiEKHVJFUlVOX1'
+    'RSSUdHRVJfUkVWSUVXX0RFQ0lTSU9OEAESGAoUUkVSVU5fVFJJR0dFUl9NQU5VQUwQAg==');
+
 @$core.Deprecated('Use leaseLifecycleStateDescriptor instead')
 const LeaseLifecycleState$json = {
   '1': 'LeaseLifecycleState',
@@ -1383,6 +1438,87 @@ final $typed_data.Uint8List verificationReceiptDescriptor = $convert.base64Decod
     'LnYxLkJsb2NrZWRPdXRjb21lUg9ibG9ja2VkT3V0Y29tZXMSLgoTYXJ0aWZhY3RfZGlnZXN0X3'
     'NldBgJIAMoCVIRYXJ0aWZhY3REaWdlc3RTZXQSJAoOdmVyaWZpZWRfYXRfbXMYCiABKARSDHZl'
     'cmlmaWVkQXRNcw==');
+
+@$core.Deprecated('Use reviewDecisionDescriptor instead')
+const ReviewDecision$json = {
+  '1': 'ReviewDecision',
+  '2': [
+    {'1': 'decision_id', '3': 1, '4': 1, '5': 9, '10': 'decisionId'},
+    {'1': 'plan_id', '3': 2, '4': 1, '5': 9, '10': 'planId'},
+    {
+      '1': 'scope',
+      '3': 3,
+      '4': 1,
+      '5': 14,
+      '6': '.monarchic.agent_protocol.v1.ReviewDecisionScope',
+      '10': 'scope'
+    },
+    {'1': 'actor', '3': 4, '4': 1, '5': 9, '10': 'actor'},
+    {
+      '1': 'decision',
+      '3': 5,
+      '4': 1,
+      '5': 14,
+      '6': '.monarchic.agent_protocol.v1.ReviewDisposition',
+      '10': 'decision'
+    },
+    {'1': 'reason', '3': 6, '4': 1, '5': 9, '10': 'reason'},
+    {'1': 'created_at', '3': 7, '4': 1, '5': 4, '10': 'createdAt'},
+  ],
+};
+
+/// Descriptor for `ReviewDecision`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List reviewDecisionDescriptor = $convert.base64Decode(
+    'Cg5SZXZpZXdEZWNpc2lvbhIfCgtkZWNpc2lvbl9pZBgBIAEoCVIKZGVjaXNpb25JZBIXCgdwbG'
+    'FuX2lkGAIgASgJUgZwbGFuSWQSRgoFc2NvcGUYAyABKA4yMC5tb25hcmNoaWMuYWdlbnRfcHJv'
+    'dG9jb2wudjEuUmV2aWV3RGVjaXNpb25TY29wZVIFc2NvcGUSFAoFYWN0b3IYBCABKAlSBWFjdG'
+    '9yEkoKCGRlY2lzaW9uGAUgASgOMi4ubW9uYXJjaGljLmFnZW50X3Byb3RvY29sLnYxLlJldmll'
+    'd0Rpc3Bvc2l0aW9uUghkZWNpc2lvbhIWCgZyZWFzb24YBiABKAlSBnJlYXNvbhIdCgpjcmVhdG'
+    'VkX2F0GAcgASgEUgljcmVhdGVkQXQ=');
+
+@$core.Deprecated('Use rerunScopeDescriptor instead')
+const RerunScope$json = {
+  '1': 'RerunScope',
+  '2': [
+    {'1': 'scope_id', '3': 1, '4': 1, '5': 9, '10': 'scopeId'},
+    {'1': 'plan_id', '3': 2, '4': 1, '5': 9, '10': 'planId'},
+    {
+      '1': 'trigger',
+      '3': 3,
+      '4': 1,
+      '5': 14,
+      '6': '.monarchic.agent_protocol.v1.RerunTrigger',
+      '10': 'trigger'
+    },
+    {'1': 'reason', '3': 4, '4': 1, '5': 9, '10': 'reason'},
+    {
+      '1': 'source_decision_id',
+      '3': 5,
+      '4': 1,
+      '5': 9,
+      '9': 0,
+      '10': 'sourceDecisionId',
+      '17': true
+    },
+    {'1': 'task_ids', '3': 6, '4': 3, '5': 9, '10': 'taskIds'},
+    {'1': 'step_ids', '3': 7, '4': 3, '5': 9, '10': 'stepIds'},
+    {'1': 'paths', '3': 8, '4': 3, '5': 9, '10': 'paths'},
+    {'1': 'created_at', '3': 9, '4': 1, '5': 4, '10': 'createdAt'},
+  ],
+  '8': [
+    {'1': '_source_decision_id'},
+  ],
+};
+
+/// Descriptor for `RerunScope`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List rerunScopeDescriptor = $convert.base64Decode(
+    'CgpSZXJ1blNjb3BlEhkKCHNjb3BlX2lkGAEgASgJUgdzY29wZUlkEhcKB3BsYW5faWQYAiABKA'
+    'lSBnBsYW5JZBJDCgd0cmlnZ2VyGAMgASgOMikubW9uYXJjaGljLmFnZW50X3Byb3RvY29sLnYx'
+    'LlJlcnVuVHJpZ2dlclIHdHJpZ2dlchIWCgZyZWFzb24YBCABKAlSBnJlYXNvbhIxChJzb3VyY2'
+    'VfZGVjaXNpb25faWQYBSABKAlIAFIQc291cmNlRGVjaXNpb25JZIgBARIZCgh0YXNrX2lkcxgG'
+    'IAMoCVIHdGFza0lkcxIZCghzdGVwX2lkcxgHIAMoCVIHc3RlcElkcxIUCgVwYXRocxgIIAMoCV'
+    'IFcGF0aHMSHQoKY3JlYXRlZF9hdBgJIAEoBFIJY3JlYXRlZEF0QhUKE19zb3VyY2VfZGVjaXNp'
+    'b25faWQ=');
 
 @$core.Deprecated('Use taskDescriptor instead')
 const Task$json = {
