@@ -1,0 +1,20 @@
+{
+  "contract_version": "v1",
+  "manifest_id": "digest-manifest-123",
+  "run_id": "run-123",
+  "plan_id": "plan-123",
+  "created_at": 1742870402000,
+  "combined_digest": "sha256:manifest-combined",
+  "event_digest": "sha256:event-log",
+  "artifact_descriptors": [
+    {
+      "artifact_id": "artifact-123",
+      "kind": "plan",
+      "digest": "sha256:artifact-123",
+      "media_type": "application/json",
+      "logical_name": "plan.json",
+      "producer": "monarchic-orchestrator",
+      "contract_version": "v1"
+    }
+  ]
+}
