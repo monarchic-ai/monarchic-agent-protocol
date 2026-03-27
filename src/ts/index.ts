@@ -51,6 +51,34 @@ export interface Event {
   [key: string]: unknown;
 }
 
+export interface TaskMessage {
+  version: ProtocolVersion;
+  message_id: string;
+  run_id: string;
+  from_task_id: string;
+  to_task_id: string;
+  kind: string;
+  subject?: string;
+  body?: string;
+  artifact_refs?: string[];
+  reply_to?: string;
+  created_at: string;
+  requires_ack: boolean;
+  provenance?: Provenance;
+  [key: string]: unknown;
+}
+
+export interface TaskMessageAck {
+  version: ProtocolVersion;
+  message_id: string;
+  run_id: string;
+  task_id: string;
+  acked_at: string;
+  status: string;
+  note?: string;
+  [key: string]: unknown;
+}
+
 export interface GateResult {
   version: ProtocolVersion;
   gate: string;
