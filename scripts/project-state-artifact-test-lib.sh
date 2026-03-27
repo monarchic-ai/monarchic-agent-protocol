@@ -28,7 +28,8 @@ project_state_artifact_setup() {
   fi
 
   PROJECT_STATE_ARTIFACT_SCRIPT_LABEL="${script_label}"
-  PROJECT_STATE_ARTIFACT_REPO_ROOT="${repo_root}"
+  PROJECT_STATE_ARTIFACT_SOURCE_ROOT="${repo_root}"
+  PROJECT_STATE_ARTIFACT_REPO_ROOT="$(project_state_artifact_fixture_root "${repo_root}")"
   PROJECT_STATE_ARTIFACT_CHECK_SCRIPT="${check_script}"
   PROJECT_STATE_ARTIFACT_PYTHON_CMD="$(project_state_artifact_choose_python "${script_label}")"
   PROJECT_STATE_ARTIFACT_TMP_REPO="$(mktemp -d)"
@@ -37,6 +38,16 @@ project_state_artifact_setup() {
   mkdir -p "${PROJECT_STATE_ARTIFACT_TMP_REPO}/scripts"
   cp "${PROJECT_STATE_ARTIFACT_CHECK_SCRIPT}" "${PROJECT_STATE_ARTIFACT_TMP_REPO}/scripts/test-project-state-artifacts.sh"
   chmod +x "${PROJECT_STATE_ARTIFACT_TMP_REPO}/scripts/test-project-state-artifacts.sh"
+}
+
+project_state_artifact_fixture_root() {
+  local repo_root="$1"
+  local fixture_root="${repo_root}/fixtures/project-state"
+  if [[ -d "${fixture_root}" ]]; then
+    printf '%s\n' "${fixture_root}"
+    return 0
+  fi
+  printf '%s\n' "${repo_root}"
 }
 
 project_state_artifact_cleanup() {
@@ -67,6 +78,7 @@ project_state_artifact_seed_source_repo_with_empty_report_lists() {
   local relative_path=""
 
   python_cmd="$(project_state_artifact_choose_python "${script_label}")"
+  source_root="$(project_state_artifact_fixture_root "${source_root}")"
   mkdir -p "${destination_root}"
 
   while IFS= read -r relative_path; do
@@ -121,6 +133,10 @@ project_state_artifact_fixture_paths() {
 project_state_artifact_copy_relative_path() {
   local relative_path="$1"
   local source_path="${PROJECT_STATE_ARTIFACT_REPO_ROOT}/${relative_path}"
+
+  if [[ ! -f "${source_path}" ]] && [[ -n "${PROJECT_STATE_ARTIFACT_SOURCE_ROOT:-}" ]]; then
+    source_path="${PROJECT_STATE_ARTIFACT_SOURCE_ROOT}/${relative_path}"
+  fi
 
   if [[ ! -f "${source_path}" ]]; then
     return 0

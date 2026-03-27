@@ -51,6 +51,8 @@ For languages that do not use protobuf bindings, exchange protocol objects as JS
 - Validate a typed payload against a specific schema: `bash scripts/validate-protocol-json.sh schemas/v1/objective_spec.json schemas/fixtures/valid/objective_spec.minimal.json`
 - Validate the canonical non-protobuf JSON example: `bash scripts/validate-protocol-json.sh schemas/v1/objective_spec.json examples/json/objective_spec.minimal.json`
 
+Project-state contract fixtures used by the shell verification suite live under `fixtures/project-state/`, not the repo root.
+
 ### Versioning
 
 - Protocol versions live under `schemas/v1/`.
@@ -149,6 +151,52 @@ All schemas allow additional properties for forward compatibility.
 `schemas/v1/agent_role.json` is a shared schema used by `task.json`.
 `schemas/v1/failure_class.json` is a shared schema used by `event.json` and `gate_result.json`.
 
+### TaskMessage and TaskMessageAck
+
+These types define the shared contract for orchestrator-mediated runner
+communication.
+
+They are intended for:
+
+- durable handoff messages between active tasks
+- clarification requests and responses
+- blocker notices
+- artifact-ready notifications
+- explicit acknowledgement state
+
+They are not intended to imply direct peer-to-peer runner transport. The
+protocol defines the message shape, but routing, persistence, and delivery are
+owned by the orchestrator.
+
+`TaskMessage` carries:
+
+- sender and recipient task ids
+- message kind
+- optional subject/body
+- referenced artifact ids
+- optional reply chaining
+- acknowledgement requirement
+
+`TaskMessageAck` records recipient acknowledgement state separately so mailbox
+delivery can remain append-only and auditable.
+
+Recommended acknowledgement semantics:
+
+- `received`: the recipient has seen the message in its inbox
+- `accepted`: the recipient accepts the request and plans to act on it
+- `rejected`: the recipient explicitly declines or cannot act on it
+- `resolved`: the recipient completed the requested follow-up or supplied the
+  final response
+
+Recommended routing semantics:
+
+- message ids should be unique within one run
+- sender and recipient should be tasks from the same run
+- `reply_to`, when present, should reference an earlier message id from the
+  same run log
+- `requires_ack=true` should imply at least one corresponding
+  `TaskMessageAck` record from the recipient
+
 ### AgentRole
 
 Enum values:
@@ -169,6 +217,78 @@ Example:
   "role": "reviewer"
 }
 ```
+
+### PipelineSpec
+
+Represents a planned pipeline before execution.
+
+Required fields:
+
+- `version`: `"v1"`
+- `pipeline_id`: stable identifier
+- `objective`: human-readable campaign or pipeline objective
+- `project_key`: member/project scope identifier
+- `tasks`: ordered `PipelineTask[]`
+
+This is the shared planning shape that bootstrap generation, orchestration
+validation, and UI preview should converge on.
+
+Current shared planning fields now include:
+
+- `PipelineSpec`
+- `PipelineTask`
+- `TaskDependency`
+- `SkillRef`
+- `RoleDefinition`
+- `ResolvedRoleBundle`
+
+These are available in the protobuf and language bindings even where the checked-in
+JSON Schema index has not yet been expanded to cover each planning helper type.
+
+### RoleDefinition and ResolvedRoleBundle
+
+These types provide the shared contract between:
+
+- role catalogs in `monarchic-agent-roles`
+- orchestration-time validation
+- runner-time execution bundles
+
+`RoleDefinition` describes a canonical role, its capabilities, and its declared
+skill requirements. `ResolvedRoleBundle` is the runtime handoff shape that can
+pair a concrete role definition with the resolved skills and rendered template
+path used for one task execution.
+
+### Canonical Pipeline Layout
+
+`PipelineSpec` and `PipelineTask` are now the canonical role-aware planning
+layout across the stack.
+
+For compatibility, older minimal pipeline files may still only carry:
+
+- `pipeline_id`
+- `tasks[].id`
+- `tasks[].task`
+
+But once a pipeline opts into the role-aware contract by declaring any of:
+
+- `objective`
+- `project_key`
+- `tasks[].role`
+- `tasks[].goal`
+- `tasks[].required_skills`
+
+the intended canonical shape is:
+
+- `PipelineSpec.objective`: required, non-empty
+- `PipelineSpec.project_key`: required, non-empty
+- `PipelineTask.role`: required, non-empty
+- `PipelineTask.goal`: required, non-empty
+- `PipelineTask.required_skills`: optional list of `SkillRef`, but when present it
+  must be internally well-formed and deduplicated
+
+This is the contract `monarch` should generate, `monarchic-orchestrator` should
+validate, and `monarchic-runner` should ultimately execute through resolved role
+bundles.
 
 ### Task
 
