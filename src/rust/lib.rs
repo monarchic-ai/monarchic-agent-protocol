@@ -21,7 +21,8 @@ pub mod client_boundary {
         VerificationReceipt, VerificationStatus,
     };
     pub use crate::review::{
-        RerunScope, RerunTrigger, ReviewDecision, ReviewDecisionScope, ReviewDisposition,
+        RerunExecutionResult, RerunExecutionStatus, RerunScope, RerunSelectionStrategy,
+        RerunTrigger, ReviewDecision, ReviewDecisionScope, ReviewDisposition,
     };
     pub use crate::version::CLIENT_BOUNDARY_CONTRACT_VERSION;
 }
@@ -53,8 +54,10 @@ pub use monarchic::agent_protocol::v1::{
     RegisterRunnerRequest, RegisterRunnerResponse, RenewLeaseRequest, RenewLeaseResponse,
     ReportStepOutcomeRequest, ReportStepOutcomeResponse, ReportStepProgressRequest,
     ReportStepProgressResponse, ReportStepStartedRequest, ReportStepStartedResponse,
-    ReplanPolicy, ReplanStrategy, ResumeLeaseRequest, ResumeLeaseResponse, RerunScope,
+    ReplanPolicy, ReplanStrategy, ResumeLeaseRequest, ResumeLeaseResponse,
+    RerunExecutionResult, RerunExecutionStatus, RerunScope, RerunSelectionStrategy,
     RerunTrigger, ReviewDecision, ReviewDecisionScope, ReviewDisposition, RoleProvenance,
-    RunContext, RunLifecycleState, RunnerCapabilities, StepLifecycleState, StepOutputExpectation,
-    Task, VerificationCheck, VerificationCheckStatus, VerificationReceipt, VerificationStatus,
+    RunContext, RunLifecycleState, RunnerCapabilities, StepLifecycleState,
+    StepOutputExpectation, Task, VerificationCheck, VerificationCheckStatus,
+    VerificationReceipt, VerificationStatus,
 };
