@@ -7,6 +7,12 @@ Track schema edits in reverse chronological order. Each entry must include:
 - `schema_files`
 - `validation`
 
+## 2026-03-26
+- task_id: task-proto-010
+- summary: Added canonical protobuf review-decision and rerun-scope contracts, and extended the frozen client-boundary review surface with typed rerun provenance linked back to review decisions.
+- schema_files: schemas/v1/monarchic_agent_protocol.proto
+- validation: bash scripts/lint-schemas.sh && bash scripts/test-proto.sh && cargo test -q && bash scripts/update-local-hashes.sh
+
 ## 2026-03-25
 - task_id: task-proto-008
 - summary: Added canonical verification receipt protobuf contracts and tightened the client-boundary VerificationReceipt with contract_version, execution receipt linkage, and validity checks that stay compatibility-safe for older JSON artifacts.

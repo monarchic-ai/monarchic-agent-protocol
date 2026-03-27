@@ -325,6 +325,51 @@ message VerificationReceipt {
   uint64 verified_at_ms = 10;
 }
 
+enum ReviewDecisionScope {
+  REVIEW_DECISION_SCOPE_UNSPECIFIED = 0;
+  REVIEW_DECISION_SCOPE_PLAN = 1;
+  REVIEW_DECISION_SCOPE_STEP = 2;
+  REVIEW_DECISION_SCOPE_PULL_REQUEST = 3;
+  REVIEW_DECISION_SCOPE_VERIFICATION = 4;
+  REVIEW_DECISION_SCOPE_RELEASE = 5;
+}
+
+enum ReviewDisposition {
+  REVIEW_DISPOSITION_UNSPECIFIED = 0;
+  REVIEW_DISPOSITION_APPROVE = 1;
+  REVIEW_DISPOSITION_REQUEST_CHANGES = 2;
+  REVIEW_DISPOSITION_REJECT = 3;
+  REVIEW_DISPOSITION_DEFER = 4;
+}
+
+message ReviewDecision {
+  string decision_id = 1;
+  string plan_id = 2;
+  ReviewDecisionScope scope = 3;
+  string actor = 4;
+  ReviewDisposition decision = 5;
+  string reason = 6;
+  uint64 created_at = 7;
+}
+
+enum RerunTrigger {
+  RERUN_TRIGGER_UNSPECIFIED = 0;
+  RERUN_TRIGGER_REVIEW_DECISION = 1;
+  RERUN_TRIGGER_MANUAL = 2;
+}
+
+message RerunScope {
+  string scope_id = 1;
+  string plan_id = 2;
+  RerunTrigger trigger = 3;
+  string reason = 4;
+  optional string source_decision_id = 5;
+  repeated string task_ids = 6;
+  repeated string step_ids = 7;
+  repeated string paths = 8;
+  uint64 created_at = 9;
+}
+
 message Task {
   string version = 1;
   string task_id = 2;
