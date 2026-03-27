@@ -1,0 +1,14 @@
+{
+  "scope_id": "rerun-scope-123",
+  "plan_id": "plan-123",
+  "trigger": "review_decision",
+  "reason": "Address requested changes in the modified files before rerunning verification.",
+  "source_decision_id": "decision-123",
+  "task_ids": [],
+  "step_ids": [],
+  "paths": [
+    "src/lib.rs",
+    "tests/review.rs"
+  ],
+  "created_at": 1742870407000
+}
