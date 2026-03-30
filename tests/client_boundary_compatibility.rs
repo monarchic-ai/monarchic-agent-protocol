@@ -71,7 +71,9 @@ struct LegacyExecutionReceipt {
 fn value_to_btree_map(value: Value) -> Result<BTreeMap<String, Value>, String> {
     match value {
         Value::Object(map) => Ok(map.into_iter().collect()),
-        other => Err(format!("legacy task_template must be an object, got {other}")),
+        other => Err(format!(
+            "legacy task_template must be an object, got {other}"
+        )),
     }
 }
 
@@ -131,7 +133,9 @@ fn map_legacy_execution_status(status: &str) -> Result<ExecutionStatus, String> 
     }
 }
 
-fn upgrade_legacy_execution_receipt(legacy: LegacyExecutionReceipt) -> Result<ExecutionReceipt, String> {
+fn upgrade_legacy_execution_receipt(
+    legacy: LegacyExecutionReceipt,
+) -> Result<ExecutionReceipt, String> {
     let _ = &legacy.contract_version;
     let primary_task = match legacy.task_hashes.as_slice() {
         [] => String::from("legacy-task"),
@@ -182,7 +186,10 @@ fn upgrades_legacy_runtime_plan_fixture() {
     assert_eq!(upgraded.plan_version, "v1");
     assert_eq!(upgraded.planner_version, "legacy-planner");
     assert_eq!(upgraded.steps.len(), 1);
-    assert_eq!(upgraded.steps[0].policy_tags, vec![String::from("legacy-compat")]);
+    assert_eq!(
+        upgraded.steps[0].policy_tags,
+        vec![String::from("legacy-compat")]
+    );
 }
 
 #[test]

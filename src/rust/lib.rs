@@ -1,5 +1,5 @@
-mod authority;
 mod artifact;
+mod authority;
 mod blocking;
 mod event;
 mod intent;
@@ -57,21 +57,27 @@ pub mod monarchic {
 
 pub use monarchic::agent_protocol::v1::{
     AcceptanceCriteria, AckCancellationRequest, AckCancellationResponse, AcquireLeaseRequest,
-    AcquireLeaseResponse, AgentRole, Artifact, ArtifactDescriptor, ArtifactKind,
+    AcquireLeaseResponse, AgentRole, ApplyControlPlaneReviewDispositionRequest,
+    ApplyControlPlaneReviewDispositionResponse, ApplyControlPlaneRunActionRequest,
+    ApplyControlPlaneRunActionResponse, Artifact, ArtifactDescriptor, ArtifactKind,
     AuditExportManifest, AuthContext, AuthMechanism, BlockedOutcome, BlockedOutcomeScope,
-    CancellationIntent, DatasetRef, DigestManifest, EvalResult, Event, ExecutionReceipt,
-    ExperimentSpec, FailureClass, FailureDetail, FencingToken, GateResult, HeartbeatRequest,
-    HeartbeatResponse, Intent, IntentClass, Lease, LeaseAssignment, LeaseLifecycleState,
-    LeaseRef, LeaseRejectionReason, LeaseStatus, Plan, PlanProvenance, PlanStatus, PlanStep,
-    PlanStepKind, PrincipalRef, PrLifecycleState, Provenance, RecoveryEvent, RecoveryEventKind,
-    RegisterRunnerRequest, RegisterRunnerResponse, RenewLeaseRequest, RenewLeaseResponse,
-    ReplanPolicy, ReplanStrategy, ReportStepOutcomeRequest, ReportStepOutcomeResponse,
-    ReportStepProgressRequest, ReportStepProgressResponse, ReportStepStartedRequest,
-    ReportStepStartedResponse, ResumeLeaseRequest, ResumeLeaseResponse,
-    RerunExecutionResult, RerunExecutionStatus, RerunScope, RerunSelectionStrategy,
-    RerunTrigger, ReviewDecision, ReviewDecisionScope, ReviewDisposition, RoleProvenance,
-    RunContext, RunEventRecord, RunEventStream, RunLifecycleState, RunnerCapabilities,
-    StepLifecycleState, StepOutputExpectation, Task, TaskMessage, TaskMessageAck, TenantRef,
-    UsageCategory, UsageRecord, UsageUnit, VerificationCheck, VerificationCheckStatus,
-    VerificationReceipt, VerificationStatus,
+    CancellationIntent, ControlPlaneRunAction, ControlPlaneRunActivityCursor,
+    ControlPlaneRunSummary, ControlPlaneScope, DatasetRef, DigestManifest,
+    EnsureControlPlaneWorkerRequest, EnsureControlPlaneWorkerResponse, EvalResult, Event,
+    ExecutionReceipt, ExperimentSpec, FailureClass, FailureDetail, FencingToken, GateResult,
+    GetControlPlaneRunActivityPageRequest, GetControlPlaneRunActivityPageResponse,
+    GetControlPlaneRunRequest, GetControlPlaneRunResponse, HeartbeatRequest, HeartbeatResponse,
+    Intent, IntentClass, Lease, LeaseAssignment, LeaseLifecycleState, LeaseRef,
+    LeaseRejectionReason, LeaseStatus, ListControlPlaneRunsRequest, ListControlPlaneRunsResponse,
+    Plan, PlanProvenance, PlanStatus, PlanStep, PlanStepKind, PrLifecycleState, PrincipalRef,
+    Provenance, RecoveryEvent, RecoveryEventKind, RegisterRunnerRequest, RegisterRunnerResponse,
+    RenewLeaseRequest, RenewLeaseResponse, ReplanPolicy, ReplanStrategy, ReportStepOutcomeRequest,
+    ReportStepOutcomeResponse, ReportStepProgressRequest, ReportStepProgressResponse,
+    ReportStepStartedRequest, ReportStepStartedResponse, RerunExecutionResult,
+    RerunExecutionStatus, RerunScope, RerunSelectionStrategy, RerunTrigger, ResumeLeaseRequest,
+    ResumeLeaseResponse, ReviewDecision, ReviewDecisionScope, ReviewDisposition, RoleProvenance,
+    RunContext, RunEventRecord, RunEventStream, RunLifecycleState, RunOperatorSignals,
+    RunnerCapabilities, StepLifecycleState, StepOutputExpectation, Task, TaskMessage,
+    TaskMessageAck, TenantRef, UsageCategory, UsageRecord, UsageUnit, VerificationCheck,
+    VerificationCheckStatus, VerificationReceipt, VerificationStatus,
 };

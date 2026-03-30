@@ -121,13 +121,19 @@ impl TryFrom<AuthContextUnchecked> for AuthContext {
 
     fn try_from(value: AuthContextUnchecked) -> Result<Self, Self::Error> {
         if value.contract_version.trim().is_empty() {
-            return Err(String::from("auth_context contract_version must not be empty"));
+            return Err(String::from(
+                "auth_context contract_version must not be empty",
+            ));
         }
         if value.auth_context_id.trim().is_empty() {
-            return Err(String::from("auth_context auth_context_id must not be empty"));
+            return Err(String::from(
+                "auth_context auth_context_id must not be empty",
+            ));
         }
         if value.mechanism == AuthMechanism::Unspecified {
-            return Err(String::from("auth_context mechanism must not be unspecified"));
+            return Err(String::from(
+                "auth_context mechanism must not be unspecified",
+            ));
         }
         if value.credential_id.trim().is_empty() {
             return Err(String::from("auth_context credential_id must not be empty"));
@@ -223,19 +229,25 @@ impl TryFrom<UsageRecordUnchecked> for UsageRecord {
 
     fn try_from(value: UsageRecordUnchecked) -> Result<Self, Self::Error> {
         if value.contract_version.trim().is_empty() {
-            return Err(String::from("usage_record contract_version must not be empty"));
+            return Err(String::from(
+                "usage_record contract_version must not be empty",
+            ));
         }
         if value.usage_id.trim().is_empty() {
             return Err(String::from("usage_record usage_id must not be empty"));
         }
         if value.category == UsageCategory::Unspecified {
-            return Err(String::from("usage_record category must not be unspecified"));
+            return Err(String::from(
+                "usage_record category must not be unspecified",
+            ));
         }
         if value.metric_name.trim().is_empty() {
             return Err(String::from("usage_record metric_name must not be empty"));
         }
         if value.quantity == 0 {
-            return Err(String::from("usage_record quantity must be greater than zero"));
+            return Err(String::from(
+                "usage_record quantity must be greater than zero",
+            ));
         }
         if value.unit == UsageUnit::Unspecified {
             return Err(String::from("usage_record unit must not be unspecified"));
@@ -296,13 +308,19 @@ impl TryFrom<AuditExportManifestUnchecked> for AuditExportManifest {
             ));
         }
         if value.export_id.trim().is_empty() {
-            return Err(String::from("audit_export_manifest export_id must not be empty"));
+            return Err(String::from(
+                "audit_export_manifest export_id must not be empty",
+            ));
         }
         if value.run_id.trim().is_empty() {
-            return Err(String::from("audit_export_manifest run_id must not be empty"));
+            return Err(String::from(
+                "audit_export_manifest run_id must not be empty",
+            ));
         }
         if value.plan_id.trim().is_empty() {
-            return Err(String::from("audit_export_manifest plan_id must not be empty"));
+            return Err(String::from(
+                "audit_export_manifest plan_id must not be empty",
+            ));
         }
         if value.combined_digest.trim().is_empty() {
             return Err(String::from(

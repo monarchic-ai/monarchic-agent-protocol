@@ -107,23 +107,27 @@ impl TryFrom<VerificationReceiptUnchecked> for VerificationReceipt {
             ));
         }
 
-        if matches!(value.status, VerificationStatus::Passed) && !value.blocked_outcomes.is_empty() {
+        if matches!(value.status, VerificationStatus::Passed) && !value.blocked_outcomes.is_empty()
+        {
             return Err(String::from(
                 "passed verification receipts must not include blocked_outcomes",
             ));
         }
 
-        if matches!(value.status, VerificationStatus::Blocked) && value.blocked_outcomes.is_empty() {
+        if matches!(value.status, VerificationStatus::Blocked) && value.blocked_outcomes.is_empty()
+        {
             return Err(String::from(
                 "blocked verification receipts must include at least one blocked_outcome",
             ));
         }
 
         if matches!(value.status, VerificationStatus::Failed)
-            && !value
-                .checks
-                .iter()
-                .any(|check| matches!(check.status, VerificationCheckStatus::Failed | VerificationCheckStatus::Blocked))
+            && !value.checks.iter().any(|check| {
+                matches!(
+                    check.status,
+                    VerificationCheckStatus::Failed | VerificationCheckStatus::Blocked
+                )
+            })
             && value.blocked_outcomes.is_empty()
         {
             return Err(String::from(

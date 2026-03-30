@@ -969,6 +969,162 @@ message AckCancellationResponse {
   google.protobuf.Struct extensions = 5;
 }
 
+enum ControlPlaneRunAction {
+  CONTROL_PLANE_RUN_ACTION_UNSPECIFIED = 0;
+  CONTROL_PLANE_RUN_ACTION_PAUSE = 1;
+  CONTROL_PLANE_RUN_ACTION_RESUME = 2;
+  CONTROL_PLANE_RUN_ACTION_INTERRUPT = 3;
+  CONTROL_PLANE_RUN_ACTION_CANCEL = 4;
+}
+
+message ControlPlaneScope {
+  optional string organization = 1;
+  optional string user = 2;
+  optional string default_project = 3;
+}
+
+message RunOperatorSignals {
+  bool prompt_needed = 1;
+  optional string prompt_summary = 2;
+  bool pause_requested = 3;
+  bool interrupt_requested = 4;
+  bool cancel_requested = 5;
+}
+
+message ControlPlaneRunSummary {
+  string project_key = 1;
+  string run_id = 2;
+  optional string run_dir = 3;
+  optional RunLifecycleState lifecycle_state = 4;
+  string status = 5;
+  optional string updated_label = 6;
+  optional uint64 updated_epoch = 7;
+  optional string meaningful_status = 8;
+  optional double meaningful_score = 9;
+  repeated string meaningful_reasons = 10;
+  optional uint64 total_runs = 11;
+  optional uint64 total_success = 12;
+  optional uint64 total_failed = 13;
+  optional uint64 message_count = 14;
+  optional uint64 unresolved_required_ack_count = 15;
+  bool alert_stale = 16;
+  bool alert_low_score = 17;
+  RunOperatorSignals operator_signals = 18;
+}
+
+message ControlPlaneRunActivityCursor {
+  optional uint64 after_sequence = 1;
+  optional string resume_token = 2;
+}
+
+message ListControlPlaneRunsRequest {
+  string contract_version = 1;
+  ControlPlaneScope scope = 2;
+  optional string project_key = 3;
+  optional uint32 limit = 4;
+  google.protobuf.Struct extensions = 5;
+  optional AuthContext auth_context = 6;
+}
+
+message ListControlPlaneRunsResponse {
+  string contract_version = 1;
+  repeated ControlPlaneRunSummary runs = 2;
+  google.protobuf.Struct extensions = 3;
+}
+
+message GetControlPlaneRunRequest {
+  string contract_version = 1;
+  ControlPlaneScope scope = 2;
+  optional string project_key = 3;
+  string run_id = 4;
+  google.protobuf.Struct extensions = 5;
+  optional AuthContext auth_context = 6;
+}
+
+message GetControlPlaneRunResponse {
+  string contract_version = 1;
+  ControlPlaneRunSummary run = 2;
+  google.protobuf.Struct extensions = 3;
+}
+
+message GetControlPlaneRunActivityPageRequest {
+  string contract_version = 1;
+  ControlPlaneScope scope = 2;
+  optional string project_key = 3;
+  string run_id = 4;
+  optional uint32 limit = 5;
+  ControlPlaneRunActivityCursor cursor = 6;
+  google.protobuf.Struct extensions = 7;
+  optional AuthContext auth_context = 8;
+}
+
+message GetControlPlaneRunActivityPageResponse {
+  string contract_version = 1;
+  repeated RunEventRecord records = 2;
+  ControlPlaneRunActivityCursor next_cursor = 3;
+  google.protobuf.Struct extensions = 4;
+}
+
+message ApplyControlPlaneRunActionRequest {
+  string contract_version = 1;
+  ControlPlaneScope scope = 2;
+  string run_id = 3;
+  ControlPlaneRunAction action = 4;
+  optional string reason = 5;
+  google.protobuf.Struct extensions = 6;
+  optional AuthContext auth_context = 7;
+}
+
+message ApplyControlPlaneRunActionResponse {
+  string contract_version = 1;
+  string run_id = 2;
+  ControlPlaneRunAction action = 3;
+  bool accepted = 4;
+  optional RunLifecycleState lifecycle_state = 5;
+  optional string message = 6;
+  google.protobuf.Struct extensions = 7;
+}
+
+message ApplyControlPlaneReviewDispositionRequest {
+  string contract_version = 1;
+  ControlPlaneScope scope = 2;
+  string project_key = 3;
+  optional string plan_id = 4;
+  string actor = 5;
+  ReviewDisposition decision = 6;
+  string reason = 7;
+  google.protobuf.Struct extensions = 8;
+  optional AuthContext auth_context = 9;
+}
+
+message ApplyControlPlaneReviewDispositionResponse {
+  string contract_version = 1;
+  string project_key = 2;
+  optional string plan_id = 3;
+  bool accepted = 4;
+  optional ReviewDecision review_decision = 5;
+  optional PrLifecycleState pr_lifecycle_state = 6;
+  optional string message = 7;
+  google.protobuf.Struct extensions = 8;
+}
+
+message EnsureControlPlaneWorkerRequest {
+  string contract_version = 1;
+  ControlPlaneScope scope = 2;
+  string project_key = 3;
+  google.protobuf.Struct extensions = 4;
+  optional AuthContext auth_context = 5;
+}
+
+message EnsureControlPlaneWorkerResponse {
+  string contract_version = 1;
+  string project_key = 2;
+  bool accepted = 3;
+  optional string worker_id = 4;
+  optional string message = 5;
+  google.protobuf.Struct extensions = 6;
+}
+
 // RunnerControlService is the canonical machine-to-machine control-plane
 // contract. It is transport-oriented and intentionally protobuf-only; JSON
 // schema support in this repository remains limited to portable object payloads.
@@ -982,4 +1138,16 @@ service RunnerControlService {
   rpc ReportStepProgress(ReportStepProgressRequest) returns (ReportStepProgressResponse);
   rpc ReportStepOutcome(ReportStepOutcomeRequest) returns (ReportStepOutcomeResponse);
   rpc AckCancellation(AckCancellationRequest) returns (AckCancellationResponse);
+}
+
+// ClientControlService is the canonical client-facing control-plane RPC
+// contract. It carries scoped run summaries, activity pages, and operator
+// control actions without encoding local workspace compatibility concerns.
+service ClientControlService {
+  rpc ListRuns(ListControlPlaneRunsRequest) returns (ListControlPlaneRunsResponse);
+  rpc GetRun(GetControlPlaneRunRequest) returns (GetControlPlaneRunResponse);
+  rpc GetRunActivityPage(GetControlPlaneRunActivityPageRequest) returns (GetControlPlaneRunActivityPageResponse);
+  rpc ApplyRunAction(ApplyControlPlaneRunActionRequest) returns (ApplyControlPlaneRunActionResponse);
+  rpc ApplyReviewDisposition(ApplyControlPlaneReviewDispositionRequest) returns (ApplyControlPlaneReviewDispositionResponse);
+  rpc EnsureWorker(EnsureControlPlaneWorkerRequest) returns (EnsureControlPlaneWorkerResponse);
 }
