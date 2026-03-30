@@ -116,7 +116,10 @@ fn verification_receipt_defaults_contract_version_when_missing() {
     let parsed: VerificationReceipt =
         serde_json::from_value(value).expect("deserialize verification receipt without version");
 
-    assert_eq!(parsed.contract_version, monarchic_agent_protocol::PROTOCOL_VERSION);
+    assert_eq!(
+        parsed.contract_version,
+        monarchic_agent_protocol::PROTOCOL_VERSION
+    );
 }
 
 #[test]
@@ -135,8 +138,11 @@ fn verification_receipt_defaults_execution_receipt_ids_when_missing() {
 #[test]
 fn passed_verification_receipt_rejects_blocked_outcomes() {
     let mut value = load_fixture_value("verification_receipt.minimal.json");
-    value["blocked_outcomes"] =
-        serde_json::to_value(vec![serde_json::from_str::<Value>(&read_fixture("blocked_outcome.minimal.json")).expect("blocked fixture")]).expect("serialize blocked outcomes");
+    value["blocked_outcomes"] = serde_json::to_value(vec![serde_json::from_str::<Value>(
+        &read_fixture("blocked_outcome.minimal.json"),
+    )
+    .expect("blocked fixture")])
+    .expect("serialize blocked outcomes");
     assert!(serde_json::from_value::<VerificationReceipt>(value).is_err());
 }
 

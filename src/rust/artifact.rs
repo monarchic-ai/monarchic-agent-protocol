@@ -71,7 +71,9 @@ impl TryFrom<DigestManifestUnchecked> for DigestManifest {
             ));
         }
         if value.manifest_id.trim().is_empty() {
-            return Err(String::from("digest manifest manifest_id must not be empty"));
+            return Err(String::from(
+                "digest manifest manifest_id must not be empty",
+            ));
         }
         if value.run_id.trim().is_empty() {
             return Err(String::from("digest manifest run_id must not be empty"));
@@ -85,7 +87,9 @@ impl TryFrom<DigestManifestUnchecked> for DigestManifest {
             ));
         }
         if value.event_digest.trim().is_empty() {
-            return Err(String::from("digest manifest event_digest must not be empty"));
+            return Err(String::from(
+                "digest manifest event_digest must not be empty",
+            ));
         }
         if value.artifact_descriptors.is_empty() {
             return Err(String::from(
