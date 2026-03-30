@@ -1,8 +1,7 @@
 use std::{fs, path::PathBuf};
 
 use monarchic_agent_protocol::durable_authority::{
-    FencingToken, Lease, LeaseRejectionReason, RecoveryEvent, RunLifecycleState,
-    StepLifecycleState,
+    FencingToken, Lease, LeaseRejectionReason, RecoveryEvent, RunLifecycleState, StepLifecycleState,
 };
 use serde::{de::DeserializeOwned, Serialize};
 use serde_json::Value;

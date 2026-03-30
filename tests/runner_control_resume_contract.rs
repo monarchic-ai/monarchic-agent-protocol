@@ -73,8 +73,7 @@ fn resume_lease_response_round_trips_superseded_rejection() {
     };
 
     let encoded = response.encode_to_vec();
-    let decoded =
-        ResumeLeaseResponse::decode(encoded.as_slice()).expect("decode resume response");
+    let decoded = ResumeLeaseResponse::decode(encoded.as_slice()).expect("decode resume response");
 
     assert!(!decoded.accepted);
     assert_eq!(decoded.current_fencing_token, "fencing-2");
