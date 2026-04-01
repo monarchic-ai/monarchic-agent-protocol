@@ -2,19 +2,19 @@
   "version": "v1",
   "scope": "local",
   "artifact_count": 313,
-  "combined_sha256": "b4fb0127be95b21d5e9cc06bcc810ccf60ee02f80f12f7f8691fcabb95f2ddb5",
+  "combined_sha256": "cab262d0ce05cd54dcb61b4ab2381296dc3a7be156b987e1fc2718a52566fd69",
   "artifacts": [
     {
       "path": "Cargo.lock",
-      "sha256": "77cab7167af8f174c3daf1546a0bfd435927abfabba6a31c333f6b825051565b"
+      "sha256": "fd6bfd711d4f0d9479b729a84d001bb50b39de0a271adc0faf07b1a92df2551d"
     },
     {
       "path": "Cargo.toml",
-      "sha256": "a62533fd34eadd38aeb3ab87607922cf31da3e811012b7985f2a97e09c8a36a0"
+      "sha256": "8e5f0a554cba1fc5600777b8591f4b139a81435e1916029d8bee8b87d8755a18"
     },
     {
       "path": "Monarchic.AgentProtocol.csproj",
-      "sha256": "bc0809e8e6e5ba60b51d6a224172c30cb3a96a4303b64259d85551333aa88f7c"
+      "sha256": "83e1c345937117ccb0baf0fc8ca6743cdd91bb3fa41650bdebc76a594c0c05f4"
     },
     {
       "path": "build.gradle.kts",
@@ -22,19 +22,19 @@
     },
     {
       "path": "composer.json",
-      "sha256": "013d0dcef8c672ae925693f25653a05d60b8f11bf3cb54de3223f84b1b17fde4"
+      "sha256": "36e8613f43eaa266b4e1aef3a97d19bcaa3f6bee1f68bd4a60f56c4b3da09246"
     },
     {
       "path": "monarchic-agent-protocol.gemspec",
-      "sha256": "c3422aba938830e0f7d05e26ec5031bb4c6ad3715e77e41b4c3e18167f4c81a2"
+      "sha256": "b6f8199848e9c15242672a6e66ca4623897454aa76d577e65279f1f9f729d714"
     },
     {
       "path": "package-lock.json",
-      "sha256": "949748d914b5f9ad18359c8192313bd3e5e3e106884380bab9dbe2310d2ab581"
+      "sha256": "c16b5fbe893a658f2b2a93d01075fcb23a3bb86cb50e0021e0f72690c2f0eca2"
     },
     {
       "path": "package.json",
-      "sha256": "be1de3f01b7391c9f11217f589bcec93a48ffdc10818d9f099bffd2b7f51e0a0"
+      "sha256": "dafb1d269bb25f3a086b5fb9574da0fab371ebe923497718221acc6f03ca3deb"
     },
     {
       "path": "pubspec.yaml",
@@ -118,7 +118,7 @@
     },
     {
       "path": "schemas/v1/monarchic_agent_protocol.proto",
-      "sha256": "e8a40bda992d1a9c64687239b4b97c44655093945fc7e850aa292d1e2071e414"
+      "sha256": "874480654aa16743eeb4f7f9dcb4ee9c1966181187c929c466abd6b5ba41773e"
     },
     {
       "path": "schemas/v1/objective_spec.json",
@@ -162,11 +162,11 @@
     },
     {
       "path": "schemas/v1/task.json",
-      "sha256": "52d24936f089229bc1fa2321ea2555f65c8f877a527d22517421be1e583208d0"
+      "sha256": "c5ad7a1c55388db6797ba091edaeecdbd43a7119d3b1d65301bec10a0d259df1"
     },
     {
       "path": "setup.cfg",
-      "sha256": "565ac5bd3b3ee4d48dab0c00802617de47a2fa3585c5da34682b55a518489723"
+      "sha256": "602c4261b7e395fa3c06cdb094b4c4d241a733e1da5518deaee3e508c5a64b69"
     },
     {
       "path": "src/csharp/MonarchicAgentProtocol.cs",
@@ -1210,7 +1210,7 @@
     },
     {
       "path": "src/rust/artifact.rs",
-      "sha256": "c4f2f6f589cfbbc26ff55d476e662955b2df958dfcb5459788fd2f4faa86e564"
+      "sha256": "fbcddb681a43f5a3678f6b47a6edeaaadb248ff180849087fc4fa3ab7f888f14"
     },
     {
       "path": "src/rust/authority.rs",
@@ -1230,7 +1230,7 @@
     },
     {
       "path": "src/rust/lib.rs",
-      "sha256": "169ec7da7729cc3457902ae2eae0915cd1c7ccc5dbbb5548e47425ec99e2a7ff"
+      "sha256": "d5303d52acb15e87a45fce613b26c17157970758623e767fe0c3f630e84155a4"
     },
     {
       "path": "src/rust/plan.rs",
@@ -1238,7 +1238,7 @@
     },
     {
       "path": "src/rust/receipt.rs",
-      "sha256": "7d37172acb350edf19b4ddd01c375fea7bd0280f5f2cc2000484cdca6f4b3214"
+      "sha256": "8bf5abd56b9ec02d8efcc526dad8144b188c730d087efb6cbcedc18b43a29167"
     },
     {
       "path": "src/rust/review.rs",
@@ -1246,7 +1246,7 @@
     },
     {
       "path": "src/rust/service.rs",
-      "sha256": "bb1bfcaaea1f75f38ea9458f418d8e538b849b25f7f6b9f47418a0f411023c46"
+      "sha256": "76121111fd41bd4a9e04a8b1f7daba1b56cc4a31be0a5cc37bfd7a3f2d677455"
     },
     {
       "path": "src/rust/version.rs",
@@ -1254,7 +1254,7 @@
     },
     {
       "path": "src/ts/index.ts",
-      "sha256": "d772c1bc21357b9fd4669fffd5af6bc5c3507e1fc1585b2c7b05b12ca618a55f"
+      "sha256": "b2b3a97fec083ccbb4270fcd48021394add66bba41e75a7610e4cac234848203"
     }
   ]
 }
