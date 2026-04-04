@@ -215,11 +215,21 @@ message BootstrapTemplateConnectionContext {
   optional string description = 5;
 }
 
+message BootstrapTemplateLaneContext {
+  string lane_id = 1;
+  string display_name = 2;
+  string from_slot_id = 3;
+  string to_slot_id = 4;
+  repeated string slot_ids = 5;
+  bool repeat_per_task_group = 6;
+}
+
 message BootstrapTemplateContext {
   string template_id = 1;
   string display_name = 2;
   repeated BootstrapTemplateSlotContext slots = 3;
   repeated BootstrapTemplateConnectionContext connections = 4;
+  repeated BootstrapTemplateLaneContext lanes = 5;
 }
 
 message BootstrapPlanningContext {

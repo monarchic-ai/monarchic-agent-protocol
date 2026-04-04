@@ -14,8 +14,10 @@ Last updated: 2026-04-04
   - `BootstrapTemplateContext`
   - `BootstrapTemplateSlotContext`
   - `BootstrapTemplateConnectionContext`
+  - `BootstrapTemplateLaneContext`
   - `BootstrapFilesystemPolicy`
   - `BootstrapSkillBinding`
+- Added canonical bootstrap template-lane protocol context so repeatable lane semantics are part of the machine-owned planning contract instead of existing only in TUI-local prompt rendering.
 - Aligned bootstrap terminology in the protocol contract around:
   - `campaign_goal`
   - `task_milestone`
