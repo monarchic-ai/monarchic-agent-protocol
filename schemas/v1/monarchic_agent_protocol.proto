@@ -183,6 +183,57 @@ message BootstrapPlan {
   repeated BootstrapPlanTask tasks = 9;
 }
 
+message BootstrapFilesystemPolicy {
+  repeated string read = 1;
+  repeated string write = 2;
+  repeated string execute = 3;
+}
+
+message BootstrapSkillBinding {
+  string id = 1;
+  bool required = 2;
+  string purpose = 3;
+}
+
+message BootstrapTemplateSlotContext {
+  string slot_id = 1;
+  string display_name = 2;
+  string role = 3;
+  string interaction_mode = 4;
+  string network_mode = 5;
+  bool requires_human_review = 6;
+  BootstrapFilesystemPolicy filesystem_policy = 7;
+  repeated BootstrapSkillBinding required_skills = 8;
+  repeated string required_mcps = 9;
+}
+
+message BootstrapTemplateConnectionContext {
+  string from_slot_id = 1;
+  string to_slot_id = 2;
+  string kind = 3;
+  bool required = 4;
+  optional string description = 5;
+}
+
+message BootstrapTemplateContext {
+  string template_id = 1;
+  string display_name = 2;
+  repeated BootstrapTemplateSlotContext slots = 3;
+  repeated BootstrapTemplateConnectionContext connections = 4;
+}
+
+message BootstrapPlanningContext {
+  string contract_version = 1;
+  string project_key = 2;
+  string target_repo = 3;
+  repeated string target_repos = 4;
+  string campaign_goal = 5;
+  optional string notes = 6;
+  string priority_profile = 7;
+  repeated string codex_cmd = 8;
+  repeated string available_skill_ids = 9;
+  optional BootstrapTemplateContext selected_template = 10;
+}
 enum PlanStatus {
   PLAN_STATUS_UNSPECIFIED = 0;
   DRAFT = 1;
