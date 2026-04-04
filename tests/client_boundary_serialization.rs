@@ -1,9 +1,9 @@
 use std::{fs, path::PathBuf};
 
 use monarchic_agent_protocol::client_boundary::{
-    ArtifactDescriptor, BlockedOutcome, DigestManifest, ExecutionReceipt, Intent, IntentClass,
-    Plan, PlanStep, PrLifecycleState, RerunExecutionResult, RerunScope, ReviewDecision,
-    RunEventRecord, VerificationReceipt,
+    ArtifactDescriptor, BlockedOutcome, BootstrapIntent, BootstrapPlan, DigestManifest,
+    ExecutionReceipt, Intent, IntentClass, Plan, PlanStep, PrLifecycleState, RerunExecutionResult,
+    RerunScope, ReviewDecision, RunEventRecord, VerificationReceipt,
 };
 use serde::{de::DeserializeOwned, Serialize};
 use serde_json::Value;
@@ -48,6 +48,16 @@ fn intent_fixture_round_trips_canonically() {
 }
 
 #[test]
+fn bootstrap_intent_fixture_round_trips_canonically() {
+    assert_fixture_round_trip::<BootstrapIntent>("bootstrap_intent.minimal.json");
+}
+
+#[test]
+fn bootstrap_plan_fixture_round_trips_canonically() {
+    assert_fixture_round_trip::<BootstrapPlan>("bootstrap_plan.minimal.json");
+}
+
+#[test]
 fn intent_defaults_to_unspecified_class_when_missing() {
     let mut value = load_fixture_value("intent.minimal.json");
     value
@@ -64,6 +74,16 @@ fn intent_rejects_invalid_intent_class() {
     let mut value = load_fixture_value("intent.minimal.json");
     value["intent_class"] = Value::String(String::from("nonsense"));
     assert!(serde_json::from_value::<Intent>(value).is_err());
+}
+
+#[test]
+fn bootstrap_plan_rejects_missing_task_milestone() {
+    let mut value = load_fixture_value("bootstrap_plan.minimal.json");
+    value["tasks"][0]
+        .as_object_mut()
+        .expect("bootstrap plan task object")
+        .remove("task_milestone");
+    assert!(serde_json::from_value::<BootstrapPlan>(value).is_err());
 }
 
 #[test]
