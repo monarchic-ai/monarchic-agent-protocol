@@ -142,6 +142,47 @@ message Intent {
   IntentClass intent_class = 10;
 }
 
+message BootstrapIntent {
+  string contract_version = 1;
+  string bootstrap_intent_id = 2;
+  string project_key = 3;
+  repeated string target_repos = 4;
+  optional string pipeline_template_id = 5;
+  string campaign_goal = 6;
+  optional string notes = 7;
+  string priority_profile = 8;
+  uint64 created_at_ms = 9;
+}
+
+message BootstrapPlanTask {
+  string task_id = 1;
+  string display_name = 2;
+  string role_id = 3;
+  string task_milestone = 4;
+  repeated string depends_on = 5;
+  optional string target_repo = 6;
+  repeated string required_skill_ids = 7;
+  repeated string required_mcp_ids = 8;
+  optional string interaction_mode = 9;
+  optional string network_mode = 10;
+  optional bool requires_human_review = 11;
+  google.protobuf.Struct filesystem_policy = 12;
+  optional string template_slot_id = 13;
+  optional string notes = 14;
+}
+
+message BootstrapPlan {
+  string contract_version = 1;
+  string bootstrap_plan_id = 2;
+  string bootstrap_intent_id = 3;
+  string project_key = 4;
+  string planning_mode = 5;
+  optional string pipeline_template_id = 6;
+  string campaign_goal = 7;
+  uint64 created_at_ms = 8;
+  repeated BootstrapPlanTask tasks = 9;
+}
+
 enum PlanStatus {
   PLAN_STATUS_UNSPECIFIED = 0;
   DRAFT = 1;

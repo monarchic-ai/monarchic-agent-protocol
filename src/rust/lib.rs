@@ -1,6 +1,7 @@
 mod artifact;
 mod authority;
 mod blocking;
+mod bootstrap;
 mod event;
 mod intent;
 mod plan;
@@ -14,6 +15,7 @@ pub const PROTOCOL_VERSION: &str = "v1";
 pub mod client_boundary {
     pub use crate::artifact::{ArtifactDescriptor, ArtifactKind, DigestManifest};
     pub use crate::blocking::{BlockedOutcome, BlockedOutcomeScope};
+    pub use crate::bootstrap::{BootstrapIntent, BootstrapPlan, BootstrapPlanTask};
     pub use crate::event::{RunEventRecord, RunEventStream};
     pub use crate::intent::{Intent, IntentClass};
     pub use crate::plan::{
@@ -61,10 +63,10 @@ pub use monarchic::agent_protocol::v1::{
     ApplyControlPlaneReviewDispositionResponse, ApplyControlPlaneRunActionRequest,
     ApplyControlPlaneRunActionResponse, Artifact, ArtifactDescriptor, ArtifactKind,
     AuditExportManifest, AuthContext, AuthMechanism, BlockedOutcome, BlockedOutcomeScope,
-    CancellationIntent, ControlPlaneRunAction, ControlPlaneRunActivityCursor,
-    ControlPlaneRunSummary, ControlPlaneScope, DatasetRef, DigestManifest,
-    EnsureControlPlaneWorkerRequest, EnsureControlPlaneWorkerResponse, EvalResult, Event,
-    ExecutionReceipt, ExperimentSpec, FailureClass, FailureDetail, FencingToken, GateResult,
+    BootstrapIntent, BootstrapPlan, BootstrapPlanTask, CancellationIntent, ControlPlaneRunAction,
+    ControlPlaneRunActivityCursor, ControlPlaneRunSummary, ControlPlaneScope, DatasetRef,
+    DigestManifest, EnsureControlPlaneWorkerRequest, EnsureControlPlaneWorkerResponse, EvalResult,
+    Event, ExecutionReceipt, ExperimentSpec, FailureClass, FailureDetail, FencingToken, GateResult,
     GetControlPlaneRunActivityPageRequest, GetControlPlaneRunActivityPageResponse,
     GetControlPlaneRunRequest, GetControlPlaneRunResponse, HeartbeatRequest, HeartbeatResponse,
     Intent, IntentClass, Lease, LeaseAssignment, LeaseLifecycleState, LeaseRef,
