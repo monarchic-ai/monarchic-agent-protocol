@@ -1,0 +1,425 @@
+{
+  "artifact": "map-operation-bundle",
+  "version": "v1alpha2",
+  "status": "protocol-owned-client-handoff",
+  "summary": "Protocol-owned handoff bundle for stable Monarch client operations, MAP envelope examples, and the current adapter-only transport mapping.",
+  "source_of_truth": {
+    "repo": "monarchic-agent-protocol",
+    "path": "fixtures/client_boundary/v1/map_operation_bundle.v1.json",
+    "consumer_snapshots": [
+      "monarch/docs/map-operation-bundle.json",
+      "monarch/docs/map-wire-contract-bundle.json"
+    ]
+  },
+  "owners": {
+    "protocol_owner": "monarchic-agent-protocol",
+    "client_snapshot_repo": "monarch",
+    "control_plane_owner": "monarchic-orchestrator",
+    "current_transport_adapter_owner": "monarchic-tui-client"
+  },
+  "handoff_contract": {
+    "stable_client_surface": "monarchic_tui_client::ControlPlaneClient",
+    "wire_contract_owner": "monarchic-agent-protocol",
+    "transport_adapter": "RemoteHttpControlClient",
+    "transport_status": "adapter-only",
+    "notes": [
+      "Client code should bind to operation labels and typed result models rather than HTTP route strings, headers, or query encoding.",
+      "The bundle is the protocol-owned handoff artifact for stable client operations, remote envelopes, and activity-stream request or response shapes.",
+      "Legacy repo-local payloads remain compatibility fallbacks only inside transport adapters and are not part of the primary handoff contract."
+    ]
+  },
+  "placeholders": {
+    "__PROJECT_KEY__": "replace with the selected project key",
+    "__RUN_ID__": "replace with the selected run id",
+    "__TARGET_REPO__": "replace with the resolved target repo path or label"
+  },
+  "map_envelopes": {
+    "success_template": {
+      "operation": "<operation-label>",
+      "result": "<typed-operation-payload>"
+    },
+    "error_template": {
+      "operation": "<operation-label>",
+      "error": {
+        "code": "<stable-error-code>",
+        "message": "<human-readable-message>",
+        "detail": "<optional-extra-detail>"
+      }
+    }
+  },
+  "transport_adapter": {
+    "base_path": "/api/v1",
+    "scope_headers": {
+      "x-monarch-organization": "<organization-scope>",
+      "x-monarch-user": "<user-scope>",
+      "x-monarch-default-project": "<default-project-scope>"
+    },
+    "rules": [
+      "HTTP routes, methods, headers, and query fields are adapter-only details layered on top of the protocol-owned operation surface.",
+      "Transport examples are included here so protocol and client repos do not need to re-derive request mapping from smoke fixtures and parser tests.",
+      "CLI and TUI surfaces should depend on the operation labels declared in operation_order and operations, not on transport details."
+    ]
+  },
+  "operation_order": [
+    "runs.list",
+    "runs.activity_stream",
+    "runs.status",
+    "runs.pause",
+    "runs.resume",
+    "runs.interrupt",
+    "runs.cancel",
+    "projects.ensure_worker",
+    "projects.review_disposition"
+  ],
+  "operations": {
+    "runs.list": {
+      "summary": "List runs visible to the current scope.",
+      "stability": "client-stable",
+      "typed_request": {
+        "max_runs": "optional positive integer limiting the returned run set"
+      },
+      "typed_result": {
+        "runs": "array of typed run summary records"
+      },
+      "transport_adapter": {
+        "method": "GET",
+        "path": "/api/v1/runs",
+        "query": {
+          "max_runs": "<n>"
+        }
+      },
+      "success_example": {
+        "operation": "runs.list",
+        "result": {
+          "runs": [
+            {
+              "project_key": "__PROJECT_KEY__",
+              "run_id": "__RUN_ID__",
+              "run_dir": "remote/__PROJECT_KEY__/__RUN_ID__",
+              "state": "running",
+              "status": "running",
+              "updated_label": "2026-03-09 20:45:00 UTC",
+              "updated_epoch": 1741553100,
+              "meaningful_status": "healthy",
+              "meaningful_score": 0.91,
+              "meaningful_reasons": [
+                "remote control smoke"
+              ],
+              "total_runs": 3,
+              "total_success": 2,
+              "total_failed": 1,
+              "alert_stale": false,
+              "alert_low_score": false,
+              "prompt_needed": true,
+              "prompt_summary": "remote operator input required",
+              "interrupt_requested": true
+            }
+          ]
+        }
+      },
+      "error_example": {
+        "operation": "runs.list",
+        "error": {
+          "code": "missing_bearer_token",
+          "message": "missing bearer token",
+          "detail": "Authorization header required"
+        }
+      }
+    },
+    "runs.activity_stream": {
+      "summary": "Return normalized activity-stream records for one run, optionally resuming from the last delivered cursor.",
+      "stability": "client-stable",
+      "typed_request": {
+        "run_id": "required selected run identifier",
+        "limit": "optional positive integer limiting returned activity records",
+        "resume.after_sequence": "optional last delivered activity sequence",
+        "resume.resume_token": "optional opaque upstream resume token"
+      },
+      "typed_result": {
+        "records": "array of typed ActivityStreamRecord values",
+        "remote_subscription_session": "optional typed resumable session derived from the newest remote subscription cursor, replay, and error state"
+      },
+      "transport_adapter": {
+        "method": "GET",
+        "path": "/api/v1/runs/{run_id}/activity-stream",
+        "query": {
+          "limit": "<n>",
+          "after_sequence": "<optional-last-delivered-sequence>",
+          "resume_token": "<optional-upstream-resume-token>"
+        }
+      },
+      "initial_request_example": {
+        "limit": 40
+      },
+      "resume_request_example": {
+        "limit": 40,
+        "after_sequence": 52,
+        "resume_token": "cursor-52"
+      },
+      "success_example": {
+        "operation": "runs.activity_stream",
+        "result": {
+          "records": [
+            {
+              "status": "ok",
+              "source": "remote_subscription",
+              "mode": "subscription",
+              "type": "events",
+              "timestamp": "2026-03-09T20:46:00Z",
+              "sequence": 51,
+              "project_key": "__PROJECT_KEY__",
+              "run_id": "__RUN_ID__",
+              "subscription_id": "remote-subscription-primary",
+              "subscription_cursor": {
+                "sequence": 51,
+                "resume_token": "cursor-51"
+              },
+              "subscription_replay": {
+                "replayed": true,
+                "requested_after_sequence": 50,
+                "delivered_after_sequence": 50
+              },
+              "subscription_error": null,
+              "activity_events": [
+                {
+                  "sequence": 51,
+                  "timestamp": "2026-03-09T20:46:00Z",
+                  "kind": "lifecycle",
+                  "label": "worker_started",
+                  "status": "started",
+                  "summary": "status=started | stage=worker"
+                }
+              ]
+            },
+            {
+              "status": "ok",
+              "source": "remote_subscription",
+              "mode": "subscription",
+              "type": "events",
+              "timestamp": "2026-03-09T20:46:05Z",
+              "sequence": 52,
+              "project_key": "__PROJECT_KEY__",
+              "run_id": "__RUN_ID__",
+              "subscription_id": "remote-subscription-primary",
+              "subscription_cursor": {
+                "sequence": 52,
+                "resume_token": "cursor-52"
+              },
+              "subscription_replay": null,
+              "subscription_error": {
+                "code": "cursor_gap",
+                "message": "cursor gap detected upstream",
+                "retryable": true
+              },
+              "activity_events": [
+                {
+                  "sequence": 52,
+                  "timestamp": "2026-03-09T20:46:05Z",
+                  "kind": "gate",
+                  "label": "meaningful_work_gate_passed",
+                  "status": "passed",
+                  "summary": "status=passed | gate=meaningful_work"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "record_rules": {
+        "source": "remote_subscription",
+        "mode": "subscription",
+        "top_level_sequence_must_match_subscription_cursor_sequence": true
+      },
+      "error_example": {
+        "operation": "runs.activity_stream",
+        "error": {
+          "code": "invalid_resume_cursor",
+          "message": "invalid activity resume cursor",
+          "detail": "after_sequence and resume_token must describe the same upstream cursor"
+        }
+      }
+    },
+    "runs.status": {
+      "summary": "Return the current control-plane status summary for one run.",
+      "stability": "client-stable",
+      "typed_request": {
+        "run_id": "required selected run identifier"
+      },
+      "typed_result": {
+        "state": "current run state label",
+        "operator_summary": "compact operator-facing state summary"
+      },
+      "transport_adapter": {
+        "method": "GET",
+        "path": "/api/v1/runs/{run_id}"
+      },
+      "success_example": {
+        "operation": "runs.status",
+        "result": {
+          "state": "running",
+          "operator_summary": "state=running remote-smoke"
+        }
+      },
+      "error_example": {
+        "operation": "runs.status",
+        "error": {
+          "code": "missing_bearer_token",
+          "message": "missing bearer token",
+          "detail": "Authorization header required"
+        }
+      }
+    },
+    "runs.pause": {
+      "summary": "Request that the selected run pause execution.",
+      "stability": "client-stable",
+      "typed_request": {
+        "run_id": "required selected run identifier"
+      },
+      "typed_result": {
+        "state": "updated run state label",
+        "operator_summary": "compact operator-facing state summary"
+      },
+      "transport_adapter": {
+        "method": "POST",
+        "path": "/api/v1/runs/{run_id}/pause"
+      },
+      "success_example": {
+        "operation": "runs.pause",
+        "result": {
+          "state": "paused",
+          "operator_summary": "state=paused remote-smoke"
+        }
+      }
+    },
+    "runs.resume": {
+      "summary": "Request that the selected run resume execution.",
+      "stability": "client-stable",
+      "typed_request": {
+        "run_id": "required selected run identifier"
+      },
+      "typed_result": {
+        "state": "updated run state label",
+        "operator_summary": "compact operator-facing state summary"
+      },
+      "transport_adapter": {
+        "method": "POST",
+        "path": "/api/v1/runs/{run_id}/resume"
+      },
+      "success_example": {
+        "operation": "runs.resume",
+        "result": {
+          "state": "running",
+          "operator_summary": "state=running resumed remote-smoke"
+        }
+      }
+    },
+    "runs.interrupt": {
+      "summary": "Request an interrupt against the selected run without fully cancelling it.",
+      "stability": "client-stable",
+      "typed_request": {
+        "run_id": "required selected run identifier"
+      },
+      "typed_result": {
+        "state": "updated run state label",
+        "operator_summary": "compact operator-facing state summary"
+      },
+      "transport_adapter": {
+        "method": "POST",
+        "path": "/api/v1/runs/{run_id}/interrupt"
+      },
+      "success_example": {
+        "operation": "runs.interrupt",
+        "result": {
+          "state": "running",
+          "operator_summary": "state=running interrupt_requested remote-smoke"
+        }
+      }
+    },
+    "runs.cancel": {
+      "summary": "Request cancellation for the selected run.",
+      "stability": "client-stable",
+      "typed_request": {
+        "run_id": "required selected run identifier"
+      },
+      "typed_result": {
+        "state": "updated run state label",
+        "operator_summary": "compact operator-facing state summary"
+      },
+      "transport_adapter": {
+        "method": "POST",
+        "path": "/api/v1/runs/{run_id}/cancel"
+      },
+      "success_example": {
+        "operation": "runs.cancel",
+        "result": {
+          "state": "running",
+          "operator_summary": "state=running cancel_requested remote-smoke"
+        }
+      }
+    },
+    "projects.ensure_worker": {
+      "summary": "Ensure a worker is available for the selected project.",
+      "stability": "client-stable",
+      "typed_request": {
+        "project_key": "required selected project key"
+      },
+      "typed_result": {
+        "stdout": "worker launch summary emitted by the transport adapter",
+        "stderr": "stderr emitted by the transport adapter"
+      },
+      "transport_adapter": {
+        "method": "POST",
+        "path": "/api/v1/projects/{project_key}/ensure-worker"
+      },
+      "success_example": {
+        "operation": "projects.ensure_worker",
+        "result": {
+          "stdout": "worker_started pid=12345\ntarget_repo=__TARGET_REPO__\nstate_dir=/tmp/monarchic-tui-worker\nlog_file=/tmp/monarchic-tui-worker/worker.log",
+          "stderr": ""
+        }
+      },
+      "error_example": {
+        "operation": "projects.ensure_worker",
+        "error": {
+          "code": "project_not_visible",
+          "message": "project not visible in the selected scope",
+          "detail": "project_key must resolve inside the selected project scope before worker launch"
+        }
+      }
+    },
+    "projects.review_disposition": {
+      "summary": "Apply an operator review disposition to the selected project review gate.",
+      "stability": "client-stable",
+      "typed_request": {
+        "project_key": "required selected project key from the route",
+        "action": "required review disposition label such as approve_override",
+        "reviewer": "required operator identity",
+        "reason": "required operator rationale",
+        "project_root": "optional resolved project root forwarded by the client when available"
+      },
+      "typed_result": {
+        "stdout": "review disposition summary emitted by the transport adapter",
+        "stderr": "stderr emitted by the transport adapter"
+      },
+      "transport_adapter": {
+        "method": "POST",
+        "path": "/api/v1/projects/{project_key}/review-disposition"
+      },
+      "success_example": {
+        "operation": "projects.review_disposition",
+        "result": {
+          "stdout": "review disposition accepted action=approve_override project_key=__PROJECT_KEY__ reviewer=operator",
+          "stderr": ""
+        }
+      },
+      "error_example": {
+        "operation": "projects.review_disposition",
+        "error": {
+          "code": "project_not_visible",
+          "message": "project not visible in the selected scope",
+          "detail": "project_key must resolve inside the selected project scope before review disposition"
+        }
+      }
+    }
+  }
+}
