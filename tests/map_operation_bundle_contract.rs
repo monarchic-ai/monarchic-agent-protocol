@@ -40,6 +40,14 @@ fn map_operation_bundle_declares_protocol_owned_source_metadata() {
         bundle["handoff_contract"]["wire_contract_owner"].as_str(),
         Some("monarchic-agent-protocol")
     );
+    assert_eq!(
+        bundle["source_of_truth"]["consumer_snapshots"]
+            .as_array()
+            .expect("consumer_snapshots should be an array"),
+        &vec![Value::String(
+            "monarch/docs/map-operation-bundle.json".to_string()
+        )]
+    );
 }
 
 #[test]
