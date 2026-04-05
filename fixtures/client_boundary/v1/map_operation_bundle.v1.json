@@ -7,8 +7,7 @@
     "repo": "monarchic-agent-protocol",
     "path": "fixtures/client_boundary/v1/map_operation_bundle.v1.json",
     "consumer_snapshots": [
-      "monarch/docs/map-operation-bundle.json",
-      "monarch/docs/map-wire-contract-bundle.json"
+      "monarch/docs/map-operation-bundle.json"
     ]
   },
   "owners": {
