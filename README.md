@@ -76,6 +76,8 @@ Frozen v1 client-boundary types:
 - `ArtifactDescriptor`
 
 Canonical JSON fixtures for these contracts live under `fixtures/client_boundary/v1/`.
+The protocol-owned MAP operation handoff bundle for downstream client snapshots
+also lives there as `map_operation_bundle.v1.json`.
 Legacy runtime compatibility fixtures live under `fixtures/client_boundary/v0/`.
 
 ### Durable authority contracts
