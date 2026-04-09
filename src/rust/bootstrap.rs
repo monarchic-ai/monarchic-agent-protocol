@@ -3,6 +3,15 @@ use std::collections::BTreeMap;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, Default)]
+#[serde(rename_all = "snake_case")]
+pub enum BootstrapPlanningMode {
+    #[default]
+    Unspecified,
+    DirectTemplateFill,
+    BoundedResearchReplan,
+}
+
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub struct BootstrapIntent {
@@ -53,7 +62,7 @@ pub struct BootstrapPlan {
     pub bootstrap_plan_id: String,
     pub bootstrap_intent_id: String,
     pub project_key: String,
-    pub planning_mode: String,
+    pub planning_mode: BootstrapPlanningMode,
     #[serde(default)]
     pub pipeline_template_id: Option<String>,
     pub campaign_goal: String,
