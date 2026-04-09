@@ -1,50 +1,43 @@
-mod artifact;
 mod authority;
-mod blocking;
-mod bootstrap;
-mod campaign;
-mod event;
-mod intent;
-mod message;
-mod plan;
-mod receipt;
-mod review;
+#[path = "client_boundary/mod.rs"]
+mod client_boundary_types;
 mod service;
-mod task;
 mod version;
 
 pub const PROTOCOL_VERSION: &str = "v1";
 
 pub mod client_boundary {
-    pub use crate::artifact::{ArtifactDescriptor, ArtifactKind, DigestManifest};
-    pub use crate::blocking::{BlockedOutcome, BlockedOutcomeScope};
-    pub use crate::bootstrap::{
+    pub use crate::client_boundary_types::artifact::{
+        ArtifactDescriptor, ArtifactKind, DigestManifest,
+    };
+    pub use crate::client_boundary_types::blocking::{BlockedOutcome, BlockedOutcomeScope};
+    pub use crate::client_boundary_types::bootstrap::{
         BootstrapFilesystemPolicy, BootstrapIntent, BootstrapPlan, BootstrapPlanTask,
         BootstrapPlanningContext, BootstrapPlanningMode, BootstrapSkillBinding,
         BootstrapTemplateConnectionContext, BootstrapTemplateContext, BootstrapTemplateLaneContext,
         BootstrapTemplateSlotContext,
     };
-    pub use crate::campaign::{
+    pub use crate::client_boundary_types::campaign::{
         CampaignPipelineConnection, CampaignPipelineConnectionKind, CampaignPipelineGate,
         CampaignPipelineGatePolicy, CampaignPipelineSpec, CampaignPipelineTaskRef,
         CampaignTaskSkillBinding,
     };
-    pub use crate::event::{RunEventRecord, RunEventStream};
-    pub use crate::intent::{Intent, IntentClass};
-    pub use crate::message::{TaskMessage, TaskMessageKind};
-    pub use crate::plan::{
+    pub use crate::client_boundary_types::event::{RunEventRecord, RunEventStream};
+    pub use crate::client_boundary_types::intent::{Intent, IntentClass};
+    pub use crate::client_boundary_types::message::{TaskMessage, TaskMessageKind};
+    pub use crate::client_boundary_types::plan::{
         Plan, PlanStep, PlanStepKind, ReplanPolicy, ReplanStrategy, StepOutputExpectation,
     };
-    pub use crate::receipt::{
+    pub use crate::client_boundary_types::receipt::{
         ExecutionReceipt, ExecutionStatus, VerificationCheck, VerificationCheckStatus,
         VerificationReceipt, VerificationStatus,
     };
-    pub use crate::review::{
+    pub use crate::client_boundary_types::review::{
         PrLifecycleState, RerunExecutionResult, RerunExecutionStatus, RerunScope,
         RerunSelectionStrategy, RerunTrigger, ReviewDecision, ReviewDecisionScope,
         ReviewDisposition,
     };
-    pub use crate::task::{Task, TaskMcpBinding, TaskRunContext};
+    pub use crate::client_boundary_types::task::{Task, TaskMcpBinding, TaskRunContext};
     pub use crate::version::CLIENT_BOUNDARY_CONTRACT_VERSION;
 }
 
