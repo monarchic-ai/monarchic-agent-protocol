@@ -18,7 +18,10 @@ pub mod client_boundary {
     pub use crate::artifact::{ArtifactDescriptor, ArtifactKind, DigestManifest};
     pub use crate::blocking::{BlockedOutcome, BlockedOutcomeScope};
     pub use crate::bootstrap::{
-        BootstrapIntent, BootstrapPlan, BootstrapPlanTask, BootstrapPlanningMode,
+        BootstrapFilesystemPolicy, BootstrapIntent, BootstrapPlan, BootstrapPlanTask,
+        BootstrapPlanningContext, BootstrapPlanningMode, BootstrapSkillBinding,
+        BootstrapTemplateConnectionContext, BootstrapTemplateContext, BootstrapTemplateLaneContext,
+        BootstrapTemplateSlotContext,
     };
     pub use crate::campaign::{
         CampaignPipelineConnection, CampaignPipelineConnectionKind, CampaignPipelineGate,
