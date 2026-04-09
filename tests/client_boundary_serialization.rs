@@ -1,9 +1,10 @@
 use std::{fs, path::PathBuf};
 
 use monarchic_agent_protocol::client_boundary::{
-    ArtifactDescriptor, BlockedOutcome, BootstrapIntent, BootstrapPlan, CampaignPipelineSpec,
-    DigestManifest, ExecutionReceipt, Intent, IntentClass, Plan, PlanStep, PrLifecycleState,
-    RerunExecutionResult, RerunScope, ReviewDecision, RunEventRecord, Task, VerificationReceipt,
+    ArtifactDescriptor, BlockedOutcome, BootstrapIntent, BootstrapPlan, BootstrapPlanningMode,
+    CampaignPipelineSpec, DigestManifest, ExecutionReceipt, Intent, IntentClass, Plan, PlanStep,
+    PrLifecycleState, RerunExecutionResult, RerunScope, ReviewDecision, RunEventRecord, Task,
+    VerificationReceipt,
 };
 use serde::{de::DeserializeOwned, Serialize};
 use serde_json::Value;
@@ -94,6 +95,24 @@ fn bootstrap_plan_rejects_missing_task_milestone() {
         .expect("bootstrap plan task object")
         .remove("task_milestone");
     assert!(serde_json::from_value::<BootstrapPlan>(value).is_err());
+}
+
+#[test]
+fn bootstrap_plan_rejects_invalid_planning_mode() {
+    let mut value = load_fixture_value("bootstrap_plan.minimal.json");
+    value["planning_mode"] = Value::String(String::from("maybe_later"));
+    assert!(serde_json::from_value::<BootstrapPlan>(value).is_err());
+}
+
+#[test]
+fn bootstrap_plan_uses_typed_planning_mode() {
+    let value = load_fixture_value("bootstrap_plan.minimal.json");
+    let parsed: BootstrapPlan = serde_json::from_value(value).expect("deserialize bootstrap plan");
+
+    assert_eq!(
+        parsed.planning_mode,
+        BootstrapPlanningMode::DirectTemplateFill
+    );
 }
 
 #[test]

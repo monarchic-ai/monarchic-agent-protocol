@@ -171,12 +171,18 @@ message BootstrapPlanTask {
   optional string notes = 14;
 }
 
+enum BootstrapPlanningMode {
+  BOOTSTRAP_PLANNING_MODE_UNSPECIFIED = 0;
+  BOOTSTRAP_PLANNING_MODE_DIRECT_TEMPLATE_FILL = 1;
+  BOOTSTRAP_PLANNING_MODE_BOUNDED_RESEARCH_REPLAN = 2;
+}
+
 message BootstrapPlan {
   string contract_version = 1;
   string bootstrap_plan_id = 2;
   string bootstrap_intent_id = 3;
   string project_key = 4;
-  string planning_mode = 5;
+  BootstrapPlanningMode planning_mode = 5;
   optional string pipeline_template_id = 6;
   string campaign_goal = 7;
   uint64 created_at_ms = 8;

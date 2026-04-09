@@ -24,6 +24,7 @@ Last updated: 2026-04-09
 - Added a canonical campaign pipeline protocol contract plus client-boundary fixture coverage, so downstream repos now have an explicit schema anchor for the machine-owned campaign pipeline artifact instead of relying only on local mirrored `PipelineSpec` shapes.
 - Added a protocol-owned canonical task client boundary plus fixture coverage around the existing `Task` wire contract, so downstream repos now have an explicit schema anchor for machine-owned campaign task artifacts and compatibility-only JSON fields stay secondary to `extensions`.
 - Completed Initiative 1 `Campaign-Spec Protocol Completion`; canonical campaign pipeline and task contracts now have explicit protocol-owned schema anchors.
+- Added an explicit `BootstrapPlanningMode` protocol enum and adopted it in the canonical bootstrap plan contract, so planning-mode ownership is no longer stringly typed at the protocol boundary.
 
 ## In Progress
 
@@ -40,8 +41,8 @@ Last updated: 2026-04-09
 - Milestone: fast-path vs bounded/template-constrained planning is fully explicit in protocol.
   - Task: tighten planning-mode protocol ownership.
     - Subtasks:
-      - audit downstream planning-mode normalization that still compensates for schema gaps
-      - add enums/messages where planning outcomes are still implicit or alias-driven
+      - completed: audited downstream planning-mode normalization that still compensates for schema gaps
+      - completed: added enums/messages where planning outcomes are still implicit or alias-driven
       - keep legacy alias normalization explicit and narrow
   - Task: formalize clarification/refusal outcomes if they remain runtime-local.
     - Subtasks:
