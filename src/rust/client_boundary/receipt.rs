@@ -1,7 +1,7 @@
 use serde::{Deserialize, Serialize};
 
-use crate::artifact::ArtifactDescriptor;
-use crate::blocking::BlockedOutcome;
+use super::artifact::ArtifactDescriptor;
+use super::blocking::BlockedOutcome;
 use crate::version::CLIENT_BOUNDARY_CONTRACT_VERSION;
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]

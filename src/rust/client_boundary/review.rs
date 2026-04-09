@@ -1,6 +1,7 @@
 use serde::{Deserialize, Serialize};
 
-use crate::{blocking::BlockedOutcome, receipt::VerificationReceipt};
+use super::blocking::BlockedOutcome;
+use super::receipt::VerificationReceipt;
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]

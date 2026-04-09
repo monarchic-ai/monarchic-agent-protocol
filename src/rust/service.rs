@@ -1,6 +1,8 @@
 use serde::{Deserialize, Serialize};
 
-use crate::{artifact::ArtifactDescriptor, version::SERVICE_BOUNDARY_CONTRACT_VERSION};
+use crate::{
+    client_boundary_types::artifact::ArtifactDescriptor, version::SERVICE_BOUNDARY_CONTRACT_VERSION,
+};
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(try_from = "PrincipalRefUnchecked", deny_unknown_fields)]
