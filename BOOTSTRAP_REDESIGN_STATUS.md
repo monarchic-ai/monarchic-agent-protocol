@@ -31,14 +31,9 @@ Last updated: 2026-04-09
 - Added [BOOTSTRAP_PROTOCOL_OWNERSHIP.md](/home/midischwarz12/Projects/monarchic-ai/monarchic-agent-protocol/monarchic-agent-protocol/BOOTSTRAP_PROTOCOL_OWNERSHIP.md), documenting which bootstrap, campaign, and mailbox contracts are protocol-owned, which downstream shadow structs should converge on those contracts, and which wrappers are intentionally runtime- or reporting-local.
 - Completed Initiative 3 `Schema Ownership Cleanup`; downstream adoption now has an explicit ownership map for protocol-owned contracts versus intentional local wrappers.
 
-## In Progress
-
-- Keep the protocol schema aligned while downstream repos move bootstrap machine contracts off JSON-primary artifacts.
-
 ## Remaining
+- None in this repo.
 
-## Goal
-
-- Finish the remaining protocol/schema ownership work for protobuf-first bootstrap and campaign contracts.
+## Follow-On Backlog
 
 - None in this repo.
