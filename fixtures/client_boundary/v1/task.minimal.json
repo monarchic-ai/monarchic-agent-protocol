@@ -1,0 +1,45 @@
+{
+  "version": "v1",
+  "task_id": "dev-task-001",
+  "role": "dev",
+  "role_id": "dev",
+  "goal": "Implement the feature",
+  "inputs": {
+    "notes": "keep it small"
+  },
+  "constraints": {
+    "network": "restricted"
+  },
+  "gates_required": [
+    "ready-for-review"
+  ],
+  "run_context": {
+    "version": "v1",
+    "repo": "/tmp/repo",
+    "worktree": "/tmp/worktree",
+    "image": "local",
+    "runner": "monarch",
+    "labels": [
+      "generated"
+    ],
+    "extensions": {}
+  },
+  "interaction_mode": "noninteractive",
+  "interactive": false,
+  "required_mcps": [
+    {
+      "id": "repo-intel",
+      "purpose": "browse repository context"
+    }
+  ],
+  "extensions": {
+    "interaction_mode": "noninteractive",
+    "interactive": false,
+    "required_mcps": [
+      {
+        "id": "repo-intel",
+        "purpose": "browse repository context"
+      }
+    ]
+  }
+}

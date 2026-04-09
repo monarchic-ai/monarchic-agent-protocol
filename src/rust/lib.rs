@@ -9,6 +9,7 @@ mod plan;
 mod receipt;
 mod review;
 mod service;
+mod task;
 mod version;
 
 pub const PROTOCOL_VERSION: &str = "v1";
@@ -36,6 +37,7 @@ pub mod client_boundary {
         RerunSelectionStrategy, RerunTrigger, ReviewDecision, ReviewDecisionScope,
         ReviewDisposition,
     };
+    pub use crate::task::{Task, TaskMcpBinding, TaskRunContext};
     pub use crate::version::CLIENT_BOUNDARY_CONTRACT_VERSION;
 }
 

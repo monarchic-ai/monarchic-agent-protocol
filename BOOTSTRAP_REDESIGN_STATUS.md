@@ -22,6 +22,8 @@ Last updated: 2026-04-09
   - `campaign_goal`
   - `task_milestone`
 - Added a canonical campaign pipeline protocol contract plus client-boundary fixture coverage, so downstream repos now have an explicit schema anchor for the machine-owned campaign pipeline artifact instead of relying only on local mirrored `PipelineSpec` shapes.
+- Added a protocol-owned canonical task client boundary plus fixture coverage around the existing `Task` wire contract, so downstream repos now have an explicit schema anchor for machine-owned campaign task artifacts and compatibility-only JSON fields stay secondary to `extensions`.
+- Completed Initiative 1 `Campaign-Spec Protocol Completion`; canonical campaign pipeline and task contracts now have explicit protocol-owned schema anchors.
 
 ## In Progress
 
@@ -32,20 +34,6 @@ Last updated: 2026-04-09
 ## Goal
 
 - Finish the remaining protocol/schema ownership work for protobuf-first bootstrap and campaign contracts.
-
-### Initiative 1: Campaign-Spec Protocol Completion
-
-- Milestone: canonical campaign outputs have explicit protocol contracts.
-  - Task: add canonical campaign pipeline protocol messages.
-    - Subtasks:
-      - completed: audited downstream ad hoc campaign-pipeline contract shapes already mirrored outside the protocol repo
-      - completed: defined stable protobuf message names and fields for the canonical pipeline contract
-      - completed: added encoding/decoding boundary coverage for the new pipeline messages
-  - Task: add canonical task-output protocol messages where downstream repos still rely on local mirrored shapes.
-    - Subtasks:
-      - identify task fields that should move from downstream local mirrors into the protocol schema
-      - keep JSON compatibility wrappers explicitly secondary to protobuf ownership
-      - add fixture coverage proving protobuf is the machine-owned form
 
 ### Initiative 2: Bootstrap Planning Contract Completion
 
