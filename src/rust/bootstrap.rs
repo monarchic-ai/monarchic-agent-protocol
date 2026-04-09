@@ -69,3 +69,164 @@ pub struct BootstrapPlan {
     pub created_at_ms: u64,
     pub tasks: Vec<BootstrapPlanTask>,
 }
+
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, Default)]
+#[serde(deny_unknown_fields)]
+pub struct BootstrapFilesystemPolicy {
+    #[serde(default)]
+    pub read: Vec<String>,
+    #[serde(default)]
+    pub write: Vec<String>,
+    #[serde(default)]
+    pub execute: Vec<String>,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct BootstrapSkillBinding {
+    pub id: String,
+    #[serde(default)]
+    pub required: bool,
+    #[serde(default)]
+    pub purpose: String,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct BootstrapTemplateSlotContext {
+    pub slot_id: String,
+    pub display_name: String,
+    pub role: String,
+    pub interaction_mode: String,
+    pub network_mode: String,
+    pub requires_human_review: bool,
+    pub filesystem_policy: BootstrapFilesystemPolicy,
+    #[serde(default)]
+    pub required_skills: Vec<BootstrapSkillBinding>,
+    #[serde(default)]
+    pub required_mcps: Vec<String>,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct BootstrapTemplateConnectionContext {
+    pub from_slot_id: String,
+    pub to_slot_id: String,
+    pub kind: String,
+    #[serde(default)]
+    pub required: bool,
+    #[serde(default)]
+    pub description: Option<String>,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct BootstrapTemplateLaneContext {
+    pub lane_id: String,
+    pub display_name: String,
+    pub from_slot_id: String,
+    pub to_slot_id: String,
+    #[serde(default)]
+    pub slot_ids: Vec<String>,
+    #[serde(default)]
+    pub repeat_per_task_group: bool,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct BootstrapTemplateContext {
+    pub template_id: String,
+    pub display_name: String,
+    #[serde(default)]
+    pub slots: Vec<BootstrapTemplateSlotContext>,
+    #[serde(default)]
+    pub connections: Vec<BootstrapTemplateConnectionContext>,
+    #[serde(default)]
+    pub lanes: Vec<BootstrapTemplateLaneContext>,
+}
+
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(try_from = "BootstrapPlanningContextUnchecked", deny_unknown_fields)]
+pub struct BootstrapPlanningContext {
+    pub project_key: String,
+    pub target_repo: String,
+    #[serde(default)]
+    pub target_repos: Vec<String>,
+    pub campaign_goal: String,
+    #[serde(default)]
+    pub notes: Option<String>,
+    pub priority_profile: String,
+    #[serde(default)]
+    pub codex_cmd: Vec<String>,
+    #[serde(default)]
+    pub available_skill_ids: Vec<String>,
+    #[serde(default)]
+    pub selected_template: Option<BootstrapTemplateContext>,
+    pub planning_mode: BootstrapPlanningMode,
+}
+
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+struct BootstrapPlanningContextUnchecked {
+    pub project_key: String,
+    pub target_repo: String,
+    #[serde(default)]
+    pub target_repos: Vec<String>,
+    pub campaign_goal: String,
+    #[serde(default)]
+    pub notes: Option<String>,
+    pub priority_profile: String,
+    #[serde(default)]
+    pub codex_cmd: Vec<String>,
+    #[serde(default)]
+    pub available_skill_ids: Vec<String>,
+    #[serde(default)]
+    pub selected_template: Option<BootstrapTemplateContext>,
+    #[serde(default)]
+    pub planning_mode: BootstrapPlanningMode,
+}
+
+impl TryFrom<BootstrapPlanningContextUnchecked> for BootstrapPlanningContext {
+    type Error = String;
+
+    fn try_from(value: BootstrapPlanningContextUnchecked) -> Result<Self, Self::Error> {
+        if value.project_key.trim().is_empty() {
+            return Err(String::from(
+                "bootstrap_planning_context project_key must not be empty",
+            ));
+        }
+        if value.target_repo.trim().is_empty() {
+            return Err(String::from(
+                "bootstrap_planning_context target_repo must not be empty",
+            ));
+        }
+        if value.campaign_goal.trim().is_empty() {
+            return Err(String::from(
+                "bootstrap_planning_context campaign_goal must not be empty",
+            ));
+        }
+        if value.priority_profile.trim().is_empty() {
+            return Err(String::from(
+                "bootstrap_planning_context priority_profile must not be empty",
+            ));
+        }
+        if value.planning_mode == BootstrapPlanningMode::Unspecified {
+            return Err(String::from(
+                "bootstrap_planning_context planning_mode must not be unspecified",
+            ));
+        }
+
+        Ok(Self {
+            project_key: value.project_key,
+            target_repo: value.target_repo,
+            target_repos: value.target_repos,
+            campaign_goal: value.campaign_goal,
+            notes: value.notes,
+            priority_profile: value.priority_profile,
+            codex_cmd: value.codex_cmd,
+            available_skill_ids: value.available_skill_ids,
+            selected_template: value.selected_template,
+            planning_mode: value.planning_mode,
+        })
+    }
+}

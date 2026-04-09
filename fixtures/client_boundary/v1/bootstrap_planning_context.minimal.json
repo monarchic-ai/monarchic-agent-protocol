@@ -1,0 +1,47 @@
+{
+  "project_key": "monarchic-tui",
+  "target_repo": "/home/midischwarz12/Projects/monarchic-ai/monarchic-tui/monarchic-tui",
+  "target_repos": [
+    "/home/midischwarz12/Projects/monarchic-ai/monarchic-tui/monarchic-tui"
+  ],
+  "campaign_goal": "Add dedicated MCP catalog management to the TUI.",
+  "notes": "Prefer the local MCP catalog if no packaged support is configured.",
+  "priority_profile": "standard",
+  "codex_cmd": [
+    "codex"
+  ],
+  "available_skill_ids": [
+    "repo-intel"
+  ],
+  "selected_template": {
+    "template_id": "single-dev",
+    "display_name": "Single Developer",
+    "slots": [
+      {
+        "slot_id": "dev-slot",
+        "display_name": "Developer",
+        "role": "dev",
+        "interaction_mode": "noninteractive",
+        "network_mode": "restricted",
+        "requires_human_review": false,
+        "filesystem_policy": {
+          "read": [
+            "*"
+          ],
+          "write": [
+            "src/**",
+            "tests/**"
+          ],
+          "execute": []
+        },
+        "required_skills": [],
+        "required_mcps": [
+          "repo-intel"
+        ]
+      }
+    ],
+    "connections": [],
+    "lanes": []
+  },
+  "planning_mode": "direct_template_fill"
+}

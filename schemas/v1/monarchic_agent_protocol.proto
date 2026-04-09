@@ -249,6 +249,7 @@ message BootstrapPlanningContext {
   repeated string codex_cmd = 8;
   repeated string available_skill_ids = 9;
   optional BootstrapTemplateContext selected_template = 10;
+  BootstrapPlanningMode planning_mode = 11;
 }
 
 enum CampaignPipelineConnectionKind {

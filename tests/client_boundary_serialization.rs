@@ -1,10 +1,10 @@
 use std::{fs, path::PathBuf};
 
 use monarchic_agent_protocol::client_boundary::{
-    ArtifactDescriptor, BlockedOutcome, BootstrapIntent, BootstrapPlan, BootstrapPlanningMode,
-    CampaignPipelineSpec, DigestManifest, ExecutionReceipt, Intent, IntentClass, Plan, PlanStep,
-    PrLifecycleState, RerunExecutionResult, RerunScope, ReviewDecision, RunEventRecord, Task,
-    VerificationReceipt,
+    ArtifactDescriptor, BlockedOutcome, BootstrapIntent, BootstrapPlan, BootstrapPlanningContext,
+    BootstrapPlanningMode, CampaignPipelineSpec, DigestManifest, ExecutionReceipt, Intent,
+    IntentClass, Plan, PlanStep, PrLifecycleState, RerunExecutionResult, RerunScope,
+    ReviewDecision, RunEventRecord, Task, VerificationReceipt,
 };
 use serde::{de::DeserializeOwned, Serialize};
 use serde_json::Value;
@@ -59,6 +59,13 @@ fn bootstrap_plan_fixture_round_trips_canonically() {
 }
 
 #[test]
+fn bootstrap_planning_context_fixture_round_trips_canonically() {
+    assert_fixture_round_trip::<BootstrapPlanningContext>(
+        "bootstrap_planning_context.minimal.json",
+    );
+}
+
+#[test]
 fn campaign_pipeline_spec_fixture_round_trips_canonically() {
     assert_fixture_round_trip::<CampaignPipelineSpec>("campaign_pipeline_spec.minimal.json");
 }
@@ -108,6 +115,28 @@ fn bootstrap_plan_rejects_invalid_planning_mode() {
 fn bootstrap_plan_uses_typed_planning_mode() {
     let value = load_fixture_value("bootstrap_plan.minimal.json");
     let parsed: BootstrapPlan = serde_json::from_value(value).expect("deserialize bootstrap plan");
+
+    assert_eq!(
+        parsed.planning_mode,
+        BootstrapPlanningMode::DirectTemplateFill
+    );
+}
+
+#[test]
+fn bootstrap_planning_context_rejects_missing_planning_mode() {
+    let mut value = load_fixture_value("bootstrap_planning_context.minimal.json");
+    value
+        .as_object_mut()
+        .expect("bootstrap planning context object")
+        .remove("planning_mode");
+    assert!(serde_json::from_value::<BootstrapPlanningContext>(value).is_err());
+}
+
+#[test]
+fn bootstrap_planning_context_uses_typed_planning_mode() {
+    let value = load_fixture_value("bootstrap_planning_context.minimal.json");
+    let parsed: BootstrapPlanningContext =
+        serde_json::from_value(value).expect("deserialize bootstrap planning context");
 
     assert_eq!(
         parsed.planning_mode,
