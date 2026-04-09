@@ -3,7 +3,7 @@ use std::{fs, path::PathBuf};
 use monarchic_agent_protocol::client_boundary::{
     ArtifactDescriptor, BlockedOutcome, BootstrapIntent, BootstrapPlan, CampaignPipelineSpec,
     DigestManifest, ExecutionReceipt, Intent, IntentClass, Plan, PlanStep, PrLifecycleState,
-    RerunExecutionResult, RerunScope, ReviewDecision, RunEventRecord, VerificationReceipt,
+    RerunExecutionResult, RerunScope, ReviewDecision, RunEventRecord, Task, VerificationReceipt,
 };
 use serde::{de::DeserializeOwned, Serialize};
 use serde_json::Value;
@@ -63,6 +63,11 @@ fn campaign_pipeline_spec_fixture_round_trips_canonically() {
 }
 
 #[test]
+fn task_fixture_round_trips_canonically() {
+    assert_fixture_round_trip::<Task>("task.minimal.json");
+}
+
+#[test]
 fn intent_defaults_to_unspecified_class_when_missing() {
     let mut value = load_fixture_value("intent.minimal.json");
     value
@@ -99,6 +104,23 @@ fn campaign_pipeline_spec_rejects_missing_task_artifact() {
         .expect("campaign pipeline task object")
         .remove("task_artifact");
     assert!(serde_json::from_value::<CampaignPipelineSpec>(value).is_err());
+}
+
+#[test]
+fn task_rejects_missing_task_id() {
+    let mut value = load_fixture_value("task.minimal.json");
+    value
+        .as_object_mut()
+        .expect("task object")
+        .remove("task_id");
+    assert!(serde_json::from_value::<Task>(value).is_err());
+}
+
+#[test]
+fn task_rejects_mismatched_required_mcps_between_top_level_and_extensions() {
+    let mut value = load_fixture_value("task.minimal.json");
+    value["required_mcps"][0]["id"] = Value::String(String::from("repo-graph"));
+    assert!(serde_json::from_value::<Task>(value).is_err());
 }
 
 #[test]
