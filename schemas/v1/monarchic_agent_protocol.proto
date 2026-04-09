@@ -244,6 +244,64 @@ message BootstrapPlanningContext {
   repeated string available_skill_ids = 9;
   optional BootstrapTemplateContext selected_template = 10;
 }
+
+enum CampaignPipelineConnectionKind {
+  CAMPAIGN_PIPELINE_CONNECTION_KIND_UNSPECIFIED = 0;
+  CAMPAIGN_PIPELINE_CONNECTION_KIND_DEPENDS_ON = 1;
+  CAMPAIGN_PIPELINE_CONNECTION_KIND_HANDOFF = 2;
+  CAMPAIGN_PIPELINE_CONNECTION_KIND_REVIEW = 3;
+  CAMPAIGN_PIPELINE_CONNECTION_KIND_MESSAGE_ROUTE = 4;
+  CAMPAIGN_PIPELINE_CONNECTION_KIND_ARTIFACT_FLOW = 5;
+}
+
+message CampaignPipelineTaskRef {
+  string task_id = 1;
+  string task_artifact = 2;
+  optional string role_id = 3;
+  optional string task_milestone = 4;
+  optional string task_format = 5;
+  repeated string depends_on = 6;
+  repeated string runner_args = 7;
+  optional string interaction_mode = 8;
+  optional string network_mode = 9;
+  bool requires_human_review = 10;
+  BootstrapFilesystemPolicy filesystem_policy = 11;
+  repeated BootstrapSkillBinding required_skills = 12;
+  repeated string required_mcp_ids = 13;
+}
+
+message CampaignPipelineConnection {
+  string from_task_id = 1;
+  string to_task_id = 2;
+  CampaignPipelineConnectionKind kind = 3;
+  bool required = 4;
+  optional string description = 5;
+}
+
+message CampaignPipelineGate {
+  string name = 1;
+  repeated string command = 2;
+  optional string workdir = 3;
+}
+
+message CampaignPipelineGatePolicy {
+  bool require_standard = 1;
+  repeated CampaignPipelineGate required_gates = 2;
+}
+
+message CampaignPipelineSpec {
+  string contract_version = 1;
+  string pipeline_id = 2;
+  string version = 3;
+  optional string objective = 4;
+  optional string project_key = 5;
+  bool continue_on_error = 6;
+  optional CampaignPipelineGatePolicy gate_policy = 7;
+  google.protobuf.Struct metadata = 8;
+  repeated CampaignPipelineConnection connections = 9;
+  repeated CampaignPipelineTaskRef tasks = 10;
+}
+
 enum PlanStatus {
   PLAN_STATUS_UNSPECIFIED = 0;
   DRAFT = 1;
