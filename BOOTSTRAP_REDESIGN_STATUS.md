@@ -26,6 +26,8 @@ Last updated: 2026-04-09
 - Completed Initiative 1 `Campaign-Spec Protocol Completion`; canonical campaign pipeline and task contracts now have explicit protocol-owned schema anchors.
 - Added an explicit `BootstrapPlanningMode` protocol enum and adopted it in the canonical bootstrap plan contract, so planning-mode ownership is no longer stringly typed at the protocol boundary.
 - Added a protocol-owned bootstrap planning-context client boundary plus typed `planning_mode`, so downstream repos now have an explicit schema anchor for direct-vs-bounded planning context instead of inferring that mode only from local runtime heuristics.
+- Added a typed `TaskMessageKind` protocol enum plus client-boundary fixture coverage for clarification messages, so machine-readable clarification flow no longer depends on ad hoc string `kind` values.
+- Completed Initiative 2 `Bootstrap Planning Contract Completion`; planning mode and clarification messaging are now explicit at the protocol boundary, and no separate refusal result contract is needed until downstream runtime introduces one.
 
 ## In Progress
 
@@ -36,19 +38,6 @@ Last updated: 2026-04-09
 ## Goal
 
 - Finish the remaining protocol/schema ownership work for protobuf-first bootstrap and campaign contracts.
-
-### Initiative 2: Bootstrap Planning Contract Completion
-
-- Milestone: fast-path vs bounded/template-constrained planning is fully explicit in protocol.
-  - Task: tighten planning-mode protocol ownership.
-    - Subtasks:
-      - completed: audited downstream planning-mode normalization that still compensates for schema gaps
-      - completed: added enums/messages where planning outcomes are still implicit or alias-driven
-      - completed: kept legacy alias normalization explicit and narrow
-  - Task: formalize clarification/refusal outcomes if they remain runtime-local.
-    - Subtasks:
-      - identify machine-readable clarification requirements that should be part of the protocol
-      - define explicit result messages only if downstream runtime behavior still depends on local ad hoc shapes
 
 ### Initiative 3: Schema Ownership Cleanup
 

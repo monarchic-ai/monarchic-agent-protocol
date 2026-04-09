@@ -4,7 +4,7 @@ use monarchic_agent_protocol::client_boundary::{
     ArtifactDescriptor, BlockedOutcome, BootstrapIntent, BootstrapPlan, BootstrapPlanningContext,
     BootstrapPlanningMode, CampaignPipelineSpec, DigestManifest, ExecutionReceipt, Intent,
     IntentClass, Plan, PlanStep, PrLifecycleState, RerunExecutionResult, RerunScope,
-    ReviewDecision, RunEventRecord, Task, VerificationReceipt,
+    ReviewDecision, RunEventRecord, Task, TaskMessage, TaskMessageKind, VerificationReceipt,
 };
 use serde::{de::DeserializeOwned, Serialize};
 use serde_json::Value;
@@ -76,6 +76,11 @@ fn task_fixture_round_trips_canonically() {
 }
 
 #[test]
+fn task_message_fixture_round_trips_canonically() {
+    assert_fixture_round_trip::<TaskMessage>("task_message.clarification_request.json");
+}
+
+#[test]
 fn intent_defaults_to_unspecified_class_when_missing() {
     let mut value = load_fixture_value("intent.minimal.json");
     value
@@ -142,6 +147,28 @@ fn bootstrap_planning_context_uses_typed_planning_mode() {
         parsed.planning_mode,
         BootstrapPlanningMode::DirectTemplateFill
     );
+}
+
+#[test]
+fn task_message_rejects_invalid_kind() {
+    let mut value = load_fixture_value("task_message.clarification_request.json");
+    value["kind"] = Value::String(String::from("clarification_reply"));
+    assert!(serde_json::from_value::<TaskMessage>(value).is_err());
+}
+
+#[test]
+fn task_message_reply_to_requires_clarification_response_kind() {
+    let mut value = load_fixture_value("task_message.clarification_request.json");
+    value["reply_to"] = Value::String(String::from("msg-1"));
+    assert!(serde_json::from_value::<TaskMessage>(value).is_err());
+}
+
+#[test]
+fn task_message_uses_typed_kind() {
+    let value = load_fixture_value("task_message.clarification_request.json");
+    let parsed: TaskMessage = serde_json::from_value(value).expect("deserialize task message");
+
+    assert_eq!(parsed.kind, TaskMessageKind::ClarificationRequest);
 }
 
 #[test]
