@@ -1,0 +1,92 @@
+{
+  "pipeline_id": "campaign-pipeline-001",
+  "version": "v1",
+  "objective": "Land the MCP catalog workflow end to end.",
+  "project_key": "monarchic-tui",
+  "continue_on_error": false,
+  "gate_policy": {
+    "require_standard": true,
+    "required_gates": [
+      {
+        "name": "cargo-test",
+        "command": [
+          "cargo",
+          "test"
+        ],
+        "workdir": "."
+      }
+    ]
+  },
+  "metadata": {
+    "intent_id": "bootstrap-intent-001",
+    "planner_version": "bootstrap-deterministic-v1"
+  },
+  "connections": [
+    {
+      "from_task_id": "dev-task-001",
+      "to_task_id": "qa-task-001",
+      "kind": "review",
+      "required": true,
+      "description": "QA validates the MCP catalog flow after implementation."
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "dev-task-001",
+      "task_artifact": "tasks/dev-task-001.pb",
+      "role_id": "dev",
+      "task_milestone": "Implement the MCP catalog workflow.",
+      "task_format": "proto",
+      "depends_on": [],
+      "runner_args": [],
+      "interaction_mode": "noninteractive",
+      "network_mode": "restricted",
+      "requires_human_review": false,
+      "filesystem_policy": {
+        "execute": [],
+        "read": [
+          "*"
+        ],
+        "write": [
+          "src/**",
+          "tests/**"
+        ]
+      },
+      "required_skills": [
+        {
+          "id": "repo-intel",
+          "required": true,
+          "purpose": "Inspect the existing MCP catalog implementation."
+        }
+      ],
+      "required_mcp_ids": [
+        "repo-intel"
+      ]
+    },
+    {
+      "task_id": "qa-task-001",
+      "task_artifact": "tasks/qa-task-001.pb",
+      "role_id": "qa",
+      "task_milestone": "Verify the MCP catalog workflow.",
+      "task_format": "proto",
+      "depends_on": [
+        "dev-task-001"
+      ],
+      "runner_args": [],
+      "interaction_mode": "noninteractive",
+      "network_mode": "restricted",
+      "requires_human_review": false,
+      "filesystem_policy": {
+        "execute": [],
+        "read": [
+          "*"
+        ],
+        "write": [
+          "tests/**"
+        ]
+      },
+      "required_skills": [],
+      "required_mcp_ids": []
+    }
+  ]
+}

@@ -1,9 +1,9 @@
 use std::{fs, path::PathBuf};
 
 use monarchic_agent_protocol::client_boundary::{
-    ArtifactDescriptor, BlockedOutcome, BootstrapIntent, BootstrapPlan, DigestManifest,
-    ExecutionReceipt, Intent, IntentClass, Plan, PlanStep, PrLifecycleState, RerunExecutionResult,
-    RerunScope, ReviewDecision, RunEventRecord, VerificationReceipt,
+    ArtifactDescriptor, BlockedOutcome, BootstrapIntent, BootstrapPlan, CampaignPipelineSpec,
+    DigestManifest, ExecutionReceipt, Intent, IntentClass, Plan, PlanStep, PrLifecycleState,
+    RerunExecutionResult, RerunScope, ReviewDecision, RunEventRecord, VerificationReceipt,
 };
 use serde::{de::DeserializeOwned, Serialize};
 use serde_json::Value;
@@ -58,6 +58,11 @@ fn bootstrap_plan_fixture_round_trips_canonically() {
 }
 
 #[test]
+fn campaign_pipeline_spec_fixture_round_trips_canonically() {
+    assert_fixture_round_trip::<CampaignPipelineSpec>("campaign_pipeline_spec.minimal.json");
+}
+
+#[test]
 fn intent_defaults_to_unspecified_class_when_missing() {
     let mut value = load_fixture_value("intent.minimal.json");
     value
@@ -84,6 +89,16 @@ fn bootstrap_plan_rejects_missing_task_milestone() {
         .expect("bootstrap plan task object")
         .remove("task_milestone");
     assert!(serde_json::from_value::<BootstrapPlan>(value).is_err());
+}
+
+#[test]
+fn campaign_pipeline_spec_rejects_missing_task_artifact() {
+    let mut value = load_fixture_value("campaign_pipeline_spec.minimal.json");
+    value["tasks"][0]
+        .as_object_mut()
+        .expect("campaign pipeline task object")
+        .remove("task_artifact");
+    assert!(serde_json::from_value::<CampaignPipelineSpec>(value).is_err());
 }
 
 #[test]
