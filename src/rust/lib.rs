@@ -5,6 +5,7 @@ mod bootstrap;
 mod campaign;
 mod event;
 mod intent;
+mod message;
 mod plan;
 mod receipt;
 mod review;
@@ -30,6 +31,7 @@ pub mod client_boundary {
     };
     pub use crate::event::{RunEventRecord, RunEventStream};
     pub use crate::intent::{Intent, IntentClass};
+    pub use crate::message::{TaskMessage, TaskMessageKind};
     pub use crate::plan::{
         Plan, PlanStep, PlanStepKind, ReplanPolicy, ReplanStrategy, StepOutputExpectation,
     };
@@ -98,6 +100,6 @@ pub use monarchic::agent_protocol::v1::{
     ResumeLeaseResponse, ReviewDecision, ReviewDecisionScope, ReviewDisposition, RoleProvenance,
     RunContext, RunEventRecord, RunEventStream, RunLifecycleState, RunOperatorSignals,
     RunnerCapabilities, StepLifecycleState, StepOutputExpectation, Task, TaskMessage,
-    TaskMessageAck, TenantRef, UsageCategory, UsageRecord, UsageUnit, VerificationCheck,
-    VerificationCheckStatus, VerificationReceipt, VerificationStatus,
+    TaskMessageAck, TaskMessageKind, TenantRef, UsageCategory, UsageRecord, UsageUnit,
+    VerificationCheck, VerificationCheckStatus, VerificationReceipt, VerificationStatus,
 };

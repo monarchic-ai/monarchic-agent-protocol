@@ -747,13 +747,20 @@ message RunEventRecord {
   repeated string artifact_ids = 13;
 }
 
+enum TaskMessageKind {
+  TASK_MESSAGE_KIND_UNSPECIFIED = 0;
+  TASK_MESSAGE_KIND_ARTIFACT_READY = 1;
+  TASK_MESSAGE_KIND_CLARIFICATION_REQUEST = 2;
+  TASK_MESSAGE_KIND_CLARIFICATION_RESPONSE = 3;
+}
+
 message TaskMessage {
   string version = 1;
   string message_id = 2;
   string run_id = 3;
   string from_task_id = 4;
   string to_task_id = 5;
-  string kind = 6;
+  TaskMessageKind kind = 6;
   optional string subject = 7;
   optional string body = 8;
   repeated string artifact_refs = 9;
