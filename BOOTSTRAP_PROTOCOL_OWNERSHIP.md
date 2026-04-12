@@ -51,7 +51,7 @@ adopted downstream.
 
 ### `libmonarchic`
 
-File: [campaign_contracts.rs](/home/midischwarz12/Projects/monarchic-ai/libmonarchic/libmonarchic/src/campaign_contracts.rs)
+File: [campaign_contracts.rs](https://github.com/monarchic-ai/libmonarchic/blob/main/src/campaign_contracts.rs)
 
 - `CampaignTaskContract`
 - `CampaignSkillBinding`
@@ -60,7 +60,7 @@ Reason:
 - these mirror canonical task and required-skill fields now owned by
   `Task` and `CampaignPipelineTaskRef`
 
-File: [bootstrap_plan.rs](/home/midischwarz12/Projects/monarchic-ai/libmonarchic/libmonarchic/src/bootstrap_plan.rs)
+File: [bootstrap_plan.rs](https://github.com/monarchic-ai/libmonarchic/blob/main/src/bootstrap_plan.rs)
 
 - `BootstrapPlanningContext`
 - `BootstrapTemplateContext`
@@ -74,7 +74,7 @@ Reason:
 
 ### `monarchic-tui`
 
-File: [pipeline.rs](/home/midischwarz12/Projects/monarchic-ai/monarchic-tui/monarchic-tui/crates/monarchic-tui-client/src/pipeline.rs)
+File: [pipeline.rs](https://github.com/monarchic-ai/monarchic-tui/blob/main/crates/monarchic-tui-client/src/pipeline.rs)
 
 - `PipelineSpec`
 - `PipelineTask`
@@ -92,7 +92,7 @@ Reason:
 
 ### `monarchic-orchestrator`
 
-File: [main.rs](/home/midischwarz12/Projects/monarchic-ai/monarchic-orchestrator/monarchic-orchestrator/src/main.rs)
+File: [main.rs](https://github.com/monarchic-ai/monarchic-orchestrator-archive/blob/main/src/main.rs)
 
 - `TaskMailboxMessage`
 - `TaskMailboxAck`

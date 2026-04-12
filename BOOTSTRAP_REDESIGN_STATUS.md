@@ -28,7 +28,7 @@ Last updated: 2026-04-09
 - Added a protocol-owned bootstrap planning-context client boundary plus typed `planning_mode`, so downstream repos now have an explicit schema anchor for direct-vs-bounded planning context instead of inferring that mode only from local runtime heuristics.
 - Added a typed `TaskMessageKind` protocol enum plus client-boundary fixture coverage for clarification messages, so machine-readable clarification flow no longer depends on ad hoc string `kind` values.
 - Completed Initiative 2 `Bootstrap Planning Contract Completion`; planning mode and clarification messaging are now explicit at the protocol boundary, and no separate refusal result contract is needed until downstream runtime introduces one.
-- Added [BOOTSTRAP_PROTOCOL_OWNERSHIP.md](/home/midischwarz12/Projects/monarchic-ai/monarchic-agent-protocol/monarchic-agent-protocol/BOOTSTRAP_PROTOCOL_OWNERSHIP.md), documenting which bootstrap, campaign, and mailbox contracts are protocol-owned, which downstream shadow structs should converge on those contracts, and which wrappers are intentionally runtime- or reporting-local.
+- Added [BOOTSTRAP_PROTOCOL_OWNERSHIP.md](BOOTSTRAP_PROTOCOL_OWNERSHIP.md), documenting which bootstrap, campaign, and mailbox contracts are protocol-owned, which downstream shadow structs should converge on those contracts, and which wrappers are intentionally runtime- or reporting-local.
 - Completed Initiative 3 `Schema Ownership Cleanup`; downstream adoption now has an explicit ownership map for protocol-owned contracts versus intentional local wrappers.
 
 ## Remaining

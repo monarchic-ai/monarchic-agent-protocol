@@ -1,6 +1,6 @@
 {
   "completion_contract": {
-    "proof_file": "/home/midischwarz12/Projects/monarchic-ai/monarchic-agent-protocol/monarchic-agent-protocol/.monarchic/spec-workspace/analyze-1774924340019/worktree/.monarchic/scribe-proof.json",
+    "proof_file": "<repo-root>/.monarchic/spec-workspace/analyze-1774924340019/worktree/.monarchic/scribe-proof.json",
     "quiet_seconds": 1,
     "required_status": "pass"
   },
@@ -8,12 +8,12 @@
     "network": "offline"
   },
   "gates_required": [],
-  "goal": "Inspect the repository at /home/midischwarz12/Projects/monarchic-ai/monarchic-agent-protocol/monarchic-agent-protocol and create a canonical AGENTS.md that matches Monarch's specification field format.",
+  "goal": "Inspect the repository at <repo-root> and create a canonical AGENTS.md that matches Monarch's specification field format.",
   "inputs": {
     "specification": {
       "mode": "analyze",
-      "repo_path": "/home/midischwarz12/Projects/monarchic-ai/monarchic-agent-protocol/monarchic-agent-protocol",
-      "target_agents_path": "/home/midischwarz12/Projects/monarchic-ai/monarchic-agent-protocol/monarchic-agent-protocol/AGENTS.md"
+      "repo_path": "<repo-root>",
+      "target_agents_path": "<repo-root>/AGENTS.md"
     }
   },
   "role": "scribe",
@@ -24,10 +24,10 @@
       "scribe",
       "analyze"
     ],
-    "repo": "/home/midischwarz12/Projects/monarchic-ai/monarchic-agent-protocol/monarchic-agent-protocol",
+    "repo": "<repo-root>",
     "runner": "host",
     "version": "v1",
-    "worktree": "/home/midischwarz12/Projects/monarchic-ai/monarchic-agent-protocol/monarchic-agent-protocol/.monarchic/spec-workspace/analyze-1774924340019/worktree"
+    "worktree": "<repo-root>/.monarchic/spec-workspace/analyze-1774924340019/worktree"
   },
   "task_id": "spec-scribe-analyze",
   "version": "v1"
