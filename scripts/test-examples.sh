@@ -69,7 +69,7 @@ if command -v g++ >/dev/null 2>&1; then
   fi
   if ! g++ -std=c++17 -I "${tmp_dir}/cpp" examples/proto/cpp/task.cpp \
     "${tmp_dir}/cpp/monarchic_agent_protocol.pb.cc" \
-    "${cpp_flags[@]}" -pthread -o /tmp/monarchic-agent-protocol-example-cpp; then
+    "${cpp_flags[@]}" -pthread -o "${tmp_dir}/monarchic-agent-protocol-example-cpp"; then
     echo "Skipping C++ example (link failed)"
   fi
 else
