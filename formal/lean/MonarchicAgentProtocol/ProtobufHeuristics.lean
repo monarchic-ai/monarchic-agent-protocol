@@ -391,6 +391,30 @@ theorem active_authority_trace_preserves_authority
                     simp [authorityPreserved, hBefore, hAfter]
                     exact ⟨hRun1.trans hRun2, hStep1.trans hStep2, hTask1.trans hTask2⟩
 
+theorem authority_preserved_excludes_competing_authority
+    {before after : ProtoControlPlaneState} :
+    authorityPreserved before after →
+    ¬ competingAuthority before after := by
+  intro hPreserved hCompeting
+  cases hBefore : before.activeLease? <;> cases hAfter : after.activeLease?
+  · simp [competingAuthority, hBefore, hAfter] at hCompeting
+  · simp [competingAuthority, hBefore, hAfter] at hCompeting
+  · simp [competingAuthority, hBefore, hAfter] at hCompeting
+  · rcases (by simpa [authorityPreserved, hBefore, hAfter] using hPreserved) with
+      ⟨hRun, hStep, hTask⟩
+    rcases (by simpa [competingAuthority, hBefore, hAfter] using hCompeting) with
+      ⟨hRun', hStep', hTaskNe⟩
+    exact hTaskNe hTask
+
+theorem active_authority_trace_excludes_competing_authority
+    {start finish : ProtoControlPlaneState}
+    {events : List ProtoControlPlaneEvent} :
+    ProtoActiveAuthorityTrace start events finish →
+    ¬ competingAuthority start finish := by
+  intro hTrace
+  exact authority_preserved_excludes_competing_authority
+    (active_authority_trace_preserves_authority hTrace)
+
 def sampleProtoTask : ProtoTask :=
   { version := "v1"
     taskId := "task-001"
@@ -764,6 +788,10 @@ theorem sample_active_authority_trace :
 example :
     authorityPreserved sampleRunningControlPlaneState sampleResumedControlPlaneState := by
   exact active_authority_trace_preserves_authority sample_active_authority_trace
+
+example :
+    ¬ competingAuthority sampleRunningControlPlaneState sampleResumedControlPlaneState := by
+  exact active_authority_trace_excludes_competing_authority sample_active_authority_trace
 
 example :
     controlPlaneStateConsistent sampleCompletedControlPlaneState := by
