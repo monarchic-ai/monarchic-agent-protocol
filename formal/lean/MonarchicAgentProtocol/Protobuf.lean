@@ -170,6 +170,45 @@ inductive ProtoLeaseLifecycleState
   | rejected
 deriving DecidableEq, Repr
 
+def ProtoLeaseLifecycleState.terminal : ProtoLeaseLifecycleState → Bool
+  | .released => true
+  | .expired => true
+  | .cancelled => true
+  | .rejected => true
+  | _ => false
+
+inductive ProtoRunLifecycleTransition : RunLifecycleState → RunLifecycleState → Prop
+  | pendingExecuting : ProtoRunLifecycleTransition .pending .executing
+  | executingPaused : ProtoRunLifecycleTransition .executing .paused
+  | executingCancelling : ProtoRunLifecycleTransition .executing .cancelling
+  | executingFailed : ProtoRunLifecycleTransition .executing .failed
+  | executingComplete : ProtoRunLifecycleTransition .executing .complete
+  | executingBlocked : ProtoRunLifecycleTransition .executing .blocked
+  | pausedExecuting : ProtoRunLifecycleTransition .paused .executing
+  | pausedCancelling : ProtoRunLifecycleTransition .paused .cancelling
+  | cancellingCancelled : ProtoRunLifecycleTransition .cancelling .cancelled
+
+inductive ProtoStepLifecycleTransition : StepLifecycleState → StepLifecycleState → Prop
+  | pendingReady : ProtoStepLifecycleTransition .pending .ready
+  | readyLeased : ProtoStepLifecycleTransition .ready .leased
+  | leasedRunning : ProtoStepLifecycleTransition .leased .running
+  | leasedCancelled : ProtoStepLifecycleTransition .leased .cancelled
+  | leasedBlocked : ProtoStepLifecycleTransition .leased .blocked
+  | runningComplete : ProtoStepLifecycleTransition .running .complete
+  | runningFailed : ProtoStepLifecycleTransition .running .failed
+  | runningCancelled : ProtoStepLifecycleTransition .running .cancelled
+  | runningBlocked : ProtoStepLifecycleTransition .running .blocked
+
+inductive ProtoLeaseLifecycleTransition : ProtoLeaseLifecycleState → ProtoLeaseLifecycleState → Prop
+  | issuedActive : ProtoLeaseLifecycleTransition .issued .active
+  | issuedCancelled : ProtoLeaseLifecycleTransition .issued .cancelled
+  | issuedRejected : ProtoLeaseLifecycleTransition .issued .rejected
+  | issuedExpired : ProtoLeaseLifecycleTransition .issued .expired
+  | activeReleased : ProtoLeaseLifecycleTransition .active .released
+  | activeCancelled : ProtoLeaseLifecycleTransition .active .cancelled
+  | activeRejected : ProtoLeaseLifecycleTransition .active .rejected
+  | activeExpired : ProtoLeaseLifecycleTransition .active .expired
+
 inductive ProtoLeaseRejectionReason
   | unspecified
   | staleFencingToken
@@ -208,6 +247,31 @@ structure ProtoLease where
   expiresAtMs : Nat
   status : ProtoLeaseLifecycleState
 deriving DecidableEq, Repr
+
+structure ProtoLeaseRef where
+  leaseId : String
+  fencingToken : String
+  runId : String
+  planId : String
+  stepId : String
+  taskId : String
+deriving DecidableEq, Repr
+
+def leaseRefWellFormed (leaseRef : ProtoLeaseRef) : Prop :=
+  SafeClientBoundaryId leaseRef.leaseId ∧
+  NonEmptyString leaseRef.fencingToken ∧
+  SafeClientBoundaryId leaseRef.runId ∧
+  SafeClientBoundaryId leaseRef.planId ∧
+  SafeClientBoundaryId leaseRef.stepId ∧
+  SafeClientBoundaryId leaseRef.taskId
+
+def leaseRefMatchesLease (leaseRef : ProtoLeaseRef) (lease : ProtoLease) : Prop :=
+  leaseRef.leaseId = lease.leaseId ∧
+  leaseRef.fencingToken = lease.fencingToken.token ∧
+  leaseRef.runId = lease.runId ∧
+  leaseRef.planId = lease.planId ∧
+  leaseRef.stepId = lease.stepId ∧
+  leaseRef.taskId = lease.taskId
 
 def leaseWellFormed (lease : ProtoLease) : Prop :=
   SafeClientBoundaryId lease.leaseId ∧
@@ -272,5 +336,77 @@ def leaseMatchesPlan (plan : ProtoPlan) (lease : ProtoLease) : Prop :=
   lease.planId = plan.planId ∧
   lease.stepId ∈ plan.stepIds ∧
   lease.taskId ∈ plan.stepTaskIds
+
+def activeLeaseFor (lease : ProtoLease) : String × String :=
+  (lease.runId, lease.stepId)
+
+def atMostOneActiveLeaseOwner (leases : List ProtoLease) : Prop :=
+  ((leases.filter fun lease => lease.status = .active).map activeLeaseFor).Nodup
+
+structure ProtoAcquireLeaseRequest where
+  runnerId : String
+  sessionId : String
+  availableSlots : Nat
+  activeLeaseIds : List String
+deriving DecidableEq, Repr
+
+structure ProtoAcquireLeaseResponse where
+  accepted : Bool
+  assignment? : Option ProtoLease
+  retryAfterMs : Nat
+deriving DecidableEq, Repr
+
+def acquireLeaseResponseConsistent (response : ProtoAcquireLeaseResponse) : Prop :=
+  (response.accepted = true →
+    ∃ lease, response.assignment? = some lease ∧ leaseWellFormed lease ∧
+      (lease.status = .issued ∨ lease.status = .active)) ∧
+  (response.accepted = false → response.assignment?.isNone)
+
+structure ProtoRenewLeaseRequest where
+  runnerId : String
+  sessionId : String
+  leaseRef : ProtoLeaseRef
+deriving DecidableEq, Repr
+
+structure ProtoRenewLeaseResponse where
+  accepted : Bool
+  leaseTtlMs : Nat
+  failure? : Option ProtoLeaseRejectionReason
+deriving DecidableEq, Repr
+
+def renewLeaseResponseConsistent (response : ProtoRenewLeaseResponse) : Prop :=
+  (response.accepted = true → response.failure?.isNone ∧ response.leaseTtlMs > 0) ∧
+  (response.accepted = false → response.failure?.isSome)
+
+structure ProtoResumeLeaseRequest where
+  runnerId : String
+  sessionId : String
+  leaseRef : ProtoLeaseRef
+deriving DecidableEq, Repr
+
+structure ProtoResumeLeaseResponse where
+  accepted : Bool
+  lease? : Option ProtoLease
+  expiresAtMs : Nat
+  currentFencingToken : String
+  reason : ProtoLeaseRejectionReason
+deriving DecidableEq, Repr
+
+def resumeLeaseResponseConsistent (response : ProtoResumeLeaseResponse) : Prop :=
+  (response.accepted = true →
+    ∃ lease, response.lease? = some lease ∧ leaseWellFormed lease ∧
+      response.currentFencingToken = lease.fencingToken.token ∧
+      response.expiresAtMs = lease.expiresAtMs) ∧
+  (response.accepted = false → response.reason ≠ .unspecified)
+
+def outcomeReportAllowed
+    (runState : RunLifecycleState)
+    (stepState : StepLifecycleState)
+    (leaseStatus : ProtoLeaseLifecycleState)
+    (outcomeStatus : ProtoPlanStatus) : Prop :=
+  runState = .executing ∧
+  stepState = .running ∧
+  leaseStatus = .active ∧
+  (outcomeStatus = .complete ∨ outcomeStatus = .failed ∨ outcomeStatus = .cancelled)
 
 end MonarchicAgentProtocol

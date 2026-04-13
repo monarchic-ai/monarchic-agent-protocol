@@ -24,6 +24,10 @@ Current proof targets:
   Lean now models `Task`, `Plan`, `PlanStep`, `ExecutionReceipt`, `VerificationReceipt`, `Lease`, and `RecoveryEvent` directly from the protobuf boundary
 - protobuf cross-message integrity:
   Lean now proves plan/receipt matching, verification receipt linkage over execution receipts, lease-to-plan matching, and recovery-event state admissibility
+- protobuf lifecycle safety:
+  Lean now models allowed run, step, and lease lifecycle transitions and proves there are no transitions out of terminal states
+- protobuf control-plane safety:
+  Lean now models bounded consistency predicates for acquire/renew/resume lease responses and basic outcome-report admissibility
 
 Files:
 

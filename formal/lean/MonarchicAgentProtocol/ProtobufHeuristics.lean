@@ -68,6 +68,73 @@ theorem recovery_run_recovered_requires_run_state
   rcases h with ⟨_, _, _, hRunRule⟩
   exact hRunRule rfl
 
+theorem no_proto_run_transition_from_terminal
+    {src dst : RunLifecycleState} :
+    src.terminal = true →
+    ¬ ProtoRunLifecycleTransition src dst := by
+  intro hTerminal hTransition
+  cases hTransition <;> simp [RunLifecycleState.terminal] at hTerminal
+
+theorem no_proto_step_transition_from_terminal
+    {src dst : StepLifecycleState} :
+    src.terminal = true →
+    ¬ ProtoStepLifecycleTransition src dst := by
+  intro hTerminal hTransition
+  cases hTransition <;> simp [StepLifecycleState.terminal] at hTerminal
+
+theorem no_proto_lease_transition_from_terminal
+    {src dst : ProtoLeaseLifecycleState} :
+    src.terminal = true →
+    ¬ ProtoLeaseLifecycleTransition src dst := by
+  intro hTerminal hTransition
+  cases hTransition <;> simp [ProtoLeaseLifecycleState.terminal] at hTerminal
+
+theorem accepted_acquire_response_has_assignment
+    {response : ProtoAcquireLeaseResponse} :
+    acquireLeaseResponseConsistent response →
+    response.accepted = true →
+    ∃ lease, response.assignment? = some lease := by
+  intro h hAccepted
+  rcases h.1 hAccepted with ⟨lease, hSome, _, _⟩
+  exact ⟨lease, hSome⟩
+
+theorem rejected_acquire_response_has_no_assignment
+    {response : ProtoAcquireLeaseResponse} :
+    acquireLeaseResponseConsistent response →
+    response.accepted = false →
+    response.assignment?.isNone := by
+  intro h hRejected
+  exact h.2 hRejected
+
+theorem accepted_renew_response_has_ttl
+    {response : ProtoRenewLeaseResponse} :
+    renewLeaseResponseConsistent response →
+    response.accepted = true →
+    response.leaseTtlMs > 0 := by
+  intro h hAccepted
+  exact (h.1 hAccepted).2
+
+theorem rejected_renew_response_has_reason
+    {response : ProtoRenewLeaseResponse} :
+    renewLeaseResponseConsistent response →
+    response.accepted = false →
+    response.failure?.isSome := by
+  intro h hRejected
+  exact h.2 hRejected
+
+theorem accepted_resume_response_preserves_fencing_token
+    {response : ProtoResumeLeaseResponse} :
+    resumeLeaseResponseConsistent response →
+    response.accepted = true →
+    ∃ lease, response.lease? = some lease ∧ response.currentFencingToken = lease.fencingToken.token := by
+  intro h hAccepted
+  rcases h.1 hAccepted with ⟨lease, hSome, _, hToken, _⟩
+  exact ⟨lease, hSome, hToken⟩
+
+theorem outcome_report_requires_active_execution_context :
+    outcomeReportAllowed .executing .running .active .complete := by
+  simp [outcomeReportAllowed]
+
 def sampleProtoTask : ProtoTask :=
   { version := "v1"
     taskId := "task-001"
@@ -150,6 +217,30 @@ def sampleProtoRecoveryEvent : ProtoRecoveryEvent :=
     stepState? := some .blocked
     leaseRejectionReason? := none }
 
+def sampleAcquireResponse : ProtoAcquireLeaseResponse :=
+  { accepted := true
+    assignment? := some { sampleProtoLease with status := .issued }
+    retryAfterMs := 0 }
+
+def sampleRenewResponse : ProtoRenewLeaseResponse :=
+  { accepted := true
+    leaseTtlMs := 10
+    failure? := none }
+
+def sampleResumeResponse : ProtoResumeLeaseResponse :=
+  { accepted := true
+    lease? := some sampleProtoLease
+    expiresAtMs := sampleProtoLease.expiresAtMs
+    currentFencingToken := sampleProtoLease.fencingToken.token
+    reason := .unspecified }
+
+theorem active_lease_list_rejects_duplicate_run_step :
+    ¬ atMostOneActiveLeaseOwner
+      [ sampleProtoLease
+      , { sampleProtoLease with runnerId := "runner-002", sessionId := "session-002" } ] := by
+  intro h
+  simp [atMostOneActiveLeaseOwner, activeLeaseFor, sampleProtoLease] at h
+
 example : taskWellFormed sampleProtoTask := by
   simp [taskWellFormed, sampleProtoTask, SafeClientBoundaryId, NonEmptyString]
 
@@ -185,6 +276,17 @@ example : leaseWellFormed sampleProtoLease := by
 example : recoveryEventWellFormed sampleProtoRecoveryEvent := by
   simp [recoveryEventWellFormed, sampleProtoRecoveryEvent, SafeClientBoundaryId, NonEmptyString,
     recoveryEventStateConsistent]
+
+example : acquireLeaseResponseConsistent sampleAcquireResponse := by
+  simp [acquireLeaseResponseConsistent, sampleAcquireResponse, sampleProtoLease, leaseWellFormed,
+    SafeClientBoundaryId, NonEmptyString]
+
+example : renewLeaseResponseConsistent sampleRenewResponse := by
+  simp [renewLeaseResponseConsistent, sampleRenewResponse]
+
+example : resumeLeaseResponseConsistent sampleResumeResponse := by
+  simp [resumeLeaseResponseConsistent, sampleResumeResponse, sampleProtoLease, leaseWellFormed,
+    SafeClientBoundaryId, NonEmptyString]
 
 example : executionReceiptMatchesPlan sampleProtoPlan sampleProtoExecutionReceipt := by
   rfl
