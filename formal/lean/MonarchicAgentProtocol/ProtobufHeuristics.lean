@@ -135,6 +135,34 @@ theorem outcome_report_requires_active_execution_context :
     outcomeReportAllowed .executing .running .active .complete := by
   simp [outcomeReportAllowed]
 
+theorem fencing_token_advancement_preserves_scope
+    {older newer : ProtoFencingToken} :
+    older.AdvancesTo newer →
+    older.scope = newer.scope := by
+  intro h
+  exact h.1
+
+theorem fencing_token_cannot_advance_to_itself
+    {token : ProtoFencingToken} :
+    ¬ token.AdvancesTo token := by
+  intro h
+  exact Nat.lt_irrefl _ h.2
+
+theorem fencing_token_advancement_is_asymmetric
+    {a b : ProtoFencingToken} :
+    a.AdvancesTo b →
+    ¬ b.AdvancesTo a := by
+  intro hab hba
+  exact Nat.lt_asymm hab.2 hba.2
+
+theorem accepted_cancellation_ack_yields_cancelled_step
+    {response : ProtoAckCancellationResponse} :
+    ackCancellationResponseConsistent response →
+    response.accepted = true →
+    response.resultingStepState? = some .cancelled := by
+  intro h hAccepted
+  exact h.1 hAccepted
+
 def sampleProtoTask : ProtoTask :=
   { version := "v1"
     taskId := "task-001"
@@ -234,6 +262,63 @@ def sampleResumeResponse : ProtoResumeLeaseResponse :=
     currentFencingToken := sampleProtoLease.fencingToken.token
     reason := .unspecified }
 
+def sampleNextProtoFencingToken : ProtoFencingToken :=
+  { token := "token-002"
+    issuedAtMs := 2
+    issuer := "orchestrator"
+    scope := "run:run-001" }
+
+def sampleProtoLeaseRef : ProtoLeaseRef :=
+  { leaseId := sampleProtoLease.leaseId
+    fencingToken := sampleProtoLease.fencingToken.token
+    runId := sampleProtoLease.runId
+    planId := sampleProtoLease.planId
+    stepId := sampleProtoLease.stepId
+    taskId := sampleProtoLease.taskId }
+
+def sampleStartedRequest : ProtoReportStepStartedRequest :=
+  { leaseRef := sampleProtoLeaseRef
+    startedAtMs := 5 }
+
+def sampleProgressRequest : ProtoReportStepProgressRequest :=
+  { leaseRef := sampleProtoLeaseRef
+    progressMessage := "compiled module"
+    completedUnits := 3
+    totalUnits := 5 }
+
+def sampleOutcomeRequest : ProtoReportStepOutcomeRequest :=
+  { leaseRef := sampleProtoLeaseRef
+    outcomeStatus := .complete
+    finishedAtMs := 8 }
+
+def sampleAckCancellationRequest : ProtoAckCancellationRequest :=
+  { leaseRef := sampleProtoLeaseRef
+    acknowledgedAtMs := 9 }
+
+def sampleAckCancellationResponse : ProtoAckCancellationResponse :=
+  { accepted := true
+    resultingStepState? := some .cancelled }
+
+theorem started_report_requires_active_lease_binding :
+    startedReportAllowed .executing .leased sampleProtoLease sampleStartedRequest := by
+  simp [startedReportAllowed, sampleStartedRequest, sampleProtoLeaseRef, leaseRefMatchesLease, sampleProtoLease]
+
+theorem progress_report_requires_bounded_progress :
+    progressReportAllowed .executing .running sampleProtoLease sampleProgressRequest := by
+  simp [progressReportAllowed, sampleProgressRequest, sampleProtoLeaseRef, leaseRefMatchesLease,
+    sampleProtoLease, NonEmptyString]
+
+theorem outcome_report_request_requires_consistent_outcome :
+    outcomeReportRequestAllowed .executing .running sampleProtoLease sampleOutcomeRequest := by
+  simp [outcomeReportRequestAllowed, outcomeReportAllowed, reportStepOutcomeConsistent,
+    sampleOutcomeRequest, sampleProtoLeaseRef, leaseRefMatchesLease, leaseRefWellFormed,
+    sampleProtoLease, SafeClientBoundaryId, NonEmptyString]
+
+theorem cancellation_ack_requires_cancelling_run :
+    cancellationAckAllowed .cancelling .running sampleProtoLease sampleAckCancellationRequest := by
+  simp [cancellationAckAllowed, sampleAckCancellationRequest, sampleProtoLeaseRef,
+    leaseRefMatchesLease, sampleProtoLease]
+
 theorem active_lease_list_rejects_duplicate_run_step :
     ¬ atMostOneActiveLeaseOwner
       [ sampleProtoLease
@@ -287,6 +372,12 @@ example : renewLeaseResponseConsistent sampleRenewResponse := by
 example : resumeLeaseResponseConsistent sampleResumeResponse := by
   simp [resumeLeaseResponseConsistent, sampleResumeResponse, sampleProtoLease, leaseWellFormed,
     SafeClientBoundaryId, NonEmptyString]
+
+example : sampleProtoLease.fencingToken.AdvancesTo sampleNextProtoFencingToken := by
+  simp [ProtoFencingToken.AdvancesTo, sampleProtoLease, sampleNextProtoFencingToken]
+
+example : ackCancellationResponseConsistent sampleAckCancellationResponse := by
+  simp [ackCancellationResponseConsistent, sampleAckCancellationResponse]
 
 example : executionReceiptMatchesPlan sampleProtoPlan sampleProtoExecutionReceipt := by
   rfl
