@@ -1533,6 +1533,7 @@ PY
           default = pkgs.mkShell {
             packages = [
               pkgs.cargo
+              pkgs.elan
               pkgs.rustc
               pkgs.rustfmt
               pkgs.protobuf

@@ -95,6 +95,20 @@ Frozen v1 durable-authority types:
 
 Canonical JSON fixtures for these contracts live under `fixtures/durable_authority/v1/`.
 
+## Lean4 Formalization
+
+A Lean4 proof model now lives under `formal/lean/`.
+
+It currently formalizes a bounded set of invariants derived from real downstream usage in this workspace:
+
+- client-boundary id safety heuristics
+- role normalization aliases
+- verification receipt status consistency
+- terminal lifecycle sink behavior
+- plan dependency grounding
+
+See `docs/lean4-formal-verification.md` for scope and usage.
+
 ### Schema summary
 
 JSON Schema files are generated from the protobuf definitions. Do not edit them by hand.
