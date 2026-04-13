@@ -20,11 +20,17 @@ Current proof targets:
   downstream control logic treats terminal run and step states as sinks
 - plan dependency grounding:
   downstream bootstrap and execution flows rely on dependency references resolving to declared steps/tasks
+- protobuf message well-formedness:
+  Lean now models `Task`, `Plan`, `PlanStep`, `ExecutionReceipt`, `VerificationReceipt`, `Lease`, and `RecoveryEvent` directly from the protobuf boundary
+- protobuf cross-message integrity:
+  Lean now proves plan/receipt matching, verification receipt linkage over execution receipts, lease-to-plan matching, and recovery-event state admissibility
 
 Files:
 
 - `formal/lean/MonarchicAgentProtocol/Basic.lean`: reduced protocol model and predicates
 - `formal/lean/MonarchicAgentProtocol/Heuristics.lean`: theorems tied to project heuristics and downstream assumptions
+- `formal/lean/MonarchicAgentProtocol/Protobuf.lean`: protobuf-oriented message models and well-formedness predicates
+- `formal/lean/MonarchicAgentProtocol/ProtobufHeuristics.lean`: protobuf-specific referential-integrity and state-consistency lemmas
 - `formal/lean/Main.lean`: trivial executable entrypoint
 
 What this is not yet:
