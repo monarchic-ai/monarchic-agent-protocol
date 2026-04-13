@@ -1,0 +1,10 @@
+name = "monarchic-agent-protocol-lean"
+version = "0.1.0"
+defaultTargets = ["MonarchicAgentProtocol"]
+
+[[lean_lib]]
+name = "MonarchicAgentProtocol"
+
+[[lean_exe]]
+name = "verify-protocol"
+root = "Main"
