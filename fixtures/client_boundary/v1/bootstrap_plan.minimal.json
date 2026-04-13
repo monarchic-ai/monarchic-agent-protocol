@@ -13,7 +13,7 @@
       "role_id": "dev",
       "task_milestone": "Implement the MCP catalog composer, keybinding, and catalog persistence.",
       "depends_on": [],
-      "target_repo": "monarchic-ai/monarchic-tui",
+      "target_repo": "/workspace/monarchic-tui",
       "required_skill_ids": [],
       "required_mcp_ids": [
         "repo-intel"
