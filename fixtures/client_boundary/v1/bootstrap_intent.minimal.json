@@ -2,7 +2,7 @@
   "bootstrap_intent_id": "bootstrap-intent-001",
   "project_key": "monarchic-tui",
   "target_repos": [
-    "monarchic-ai/monarchic-tui"
+    "/workspace/monarchic-tui"
   ],
   "pipeline_template_id": "single-dev",
   "campaign_goal": "Add dedicated MCP catalog management to the TUI.",

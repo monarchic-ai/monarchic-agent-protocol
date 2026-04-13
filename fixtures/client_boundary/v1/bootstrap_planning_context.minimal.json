@@ -1,8 +1,8 @@
 {
   "project_key": "monarchic-tui",
-  "target_repo": "monarchic-ai/monarchic-tui",
+  "target_repo": "/workspace/monarchic-tui",
   "target_repos": [
-    "monarchic-ai/monarchic-tui"
+    "/workspace/monarchic-tui"
   ],
   "campaign_goal": "Add dedicated MCP catalog management to the TUI.",
   "notes": "Prefer the local MCP catalog if no packaged support is configured.",
