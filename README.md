@@ -112,6 +112,7 @@ It currently formalizes a bounded set of invariants derived from real downstream
 - bounded protobuf control-plane trace safety and authority preservation
 - inductive consistency preservation over protobuf control-plane event traces
 - continuous active-authority traces preserve the bound `(run_id, step_id, task_id)` scope
+- a checked protobuf coverage manifest makes the currently formalized subset explicit relative to the full `.proto` surface
 
 See `docs/lean4-formal-verification.md` for scope and usage.
 
