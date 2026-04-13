@@ -38,12 +38,15 @@ Current proof targets:
   Lean now lifts one-step control-plane transition lemmas to arbitrary event lists and proves well-formed control-plane traces preserve consistency end-to-end
 - active-authority trace preservation:
   Lean now models traces that keep a lease continuously bound and proves the authority key cannot drift across renew/resume/progress spans
+- protobuf coverage manifest:
+  Lean now records the currently covered protobuf messages and enums, together with checked counts against the present `.proto` surface so partial coverage is explicit
 
 Files:
 
 - `formal/lean/MonarchicAgentProtocol/Basic.lean`: reduced protocol model and predicates
 - `formal/lean/MonarchicAgentProtocol/Heuristics.lean`: theorems tied to project heuristics and downstream assumptions
 - `formal/lean/MonarchicAgentProtocol/Protobuf.lean`: protobuf-oriented message models and well-formedness predicates
+- `formal/lean/MonarchicAgentProtocol/ProtobufCoverage.lean`: checked coverage manifest for the protobuf messages and enums currently represented in Lean
 - `formal/lean/MonarchicAgentProtocol/ProtobufHeuristics.lean`: protobuf-specific referential-integrity and state-consistency lemmas
 - `formal/lean/Main.lean`: trivial executable entrypoint
 

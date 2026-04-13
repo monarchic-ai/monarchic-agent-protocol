@@ -1,4 +1,5 @@
 import MonarchicAgentProtocol.Basic
 import MonarchicAgentProtocol.Heuristics
 import MonarchicAgentProtocol.Protobuf
+import MonarchicAgentProtocol.ProtobufCoverage
 import MonarchicAgentProtocol.ProtobufHeuristics
