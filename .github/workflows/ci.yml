@@ -45,6 +45,9 @@ jobs:
       - name: Validate protobuf codegen
         run: nix run .#test-proto -- schemas/v1/monarchic_agent_protocol.proto
 
+      - name: Validate Lean protobuf schema manifest
+        run: bash scripts/check-lean-protobuf-schema-manifest.sh
+
       - name: Compile examples
         run: nix build .#example-rust .#example-ts .#example-python .#example-java .#example-kotlin .#example-cpp .#example-ruby .#example-csharp
 
