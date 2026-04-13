@@ -491,4 +491,135 @@ def ackCancellationResponseConsistent (response : ProtoAckCancellationResponse) 
   (response.accepted = true → response.resultingStepState? = some .cancelled) ∧
   (response.accepted = false → response.resultingStepState?.isNone)
 
+structure ProtoControlPlaneState where
+  runState : RunLifecycleState
+  stepState : StepLifecycleState
+  activeLease? : Option ProtoLease
+deriving DecidableEq, Repr
+
+def controlPlaneStateConsistent (state : ProtoControlPlaneState) : Prop :=
+  (match state.activeLease? with
+   | none => True
+   | some lease => lease.status = .active) ∧
+  (state.stepState = .running →
+    ∃ lease, state.activeLease? = some lease ∧ lease.status = .active) ∧
+  (state.stepState = .cancelled → state.runState = .cancelling ∨ state.runState = .cancelled)
+
+inductive ProtoControlPlaneEvent
+  | acquired (lease : ProtoLease)
+  | renewed (lease : ProtoLease)
+  | resumed (lease : ProtoLease)
+  | started (request : ProtoReportStepStartedRequest)
+  | progressed (request : ProtoReportStepProgressRequest)
+  | outcomeReported (request : ProtoReportStepOutcomeRequest)
+  | cancellationAcknowledged (request : ProtoAckCancellationRequest)
+deriving DecidableEq, Repr
+
+inductive ProtoControlPlaneTransition :
+    ProtoControlPlaneState → ProtoControlPlaneEvent → ProtoControlPlaneState → Prop
+  | acquire
+      {state : ProtoControlPlaneState}
+      {lease : ProtoLease} :
+      controlPlaneStateConsistent state →
+      leaseWellFormed lease →
+      lease.status = .active →
+      state.activeLease? = none →
+      state.runState = .executing →
+      state.stepState = .leased →
+      ProtoControlPlaneTransition
+        state
+        (.acquired lease)
+        { state with activeLease? := some lease }
+  | renew
+      {state : ProtoControlPlaneState}
+      {lease : ProtoLease} :
+      controlPlaneStateConsistent state →
+      leaseWellFormed lease →
+      lease.status = .active →
+      state.activeLease? = some lease →
+      ProtoControlPlaneTransition
+        state
+        (.renewed lease)
+        state
+  | resume
+      {state : ProtoControlPlaneState}
+      {oldLease newLease : ProtoLease} :
+      controlPlaneStateConsistent state →
+      leaseWellFormed newLease →
+      newLease.status = .active →
+      state.activeLease? = some oldLease →
+      oldLease.fencingToken.AdvancesTo newLease.fencingToken →
+      oldLease.runId = newLease.runId →
+      oldLease.stepId = newLease.stepId →
+      oldLease.taskId = newLease.taskId →
+      ProtoControlPlaneTransition
+        state
+        (.resumed newLease)
+        { state with activeLease? := some newLease }
+  | start
+      {state : ProtoControlPlaneState}
+      {lease : ProtoLease}
+      {request : ProtoReportStepStartedRequest} :
+      controlPlaneStateConsistent state →
+      state.activeLease? = some lease →
+      startedReportAllowed state.runState state.stepState lease request →
+      ProtoControlPlaneTransition
+        state
+        (.started request)
+        { state with stepState := .running }
+  | progress
+      {state : ProtoControlPlaneState}
+      {lease : ProtoLease}
+      {request : ProtoReportStepProgressRequest} :
+      controlPlaneStateConsistent state →
+      state.activeLease? = some lease →
+      progressReportAllowed state.runState state.stepState lease request →
+      ProtoControlPlaneTransition
+        state
+        (.progressed request)
+        state
+  | outcome
+      {state : ProtoControlPlaneState}
+      {lease : ProtoLease}
+      {request : ProtoReportStepOutcomeRequest} :
+      controlPlaneStateConsistent state →
+      state.activeLease? = some lease →
+      outcomeReportRequestAllowed state.runState state.stepState lease request →
+      ProtoControlPlaneTransition
+        state
+        (.outcomeReported request)
+        { runState :=
+            match request.outcomeStatus with
+            | .complete => .complete
+            | .failed => .failed
+            | .cancelled => .cancelled
+            | _ => state.runState
+          stepState :=
+            match request.outcomeStatus with
+            | .complete => .complete
+            | .failed => .failed
+            | .cancelled => .cancelled
+            | _ => state.stepState
+          activeLease? := none }
+  | cancelAck
+      {state : ProtoControlPlaneState}
+      {lease : ProtoLease}
+      {request : ProtoAckCancellationRequest} :
+      controlPlaneStateConsistent state →
+      state.activeLease? = some lease →
+      cancellationAckAllowed state.runState state.stepState lease request →
+      ProtoControlPlaneTransition
+        state
+        (.cancellationAcknowledged request)
+        { state with stepState := .cancelled, activeLease? := none }
+
+def authorityPreserved
+    (before after : ProtoControlPlaneState) : Prop :=
+  match before.activeLease?, after.activeLease? with
+  | some oldLease, some newLease =>
+      oldLease.runId = newLease.runId ∧
+      oldLease.stepId = newLease.stepId ∧
+      oldLease.taskId = newLease.taskId
+  | _, _ => True
+
 end MonarchicAgentProtocol

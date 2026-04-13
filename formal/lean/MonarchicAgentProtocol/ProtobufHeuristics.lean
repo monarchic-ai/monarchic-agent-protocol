@@ -163,6 +163,82 @@ theorem accepted_cancellation_ack_yields_cancelled_step
   intro h hAccepted
   exact h.1 hAccepted
 
+theorem acquire_transition_preserves_consistency
+    {before after : ProtoControlPlaneState}
+    {lease : ProtoLease} :
+    ProtoControlPlaneTransition before (.acquired lease) after →
+    controlPlaneStateConsistent after := by
+  intro h
+  cases h with
+  | acquire _ _ hStatus hNone hRun hStep =>
+      constructor
+      · simp [hStatus]
+      · constructor
+        · intro hRunning
+          simp [hStep] at hRunning
+        · intro hCancelled
+          simp [hStep] at hCancelled
+
+theorem renew_transition_preserves_authority
+    {before after : ProtoControlPlaneState}
+    {lease : ProtoLease} :
+    ProtoControlPlaneTransition before (.renewed lease) after →
+    authorityPreserved before after := by
+  intro h
+  cases h with
+  | renew _ _ _ hSome =>
+      simp [authorityPreserved, hSome]
+
+theorem resume_transition_preserves_authority
+    {before after : ProtoControlPlaneState}
+    {lease : ProtoLease} :
+    ProtoControlPlaneTransition before (.resumed lease) after →
+    authorityPreserved before after := by
+  intro h
+  cases h with
+  | resume _ _ _ hSome _ hRun hStep hTask =>
+      simp [authorityPreserved, hSome, hRun, hStep, hTask]
+
+theorem start_transition_requires_bound_lease
+    {before after : ProtoControlPlaneState}
+    {request : ProtoReportStepStartedRequest} :
+    ProtoControlPlaneTransition before (.started request) after →
+    ∃ lease, before.activeLease? = some lease := by
+  intro h
+  cases h with
+  | start _ hSome _ =>
+      exact ⟨_, hSome⟩
+
+theorem progress_transition_requires_bound_lease
+    {before after : ProtoControlPlaneState}
+    {request : ProtoReportStepProgressRequest} :
+    ProtoControlPlaneTransition before (.progressed request) after →
+    ∃ lease, before.activeLease? = some lease := by
+  intro h
+  cases h with
+  | progress _ hSome _ =>
+      exact ⟨_, hSome⟩
+
+theorem outcome_transition_clears_active_lease
+    {before after : ProtoControlPlaneState}
+    {request : ProtoReportStepOutcomeRequest} :
+    ProtoControlPlaneTransition before (.outcomeReported request) after →
+    after.activeLease? = none := by
+  intro h
+  cases h with
+  | outcome _ _ _ =>
+      rfl
+
+theorem cancellation_ack_transition_clears_active_lease
+    {before after : ProtoControlPlaneState}
+    {request : ProtoAckCancellationRequest} :
+    ProtoControlPlaneTransition before (.cancellationAcknowledged request) after →
+    after.activeLease? = none := by
+  intro h
+  cases h with
+  | cancelAck _ _ _ =>
+      rfl
+
 def sampleProtoTask : ProtoTask :=
   { version := "v1"
     taskId := "task-001"
@@ -299,6 +375,28 @@ def sampleAckCancellationResponse : ProtoAckCancellationResponse :=
   { accepted := true
     resultingStepState? := some .cancelled }
 
+def sampleLeasedControlPlaneState : ProtoControlPlaneState :=
+  { runState := .executing
+    stepState := .leased
+    activeLease? := some sampleProtoLease }
+
+def sampleRunningControlPlaneState : ProtoControlPlaneState :=
+  { runState := .executing
+    stepState := .running
+    activeLease? := some sampleProtoLease }
+
+def sampleCancellingControlPlaneState : ProtoControlPlaneState :=
+  { runState := .cancelling
+    stepState := .running
+    activeLease? := some sampleProtoLease }
+
+def sampleSupersedingLease : ProtoLease :=
+  { sampleProtoLease with
+      leaseId := "lease-002"
+      fencingToken := sampleNextProtoFencingToken
+      issuedAtMs := 2
+      expiresAtMs := 4 }
+
 theorem started_report_requires_active_lease_binding :
     startedReportAllowed .executing .leased sampleProtoLease sampleStartedRequest := by
   simp [startedReportAllowed, sampleStartedRequest, sampleProtoLeaseRef, leaseRefMatchesLease, sampleProtoLease]
@@ -318,6 +416,112 @@ theorem cancellation_ack_requires_cancelling_run :
     cancellationAckAllowed .cancelling .running sampleProtoLease sampleAckCancellationRequest := by
   simp [cancellationAckAllowed, sampleAckCancellationRequest, sampleProtoLeaseRef,
     leaseRefMatchesLease, sampleProtoLease]
+
+example : controlPlaneStateConsistent sampleLeasedControlPlaneState := by
+  simp [controlPlaneStateConsistent, sampleLeasedControlPlaneState, sampleProtoLease]
+
+example : controlPlaneStateConsistent sampleRunningControlPlaneState := by
+  constructor
+  · simp [sampleRunningControlPlaneState, sampleProtoLease]
+  · constructor
+    · intro hRunning
+      refine ⟨sampleProtoLease, ?_, rfl⟩
+      simp [sampleRunningControlPlaneState] at hRunning
+      simp [sampleRunningControlPlaneState]
+    · intro hCancelled
+      simp [sampleRunningControlPlaneState] at hCancelled
+
+example :
+    ProtoControlPlaneTransition
+      { runState := .executing, stepState := .leased, activeLease? := none }
+      (.acquired sampleProtoLease)
+      { runState := .executing, stepState := .leased, activeLease? := some sampleProtoLease } := by
+  apply ProtoControlPlaneTransition.acquire
+  · constructor
+    · simp
+    · constructor
+      · intro hRunning
+        simp at hRunning
+      · intro hCancelled
+        simp at hCancelled
+  · simp [leaseWellFormed, sampleProtoLease, SafeClientBoundaryId, NonEmptyString]
+  · rfl
+  · rfl
+  · rfl
+  · rfl
+
+example :
+    ProtoControlPlaneTransition
+      sampleLeasedControlPlaneState
+      (.started sampleStartedRequest)
+      { sampleLeasedControlPlaneState with stepState := .running } := by
+  apply ProtoControlPlaneTransition.start
+  · exact by simp [controlPlaneStateConsistent, sampleLeasedControlPlaneState, sampleProtoLease]
+  · rfl
+  · exact started_report_requires_active_lease_binding
+
+example :
+    ProtoControlPlaneTransition
+      sampleRunningControlPlaneState
+      (.resumed sampleSupersedingLease)
+      { sampleRunningControlPlaneState with activeLease? := some sampleSupersedingLease } := by
+  apply ProtoControlPlaneTransition.resume
+  · exact by
+      constructor
+      · simp [sampleRunningControlPlaneState, sampleProtoLease]
+      · constructor
+        · intro hRunning
+          refine ⟨sampleProtoLease, ?_, rfl⟩
+          simp [sampleRunningControlPlaneState] at hRunning
+          simp [sampleRunningControlPlaneState]
+        · intro hCancelled
+          simp [sampleRunningControlPlaneState] at hCancelled
+  · simp [leaseWellFormed, sampleSupersedingLease, sampleProtoLease, sampleNextProtoFencingToken,
+      SafeClientBoundaryId, NonEmptyString]
+  · rfl
+  · rfl
+  · simp [ProtoFencingToken.AdvancesTo, sampleSupersedingLease,
+      sampleProtoLease, sampleNextProtoFencingToken]
+  · rfl
+  · rfl
+  · rfl
+
+example :
+    ProtoControlPlaneTransition
+      sampleRunningControlPlaneState
+      (.outcomeReported sampleOutcomeRequest)
+      { runState := .complete, stepState := .complete, activeLease? := none } := by
+  apply ProtoControlPlaneTransition.outcome
+  · exact by
+      constructor
+      · simp [sampleRunningControlPlaneState, sampleProtoLease]
+      · constructor
+        · intro hRunning
+          refine ⟨sampleProtoLease, ?_, rfl⟩
+          simp [sampleRunningControlPlaneState] at hRunning
+          simp [sampleRunningControlPlaneState]
+        · intro hCancelled
+          simp [sampleRunningControlPlaneState] at hCancelled
+  · rfl
+  · exact outcome_report_request_requires_consistent_outcome
+
+example :
+    ProtoControlPlaneTransition
+      sampleCancellingControlPlaneState
+      (.cancellationAcknowledged sampleAckCancellationRequest)
+      { sampleCancellingControlPlaneState with stepState := .cancelled, activeLease? := none } := by
+  apply ProtoControlPlaneTransition.cancelAck
+  · constructor
+    · simp [sampleCancellingControlPlaneState, sampleProtoLease]
+    · constructor
+      · intro hRunning
+        refine ⟨sampleProtoLease, ?_, rfl⟩
+        simp [sampleCancellingControlPlaneState] at hRunning
+        simp [sampleCancellingControlPlaneState]
+      · intro hCancelled
+        simp [sampleCancellingControlPlaneState] at hCancelled
+  · rfl
+  · exact cancellation_ack_requires_cancelling_run
 
 theorem active_lease_list_rejects_duplicate_run_step :
     ¬ atMostOneActiveLeaseOwner
