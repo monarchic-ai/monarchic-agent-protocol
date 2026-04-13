@@ -622,4 +622,17 @@ def authorityPreserved
       oldLease.taskId = newLease.taskId
   | _, _ => True
 
+inductive ProtoControlPlaneTrace :
+    ProtoControlPlaneState → List ProtoControlPlaneEvent → ProtoControlPlaneState → Prop
+  | nil
+      {state : ProtoControlPlaneState} :
+      ProtoControlPlaneTrace state [] state
+  | cons
+      {before middle after : ProtoControlPlaneState}
+      {event : ProtoControlPlaneEvent}
+      {rest : List ProtoControlPlaneEvent} :
+      ProtoControlPlaneTransition before event middle →
+      ProtoControlPlaneTrace middle rest after →
+      ProtoControlPlaneTrace before (event :: rest) after
+
 end MonarchicAgentProtocol
