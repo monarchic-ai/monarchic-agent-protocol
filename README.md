@@ -109,6 +109,7 @@ It currently formalizes a bounded set of invariants derived from real downstream
 - protobuf message well-formedness and cross-message integrity
 - protobuf lifecycle transitions and bounded lease control-plane safety
 - protobuf request/report admissibility and fencing-token monotonicity
+- bounded protobuf control-plane trace safety and authority preservation
 
 See `docs/lean4-formal-verification.md` for scope and usage.
 
