@@ -160,6 +160,9 @@ structure ProtoFencingToken where
   scope : String
 deriving DecidableEq, Repr
 
+def ProtoFencingToken.AdvancesTo (older newer : ProtoFencingToken) : Prop :=
+  older.scope = newer.scope ∧ older.issuedAtMs < newer.issuedAtMs
+
 inductive ProtoLeaseLifecycleState
   | unspecified
   | issued
@@ -408,5 +411,84 @@ def outcomeReportAllowed
   stepState = .running ∧
   leaseStatus = .active ∧
   (outcomeStatus = .complete ∨ outcomeStatus = .failed ∨ outcomeStatus = .cancelled)
+
+structure ProtoReportStepStartedRequest where
+  leaseRef : ProtoLeaseRef
+  startedAtMs : Nat
+deriving DecidableEq, Repr
+
+def startedReportAllowed
+    (runState : RunLifecycleState)
+    (stepState : StepLifecycleState)
+    (lease : ProtoLease)
+    (request : ProtoReportStepStartedRequest) : Prop :=
+  runState = .executing ∧
+  stepState = .leased ∧
+  lease.status = .active ∧
+  leaseRefMatchesLease request.leaseRef lease
+
+structure ProtoReportStepProgressRequest where
+  leaseRef : ProtoLeaseRef
+  progressMessage : String
+  completedUnits : Nat
+  totalUnits : Nat
+deriving DecidableEq, Repr
+
+def progressReportAllowed
+    (runState : RunLifecycleState)
+    (stepState : StepLifecycleState)
+    (lease : ProtoLease)
+    (request : ProtoReportStepProgressRequest) : Prop :=
+  runState = .executing ∧
+  stepState = .running ∧
+  lease.status = .active ∧
+  leaseRefMatchesLease request.leaseRef lease ∧
+  NonEmptyString request.progressMessage ∧
+  request.completedUnits ≤ request.totalUnits
+
+structure ProtoReportStepOutcomeRequest where
+  leaseRef : ProtoLeaseRef
+  outcomeStatus : ProtoPlanStatus
+  finishedAtMs : Nat
+deriving DecidableEq, Repr
+
+def reportStepOutcomeConsistent (request : ProtoReportStepOutcomeRequest) : Prop :=
+  leaseRefWellFormed request.leaseRef ∧
+  (request.outcomeStatus = .complete ∨
+    request.outcomeStatus = .failed ∨
+    request.outcomeStatus = .cancelled)
+
+def outcomeReportRequestAllowed
+    (runState : RunLifecycleState)
+    (stepState : StepLifecycleState)
+    (lease : ProtoLease)
+    (request : ProtoReportStepOutcomeRequest) : Prop :=
+  leaseRefMatchesLease request.leaseRef lease ∧
+  outcomeReportAllowed runState stepState lease.status request.outcomeStatus ∧
+  reportStepOutcomeConsistent request
+
+structure ProtoAckCancellationRequest where
+  leaseRef : ProtoLeaseRef
+  acknowledgedAtMs : Nat
+deriving DecidableEq, Repr
+
+def cancellationAckAllowed
+    (runState : RunLifecycleState)
+    (stepState : StepLifecycleState)
+    (lease : ProtoLease)
+    (request : ProtoAckCancellationRequest) : Prop :=
+  runState = .cancelling ∧
+  (stepState = .leased ∨ stepState = .running) ∧
+  lease.status = .active ∧
+  leaseRefMatchesLease request.leaseRef lease
+
+structure ProtoAckCancellationResponse where
+  accepted : Bool
+  resultingStepState? : Option StepLifecycleState
+deriving DecidableEq, Repr
+
+def ackCancellationResponseConsistent (response : ProtoAckCancellationResponse) : Prop :=
+  (response.accepted = true → response.resultingStepState? = some .cancelled) ∧
+  (response.accepted = false → response.resultingStepState?.isNone)
 
 end MonarchicAgentProtocol

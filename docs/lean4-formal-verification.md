@@ -28,6 +28,10 @@ Current proof targets:
   Lean now models allowed run, step, and lease lifecycle transitions and proves there are no transitions out of terminal states
 - protobuf control-plane safety:
   Lean now models bounded consistency predicates for acquire/renew/resume lease responses and basic outcome-report admissibility
+- protobuf request/report admissibility:
+  Lean now models step-started, step-progress, step-outcome, and cancellation-ack request boundaries
+- fencing-token monotonicity:
+  Lean now proves basic token advancement properties such as same-scope progression, irreflexivity, and asymmetry
 
 Files:
 
