@@ -36,6 +36,8 @@ Current proof targets:
   Lean now models bounded control-plane states and transitions and proves authority/lease preservation across acquire, renew, resume, outcome, and cancellation traces
 - inductive trace consistency:
   Lean now lifts one-step control-plane transition lemmas to arbitrary event lists and proves well-formed control-plane traces preserve consistency end-to-end
+- active-authority trace preservation:
+  Lean now models traces that keep a lease continuously bound and proves the authority key cannot drift across renew/resume/progress spans
 
 Files:
 
