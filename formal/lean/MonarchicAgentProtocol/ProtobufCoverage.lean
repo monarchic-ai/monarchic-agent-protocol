@@ -1,17 +1,8 @@
-import MonarchicAgentProtocol.Protobuf
+import MonarchicAgentProtocol.ProtobufSchemaManifest
 
 namespace MonarchicAgentProtocol
 
 abbrev ProtoSymbolName := String
-
-/-
-The totals below are derived from `schemas/v1/monarchic_agent_protocol.proto`.
-They make the current proof boundary explicit inside Lean, even though the
-formal model still intentionally covers only a focused subset of the schema.
--/
-def protoMessageCountFromSchema : Nat := 96
-
-def protoEnumCountFromSchema : Nat := 28
 
 def formallyCoveredProtoMessages : List ProtoSymbolName :=
   [ "Task"
@@ -52,6 +43,8 @@ def formallyCoveredProtoEnums : List ProtoSymbolName :=
 def schemaCoverageSummary : Prop :=
   formallyCoveredProtoMessages.Nodup ∧
   formallyCoveredProtoEnums.Nodup ∧
+  (∀ symbol, symbol ∈ formallyCoveredProtoMessages → symbol ∈ schemaProtoMessages) ∧
+  (∀ symbol, symbol ∈ formallyCoveredProtoEnums → symbol ∈ schemaProtoEnums) ∧
   formallyCoveredProtoMessages.length ≤ protoMessageCountFromSchema ∧
   formallyCoveredProtoEnums.length ≤ protoEnumCountFromSchema
 
@@ -67,6 +60,14 @@ theorem covered_proto_enums_are_unique :
     formallyCoveredProtoEnums.Nodup := by
   exact schema_coverage_summary_holds.2.1
 
+theorem covered_proto_messages_exist_in_schema :
+    ∀ symbol, symbol ∈ formallyCoveredProtoMessages → symbol ∈ schemaProtoMessages := by
+  exact schema_coverage_summary_holds.2.2.1
+
+theorem covered_proto_enums_exist_in_schema :
+    ∀ symbol, symbol ∈ formallyCoveredProtoEnums → symbol ∈ schemaProtoEnums := by
+  exact schema_coverage_summary_holds.2.2.2.1
+
 theorem formalization_is_partial_wrt_current_proto_surface :
     formallyCoveredProtoMessages.length < protoMessageCountFromSchema := by
   native_decide
@@ -77,14 +78,26 @@ theorem enum_formalization_is_partial_wrt_current_proto_surface :
 
 example : "Lease" ∈ formallyCoveredProtoMessages := by native_decide
 
+example : "Lease" ∈ schemaProtoMessages := by native_decide
+
 example : "RecoveryEvent" ∈ formallyCoveredProtoMessages := by native_decide
+
+example : "RecoveryEvent" ∈ schemaProtoMessages := by native_decide
 
 example : "ReportStepOutcomeRequest" ∈ formallyCoveredProtoMessages := by native_decide
 
+example : "ReportStepOutcomeRequest" ∈ schemaProtoMessages := by native_decide
+
 example : "LeaseLifecycleState" ∈ formallyCoveredProtoEnums := by native_decide
+
+example : "LeaseLifecycleState" ∈ schemaProtoEnums := by native_decide
 
 example : "RunLifecycleState" ∈ formallyCoveredProtoEnums := by native_decide
 
+example : "RunLifecycleState" ∈ schemaProtoEnums := by native_decide
+
 example : "RecoveryEventKind" ∈ formallyCoveredProtoEnums := by native_decide
+
+example : "RecoveryEventKind" ∈ schemaProtoEnums := by native_decide
 
 end MonarchicAgentProtocol

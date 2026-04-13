@@ -40,6 +40,7 @@ Current proof targets:
   Lean now models traces that keep a lease continuously bound and proves the authority key cannot drift across renew/resume/progress spans
 - protobuf coverage manifest:
   Lean now records the currently covered protobuf messages and enums, together with checked counts against the present `.proto` surface so partial coverage is explicit
+  The schema-side manifest is now generated from `schemas/v1/monarchic_agent_protocol.proto` and CI fails if the checked-in Lean manifest drifts.
 
 Files:
 
@@ -47,6 +48,7 @@ Files:
 - `formal/lean/MonarchicAgentProtocol/Heuristics.lean`: theorems tied to project heuristics and downstream assumptions
 - `formal/lean/MonarchicAgentProtocol/Protobuf.lean`: protobuf-oriented message models and well-formedness predicates
 - `formal/lean/MonarchicAgentProtocol/ProtobufCoverage.lean`: checked coverage manifest for the protobuf messages and enums currently represented in Lean
+- `formal/lean/MonarchicAgentProtocol/ProtobufSchemaManifest.lean`: generated Lean view of the current protobuf message/enum surface
 - `formal/lean/MonarchicAgentProtocol/ProtobufHeuristics.lean`: protobuf-specific referential-integrity and state-consistency lemmas
 - `formal/lean/Main.lean`: trivial executable entrypoint
 
@@ -62,6 +64,7 @@ Running locally once Lean is available:
 cd formal/lean
 lake build
 lake env lean MonarchicAgentProtocol/Heuristics.lean
+python ../../scripts/generate-lean-protobuf-schema-manifest.py
 ```
 
 Notes:
