@@ -239,6 +239,83 @@ theorem cancellation_ack_transition_clears_active_lease
   | cancelAck _ _ _ =>
       rfl
 
+theorem control_plane_transition_preserves_consistency
+    {before after : ProtoControlPlaneState}
+    {event : ProtoControlPlaneEvent} :
+    ProtoControlPlaneTransition before event after →
+    controlPlaneStateConsistent before →
+    controlPlaneStateConsistent after := by
+  intro hTransition hBefore
+  cases hTransition with
+  | acquire hState _ hLeaseActive _ _ hStep =>
+      constructor
+      · exact hLeaseActive
+      · constructor
+        · intro hRunning
+          simp [hStep] at hRunning
+        · intro hCancelled
+          simp [hStep] at hCancelled
+  | renew =>
+      simpa using hBefore
+  | resume hState _ hLeaseActive _ _ _ _ _ =>
+      constructor
+      · exact hLeaseActive
+      · constructor
+        · intro hRunning
+          refine ⟨_, rfl, hLeaseActive⟩
+        · intro hCancelled
+          exact hBefore.2.2 hCancelled
+  | start hState hSome hAllowed =>
+      constructor
+      · rcases hAllowed with ⟨_, _, hLeaseActive, _⟩
+        simpa [hSome] using hLeaseActive
+      · constructor
+        · intro _
+          rcases hAllowed with ⟨_, _, hLeaseActive, _⟩
+          refine ⟨_, by simp [hSome], hLeaseActive⟩
+        · intro hCancelled
+          simp at hCancelled
+  | progress =>
+      simpa using hBefore
+  | outcome hState hSome hAllowed =>
+      rcases hAllowed with ⟨_, hOutcomeAllowed, hRequest⟩
+      rcases hRequest with ⟨_, hStatusConsistent⟩
+      constructor
+      · simp
+      · constructor
+        · intro hRunning
+          rcases hStatusConsistent with hComplete | hFailed | hCancelled
+          · simp [hComplete] at hRunning
+          · simp [hFailed] at hRunning
+          · simp [hCancelled] at hRunning
+        · intro hCancelledState
+          rcases hStatusConsistent with hComplete | hFailed | hCancelled
+          · simp [hComplete] at hCancelledState
+          · simp [hFailed] at hCancelledState
+          · exact Or.inr (by simp [hCancelled])
+  | cancelAck hState hSome hAllowed =>
+      rcases hAllowed with ⟨hRun, _, _, _⟩
+      constructor
+      · simp
+      · constructor
+        · intro hRunning
+          simp at hRunning
+        · intro hCancelled
+          exact Or.inl hRun
+
+theorem control_plane_trace_preserves_consistency
+    {start finish : ProtoControlPlaneState}
+    {events : List ProtoControlPlaneEvent} :
+    controlPlaneStateConsistent start →
+    ProtoControlPlaneTrace start events finish →
+    controlPlaneStateConsistent finish := by
+  intro hStart hTrace
+  induction hTrace with
+  | nil =>
+      exact hStart
+  | @cons before middle after event rest hStep hRest ih =>
+      exact ih (control_plane_transition_preserves_consistency hStep hStart)
+
 def sampleProtoTask : ProtoTask :=
   { version := "v1"
     taskId := "task-001"
@@ -397,6 +474,16 @@ def sampleSupersedingLease : ProtoLease :=
       issuedAtMs := 2
       expiresAtMs := 4 }
 
+def samplePreAcquireControlPlaneState : ProtoControlPlaneState :=
+  { runState := .executing
+    stepState := .leased
+    activeLease? := none }
+
+def sampleCompletedControlPlaneState : ProtoControlPlaneState :=
+  { runState := .complete
+    stepState := .complete
+    activeLease? := none }
+
 theorem started_report_requires_active_lease_binding :
     startedReportAllowed .executing .leased sampleProtoLease sampleStartedRequest := by
   simp [startedReportAllowed, sampleStartedRequest, sampleProtoLeaseRef, leaseRefMatchesLease, sampleProtoLease]
@@ -431,36 +518,36 @@ example : controlPlaneStateConsistent sampleRunningControlPlaneState := by
     · intro hCancelled
       simp [sampleRunningControlPlaneState] at hCancelled
 
-example :
+theorem sample_acquire_transition :
     ProtoControlPlaneTransition
-      { runState := .executing, stepState := .leased, activeLease? := none }
+      samplePreAcquireControlPlaneState
       (.acquired sampleProtoLease)
-      { runState := .executing, stepState := .leased, activeLease? := some sampleProtoLease } := by
+      sampleLeasedControlPlaneState := by
   apply ProtoControlPlaneTransition.acquire
   · constructor
-    · simp
+    · simp [samplePreAcquireControlPlaneState]
     · constructor
       · intro hRunning
-        simp at hRunning
+        simp [samplePreAcquireControlPlaneState] at hRunning
       · intro hCancelled
-        simp at hCancelled
+        simp [samplePreAcquireControlPlaneState] at hCancelled
   · simp [leaseWellFormed, sampleProtoLease, SafeClientBoundaryId, NonEmptyString]
   · rfl
   · rfl
   · rfl
   · rfl
 
-example :
+theorem sample_start_transition :
     ProtoControlPlaneTransition
       sampleLeasedControlPlaneState
       (.started sampleStartedRequest)
-      { sampleLeasedControlPlaneState with stepState := .running } := by
+      sampleRunningControlPlaneState := by
   apply ProtoControlPlaneTransition.start
   · exact by simp [controlPlaneStateConsistent, sampleLeasedControlPlaneState, sampleProtoLease]
   · rfl
   · exact started_report_requires_active_lease_binding
 
-example :
+theorem sample_resume_transition :
     ProtoControlPlaneTransition
       sampleRunningControlPlaneState
       (.resumed sampleSupersedingLease)
@@ -486,11 +573,11 @@ example :
   · rfl
   · rfl
 
-example :
+theorem sample_outcome_transition :
     ProtoControlPlaneTransition
       sampleRunningControlPlaneState
       (.outcomeReported sampleOutcomeRequest)
-      { runState := .complete, stepState := .complete, activeLease? := none } := by
+      sampleCompletedControlPlaneState := by
   apply ProtoControlPlaneTransition.outcome
   · exact by
       constructor
@@ -505,7 +592,7 @@ example :
   · rfl
   · exact outcome_report_request_requires_consistent_outcome
 
-example :
+theorem sample_cancel_ack_transition :
     ProtoControlPlaneTransition
       sampleCancellingControlPlaneState
       (.cancellationAcknowledged sampleAckCancellationRequest)
@@ -522,6 +609,35 @@ example :
         simp [sampleCancellingControlPlaneState] at hCancelled
   · rfl
   · exact cancellation_ack_requires_cancelling_run
+
+theorem sample_execution_trace :
+    ProtoControlPlaneTrace
+      samplePreAcquireControlPlaneState
+      [ .acquired sampleProtoLease
+      , .started sampleStartedRequest
+      , .progressed sampleProgressRequest
+      , .outcomeReported sampleOutcomeRequest ]
+      sampleCompletedControlPlaneState := by
+  apply ProtoControlPlaneTrace.cons
+  · exact sample_acquire_transition
+  · apply ProtoControlPlaneTrace.cons
+    · exact sample_start_transition
+    · apply ProtoControlPlaneTrace.cons
+      · apply ProtoControlPlaneTransition.progress
+        · exact control_plane_transition_preserves_consistency
+            sample_start_transition
+            (by simp [controlPlaneStateConsistent, sampleLeasedControlPlaneState, sampleProtoLease])
+        · rfl
+        · exact progress_report_requires_bounded_progress
+      · apply ProtoControlPlaneTrace.cons
+        · exact sample_outcome_transition
+        · apply ProtoControlPlaneTrace.nil
+
+example :
+    controlPlaneStateConsistent sampleCompletedControlPlaneState := by
+  exact control_plane_trace_preserves_consistency
+    (by simp [controlPlaneStateConsistent, samplePreAcquireControlPlaneState])
+    sample_execution_trace
 
 theorem active_lease_list_rejects_duplicate_run_step :
     ¬ atMostOneActiveLeaseOwner

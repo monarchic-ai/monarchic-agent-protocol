@@ -34,6 +34,8 @@ Current proof targets:
   Lean now proves basic token advancement properties such as same-scope progression, irreflexivity, and asymmetry
 - protobuf control-plane trace safety:
   Lean now models bounded control-plane states and transitions and proves authority/lease preservation across acquire, renew, resume, outcome, and cancellation traces
+- inductive trace consistency:
+  Lean now lifts one-step control-plane transition lemmas to arbitrary event lists and proves well-formed control-plane traces preserve consistency end-to-end
 
 Files:
 
