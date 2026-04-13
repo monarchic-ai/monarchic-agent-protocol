@@ -112,6 +112,7 @@ It currently formalizes a bounded set of invariants derived from real downstream
 - bounded protobuf control-plane trace safety and authority preservation
 - inductive consistency preservation over protobuf control-plane event traces
 - continuous active-authority traces preserve the bound `(run_id, step_id, task_id)` scope
+- active traces exclude competing authorities for the same `(run_id, step_id)` scope
 - a checked protobuf coverage manifest makes the currently formalized subset explicit relative to the full `.proto` surface
 - the schema-side Lean coverage manifest is generated from `schemas/v1/monarchic_agent_protocol.proto` and validated in CI
 

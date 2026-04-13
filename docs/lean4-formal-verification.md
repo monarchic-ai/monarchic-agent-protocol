@@ -38,6 +38,8 @@ Current proof targets:
   Lean now lifts one-step control-plane transition lemmas to arbitrary event lists and proves well-formed control-plane traces preserve consistency end-to-end
 - active-authority trace preservation:
   Lean now models traces that keep a lease continuously bound and proves the authority key cannot drift across renew/resume/progress spans
+- competing-authority exclusion:
+  Lean now proves that active-authority traces cannot end with a different task bound to the same `(run_id, step_id)` scope
 - protobuf coverage manifest:
   Lean now records the currently covered protobuf messages and enums, together with checked counts against the present `.proto` surface so partial coverage is explicit
   The schema-side manifest is now generated from `schemas/v1/monarchic_agent_protocol.proto` and CI fails if the checked-in Lean manifest drifts.

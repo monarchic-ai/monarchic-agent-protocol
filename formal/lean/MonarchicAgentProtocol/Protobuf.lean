@@ -622,6 +622,14 @@ def authorityPreserved
       oldLease.taskId = newLease.taskId
   | _, _ => True
 
+def competingAuthority (before after : ProtoControlPlaneState) : Prop :=
+  match before.activeLease?, after.activeLease? with
+  | some oldLease, some newLease =>
+      oldLease.runId = newLease.runId ∧
+      oldLease.stepId = newLease.stepId ∧
+      oldLease.taskId ≠ newLease.taskId
+  | _, _ => False
+
 inductive ProtoControlPlaneTrace :
     ProtoControlPlaneState → List ProtoControlPlaneEvent → ProtoControlPlaneState → Prop
   | nil
