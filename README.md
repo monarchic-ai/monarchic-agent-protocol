@@ -106,6 +106,7 @@ It currently formalizes a bounded set of invariants derived from real downstream
 - verification receipt status consistency
 - terminal lifecycle sink behavior
 - plan dependency grounding
+- protobuf message well-formedness and cross-message integrity
 
 See `docs/lean4-formal-verification.md` for scope and usage.
 
