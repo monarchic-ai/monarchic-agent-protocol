@@ -316,6 +316,81 @@ theorem control_plane_trace_preserves_consistency
   | @cons before middle after event rest hStep hRest ih =>
       exact ih (control_plane_transition_preserves_consistency hStep hStart)
 
+theorem control_plane_transition_preserves_authority_when_active
+    {before after : ProtoControlPlaneState}
+    {event : ProtoControlPlaneEvent} :
+    ProtoControlPlaneTransition before event after →
+    before.activeLease?.isSome →
+    after.activeLease?.isSome →
+    authorityPreserved before after := by
+  intro hTransition hBeforeActive hAfterActive
+  cases hTransition with
+  | acquire _ _ _ hNone _ _ =>
+      simp [hNone] at hBeforeActive
+  | renew hState _ _ hSome =>
+      simp [authorityPreserved, hSome]
+  | resume hState _ _ hSome _ hRun hStep hTask =>
+      simp [authorityPreserved, hSome, hRun, hStep, hTask]
+  | start hState hSome _ =>
+      simp [authorityPreserved, hSome]
+  | progress hState hSome _ =>
+      simp [authorityPreserved, hSome]
+  | outcome =>
+      simp at hAfterActive
+  | cancelAck =>
+      simp at hAfterActive
+
+theorem authority_preserved_refl (state : ProtoControlPlaneState) :
+    authorityPreserved state state := by
+  cases hState : state.activeLease? <;> simp [authorityPreserved, hState]
+
+theorem active_authority_trace_finish_active
+    {start finish : ProtoControlPlaneState}
+    {events : List ProtoControlPlaneEvent} :
+    ProtoActiveAuthorityTrace start events finish →
+    finish.activeLease?.isSome := by
+  intro hTrace
+  induction hTrace with
+  | nil hActive =>
+      exact hActive
+  | cons _ _ hMiddleActive hRest ih =>
+      exact ih
+
+theorem active_authority_trace_preserves_authority
+    {start finish : ProtoControlPlaneState}
+    {events : List ProtoControlPlaneEvent} :
+    ProtoActiveAuthorityTrace start events finish →
+    authorityPreserved start finish := by
+  intro hTrace
+  induction hTrace with
+  | nil hActive =>
+      exact authority_preserved_refl _
+  | @cons before middle after event rest hStep hBeforeActive hMiddleActive hRest ih =>
+      have hStepPreserved :
+          authorityPreserved before middle :=
+        control_plane_transition_preserves_authority_when_active hStep hBeforeActive hMiddleActive
+      have hAfterActive : after.activeLease?.isSome :=
+        active_authority_trace_finish_active hRest
+      cases hBefore : before.activeLease? with
+      | none =>
+          simp [Option.isSome, hBefore] at hBeforeActive
+      | some beforeLease =>
+          cases hMiddle : middle.activeLease? with
+          | none =>
+              simp [Option.isSome, hMiddle] at hMiddleActive
+          | some middleLease =>
+              cases hAfter : after.activeLease? with
+              | none =>
+                  simp [Option.isSome, hAfter] at hAfterActive
+              | some afterLease =>
+                  rcases (by simpa [authorityPreserved, hBefore, hMiddle] using hStepPreserved) with
+                    ⟨hRun1, hStep1, hTask1⟩
+                  rcases (by simpa [authorityPreserved, hMiddle, hAfter] using ih) with
+                    ⟨hRun2, hStep2, hTask2⟩
+                  exact by
+                    simp [authorityPreserved, hBefore, hAfter]
+                    exact ⟨hRun1.trans hRun2, hStep1.trans hStep2, hTask1.trans hTask2⟩
+
 def sampleProtoTask : ProtoTask :=
   { version := "v1"
     taskId := "task-001"
@@ -474,6 +549,20 @@ def sampleSupersedingLease : ProtoLease :=
       issuedAtMs := 2
       expiresAtMs := 4 }
 
+def sampleSupersedingLeaseRef : ProtoLeaseRef :=
+  { leaseId := sampleSupersedingLease.leaseId
+    fencingToken := sampleSupersedingLease.fencingToken.token
+    runId := sampleSupersedingLease.runId
+    planId := sampleSupersedingLease.planId
+    stepId := sampleSupersedingLease.stepId
+    taskId := sampleSupersedingLease.taskId }
+
+def sampleSupersedingProgressRequest : ProtoReportStepProgressRequest :=
+  { leaseRef := sampleSupersedingLeaseRef
+    progressMessage := "resumed module"
+    completedUnits := 4
+    totalUnits := 5 }
+
 def samplePreAcquireControlPlaneState : ProtoControlPlaneState :=
   { runState := .executing
     stepState := .leased
@@ -483,6 +572,23 @@ def sampleCompletedControlPlaneState : ProtoControlPlaneState :=
   { runState := .complete
     stepState := .complete
     activeLease? := none }
+
+def sampleResumedControlPlaneState : ProtoControlPlaneState :=
+  { runState := .executing
+    stepState := .running
+    activeLease? := some sampleSupersedingLease }
+
+theorem sample_resumed_state_consistent :
+    controlPlaneStateConsistent sampleResumedControlPlaneState := by
+  constructor
+  · simp [sampleResumedControlPlaneState, sampleSupersedingLease, sampleProtoLease]
+  · constructor
+    · intro hRunning
+      refine ⟨sampleSupersedingLease, ?_, rfl⟩
+      simp [sampleResumedControlPlaneState] at hRunning
+      simp [sampleResumedControlPlaneState]
+    · intro hCancelled
+      simp [sampleResumedControlPlaneState] at hCancelled
 
 theorem started_report_requires_active_lease_binding :
     startedReportAllowed .executing .leased sampleProtoLease sampleStartedRequest := by
@@ -632,6 +738,32 @@ theorem sample_execution_trace :
       · apply ProtoControlPlaneTrace.cons
         · exact sample_outcome_transition
         · apply ProtoControlPlaneTrace.nil
+
+theorem sample_active_authority_trace :
+    ProtoActiveAuthorityTrace
+      sampleRunningControlPlaneState
+      [ .resumed sampleSupersedingLease
+      , .progressed sampleSupersedingProgressRequest ]
+      sampleResumedControlPlaneState := by
+  apply ProtoActiveAuthorityTrace.cons
+  · exact sample_resume_transition
+  · simp [sampleRunningControlPlaneState]
+  · simp
+  · apply ProtoActiveAuthorityTrace.cons
+    · apply ProtoControlPlaneTransition.progress
+      · exact sample_resumed_state_consistent
+      · rfl
+      · simp [progressReportAllowed, sampleSupersedingProgressRequest, sampleSupersedingLeaseRef,
+          leaseRefMatchesLease, sampleSupersedingLease, sampleProtoLease,
+          sampleRunningControlPlaneState, NonEmptyString]
+    · simp
+    · simp
+    · apply ProtoActiveAuthorityTrace.nil
+      simp
+
+example :
+    authorityPreserved sampleRunningControlPlaneState sampleResumedControlPlaneState := by
+  exact active_authority_trace_preserves_authority sample_active_authority_trace
 
 example :
     controlPlaneStateConsistent sampleCompletedControlPlaneState := by

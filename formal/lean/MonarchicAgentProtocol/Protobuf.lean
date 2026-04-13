@@ -635,4 +635,20 @@ inductive ProtoControlPlaneTrace :
       ProtoControlPlaneTrace middle rest after →
       ProtoControlPlaneTrace before (event :: rest) after
 
+inductive ProtoActiveAuthorityTrace :
+    ProtoControlPlaneState → List ProtoControlPlaneEvent → ProtoControlPlaneState → Prop
+  | nil
+      {state : ProtoControlPlaneState} :
+      state.activeLease?.isSome →
+      ProtoActiveAuthorityTrace state [] state
+  | cons
+      {before middle after : ProtoControlPlaneState}
+      {event : ProtoControlPlaneEvent}
+      {rest : List ProtoControlPlaneEvent} :
+      ProtoControlPlaneTransition before event middle →
+      before.activeLease?.isSome →
+      middle.activeLease?.isSome →
+      ProtoActiveAuthorityTrace middle rest after →
+      ProtoActiveAuthorityTrace before (event :: rest) after
+
 end MonarchicAgentProtocol

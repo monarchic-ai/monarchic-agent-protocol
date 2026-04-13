@@ -111,6 +111,7 @@ It currently formalizes a bounded set of invariants derived from real downstream
 - protobuf request/report admissibility and fencing-token monotonicity
 - bounded protobuf control-plane trace safety and authority preservation
 - inductive consistency preservation over protobuf control-plane event traces
+- continuous active-authority traces preserve the bound `(run_id, step_id, task_id)` scope
 
 See `docs/lean4-formal-verification.md` for scope and usage.
 
