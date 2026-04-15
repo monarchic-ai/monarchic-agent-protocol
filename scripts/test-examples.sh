@@ -28,7 +28,7 @@ PY
 (cd "$tmp_rust_dir" && cargo run --quiet >/dev/null)
 rm -rf "$tmp_rust_dir"
 
-npx -y -p typescript tsc --noEmit --moduleResolution node --module commonjs --target es2020 examples/ts/task.ts
+npx -y -p typescript tsc --ignoreConfig --ignoreDeprecations 6.0 --noEmit --moduleResolution node --module commonjs --target es2020 examples/ts/task.ts
 
 tmp_dir="$(mktemp -d)"
 trap 'rm -rf "${tmp_dir}"' EXIT
