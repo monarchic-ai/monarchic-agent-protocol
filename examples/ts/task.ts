@@ -4,6 +4,7 @@ const task: Task = {
   version: "v1",
   task_id: "task-123",
   role: "dev",
+  role_id: "dev",
   goal: "Implement protocol types",
   gates_required: ["qa", "security"],
   run_context: {
