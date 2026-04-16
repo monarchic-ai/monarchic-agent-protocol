@@ -90,6 +90,59 @@ export interface GateResult {
   [key: string]: unknown;
 }
 
+export type PublicationActionKind =
+  | "commit_split"
+  | "create_branch"
+  | "push_branch"
+  | "open_pull_request"
+  | "update_pull_request"
+  | "merge_pull_request"
+  | "create_tag"
+  | "create_release";
+
+export type PublicationActionStatus =
+  | "planned"
+  | "ready"
+  | "blocked"
+  | "applied"
+  | "failed";
+
+export interface PublicationTargetRef {
+  repo: string;
+  base_branch: string;
+  head_branch?: string;
+  base_commit?: string;
+  remote?: string;
+  [key: string]: unknown;
+}
+
+export interface PublicationPullRequestRef {
+  number?: number;
+  url?: string;
+  title?: string;
+  [key: string]: unknown;
+}
+
+export interface PublicationAction {
+  contract_version: ProtocolVersion;
+  action_id: string;
+  run_id: string;
+  plan_id: string;
+  task_id?: string;
+  kind: PublicationActionKind;
+  status: PublicationActionStatus;
+  actor: string;
+  target: PublicationTargetRef;
+  summary: string;
+  commit_message?: string;
+  artifact_ids?: string[];
+  pull_request?: PublicationPullRequestRef;
+  failure_reason?: string;
+  dry_run: boolean;
+  created_at: number;
+  [key: string]: unknown;
+}
+
 export interface FailureClass {
   category:
     | "validation"

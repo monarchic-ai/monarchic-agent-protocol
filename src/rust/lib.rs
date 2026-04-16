@@ -34,6 +34,10 @@ pub mod client_boundary {
     pub use crate::client_boundary_types::plan::{
         Plan, PlanStep, PlanStepKind, ReplanPolicy, ReplanStrategy, StepOutputExpectation,
     };
+    pub use crate::client_boundary_types::publication::{
+        PublicationAction, PublicationActionKind, PublicationActionStatus,
+        PublicationPullRequestRef, PublicationTargetRef,
+    };
     pub use crate::client_boundary_types::receipt::{
         ExecutionReceipt, ExecutionStatus, VerificationCheck, VerificationCheckStatus,
         VerificationReceipt, VerificationStatus,
