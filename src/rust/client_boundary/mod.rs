@@ -6,6 +6,7 @@ pub mod event;
 pub mod intent;
 pub mod message;
 pub mod plan;
+pub mod publication;
 pub mod receipt;
 pub mod review;
 pub mod task;

@@ -70,6 +70,7 @@ Frozen v1 client-boundary types:
 - `PlanStep`
 - `ExecutionReceipt`
 - `VerificationReceipt`
+- `PublicationAction`
 - `ReviewDecision`
 - `RerunScope`
 - `BlockedOutcome`

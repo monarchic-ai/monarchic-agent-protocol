@@ -1,0 +1,28 @@
+{
+  "contract_version": "v1",
+  "action_id": "publication-action-001",
+  "run_id": "run-001",
+  "plan_id": "plan-001",
+  "task_id": "task-publisher-001",
+  "kind": "open_pull_request",
+  "status": "ready",
+  "actor": "publisher-bot",
+  "target": {
+    "repo": "monarchic-ai/libmonarchic",
+    "base_branch": "main",
+    "head_branch": "monarchic/self-improve-plan-001",
+    "base_commit": "a1b2c3d4",
+    "remote": "origin"
+  },
+  "summary": "Open a pull request for validated self-improvement work.",
+  "commit_message": "feat: improve autonomous planning",
+  "artifact_ids": [
+    "artifact-patch-001",
+    "artifact-verification-001"
+  ],
+  "pull_request": {
+    "title": "feat: improve autonomous planning"
+  },
+  "dry_run": false,
+  "created_at": 1743018240000
+}

@@ -4,8 +4,8 @@ use client_boundary_support::{load_fixture_value, read_fixture};
 use monarchic_agent_protocol::client_boundary::{
     BlockedOutcome, BootstrapPlan, BootstrapPlanningContext, BootstrapPlanningMode,
     CampaignPipelineSpec, DigestManifest, ExecutionReceipt, Intent, IntentClass, Plan,
-    RerunExecutionResult, RerunScope, RunEventRecord, Task, TaskMessage, TaskMessageKind,
-    VerificationReceipt,
+    PublicationAction, RerunExecutionResult, RerunScope, RunEventRecord, Task, TaskMessage,
+    TaskMessageKind, VerificationReceipt,
 };
 use serde_json::Value;
 
@@ -237,4 +237,49 @@ fn plan_rejects_missing_intent_id() {
         .expect("plan object")
         .remove("intent_id");
     assert!(serde_json::from_value::<Plan>(value).is_err());
+}
+
+#[test]
+fn publication_action_defaults_contract_version_when_missing() {
+    let mut value = load_fixture_value("publication_action.open_pr.json");
+    value
+        .as_object_mut()
+        .expect("publication action object")
+        .remove("contract_version");
+    let parsed: PublicationAction =
+        serde_json::from_value(value).expect("deserialize publication action without version");
+
+    assert_eq!(
+        parsed.contract_version,
+        monarchic_agent_protocol::PROTOCOL_VERSION
+    );
+}
+
+#[test]
+fn publication_action_rejects_unspecified_kind() {
+    let mut value = load_fixture_value("publication_action.open_pr.json");
+    value["kind"] = Value::String(String::from("unspecified"));
+    assert!(serde_json::from_value::<PublicationAction>(value).is_err());
+}
+
+#[test]
+fn publication_action_rejects_blocked_without_reason() {
+    let mut value = load_fixture_value("publication_action.open_pr.json");
+    value["status"] = Value::String(String::from("blocked"));
+    value
+        .as_object_mut()
+        .expect("publication action object")
+        .remove("failure_reason");
+    assert!(serde_json::from_value::<PublicationAction>(value).is_err());
+}
+
+#[test]
+fn publication_action_requires_pr_ref_for_applied_pr_action() {
+    let mut value = load_fixture_value("publication_action.open_pr.json");
+    value["status"] = Value::String(String::from("applied"));
+    value
+        .as_object_mut()
+        .expect("publication action object")
+        .remove("pull_request");
+    assert!(serde_json::from_value::<PublicationAction>(value).is_err());
 }
