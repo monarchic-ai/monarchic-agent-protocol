@@ -1,0 +1,21 @@
+{
+  "contract_version": "v1",
+  "override_id": "manual-override-001",
+  "run_id": "run-001",
+  "plan_id": "plan-001",
+  "step_id": "step-publish-001",
+  "task_id": "task-publisher-001",
+  "action": "approve_publication",
+  "actor": "operator@example.com",
+  "reason": "Operator approved publication after reviewing the moderation block and release evidence.",
+  "source_decision_id": "moderation-decision-001",
+  "affected_artifact_ids": [
+    "artifact-release-001",
+    "artifact-verification-001"
+  ],
+  "created_at_ms": 1743018360000,
+  "expires_at_ms": 1743021960000,
+  "extensions": {
+    "ticket": "OPS-123"
+  }
+}

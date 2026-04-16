@@ -143,6 +143,38 @@ export interface PublicationAction {
   [key: string]: unknown;
 }
 
+export type ModerationDecisionScope =
+  | "intent"
+  | "plan"
+  | "step"
+  | "task"
+  | "artifact"
+  | "publication"
+  | "run";
+
+export type ModerationDisposition =
+  | "allow"
+  | "block"
+  | "escalate"
+  | "request_changes";
+
+export interface ModerationDecision {
+  contract_version: ProtocolVersion;
+  decision_id: string;
+  run_id: string;
+  plan_id: string;
+  task_id?: string;
+  scope: ModerationDecisionScope;
+  disposition: ModerationDisposition;
+  actor: string;
+  reason: string;
+  policy_tags?: string[];
+  artifact_ids?: string[];
+  blocked_outcomes?: Record<string, unknown>[];
+  created_at: number;
+  [key: string]: unknown;
+}
+
 export interface FailureClass {
   category:
     | "validation"

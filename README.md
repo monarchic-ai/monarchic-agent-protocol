@@ -71,6 +71,7 @@ Frozen v1 client-boundary types:
 - `ExecutionReceipt`
 - `VerificationReceipt`
 - `PublicationAction`
+- `ModerationDecision`
 - `ReviewDecision`
 - `RerunScope`
 - `BlockedOutcome`
@@ -93,6 +94,7 @@ Frozen v1 durable-authority types:
 - `StepLifecycleState`
 - `LeaseRejectionReason`
 - `RecoveryEvent`
+- `ManualOverrideRecord`
 
 Canonical JSON fixtures for these contracts live under `fixtures/durable_authority/v1/`.
 

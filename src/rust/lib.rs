@@ -31,6 +31,9 @@ pub mod client_boundary {
     pub use crate::client_boundary_types::event::{RunEventRecord, RunEventStream};
     pub use crate::client_boundary_types::intent::{Intent, IntentClass};
     pub use crate::client_boundary_types::message::{TaskMessage, TaskMessageKind};
+    pub use crate::client_boundary_types::moderation::{
+        ModerationDecision, ModerationDecisionScope, ModerationDisposition,
+    };
     pub use crate::client_boundary_types::plan::{
         Plan, PlanStep, PlanStepKind, ReplanPolicy, ReplanStrategy, StepOutputExpectation,
     };
@@ -54,8 +57,9 @@ pub mod client_boundary {
 /// Handwritten durable-authority wrappers layered above the generated schema.
 pub mod durable_authority {
     pub use crate::authority::{
-        FencingToken, Lease, LeaseLifecycleState, LeaseRejectionReason, RecoveryEvent,
-        RecoveryEventKind, RunLifecycleState, StepLifecycleState,
+        FencingToken, Lease, LeaseLifecycleState, LeaseRejectionReason, ManualOverrideAction,
+        ManualOverrideRecord, RecoveryEvent, RecoveryEventKind, RunLifecycleState,
+        StepLifecycleState,
     };
     pub use crate::version::DURABLE_AUTHORITY_CONTRACT_VERSION;
 }

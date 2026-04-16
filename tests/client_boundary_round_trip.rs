@@ -3,9 +3,9 @@ mod client_boundary_support;
 use client_boundary_support::assert_fixture_round_trip;
 use monarchic_agent_protocol::client_boundary::{
     ArtifactDescriptor, BlockedOutcome, BootstrapIntent, BootstrapPlan, BootstrapPlanningContext,
-    CampaignPipelineSpec, DigestManifest, ExecutionReceipt, Intent, Plan, PlanStep,
-    PrLifecycleState, PublicationAction, RerunExecutionResult, RerunScope, ReviewDecision,
-    RunEventRecord, Task, TaskMessage, VerificationReceipt,
+    CampaignPipelineSpec, DigestManifest, ExecutionReceipt, Intent, ModerationDecision, Plan,
+    PlanStep, PrLifecycleState, PublicationAction, RerunExecutionResult, RerunScope,
+    ReviewDecision, RunEventRecord, Task, TaskMessage, VerificationReceipt,
 };
 
 #[test]
@@ -108,4 +108,9 @@ fn pr_lifecycle_state_fixture_round_trips_canonically() {
 #[test]
 fn publication_action_fixture_round_trips_canonically() {
     assert_fixture_round_trip::<PublicationAction>("publication_action.open_pr.json");
+}
+
+#[test]
+fn moderation_decision_fixture_round_trips_canonically() {
+    assert_fixture_round_trip::<ModerationDecision>("moderation_decision.block.json");
 }

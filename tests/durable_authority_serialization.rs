@@ -1,7 +1,8 @@
 use std::{fs, path::PathBuf};
 
 use monarchic_agent_protocol::durable_authority::{
-    FencingToken, Lease, LeaseRejectionReason, RecoveryEvent, RunLifecycleState, StepLifecycleState,
+    FencingToken, Lease, LeaseRejectionReason, ManualOverrideRecord, RecoveryEvent,
+    RunLifecycleState, StepLifecycleState,
 };
 use serde::{de::DeserializeOwned, Serialize};
 use serde_json::Value;
@@ -94,6 +95,13 @@ fn recovery_replay_fixture_round_trips_canonically() {
 }
 
 #[test]
+fn manual_override_record_fixture_round_trips_canonically() {
+    assert_fixture_round_trip::<ManualOverrideRecord>(
+        "manual_override_record.approve_publication.json",
+    );
+}
+
+#[test]
 fn lease_rejects_invalid_status() {
     let mut value = load_fixture_value("lease.minimal.json");
     value["status"] = Value::String(String::from("mystery"));
@@ -115,4 +123,34 @@ fn recovery_event_rejects_missing_contract_version() {
         .expect("recovery event object")
         .remove("contract_version");
     assert!(serde_json::from_value::<RecoveryEvent>(value).is_err());
+}
+
+#[test]
+fn manual_override_record_defaults_contract_version_when_missing() {
+    let mut value = load_fixture_value("manual_override_record.approve_publication.json");
+    value
+        .as_object_mut()
+        .expect("manual override object")
+        .remove("contract_version");
+    let parsed: ManualOverrideRecord =
+        serde_json::from_value(value).expect("deserialize manual override without version");
+
+    assert_eq!(
+        parsed.contract_version,
+        monarchic_agent_protocol::durable_authority::DURABLE_AUTHORITY_CONTRACT_VERSION
+    );
+}
+
+#[test]
+fn manual_override_record_rejects_unspecified_action() {
+    let mut value = load_fixture_value("manual_override_record.approve_publication.json");
+    value["action"] = Value::String(String::from("unspecified"));
+    assert!(serde_json::from_value::<ManualOverrideRecord>(value).is_err());
+}
+
+#[test]
+fn manual_override_record_rejects_non_future_expiration() {
+    let mut value = load_fixture_value("manual_override_record.approve_publication.json");
+    value["expires_at_ms"] = value["created_at_ms"].clone();
+    assert!(serde_json::from_value::<ManualOverrideRecord>(value).is_err());
 }
