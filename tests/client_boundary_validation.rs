@@ -3,9 +3,9 @@ mod client_boundary_support;
 use client_boundary_support::{load_fixture_value, read_fixture};
 use monarchic_agent_protocol::client_boundary::{
     BlockedOutcome, BootstrapPlan, BootstrapPlanningContext, BootstrapPlanningMode,
-    CampaignPipelineSpec, DigestManifest, ExecutionReceipt, Intent, IntentClass, Plan,
-    PublicationAction, RerunExecutionResult, RerunScope, RunEventRecord, Task, TaskMessage,
-    TaskMessageKind, VerificationReceipt,
+    CampaignPipelineSpec, DigestManifest, ExecutionReceipt, Intent, IntentClass,
+    ModerationDecision, Plan, PublicationAction, RerunExecutionResult, RerunScope, RunEventRecord,
+    Task, TaskMessage, TaskMessageKind, VerificationReceipt,
 };
 use serde_json::Value;
 
@@ -282,4 +282,41 @@ fn publication_action_requires_pr_ref_for_applied_pr_action() {
         .expect("publication action object")
         .remove("pull_request");
     assert!(serde_json::from_value::<PublicationAction>(value).is_err());
+}
+
+#[test]
+fn moderation_decision_defaults_contract_version_when_missing() {
+    let mut value = load_fixture_value("moderation_decision.block.json");
+    value
+        .as_object_mut()
+        .expect("moderation decision object")
+        .remove("contract_version");
+    let parsed: ModerationDecision =
+        serde_json::from_value(value).expect("deserialize moderation decision without version");
+
+    assert_eq!(
+        parsed.contract_version,
+        monarchic_agent_protocol::PROTOCOL_VERSION
+    );
+}
+
+#[test]
+fn moderation_decision_rejects_unspecified_scope() {
+    let mut value = load_fixture_value("moderation_decision.block.json");
+    value["scope"] = Value::String(String::from("unspecified"));
+    assert!(serde_json::from_value::<ModerationDecision>(value).is_err());
+}
+
+#[test]
+fn blocked_moderation_decision_requires_blocked_outcome() {
+    let mut value = load_fixture_value("moderation_decision.block.json");
+    value["blocked_outcomes"] = Value::Array(Vec::new());
+    assert!(serde_json::from_value::<ModerationDecision>(value).is_err());
+}
+
+#[test]
+fn allow_moderation_decision_rejects_blocked_outcomes() {
+    let mut value = load_fixture_value("moderation_decision.block.json");
+    value["disposition"] = Value::String(String::from("allow"));
+    assert!(serde_json::from_value::<ModerationDecision>(value).is_err());
 }

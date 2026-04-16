@@ -1,0 +1,30 @@
+{
+  "contract_version": "v1",
+  "decision_id": "moderation-decision-001",
+  "run_id": "run-001",
+  "plan_id": "plan-001",
+  "task_id": "task-publisher-001",
+  "scope": "publication",
+  "disposition": "block",
+  "actor": "moderation-bot",
+  "reason": "Publication is blocked until the referenced release artifact is verified.",
+  "policy_tags": [
+    "publication.requires_verified_release_artifact"
+  ],
+  "artifact_ids": [
+    "artifact-release-001"
+  ],
+  "blocked_outcomes": [
+    {
+      "code": "release-artifact-unverified",
+      "scope": "release",
+      "message": "The release artifact has not been verified.",
+      "details": {
+        "artifact_id": "artifact-release-001",
+        "required_status": "verified"
+      },
+      "blocking_artifacts": []
+    }
+  ],
+  "created_at": 1743018300000
+}

@@ -5,6 +5,7 @@ pub mod campaign;
 pub mod event;
 pub mod intent;
 pub mod message;
+pub mod moderation;
 pub mod plan;
 pub mod publication;
 pub mod receipt;
