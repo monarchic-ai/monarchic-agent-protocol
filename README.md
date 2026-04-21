@@ -98,6 +98,25 @@ Frozen v1 durable-authority types:
 
 Canonical JSON fixtures for these contracts live under `fixtures/durable_authority/v1/`.
 
+### Service boundary contracts
+
+The Rust crate also exposes a frozen service-boundary surface under `monarchic_agent_protocol::service_boundary`.
+
+Frozen v1 service-boundary types:
+
+- `PrincipalRef`
+- `TenantRef`
+- `AuthContext`
+- `UsageRecord`
+- `AuditExportManifest`
+- `ControlPlaneQueueJob`
+- `ControlPlaneDispatchRequest`
+
+The queue job contract uses the explicit wire marker
+`monarchic.control-plane.queue-job.v1` because it is consumed across the API,
+control-plane queue, and worker boundary. Canonical JSON fixtures for
+service-boundary contracts live under `fixtures/service_boundary/v1/`.
+
 ## Lean4 Formalization
 
 A Lean4 proof model now lives under `formal/lean/`.
