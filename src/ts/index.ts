@@ -175,6 +175,49 @@ export interface ModerationDecision {
   [key: string]: unknown;
 }
 
+export const CONTROL_PLANE_QUEUE_JOB_CONTRACT_VERSION =
+  "monarchic.control-plane.queue-job.v1" as const;
+
+export type ControlPlaneWorkflowKind =
+  | "bootstrap"
+  | "campaign_draft"
+  | "campaign_execution";
+
+export type ControlPlaneRunStatus =
+  | "requested"
+  | "validated"
+  | "queued"
+  | "assigned"
+  | "running"
+  | "blocked"
+  | "review_required"
+  | "completed"
+  | "failed"
+  | "cancelled";
+
+export type ControlPlaneDispatchSource = "api" | "control_plane" | "recovery";
+
+export interface ControlPlaneDispatchRequest {
+  tenant_id: string;
+  project_key: string;
+  run_id: string;
+  task_id?: string;
+  workflow: ControlPlaneWorkflowKind;
+  queue: "control-plane.launch" | string;
+  run_status: ControlPlaneRunStatus;
+  task_status?: ControlPlaneRunStatus;
+}
+
+export interface ControlPlaneQueueJob {
+  contract_version: typeof CONTROL_PLANE_QUEUE_JOB_CONTRACT_VERSION;
+  queue: "control-plane.launch" | string;
+  source: ControlPlaneDispatchSource;
+  submitted_at_ms?: number;
+  run_record_path?: string;
+  run_snapshot?: Record<string, unknown>;
+  dispatch: ControlPlaneDispatchRequest;
+}
+
 export interface FailureClass {
   category:
     | "validation"

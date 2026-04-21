@@ -1,7 +1,7 @@
 use std::{fs, path::PathBuf};
 
 use monarchic_agent_protocol::service_boundary::{
-    AuditExportManifest, AuthContext, PrincipalRef, TenantRef, UsageRecord,
+    AuditExportManifest, AuthContext, ControlPlaneQueueJob, PrincipalRef, TenantRef, UsageRecord,
 };
 use serde::{de::DeserializeOwned, Serialize};
 use serde_json::Value;
@@ -100,4 +100,39 @@ fn audit_export_manifest_rejects_missing_artifacts() {
     let mut value = load_fixture_value("audit_export_manifest.minimal.json");
     value["artifact_descriptors"] = Value::Array(Vec::new());
     assert!(serde_json::from_value::<AuditExportManifest>(value).is_err());
+}
+
+#[test]
+fn control_plane_queue_job_fixture_round_trips_canonically() {
+    assert_fixture_round_trip::<ControlPlaneQueueJob>("control_plane_queue_job.launch.json");
+}
+
+#[test]
+fn control_plane_queue_job_defaults_contract_version_when_missing() {
+    let mut value = load_fixture_value("control_plane_queue_job.launch.json");
+    value
+        .as_object_mut()
+        .expect("queue job object")
+        .remove("contract_version");
+    let parsed: ControlPlaneQueueJob =
+        serde_json::from_value(value).expect("deserialize queue job without version");
+
+    assert_eq!(
+        parsed.contract_version,
+        monarchic_agent_protocol::service_boundary::CONTROL_PLANE_QUEUE_JOB_CONTRACT_VERSION
+    );
+}
+
+#[test]
+fn control_plane_queue_job_rejects_mismatched_queue_names() {
+    let mut value = load_fixture_value("control_plane_queue_job.launch.json");
+    value["dispatch"]["queue"] = Value::String(String::from("other.queue"));
+    assert!(serde_json::from_value::<ControlPlaneQueueJob>(value).is_err());
+}
+
+#[test]
+fn control_plane_queue_job_rejects_mismatched_snapshot_scope() {
+    let mut value = load_fixture_value("control_plane_queue_job.launch.json");
+    value["run_snapshot"]["tenantId"] = Value::String(String::from("other-tenant"));
+    assert!(serde_json::from_value::<ControlPlaneQueueJob>(value).is_err());
 }

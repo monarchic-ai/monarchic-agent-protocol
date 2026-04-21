@@ -1,0 +1,23 @@
+{
+  "contract_version": "monarchic.control-plane.queue-job.v1",
+  "queue": "control-plane.launch",
+  "source": "api",
+  "submitted_at_ms": 1776814050000,
+  "run_record_path": "remote/project-alpha/run-123/run.json",
+  "run_snapshot": {
+    "projectKey": "project-alpha",
+    "runId": "run-123",
+    "status": "queued",
+    "tenantId": "tenant-dev"
+  },
+  "dispatch": {
+    "tenant_id": "tenant-dev",
+    "project_key": "project-alpha",
+    "run_id": "run-123",
+    "task_id": "task-run-123-primary",
+    "workflow": "campaign_draft",
+    "queue": "control-plane.launch",
+    "run_status": "queued",
+    "task_status": "queued"
+  }
+}

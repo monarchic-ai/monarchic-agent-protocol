@@ -67,8 +67,10 @@ pub mod durable_authority {
 /// Handwritten service-boundary wrappers layered above the generated schema.
 pub mod service_boundary {
     pub use crate::service::{
-        AuditExportManifest, AuthContext, AuthMechanism, PrincipalRef, TenantRef, UsageCategory,
-        UsageRecord, UsageUnit,
+        AuditExportManifest, AuthContext, AuthMechanism, ControlPlaneDispatchRequest,
+        ControlPlaneDispatchSource, ControlPlaneQueueJob, ControlPlaneRunStatus,
+        ControlPlaneWorkflowKind, PrincipalRef, TenantRef, UsageCategory, UsageRecord, UsageUnit,
+        CONTROL_PLANE_QUEUE_JOB_CONTRACT_VERSION,
     };
     pub use crate::version::SERVICE_BOUNDARY_CONTRACT_VERSION;
 }

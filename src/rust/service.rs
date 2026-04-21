@@ -1,8 +1,11 @@
 use serde::{Deserialize, Serialize};
+use serde_json::Value;
 
 use crate::{
     client_boundary_types::artifact::ArtifactDescriptor, version::SERVICE_BOUNDARY_CONTRACT_VERSION,
 };
+
+pub const CONTROL_PLANE_QUEUE_JOB_CONTRACT_VERSION: &str = "monarchic.control-plane.queue-job.v1";
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(try_from = "PrincipalRefUnchecked", deny_unknown_fields)]
@@ -349,6 +352,237 @@ impl TryFrom<AuditExportManifestUnchecked> for AuditExportManifest {
     }
 }
 
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum ControlPlaneWorkflowKind {
+    Bootstrap,
+    CampaignDraft,
+    CampaignExecution,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum ControlPlaneRunStatus {
+    Requested,
+    Validated,
+    Queued,
+    Assigned,
+    Running,
+    Blocked,
+    ReviewRequired,
+    Completed,
+    Failed,
+    Cancelled,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum ControlPlaneDispatchSource {
+    Api,
+    ControlPlane,
+    Recovery,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(try_from = "ControlPlaneDispatchRequestUnchecked", deny_unknown_fields)]
+pub struct ControlPlaneDispatchRequest {
+    pub tenant_id: String,
+    pub project_key: String,
+    pub run_id: String,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub task_id: Option<String>,
+    pub workflow: ControlPlaneWorkflowKind,
+    pub queue: String,
+    pub run_status: ControlPlaneRunStatus,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub task_status: Option<ControlPlaneRunStatus>,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+struct ControlPlaneDispatchRequestUnchecked {
+    tenant_id: String,
+    project_key: String,
+    run_id: String,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    task_id: Option<String>,
+    workflow: ControlPlaneWorkflowKind,
+    queue: String,
+    run_status: ControlPlaneRunStatus,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    task_status: Option<ControlPlaneRunStatus>,
+}
+
+impl TryFrom<ControlPlaneDispatchRequestUnchecked> for ControlPlaneDispatchRequest {
+    type Error = String;
+
+    fn try_from(value: ControlPlaneDispatchRequestUnchecked) -> Result<Self, Self::Error> {
+        if value.tenant_id.trim().is_empty() {
+            return Err(String::from(
+                "control_plane_dispatch_request tenant_id must not be empty",
+            ));
+        }
+        if value.project_key.trim().is_empty() {
+            return Err(String::from(
+                "control_plane_dispatch_request project_key must not be empty",
+            ));
+        }
+        if value.run_id.trim().is_empty() {
+            return Err(String::from(
+                "control_plane_dispatch_request run_id must not be empty",
+            ));
+        }
+        if value
+            .task_id
+            .as_deref()
+            .is_some_and(|task_id| task_id.trim().is_empty())
+        {
+            return Err(String::from(
+                "control_plane_dispatch_request task_id must not be empty when provided",
+            ));
+        }
+        if value.queue.trim().is_empty() {
+            return Err(String::from(
+                "control_plane_dispatch_request queue must not be empty",
+            ));
+        }
+
+        Ok(Self {
+            tenant_id: value.tenant_id,
+            project_key: value.project_key,
+            run_id: value.run_id,
+            task_id: value.task_id,
+            workflow: value.workflow,
+            queue: value.queue,
+            run_status: value.run_status,
+            task_status: value.task_status,
+        })
+    }
+}
+
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(try_from = "ControlPlaneQueueJobUnchecked", deny_unknown_fields)]
+pub struct ControlPlaneQueueJob {
+    pub contract_version: String,
+    pub queue: String,
+    pub source: ControlPlaneDispatchSource,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub submitted_at_ms: Option<u64>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub run_record_path: Option<String>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub run_snapshot: Option<Value>,
+    pub dispatch: ControlPlaneDispatchRequest,
+}
+
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+struct ControlPlaneQueueJobUnchecked {
+    #[serde(default = "default_control_plane_queue_job_contract_version")]
+    contract_version: String,
+    queue: String,
+    source: ControlPlaneDispatchSource,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    submitted_at_ms: Option<u64>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    run_record_path: Option<String>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    run_snapshot: Option<Value>,
+    dispatch: ControlPlaneDispatchRequest,
+}
+
+impl TryFrom<ControlPlaneQueueJobUnchecked> for ControlPlaneQueueJob {
+    type Error = String;
+
+    fn try_from(value: ControlPlaneQueueJobUnchecked) -> Result<Self, Self::Error> {
+        if value.contract_version.trim() != CONTROL_PLANE_QUEUE_JOB_CONTRACT_VERSION {
+            return Err(format!(
+                "unsupported control_plane_queue_job contract_version {}; expected {}",
+                value.contract_version, CONTROL_PLANE_QUEUE_JOB_CONTRACT_VERSION
+            ));
+        }
+        if value.queue.trim().is_empty() {
+            return Err(String::from(
+                "control_plane_queue_job queue must not be empty",
+            ));
+        }
+        if value.queue.trim() != value.dispatch.queue.trim() {
+            return Err(String::from(
+                "control_plane_queue_job queue must match dispatch.queue",
+            ));
+        }
+        if value
+            .run_record_path
+            .as_deref()
+            .is_some_and(|path| path.trim().is_empty())
+        {
+            return Err(String::from(
+                "control_plane_queue_job run_record_path must not be empty when provided",
+            ));
+        }
+        if let Some(snapshot) = value.run_snapshot.as_ref() {
+            validate_run_snapshot_scope(&value.dispatch, snapshot)?;
+        }
+
+        Ok(Self {
+            contract_version: value.contract_version,
+            queue: value.queue,
+            source: value.source,
+            submitted_at_ms: value.submitted_at_ms,
+            run_record_path: value.run_record_path,
+            run_snapshot: value.run_snapshot,
+            dispatch: value.dispatch,
+        })
+    }
+}
+
+fn validate_run_snapshot_scope(
+    dispatch: &ControlPlaneDispatchRequest,
+    snapshot: &Value,
+) -> Result<(), String> {
+    let Some(object) = snapshot.as_object() else {
+        return Err(String::from(
+            "control_plane_queue_job run_snapshot must be an object when provided",
+        ));
+    };
+    validate_optional_snapshot_scope_field(object, "tenantId", "tenant_id", &dispatch.tenant_id)?;
+    validate_optional_snapshot_scope_field(
+        object,
+        "projectKey",
+        "project_key",
+        &dispatch.project_key,
+    )?;
+    validate_optional_snapshot_scope_field(object, "runId", "run_id", &dispatch.run_id)?;
+    Ok(())
+}
+
+fn validate_optional_snapshot_scope_field(
+    object: &serde_json::Map<String, Value>,
+    camel_key: &str,
+    snake_key: &str,
+    expected: &str,
+) -> Result<(), String> {
+    for key in [camel_key, snake_key] {
+        if let Some(value) = object.get(key) {
+            let Some(actual) = value.as_str() else {
+                return Err(format!(
+                    "control_plane_queue_job run_snapshot {key} must be a string when provided"
+                ));
+            };
+            if actual.trim() != expected.trim() {
+                return Err(format!(
+                    "control_plane_queue_job run_snapshot {key} must match dispatch scope"
+                ));
+            }
+        }
+    }
+    Ok(())
+}
+
 fn default_contract_version() -> String {
     SERVICE_BOUNDARY_CONTRACT_VERSION.to_string()
+}
+
+fn default_control_plane_queue_job_contract_version() -> String {
+    CONTROL_PLANE_QUEUE_JOB_CONTRACT_VERSION.to_string()
 }
