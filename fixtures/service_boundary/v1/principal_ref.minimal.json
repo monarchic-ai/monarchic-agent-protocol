@@ -1,5 +1,5 @@
 {
   "principal_id": "principal-123",
-  "provider": "monarchic-ops",
+  "provider": "libmonarchic",
   "display_name": "automation-bot"
 }
