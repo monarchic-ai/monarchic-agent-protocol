@@ -4,6 +4,6 @@
   "digest": "sha256:artifact-123",
   "media_type": "application/json",
   "logical_name": "execution-receipt.json",
-  "producer": "monarchic-ops",
+  "producer": "libmonarchic",
   "contract_version": "v1"
 }

@@ -3,7 +3,7 @@
   "export_id": "audit-export-123",
   "principal": {
     "principal_id": "principal-123",
-    "provider": "monarchic-ops",
+    "provider": "libmonarchic",
     "display_name": "audit-exporter"
   },
   "tenant": {
@@ -21,7 +21,7 @@
       "digest": "sha256:artifact-123",
       "media_type": "application/gzip",
       "logical_name": "audit-export.tar.gz",
-      "producer": "monarchic-ops",
+      "producer": "libmonarchic",
       "contract_version": "v1"
     }
   ]

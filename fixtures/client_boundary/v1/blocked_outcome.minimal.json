@@ -13,7 +13,7 @@
       "digest": "sha256:verify-1",
       "media_type": "application/json",
       "logical_name": "verification-receipt.json",
-      "producer": "monarchic-ops",
+      "producer": "libmonarchic",
       "contract_version": "v1"
     }
   ]

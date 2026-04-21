@@ -3,7 +3,7 @@
   "auth_context_id": "auth-ctx-123",
   "principal": {
     "principal_id": "principal-123",
-    "provider": "monarchic-ops",
+    "provider": "libmonarchic",
     "display_name": "automation-bot"
   },
   "tenant": {
