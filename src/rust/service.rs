@@ -422,14 +422,29 @@ impl TryFrom<ControlPlaneDispatchRequestUnchecked> for ControlPlaneDispatchReque
                 "control_plane_dispatch_request tenant_id must not be empty",
             ));
         }
+        if value.tenant_id.chars().any(char::is_whitespace) {
+            return Err(String::from(
+                "control_plane_dispatch_request tenant_id must not contain whitespace",
+            ));
+        }
         if value.project_key.trim().is_empty() {
             return Err(String::from(
                 "control_plane_dispatch_request project_key must not be empty",
             ));
         }
+        if value.project_key.chars().any(char::is_whitespace) {
+            return Err(String::from(
+                "control_plane_dispatch_request project_key must not contain whitespace",
+            ));
+        }
         if value.run_id.trim().is_empty() {
             return Err(String::from(
                 "control_plane_dispatch_request run_id must not be empty",
+            ));
+        }
+        if value.run_id.chars().any(char::is_whitespace) {
+            return Err(String::from(
+                "control_plane_dispatch_request run_id must not contain whitespace",
             ));
         }
         if value
@@ -441,9 +456,23 @@ impl TryFrom<ControlPlaneDispatchRequestUnchecked> for ControlPlaneDispatchReque
                 "control_plane_dispatch_request task_id must not be empty when provided",
             ));
         }
+        if value
+            .task_id
+            .as_deref()
+            .is_some_and(|task_id| task_id.chars().any(char::is_whitespace))
+        {
+            return Err(String::from(
+                "control_plane_dispatch_request task_id must not contain whitespace when provided",
+            ));
+        }
         if value.queue.trim().is_empty() {
             return Err(String::from(
                 "control_plane_dispatch_request queue must not be empty",
+            ));
+        }
+        if value.queue.chars().any(char::is_whitespace) {
+            return Err(String::from(
+                "control_plane_dispatch_request queue must not contain whitespace",
             ));
         }
 
@@ -499,7 +528,18 @@ impl TryFrom<ControlPlaneQueueJobUnchecked> for ControlPlaneQueueJob {
     type Error = String;
 
     fn try_from(value: ControlPlaneQueueJobUnchecked) -> Result<Self, Self::Error> {
-        if value.contract_version.trim() != CONTROL_PLANE_QUEUE_JOB_CONTRACT_VERSION {
+        if value.contract_version.trim().is_empty() {
+            return Err(String::from(
+                "control_plane_queue_job contract_version must not be empty",
+            ));
+        }
+        if value.contract_version.chars().any(char::is_whitespace) {
+            return Err(format!(
+                "unsupported control_plane_queue_job contract_version {}; expected {} without whitespace",
+                value.contract_version, CONTROL_PLANE_QUEUE_JOB_CONTRACT_VERSION
+            ));
+        }
+        if value.contract_version != CONTROL_PLANE_QUEUE_JOB_CONTRACT_VERSION {
             return Err(format!(
                 "unsupported control_plane_queue_job contract_version {}; expected {}",
                 value.contract_version, CONTROL_PLANE_QUEUE_JOB_CONTRACT_VERSION
@@ -510,7 +550,12 @@ impl TryFrom<ControlPlaneQueueJobUnchecked> for ControlPlaneQueueJob {
                 "control_plane_queue_job queue must not be empty",
             ));
         }
-        if value.queue.trim() != value.dispatch.queue.trim() {
+        if value.queue.chars().any(char::is_whitespace) {
+            return Err(String::from(
+                "control_plane_queue_job queue must not contain whitespace",
+            ));
+        }
+        if value.queue != value.dispatch.queue {
             return Err(String::from(
                 "control_plane_queue_job queue must match dispatch.queue",
             ));
@@ -548,7 +593,22 @@ fn validate_queue_job_auth_context_scope(
     dispatch: &ControlPlaneDispatchRequest,
     auth_context: &AuthContext,
 ) -> Result<(), String> {
-    if auth_context.tenant.tenant_id.trim() != dispatch.tenant_id.trim() {
+    if auth_context.tenant.tenant_id.trim().is_empty() {
+        return Err(String::from(
+            "control_plane_queue_job auth_context tenant_id must not be empty",
+        ));
+    }
+    if auth_context
+        .tenant
+        .tenant_id
+        .chars()
+        .any(char::is_whitespace)
+    {
+        return Err(String::from(
+            "control_plane_queue_job auth_context tenant_id must not contain whitespace",
+        ));
+    }
+    if auth_context.tenant.tenant_id != dispatch.tenant_id {
         return Err(String::from(
             "control_plane_queue_job auth_context tenant_id must match dispatch.tenant_id",
         ));
@@ -589,7 +649,7 @@ fn validate_optional_snapshot_scope_field(
                     "control_plane_queue_job run_snapshot {key} must be a string when provided"
                 ));
             };
-            if actual.trim() != expected.trim() {
+            if actual != expected {
                 return Err(format!(
                     "control_plane_queue_job run_snapshot {key} must match dispatch scope"
                 ));

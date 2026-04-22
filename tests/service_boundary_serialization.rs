@@ -131,6 +131,42 @@ fn control_plane_queue_job_rejects_mismatched_queue_names() {
 }
 
 #[test]
+fn control_plane_queue_job_rejects_whitespace_contract_and_scope() {
+    for (path, value) in [
+        (
+            vec!["contract_version"],
+            String::from("monarchic.control-plane.queue-job.v1 "),
+        ),
+        (vec!["queue"], String::from("control-plane.launch ")),
+        (
+            vec!["dispatch", "queue"],
+            String::from(" control-plane.launch"),
+        ),
+        (vec!["dispatch", "tenant_id"], String::from("tenant-dev ")),
+        (
+            vec!["dispatch", "project_key"],
+            String::from("project alpha"),
+        ),
+        (vec!["dispatch", "run_id"], String::from(" run-123")),
+        (vec!["dispatch", "task_id"], String::from("task 1")),
+    ] {
+        let mut payload = load_fixture_value("control_plane_queue_job.launch.json");
+        let mut cursor = &mut payload;
+        for key in &path[..path.len() - 1] {
+            cursor = cursor
+                .get_mut(*key)
+                .expect("nested queue-job fixture field exists");
+        }
+        cursor[path[path.len() - 1]] = Value::String(value);
+
+        assert!(
+            serde_json::from_value::<ControlPlaneQueueJob>(payload).is_err(),
+            "expected whitespace-bearing field {path:?} to fail"
+        );
+    }
+}
+
+#[test]
 fn control_plane_queue_job_rejects_mismatched_snapshot_scope() {
     let mut value = load_fixture_value("control_plane_queue_job.launch.json");
     value["run_snapshot"]["tenantId"] = Value::String(String::from("other-tenant"));
@@ -138,8 +174,22 @@ fn control_plane_queue_job_rejects_mismatched_snapshot_scope() {
 }
 
 #[test]
+fn control_plane_queue_job_rejects_whitespace_padded_snapshot_scope() {
+    let mut value = load_fixture_value("control_plane_queue_job.launch.json");
+    value["run_snapshot"]["tenantId"] = Value::String(String::from("tenant-dev "));
+    assert!(serde_json::from_value::<ControlPlaneQueueJob>(value).is_err());
+}
+
+#[test]
 fn control_plane_queue_job_rejects_mismatched_auth_context_tenant() {
     let mut value = load_fixture_value("control_plane_queue_job.launch.json");
     value["auth_context"]["tenant"]["tenant_id"] = Value::String(String::from("other-tenant"));
+    assert!(serde_json::from_value::<ControlPlaneQueueJob>(value).is_err());
+}
+
+#[test]
+fn control_plane_queue_job_rejects_whitespace_auth_context_tenant() {
+    let mut value = load_fixture_value("control_plane_queue_job.launch.json");
+    value["auth_context"]["tenant"]["tenant_id"] = Value::String(String::from("tenant-dev "));
     assert!(serde_json::from_value::<ControlPlaneQueueJob>(value).is_err());
 }
