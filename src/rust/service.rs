@@ -469,6 +469,8 @@ pub struct ControlPlaneQueueJob {
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub submitted_at_ms: Option<u64>,
     #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub auth_context: Option<AuthContext>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
     pub run_record_path: Option<String>,
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub run_snapshot: Option<Value>,
@@ -484,6 +486,8 @@ struct ControlPlaneQueueJobUnchecked {
     source: ControlPlaneDispatchSource,
     #[serde(default, skip_serializing_if = "Option::is_none")]
     submitted_at_ms: Option<u64>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    auth_context: Option<AuthContext>,
     #[serde(default, skip_serializing_if = "Option::is_none")]
     run_record_path: Option<String>,
     #[serde(default, skip_serializing_if = "Option::is_none")]
@@ -523,17 +527,33 @@ impl TryFrom<ControlPlaneQueueJobUnchecked> for ControlPlaneQueueJob {
         if let Some(snapshot) = value.run_snapshot.as_ref() {
             validate_run_snapshot_scope(&value.dispatch, snapshot)?;
         }
+        if let Some(auth_context) = value.auth_context.as_ref() {
+            validate_queue_job_auth_context_scope(&value.dispatch, auth_context)?;
+        }
 
         Ok(Self {
             contract_version: value.contract_version,
             queue: value.queue,
             source: value.source,
             submitted_at_ms: value.submitted_at_ms,
+            auth_context: value.auth_context,
             run_record_path: value.run_record_path,
             run_snapshot: value.run_snapshot,
             dispatch: value.dispatch,
         })
     }
+}
+
+fn validate_queue_job_auth_context_scope(
+    dispatch: &ControlPlaneDispatchRequest,
+    auth_context: &AuthContext,
+) -> Result<(), String> {
+    if auth_context.tenant.tenant_id.trim() != dispatch.tenant_id.trim() {
+        return Err(String::from(
+            "control_plane_queue_job auth_context tenant_id must match dispatch.tenant_id",
+        ));
+    }
+    Ok(())
 }
 
 fn validate_run_snapshot_scope(
