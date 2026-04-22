@@ -136,3 +136,10 @@ fn control_plane_queue_job_rejects_mismatched_snapshot_scope() {
     value["run_snapshot"]["tenantId"] = Value::String(String::from("other-tenant"));
     assert!(serde_json::from_value::<ControlPlaneQueueJob>(value).is_err());
 }
+
+#[test]
+fn control_plane_queue_job_rejects_mismatched_auth_context_tenant() {
+    let mut value = load_fixture_value("control_plane_queue_job.launch.json");
+    value["auth_context"]["tenant"]["tenant_id"] = Value::String(String::from("other-tenant"));
+    assert!(serde_json::from_value::<ControlPlaneQueueJob>(value).is_err());
+}

@@ -197,6 +197,36 @@ export type ControlPlaneRunStatus =
 
 export type ControlPlaneDispatchSource = "api" | "control_plane" | "recovery";
 
+export type AuthMechanism =
+  | "shared_secret"
+  | "bearer_token"
+  | "signed_token"
+  | "mutual_tls"
+  | "custom";
+
+export interface PrincipalRef {
+  principal_id: string;
+  provider: string;
+  display_name?: string;
+}
+
+export interface TenantRef {
+  tenant_id: string;
+  display_name?: string;
+}
+
+export interface AuthContext {
+  contract_version: typeof SERVICE_BOUNDARY_CONTRACT_VERSION | string;
+  auth_context_id: string;
+  principal: PrincipalRef;
+  tenant: TenantRef;
+  mechanism: AuthMechanism;
+  credential_id: string;
+  scopes: string[];
+  issued_at: number;
+  expires_at?: number;
+}
+
 export interface ControlPlaneDispatchRequest {
   tenant_id: string;
   project_key: string;
@@ -213,6 +243,7 @@ export interface ControlPlaneQueueJob {
   queue: "control-plane.launch" | string;
   source: ControlPlaneDispatchSource;
   submitted_at_ms?: number;
+  auth_context?: AuthContext;
   run_record_path?: string;
   run_snapshot?: Record<string, unknown>;
   dispatch: ControlPlaneDispatchRequest;

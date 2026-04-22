@@ -3,6 +3,25 @@
   "queue": "control-plane.launch",
   "source": "api",
   "submitted_at_ms": 1776814050000,
+  "auth_context": {
+    "contract_version": "v1",
+    "auth_context_id": "auth-ctx-run-123",
+    "principal": {
+      "principal_id": "auth0|user-123",
+      "provider": "auth0",
+      "display_name": "auth0|user-123"
+    },
+    "tenant": {
+      "tenant_id": "tenant-dev",
+      "display_name": "tenant-dev"
+    },
+    "mechanism": "bearer_token",
+    "credential_id": "auth0-bearer",
+    "scopes": [
+      "runs:write"
+    ],
+    "issued_at": 1776814050000
+  },
   "run_record_path": "remote/project-alpha/run-123/run.json",
   "run_snapshot": {
     "projectKey": "project-alpha",
