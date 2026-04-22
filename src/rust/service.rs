@@ -29,12 +29,8 @@ impl TryFrom<PrincipalRefUnchecked> for PrincipalRef {
     type Error = String;
 
     fn try_from(value: PrincipalRefUnchecked) -> Result<Self, Self::Error> {
-        if value.principal_id.trim().is_empty() {
-            return Err(String::from("principal_ref principal_id must not be empty"));
-        }
-        if value.provider.trim().is_empty() {
-            return Err(String::from("principal_ref provider must not be empty"));
-        }
+        validate_compact_field("principal_ref principal_id", &value.principal_id)?;
+        validate_compact_field("principal_ref provider", &value.provider)?;
 
         Ok(Self {
             principal_id: value.principal_id,
@@ -64,9 +60,7 @@ impl TryFrom<TenantRefUnchecked> for TenantRef {
     type Error = String;
 
     fn try_from(value: TenantRefUnchecked) -> Result<Self, Self::Error> {
-        if value.tenant_id.trim().is_empty() {
-            return Err(String::from("tenant_ref tenant_id must not be empty"));
-        }
+        validate_compact_field("tenant_ref tenant_id", &value.tenant_id)?;
 
         Ok(Self {
             tenant_id: value.tenant_id,
@@ -125,23 +119,16 @@ impl TryFrom<AuthContextUnchecked> for AuthContext {
     type Error = String;
 
     fn try_from(value: AuthContextUnchecked) -> Result<Self, Self::Error> {
-        if value.contract_version.trim().is_empty() {
-            return Err(String::from(
-                "auth_context contract_version must not be empty",
-            ));
-        }
-        if value.auth_context_id.trim().is_empty() {
-            return Err(String::from(
-                "auth_context auth_context_id must not be empty",
-            ));
-        }
+        validate_compact_field("auth_context contract_version", &value.contract_version)?;
+        validate_compact_field("auth_context auth_context_id", &value.auth_context_id)?;
         if value.mechanism == AuthMechanism::Unspecified {
             return Err(String::from(
                 "auth_context mechanism must not be unspecified",
             ));
         }
-        if value.credential_id.trim().is_empty() {
-            return Err(String::from("auth_context credential_id must not be empty"));
+        validate_compact_field("auth_context credential_id", &value.credential_id)?;
+        for scope in &value.scopes {
+            validate_compact_field("auth_context scope", scope)?;
         }
         if let Some(expires_at) = value.expires_at {
             if expires_at < value.issued_at {
@@ -163,6 +150,16 @@ impl TryFrom<AuthContextUnchecked> for AuthContext {
             expires_at: value.expires_at,
         })
     }
+}
+
+fn validate_compact_field(label: &str, value: &str) -> Result<(), String> {
+    if value.trim().is_empty() {
+        return Err(format!("{label} must not be empty"));
+    }
+    if value.chars().any(char::is_whitespace) {
+        return Err(format!("{label} must not contain whitespace"));
+    }
+    Ok(())
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, Default)]
