@@ -184,4 +184,3 @@ class ReportStepStartedResponse extends \Google\Protobuf\Internal\Message
     }
 
 }
-

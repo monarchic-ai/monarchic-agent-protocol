@@ -60,7 +60,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       contractVersion_ = s;
@@ -76,7 +76,7 @@ private static final long serialVersionUID = 0L;
       getContractVersionBytes() {
     java.lang.Object ref = contractVersion_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       contractVersion_ = b;
@@ -99,7 +99,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       orchestratorId_ = s;
@@ -115,7 +115,7 @@ private static final long serialVersionUID = 0L;
       getOrchestratorIdBytes() {
     java.lang.Object ref = orchestratorId_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       orchestratorId_ = b;
@@ -161,7 +161,7 @@ private static final long serialVersionUID = 0L;
    * <code>repeated .monarchic.agent_protocol.v1.CancellationIntent cancellations = 5;</code>
    */
   @java.lang.Override
-  public java.util.List<? extends ai.monarchic.agent_protocol.v1.CancellationIntentOrBuilder> 
+  public java.util.List<? extends ai.monarchic.agent_protocol.v1.CancellationIntentOrBuilder>
       getCancellationsOrBuilderList() {
     return cancellations_;
   }
@@ -658,7 +658,7 @@ private static final long serialVersionUID = 0L;
             cancellationsBuilder_ = null;
             cancellations_ = other.cancellations_;
             bitField0_ = (bitField0_ & ~0x00000010);
-            cancellationsBuilder_ = 
+            cancellationsBuilder_ =
               com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                  internalGetCancellationsFieldBuilder() : null;
           } else {
@@ -787,7 +787,7 @@ private static final long serialVersionUID = 0L;
         getContractVersionBytes() {
       java.lang.Object ref = contractVersion_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         contractVersion_ = b;
@@ -859,7 +859,7 @@ private static final long serialVersionUID = 0L;
         getOrchestratorIdBytes() {
       java.lang.Object ref = orchestratorId_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         orchestratorId_ = b;
@@ -1165,7 +1165,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .monarchic.agent_protocol.v1.CancellationIntent cancellations = 5;</code>
      */
-    public java.util.List<? extends ai.monarchic.agent_protocol.v1.CancellationIntentOrBuilder> 
+    public java.util.List<? extends ai.monarchic.agent_protocol.v1.CancellationIntentOrBuilder>
          getCancellationsOrBuilderList() {
       if (cancellationsBuilder_ != null) {
         return cancellationsBuilder_.getMessageOrBuilderList();
@@ -1191,12 +1191,12 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .monarchic.agent_protocol.v1.CancellationIntent cancellations = 5;</code>
      */
-    public java.util.List<ai.monarchic.agent_protocol.v1.CancellationIntent.Builder> 
+    public java.util.List<ai.monarchic.agent_protocol.v1.CancellationIntent.Builder>
          getCancellationsBuilderList() {
       return internalGetCancellationsFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilder<
-        ai.monarchic.agent_protocol.v1.CancellationIntent, ai.monarchic.agent_protocol.v1.CancellationIntent.Builder, ai.monarchic.agent_protocol.v1.CancellationIntentOrBuilder> 
+        ai.monarchic.agent_protocol.v1.CancellationIntent, ai.monarchic.agent_protocol.v1.CancellationIntent.Builder, ai.monarchic.agent_protocol.v1.CancellationIntentOrBuilder>
         internalGetCancellationsFieldBuilder() {
       if (cancellationsBuilder_ == null) {
         cancellationsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
@@ -1318,7 +1318,7 @@ private static final long serialVersionUID = 0L;
      * <code>optional .monarchic.agent_protocol.v1.FailureDetail failure = 6;</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
-        ai.monarchic.agent_protocol.v1.FailureDetail, ai.monarchic.agent_protocol.v1.FailureDetail.Builder, ai.monarchic.agent_protocol.v1.FailureDetailOrBuilder> 
+        ai.monarchic.agent_protocol.v1.FailureDetail, ai.monarchic.agent_protocol.v1.FailureDetail.Builder, ai.monarchic.agent_protocol.v1.FailureDetailOrBuilder>
         internalGetFailureFieldBuilder() {
       if (failureBuilder_ == null) {
         failureBuilder_ = new com.google.protobuf.SingleFieldBuilder<
@@ -1439,7 +1439,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct extensions = 7;</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
-        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>
         internalGetExtensionsFieldBuilder() {
       if (extensionsBuilder_ == null) {
         extensionsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
@@ -1502,4 +1502,3 @@ private static final long serialVersionUID = 0L;
   }
 
 }
-

@@ -3,9 +3,6 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "additionalProperties": true,
   "patternProperties": {
-    "^(deliveryContract)$": {
-      "$ref": "monarchic.agent_protocol.v1.DeliveryContract.schema.json"
-    },
     "^(experimentSpec)$": {
       "$ref": "monarchic.agent_protocol.v1.ExperimentSpec.schema.json"
     },
@@ -29,9 +26,6 @@
   "properties": {
     "constraints": {
       "$ref": "google.protobuf.Struct.schema.json"
-    },
-    "delivery_contract": {
-      "$ref": "monarchic.agent_protocol.v1.DeliveryContract.schema.json"
     },
     "experiment_spec": {
       "$ref": "monarchic.agent_protocol.v1.ExperimentSpec.schema.json"

@@ -40,6 +40,8 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.LazyStringArrayList.emptyList();
     labels_ =
         com.google.protobuf.LazyStringArrayList.emptyList();
+    supportedRoleIds_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -69,7 +71,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       platform_ = s;
@@ -85,7 +87,7 @@ private static final long serialVersionUID = 0L;
       getPlatformBytes() {
     java.lang.Object ref = platform_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       platform_ = b;
@@ -108,7 +110,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       runtime_ = s;
@@ -124,7 +126,7 @@ private static final long serialVersionUID = 0L;
       getRuntimeBytes() {
     java.lang.Object ref = runtime_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       runtime_ = b;
@@ -148,6 +150,11 @@ private static final long serialVersionUID = 0L;
             }
           };
   /**
+   * <pre>
+   * Legacy enum-based supported roles. Prefer supported_role_ids for new
+   * producers and consumers.
+   * </pre>
+   *
    * <code>repeated .monarchic.agent_protocol.v1.AgentRole supported_roles = 3;</code>
    * @return A list containing the supportedRoles.
    */
@@ -157,6 +164,11 @@ private static final long serialVersionUID = 0L;
         ai.monarchic.agent_protocol.v1.AgentRole>(supportedRoles_, supportedRoles_converter_);
   }
   /**
+   * <pre>
+   * Legacy enum-based supported roles. Prefer supported_role_ids for new
+   * producers and consumers.
+   * </pre>
+   *
    * <code>repeated .monarchic.agent_protocol.v1.AgentRole supported_roles = 3;</code>
    * @return The count of supportedRoles.
    */
@@ -165,6 +177,11 @@ private static final long serialVersionUID = 0L;
     return supportedRoles_.size();
   }
   /**
+   * <pre>
+   * Legacy enum-based supported roles. Prefer supported_role_ids for new
+   * producers and consumers.
+   * </pre>
+   *
    * <code>repeated .monarchic.agent_protocol.v1.AgentRole supported_roles = 3;</code>
    * @param index The index of the element to return.
    * @return The supportedRoles at the given index.
@@ -174,6 +191,11 @@ private static final long serialVersionUID = 0L;
     return supportedRoles_converter_.convert(supportedRoles_.getInt(index));
   }
   /**
+   * <pre>
+   * Legacy enum-based supported roles. Prefer supported_role_ids for new
+   * producers and consumers.
+   * </pre>
+   *
    * <code>repeated .monarchic.agent_protocol.v1.AgentRole supported_roles = 3;</code>
    * @return A list containing the enum numeric values on the wire for supportedRoles.
    */
@@ -183,6 +205,11 @@ private static final long serialVersionUID = 0L;
     return supportedRoles_;
   }
   /**
+   * <pre>
+   * Legacy enum-based supported roles. Prefer supported_role_ids for new
+   * producers and consumers.
+   * </pre>
+   *
    * <code>repeated .monarchic.agent_protocol.v1.AgentRole supported_roles = 3;</code>
    * @param index The index of the value to return.
    * @return The enum numeric value on the wire of supportedRoles at the given index.
@@ -315,6 +342,43 @@ private static final long serialVersionUID = 0L;
     return extensions_ == null ? com.google.protobuf.Struct.getDefaultInstance() : extensions_;
   }
 
+  public static final int SUPPORTED_ROLE_IDS_FIELD_NUMBER = 9;
+  @SuppressWarnings("serial")
+  private com.google.protobuf.LazyStringArrayList supportedRoleIds_ =
+      com.google.protobuf.LazyStringArrayList.emptyList();
+  /**
+   * <code>repeated string supported_role_ids = 9;</code>
+   * @return A list containing the supportedRoleIds.
+   */
+  public com.google.protobuf.ProtocolStringList
+      getSupportedRoleIdsList() {
+    return supportedRoleIds_;
+  }
+  /**
+   * <code>repeated string supported_role_ids = 9;</code>
+   * @return The count of supportedRoleIds.
+   */
+  public int getSupportedRoleIdsCount() {
+    return supportedRoleIds_.size();
+  }
+  /**
+   * <code>repeated string supported_role_ids = 9;</code>
+   * @param index The index of the element to return.
+   * @return The supportedRoleIds at the given index.
+   */
+  public java.lang.String getSupportedRoleIds(int index) {
+    return supportedRoleIds_.get(index);
+  }
+  /**
+   * <code>repeated string supported_role_ids = 9;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the supportedRoleIds at the given index.
+   */
+  public com.google.protobuf.ByteString
+      getSupportedRoleIdsBytes(int index) {
+    return supportedRoleIds_.getByteString(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -357,6 +421,9 @@ private static final long serialVersionUID = 0L;
     }
     if (((bitField0_ & 0x00000001) != 0)) {
       output.writeMessage(8, getExtensions());
+    }
+    for (int i = 0; i < supportedRoleIds_.size(); i++) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 9, supportedRoleIds_.getRaw(i));
     }
     getUnknownFields().writeTo(output);
   }
@@ -413,6 +480,14 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getExtensions());
     }
+    {
+      int dataSize = 0;
+      for (int i = 0; i < supportedRoleIds_.size(); i++) {
+        dataSize += computeStringSizeNoTag(supportedRoleIds_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getSupportedRoleIdsList().size();
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -446,6 +521,8 @@ private static final long serialVersionUID = 0L;
       if (!getExtensions()
           .equals(other.getExtensions())) return false;
     }
+    if (!getSupportedRoleIdsList()
+        .equals(other.getSupportedRoleIdsList())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -482,6 +559,10 @@ private static final long serialVersionUID = 0L;
     if (hasExtensions()) {
       hash = (37 * hash) + EXTENSIONS_FIELD_NUMBER;
       hash = (53 * hash) + getExtensions().hashCode();
+    }
+    if (getSupportedRoleIdsCount() > 0) {
+      hash = (37 * hash) + SUPPORTED_ROLE_IDS_FIELD_NUMBER;
+      hash = (53 * hash) + getSupportedRoleIdsList().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -639,6 +720,8 @@ private static final long serialVersionUID = 0L;
         extensionsBuilder_.dispose();
         extensionsBuilder_ = null;
       }
+      supportedRoleIds_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
       return this;
     }
 
@@ -702,6 +785,10 @@ private static final long serialVersionUID = 0L;
             ? extensions_
             : extensionsBuilder_.build();
         to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        supportedRoleIds_.makeImmutable();
+        result.supportedRoleIds_ = supportedRoleIds_;
       }
       result.bitField0_ |= to_bitField0_;
     }
@@ -767,6 +854,16 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasExtensions()) {
         mergeExtensions(other.getExtensions());
+      }
+      if (!other.supportedRoleIds_.isEmpty()) {
+        if (supportedRoleIds_.isEmpty()) {
+          supportedRoleIds_ = other.supportedRoleIds_;
+          bitField0_ |= 0x00000100;
+        } else {
+          ensureSupportedRoleIdsIsMutable();
+          supportedRoleIds_.addAll(other.supportedRoleIds_);
+        }
+        onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -849,6 +946,12 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000080;
               break;
             } // case 66
+            case 74: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureSupportedRoleIdsIsMutable();
+              supportedRoleIds_.add(s);
+              break;
+            } // case 74
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -891,7 +994,7 @@ private static final long serialVersionUID = 0L;
         getPlatformBytes() {
       java.lang.Object ref = platform_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         platform_ = b;
@@ -963,7 +1066,7 @@ private static final long serialVersionUID = 0L;
         getRuntimeBytes() {
       java.lang.Object ref = runtime_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         runtime_ = b;
@@ -1018,6 +1121,11 @@ private static final long serialVersionUID = 0L;
       bitField0_ |= 0x00000004;
     }
     /**
+     * <pre>
+     * Legacy enum-based supported roles. Prefer supported_role_ids for new
+     * producers and consumers.
+     * </pre>
+     *
      * <code>repeated .monarchic.agent_protocol.v1.AgentRole supported_roles = 3;</code>
      * @return A list containing the supportedRoles.
      */
@@ -1026,6 +1134,11 @@ private static final long serialVersionUID = 0L;
           ai.monarchic.agent_protocol.v1.AgentRole>(supportedRoles_, supportedRoles_converter_);
     }
     /**
+     * <pre>
+     * Legacy enum-based supported roles. Prefer supported_role_ids for new
+     * producers and consumers.
+     * </pre>
+     *
      * <code>repeated .monarchic.agent_protocol.v1.AgentRole supported_roles = 3;</code>
      * @return The count of supportedRoles.
      */
@@ -1033,6 +1146,11 @@ private static final long serialVersionUID = 0L;
       return supportedRoles_.size();
     }
     /**
+     * <pre>
+     * Legacy enum-based supported roles. Prefer supported_role_ids for new
+     * producers and consumers.
+     * </pre>
+     *
      * <code>repeated .monarchic.agent_protocol.v1.AgentRole supported_roles = 3;</code>
      * @param index The index of the element to return.
      * @return The supportedRoles at the given index.
@@ -1041,6 +1159,11 @@ private static final long serialVersionUID = 0L;
       return supportedRoles_converter_.convert(supportedRoles_.getInt(index));
     }
     /**
+     * <pre>
+     * Legacy enum-based supported roles. Prefer supported_role_ids for new
+     * producers and consumers.
+     * </pre>
+     *
      * <code>repeated .monarchic.agent_protocol.v1.AgentRole supported_roles = 3;</code>
      * @param index The index to set the value at.
      * @param value The supportedRoles to set.
@@ -1055,6 +1178,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Legacy enum-based supported roles. Prefer supported_role_ids for new
+     * producers and consumers.
+     * </pre>
+     *
      * <code>repeated .monarchic.agent_protocol.v1.AgentRole supported_roles = 3;</code>
      * @param value The supportedRoles to add.
      * @return This builder for chaining.
@@ -1067,6 +1195,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Legacy enum-based supported roles. Prefer supported_role_ids for new
+     * producers and consumers.
+     * </pre>
+     *
      * <code>repeated .monarchic.agent_protocol.v1.AgentRole supported_roles = 3;</code>
      * @param values The supportedRoles to add.
      * @return This builder for chaining.
@@ -1081,6 +1214,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Legacy enum-based supported roles. Prefer supported_role_ids for new
+     * producers and consumers.
+     * </pre>
+     *
      * <code>repeated .monarchic.agent_protocol.v1.AgentRole supported_roles = 3;</code>
      * @return This builder for chaining.
      */
@@ -1091,6 +1229,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Legacy enum-based supported roles. Prefer supported_role_ids for new
+     * producers and consumers.
+     * </pre>
+     *
      * <code>repeated .monarchic.agent_protocol.v1.AgentRole supported_roles = 3;</code>
      * @return A list containing the enum numeric values on the wire for supportedRoles.
      */
@@ -1100,6 +1243,11 @@ private static final long serialVersionUID = 0L;
       return supportedRoles_;
     }
     /**
+     * <pre>
+     * Legacy enum-based supported roles. Prefer supported_role_ids for new
+     * producers and consumers.
+     * </pre>
+     *
      * <code>repeated .monarchic.agent_protocol.v1.AgentRole supported_roles = 3;</code>
      * @param index The index of the value to return.
      * @return The enum numeric value on the wire of supportedRoles at the given index.
@@ -1108,6 +1256,11 @@ private static final long serialVersionUID = 0L;
       return supportedRoles_.getInt(index);
     }
     /**
+     * <pre>
+     * Legacy enum-based supported roles. Prefer supported_role_ids for new
+     * producers and consumers.
+     * </pre>
+     *
      * <code>repeated .monarchic.agent_protocol.v1.AgentRole supported_roles = 3;</code>
      * @param index The index to set the value at.
      * @param value The enum numeric value on the wire for supportedRoles to set.
@@ -1121,6 +1274,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Legacy enum-based supported roles. Prefer supported_role_ids for new
+     * producers and consumers.
+     * </pre>
+     *
      * <code>repeated .monarchic.agent_protocol.v1.AgentRole supported_roles = 3;</code>
      * @param value The enum numeric value on the wire for supportedRoles to add.
      * @return This builder for chaining.
@@ -1132,6 +1290,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Legacy enum-based supported roles. Prefer supported_role_ids for new
+     * producers and consumers.
+     * </pre>
+     *
      * <code>repeated .monarchic.agent_protocol.v1.AgentRole supported_roles = 3;</code>
      * @param values The enum numeric values on the wire for supportedRoles to add.
      * @return This builder for chaining.
@@ -1540,7 +1703,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct extensions = 8;</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
-        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>
         internalGetExtensionsFieldBuilder() {
       if (extensionsBuilder_ == null) {
         extensionsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
@@ -1551,6 +1714,117 @@ private static final long serialVersionUID = 0L;
         extensions_ = null;
       }
       return extensionsBuilder_;
+    }
+
+    private com.google.protobuf.LazyStringArrayList supportedRoleIds_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
+    private void ensureSupportedRoleIdsIsMutable() {
+      if (!supportedRoleIds_.isModifiable()) {
+        supportedRoleIds_ = new com.google.protobuf.LazyStringArrayList(supportedRoleIds_);
+      }
+      bitField0_ |= 0x00000100;
+    }
+    /**
+     * <code>repeated string supported_role_ids = 9;</code>
+     * @return A list containing the supportedRoleIds.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getSupportedRoleIdsList() {
+      supportedRoleIds_.makeImmutable();
+      return supportedRoleIds_;
+    }
+    /**
+     * <code>repeated string supported_role_ids = 9;</code>
+     * @return The count of supportedRoleIds.
+     */
+    public int getSupportedRoleIdsCount() {
+      return supportedRoleIds_.size();
+    }
+    /**
+     * <code>repeated string supported_role_ids = 9;</code>
+     * @param index The index of the element to return.
+     * @return The supportedRoleIds at the given index.
+     */
+    public java.lang.String getSupportedRoleIds(int index) {
+      return supportedRoleIds_.get(index);
+    }
+    /**
+     * <code>repeated string supported_role_ids = 9;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the supportedRoleIds at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getSupportedRoleIdsBytes(int index) {
+      return supportedRoleIds_.getByteString(index);
+    }
+    /**
+     * <code>repeated string supported_role_ids = 9;</code>
+     * @param index The index to set the value at.
+     * @param value The supportedRoleIds to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSupportedRoleIds(
+        int index, java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensureSupportedRoleIdsIsMutable();
+      supportedRoleIds_.set(index, value);
+      bitField0_ |= 0x00000100;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string supported_role_ids = 9;</code>
+     * @param value The supportedRoleIds to add.
+     * @return This builder for chaining.
+     */
+    public Builder addSupportedRoleIds(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensureSupportedRoleIdsIsMutable();
+      supportedRoleIds_.add(value);
+      bitField0_ |= 0x00000100;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string supported_role_ids = 9;</code>
+     * @param values The supportedRoleIds to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllSupportedRoleIds(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureSupportedRoleIdsIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, supportedRoleIds_);
+      bitField0_ |= 0x00000100;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string supported_role_ids = 9;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearSupportedRoleIds() {
+      supportedRoleIds_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
+      bitField0_ = (bitField0_ & ~0x00000100);;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string supported_role_ids = 9;</code>
+     * @param value The bytes of the supportedRoleIds to add.
+     * @return This builder for chaining.
+     */
+    public Builder addSupportedRoleIdsBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      ensureSupportedRoleIdsIsMutable();
+      supportedRoleIds_.add(value);
+      bitField0_ |= 0x00000100;
+      onChanged();
+      return this;
     }
 
     // @@protoc_insertion_point(builder_scope:monarchic.agent_protocol.v1.RunnerCapabilities)
@@ -1603,4 +1877,3 @@ private static final long serialVersionUID = 0L;
   }
 
 }
-

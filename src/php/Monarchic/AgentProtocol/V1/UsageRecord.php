@@ -366,4 +366,3 @@ class UsageRecord extends \Google\Protobuf\Internal\Message
     }
 
 }
-

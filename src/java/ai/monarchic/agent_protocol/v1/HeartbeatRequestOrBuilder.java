@@ -49,7 +49,7 @@ public interface HeartbeatRequestOrBuilder extends
   /**
    * <code>repeated .monarchic.agent_protocol.v1.LeaseStatus active_leases = 4;</code>
    */
-  java.util.List<ai.monarchic.agent_protocol.v1.LeaseStatus> 
+  java.util.List<ai.monarchic.agent_protocol.v1.LeaseStatus>
       getActiveLeasesList();
   /**
    * <code>repeated .monarchic.agent_protocol.v1.LeaseStatus active_leases = 4;</code>
@@ -62,7 +62,7 @@ public interface HeartbeatRequestOrBuilder extends
   /**
    * <code>repeated .monarchic.agent_protocol.v1.LeaseStatus active_leases = 4;</code>
    */
-  java.util.List<? extends ai.monarchic.agent_protocol.v1.LeaseStatusOrBuilder> 
+  java.util.List<? extends ai.monarchic.agent_protocol.v1.LeaseStatusOrBuilder>
       getActiveLeasesOrBuilderList();
   /**
    * <code>repeated .monarchic.agent_protocol.v1.LeaseStatus active_leases = 4;</code>

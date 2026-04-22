@@ -106,7 +106,7 @@ public enum RerunTrigger
   }
   public static com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.getDescriptor().getEnumTypes().get(15);
+    return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.getDescriptor().getEnumTypes().get(17);
   }
 
   private static final RerunTrigger[] VALUES = values();
@@ -131,4 +131,3 @@ public enum RerunTrigger
 
   // @@protoc_insertion_point(enum_scope:monarchic.agent_protocol.v1.RerunTrigger)
 }
-

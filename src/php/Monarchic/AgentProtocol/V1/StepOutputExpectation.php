@@ -83,4 +83,3 @@ class StepOutputExpectation extends \Google\Protobuf\Internal\Message
     }
 
 }
-

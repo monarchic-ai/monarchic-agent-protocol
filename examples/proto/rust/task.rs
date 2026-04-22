@@ -18,9 +18,9 @@ fn main() {
     constraints: None,
     gates_required: Vec::new(),
     run_context: None,
-    delivery_contract: None,
     experiment_spec: None,
     objective_spec: None,
+    role_id: "dev".to_string(),
     extensions: None,
   };
 

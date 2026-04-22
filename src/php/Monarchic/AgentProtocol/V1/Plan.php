@@ -477,4 +477,3 @@ class Plan extends \Google\Protobuf\Internal\Message
     }
 
 }
-

@@ -83,4 +83,3 @@ class ReplanPolicy extends \Google\Protobuf\Internal\Message
     }
 
 }
-

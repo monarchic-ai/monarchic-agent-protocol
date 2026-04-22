@@ -61,4 +61,3 @@ class IntentClass
         return constant($const);
     }
 }
-

@@ -309,4 +309,3 @@ class ExecutionReceipt extends \Google\Protobuf\Internal\Message
     }
 
 }
-

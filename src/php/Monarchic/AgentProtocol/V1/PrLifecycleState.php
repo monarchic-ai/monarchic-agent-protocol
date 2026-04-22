@@ -413,4 +413,3 @@ class PrLifecycleState extends \Google\Protobuf\Internal\Message
     }
 
 }
-

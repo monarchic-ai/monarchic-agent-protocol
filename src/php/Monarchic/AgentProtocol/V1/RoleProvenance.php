@@ -110,4 +110,3 @@ class RoleProvenance extends \Google\Protobuf\Internal\Message
     }
 
 }
-

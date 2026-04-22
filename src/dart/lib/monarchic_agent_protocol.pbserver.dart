@@ -96,3 +96,66 @@ abstract class RunnerControlServiceBase extends $pb.GeneratedService {
   $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>>
       get $messageJson => RunnerControlServiceBase$messageJson;
 }
+
+abstract class ClientControlServiceBase extends $pb.GeneratedService {
+  $async.Future<$1.ListControlPlaneRunsResponse> listRuns(
+      $pb.ServerContext ctx, $1.ListControlPlaneRunsRequest request);
+  $async.Future<$1.GetControlPlaneRunResponse> getRun(
+      $pb.ServerContext ctx, $1.GetControlPlaneRunRequest request);
+  $async.Future<$1.GetControlPlaneRunActivityPageResponse> getRunActivityPage(
+      $pb.ServerContext ctx, $1.GetControlPlaneRunActivityPageRequest request);
+  $async.Future<$1.ApplyControlPlaneRunActionResponse> applyRunAction(
+      $pb.ServerContext ctx, $1.ApplyControlPlaneRunActionRequest request);
+  $async.Future<$1.ApplyControlPlaneReviewDispositionResponse>
+      applyReviewDisposition($pb.ServerContext ctx,
+          $1.ApplyControlPlaneReviewDispositionRequest request);
+  $async.Future<$1.EnsureControlPlaneWorkerResponse> ensureWorker(
+      $pb.ServerContext ctx, $1.EnsureControlPlaneWorkerRequest request);
+
+  $pb.GeneratedMessage createRequest($core.String methodName) {
+    switch (methodName) {
+      case 'ListRuns':
+        return $1.ListControlPlaneRunsRequest();
+      case 'GetRun':
+        return $1.GetControlPlaneRunRequest();
+      case 'GetRunActivityPage':
+        return $1.GetControlPlaneRunActivityPageRequest();
+      case 'ApplyRunAction':
+        return $1.ApplyControlPlaneRunActionRequest();
+      case 'ApplyReviewDisposition':
+        return $1.ApplyControlPlaneReviewDispositionRequest();
+      case 'EnsureWorker':
+        return $1.EnsureControlPlaneWorkerRequest();
+      default:
+        throw $core.ArgumentError('Unknown method: $methodName');
+    }
+  }
+
+  $async.Future<$pb.GeneratedMessage> handleCall($pb.ServerContext ctx,
+      $core.String methodName, $pb.GeneratedMessage request) {
+    switch (methodName) {
+      case 'ListRuns':
+        return listRuns(ctx, request as $1.ListControlPlaneRunsRequest);
+      case 'GetRun':
+        return getRun(ctx, request as $1.GetControlPlaneRunRequest);
+      case 'GetRunActivityPage':
+        return getRunActivityPage(
+            ctx, request as $1.GetControlPlaneRunActivityPageRequest);
+      case 'ApplyRunAction':
+        return applyRunAction(
+            ctx, request as $1.ApplyControlPlaneRunActionRequest);
+      case 'ApplyReviewDisposition':
+        return applyReviewDisposition(
+            ctx, request as $1.ApplyControlPlaneReviewDispositionRequest);
+      case 'EnsureWorker':
+        return ensureWorker(ctx, request as $1.EnsureControlPlaneWorkerRequest);
+      default:
+        throw $core.ArgumentError('Unknown method: $methodName');
+    }
+  }
+
+  $core.Map<$core.String, $core.dynamic> get $json =>
+      ClientControlServiceBase$json;
+  $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>>
+      get $messageJson => ClientControlServiceBase$messageJson;
+}

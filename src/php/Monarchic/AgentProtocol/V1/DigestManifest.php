@@ -245,4 +245,3 @@ class DigestManifest extends \Google\Protobuf\Internal\Message
     }
 
 }
-

@@ -67,7 +67,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       contractVersion_ = s;
@@ -83,7 +83,7 @@ private static final long serialVersionUID = 0L;
       getContractVersionBytes() {
     java.lang.Object ref = contractVersion_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       contractVersion_ = b;
@@ -106,7 +106,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       runId_ = s;
@@ -122,7 +122,7 @@ private static final long serialVersionUID = 0L;
       getRunIdBytes() {
     java.lang.Object ref = runId_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       runId_ = b;
@@ -145,7 +145,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       planId_ = s;
@@ -161,7 +161,7 @@ private static final long serialVersionUID = 0L;
       getPlanIdBytes() {
     java.lang.Object ref = planId_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       planId_ = b;
@@ -184,7 +184,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       planHash_ = s;
@@ -200,7 +200,7 @@ private static final long serialVersionUID = 0L;
       getPlanHashBytes() {
     java.lang.Object ref = planHash_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       planHash_ = b;
@@ -297,7 +297,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       outcomeHash_ = s;
@@ -313,7 +313,7 @@ private static final long serialVersionUID = 0L;
       getOutcomeHashBytes() {
     java.lang.Object ref = outcomeHash_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       outcomeHash_ = b;
@@ -962,7 +962,7 @@ private static final long serialVersionUID = 0L;
         getContractVersionBytes() {
       java.lang.Object ref = contractVersion_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         contractVersion_ = b;
@@ -1034,7 +1034,7 @@ private static final long serialVersionUID = 0L;
         getRunIdBytes() {
       java.lang.Object ref = runId_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         runId_ = b;
@@ -1106,7 +1106,7 @@ private static final long serialVersionUID = 0L;
         getPlanIdBytes() {
       java.lang.Object ref = planId_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         planId_ = b;
@@ -1178,7 +1178,7 @@ private static final long serialVersionUID = 0L;
         getPlanHashBytes() {
       java.lang.Object ref = planHash_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         planHash_ = b;
@@ -1472,7 +1472,7 @@ private static final long serialVersionUID = 0L;
         getOutcomeHashBytes() {
       java.lang.Object ref = outcomeHash_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         outcomeHash_ = b;
@@ -1678,7 +1678,7 @@ private static final long serialVersionUID = 0L;
      * <code>optional .monarchic.agent_protocol.v1.FailureDetail failure = 9;</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
-        ai.monarchic.agent_protocol.v1.FailureDetail, ai.monarchic.agent_protocol.v1.FailureDetail.Builder, ai.monarchic.agent_protocol.v1.FailureDetailOrBuilder> 
+        ai.monarchic.agent_protocol.v1.FailureDetail, ai.monarchic.agent_protocol.v1.FailureDetail.Builder, ai.monarchic.agent_protocol.v1.FailureDetailOrBuilder>
         internalGetFailureFieldBuilder() {
       if (failureBuilder_ == null) {
         failureBuilder_ = new com.google.protobuf.SingleFieldBuilder<
@@ -1773,4 +1773,3 @@ private static final long serialVersionUID = 0L;
   }
 
 }
-

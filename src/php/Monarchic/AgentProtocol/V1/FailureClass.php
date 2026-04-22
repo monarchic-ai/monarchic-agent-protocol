@@ -295,4 +295,3 @@ class FailureClass extends \Google\Protobuf\Internal\Message
     }
 
 }
-

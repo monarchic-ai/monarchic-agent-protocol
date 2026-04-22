@@ -258,4 +258,3 @@ class GateResult extends \Google\Protobuf\Internal\Message
     }
 
 }
-

@@ -403,4 +403,3 @@ class RecoveryEvent extends \Google\Protobuf\Internal\Message
     }
 
 }
-

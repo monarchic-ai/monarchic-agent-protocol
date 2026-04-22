@@ -104,7 +104,7 @@ public interface PlanOrBuilder extends
   /**
    * <code>repeated .monarchic.agent_protocol.v1.PlanStep steps = 9;</code>
    */
-  java.util.List<ai.monarchic.agent_protocol.v1.PlanStep> 
+  java.util.List<ai.monarchic.agent_protocol.v1.PlanStep>
       getStepsList();
   /**
    * <code>repeated .monarchic.agent_protocol.v1.PlanStep steps = 9;</code>
@@ -117,7 +117,7 @@ public interface PlanOrBuilder extends
   /**
    * <code>repeated .monarchic.agent_protocol.v1.PlanStep steps = 9;</code>
    */
-  java.util.List<? extends ai.monarchic.agent_protocol.v1.PlanStepOrBuilder> 
+  java.util.List<? extends ai.monarchic.agent_protocol.v1.PlanStepOrBuilder>
       getStepsOrBuilderList();
   /**
    * <code>repeated .monarchic.agent_protocol.v1.PlanStep steps = 9;</code>

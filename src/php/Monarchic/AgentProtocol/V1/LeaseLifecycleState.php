@@ -71,4 +71,3 @@ class LeaseLifecycleState
         return constant($const);
     }
 }
-

@@ -34,6 +34,11 @@ protoc -I "${proto_dir}" \
   --dart_out=src/dart/lib \
   "${proto_file}"
 
+# Some protoc plugins emit trailing whitespace. Keep generated sources stable
+# while satisfying repository whitespace checks.
+find src/java src/php -type f \( -name '*.java' -o -name '*.php' \) -print0 \
+  | xargs -0 perl -0pi -e 's/[ \t]+$//mg; s/\n+\z/\n/'
+
 bash ./scripts/generate-json-schema.sh
 
 echo "Generated: python, go, java, csharp, ruby, php, dart, json-schema"

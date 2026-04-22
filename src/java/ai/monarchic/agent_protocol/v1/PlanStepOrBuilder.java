@@ -135,7 +135,7 @@ public interface PlanStepOrBuilder extends
   /**
    * <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>
    */
-  java.util.List<ai.monarchic.agent_protocol.v1.StepOutputExpectation> 
+  java.util.List<ai.monarchic.agent_protocol.v1.StepOutputExpectation>
       getExpectedOutputsList();
   /**
    * <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>
@@ -148,7 +148,7 @@ public interface PlanStepOrBuilder extends
   /**
    * <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>
    */
-  java.util.List<? extends ai.monarchic.agent_protocol.v1.StepOutputExpectationOrBuilder> 
+  java.util.List<? extends ai.monarchic.agent_protocol.v1.StepOutputExpectationOrBuilder>
       getExpectedOutputsOrBuilderList();
   /**
    * <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>

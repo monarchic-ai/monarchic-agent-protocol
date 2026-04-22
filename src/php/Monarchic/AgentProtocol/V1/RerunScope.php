@@ -282,4 +282,3 @@ class RerunScope extends \Google\Protobuf\Internal\Message
     }
 
 }
-

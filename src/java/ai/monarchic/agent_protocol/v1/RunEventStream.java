@@ -142,7 +142,7 @@ public enum RunEventStream
   }
   public static com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.getDescriptor().getEnumTypes().get(18);
+    return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.getDescriptor().getEnumTypes().get(20);
   }
 
   private static final RunEventStream[] VALUES = values();
@@ -167,4 +167,3 @@ public enum RunEventStream
 
   // @@protoc_insertion_point(enum_scope:monarchic.agent_protocol.v1.RunEventStream)
 }
-

@@ -211,4 +211,3 @@ class ReportStepProgressResponse extends \Google\Protobuf\Internal\Message
     }
 
 }
-

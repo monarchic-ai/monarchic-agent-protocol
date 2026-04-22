@@ -203,4 +203,3 @@ public enum AgentRole
 
   // @@protoc_insertion_point(enum_scope:monarchic.agent_protocol.v1.AgentRole)
 }
-

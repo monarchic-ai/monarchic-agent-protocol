@@ -174,4 +174,3 @@ class FencingToken extends \Google\Protobuf\Internal\Message
     }
 
 }
-

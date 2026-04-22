@@ -201,4 +201,3 @@ class RegisterRunnerResponse extends \Google\Protobuf\Internal\Message
     }
 
 }
-

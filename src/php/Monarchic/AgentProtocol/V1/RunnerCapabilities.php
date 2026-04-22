@@ -26,6 +26,9 @@ class RunnerCapabilities extends \Google\Protobuf\Internal\Message
      */
     protected $runtime = '';
     /**
+     * Legacy enum-based supported roles. Prefer supported_role_ids for new
+     * producers and consumers.
+     *
      * Generated from protobuf field <code>repeated .monarchic.agent_protocol.v1.AgentRole supported_roles = 3;</code>
      */
     private $supported_roles;
@@ -49,6 +52,10 @@ class RunnerCapabilities extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.google.protobuf.Struct extensions = 8;</code>
      */
     protected $extensions = null;
+    /**
+     * Generated from protobuf field <code>repeated string supported_role_ids = 9;</code>
+     */
+    private $supported_role_ids;
 
     /**
      * Constructor.
@@ -59,11 +66,14 @@ class RunnerCapabilities extends \Google\Protobuf\Internal\Message
      *     @type string $platform
      *     @type string $runtime
      *     @type int[] $supported_roles
+     *           Legacy enum-based supported roles. Prefer supported_role_ids for new
+     *           producers and consumers.
      *     @type string[] $supported_task_versions
      *     @type string[] $labels
      *     @type bool $supports_interactive_pty
      *     @type bool $supports_resume
      *     @type \Google\Protobuf\Struct $extensions
+     *     @type string[] $supported_role_ids
      * }
      */
     public function __construct($data = NULL) {
@@ -116,6 +126,9 @@ class RunnerCapabilities extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Legacy enum-based supported roles. Prefer supported_role_ids for new
+     * producers and consumers.
+     *
      * Generated from protobuf field <code>repeated .monarchic.agent_protocol.v1.AgentRole supported_roles = 3;</code>
      * @return RepeatedField<int>
      */
@@ -125,6 +138,9 @@ class RunnerCapabilities extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Legacy enum-based supported roles. Prefer supported_role_ids for new
+     * producers and consumers.
+     *
      * Generated from protobuf field <code>repeated .monarchic.agent_protocol.v1.AgentRole supported_roles = 3;</code>
      * @param int[] $var
      * @return $this
@@ -257,5 +273,26 @@ class RunnerCapabilities extends \Google\Protobuf\Internal\Message
         return $this;
     }
 
-}
+    /**
+     * Generated from protobuf field <code>repeated string supported_role_ids = 9;</code>
+     * @return RepeatedField<string>
+     */
+    public function getSupportedRoleIds()
+    {
+        return $this->supported_role_ids;
+    }
 
+    /**
+     * Generated from protobuf field <code>repeated string supported_role_ids = 9;</code>
+     * @param string[] $var
+     * @return $this
+     */
+    public function setSupportedRoleIds($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
+        $this->supported_role_ids = $arr;
+
+        return $this;
+    }
+
+}

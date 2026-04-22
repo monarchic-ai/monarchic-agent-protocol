@@ -63,7 +63,7 @@ public interface BlockedOutcomeOrBuilder extends
   /**
    * <code>repeated .monarchic.agent_protocol.v1.ArtifactDescriptor blocking_artifacts = 5;</code>
    */
-  java.util.List<ai.monarchic.agent_protocol.v1.ArtifactDescriptor> 
+  java.util.List<ai.monarchic.agent_protocol.v1.ArtifactDescriptor>
       getBlockingArtifactsList();
   /**
    * <code>repeated .monarchic.agent_protocol.v1.ArtifactDescriptor blocking_artifacts = 5;</code>
@@ -76,7 +76,7 @@ public interface BlockedOutcomeOrBuilder extends
   /**
    * <code>repeated .monarchic.agent_protocol.v1.ArtifactDescriptor blocking_artifacts = 5;</code>
    */
-  java.util.List<? extends ai.monarchic.agent_protocol.v1.ArtifactDescriptorOrBuilder> 
+  java.util.List<? extends ai.monarchic.agent_protocol.v1.ArtifactDescriptorOrBuilder>
       getBlockingArtifactsOrBuilderList();
   /**
    * <code>repeated .monarchic.agent_protocol.v1.ArtifactDescriptor blocking_artifacts = 5;</code>

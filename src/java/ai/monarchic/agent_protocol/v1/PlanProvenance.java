@@ -59,7 +59,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       generatedBy_ = s;
@@ -75,7 +75,7 @@ private static final long serialVersionUID = 0L;
       getGeneratedByBytes() {
     java.lang.Object ref = generatedBy_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       generatedBy_ = b;
@@ -106,7 +106,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       policyProfile_ = s;
@@ -122,7 +122,7 @@ private static final long serialVersionUID = 0L;
       getPolicyProfileBytes() {
     java.lang.Object ref = policyProfile_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       policyProfile_ = b;
@@ -587,7 +587,7 @@ private static final long serialVersionUID = 0L;
         getGeneratedByBytes() {
       java.lang.Object ref = generatedBy_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         generatedBy_ = b;
@@ -666,7 +666,7 @@ private static final long serialVersionUID = 0L;
         getPolicyProfileBytes() {
       java.lang.Object ref = policyProfile_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         policyProfile_ = b;
@@ -853,7 +853,7 @@ private static final long serialVersionUID = 0L;
      * <code>optional .monarchic.agent_protocol.v1.RoleProvenance role = 4;</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
-        ai.monarchic.agent_protocol.v1.RoleProvenance, ai.monarchic.agent_protocol.v1.RoleProvenance.Builder, ai.monarchic.agent_protocol.v1.RoleProvenanceOrBuilder> 
+        ai.monarchic.agent_protocol.v1.RoleProvenance, ai.monarchic.agent_protocol.v1.RoleProvenance.Builder, ai.monarchic.agent_protocol.v1.RoleProvenanceOrBuilder>
         internalGetRoleFieldBuilder() {
       if (roleBuilder_ == null) {
         roleBuilder_ = new com.google.protobuf.SingleFieldBuilder<
@@ -916,4 +916,3 @@ private static final long serialVersionUID = 0L;
   }
 
 }
-

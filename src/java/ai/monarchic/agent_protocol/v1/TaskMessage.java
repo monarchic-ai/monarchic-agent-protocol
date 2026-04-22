@@ -33,7 +33,7 @@ private static final long serialVersionUID = 0L;
     runId_ = "";
     fromTaskId_ = "";
     toTaskId_ = "";
-    kind_ = "";
+    kind_ = 0;
     subject_ = "";
     body_ = "";
     artifactRefs_ =
@@ -69,7 +69,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       version_ = s;
@@ -85,7 +85,7 @@ private static final long serialVersionUID = 0L;
       getVersionBytes() {
     java.lang.Object ref = version_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       version_ = b;
@@ -108,7 +108,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       messageId_ = s;
@@ -124,7 +124,7 @@ private static final long serialVersionUID = 0L;
       getMessageIdBytes() {
     java.lang.Object ref = messageId_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       messageId_ = b;
@@ -147,7 +147,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       runId_ = s;
@@ -163,7 +163,7 @@ private static final long serialVersionUID = 0L;
       getRunIdBytes() {
     java.lang.Object ref = runId_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       runId_ = b;
@@ -186,7 +186,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       fromTaskId_ = s;
@@ -202,7 +202,7 @@ private static final long serialVersionUID = 0L;
       getFromTaskIdBytes() {
     java.lang.Object ref = fromTaskId_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       fromTaskId_ = b;
@@ -225,7 +225,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       toTaskId_ = s;
@@ -241,7 +241,7 @@ private static final long serialVersionUID = 0L;
       getToTaskIdBytes() {
     java.lang.Object ref = toTaskId_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       toTaskId_ = b;
@@ -252,42 +252,21 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KIND_FIELD_NUMBER = 6;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object kind_ = "";
+  private int kind_ = 0;
   /**
-   * <code>string kind = 6;</code>
-   * @return The kind.
+   * <code>.monarchic.agent_protocol.v1.TaskMessageKind kind = 6;</code>
+   * @return The enum numeric value on the wire for kind.
    */
-  @java.lang.Override
-  public java.lang.String getKind() {
-    java.lang.Object ref = kind_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      kind_ = s;
-      return s;
-    }
+  @java.lang.Override public int getKindValue() {
+    return kind_;
   }
   /**
-   * <code>string kind = 6;</code>
-   * @return The bytes for kind.
+   * <code>.monarchic.agent_protocol.v1.TaskMessageKind kind = 6;</code>
+   * @return The kind.
    */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getKindBytes() {
-    java.lang.Object ref = kind_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      kind_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  @java.lang.Override public ai.monarchic.agent_protocol.v1.TaskMessageKind getKind() {
+    ai.monarchic.agent_protocol.v1.TaskMessageKind result = ai.monarchic.agent_protocol.v1.TaskMessageKind.forNumber(kind_);
+    return result == null ? ai.monarchic.agent_protocol.v1.TaskMessageKind.UNRECOGNIZED : result;
   }
 
   public static final int SUBJECT_FIELD_NUMBER = 7;
@@ -311,7 +290,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       subject_ = s;
@@ -327,7 +306,7 @@ private static final long serialVersionUID = 0L;
       getSubjectBytes() {
     java.lang.Object ref = subject_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       subject_ = b;
@@ -358,7 +337,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       body_ = s;
@@ -374,7 +353,7 @@ private static final long serialVersionUID = 0L;
       getBodyBytes() {
     java.lang.Object ref = body_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       body_ = b;
@@ -442,7 +421,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       replyTo_ = s;
@@ -458,7 +437,7 @@ private static final long serialVersionUID = 0L;
       getReplyToBytes() {
     java.lang.Object ref = replyTo_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       replyTo_ = b;
@@ -481,7 +460,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       createdAt_ = s;
@@ -497,7 +476,7 @@ private static final long serialVersionUID = 0L;
       getCreatedAtBytes() {
     java.lang.Object ref = createdAt_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       createdAt_ = b;
@@ -599,8 +578,8 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(toTaskId_)) {
       com.google.protobuf.GeneratedMessage.writeString(output, 5, toTaskId_);
     }
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(kind_)) {
-      com.google.protobuf.GeneratedMessage.writeString(output, 6, kind_);
+    if (kind_ != ai.monarchic.agent_protocol.v1.TaskMessageKind.TASK_MESSAGE_KIND_UNSPECIFIED.getNumber()) {
+      output.writeEnum(6, kind_);
     }
     if (((bitField0_ & 0x00000001) != 0)) {
       com.google.protobuf.GeneratedMessage.writeString(output, 7, subject_);
@@ -650,8 +629,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(toTaskId_)) {
       size += com.google.protobuf.GeneratedMessage.computeStringSize(5, toTaskId_);
     }
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(kind_)) {
-      size += com.google.protobuf.GeneratedMessage.computeStringSize(6, kind_);
+    if (kind_ != ai.monarchic.agent_protocol.v1.TaskMessageKind.TASK_MESSAGE_KIND_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(6, kind_);
     }
     if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.GeneratedMessage.computeStringSize(7, subject_);
@@ -710,8 +690,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getFromTaskId())) return false;
     if (!getToTaskId()
         .equals(other.getToTaskId())) return false;
-    if (!getKind()
-        .equals(other.getKind())) return false;
+    if (kind_ != other.kind_) return false;
     if (hasSubject() != other.hasSubject()) return false;
     if (hasSubject()) {
       if (!getSubject()
@@ -765,7 +744,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + TO_TASK_ID_FIELD_NUMBER;
     hash = (53 * hash) + getToTaskId().hashCode();
     hash = (37 * hash) + KIND_FIELD_NUMBER;
-    hash = (53 * hash) + getKind().hashCode();
+    hash = (53 * hash) + kind_;
     if (hasSubject()) {
       hash = (37 * hash) + SUBJECT_FIELD_NUMBER;
       hash = (53 * hash) + getSubject().hashCode();
@@ -938,7 +917,7 @@ private static final long serialVersionUID = 0L;
       runId_ = "";
       fromTaskId_ = "";
       toTaskId_ = "";
-      kind_ = "";
+      kind_ = 0;
       subject_ = "";
       body_ = "";
       artifactRefs_ =
@@ -1082,10 +1061,8 @@ private static final long serialVersionUID = 0L;
         bitField0_ |= 0x00000010;
         onChanged();
       }
-      if (!other.getKind().isEmpty()) {
-        kind_ = other.kind_;
-        bitField0_ |= 0x00000020;
-        onChanged();
+      if (other.kind_ != 0) {
+        setKindValue(other.getKindValue());
       }
       if (other.hasSubject()) {
         subject_ = other.subject_;
@@ -1177,11 +1154,11 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000010;
               break;
             } // case 42
-            case 50: {
-              kind_ = input.readStringRequireUtf8();
+            case 48: {
+              kind_ = input.readEnum();
               bitField0_ |= 0x00000020;
               break;
-            } // case 50
+            } // case 48
             case 58: {
               subject_ = input.readStringRequireUtf8();
               bitField0_ |= 0x00000040;
@@ -1269,7 +1246,7 @@ private static final long serialVersionUID = 0L;
         getVersionBytes() {
       java.lang.Object ref = version_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         version_ = b;
@@ -1341,7 +1318,7 @@ private static final long serialVersionUID = 0L;
         getMessageIdBytes() {
       java.lang.Object ref = messageId_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         messageId_ = b;
@@ -1413,7 +1390,7 @@ private static final long serialVersionUID = 0L;
         getRunIdBytes() {
       java.lang.Object ref = runId_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         runId_ = b;
@@ -1485,7 +1462,7 @@ private static final long serialVersionUID = 0L;
         getFromTaskIdBytes() {
       java.lang.Object ref = fromTaskId_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         fromTaskId_ = b;
@@ -1557,7 +1534,7 @@ private static final long serialVersionUID = 0L;
         getToTaskIdBytes() {
       java.lang.Object ref = toTaskId_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         toTaskId_ = b;
@@ -1604,74 +1581,53 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object kind_ = "";
+    private int kind_ = 0;
     /**
-     * <code>string kind = 6;</code>
+     * <code>.monarchic.agent_protocol.v1.TaskMessageKind kind = 6;</code>
+     * @return The enum numeric value on the wire for kind.
+     */
+    @java.lang.Override public int getKindValue() {
+      return kind_;
+    }
+    /**
+     * <code>.monarchic.agent_protocol.v1.TaskMessageKind kind = 6;</code>
+     * @param value The enum numeric value on the wire for kind to set.
+     * @return This builder for chaining.
+     */
+    public Builder setKindValue(int value) {
+      kind_ = value;
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.monarchic.agent_protocol.v1.TaskMessageKind kind = 6;</code>
      * @return The kind.
      */
-    public java.lang.String getKind() {
-      java.lang.Object ref = kind_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        kind_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    @java.lang.Override
+    public ai.monarchic.agent_protocol.v1.TaskMessageKind getKind() {
+      ai.monarchic.agent_protocol.v1.TaskMessageKind result = ai.monarchic.agent_protocol.v1.TaskMessageKind.forNumber(kind_);
+      return result == null ? ai.monarchic.agent_protocol.v1.TaskMessageKind.UNRECOGNIZED : result;
     }
     /**
-     * <code>string kind = 6;</code>
-     * @return The bytes for kind.
-     */
-    public com.google.protobuf.ByteString
-        getKindBytes() {
-      java.lang.Object ref = kind_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        kind_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string kind = 6;</code>
+     * <code>.monarchic.agent_protocol.v1.TaskMessageKind kind = 6;</code>
      * @param value The kind to set.
      * @return This builder for chaining.
      */
-    public Builder setKind(
-        java.lang.String value) {
+    public Builder setKind(ai.monarchic.agent_protocol.v1.TaskMessageKind value) {
       if (value == null) { throw new NullPointerException(); }
-      kind_ = value;
       bitField0_ |= 0x00000020;
+      kind_ = value.getNumber();
       onChanged();
       return this;
     }
     /**
-     * <code>string kind = 6;</code>
+     * <code>.monarchic.agent_protocol.v1.TaskMessageKind kind = 6;</code>
      * @return This builder for chaining.
      */
     public Builder clearKind() {
-      kind_ = getDefaultInstance().getKind();
       bitField0_ = (bitField0_ & ~0x00000020);
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string kind = 6;</code>
-     * @param value The bytes for kind to set.
-     * @return This builder for chaining.
-     */
-    public Builder setKindBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
-      kind_ = value;
-      bitField0_ |= 0x00000020;
+      kind_ = 0;
       onChanged();
       return this;
     }
@@ -1708,7 +1664,7 @@ private static final long serialVersionUID = 0L;
         getSubjectBytes() {
       java.lang.Object ref = subject_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         subject_ = b;
@@ -1787,7 +1743,7 @@ private static final long serialVersionUID = 0L;
         getBodyBytes() {
       java.lang.Object ref = body_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         body_ = b;
@@ -1977,7 +1933,7 @@ private static final long serialVersionUID = 0L;
         getReplyToBytes() {
       java.lang.Object ref = replyTo_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         replyTo_ = b;
@@ -2049,7 +2005,7 @@ private static final long serialVersionUID = 0L;
         getCreatedAtBytes() {
       java.lang.Object ref = createdAt_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         createdAt_ = b;
@@ -2236,7 +2192,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct extensions = 13;</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
-        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>
         internalGetExtensionsFieldBuilder() {
       if (extensionsBuilder_ == null) {
         extensionsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
@@ -2357,7 +2313,7 @@ private static final long serialVersionUID = 0L;
      * <code>.monarchic.agent_protocol.v1.Provenance provenance = 14;</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
-        ai.monarchic.agent_protocol.v1.Provenance, ai.monarchic.agent_protocol.v1.Provenance.Builder, ai.monarchic.agent_protocol.v1.ProvenanceOrBuilder> 
+        ai.monarchic.agent_protocol.v1.Provenance, ai.monarchic.agent_protocol.v1.Provenance.Builder, ai.monarchic.agent_protocol.v1.ProvenanceOrBuilder>
         internalGetProvenanceFieldBuilder() {
       if (provenanceBuilder_ == null) {
         provenanceBuilder_ = new com.google.protobuf.SingleFieldBuilder<
@@ -2420,4 +2376,3 @@ private static final long serialVersionUID = 0L;
   }
 
 }
-

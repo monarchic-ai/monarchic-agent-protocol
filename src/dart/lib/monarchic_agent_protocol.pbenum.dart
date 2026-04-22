@@ -113,6 +113,88 @@ class IntentClass extends $pb.ProtobufEnum {
   const IntentClass._(super.value, super.name);
 }
 
+class BootstrapPlanningMode extends $pb.ProtobufEnum {
+  static const BootstrapPlanningMode BOOTSTRAP_PLANNING_MODE_UNSPECIFIED =
+      BootstrapPlanningMode._(
+          0, _omitEnumNames ? '' : 'BOOTSTRAP_PLANNING_MODE_UNSPECIFIED');
+  static const BootstrapPlanningMode
+      BOOTSTRAP_PLANNING_MODE_DIRECT_TEMPLATE_FILL = BootstrapPlanningMode._(1,
+          _omitEnumNames ? '' : 'BOOTSTRAP_PLANNING_MODE_DIRECT_TEMPLATE_FILL');
+  static const BootstrapPlanningMode
+      BOOTSTRAP_PLANNING_MODE_BOUNDED_RESEARCH_REPLAN = BootstrapPlanningMode._(
+          2,
+          _omitEnumNames
+              ? ''
+              : 'BOOTSTRAP_PLANNING_MODE_BOUNDED_RESEARCH_REPLAN');
+
+  static const $core.List<BootstrapPlanningMode> values =
+      <BootstrapPlanningMode>[
+    BOOTSTRAP_PLANNING_MODE_UNSPECIFIED,
+    BOOTSTRAP_PLANNING_MODE_DIRECT_TEMPLATE_FILL,
+    BOOTSTRAP_PLANNING_MODE_BOUNDED_RESEARCH_REPLAN,
+  ];
+
+  static final $core.List<BootstrapPlanningMode?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 2);
+  static BootstrapPlanningMode? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const BootstrapPlanningMode._(super.value, super.name);
+}
+
+class CampaignPipelineConnectionKind extends $pb.ProtobufEnum {
+  static const CampaignPipelineConnectionKind
+      CAMPAIGN_PIPELINE_CONNECTION_KIND_UNSPECIFIED =
+      CampaignPipelineConnectionKind._(
+          0,
+          _omitEnumNames
+              ? ''
+              : 'CAMPAIGN_PIPELINE_CONNECTION_KIND_UNSPECIFIED');
+  static const CampaignPipelineConnectionKind
+      CAMPAIGN_PIPELINE_CONNECTION_KIND_DEPENDS_ON =
+      CampaignPipelineConnectionKind._(1,
+          _omitEnumNames ? '' : 'CAMPAIGN_PIPELINE_CONNECTION_KIND_DEPENDS_ON');
+  static const CampaignPipelineConnectionKind
+      CAMPAIGN_PIPELINE_CONNECTION_KIND_HANDOFF =
+      CampaignPipelineConnectionKind._(
+          2, _omitEnumNames ? '' : 'CAMPAIGN_PIPELINE_CONNECTION_KIND_HANDOFF');
+  static const CampaignPipelineConnectionKind
+      CAMPAIGN_PIPELINE_CONNECTION_KIND_REVIEW =
+      CampaignPipelineConnectionKind._(
+          3, _omitEnumNames ? '' : 'CAMPAIGN_PIPELINE_CONNECTION_KIND_REVIEW');
+  static const CampaignPipelineConnectionKind
+      CAMPAIGN_PIPELINE_CONNECTION_KIND_MESSAGE_ROUTE =
+      CampaignPipelineConnectionKind._(
+          4,
+          _omitEnumNames
+              ? ''
+              : 'CAMPAIGN_PIPELINE_CONNECTION_KIND_MESSAGE_ROUTE');
+  static const CampaignPipelineConnectionKind
+      CAMPAIGN_PIPELINE_CONNECTION_KIND_ARTIFACT_FLOW =
+      CampaignPipelineConnectionKind._(
+          5,
+          _omitEnumNames
+              ? ''
+              : 'CAMPAIGN_PIPELINE_CONNECTION_KIND_ARTIFACT_FLOW');
+
+  static const $core.List<CampaignPipelineConnectionKind> values =
+      <CampaignPipelineConnectionKind>[
+    CAMPAIGN_PIPELINE_CONNECTION_KIND_UNSPECIFIED,
+    CAMPAIGN_PIPELINE_CONNECTION_KIND_DEPENDS_ON,
+    CAMPAIGN_PIPELINE_CONNECTION_KIND_HANDOFF,
+    CAMPAIGN_PIPELINE_CONNECTION_KIND_REVIEW,
+    CAMPAIGN_PIPELINE_CONNECTION_KIND_MESSAGE_ROUTE,
+    CAMPAIGN_PIPELINE_CONNECTION_KIND_ARTIFACT_FLOW,
+  ];
+
+  static final $core.List<CampaignPipelineConnectionKind?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 5);
+  static CampaignPipelineConnectionKind? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const CampaignPipelineConnectionKind._(super.value, super.name);
+}
+
 class PlanStatus extends $pb.ProtobufEnum {
   static const PlanStatus PLAN_STATUS_UNSPECIFIED =
       PlanStatus._(0, _omitEnumNames ? '' : 'PLAN_STATUS_UNSPECIFIED');
@@ -662,6 +744,35 @@ class RunEventStream extends $pb.ProtobufEnum {
   const RunEventStream._(super.value, super.name);
 }
 
+class TaskMessageKind extends $pb.ProtobufEnum {
+  static const TaskMessageKind TASK_MESSAGE_KIND_UNSPECIFIED =
+      TaskMessageKind._(
+          0, _omitEnumNames ? '' : 'TASK_MESSAGE_KIND_UNSPECIFIED');
+  static const TaskMessageKind TASK_MESSAGE_KIND_ARTIFACT_READY =
+      TaskMessageKind._(
+          1, _omitEnumNames ? '' : 'TASK_MESSAGE_KIND_ARTIFACT_READY');
+  static const TaskMessageKind TASK_MESSAGE_KIND_CLARIFICATION_REQUEST =
+      TaskMessageKind._(
+          2, _omitEnumNames ? '' : 'TASK_MESSAGE_KIND_CLARIFICATION_REQUEST');
+  static const TaskMessageKind TASK_MESSAGE_KIND_CLARIFICATION_RESPONSE =
+      TaskMessageKind._(
+          3, _omitEnumNames ? '' : 'TASK_MESSAGE_KIND_CLARIFICATION_RESPONSE');
+
+  static const $core.List<TaskMessageKind> values = <TaskMessageKind>[
+    TASK_MESSAGE_KIND_UNSPECIFIED,
+    TASK_MESSAGE_KIND_ARTIFACT_READY,
+    TASK_MESSAGE_KIND_CLARIFICATION_REQUEST,
+    TASK_MESSAGE_KIND_CLARIFICATION_RESPONSE,
+  ];
+
+  static final $core.List<TaskMessageKind?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 3);
+  static TaskMessageKind? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const TaskMessageKind._(super.value, super.name);
+}
+
 class LeaseLifecycleState extends $pb.ProtobufEnum {
   static const LeaseLifecycleState LEASE_LIFECYCLE_STATE_UNSPECIFIED =
       LeaseLifecycleState._(
@@ -879,6 +990,40 @@ class RecoveryEventKind extends $pb.ProtobufEnum {
       value < 0 || value >= _byValue.length ? null : _byValue[value];
 
   const RecoveryEventKind._(super.value, super.name);
+}
+
+class ControlPlaneRunAction extends $pb.ProtobufEnum {
+  static const ControlPlaneRunAction CONTROL_PLANE_RUN_ACTION_UNSPECIFIED =
+      ControlPlaneRunAction._(
+          0, _omitEnumNames ? '' : 'CONTROL_PLANE_RUN_ACTION_UNSPECIFIED');
+  static const ControlPlaneRunAction CONTROL_PLANE_RUN_ACTION_PAUSE =
+      ControlPlaneRunAction._(
+          1, _omitEnumNames ? '' : 'CONTROL_PLANE_RUN_ACTION_PAUSE');
+  static const ControlPlaneRunAction CONTROL_PLANE_RUN_ACTION_RESUME =
+      ControlPlaneRunAction._(
+          2, _omitEnumNames ? '' : 'CONTROL_PLANE_RUN_ACTION_RESUME');
+  static const ControlPlaneRunAction CONTROL_PLANE_RUN_ACTION_INTERRUPT =
+      ControlPlaneRunAction._(
+          3, _omitEnumNames ? '' : 'CONTROL_PLANE_RUN_ACTION_INTERRUPT');
+  static const ControlPlaneRunAction CONTROL_PLANE_RUN_ACTION_CANCEL =
+      ControlPlaneRunAction._(
+          4, _omitEnumNames ? '' : 'CONTROL_PLANE_RUN_ACTION_CANCEL');
+
+  static const $core.List<ControlPlaneRunAction> values =
+      <ControlPlaneRunAction>[
+    CONTROL_PLANE_RUN_ACTION_UNSPECIFIED,
+    CONTROL_PLANE_RUN_ACTION_PAUSE,
+    CONTROL_PLANE_RUN_ACTION_RESUME,
+    CONTROL_PLANE_RUN_ACTION_INTERRUPT,
+    CONTROL_PLANE_RUN_ACTION_CANCEL,
+  ];
+
+  static final $core.List<ControlPlaneRunAction?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 4);
+  static ControlPlaneRunAction? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const ControlPlaneRunAction._(super.value, super.name);
 }
 
 const $core.bool _omitEnumNames =

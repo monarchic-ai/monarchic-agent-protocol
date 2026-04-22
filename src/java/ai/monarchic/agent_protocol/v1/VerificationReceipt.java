@@ -67,7 +67,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       contractVersion_ = s;
@@ -83,7 +83,7 @@ private static final long serialVersionUID = 0L;
       getContractVersionBytes() {
     java.lang.Object ref = contractVersion_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       contractVersion_ = b;
@@ -106,7 +106,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       verificationId_ = s;
@@ -122,7 +122,7 @@ private static final long serialVersionUID = 0L;
       getVerificationIdBytes() {
     java.lang.Object ref = verificationId_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       verificationId_ = b;
@@ -145,7 +145,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       planId_ = s;
@@ -161,7 +161,7 @@ private static final long serialVersionUID = 0L;
       getPlanIdBytes() {
     java.lang.Object ref = planId_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       planId_ = b;
@@ -221,7 +221,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       verificationPolicyVersion_ = s;
@@ -237,7 +237,7 @@ private static final long serialVersionUID = 0L;
       getVerificationPolicyVersionBytes() {
     java.lang.Object ref = verificationPolicyVersion_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       verificationPolicyVersion_ = b;
@@ -279,7 +279,7 @@ private static final long serialVersionUID = 0L;
    * <code>repeated .monarchic.agent_protocol.v1.VerificationCheck checks = 7;</code>
    */
   @java.lang.Override
-  public java.util.List<? extends ai.monarchic.agent_protocol.v1.VerificationCheckOrBuilder> 
+  public java.util.List<? extends ai.monarchic.agent_protocol.v1.VerificationCheckOrBuilder>
       getChecksOrBuilderList() {
     return checks_;
   }
@@ -320,7 +320,7 @@ private static final long serialVersionUID = 0L;
    * <code>repeated .monarchic.agent_protocol.v1.BlockedOutcome blocked_outcomes = 8;</code>
    */
   @java.lang.Override
-  public java.util.List<? extends ai.monarchic.agent_protocol.v1.BlockedOutcomeOrBuilder> 
+  public java.util.List<? extends ai.monarchic.agent_protocol.v1.BlockedOutcomeOrBuilder>
       getBlockedOutcomesOrBuilderList() {
     return blockedOutcomes_;
   }
@@ -867,7 +867,7 @@ private static final long serialVersionUID = 0L;
             checksBuilder_ = null;
             checks_ = other.checks_;
             bitField0_ = (bitField0_ & ~0x00000040);
-            checksBuilder_ = 
+            checksBuilder_ =
               com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                  internalGetChecksFieldBuilder() : null;
           } else {
@@ -893,7 +893,7 @@ private static final long serialVersionUID = 0L;
             blockedOutcomesBuilder_ = null;
             blockedOutcomes_ = other.blockedOutcomes_;
             bitField0_ = (bitField0_ & ~0x00000080);
-            blockedOutcomesBuilder_ = 
+            blockedOutcomesBuilder_ =
               com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                  internalGetBlockedOutcomesFieldBuilder() : null;
           } else {
@@ -1050,7 +1050,7 @@ private static final long serialVersionUID = 0L;
         getContractVersionBytes() {
       java.lang.Object ref = contractVersion_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         contractVersion_ = b;
@@ -1122,7 +1122,7 @@ private static final long serialVersionUID = 0L;
         getVerificationIdBytes() {
       java.lang.Object ref = verificationId_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         verificationId_ = b;
@@ -1194,7 +1194,7 @@ private static final long serialVersionUID = 0L;
         getPlanIdBytes() {
       java.lang.Object ref = planId_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         planId_ = b;
@@ -1377,7 +1377,7 @@ private static final long serialVersionUID = 0L;
         getVerificationPolicyVersionBytes() {
       java.lang.Object ref = verificationPolicyVersion_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         verificationPolicyVersion_ = b;
@@ -1670,7 +1670,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .monarchic.agent_protocol.v1.VerificationCheck checks = 7;</code>
      */
-    public java.util.List<? extends ai.monarchic.agent_protocol.v1.VerificationCheckOrBuilder> 
+    public java.util.List<? extends ai.monarchic.agent_protocol.v1.VerificationCheckOrBuilder>
          getChecksOrBuilderList() {
       if (checksBuilder_ != null) {
         return checksBuilder_.getMessageOrBuilderList();
@@ -1696,12 +1696,12 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .monarchic.agent_protocol.v1.VerificationCheck checks = 7;</code>
      */
-    public java.util.List<ai.monarchic.agent_protocol.v1.VerificationCheck.Builder> 
+    public java.util.List<ai.monarchic.agent_protocol.v1.VerificationCheck.Builder>
          getChecksBuilderList() {
       return internalGetChecksFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilder<
-        ai.monarchic.agent_protocol.v1.VerificationCheck, ai.monarchic.agent_protocol.v1.VerificationCheck.Builder, ai.monarchic.agent_protocol.v1.VerificationCheckOrBuilder> 
+        ai.monarchic.agent_protocol.v1.VerificationCheck, ai.monarchic.agent_protocol.v1.VerificationCheck.Builder, ai.monarchic.agent_protocol.v1.VerificationCheckOrBuilder>
         internalGetChecksFieldBuilder() {
       if (checksBuilder_ == null) {
         checksBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
@@ -1910,7 +1910,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .monarchic.agent_protocol.v1.BlockedOutcome blocked_outcomes = 8;</code>
      */
-    public java.util.List<? extends ai.monarchic.agent_protocol.v1.BlockedOutcomeOrBuilder> 
+    public java.util.List<? extends ai.monarchic.agent_protocol.v1.BlockedOutcomeOrBuilder>
          getBlockedOutcomesOrBuilderList() {
       if (blockedOutcomesBuilder_ != null) {
         return blockedOutcomesBuilder_.getMessageOrBuilderList();
@@ -1936,12 +1936,12 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .monarchic.agent_protocol.v1.BlockedOutcome blocked_outcomes = 8;</code>
      */
-    public java.util.List<ai.monarchic.agent_protocol.v1.BlockedOutcome.Builder> 
+    public java.util.List<ai.monarchic.agent_protocol.v1.BlockedOutcome.Builder>
          getBlockedOutcomesBuilderList() {
       return internalGetBlockedOutcomesFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilder<
-        ai.monarchic.agent_protocol.v1.BlockedOutcome, ai.monarchic.agent_protocol.v1.BlockedOutcome.Builder, ai.monarchic.agent_protocol.v1.BlockedOutcomeOrBuilder> 
+        ai.monarchic.agent_protocol.v1.BlockedOutcome, ai.monarchic.agent_protocol.v1.BlockedOutcome.Builder, ai.monarchic.agent_protocol.v1.BlockedOutcomeOrBuilder>
         internalGetBlockedOutcomesFieldBuilder() {
       if (blockedOutcomesBuilder_ == null) {
         blockedOutcomesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
@@ -2148,4 +2148,3 @@ private static final long serialVersionUID = 0L;
   }
 
 }
-

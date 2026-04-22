@@ -66,4 +66,3 @@ class UsageCategory
         return constant($const);
     }
 }
-

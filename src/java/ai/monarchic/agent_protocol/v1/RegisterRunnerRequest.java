@@ -59,7 +59,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       contractVersion_ = s;
@@ -75,7 +75,7 @@ private static final long serialVersionUID = 0L;
       getContractVersionBytes() {
     java.lang.Object ref = contractVersion_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       contractVersion_ = b;
@@ -98,7 +98,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       runnerId_ = s;
@@ -114,7 +114,7 @@ private static final long serialVersionUID = 0L;
       getRunnerIdBytes() {
     java.lang.Object ref = runnerId_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       runnerId_ = b;
@@ -700,7 +700,7 @@ private static final long serialVersionUID = 0L;
         getContractVersionBytes() {
       java.lang.Object ref = contractVersion_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         contractVersion_ = b;
@@ -772,7 +772,7 @@ private static final long serialVersionUID = 0L;
         getRunnerIdBytes() {
       java.lang.Object ref = runnerId_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         runnerId_ = b;
@@ -927,7 +927,7 @@ private static final long serialVersionUID = 0L;
      * <code>.monarchic.agent_protocol.v1.RunnerCapabilities capabilities = 3;</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
-        ai.monarchic.agent_protocol.v1.RunnerCapabilities, ai.monarchic.agent_protocol.v1.RunnerCapabilities.Builder, ai.monarchic.agent_protocol.v1.RunnerCapabilitiesOrBuilder> 
+        ai.monarchic.agent_protocol.v1.RunnerCapabilities, ai.monarchic.agent_protocol.v1.RunnerCapabilities.Builder, ai.monarchic.agent_protocol.v1.RunnerCapabilitiesOrBuilder>
         internalGetCapabilitiesFieldBuilder() {
       if (capabilitiesBuilder_ == null) {
         capabilitiesBuilder_ = new com.google.protobuf.SingleFieldBuilder<
@@ -1080,7 +1080,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct extensions = 5;</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
-        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>
         internalGetExtensionsFieldBuilder() {
       if (extensionsBuilder_ == null) {
         extensionsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
@@ -1201,7 +1201,7 @@ private static final long serialVersionUID = 0L;
      * <code>optional .monarchic.agent_protocol.v1.AuthContext auth_context = 6;</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
-        ai.monarchic.agent_protocol.v1.AuthContext, ai.monarchic.agent_protocol.v1.AuthContext.Builder, ai.monarchic.agent_protocol.v1.AuthContextOrBuilder> 
+        ai.monarchic.agent_protocol.v1.AuthContext, ai.monarchic.agent_protocol.v1.AuthContext.Builder, ai.monarchic.agent_protocol.v1.AuthContextOrBuilder>
         internalGetAuthContextFieldBuilder() {
       if (authContextBuilder_ == null) {
         authContextBuilder_ = new com.google.protobuf.SingleFieldBuilder<
@@ -1264,4 +1264,3 @@ private static final long serialVersionUID = 0L;
   }
 
 }
-

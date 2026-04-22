@@ -1276,6 +1276,1853 @@ class Intent extends $pb.GeneratedMessage {
   void clearIntentClass() => $_clearField(10);
 }
 
+class BootstrapIntent extends $pb.GeneratedMessage {
+  factory BootstrapIntent({
+    $core.String? contractVersion,
+    $core.String? bootstrapIntentId,
+    $core.String? projectKey,
+    $core.Iterable<$core.String>? targetRepos,
+    $core.String? pipelineTemplateId,
+    $core.String? campaignGoal,
+    $core.String? notes,
+    $core.String? priorityProfile,
+    $fixnum.Int64? createdAtMs,
+  }) {
+    final result = create();
+    if (contractVersion != null) result.contractVersion = contractVersion;
+    if (bootstrapIntentId != null) result.bootstrapIntentId = bootstrapIntentId;
+    if (projectKey != null) result.projectKey = projectKey;
+    if (targetRepos != null) result.targetRepos.addAll(targetRepos);
+    if (pipelineTemplateId != null)
+      result.pipelineTemplateId = pipelineTemplateId;
+    if (campaignGoal != null) result.campaignGoal = campaignGoal;
+    if (notes != null) result.notes = notes;
+    if (priorityProfile != null) result.priorityProfile = priorityProfile;
+    if (createdAtMs != null) result.createdAtMs = createdAtMs;
+    return result;
+  }
+
+  BootstrapIntent._();
+
+  factory BootstrapIntent.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory BootstrapIntent.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'BootstrapIntent',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'contractVersion')
+    ..aOS(2, _omitFieldNames ? '' : 'bootstrapIntentId')
+    ..aOS(3, _omitFieldNames ? '' : 'projectKey')
+    ..pPS(4, _omitFieldNames ? '' : 'targetRepos')
+    ..aOS(5, _omitFieldNames ? '' : 'pipelineTemplateId')
+    ..aOS(6, _omitFieldNames ? '' : 'campaignGoal')
+    ..aOS(7, _omitFieldNames ? '' : 'notes')
+    ..aOS(8, _omitFieldNames ? '' : 'priorityProfile')
+    ..a<$fixnum.Int64>(
+        9, _omitFieldNames ? '' : 'createdAtMs', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  BootstrapIntent clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  BootstrapIntent copyWith(void Function(BootstrapIntent) updates) =>
+      super.copyWith((message) => updates(message as BootstrapIntent))
+          as BootstrapIntent;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static BootstrapIntent create() => BootstrapIntent._();
+  @$core.override
+  BootstrapIntent createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static BootstrapIntent getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<BootstrapIntent>(create);
+  static BootstrapIntent? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get contractVersion => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set contractVersion($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasContractVersion() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearContractVersion() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get bootstrapIntentId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set bootstrapIntentId($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasBootstrapIntentId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearBootstrapIntentId() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get projectKey => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set projectKey($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasProjectKey() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearProjectKey() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $pb.PbList<$core.String> get targetRepos => $_getList(3);
+
+  @$pb.TagNumber(5)
+  $core.String get pipelineTemplateId => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set pipelineTemplateId($core.String value) => $_setString(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasPipelineTemplateId() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearPipelineTemplateId() => $_clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get campaignGoal => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set campaignGoal($core.String value) => $_setString(5, value);
+  @$pb.TagNumber(6)
+  $core.bool hasCampaignGoal() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearCampaignGoal() => $_clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.String get notes => $_getSZ(6);
+  @$pb.TagNumber(7)
+  set notes($core.String value) => $_setString(6, value);
+  @$pb.TagNumber(7)
+  $core.bool hasNotes() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearNotes() => $_clearField(7);
+
+  @$pb.TagNumber(8)
+  $core.String get priorityProfile => $_getSZ(7);
+  @$pb.TagNumber(8)
+  set priorityProfile($core.String value) => $_setString(7, value);
+  @$pb.TagNumber(8)
+  $core.bool hasPriorityProfile() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearPriorityProfile() => $_clearField(8);
+
+  @$pb.TagNumber(9)
+  $fixnum.Int64 get createdAtMs => $_getI64(8);
+  @$pb.TagNumber(9)
+  set createdAtMs($fixnum.Int64 value) => $_setInt64(8, value);
+  @$pb.TagNumber(9)
+  $core.bool hasCreatedAtMs() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearCreatedAtMs() => $_clearField(9);
+}
+
+class BootstrapPlanTask extends $pb.GeneratedMessage {
+  factory BootstrapPlanTask({
+    $core.String? taskId,
+    $core.String? displayName,
+    $core.String? roleId,
+    $core.String? taskMilestone,
+    $core.Iterable<$core.String>? dependsOn,
+    $core.String? targetRepo,
+    $core.Iterable<$core.String>? requiredSkillIds,
+    $core.Iterable<$core.String>? requiredMcpIds,
+    $core.String? interactionMode,
+    $core.String? networkMode,
+    $core.bool? requiresHumanReview,
+    $0.Struct? filesystemPolicy,
+    $core.String? templateSlotId,
+    $core.String? notes,
+  }) {
+    final result = create();
+    if (taskId != null) result.taskId = taskId;
+    if (displayName != null) result.displayName = displayName;
+    if (roleId != null) result.roleId = roleId;
+    if (taskMilestone != null) result.taskMilestone = taskMilestone;
+    if (dependsOn != null) result.dependsOn.addAll(dependsOn);
+    if (targetRepo != null) result.targetRepo = targetRepo;
+    if (requiredSkillIds != null)
+      result.requiredSkillIds.addAll(requiredSkillIds);
+    if (requiredMcpIds != null) result.requiredMcpIds.addAll(requiredMcpIds);
+    if (interactionMode != null) result.interactionMode = interactionMode;
+    if (networkMode != null) result.networkMode = networkMode;
+    if (requiresHumanReview != null)
+      result.requiresHumanReview = requiresHumanReview;
+    if (filesystemPolicy != null) result.filesystemPolicy = filesystemPolicy;
+    if (templateSlotId != null) result.templateSlotId = templateSlotId;
+    if (notes != null) result.notes = notes;
+    return result;
+  }
+
+  BootstrapPlanTask._();
+
+  factory BootstrapPlanTask.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory BootstrapPlanTask.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'BootstrapPlanTask',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'taskId')
+    ..aOS(2, _omitFieldNames ? '' : 'displayName')
+    ..aOS(3, _omitFieldNames ? '' : 'roleId')
+    ..aOS(4, _omitFieldNames ? '' : 'taskMilestone')
+    ..pPS(5, _omitFieldNames ? '' : 'dependsOn')
+    ..aOS(6, _omitFieldNames ? '' : 'targetRepo')
+    ..pPS(7, _omitFieldNames ? '' : 'requiredSkillIds')
+    ..pPS(8, _omitFieldNames ? '' : 'requiredMcpIds')
+    ..aOS(9, _omitFieldNames ? '' : 'interactionMode')
+    ..aOS(10, _omitFieldNames ? '' : 'networkMode')
+    ..aOB(11, _omitFieldNames ? '' : 'requiresHumanReview')
+    ..aOM<$0.Struct>(12, _omitFieldNames ? '' : 'filesystemPolicy',
+        subBuilder: $0.Struct.create)
+    ..aOS(13, _omitFieldNames ? '' : 'templateSlotId')
+    ..aOS(14, _omitFieldNames ? '' : 'notes')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  BootstrapPlanTask clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  BootstrapPlanTask copyWith(void Function(BootstrapPlanTask) updates) =>
+      super.copyWith((message) => updates(message as BootstrapPlanTask))
+          as BootstrapPlanTask;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static BootstrapPlanTask create() => BootstrapPlanTask._();
+  @$core.override
+  BootstrapPlanTask createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static BootstrapPlanTask getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<BootstrapPlanTask>(create);
+  static BootstrapPlanTask? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get taskId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set taskId($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasTaskId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearTaskId() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get displayName => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set displayName($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasDisplayName() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearDisplayName() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get roleId => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set roleId($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasRoleId() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearRoleId() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get taskMilestone => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set taskMilestone($core.String value) => $_setString(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasTaskMilestone() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearTaskMilestone() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  $pb.PbList<$core.String> get dependsOn => $_getList(4);
+
+  @$pb.TagNumber(6)
+  $core.String get targetRepo => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set targetRepo($core.String value) => $_setString(5, value);
+  @$pb.TagNumber(6)
+  $core.bool hasTargetRepo() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearTargetRepo() => $_clearField(6);
+
+  @$pb.TagNumber(7)
+  $pb.PbList<$core.String> get requiredSkillIds => $_getList(6);
+
+  @$pb.TagNumber(8)
+  $pb.PbList<$core.String> get requiredMcpIds => $_getList(7);
+
+  @$pb.TagNumber(9)
+  $core.String get interactionMode => $_getSZ(8);
+  @$pb.TagNumber(9)
+  set interactionMode($core.String value) => $_setString(8, value);
+  @$pb.TagNumber(9)
+  $core.bool hasInteractionMode() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearInteractionMode() => $_clearField(9);
+
+  @$pb.TagNumber(10)
+  $core.String get networkMode => $_getSZ(9);
+  @$pb.TagNumber(10)
+  set networkMode($core.String value) => $_setString(9, value);
+  @$pb.TagNumber(10)
+  $core.bool hasNetworkMode() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearNetworkMode() => $_clearField(10);
+
+  @$pb.TagNumber(11)
+  $core.bool get requiresHumanReview => $_getBF(10);
+  @$pb.TagNumber(11)
+  set requiresHumanReview($core.bool value) => $_setBool(10, value);
+  @$pb.TagNumber(11)
+  $core.bool hasRequiresHumanReview() => $_has(10);
+  @$pb.TagNumber(11)
+  void clearRequiresHumanReview() => $_clearField(11);
+
+  @$pb.TagNumber(12)
+  $0.Struct get filesystemPolicy => $_getN(11);
+  @$pb.TagNumber(12)
+  set filesystemPolicy($0.Struct value) => $_setField(12, value);
+  @$pb.TagNumber(12)
+  $core.bool hasFilesystemPolicy() => $_has(11);
+  @$pb.TagNumber(12)
+  void clearFilesystemPolicy() => $_clearField(12);
+  @$pb.TagNumber(12)
+  $0.Struct ensureFilesystemPolicy() => $_ensure(11);
+
+  @$pb.TagNumber(13)
+  $core.String get templateSlotId => $_getSZ(12);
+  @$pb.TagNumber(13)
+  set templateSlotId($core.String value) => $_setString(12, value);
+  @$pb.TagNumber(13)
+  $core.bool hasTemplateSlotId() => $_has(12);
+  @$pb.TagNumber(13)
+  void clearTemplateSlotId() => $_clearField(13);
+
+  @$pb.TagNumber(14)
+  $core.String get notes => $_getSZ(13);
+  @$pb.TagNumber(14)
+  set notes($core.String value) => $_setString(13, value);
+  @$pb.TagNumber(14)
+  $core.bool hasNotes() => $_has(13);
+  @$pb.TagNumber(14)
+  void clearNotes() => $_clearField(14);
+}
+
+class BootstrapPlan extends $pb.GeneratedMessage {
+  factory BootstrapPlan({
+    $core.String? contractVersion,
+    $core.String? bootstrapPlanId,
+    $core.String? bootstrapIntentId,
+    $core.String? projectKey,
+    BootstrapPlanningMode? planningMode,
+    $core.String? pipelineTemplateId,
+    $core.String? campaignGoal,
+    $fixnum.Int64? createdAtMs,
+    $core.Iterable<BootstrapPlanTask>? tasks,
+  }) {
+    final result = create();
+    if (contractVersion != null) result.contractVersion = contractVersion;
+    if (bootstrapPlanId != null) result.bootstrapPlanId = bootstrapPlanId;
+    if (bootstrapIntentId != null) result.bootstrapIntentId = bootstrapIntentId;
+    if (projectKey != null) result.projectKey = projectKey;
+    if (planningMode != null) result.planningMode = planningMode;
+    if (pipelineTemplateId != null)
+      result.pipelineTemplateId = pipelineTemplateId;
+    if (campaignGoal != null) result.campaignGoal = campaignGoal;
+    if (createdAtMs != null) result.createdAtMs = createdAtMs;
+    if (tasks != null) result.tasks.addAll(tasks);
+    return result;
+  }
+
+  BootstrapPlan._();
+
+  factory BootstrapPlan.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory BootstrapPlan.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'BootstrapPlan',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'contractVersion')
+    ..aOS(2, _omitFieldNames ? '' : 'bootstrapPlanId')
+    ..aOS(3, _omitFieldNames ? '' : 'bootstrapIntentId')
+    ..aOS(4, _omitFieldNames ? '' : 'projectKey')
+    ..aE<BootstrapPlanningMode>(5, _omitFieldNames ? '' : 'planningMode',
+        enumValues: BootstrapPlanningMode.values)
+    ..aOS(6, _omitFieldNames ? '' : 'pipelineTemplateId')
+    ..aOS(7, _omitFieldNames ? '' : 'campaignGoal')
+    ..a<$fixnum.Int64>(
+        8, _omitFieldNames ? '' : 'createdAtMs', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..pPM<BootstrapPlanTask>(9, _omitFieldNames ? '' : 'tasks',
+        subBuilder: BootstrapPlanTask.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  BootstrapPlan clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  BootstrapPlan copyWith(void Function(BootstrapPlan) updates) =>
+      super.copyWith((message) => updates(message as BootstrapPlan))
+          as BootstrapPlan;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static BootstrapPlan create() => BootstrapPlan._();
+  @$core.override
+  BootstrapPlan createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static BootstrapPlan getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<BootstrapPlan>(create);
+  static BootstrapPlan? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get contractVersion => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set contractVersion($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasContractVersion() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearContractVersion() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get bootstrapPlanId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set bootstrapPlanId($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasBootstrapPlanId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearBootstrapPlanId() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get bootstrapIntentId => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set bootstrapIntentId($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasBootstrapIntentId() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearBootstrapIntentId() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get projectKey => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set projectKey($core.String value) => $_setString(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasProjectKey() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearProjectKey() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  BootstrapPlanningMode get planningMode => $_getN(4);
+  @$pb.TagNumber(5)
+  set planningMode(BootstrapPlanningMode value) => $_setField(5, value);
+  @$pb.TagNumber(5)
+  $core.bool hasPlanningMode() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearPlanningMode() => $_clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get pipelineTemplateId => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set pipelineTemplateId($core.String value) => $_setString(5, value);
+  @$pb.TagNumber(6)
+  $core.bool hasPipelineTemplateId() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearPipelineTemplateId() => $_clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.String get campaignGoal => $_getSZ(6);
+  @$pb.TagNumber(7)
+  set campaignGoal($core.String value) => $_setString(6, value);
+  @$pb.TagNumber(7)
+  $core.bool hasCampaignGoal() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearCampaignGoal() => $_clearField(7);
+
+  @$pb.TagNumber(8)
+  $fixnum.Int64 get createdAtMs => $_getI64(7);
+  @$pb.TagNumber(8)
+  set createdAtMs($fixnum.Int64 value) => $_setInt64(7, value);
+  @$pb.TagNumber(8)
+  $core.bool hasCreatedAtMs() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearCreatedAtMs() => $_clearField(8);
+
+  @$pb.TagNumber(9)
+  $pb.PbList<BootstrapPlanTask> get tasks => $_getList(8);
+}
+
+class BootstrapFilesystemPolicy extends $pb.GeneratedMessage {
+  factory BootstrapFilesystemPolicy({
+    $core.Iterable<$core.String>? read,
+    $core.Iterable<$core.String>? write,
+    $core.Iterable<$core.String>? execute,
+  }) {
+    final result = create();
+    if (read != null) result.read.addAll(read);
+    if (write != null) result.write.addAll(write);
+    if (execute != null) result.execute.addAll(execute);
+    return result;
+  }
+
+  BootstrapFilesystemPolicy._();
+
+  factory BootstrapFilesystemPolicy.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory BootstrapFilesystemPolicy.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'BootstrapFilesystemPolicy',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..pPS(1, _omitFieldNames ? '' : 'read')
+    ..pPS(2, _omitFieldNames ? '' : 'write')
+    ..pPS(3, _omitFieldNames ? '' : 'execute')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  BootstrapFilesystemPolicy clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  BootstrapFilesystemPolicy copyWith(
+          void Function(BootstrapFilesystemPolicy) updates) =>
+      super.copyWith((message) => updates(message as BootstrapFilesystemPolicy))
+          as BootstrapFilesystemPolicy;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static BootstrapFilesystemPolicy create() => BootstrapFilesystemPolicy._();
+  @$core.override
+  BootstrapFilesystemPolicy createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static BootstrapFilesystemPolicy getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<BootstrapFilesystemPolicy>(create);
+  static BootstrapFilesystemPolicy? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $pb.PbList<$core.String> get read => $_getList(0);
+
+  @$pb.TagNumber(2)
+  $pb.PbList<$core.String> get write => $_getList(1);
+
+  @$pb.TagNumber(3)
+  $pb.PbList<$core.String> get execute => $_getList(2);
+}
+
+class BootstrapSkillBinding extends $pb.GeneratedMessage {
+  factory BootstrapSkillBinding({
+    $core.String? id,
+    $core.bool? required,
+    $core.String? purpose,
+  }) {
+    final result = create();
+    if (id != null) result.id = id;
+    if (required != null) result.required = required;
+    if (purpose != null) result.purpose = purpose;
+    return result;
+  }
+
+  BootstrapSkillBinding._();
+
+  factory BootstrapSkillBinding.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory BootstrapSkillBinding.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'BootstrapSkillBinding',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'id')
+    ..aOB(2, _omitFieldNames ? '' : 'required')
+    ..aOS(3, _omitFieldNames ? '' : 'purpose')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  BootstrapSkillBinding clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  BootstrapSkillBinding copyWith(
+          void Function(BootstrapSkillBinding) updates) =>
+      super.copyWith((message) => updates(message as BootstrapSkillBinding))
+          as BootstrapSkillBinding;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static BootstrapSkillBinding create() => BootstrapSkillBinding._();
+  @$core.override
+  BootstrapSkillBinding createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static BootstrapSkillBinding getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<BootstrapSkillBinding>(create);
+  static BootstrapSkillBinding? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get id => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set id($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearId() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.bool get required => $_getBF(1);
+  @$pb.TagNumber(2)
+  set required($core.bool value) => $_setBool(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasRequired() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearRequired() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get purpose => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set purpose($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasPurpose() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearPurpose() => $_clearField(3);
+}
+
+class BootstrapTemplateSlotContext extends $pb.GeneratedMessage {
+  factory BootstrapTemplateSlotContext({
+    $core.String? slotId,
+    $core.String? displayName,
+    $core.String? role,
+    $core.String? interactionMode,
+    $core.String? networkMode,
+    $core.bool? requiresHumanReview,
+    BootstrapFilesystemPolicy? filesystemPolicy,
+    $core.Iterable<BootstrapSkillBinding>? requiredSkills,
+    $core.Iterable<$core.String>? requiredMcps,
+  }) {
+    final result = create();
+    if (slotId != null) result.slotId = slotId;
+    if (displayName != null) result.displayName = displayName;
+    if (role != null) result.role = role;
+    if (interactionMode != null) result.interactionMode = interactionMode;
+    if (networkMode != null) result.networkMode = networkMode;
+    if (requiresHumanReview != null)
+      result.requiresHumanReview = requiresHumanReview;
+    if (filesystemPolicy != null) result.filesystemPolicy = filesystemPolicy;
+    if (requiredSkills != null) result.requiredSkills.addAll(requiredSkills);
+    if (requiredMcps != null) result.requiredMcps.addAll(requiredMcps);
+    return result;
+  }
+
+  BootstrapTemplateSlotContext._();
+
+  factory BootstrapTemplateSlotContext.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory BootstrapTemplateSlotContext.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'BootstrapTemplateSlotContext',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'slotId')
+    ..aOS(2, _omitFieldNames ? '' : 'displayName')
+    ..aOS(3, _omitFieldNames ? '' : 'role')
+    ..aOS(4, _omitFieldNames ? '' : 'interactionMode')
+    ..aOS(5, _omitFieldNames ? '' : 'networkMode')
+    ..aOB(6, _omitFieldNames ? '' : 'requiresHumanReview')
+    ..aOM<BootstrapFilesystemPolicy>(
+        7, _omitFieldNames ? '' : 'filesystemPolicy',
+        subBuilder: BootstrapFilesystemPolicy.create)
+    ..pPM<BootstrapSkillBinding>(8, _omitFieldNames ? '' : 'requiredSkills',
+        subBuilder: BootstrapSkillBinding.create)
+    ..pPS(9, _omitFieldNames ? '' : 'requiredMcps')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  BootstrapTemplateSlotContext clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  BootstrapTemplateSlotContext copyWith(
+          void Function(BootstrapTemplateSlotContext) updates) =>
+      super.copyWith(
+              (message) => updates(message as BootstrapTemplateSlotContext))
+          as BootstrapTemplateSlotContext;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static BootstrapTemplateSlotContext create() =>
+      BootstrapTemplateSlotContext._();
+  @$core.override
+  BootstrapTemplateSlotContext createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static BootstrapTemplateSlotContext getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<BootstrapTemplateSlotContext>(create);
+  static BootstrapTemplateSlotContext? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get slotId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set slotId($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasSlotId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearSlotId() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get displayName => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set displayName($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasDisplayName() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearDisplayName() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get role => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set role($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasRole() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearRole() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get interactionMode => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set interactionMode($core.String value) => $_setString(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasInteractionMode() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearInteractionMode() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get networkMode => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set networkMode($core.String value) => $_setString(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasNetworkMode() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearNetworkMode() => $_clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.bool get requiresHumanReview => $_getBF(5);
+  @$pb.TagNumber(6)
+  set requiresHumanReview($core.bool value) => $_setBool(5, value);
+  @$pb.TagNumber(6)
+  $core.bool hasRequiresHumanReview() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearRequiresHumanReview() => $_clearField(6);
+
+  @$pb.TagNumber(7)
+  BootstrapFilesystemPolicy get filesystemPolicy => $_getN(6);
+  @$pb.TagNumber(7)
+  set filesystemPolicy(BootstrapFilesystemPolicy value) => $_setField(7, value);
+  @$pb.TagNumber(7)
+  $core.bool hasFilesystemPolicy() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearFilesystemPolicy() => $_clearField(7);
+  @$pb.TagNumber(7)
+  BootstrapFilesystemPolicy ensureFilesystemPolicy() => $_ensure(6);
+
+  @$pb.TagNumber(8)
+  $pb.PbList<BootstrapSkillBinding> get requiredSkills => $_getList(7);
+
+  @$pb.TagNumber(9)
+  $pb.PbList<$core.String> get requiredMcps => $_getList(8);
+}
+
+class BootstrapTemplateConnectionContext extends $pb.GeneratedMessage {
+  factory BootstrapTemplateConnectionContext({
+    $core.String? fromSlotId,
+    $core.String? toSlotId,
+    $core.String? kind,
+    $core.bool? required,
+    $core.String? description,
+  }) {
+    final result = create();
+    if (fromSlotId != null) result.fromSlotId = fromSlotId;
+    if (toSlotId != null) result.toSlotId = toSlotId;
+    if (kind != null) result.kind = kind;
+    if (required != null) result.required = required;
+    if (description != null) result.description = description;
+    return result;
+  }
+
+  BootstrapTemplateConnectionContext._();
+
+  factory BootstrapTemplateConnectionContext.fromBuffer(
+          $core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory BootstrapTemplateConnectionContext.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'BootstrapTemplateConnectionContext',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'fromSlotId')
+    ..aOS(2, _omitFieldNames ? '' : 'toSlotId')
+    ..aOS(3, _omitFieldNames ? '' : 'kind')
+    ..aOB(4, _omitFieldNames ? '' : 'required')
+    ..aOS(5, _omitFieldNames ? '' : 'description')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  BootstrapTemplateConnectionContext clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  BootstrapTemplateConnectionContext copyWith(
+          void Function(BootstrapTemplateConnectionContext) updates) =>
+      super.copyWith((message) =>
+              updates(message as BootstrapTemplateConnectionContext))
+          as BootstrapTemplateConnectionContext;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static BootstrapTemplateConnectionContext create() =>
+      BootstrapTemplateConnectionContext._();
+  @$core.override
+  BootstrapTemplateConnectionContext createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static BootstrapTemplateConnectionContext getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<BootstrapTemplateConnectionContext>(
+          create);
+  static BootstrapTemplateConnectionContext? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get fromSlotId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set fromSlotId($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasFromSlotId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearFromSlotId() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get toSlotId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set toSlotId($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasToSlotId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearToSlotId() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get kind => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set kind($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasKind() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearKind() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.bool get required => $_getBF(3);
+  @$pb.TagNumber(4)
+  set required($core.bool value) => $_setBool(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasRequired() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearRequired() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get description => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set description($core.String value) => $_setString(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasDescription() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearDescription() => $_clearField(5);
+}
+
+class BootstrapTemplateLaneContext extends $pb.GeneratedMessage {
+  factory BootstrapTemplateLaneContext({
+    $core.String? laneId,
+    $core.String? displayName,
+    $core.String? fromSlotId,
+    $core.String? toSlotId,
+    $core.Iterable<$core.String>? slotIds,
+    $core.bool? repeatPerTaskGroup,
+  }) {
+    final result = create();
+    if (laneId != null) result.laneId = laneId;
+    if (displayName != null) result.displayName = displayName;
+    if (fromSlotId != null) result.fromSlotId = fromSlotId;
+    if (toSlotId != null) result.toSlotId = toSlotId;
+    if (slotIds != null) result.slotIds.addAll(slotIds);
+    if (repeatPerTaskGroup != null)
+      result.repeatPerTaskGroup = repeatPerTaskGroup;
+    return result;
+  }
+
+  BootstrapTemplateLaneContext._();
+
+  factory BootstrapTemplateLaneContext.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory BootstrapTemplateLaneContext.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'BootstrapTemplateLaneContext',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'laneId')
+    ..aOS(2, _omitFieldNames ? '' : 'displayName')
+    ..aOS(3, _omitFieldNames ? '' : 'fromSlotId')
+    ..aOS(4, _omitFieldNames ? '' : 'toSlotId')
+    ..pPS(5, _omitFieldNames ? '' : 'slotIds')
+    ..aOB(6, _omitFieldNames ? '' : 'repeatPerTaskGroup')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  BootstrapTemplateLaneContext clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  BootstrapTemplateLaneContext copyWith(
+          void Function(BootstrapTemplateLaneContext) updates) =>
+      super.copyWith(
+              (message) => updates(message as BootstrapTemplateLaneContext))
+          as BootstrapTemplateLaneContext;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static BootstrapTemplateLaneContext create() =>
+      BootstrapTemplateLaneContext._();
+  @$core.override
+  BootstrapTemplateLaneContext createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static BootstrapTemplateLaneContext getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<BootstrapTemplateLaneContext>(create);
+  static BootstrapTemplateLaneContext? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get laneId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set laneId($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasLaneId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearLaneId() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get displayName => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set displayName($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasDisplayName() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearDisplayName() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get fromSlotId => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set fromSlotId($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasFromSlotId() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearFromSlotId() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get toSlotId => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set toSlotId($core.String value) => $_setString(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasToSlotId() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearToSlotId() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  $pb.PbList<$core.String> get slotIds => $_getList(4);
+
+  @$pb.TagNumber(6)
+  $core.bool get repeatPerTaskGroup => $_getBF(5);
+  @$pb.TagNumber(6)
+  set repeatPerTaskGroup($core.bool value) => $_setBool(5, value);
+  @$pb.TagNumber(6)
+  $core.bool hasRepeatPerTaskGroup() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearRepeatPerTaskGroup() => $_clearField(6);
+}
+
+class BootstrapTemplateContext extends $pb.GeneratedMessage {
+  factory BootstrapTemplateContext({
+    $core.String? templateId,
+    $core.String? displayName,
+    $core.Iterable<BootstrapTemplateSlotContext>? slots,
+    $core.Iterable<BootstrapTemplateConnectionContext>? connections,
+    $core.Iterable<BootstrapTemplateLaneContext>? lanes,
+  }) {
+    final result = create();
+    if (templateId != null) result.templateId = templateId;
+    if (displayName != null) result.displayName = displayName;
+    if (slots != null) result.slots.addAll(slots);
+    if (connections != null) result.connections.addAll(connections);
+    if (lanes != null) result.lanes.addAll(lanes);
+    return result;
+  }
+
+  BootstrapTemplateContext._();
+
+  factory BootstrapTemplateContext.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory BootstrapTemplateContext.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'BootstrapTemplateContext',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'templateId')
+    ..aOS(2, _omitFieldNames ? '' : 'displayName')
+    ..pPM<BootstrapTemplateSlotContext>(3, _omitFieldNames ? '' : 'slots',
+        subBuilder: BootstrapTemplateSlotContext.create)
+    ..pPM<BootstrapTemplateConnectionContext>(
+        4, _omitFieldNames ? '' : 'connections',
+        subBuilder: BootstrapTemplateConnectionContext.create)
+    ..pPM<BootstrapTemplateLaneContext>(5, _omitFieldNames ? '' : 'lanes',
+        subBuilder: BootstrapTemplateLaneContext.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  BootstrapTemplateContext clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  BootstrapTemplateContext copyWith(
+          void Function(BootstrapTemplateContext) updates) =>
+      super.copyWith((message) => updates(message as BootstrapTemplateContext))
+          as BootstrapTemplateContext;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static BootstrapTemplateContext create() => BootstrapTemplateContext._();
+  @$core.override
+  BootstrapTemplateContext createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static BootstrapTemplateContext getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<BootstrapTemplateContext>(create);
+  static BootstrapTemplateContext? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get templateId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set templateId($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasTemplateId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearTemplateId() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get displayName => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set displayName($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasDisplayName() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearDisplayName() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $pb.PbList<BootstrapTemplateSlotContext> get slots => $_getList(2);
+
+  @$pb.TagNumber(4)
+  $pb.PbList<BootstrapTemplateConnectionContext> get connections =>
+      $_getList(3);
+
+  @$pb.TagNumber(5)
+  $pb.PbList<BootstrapTemplateLaneContext> get lanes => $_getList(4);
+}
+
+class BootstrapPlanningContext extends $pb.GeneratedMessage {
+  factory BootstrapPlanningContext({
+    $core.String? contractVersion,
+    $core.String? projectKey,
+    $core.String? targetRepo,
+    $core.Iterable<$core.String>? targetRepos,
+    $core.String? campaignGoal,
+    $core.String? notes,
+    $core.String? priorityProfile,
+    $core.Iterable<$core.String>? codexCmd,
+    $core.Iterable<$core.String>? availableSkillIds,
+    BootstrapTemplateContext? selectedTemplate,
+    BootstrapPlanningMode? planningMode,
+  }) {
+    final result = create();
+    if (contractVersion != null) result.contractVersion = contractVersion;
+    if (projectKey != null) result.projectKey = projectKey;
+    if (targetRepo != null) result.targetRepo = targetRepo;
+    if (targetRepos != null) result.targetRepos.addAll(targetRepos);
+    if (campaignGoal != null) result.campaignGoal = campaignGoal;
+    if (notes != null) result.notes = notes;
+    if (priorityProfile != null) result.priorityProfile = priorityProfile;
+    if (codexCmd != null) result.codexCmd.addAll(codexCmd);
+    if (availableSkillIds != null)
+      result.availableSkillIds.addAll(availableSkillIds);
+    if (selectedTemplate != null) result.selectedTemplate = selectedTemplate;
+    if (planningMode != null) result.planningMode = planningMode;
+    return result;
+  }
+
+  BootstrapPlanningContext._();
+
+  factory BootstrapPlanningContext.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory BootstrapPlanningContext.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'BootstrapPlanningContext',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'contractVersion')
+    ..aOS(2, _omitFieldNames ? '' : 'projectKey')
+    ..aOS(3, _omitFieldNames ? '' : 'targetRepo')
+    ..pPS(4, _omitFieldNames ? '' : 'targetRepos')
+    ..aOS(5, _omitFieldNames ? '' : 'campaignGoal')
+    ..aOS(6, _omitFieldNames ? '' : 'notes')
+    ..aOS(7, _omitFieldNames ? '' : 'priorityProfile')
+    ..pPS(8, _omitFieldNames ? '' : 'codexCmd')
+    ..pPS(9, _omitFieldNames ? '' : 'availableSkillIds')
+    ..aOM<BootstrapTemplateContext>(
+        10, _omitFieldNames ? '' : 'selectedTemplate',
+        subBuilder: BootstrapTemplateContext.create)
+    ..aE<BootstrapPlanningMode>(11, _omitFieldNames ? '' : 'planningMode',
+        enumValues: BootstrapPlanningMode.values)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  BootstrapPlanningContext clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  BootstrapPlanningContext copyWith(
+          void Function(BootstrapPlanningContext) updates) =>
+      super.copyWith((message) => updates(message as BootstrapPlanningContext))
+          as BootstrapPlanningContext;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static BootstrapPlanningContext create() => BootstrapPlanningContext._();
+  @$core.override
+  BootstrapPlanningContext createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static BootstrapPlanningContext getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<BootstrapPlanningContext>(create);
+  static BootstrapPlanningContext? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get contractVersion => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set contractVersion($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasContractVersion() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearContractVersion() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get projectKey => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set projectKey($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasProjectKey() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearProjectKey() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get targetRepo => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set targetRepo($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasTargetRepo() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearTargetRepo() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $pb.PbList<$core.String> get targetRepos => $_getList(3);
+
+  @$pb.TagNumber(5)
+  $core.String get campaignGoal => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set campaignGoal($core.String value) => $_setString(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasCampaignGoal() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearCampaignGoal() => $_clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get notes => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set notes($core.String value) => $_setString(5, value);
+  @$pb.TagNumber(6)
+  $core.bool hasNotes() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearNotes() => $_clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.String get priorityProfile => $_getSZ(6);
+  @$pb.TagNumber(7)
+  set priorityProfile($core.String value) => $_setString(6, value);
+  @$pb.TagNumber(7)
+  $core.bool hasPriorityProfile() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearPriorityProfile() => $_clearField(7);
+
+  @$pb.TagNumber(8)
+  $pb.PbList<$core.String> get codexCmd => $_getList(7);
+
+  @$pb.TagNumber(9)
+  $pb.PbList<$core.String> get availableSkillIds => $_getList(8);
+
+  @$pb.TagNumber(10)
+  BootstrapTemplateContext get selectedTemplate => $_getN(9);
+  @$pb.TagNumber(10)
+  set selectedTemplate(BootstrapTemplateContext value) => $_setField(10, value);
+  @$pb.TagNumber(10)
+  $core.bool hasSelectedTemplate() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearSelectedTemplate() => $_clearField(10);
+  @$pb.TagNumber(10)
+  BootstrapTemplateContext ensureSelectedTemplate() => $_ensure(9);
+
+  @$pb.TagNumber(11)
+  BootstrapPlanningMode get planningMode => $_getN(10);
+  @$pb.TagNumber(11)
+  set planningMode(BootstrapPlanningMode value) => $_setField(11, value);
+  @$pb.TagNumber(11)
+  $core.bool hasPlanningMode() => $_has(10);
+  @$pb.TagNumber(11)
+  void clearPlanningMode() => $_clearField(11);
+}
+
+class CampaignPipelineTaskRef extends $pb.GeneratedMessage {
+  factory CampaignPipelineTaskRef({
+    $core.String? taskId,
+    $core.String? taskArtifact,
+    $core.String? roleId,
+    $core.String? taskMilestone,
+    $core.String? taskFormat,
+    $core.Iterable<$core.String>? dependsOn,
+    $core.Iterable<$core.String>? runnerArgs,
+    $core.String? interactionMode,
+    $core.String? networkMode,
+    $core.bool? requiresHumanReview,
+    BootstrapFilesystemPolicy? filesystemPolicy,
+    $core.Iterable<BootstrapSkillBinding>? requiredSkills,
+    $core.Iterable<$core.String>? requiredMcpIds,
+  }) {
+    final result = create();
+    if (taskId != null) result.taskId = taskId;
+    if (taskArtifact != null) result.taskArtifact = taskArtifact;
+    if (roleId != null) result.roleId = roleId;
+    if (taskMilestone != null) result.taskMilestone = taskMilestone;
+    if (taskFormat != null) result.taskFormat = taskFormat;
+    if (dependsOn != null) result.dependsOn.addAll(dependsOn);
+    if (runnerArgs != null) result.runnerArgs.addAll(runnerArgs);
+    if (interactionMode != null) result.interactionMode = interactionMode;
+    if (networkMode != null) result.networkMode = networkMode;
+    if (requiresHumanReview != null)
+      result.requiresHumanReview = requiresHumanReview;
+    if (filesystemPolicy != null) result.filesystemPolicy = filesystemPolicy;
+    if (requiredSkills != null) result.requiredSkills.addAll(requiredSkills);
+    if (requiredMcpIds != null) result.requiredMcpIds.addAll(requiredMcpIds);
+    return result;
+  }
+
+  CampaignPipelineTaskRef._();
+
+  factory CampaignPipelineTaskRef.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory CampaignPipelineTaskRef.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'CampaignPipelineTaskRef',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'taskId')
+    ..aOS(2, _omitFieldNames ? '' : 'taskArtifact')
+    ..aOS(3, _omitFieldNames ? '' : 'roleId')
+    ..aOS(4, _omitFieldNames ? '' : 'taskMilestone')
+    ..aOS(5, _omitFieldNames ? '' : 'taskFormat')
+    ..pPS(6, _omitFieldNames ? '' : 'dependsOn')
+    ..pPS(7, _omitFieldNames ? '' : 'runnerArgs')
+    ..aOS(8, _omitFieldNames ? '' : 'interactionMode')
+    ..aOS(9, _omitFieldNames ? '' : 'networkMode')
+    ..aOB(10, _omitFieldNames ? '' : 'requiresHumanReview')
+    ..aOM<BootstrapFilesystemPolicy>(
+        11, _omitFieldNames ? '' : 'filesystemPolicy',
+        subBuilder: BootstrapFilesystemPolicy.create)
+    ..pPM<BootstrapSkillBinding>(12, _omitFieldNames ? '' : 'requiredSkills',
+        subBuilder: BootstrapSkillBinding.create)
+    ..pPS(13, _omitFieldNames ? '' : 'requiredMcpIds')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  CampaignPipelineTaskRef clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  CampaignPipelineTaskRef copyWith(
+          void Function(CampaignPipelineTaskRef) updates) =>
+      super.copyWith((message) => updates(message as CampaignPipelineTaskRef))
+          as CampaignPipelineTaskRef;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static CampaignPipelineTaskRef create() => CampaignPipelineTaskRef._();
+  @$core.override
+  CampaignPipelineTaskRef createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static CampaignPipelineTaskRef getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<CampaignPipelineTaskRef>(create);
+  static CampaignPipelineTaskRef? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get taskId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set taskId($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasTaskId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearTaskId() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get taskArtifact => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set taskArtifact($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasTaskArtifact() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearTaskArtifact() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get roleId => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set roleId($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasRoleId() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearRoleId() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get taskMilestone => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set taskMilestone($core.String value) => $_setString(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasTaskMilestone() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearTaskMilestone() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get taskFormat => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set taskFormat($core.String value) => $_setString(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasTaskFormat() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearTaskFormat() => $_clearField(5);
+
+  @$pb.TagNumber(6)
+  $pb.PbList<$core.String> get dependsOn => $_getList(5);
+
+  @$pb.TagNumber(7)
+  $pb.PbList<$core.String> get runnerArgs => $_getList(6);
+
+  @$pb.TagNumber(8)
+  $core.String get interactionMode => $_getSZ(7);
+  @$pb.TagNumber(8)
+  set interactionMode($core.String value) => $_setString(7, value);
+  @$pb.TagNumber(8)
+  $core.bool hasInteractionMode() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearInteractionMode() => $_clearField(8);
+
+  @$pb.TagNumber(9)
+  $core.String get networkMode => $_getSZ(8);
+  @$pb.TagNumber(9)
+  set networkMode($core.String value) => $_setString(8, value);
+  @$pb.TagNumber(9)
+  $core.bool hasNetworkMode() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearNetworkMode() => $_clearField(9);
+
+  @$pb.TagNumber(10)
+  $core.bool get requiresHumanReview => $_getBF(9);
+  @$pb.TagNumber(10)
+  set requiresHumanReview($core.bool value) => $_setBool(9, value);
+  @$pb.TagNumber(10)
+  $core.bool hasRequiresHumanReview() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearRequiresHumanReview() => $_clearField(10);
+
+  @$pb.TagNumber(11)
+  BootstrapFilesystemPolicy get filesystemPolicy => $_getN(10);
+  @$pb.TagNumber(11)
+  set filesystemPolicy(BootstrapFilesystemPolicy value) =>
+      $_setField(11, value);
+  @$pb.TagNumber(11)
+  $core.bool hasFilesystemPolicy() => $_has(10);
+  @$pb.TagNumber(11)
+  void clearFilesystemPolicy() => $_clearField(11);
+  @$pb.TagNumber(11)
+  BootstrapFilesystemPolicy ensureFilesystemPolicy() => $_ensure(10);
+
+  @$pb.TagNumber(12)
+  $pb.PbList<BootstrapSkillBinding> get requiredSkills => $_getList(11);
+
+  @$pb.TagNumber(13)
+  $pb.PbList<$core.String> get requiredMcpIds => $_getList(12);
+}
+
+class CampaignPipelineConnection extends $pb.GeneratedMessage {
+  factory CampaignPipelineConnection({
+    $core.String? fromTaskId,
+    $core.String? toTaskId,
+    CampaignPipelineConnectionKind? kind,
+    $core.bool? required,
+    $core.String? description,
+  }) {
+    final result = create();
+    if (fromTaskId != null) result.fromTaskId = fromTaskId;
+    if (toTaskId != null) result.toTaskId = toTaskId;
+    if (kind != null) result.kind = kind;
+    if (required != null) result.required = required;
+    if (description != null) result.description = description;
+    return result;
+  }
+
+  CampaignPipelineConnection._();
+
+  factory CampaignPipelineConnection.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory CampaignPipelineConnection.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'CampaignPipelineConnection',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'fromTaskId')
+    ..aOS(2, _omitFieldNames ? '' : 'toTaskId')
+    ..aE<CampaignPipelineConnectionKind>(3, _omitFieldNames ? '' : 'kind',
+        enumValues: CampaignPipelineConnectionKind.values)
+    ..aOB(4, _omitFieldNames ? '' : 'required')
+    ..aOS(5, _omitFieldNames ? '' : 'description')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  CampaignPipelineConnection clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  CampaignPipelineConnection copyWith(
+          void Function(CampaignPipelineConnection) updates) =>
+      super.copyWith(
+              (message) => updates(message as CampaignPipelineConnection))
+          as CampaignPipelineConnection;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static CampaignPipelineConnection create() => CampaignPipelineConnection._();
+  @$core.override
+  CampaignPipelineConnection createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static CampaignPipelineConnection getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<CampaignPipelineConnection>(create);
+  static CampaignPipelineConnection? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get fromTaskId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set fromTaskId($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasFromTaskId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearFromTaskId() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get toTaskId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set toTaskId($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasToTaskId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearToTaskId() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  CampaignPipelineConnectionKind get kind => $_getN(2);
+  @$pb.TagNumber(3)
+  set kind(CampaignPipelineConnectionKind value) => $_setField(3, value);
+  @$pb.TagNumber(3)
+  $core.bool hasKind() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearKind() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.bool get required => $_getBF(3);
+  @$pb.TagNumber(4)
+  set required($core.bool value) => $_setBool(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasRequired() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearRequired() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get description => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set description($core.String value) => $_setString(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasDescription() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearDescription() => $_clearField(5);
+}
+
+class CampaignPipelineGate extends $pb.GeneratedMessage {
+  factory CampaignPipelineGate({
+    $core.String? name,
+    $core.Iterable<$core.String>? command,
+    $core.String? workdir,
+  }) {
+    final result = create();
+    if (name != null) result.name = name;
+    if (command != null) result.command.addAll(command);
+    if (workdir != null) result.workdir = workdir;
+    return result;
+  }
+
+  CampaignPipelineGate._();
+
+  factory CampaignPipelineGate.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory CampaignPipelineGate.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'CampaignPipelineGate',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'name')
+    ..pPS(2, _omitFieldNames ? '' : 'command')
+    ..aOS(3, _omitFieldNames ? '' : 'workdir')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  CampaignPipelineGate clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  CampaignPipelineGate copyWith(void Function(CampaignPipelineGate) updates) =>
+      super.copyWith((message) => updates(message as CampaignPipelineGate))
+          as CampaignPipelineGate;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static CampaignPipelineGate create() => CampaignPipelineGate._();
+  @$core.override
+  CampaignPipelineGate createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static CampaignPipelineGate getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<CampaignPipelineGate>(create);
+  static CampaignPipelineGate? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get name => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set name($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasName() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearName() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $pb.PbList<$core.String> get command => $_getList(1);
+
+  @$pb.TagNumber(3)
+  $core.String get workdir => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set workdir($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasWorkdir() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearWorkdir() => $_clearField(3);
+}
+
+class CampaignPipelineGatePolicy extends $pb.GeneratedMessage {
+  factory CampaignPipelineGatePolicy({
+    $core.bool? requireStandard,
+    $core.Iterable<CampaignPipelineGate>? requiredGates,
+  }) {
+    final result = create();
+    if (requireStandard != null) result.requireStandard = requireStandard;
+    if (requiredGates != null) result.requiredGates.addAll(requiredGates);
+    return result;
+  }
+
+  CampaignPipelineGatePolicy._();
+
+  factory CampaignPipelineGatePolicy.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory CampaignPipelineGatePolicy.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'CampaignPipelineGatePolicy',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'requireStandard')
+    ..pPM<CampaignPipelineGate>(2, _omitFieldNames ? '' : 'requiredGates',
+        subBuilder: CampaignPipelineGate.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  CampaignPipelineGatePolicy clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  CampaignPipelineGatePolicy copyWith(
+          void Function(CampaignPipelineGatePolicy) updates) =>
+      super.copyWith(
+              (message) => updates(message as CampaignPipelineGatePolicy))
+          as CampaignPipelineGatePolicy;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static CampaignPipelineGatePolicy create() => CampaignPipelineGatePolicy._();
+  @$core.override
+  CampaignPipelineGatePolicy createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static CampaignPipelineGatePolicy getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<CampaignPipelineGatePolicy>(create);
+  static CampaignPipelineGatePolicy? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get requireStandard => $_getBF(0);
+  @$pb.TagNumber(1)
+  set requireStandard($core.bool value) => $_setBool(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasRequireStandard() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearRequireStandard() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $pb.PbList<CampaignPipelineGate> get requiredGates => $_getList(1);
+}
+
+class CampaignPipelineSpec extends $pb.GeneratedMessage {
+  factory CampaignPipelineSpec({
+    $core.String? contractVersion,
+    $core.String? pipelineId,
+    $core.String? version,
+    $core.String? objective,
+    $core.String? projectKey,
+    $core.bool? continueOnError,
+    CampaignPipelineGatePolicy? gatePolicy,
+    $0.Struct? metadata,
+    $core.Iterable<CampaignPipelineConnection>? connections,
+    $core.Iterable<CampaignPipelineTaskRef>? tasks,
+  }) {
+    final result = create();
+    if (contractVersion != null) result.contractVersion = contractVersion;
+    if (pipelineId != null) result.pipelineId = pipelineId;
+    if (version != null) result.version = version;
+    if (objective != null) result.objective = objective;
+    if (projectKey != null) result.projectKey = projectKey;
+    if (continueOnError != null) result.continueOnError = continueOnError;
+    if (gatePolicy != null) result.gatePolicy = gatePolicy;
+    if (metadata != null) result.metadata = metadata;
+    if (connections != null) result.connections.addAll(connections);
+    if (tasks != null) result.tasks.addAll(tasks);
+    return result;
+  }
+
+  CampaignPipelineSpec._();
+
+  factory CampaignPipelineSpec.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory CampaignPipelineSpec.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'CampaignPipelineSpec',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'contractVersion')
+    ..aOS(2, _omitFieldNames ? '' : 'pipelineId')
+    ..aOS(3, _omitFieldNames ? '' : 'version')
+    ..aOS(4, _omitFieldNames ? '' : 'objective')
+    ..aOS(5, _omitFieldNames ? '' : 'projectKey')
+    ..aOB(6, _omitFieldNames ? '' : 'continueOnError')
+    ..aOM<CampaignPipelineGatePolicy>(7, _omitFieldNames ? '' : 'gatePolicy',
+        subBuilder: CampaignPipelineGatePolicy.create)
+    ..aOM<$0.Struct>(8, _omitFieldNames ? '' : 'metadata',
+        subBuilder: $0.Struct.create)
+    ..pPM<CampaignPipelineConnection>(9, _omitFieldNames ? '' : 'connections',
+        subBuilder: CampaignPipelineConnection.create)
+    ..pPM<CampaignPipelineTaskRef>(10, _omitFieldNames ? '' : 'tasks',
+        subBuilder: CampaignPipelineTaskRef.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  CampaignPipelineSpec clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  CampaignPipelineSpec copyWith(void Function(CampaignPipelineSpec) updates) =>
+      super.copyWith((message) => updates(message as CampaignPipelineSpec))
+          as CampaignPipelineSpec;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static CampaignPipelineSpec create() => CampaignPipelineSpec._();
+  @$core.override
+  CampaignPipelineSpec createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static CampaignPipelineSpec getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<CampaignPipelineSpec>(create);
+  static CampaignPipelineSpec? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get contractVersion => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set contractVersion($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasContractVersion() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearContractVersion() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get pipelineId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set pipelineId($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasPipelineId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearPipelineId() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get version => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set version($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasVersion() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearVersion() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get objective => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set objective($core.String value) => $_setString(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasObjective() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearObjective() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get projectKey => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set projectKey($core.String value) => $_setString(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasProjectKey() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearProjectKey() => $_clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.bool get continueOnError => $_getBF(5);
+  @$pb.TagNumber(6)
+  set continueOnError($core.bool value) => $_setBool(5, value);
+  @$pb.TagNumber(6)
+  $core.bool hasContinueOnError() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearContinueOnError() => $_clearField(6);
+
+  @$pb.TagNumber(7)
+  CampaignPipelineGatePolicy get gatePolicy => $_getN(6);
+  @$pb.TagNumber(7)
+  set gatePolicy(CampaignPipelineGatePolicy value) => $_setField(7, value);
+  @$pb.TagNumber(7)
+  $core.bool hasGatePolicy() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearGatePolicy() => $_clearField(7);
+  @$pb.TagNumber(7)
+  CampaignPipelineGatePolicy ensureGatePolicy() => $_ensure(6);
+
+  @$pb.TagNumber(8)
+  $0.Struct get metadata => $_getN(7);
+  @$pb.TagNumber(8)
+  set metadata($0.Struct value) => $_setField(8, value);
+  @$pb.TagNumber(8)
+  $core.bool hasMetadata() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearMetadata() => $_clearField(8);
+  @$pb.TagNumber(8)
+  $0.Struct ensureMetadata() => $_ensure(7);
+
+  @$pb.TagNumber(9)
+  $pb.PbList<CampaignPipelineConnection> get connections => $_getList(8);
+
+  @$pb.TagNumber(10)
+  $pb.PbList<CampaignPipelineTaskRef> get tasks => $_getList(9);
+}
+
 class RoleProvenance extends $pb.GeneratedMessage {
   factory RoleProvenance({
     $core.String? roleName,
@@ -4151,6 +5998,7 @@ class Task extends $pb.GeneratedMessage {
     $0.Struct? extensions,
     ExperimentSpec? experimentSpec,
     ObjectiveSpec? objectiveSpec,
+    $core.String? roleId,
   }) {
     final result = create();
     if (version != null) result.version = version;
@@ -4164,6 +6012,7 @@ class Task extends $pb.GeneratedMessage {
     if (extensions != null) result.extensions = extensions;
     if (experimentSpec != null) result.experimentSpec = experimentSpec;
     if (objectiveSpec != null) result.objectiveSpec = objectiveSpec;
+    if (roleId != null) result.roleId = roleId;
     return result;
   }
 
@@ -4199,6 +6048,7 @@ class Task extends $pb.GeneratedMessage {
         subBuilder: ExperimentSpec.create)
     ..aOM<ObjectiveSpec>(11, _omitFieldNames ? '' : 'objectiveSpec',
         subBuilder: ObjectiveSpec.create)
+    ..aOS(12, _omitFieldNames ? '' : 'roleId')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -4237,6 +6087,7 @@ class Task extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearTaskId() => $_clearField(2);
 
+  /// Legacy enum role. Prefer role_id for new producers and consumers.
   @$pb.TagNumber(3)
   AgentRole get role => $_getN(2);
   @$pb.TagNumber(3)
@@ -4323,6 +6174,17 @@ class Task extends $pb.GeneratedMessage {
   void clearObjectiveSpec() => $_clearField(11);
   @$pb.TagNumber(11)
   ObjectiveSpec ensureObjectiveSpec() => $_ensure(10);
+
+  /// Canonical open-ended role identifier. This allows built-in and custom
+  /// roles without requiring protocol enum changes.
+  @$pb.TagNumber(12)
+  $core.String get roleId => $_getSZ(11);
+  @$pb.TagNumber(12)
+  set roleId($core.String value) => $_setString(11, value);
+  @$pb.TagNumber(12)
+  $core.bool hasRoleId() => $_has(11);
+  @$pb.TagNumber(12)
+  void clearRoleId() => $_clearField(12);
 }
 
 class Artifact extends $pb.GeneratedMessage {
@@ -4869,7 +6731,7 @@ class TaskMessage extends $pb.GeneratedMessage {
     $core.String? runId,
     $core.String? fromTaskId,
     $core.String? toTaskId,
-    $core.String? kind,
+    TaskMessageKind? kind,
     $core.String? subject,
     $core.String? body,
     $core.Iterable<$core.String>? artifactRefs,
@@ -4916,7 +6778,8 @@ class TaskMessage extends $pb.GeneratedMessage {
     ..aOS(3, _omitFieldNames ? '' : 'runId')
     ..aOS(4, _omitFieldNames ? '' : 'fromTaskId')
     ..aOS(5, _omitFieldNames ? '' : 'toTaskId')
-    ..aOS(6, _omitFieldNames ? '' : 'kind')
+    ..aE<TaskMessageKind>(6, _omitFieldNames ? '' : 'kind',
+        enumValues: TaskMessageKind.values)
     ..aOS(7, _omitFieldNames ? '' : 'subject')
     ..aOS(8, _omitFieldNames ? '' : 'body')
     ..pPS(9, _omitFieldNames ? '' : 'artifactRefs')
@@ -4994,9 +6857,9 @@ class TaskMessage extends $pb.GeneratedMessage {
   void clearToTaskId() => $_clearField(5);
 
   @$pb.TagNumber(6)
-  $core.String get kind => $_getSZ(5);
+  TaskMessageKind get kind => $_getN(5);
   @$pb.TagNumber(6)
-  set kind($core.String value) => $_setString(5, value);
+  set kind(TaskMessageKind value) => $_setField(6, value);
   @$pb.TagNumber(6)
   $core.bool hasKind() => $_has(5);
   @$pb.TagNumber(6)
@@ -5729,6 +7592,7 @@ class RunnerCapabilities extends $pb.GeneratedMessage {
     $core.bool? supportsInteractivePty,
     $core.bool? supportsResume,
     $0.Struct? extensions,
+    $core.Iterable<$core.String>? supportedRoleIds,
   }) {
     final result = create();
     if (platform != null) result.platform = platform;
@@ -5741,6 +7605,8 @@ class RunnerCapabilities extends $pb.GeneratedMessage {
       result.supportsInteractivePty = supportsInteractivePty;
     if (supportsResume != null) result.supportsResume = supportsResume;
     if (extensions != null) result.extensions = extensions;
+    if (supportedRoleIds != null)
+      result.supportedRoleIds.addAll(supportedRoleIds);
     return result;
   }
 
@@ -5771,6 +7637,7 @@ class RunnerCapabilities extends $pb.GeneratedMessage {
     ..aOB(7, _omitFieldNames ? '' : 'supportsResume')
     ..aOM<$0.Struct>(8, _omitFieldNames ? '' : 'extensions',
         subBuilder: $0.Struct.create)
+    ..pPS(9, _omitFieldNames ? '' : 'supportedRoleIds')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -5810,6 +7677,8 @@ class RunnerCapabilities extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearRuntime() => $_clearField(2);
 
+  /// Legacy enum-based supported roles. Prefer supported_role_ids for new
+  /// producers and consumers.
   @$pb.TagNumber(3)
   $pb.PbList<AgentRole> get supportedRoles => $_getList(2);
 
@@ -5847,6 +7716,9 @@ class RunnerCapabilities extends $pb.GeneratedMessage {
   void clearExtensions() => $_clearField(8);
   @$pb.TagNumber(8)
   $0.Struct ensureExtensions() => $_ensure(7);
+
+  @$pb.TagNumber(9)
+  $pb.PbList<$core.String> get supportedRoleIds => $_getList(8);
 }
 
 /// LeaseRef is the canonical identity for a runner-owned execution lease. The
@@ -9127,6 +10999,2042 @@ class AckCancellationResponse extends $pb.GeneratedMessage {
   $0.Struct ensureExtensions() => $_ensure(4);
 }
 
+class ControlPlaneScope extends $pb.GeneratedMessage {
+  factory ControlPlaneScope({
+    $core.String? organization,
+    $core.String? user,
+    $core.String? defaultProject,
+  }) {
+    final result = create();
+    if (organization != null) result.organization = organization;
+    if (user != null) result.user = user;
+    if (defaultProject != null) result.defaultProject = defaultProject;
+    return result;
+  }
+
+  ControlPlaneScope._();
+
+  factory ControlPlaneScope.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory ControlPlaneScope.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ControlPlaneScope',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'organization')
+    ..aOS(2, _omitFieldNames ? '' : 'user')
+    ..aOS(3, _omitFieldNames ? '' : 'defaultProject')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ControlPlaneScope clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ControlPlaneScope copyWith(void Function(ControlPlaneScope) updates) =>
+      super.copyWith((message) => updates(message as ControlPlaneScope))
+          as ControlPlaneScope;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ControlPlaneScope create() => ControlPlaneScope._();
+  @$core.override
+  ControlPlaneScope createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static ControlPlaneScope getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ControlPlaneScope>(create);
+  static ControlPlaneScope? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get organization => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set organization($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasOrganization() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearOrganization() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get user => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set user($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasUser() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearUser() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get defaultProject => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set defaultProject($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasDefaultProject() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearDefaultProject() => $_clearField(3);
+}
+
+class RunOperatorSignals extends $pb.GeneratedMessage {
+  factory RunOperatorSignals({
+    $core.bool? promptNeeded,
+    $core.String? promptSummary,
+    $core.bool? pauseRequested,
+    $core.bool? interruptRequested,
+    $core.bool? cancelRequested,
+  }) {
+    final result = create();
+    if (promptNeeded != null) result.promptNeeded = promptNeeded;
+    if (promptSummary != null) result.promptSummary = promptSummary;
+    if (pauseRequested != null) result.pauseRequested = pauseRequested;
+    if (interruptRequested != null)
+      result.interruptRequested = interruptRequested;
+    if (cancelRequested != null) result.cancelRequested = cancelRequested;
+    return result;
+  }
+
+  RunOperatorSignals._();
+
+  factory RunOperatorSignals.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory RunOperatorSignals.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'RunOperatorSignals',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'promptNeeded')
+    ..aOS(2, _omitFieldNames ? '' : 'promptSummary')
+    ..aOB(3, _omitFieldNames ? '' : 'pauseRequested')
+    ..aOB(4, _omitFieldNames ? '' : 'interruptRequested')
+    ..aOB(5, _omitFieldNames ? '' : 'cancelRequested')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  RunOperatorSignals clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  RunOperatorSignals copyWith(void Function(RunOperatorSignals) updates) =>
+      super.copyWith((message) => updates(message as RunOperatorSignals))
+          as RunOperatorSignals;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static RunOperatorSignals create() => RunOperatorSignals._();
+  @$core.override
+  RunOperatorSignals createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static RunOperatorSignals getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<RunOperatorSignals>(create);
+  static RunOperatorSignals? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get promptNeeded => $_getBF(0);
+  @$pb.TagNumber(1)
+  set promptNeeded($core.bool value) => $_setBool(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasPromptNeeded() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearPromptNeeded() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get promptSummary => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set promptSummary($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasPromptSummary() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearPromptSummary() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.bool get pauseRequested => $_getBF(2);
+  @$pb.TagNumber(3)
+  set pauseRequested($core.bool value) => $_setBool(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasPauseRequested() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearPauseRequested() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.bool get interruptRequested => $_getBF(3);
+  @$pb.TagNumber(4)
+  set interruptRequested($core.bool value) => $_setBool(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasInterruptRequested() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearInterruptRequested() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.bool get cancelRequested => $_getBF(4);
+  @$pb.TagNumber(5)
+  set cancelRequested($core.bool value) => $_setBool(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasCancelRequested() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearCancelRequested() => $_clearField(5);
+}
+
+class ControlPlaneRunSummary extends $pb.GeneratedMessage {
+  factory ControlPlaneRunSummary({
+    $core.String? projectKey,
+    $core.String? runId,
+    $core.String? runDir,
+    RunLifecycleState? lifecycleState,
+    $core.String? status,
+    $core.String? updatedLabel,
+    $fixnum.Int64? updatedEpoch,
+    $core.String? meaningfulStatus,
+    $core.double? meaningfulScore,
+    $core.Iterable<$core.String>? meaningfulReasons,
+    $fixnum.Int64? totalRuns,
+    $fixnum.Int64? totalSuccess,
+    $fixnum.Int64? totalFailed,
+    $fixnum.Int64? messageCount,
+    $fixnum.Int64? unresolvedRequiredAckCount,
+    $core.bool? alertStale,
+    $core.bool? alertLowScore,
+    RunOperatorSignals? operatorSignals,
+  }) {
+    final result = create();
+    if (projectKey != null) result.projectKey = projectKey;
+    if (runId != null) result.runId = runId;
+    if (runDir != null) result.runDir = runDir;
+    if (lifecycleState != null) result.lifecycleState = lifecycleState;
+    if (status != null) result.status = status;
+    if (updatedLabel != null) result.updatedLabel = updatedLabel;
+    if (updatedEpoch != null) result.updatedEpoch = updatedEpoch;
+    if (meaningfulStatus != null) result.meaningfulStatus = meaningfulStatus;
+    if (meaningfulScore != null) result.meaningfulScore = meaningfulScore;
+    if (meaningfulReasons != null)
+      result.meaningfulReasons.addAll(meaningfulReasons);
+    if (totalRuns != null) result.totalRuns = totalRuns;
+    if (totalSuccess != null) result.totalSuccess = totalSuccess;
+    if (totalFailed != null) result.totalFailed = totalFailed;
+    if (messageCount != null) result.messageCount = messageCount;
+    if (unresolvedRequiredAckCount != null)
+      result.unresolvedRequiredAckCount = unresolvedRequiredAckCount;
+    if (alertStale != null) result.alertStale = alertStale;
+    if (alertLowScore != null) result.alertLowScore = alertLowScore;
+    if (operatorSignals != null) result.operatorSignals = operatorSignals;
+    return result;
+  }
+
+  ControlPlaneRunSummary._();
+
+  factory ControlPlaneRunSummary.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory ControlPlaneRunSummary.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ControlPlaneRunSummary',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'projectKey')
+    ..aOS(2, _omitFieldNames ? '' : 'runId')
+    ..aOS(3, _omitFieldNames ? '' : 'runDir')
+    ..aE<RunLifecycleState>(4, _omitFieldNames ? '' : 'lifecycleState',
+        enumValues: RunLifecycleState.values)
+    ..aOS(5, _omitFieldNames ? '' : 'status')
+    ..aOS(6, _omitFieldNames ? '' : 'updatedLabel')
+    ..a<$fixnum.Int64>(
+        7, _omitFieldNames ? '' : 'updatedEpoch', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(8, _omitFieldNames ? '' : 'meaningfulStatus')
+    ..aD(9, _omitFieldNames ? '' : 'meaningfulScore')
+    ..pPS(10, _omitFieldNames ? '' : 'meaningfulReasons')
+    ..a<$fixnum.Int64>(
+        11, _omitFieldNames ? '' : 'totalRuns', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        12, _omitFieldNames ? '' : 'totalSuccess', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        13, _omitFieldNames ? '' : 'totalFailed', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(
+        14, _omitFieldNames ? '' : 'messageCount', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(15, _omitFieldNames ? '' : 'unresolvedRequiredAckCount',
+        $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOB(16, _omitFieldNames ? '' : 'alertStale')
+    ..aOB(17, _omitFieldNames ? '' : 'alertLowScore')
+    ..aOM<RunOperatorSignals>(18, _omitFieldNames ? '' : 'operatorSignals',
+        subBuilder: RunOperatorSignals.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ControlPlaneRunSummary clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ControlPlaneRunSummary copyWith(
+          void Function(ControlPlaneRunSummary) updates) =>
+      super.copyWith((message) => updates(message as ControlPlaneRunSummary))
+          as ControlPlaneRunSummary;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ControlPlaneRunSummary create() => ControlPlaneRunSummary._();
+  @$core.override
+  ControlPlaneRunSummary createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static ControlPlaneRunSummary getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ControlPlaneRunSummary>(create);
+  static ControlPlaneRunSummary? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get projectKey => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set projectKey($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasProjectKey() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearProjectKey() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get runId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set runId($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasRunId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearRunId() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get runDir => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set runDir($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasRunDir() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearRunDir() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  RunLifecycleState get lifecycleState => $_getN(3);
+  @$pb.TagNumber(4)
+  set lifecycleState(RunLifecycleState value) => $_setField(4, value);
+  @$pb.TagNumber(4)
+  $core.bool hasLifecycleState() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearLifecycleState() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get status => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set status($core.String value) => $_setString(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasStatus() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearStatus() => $_clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get updatedLabel => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set updatedLabel($core.String value) => $_setString(5, value);
+  @$pb.TagNumber(6)
+  $core.bool hasUpdatedLabel() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearUpdatedLabel() => $_clearField(6);
+
+  @$pb.TagNumber(7)
+  $fixnum.Int64 get updatedEpoch => $_getI64(6);
+  @$pb.TagNumber(7)
+  set updatedEpoch($fixnum.Int64 value) => $_setInt64(6, value);
+  @$pb.TagNumber(7)
+  $core.bool hasUpdatedEpoch() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearUpdatedEpoch() => $_clearField(7);
+
+  @$pb.TagNumber(8)
+  $core.String get meaningfulStatus => $_getSZ(7);
+  @$pb.TagNumber(8)
+  set meaningfulStatus($core.String value) => $_setString(7, value);
+  @$pb.TagNumber(8)
+  $core.bool hasMeaningfulStatus() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearMeaningfulStatus() => $_clearField(8);
+
+  @$pb.TagNumber(9)
+  $core.double get meaningfulScore => $_getN(8);
+  @$pb.TagNumber(9)
+  set meaningfulScore($core.double value) => $_setDouble(8, value);
+  @$pb.TagNumber(9)
+  $core.bool hasMeaningfulScore() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearMeaningfulScore() => $_clearField(9);
+
+  @$pb.TagNumber(10)
+  $pb.PbList<$core.String> get meaningfulReasons => $_getList(9);
+
+  @$pb.TagNumber(11)
+  $fixnum.Int64 get totalRuns => $_getI64(10);
+  @$pb.TagNumber(11)
+  set totalRuns($fixnum.Int64 value) => $_setInt64(10, value);
+  @$pb.TagNumber(11)
+  $core.bool hasTotalRuns() => $_has(10);
+  @$pb.TagNumber(11)
+  void clearTotalRuns() => $_clearField(11);
+
+  @$pb.TagNumber(12)
+  $fixnum.Int64 get totalSuccess => $_getI64(11);
+  @$pb.TagNumber(12)
+  set totalSuccess($fixnum.Int64 value) => $_setInt64(11, value);
+  @$pb.TagNumber(12)
+  $core.bool hasTotalSuccess() => $_has(11);
+  @$pb.TagNumber(12)
+  void clearTotalSuccess() => $_clearField(12);
+
+  @$pb.TagNumber(13)
+  $fixnum.Int64 get totalFailed => $_getI64(12);
+  @$pb.TagNumber(13)
+  set totalFailed($fixnum.Int64 value) => $_setInt64(12, value);
+  @$pb.TagNumber(13)
+  $core.bool hasTotalFailed() => $_has(12);
+  @$pb.TagNumber(13)
+  void clearTotalFailed() => $_clearField(13);
+
+  @$pb.TagNumber(14)
+  $fixnum.Int64 get messageCount => $_getI64(13);
+  @$pb.TagNumber(14)
+  set messageCount($fixnum.Int64 value) => $_setInt64(13, value);
+  @$pb.TagNumber(14)
+  $core.bool hasMessageCount() => $_has(13);
+  @$pb.TagNumber(14)
+  void clearMessageCount() => $_clearField(14);
+
+  @$pb.TagNumber(15)
+  $fixnum.Int64 get unresolvedRequiredAckCount => $_getI64(14);
+  @$pb.TagNumber(15)
+  set unresolvedRequiredAckCount($fixnum.Int64 value) => $_setInt64(14, value);
+  @$pb.TagNumber(15)
+  $core.bool hasUnresolvedRequiredAckCount() => $_has(14);
+  @$pb.TagNumber(15)
+  void clearUnresolvedRequiredAckCount() => $_clearField(15);
+
+  @$pb.TagNumber(16)
+  $core.bool get alertStale => $_getBF(15);
+  @$pb.TagNumber(16)
+  set alertStale($core.bool value) => $_setBool(15, value);
+  @$pb.TagNumber(16)
+  $core.bool hasAlertStale() => $_has(15);
+  @$pb.TagNumber(16)
+  void clearAlertStale() => $_clearField(16);
+
+  @$pb.TagNumber(17)
+  $core.bool get alertLowScore => $_getBF(16);
+  @$pb.TagNumber(17)
+  set alertLowScore($core.bool value) => $_setBool(16, value);
+  @$pb.TagNumber(17)
+  $core.bool hasAlertLowScore() => $_has(16);
+  @$pb.TagNumber(17)
+  void clearAlertLowScore() => $_clearField(17);
+
+  @$pb.TagNumber(18)
+  RunOperatorSignals get operatorSignals => $_getN(17);
+  @$pb.TagNumber(18)
+  set operatorSignals(RunOperatorSignals value) => $_setField(18, value);
+  @$pb.TagNumber(18)
+  $core.bool hasOperatorSignals() => $_has(17);
+  @$pb.TagNumber(18)
+  void clearOperatorSignals() => $_clearField(18);
+  @$pb.TagNumber(18)
+  RunOperatorSignals ensureOperatorSignals() => $_ensure(17);
+}
+
+class ControlPlaneRunActivityCursor extends $pb.GeneratedMessage {
+  factory ControlPlaneRunActivityCursor({
+    $fixnum.Int64? afterSequence,
+    $core.String? resumeToken,
+  }) {
+    final result = create();
+    if (afterSequence != null) result.afterSequence = afterSequence;
+    if (resumeToken != null) result.resumeToken = resumeToken;
+    return result;
+  }
+
+  ControlPlaneRunActivityCursor._();
+
+  factory ControlPlaneRunActivityCursor.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory ControlPlaneRunActivityCursor.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ControlPlaneRunActivityCursor',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(
+        1, _omitFieldNames ? '' : 'afterSequence', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(2, _omitFieldNames ? '' : 'resumeToken')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ControlPlaneRunActivityCursor clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ControlPlaneRunActivityCursor copyWith(
+          void Function(ControlPlaneRunActivityCursor) updates) =>
+      super.copyWith(
+              (message) => updates(message as ControlPlaneRunActivityCursor))
+          as ControlPlaneRunActivityCursor;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ControlPlaneRunActivityCursor create() =>
+      ControlPlaneRunActivityCursor._();
+  @$core.override
+  ControlPlaneRunActivityCursor createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static ControlPlaneRunActivityCursor getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ControlPlaneRunActivityCursor>(create);
+  static ControlPlaneRunActivityCursor? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $fixnum.Int64 get afterSequence => $_getI64(0);
+  @$pb.TagNumber(1)
+  set afterSequence($fixnum.Int64 value) => $_setInt64(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasAfterSequence() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearAfterSequence() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get resumeToken => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set resumeToken($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasResumeToken() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearResumeToken() => $_clearField(2);
+}
+
+class ListControlPlaneRunsRequest extends $pb.GeneratedMessage {
+  factory ListControlPlaneRunsRequest({
+    $core.String? contractVersion,
+    ControlPlaneScope? scope,
+    $core.String? projectKey,
+    $core.int? limit,
+    $0.Struct? extensions,
+    AuthContext? authContext,
+  }) {
+    final result = create();
+    if (contractVersion != null) result.contractVersion = contractVersion;
+    if (scope != null) result.scope = scope;
+    if (projectKey != null) result.projectKey = projectKey;
+    if (limit != null) result.limit = limit;
+    if (extensions != null) result.extensions = extensions;
+    if (authContext != null) result.authContext = authContext;
+    return result;
+  }
+
+  ListControlPlaneRunsRequest._();
+
+  factory ListControlPlaneRunsRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory ListControlPlaneRunsRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ListControlPlaneRunsRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'contractVersion')
+    ..aOM<ControlPlaneScope>(2, _omitFieldNames ? '' : 'scope',
+        subBuilder: ControlPlaneScope.create)
+    ..aOS(3, _omitFieldNames ? '' : 'projectKey')
+    ..aI(4, _omitFieldNames ? '' : 'limit', fieldType: $pb.PbFieldType.OU3)
+    ..aOM<$0.Struct>(5, _omitFieldNames ? '' : 'extensions',
+        subBuilder: $0.Struct.create)
+    ..aOM<AuthContext>(6, _omitFieldNames ? '' : 'authContext',
+        subBuilder: AuthContext.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ListControlPlaneRunsRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ListControlPlaneRunsRequest copyWith(
+          void Function(ListControlPlaneRunsRequest) updates) =>
+      super.copyWith(
+              (message) => updates(message as ListControlPlaneRunsRequest))
+          as ListControlPlaneRunsRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ListControlPlaneRunsRequest create() =>
+      ListControlPlaneRunsRequest._();
+  @$core.override
+  ListControlPlaneRunsRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static ListControlPlaneRunsRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ListControlPlaneRunsRequest>(create);
+  static ListControlPlaneRunsRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get contractVersion => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set contractVersion($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasContractVersion() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearContractVersion() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  ControlPlaneScope get scope => $_getN(1);
+  @$pb.TagNumber(2)
+  set scope(ControlPlaneScope value) => $_setField(2, value);
+  @$pb.TagNumber(2)
+  $core.bool hasScope() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearScope() => $_clearField(2);
+  @$pb.TagNumber(2)
+  ControlPlaneScope ensureScope() => $_ensure(1);
+
+  @$pb.TagNumber(3)
+  $core.String get projectKey => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set projectKey($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasProjectKey() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearProjectKey() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.int get limit => $_getIZ(3);
+  @$pb.TagNumber(4)
+  set limit($core.int value) => $_setUnsignedInt32(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasLimit() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearLimit() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  $0.Struct get extensions => $_getN(4);
+  @$pb.TagNumber(5)
+  set extensions($0.Struct value) => $_setField(5, value);
+  @$pb.TagNumber(5)
+  $core.bool hasExtensions() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearExtensions() => $_clearField(5);
+  @$pb.TagNumber(5)
+  $0.Struct ensureExtensions() => $_ensure(4);
+
+  @$pb.TagNumber(6)
+  AuthContext get authContext => $_getN(5);
+  @$pb.TagNumber(6)
+  set authContext(AuthContext value) => $_setField(6, value);
+  @$pb.TagNumber(6)
+  $core.bool hasAuthContext() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearAuthContext() => $_clearField(6);
+  @$pb.TagNumber(6)
+  AuthContext ensureAuthContext() => $_ensure(5);
+}
+
+class ListControlPlaneRunsResponse extends $pb.GeneratedMessage {
+  factory ListControlPlaneRunsResponse({
+    $core.String? contractVersion,
+    $core.Iterable<ControlPlaneRunSummary>? runs,
+    $0.Struct? extensions,
+  }) {
+    final result = create();
+    if (contractVersion != null) result.contractVersion = contractVersion;
+    if (runs != null) result.runs.addAll(runs);
+    if (extensions != null) result.extensions = extensions;
+    return result;
+  }
+
+  ListControlPlaneRunsResponse._();
+
+  factory ListControlPlaneRunsResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory ListControlPlaneRunsResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ListControlPlaneRunsResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'contractVersion')
+    ..pPM<ControlPlaneRunSummary>(2, _omitFieldNames ? '' : 'runs',
+        subBuilder: ControlPlaneRunSummary.create)
+    ..aOM<$0.Struct>(3, _omitFieldNames ? '' : 'extensions',
+        subBuilder: $0.Struct.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ListControlPlaneRunsResponse clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ListControlPlaneRunsResponse copyWith(
+          void Function(ListControlPlaneRunsResponse) updates) =>
+      super.copyWith(
+              (message) => updates(message as ListControlPlaneRunsResponse))
+          as ListControlPlaneRunsResponse;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ListControlPlaneRunsResponse create() =>
+      ListControlPlaneRunsResponse._();
+  @$core.override
+  ListControlPlaneRunsResponse createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static ListControlPlaneRunsResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ListControlPlaneRunsResponse>(create);
+  static ListControlPlaneRunsResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get contractVersion => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set contractVersion($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasContractVersion() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearContractVersion() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $pb.PbList<ControlPlaneRunSummary> get runs => $_getList(1);
+
+  @$pb.TagNumber(3)
+  $0.Struct get extensions => $_getN(2);
+  @$pb.TagNumber(3)
+  set extensions($0.Struct value) => $_setField(3, value);
+  @$pb.TagNumber(3)
+  $core.bool hasExtensions() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearExtensions() => $_clearField(3);
+  @$pb.TagNumber(3)
+  $0.Struct ensureExtensions() => $_ensure(2);
+}
+
+class GetControlPlaneRunRequest extends $pb.GeneratedMessage {
+  factory GetControlPlaneRunRequest({
+    $core.String? contractVersion,
+    ControlPlaneScope? scope,
+    $core.String? projectKey,
+    $core.String? runId,
+    $0.Struct? extensions,
+    AuthContext? authContext,
+  }) {
+    final result = create();
+    if (contractVersion != null) result.contractVersion = contractVersion;
+    if (scope != null) result.scope = scope;
+    if (projectKey != null) result.projectKey = projectKey;
+    if (runId != null) result.runId = runId;
+    if (extensions != null) result.extensions = extensions;
+    if (authContext != null) result.authContext = authContext;
+    return result;
+  }
+
+  GetControlPlaneRunRequest._();
+
+  factory GetControlPlaneRunRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory GetControlPlaneRunRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GetControlPlaneRunRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'contractVersion')
+    ..aOM<ControlPlaneScope>(2, _omitFieldNames ? '' : 'scope',
+        subBuilder: ControlPlaneScope.create)
+    ..aOS(3, _omitFieldNames ? '' : 'projectKey')
+    ..aOS(4, _omitFieldNames ? '' : 'runId')
+    ..aOM<$0.Struct>(5, _omitFieldNames ? '' : 'extensions',
+        subBuilder: $0.Struct.create)
+    ..aOM<AuthContext>(6, _omitFieldNames ? '' : 'authContext',
+        subBuilder: AuthContext.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  GetControlPlaneRunRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  GetControlPlaneRunRequest copyWith(
+          void Function(GetControlPlaneRunRequest) updates) =>
+      super.copyWith((message) => updates(message as GetControlPlaneRunRequest))
+          as GetControlPlaneRunRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetControlPlaneRunRequest create() => GetControlPlaneRunRequest._();
+  @$core.override
+  GetControlPlaneRunRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static GetControlPlaneRunRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<GetControlPlaneRunRequest>(create);
+  static GetControlPlaneRunRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get contractVersion => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set contractVersion($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasContractVersion() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearContractVersion() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  ControlPlaneScope get scope => $_getN(1);
+  @$pb.TagNumber(2)
+  set scope(ControlPlaneScope value) => $_setField(2, value);
+  @$pb.TagNumber(2)
+  $core.bool hasScope() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearScope() => $_clearField(2);
+  @$pb.TagNumber(2)
+  ControlPlaneScope ensureScope() => $_ensure(1);
+
+  @$pb.TagNumber(3)
+  $core.String get projectKey => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set projectKey($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasProjectKey() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearProjectKey() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get runId => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set runId($core.String value) => $_setString(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasRunId() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearRunId() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  $0.Struct get extensions => $_getN(4);
+  @$pb.TagNumber(5)
+  set extensions($0.Struct value) => $_setField(5, value);
+  @$pb.TagNumber(5)
+  $core.bool hasExtensions() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearExtensions() => $_clearField(5);
+  @$pb.TagNumber(5)
+  $0.Struct ensureExtensions() => $_ensure(4);
+
+  @$pb.TagNumber(6)
+  AuthContext get authContext => $_getN(5);
+  @$pb.TagNumber(6)
+  set authContext(AuthContext value) => $_setField(6, value);
+  @$pb.TagNumber(6)
+  $core.bool hasAuthContext() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearAuthContext() => $_clearField(6);
+  @$pb.TagNumber(6)
+  AuthContext ensureAuthContext() => $_ensure(5);
+}
+
+class GetControlPlaneRunResponse extends $pb.GeneratedMessage {
+  factory GetControlPlaneRunResponse({
+    $core.String? contractVersion,
+    ControlPlaneRunSummary? run,
+    $0.Struct? extensions,
+  }) {
+    final result = create();
+    if (contractVersion != null) result.contractVersion = contractVersion;
+    if (run != null) result.run = run;
+    if (extensions != null) result.extensions = extensions;
+    return result;
+  }
+
+  GetControlPlaneRunResponse._();
+
+  factory GetControlPlaneRunResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory GetControlPlaneRunResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GetControlPlaneRunResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'contractVersion')
+    ..aOM<ControlPlaneRunSummary>(2, _omitFieldNames ? '' : 'run',
+        subBuilder: ControlPlaneRunSummary.create)
+    ..aOM<$0.Struct>(3, _omitFieldNames ? '' : 'extensions',
+        subBuilder: $0.Struct.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  GetControlPlaneRunResponse clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  GetControlPlaneRunResponse copyWith(
+          void Function(GetControlPlaneRunResponse) updates) =>
+      super.copyWith(
+              (message) => updates(message as GetControlPlaneRunResponse))
+          as GetControlPlaneRunResponse;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetControlPlaneRunResponse create() => GetControlPlaneRunResponse._();
+  @$core.override
+  GetControlPlaneRunResponse createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static GetControlPlaneRunResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<GetControlPlaneRunResponse>(create);
+  static GetControlPlaneRunResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get contractVersion => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set contractVersion($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasContractVersion() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearContractVersion() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  ControlPlaneRunSummary get run => $_getN(1);
+  @$pb.TagNumber(2)
+  set run(ControlPlaneRunSummary value) => $_setField(2, value);
+  @$pb.TagNumber(2)
+  $core.bool hasRun() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearRun() => $_clearField(2);
+  @$pb.TagNumber(2)
+  ControlPlaneRunSummary ensureRun() => $_ensure(1);
+
+  @$pb.TagNumber(3)
+  $0.Struct get extensions => $_getN(2);
+  @$pb.TagNumber(3)
+  set extensions($0.Struct value) => $_setField(3, value);
+  @$pb.TagNumber(3)
+  $core.bool hasExtensions() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearExtensions() => $_clearField(3);
+  @$pb.TagNumber(3)
+  $0.Struct ensureExtensions() => $_ensure(2);
+}
+
+class GetControlPlaneRunActivityPageRequest extends $pb.GeneratedMessage {
+  factory GetControlPlaneRunActivityPageRequest({
+    $core.String? contractVersion,
+    ControlPlaneScope? scope,
+    $core.String? projectKey,
+    $core.String? runId,
+    $core.int? limit,
+    ControlPlaneRunActivityCursor? cursor,
+    $0.Struct? extensions,
+    AuthContext? authContext,
+  }) {
+    final result = create();
+    if (contractVersion != null) result.contractVersion = contractVersion;
+    if (scope != null) result.scope = scope;
+    if (projectKey != null) result.projectKey = projectKey;
+    if (runId != null) result.runId = runId;
+    if (limit != null) result.limit = limit;
+    if (cursor != null) result.cursor = cursor;
+    if (extensions != null) result.extensions = extensions;
+    if (authContext != null) result.authContext = authContext;
+    return result;
+  }
+
+  GetControlPlaneRunActivityPageRequest._();
+
+  factory GetControlPlaneRunActivityPageRequest.fromBuffer(
+          $core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory GetControlPlaneRunActivityPageRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GetControlPlaneRunActivityPageRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'contractVersion')
+    ..aOM<ControlPlaneScope>(2, _omitFieldNames ? '' : 'scope',
+        subBuilder: ControlPlaneScope.create)
+    ..aOS(3, _omitFieldNames ? '' : 'projectKey')
+    ..aOS(4, _omitFieldNames ? '' : 'runId')
+    ..aI(5, _omitFieldNames ? '' : 'limit', fieldType: $pb.PbFieldType.OU3)
+    ..aOM<ControlPlaneRunActivityCursor>(6, _omitFieldNames ? '' : 'cursor',
+        subBuilder: ControlPlaneRunActivityCursor.create)
+    ..aOM<$0.Struct>(7, _omitFieldNames ? '' : 'extensions',
+        subBuilder: $0.Struct.create)
+    ..aOM<AuthContext>(8, _omitFieldNames ? '' : 'authContext',
+        subBuilder: AuthContext.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  GetControlPlaneRunActivityPageRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  GetControlPlaneRunActivityPageRequest copyWith(
+          void Function(GetControlPlaneRunActivityPageRequest) updates) =>
+      super.copyWith((message) =>
+              updates(message as GetControlPlaneRunActivityPageRequest))
+          as GetControlPlaneRunActivityPageRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetControlPlaneRunActivityPageRequest create() =>
+      GetControlPlaneRunActivityPageRequest._();
+  @$core.override
+  GetControlPlaneRunActivityPageRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static GetControlPlaneRunActivityPageRequest getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<
+          GetControlPlaneRunActivityPageRequest>(create);
+  static GetControlPlaneRunActivityPageRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get contractVersion => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set contractVersion($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasContractVersion() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearContractVersion() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  ControlPlaneScope get scope => $_getN(1);
+  @$pb.TagNumber(2)
+  set scope(ControlPlaneScope value) => $_setField(2, value);
+  @$pb.TagNumber(2)
+  $core.bool hasScope() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearScope() => $_clearField(2);
+  @$pb.TagNumber(2)
+  ControlPlaneScope ensureScope() => $_ensure(1);
+
+  @$pb.TagNumber(3)
+  $core.String get projectKey => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set projectKey($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasProjectKey() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearProjectKey() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get runId => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set runId($core.String value) => $_setString(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasRunId() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearRunId() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.int get limit => $_getIZ(4);
+  @$pb.TagNumber(5)
+  set limit($core.int value) => $_setUnsignedInt32(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasLimit() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearLimit() => $_clearField(5);
+
+  @$pb.TagNumber(6)
+  ControlPlaneRunActivityCursor get cursor => $_getN(5);
+  @$pb.TagNumber(6)
+  set cursor(ControlPlaneRunActivityCursor value) => $_setField(6, value);
+  @$pb.TagNumber(6)
+  $core.bool hasCursor() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearCursor() => $_clearField(6);
+  @$pb.TagNumber(6)
+  ControlPlaneRunActivityCursor ensureCursor() => $_ensure(5);
+
+  @$pb.TagNumber(7)
+  $0.Struct get extensions => $_getN(6);
+  @$pb.TagNumber(7)
+  set extensions($0.Struct value) => $_setField(7, value);
+  @$pb.TagNumber(7)
+  $core.bool hasExtensions() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearExtensions() => $_clearField(7);
+  @$pb.TagNumber(7)
+  $0.Struct ensureExtensions() => $_ensure(6);
+
+  @$pb.TagNumber(8)
+  AuthContext get authContext => $_getN(7);
+  @$pb.TagNumber(8)
+  set authContext(AuthContext value) => $_setField(8, value);
+  @$pb.TagNumber(8)
+  $core.bool hasAuthContext() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearAuthContext() => $_clearField(8);
+  @$pb.TagNumber(8)
+  AuthContext ensureAuthContext() => $_ensure(7);
+}
+
+class GetControlPlaneRunActivityPageResponse extends $pb.GeneratedMessage {
+  factory GetControlPlaneRunActivityPageResponse({
+    $core.String? contractVersion,
+    $core.Iterable<RunEventRecord>? records,
+    ControlPlaneRunActivityCursor? nextCursor,
+    $0.Struct? extensions,
+  }) {
+    final result = create();
+    if (contractVersion != null) result.contractVersion = contractVersion;
+    if (records != null) result.records.addAll(records);
+    if (nextCursor != null) result.nextCursor = nextCursor;
+    if (extensions != null) result.extensions = extensions;
+    return result;
+  }
+
+  GetControlPlaneRunActivityPageResponse._();
+
+  factory GetControlPlaneRunActivityPageResponse.fromBuffer(
+          $core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory GetControlPlaneRunActivityPageResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GetControlPlaneRunActivityPageResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'contractVersion')
+    ..pPM<RunEventRecord>(2, _omitFieldNames ? '' : 'records',
+        subBuilder: RunEventRecord.create)
+    ..aOM<ControlPlaneRunActivityCursor>(3, _omitFieldNames ? '' : 'nextCursor',
+        subBuilder: ControlPlaneRunActivityCursor.create)
+    ..aOM<$0.Struct>(4, _omitFieldNames ? '' : 'extensions',
+        subBuilder: $0.Struct.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  GetControlPlaneRunActivityPageResponse clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  GetControlPlaneRunActivityPageResponse copyWith(
+          void Function(GetControlPlaneRunActivityPageResponse) updates) =>
+      super.copyWith((message) =>
+              updates(message as GetControlPlaneRunActivityPageResponse))
+          as GetControlPlaneRunActivityPageResponse;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetControlPlaneRunActivityPageResponse create() =>
+      GetControlPlaneRunActivityPageResponse._();
+  @$core.override
+  GetControlPlaneRunActivityPageResponse createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static GetControlPlaneRunActivityPageResponse getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<
+          GetControlPlaneRunActivityPageResponse>(create);
+  static GetControlPlaneRunActivityPageResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get contractVersion => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set contractVersion($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasContractVersion() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearContractVersion() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $pb.PbList<RunEventRecord> get records => $_getList(1);
+
+  @$pb.TagNumber(3)
+  ControlPlaneRunActivityCursor get nextCursor => $_getN(2);
+  @$pb.TagNumber(3)
+  set nextCursor(ControlPlaneRunActivityCursor value) => $_setField(3, value);
+  @$pb.TagNumber(3)
+  $core.bool hasNextCursor() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearNextCursor() => $_clearField(3);
+  @$pb.TagNumber(3)
+  ControlPlaneRunActivityCursor ensureNextCursor() => $_ensure(2);
+
+  @$pb.TagNumber(4)
+  $0.Struct get extensions => $_getN(3);
+  @$pb.TagNumber(4)
+  set extensions($0.Struct value) => $_setField(4, value);
+  @$pb.TagNumber(4)
+  $core.bool hasExtensions() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearExtensions() => $_clearField(4);
+  @$pb.TagNumber(4)
+  $0.Struct ensureExtensions() => $_ensure(3);
+}
+
+class ApplyControlPlaneRunActionRequest extends $pb.GeneratedMessage {
+  factory ApplyControlPlaneRunActionRequest({
+    $core.String? contractVersion,
+    ControlPlaneScope? scope,
+    $core.String? runId,
+    ControlPlaneRunAction? action,
+    $core.String? reason,
+    $0.Struct? extensions,
+    AuthContext? authContext,
+  }) {
+    final result = create();
+    if (contractVersion != null) result.contractVersion = contractVersion;
+    if (scope != null) result.scope = scope;
+    if (runId != null) result.runId = runId;
+    if (action != null) result.action = action;
+    if (reason != null) result.reason = reason;
+    if (extensions != null) result.extensions = extensions;
+    if (authContext != null) result.authContext = authContext;
+    return result;
+  }
+
+  ApplyControlPlaneRunActionRequest._();
+
+  factory ApplyControlPlaneRunActionRequest.fromBuffer(
+          $core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory ApplyControlPlaneRunActionRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ApplyControlPlaneRunActionRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'contractVersion')
+    ..aOM<ControlPlaneScope>(2, _omitFieldNames ? '' : 'scope',
+        subBuilder: ControlPlaneScope.create)
+    ..aOS(3, _omitFieldNames ? '' : 'runId')
+    ..aE<ControlPlaneRunAction>(4, _omitFieldNames ? '' : 'action',
+        enumValues: ControlPlaneRunAction.values)
+    ..aOS(5, _omitFieldNames ? '' : 'reason')
+    ..aOM<$0.Struct>(6, _omitFieldNames ? '' : 'extensions',
+        subBuilder: $0.Struct.create)
+    ..aOM<AuthContext>(7, _omitFieldNames ? '' : 'authContext',
+        subBuilder: AuthContext.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ApplyControlPlaneRunActionRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ApplyControlPlaneRunActionRequest copyWith(
+          void Function(ApplyControlPlaneRunActionRequest) updates) =>
+      super.copyWith((message) =>
+              updates(message as ApplyControlPlaneRunActionRequest))
+          as ApplyControlPlaneRunActionRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ApplyControlPlaneRunActionRequest create() =>
+      ApplyControlPlaneRunActionRequest._();
+  @$core.override
+  ApplyControlPlaneRunActionRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static ApplyControlPlaneRunActionRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ApplyControlPlaneRunActionRequest>(
+          create);
+  static ApplyControlPlaneRunActionRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get contractVersion => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set contractVersion($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasContractVersion() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearContractVersion() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  ControlPlaneScope get scope => $_getN(1);
+  @$pb.TagNumber(2)
+  set scope(ControlPlaneScope value) => $_setField(2, value);
+  @$pb.TagNumber(2)
+  $core.bool hasScope() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearScope() => $_clearField(2);
+  @$pb.TagNumber(2)
+  ControlPlaneScope ensureScope() => $_ensure(1);
+
+  @$pb.TagNumber(3)
+  $core.String get runId => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set runId($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasRunId() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearRunId() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  ControlPlaneRunAction get action => $_getN(3);
+  @$pb.TagNumber(4)
+  set action(ControlPlaneRunAction value) => $_setField(4, value);
+  @$pb.TagNumber(4)
+  $core.bool hasAction() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearAction() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get reason => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set reason($core.String value) => $_setString(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasReason() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearReason() => $_clearField(5);
+
+  @$pb.TagNumber(6)
+  $0.Struct get extensions => $_getN(5);
+  @$pb.TagNumber(6)
+  set extensions($0.Struct value) => $_setField(6, value);
+  @$pb.TagNumber(6)
+  $core.bool hasExtensions() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearExtensions() => $_clearField(6);
+  @$pb.TagNumber(6)
+  $0.Struct ensureExtensions() => $_ensure(5);
+
+  @$pb.TagNumber(7)
+  AuthContext get authContext => $_getN(6);
+  @$pb.TagNumber(7)
+  set authContext(AuthContext value) => $_setField(7, value);
+  @$pb.TagNumber(7)
+  $core.bool hasAuthContext() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearAuthContext() => $_clearField(7);
+  @$pb.TagNumber(7)
+  AuthContext ensureAuthContext() => $_ensure(6);
+}
+
+class ApplyControlPlaneRunActionResponse extends $pb.GeneratedMessage {
+  factory ApplyControlPlaneRunActionResponse({
+    $core.String? contractVersion,
+    $core.String? runId,
+    ControlPlaneRunAction? action,
+    $core.bool? accepted,
+    RunLifecycleState? lifecycleState,
+    $core.String? message,
+    $0.Struct? extensions,
+  }) {
+    final result = create();
+    if (contractVersion != null) result.contractVersion = contractVersion;
+    if (runId != null) result.runId = runId;
+    if (action != null) result.action = action;
+    if (accepted != null) result.accepted = accepted;
+    if (lifecycleState != null) result.lifecycleState = lifecycleState;
+    if (message != null) result.message = message;
+    if (extensions != null) result.extensions = extensions;
+    return result;
+  }
+
+  ApplyControlPlaneRunActionResponse._();
+
+  factory ApplyControlPlaneRunActionResponse.fromBuffer(
+          $core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory ApplyControlPlaneRunActionResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ApplyControlPlaneRunActionResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'contractVersion')
+    ..aOS(2, _omitFieldNames ? '' : 'runId')
+    ..aE<ControlPlaneRunAction>(3, _omitFieldNames ? '' : 'action',
+        enumValues: ControlPlaneRunAction.values)
+    ..aOB(4, _omitFieldNames ? '' : 'accepted')
+    ..aE<RunLifecycleState>(5, _omitFieldNames ? '' : 'lifecycleState',
+        enumValues: RunLifecycleState.values)
+    ..aOS(6, _omitFieldNames ? '' : 'message')
+    ..aOM<$0.Struct>(7, _omitFieldNames ? '' : 'extensions',
+        subBuilder: $0.Struct.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ApplyControlPlaneRunActionResponse clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ApplyControlPlaneRunActionResponse copyWith(
+          void Function(ApplyControlPlaneRunActionResponse) updates) =>
+      super.copyWith((message) =>
+              updates(message as ApplyControlPlaneRunActionResponse))
+          as ApplyControlPlaneRunActionResponse;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ApplyControlPlaneRunActionResponse create() =>
+      ApplyControlPlaneRunActionResponse._();
+  @$core.override
+  ApplyControlPlaneRunActionResponse createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static ApplyControlPlaneRunActionResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ApplyControlPlaneRunActionResponse>(
+          create);
+  static ApplyControlPlaneRunActionResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get contractVersion => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set contractVersion($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasContractVersion() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearContractVersion() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get runId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set runId($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasRunId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearRunId() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  ControlPlaneRunAction get action => $_getN(2);
+  @$pb.TagNumber(3)
+  set action(ControlPlaneRunAction value) => $_setField(3, value);
+  @$pb.TagNumber(3)
+  $core.bool hasAction() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearAction() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.bool get accepted => $_getBF(3);
+  @$pb.TagNumber(4)
+  set accepted($core.bool value) => $_setBool(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasAccepted() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearAccepted() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  RunLifecycleState get lifecycleState => $_getN(4);
+  @$pb.TagNumber(5)
+  set lifecycleState(RunLifecycleState value) => $_setField(5, value);
+  @$pb.TagNumber(5)
+  $core.bool hasLifecycleState() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearLifecycleState() => $_clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get message => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set message($core.String value) => $_setString(5, value);
+  @$pb.TagNumber(6)
+  $core.bool hasMessage() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearMessage() => $_clearField(6);
+
+  @$pb.TagNumber(7)
+  $0.Struct get extensions => $_getN(6);
+  @$pb.TagNumber(7)
+  set extensions($0.Struct value) => $_setField(7, value);
+  @$pb.TagNumber(7)
+  $core.bool hasExtensions() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearExtensions() => $_clearField(7);
+  @$pb.TagNumber(7)
+  $0.Struct ensureExtensions() => $_ensure(6);
+}
+
+class ApplyControlPlaneReviewDispositionRequest extends $pb.GeneratedMessage {
+  factory ApplyControlPlaneReviewDispositionRequest({
+    $core.String? contractVersion,
+    ControlPlaneScope? scope,
+    $core.String? projectKey,
+    $core.String? planId,
+    $core.String? actor,
+    ReviewDisposition? decision,
+    $core.String? reason,
+    $0.Struct? extensions,
+    AuthContext? authContext,
+  }) {
+    final result = create();
+    if (contractVersion != null) result.contractVersion = contractVersion;
+    if (scope != null) result.scope = scope;
+    if (projectKey != null) result.projectKey = projectKey;
+    if (planId != null) result.planId = planId;
+    if (actor != null) result.actor = actor;
+    if (decision != null) result.decision = decision;
+    if (reason != null) result.reason = reason;
+    if (extensions != null) result.extensions = extensions;
+    if (authContext != null) result.authContext = authContext;
+    return result;
+  }
+
+  ApplyControlPlaneReviewDispositionRequest._();
+
+  factory ApplyControlPlaneReviewDispositionRequest.fromBuffer(
+          $core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory ApplyControlPlaneReviewDispositionRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ApplyControlPlaneReviewDispositionRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'contractVersion')
+    ..aOM<ControlPlaneScope>(2, _omitFieldNames ? '' : 'scope',
+        subBuilder: ControlPlaneScope.create)
+    ..aOS(3, _omitFieldNames ? '' : 'projectKey')
+    ..aOS(4, _omitFieldNames ? '' : 'planId')
+    ..aOS(5, _omitFieldNames ? '' : 'actor')
+    ..aE<ReviewDisposition>(6, _omitFieldNames ? '' : 'decision',
+        enumValues: ReviewDisposition.values)
+    ..aOS(7, _omitFieldNames ? '' : 'reason')
+    ..aOM<$0.Struct>(8, _omitFieldNames ? '' : 'extensions',
+        subBuilder: $0.Struct.create)
+    ..aOM<AuthContext>(9, _omitFieldNames ? '' : 'authContext',
+        subBuilder: AuthContext.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ApplyControlPlaneReviewDispositionRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ApplyControlPlaneReviewDispositionRequest copyWith(
+          void Function(ApplyControlPlaneReviewDispositionRequest) updates) =>
+      super.copyWith((message) =>
+              updates(message as ApplyControlPlaneReviewDispositionRequest))
+          as ApplyControlPlaneReviewDispositionRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ApplyControlPlaneReviewDispositionRequest create() =>
+      ApplyControlPlaneReviewDispositionRequest._();
+  @$core.override
+  ApplyControlPlaneReviewDispositionRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static ApplyControlPlaneReviewDispositionRequest getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<
+          ApplyControlPlaneReviewDispositionRequest>(create);
+  static ApplyControlPlaneReviewDispositionRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get contractVersion => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set contractVersion($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasContractVersion() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearContractVersion() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  ControlPlaneScope get scope => $_getN(1);
+  @$pb.TagNumber(2)
+  set scope(ControlPlaneScope value) => $_setField(2, value);
+  @$pb.TagNumber(2)
+  $core.bool hasScope() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearScope() => $_clearField(2);
+  @$pb.TagNumber(2)
+  ControlPlaneScope ensureScope() => $_ensure(1);
+
+  @$pb.TagNumber(3)
+  $core.String get projectKey => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set projectKey($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasProjectKey() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearProjectKey() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get planId => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set planId($core.String value) => $_setString(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasPlanId() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearPlanId() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get actor => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set actor($core.String value) => $_setString(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasActor() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearActor() => $_clearField(5);
+
+  @$pb.TagNumber(6)
+  ReviewDisposition get decision => $_getN(5);
+  @$pb.TagNumber(6)
+  set decision(ReviewDisposition value) => $_setField(6, value);
+  @$pb.TagNumber(6)
+  $core.bool hasDecision() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearDecision() => $_clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.String get reason => $_getSZ(6);
+  @$pb.TagNumber(7)
+  set reason($core.String value) => $_setString(6, value);
+  @$pb.TagNumber(7)
+  $core.bool hasReason() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearReason() => $_clearField(7);
+
+  @$pb.TagNumber(8)
+  $0.Struct get extensions => $_getN(7);
+  @$pb.TagNumber(8)
+  set extensions($0.Struct value) => $_setField(8, value);
+  @$pb.TagNumber(8)
+  $core.bool hasExtensions() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearExtensions() => $_clearField(8);
+  @$pb.TagNumber(8)
+  $0.Struct ensureExtensions() => $_ensure(7);
+
+  @$pb.TagNumber(9)
+  AuthContext get authContext => $_getN(8);
+  @$pb.TagNumber(9)
+  set authContext(AuthContext value) => $_setField(9, value);
+  @$pb.TagNumber(9)
+  $core.bool hasAuthContext() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearAuthContext() => $_clearField(9);
+  @$pb.TagNumber(9)
+  AuthContext ensureAuthContext() => $_ensure(8);
+}
+
+class ApplyControlPlaneReviewDispositionResponse extends $pb.GeneratedMessage {
+  factory ApplyControlPlaneReviewDispositionResponse({
+    $core.String? contractVersion,
+    $core.String? projectKey,
+    $core.String? planId,
+    $core.bool? accepted,
+    ReviewDecision? reviewDecision,
+    PrLifecycleState? prLifecycleState,
+    $core.String? message,
+    $0.Struct? extensions,
+  }) {
+    final result = create();
+    if (contractVersion != null) result.contractVersion = contractVersion;
+    if (projectKey != null) result.projectKey = projectKey;
+    if (planId != null) result.planId = planId;
+    if (accepted != null) result.accepted = accepted;
+    if (reviewDecision != null) result.reviewDecision = reviewDecision;
+    if (prLifecycleState != null) result.prLifecycleState = prLifecycleState;
+    if (message != null) result.message = message;
+    if (extensions != null) result.extensions = extensions;
+    return result;
+  }
+
+  ApplyControlPlaneReviewDispositionResponse._();
+
+  factory ApplyControlPlaneReviewDispositionResponse.fromBuffer(
+          $core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory ApplyControlPlaneReviewDispositionResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ApplyControlPlaneReviewDispositionResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'contractVersion')
+    ..aOS(2, _omitFieldNames ? '' : 'projectKey')
+    ..aOS(3, _omitFieldNames ? '' : 'planId')
+    ..aOB(4, _omitFieldNames ? '' : 'accepted')
+    ..aOM<ReviewDecision>(5, _omitFieldNames ? '' : 'reviewDecision',
+        subBuilder: ReviewDecision.create)
+    ..aOM<PrLifecycleState>(6, _omitFieldNames ? '' : 'prLifecycleState',
+        subBuilder: PrLifecycleState.create)
+    ..aOS(7, _omitFieldNames ? '' : 'message')
+    ..aOM<$0.Struct>(8, _omitFieldNames ? '' : 'extensions',
+        subBuilder: $0.Struct.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ApplyControlPlaneReviewDispositionResponse clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ApplyControlPlaneReviewDispositionResponse copyWith(
+          void Function(ApplyControlPlaneReviewDispositionResponse) updates) =>
+      super.copyWith((message) =>
+              updates(message as ApplyControlPlaneReviewDispositionResponse))
+          as ApplyControlPlaneReviewDispositionResponse;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ApplyControlPlaneReviewDispositionResponse create() =>
+      ApplyControlPlaneReviewDispositionResponse._();
+  @$core.override
+  ApplyControlPlaneReviewDispositionResponse createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static ApplyControlPlaneReviewDispositionResponse getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<
+          ApplyControlPlaneReviewDispositionResponse>(create);
+  static ApplyControlPlaneReviewDispositionResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get contractVersion => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set contractVersion($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasContractVersion() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearContractVersion() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get projectKey => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set projectKey($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasProjectKey() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearProjectKey() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get planId => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set planId($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasPlanId() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearPlanId() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.bool get accepted => $_getBF(3);
+  @$pb.TagNumber(4)
+  set accepted($core.bool value) => $_setBool(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasAccepted() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearAccepted() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  ReviewDecision get reviewDecision => $_getN(4);
+  @$pb.TagNumber(5)
+  set reviewDecision(ReviewDecision value) => $_setField(5, value);
+  @$pb.TagNumber(5)
+  $core.bool hasReviewDecision() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearReviewDecision() => $_clearField(5);
+  @$pb.TagNumber(5)
+  ReviewDecision ensureReviewDecision() => $_ensure(4);
+
+  @$pb.TagNumber(6)
+  PrLifecycleState get prLifecycleState => $_getN(5);
+  @$pb.TagNumber(6)
+  set prLifecycleState(PrLifecycleState value) => $_setField(6, value);
+  @$pb.TagNumber(6)
+  $core.bool hasPrLifecycleState() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearPrLifecycleState() => $_clearField(6);
+  @$pb.TagNumber(6)
+  PrLifecycleState ensurePrLifecycleState() => $_ensure(5);
+
+  @$pb.TagNumber(7)
+  $core.String get message => $_getSZ(6);
+  @$pb.TagNumber(7)
+  set message($core.String value) => $_setString(6, value);
+  @$pb.TagNumber(7)
+  $core.bool hasMessage() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearMessage() => $_clearField(7);
+
+  @$pb.TagNumber(8)
+  $0.Struct get extensions => $_getN(7);
+  @$pb.TagNumber(8)
+  set extensions($0.Struct value) => $_setField(8, value);
+  @$pb.TagNumber(8)
+  $core.bool hasExtensions() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearExtensions() => $_clearField(8);
+  @$pb.TagNumber(8)
+  $0.Struct ensureExtensions() => $_ensure(7);
+}
+
+class EnsureControlPlaneWorkerRequest extends $pb.GeneratedMessage {
+  factory EnsureControlPlaneWorkerRequest({
+    $core.String? contractVersion,
+    ControlPlaneScope? scope,
+    $core.String? projectKey,
+    $0.Struct? extensions,
+    AuthContext? authContext,
+  }) {
+    final result = create();
+    if (contractVersion != null) result.contractVersion = contractVersion;
+    if (scope != null) result.scope = scope;
+    if (projectKey != null) result.projectKey = projectKey;
+    if (extensions != null) result.extensions = extensions;
+    if (authContext != null) result.authContext = authContext;
+    return result;
+  }
+
+  EnsureControlPlaneWorkerRequest._();
+
+  factory EnsureControlPlaneWorkerRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory EnsureControlPlaneWorkerRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EnsureControlPlaneWorkerRequest',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'contractVersion')
+    ..aOM<ControlPlaneScope>(2, _omitFieldNames ? '' : 'scope',
+        subBuilder: ControlPlaneScope.create)
+    ..aOS(3, _omitFieldNames ? '' : 'projectKey')
+    ..aOM<$0.Struct>(4, _omitFieldNames ? '' : 'extensions',
+        subBuilder: $0.Struct.create)
+    ..aOM<AuthContext>(5, _omitFieldNames ? '' : 'authContext',
+        subBuilder: AuthContext.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  EnsureControlPlaneWorkerRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  EnsureControlPlaneWorkerRequest copyWith(
+          void Function(EnsureControlPlaneWorkerRequest) updates) =>
+      super.copyWith(
+              (message) => updates(message as EnsureControlPlaneWorkerRequest))
+          as EnsureControlPlaneWorkerRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static EnsureControlPlaneWorkerRequest create() =>
+      EnsureControlPlaneWorkerRequest._();
+  @$core.override
+  EnsureControlPlaneWorkerRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static EnsureControlPlaneWorkerRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<EnsureControlPlaneWorkerRequest>(
+          create);
+  static EnsureControlPlaneWorkerRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get contractVersion => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set contractVersion($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasContractVersion() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearContractVersion() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  ControlPlaneScope get scope => $_getN(1);
+  @$pb.TagNumber(2)
+  set scope(ControlPlaneScope value) => $_setField(2, value);
+  @$pb.TagNumber(2)
+  $core.bool hasScope() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearScope() => $_clearField(2);
+  @$pb.TagNumber(2)
+  ControlPlaneScope ensureScope() => $_ensure(1);
+
+  @$pb.TagNumber(3)
+  $core.String get projectKey => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set projectKey($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasProjectKey() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearProjectKey() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $0.Struct get extensions => $_getN(3);
+  @$pb.TagNumber(4)
+  set extensions($0.Struct value) => $_setField(4, value);
+  @$pb.TagNumber(4)
+  $core.bool hasExtensions() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearExtensions() => $_clearField(4);
+  @$pb.TagNumber(4)
+  $0.Struct ensureExtensions() => $_ensure(3);
+
+  @$pb.TagNumber(5)
+  AuthContext get authContext => $_getN(4);
+  @$pb.TagNumber(5)
+  set authContext(AuthContext value) => $_setField(5, value);
+  @$pb.TagNumber(5)
+  $core.bool hasAuthContext() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearAuthContext() => $_clearField(5);
+  @$pb.TagNumber(5)
+  AuthContext ensureAuthContext() => $_ensure(4);
+}
+
+class EnsureControlPlaneWorkerResponse extends $pb.GeneratedMessage {
+  factory EnsureControlPlaneWorkerResponse({
+    $core.String? contractVersion,
+    $core.String? projectKey,
+    $core.bool? accepted,
+    $core.String? workerId,
+    $core.String? message,
+    $0.Struct? extensions,
+  }) {
+    final result = create();
+    if (contractVersion != null) result.contractVersion = contractVersion;
+    if (projectKey != null) result.projectKey = projectKey;
+    if (accepted != null) result.accepted = accepted;
+    if (workerId != null) result.workerId = workerId;
+    if (message != null) result.message = message;
+    if (extensions != null) result.extensions = extensions;
+    return result;
+  }
+
+  EnsureControlPlaneWorkerResponse._();
+
+  factory EnsureControlPlaneWorkerResponse.fromBuffer(
+          $core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory EnsureControlPlaneWorkerResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'EnsureControlPlaneWorkerResponse',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'contractVersion')
+    ..aOS(2, _omitFieldNames ? '' : 'projectKey')
+    ..aOB(3, _omitFieldNames ? '' : 'accepted')
+    ..aOS(4, _omitFieldNames ? '' : 'workerId')
+    ..aOS(5, _omitFieldNames ? '' : 'message')
+    ..aOM<$0.Struct>(6, _omitFieldNames ? '' : 'extensions',
+        subBuilder: $0.Struct.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  EnsureControlPlaneWorkerResponse clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  EnsureControlPlaneWorkerResponse copyWith(
+          void Function(EnsureControlPlaneWorkerResponse) updates) =>
+      super.copyWith(
+              (message) => updates(message as EnsureControlPlaneWorkerResponse))
+          as EnsureControlPlaneWorkerResponse;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static EnsureControlPlaneWorkerResponse create() =>
+      EnsureControlPlaneWorkerResponse._();
+  @$core.override
+  EnsureControlPlaneWorkerResponse createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static EnsureControlPlaneWorkerResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<EnsureControlPlaneWorkerResponse>(
+          create);
+  static EnsureControlPlaneWorkerResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get contractVersion => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set contractVersion($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasContractVersion() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearContractVersion() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get projectKey => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set projectKey($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasProjectKey() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearProjectKey() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.bool get accepted => $_getBF(2);
+  @$pb.TagNumber(3)
+  set accepted($core.bool value) => $_setBool(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasAccepted() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearAccepted() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get workerId => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set workerId($core.String value) => $_setString(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasWorkerId() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearWorkerId() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get message => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set message($core.String value) => $_setString(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasMessage() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearMessage() => $_clearField(5);
+
+  @$pb.TagNumber(6)
+  $0.Struct get extensions => $_getN(5);
+  @$pb.TagNumber(6)
+  set extensions($0.Struct value) => $_setField(6, value);
+  @$pb.TagNumber(6)
+  $core.bool hasExtensions() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearExtensions() => $_clearField(6);
+  @$pb.TagNumber(6)
+  $0.Struct ensureExtensions() => $_ensure(5);
+}
+
 /// RunnerControlService is the canonical machine-to-machine control-plane
 /// contract. It is transport-oriented and intentionally protobuf-only; JSON
 /// schema support in this repository remains limited to portable object payloads.
@@ -9171,6 +13079,58 @@ class RunnerControlServiceApi {
           $pb.ClientContext? ctx, AckCancellationRequest request) =>
       _client.invoke<AckCancellationResponse>(ctx, 'RunnerControlService',
           'AckCancellation', request, AckCancellationResponse());
+}
+
+/// ClientControlService is the canonical client-facing control-plane RPC
+/// contract. It carries scoped run summaries, activity pages, and operator
+/// control actions without encoding local workspace compatibility concerns.
+class ClientControlServiceApi {
+  final $pb.RpcClient _client;
+
+  ClientControlServiceApi(this._client);
+
+  $async.Future<ListControlPlaneRunsResponse> listRuns(
+          $pb.ClientContext? ctx, ListControlPlaneRunsRequest request) =>
+      _client.invoke<ListControlPlaneRunsResponse>(ctx, 'ClientControlService',
+          'ListRuns', request, ListControlPlaneRunsResponse());
+  $async.Future<GetControlPlaneRunResponse> getRun(
+          $pb.ClientContext? ctx, GetControlPlaneRunRequest request) =>
+      _client.invoke<GetControlPlaneRunResponse>(ctx, 'ClientControlService',
+          'GetRun', request, GetControlPlaneRunResponse());
+  $async.Future<GetControlPlaneRunActivityPageResponse> getRunActivityPage(
+          $pb.ClientContext? ctx,
+          GetControlPlaneRunActivityPageRequest request) =>
+      _client.invoke<GetControlPlaneRunActivityPageResponse>(
+          ctx,
+          'ClientControlService',
+          'GetRunActivityPage',
+          request,
+          GetControlPlaneRunActivityPageResponse());
+  $async.Future<ApplyControlPlaneRunActionResponse> applyRunAction(
+          $pb.ClientContext? ctx, ApplyControlPlaneRunActionRequest request) =>
+      _client.invoke<ApplyControlPlaneRunActionResponse>(
+          ctx,
+          'ClientControlService',
+          'ApplyRunAction',
+          request,
+          ApplyControlPlaneRunActionResponse());
+  $async.Future<ApplyControlPlaneReviewDispositionResponse>
+      applyReviewDisposition($pb.ClientContext? ctx,
+              ApplyControlPlaneReviewDispositionRequest request) =>
+          _client.invoke<ApplyControlPlaneReviewDispositionResponse>(
+              ctx,
+              'ClientControlService',
+              'ApplyReviewDisposition',
+              request,
+              ApplyControlPlaneReviewDispositionResponse());
+  $async.Future<EnsureControlPlaneWorkerResponse> ensureWorker(
+          $pb.ClientContext? ctx, EnsureControlPlaneWorkerRequest request) =>
+      _client.invoke<EnsureControlPlaneWorkerResponse>(
+          ctx,
+          'ClientControlService',
+          'EnsureWorker',
+          request,
+          EnsureControlPlaneWorkerResponse());
 }
 
 const $core.bool _omitFieldNames =

@@ -76,4 +76,3 @@ class PlanStepKind
         return constant($const);
     }
 }
-

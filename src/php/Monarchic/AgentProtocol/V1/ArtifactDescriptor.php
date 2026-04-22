@@ -218,4 +218,3 @@ class ArtifactDescriptor extends \Google\Protobuf\Internal\Message
     }
 
 }
-

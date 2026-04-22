@@ -96,4 +96,3 @@ class ArtifactKind
         return constant($const);
     }
 }
-

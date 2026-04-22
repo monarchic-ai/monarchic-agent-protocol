@@ -86,4 +86,3 @@ class RecoveryEventKind
         return constant($const);
     }
 }
-

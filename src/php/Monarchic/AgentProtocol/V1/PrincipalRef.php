@@ -120,4 +120,3 @@ class PrincipalRef extends \Google\Protobuf\Internal\Message
     }
 
 }
-

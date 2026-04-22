@@ -64,7 +64,7 @@ public interface ReportStepProgressRequestOrBuilder extends
   /**
    * <code>repeated .monarchic.agent_protocol.v1.Event events = 5;</code>
    */
-  java.util.List<ai.monarchic.agent_protocol.v1.Event> 
+  java.util.List<ai.monarchic.agent_protocol.v1.Event>
       getEventsList();
   /**
    * <code>repeated .monarchic.agent_protocol.v1.Event events = 5;</code>
@@ -77,7 +77,7 @@ public interface ReportStepProgressRequestOrBuilder extends
   /**
    * <code>repeated .monarchic.agent_protocol.v1.Event events = 5;</code>
    */
-  java.util.List<? extends ai.monarchic.agent_protocol.v1.EventOrBuilder> 
+  java.util.List<? extends ai.monarchic.agent_protocol.v1.EventOrBuilder>
       getEventsOrBuilderList();
   /**
    * <code>repeated .monarchic.agent_protocol.v1.Event events = 5;</code>
@@ -88,7 +88,7 @@ public interface ReportStepProgressRequestOrBuilder extends
   /**
    * <code>repeated .monarchic.agent_protocol.v1.Artifact artifacts = 6;</code>
    */
-  java.util.List<ai.monarchic.agent_protocol.v1.Artifact> 
+  java.util.List<ai.monarchic.agent_protocol.v1.Artifact>
       getArtifactsList();
   /**
    * <code>repeated .monarchic.agent_protocol.v1.Artifact artifacts = 6;</code>
@@ -101,7 +101,7 @@ public interface ReportStepProgressRequestOrBuilder extends
   /**
    * <code>repeated .monarchic.agent_protocol.v1.Artifact artifacts = 6;</code>
    */
-  java.util.List<? extends ai.monarchic.agent_protocol.v1.ArtifactOrBuilder> 
+  java.util.List<? extends ai.monarchic.agent_protocol.v1.ArtifactOrBuilder>
       getArtifactsOrBuilderList();
   /**
    * <code>repeated .monarchic.agent_protocol.v1.Artifact artifacts = 6;</code>

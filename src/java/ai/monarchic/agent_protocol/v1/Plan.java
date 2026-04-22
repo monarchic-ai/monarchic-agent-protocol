@@ -67,7 +67,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       contractVersion_ = s;
@@ -83,7 +83,7 @@ private static final long serialVersionUID = 0L;
       getContractVersionBytes() {
     java.lang.Object ref = contractVersion_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       contractVersion_ = b;
@@ -106,7 +106,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       planId_ = s;
@@ -122,7 +122,7 @@ private static final long serialVersionUID = 0L;
       getPlanIdBytes() {
     java.lang.Object ref = planId_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       planId_ = b;
@@ -153,7 +153,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       runId_ = s;
@@ -169,7 +169,7 @@ private static final long serialVersionUID = 0L;
       getRunIdBytes() {
     java.lang.Object ref = runId_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       runId_ = b;
@@ -192,7 +192,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       objective_ = s;
@@ -208,7 +208,7 @@ private static final long serialVersionUID = 0L;
       getObjectiveBytes() {
     java.lang.Object ref = objective_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       objective_ = b;
@@ -298,7 +298,7 @@ private static final long serialVersionUID = 0L;
    * <code>repeated .monarchic.agent_protocol.v1.PlanStep steps = 9;</code>
    */
   @java.lang.Override
-  public java.util.List<? extends ai.monarchic.agent_protocol.v1.PlanStepOrBuilder> 
+  public java.util.List<? extends ai.monarchic.agent_protocol.v1.PlanStepOrBuilder>
       getStepsOrBuilderList() {
     return steps_;
   }
@@ -346,7 +346,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       intentId_ = s;
@@ -362,7 +362,7 @@ private static final long serialVersionUID = 0L;
       getIntentIdBytes() {
     java.lang.Object ref = intentId_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       intentId_ = b;
@@ -393,7 +393,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       planVersion_ = s;
@@ -409,7 +409,7 @@ private static final long serialVersionUID = 0L;
       getPlanVersionBytes() {
     java.lang.Object ref = planVersion_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       planVersion_ = b;
@@ -440,7 +440,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       plannerVersion_ = s;
@@ -456,7 +456,7 @@ private static final long serialVersionUID = 0L;
       getPlannerVersionBytes() {
     java.lang.Object ref = plannerVersion_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       plannerVersion_ = b;
@@ -513,7 +513,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       inputDigest_ = s;
@@ -529,7 +529,7 @@ private static final long serialVersionUID = 0L;
       getInputDigestBytes() {
     java.lang.Object ref = inputDigest_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       inputDigest_ = b;
@@ -1101,7 +1101,7 @@ private static final long serialVersionUID = 0L;
             stepsBuilder_ = null;
             steps_ = other.steps_;
             bitField0_ = (bitField0_ & ~0x00000100);
-            stepsBuilder_ = 
+            stepsBuilder_ =
               com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                  internalGetStepsFieldBuilder() : null;
           } else {
@@ -1282,7 +1282,7 @@ private static final long serialVersionUID = 0L;
         getContractVersionBytes() {
       java.lang.Object ref = contractVersion_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         contractVersion_ = b;
@@ -1354,7 +1354,7 @@ private static final long serialVersionUID = 0L;
         getPlanIdBytes() {
       java.lang.Object ref = planId_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         planId_ = b;
@@ -1433,7 +1433,7 @@ private static final long serialVersionUID = 0L;
         getRunIdBytes() {
       java.lang.Object ref = runId_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         runId_ = b;
@@ -1505,7 +1505,7 @@ private static final long serialVersionUID = 0L;
         getObjectiveBytes() {
       java.lang.Object ref = objective_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         objective_ = b;
@@ -1775,7 +1775,7 @@ private static final long serialVersionUID = 0L;
      * <code>.monarchic.agent_protocol.v1.PlanProvenance provenance = 8;</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
-        ai.monarchic.agent_protocol.v1.PlanProvenance, ai.monarchic.agent_protocol.v1.PlanProvenance.Builder, ai.monarchic.agent_protocol.v1.PlanProvenanceOrBuilder> 
+        ai.monarchic.agent_protocol.v1.PlanProvenance, ai.monarchic.agent_protocol.v1.PlanProvenance.Builder, ai.monarchic.agent_protocol.v1.PlanProvenanceOrBuilder>
         internalGetProvenanceFieldBuilder() {
       if (provenanceBuilder_ == null) {
         provenanceBuilder_ = new com.google.protobuf.SingleFieldBuilder<
@@ -1983,7 +1983,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .monarchic.agent_protocol.v1.PlanStep steps = 9;</code>
      */
-    public java.util.List<? extends ai.monarchic.agent_protocol.v1.PlanStepOrBuilder> 
+    public java.util.List<? extends ai.monarchic.agent_protocol.v1.PlanStepOrBuilder>
          getStepsOrBuilderList() {
       if (stepsBuilder_ != null) {
         return stepsBuilder_.getMessageOrBuilderList();
@@ -2009,12 +2009,12 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .monarchic.agent_protocol.v1.PlanStep steps = 9;</code>
      */
-    public java.util.List<ai.monarchic.agent_protocol.v1.PlanStep.Builder> 
+    public java.util.List<ai.monarchic.agent_protocol.v1.PlanStep.Builder>
          getStepsBuilderList() {
       return internalGetStepsFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilder<
-        ai.monarchic.agent_protocol.v1.PlanStep, ai.monarchic.agent_protocol.v1.PlanStep.Builder, ai.monarchic.agent_protocol.v1.PlanStepOrBuilder> 
+        ai.monarchic.agent_protocol.v1.PlanStep, ai.monarchic.agent_protocol.v1.PlanStep.Builder, ai.monarchic.agent_protocol.v1.PlanStepOrBuilder>
         internalGetStepsFieldBuilder() {
       if (stepsBuilder_ == null) {
         stepsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
@@ -2060,7 +2060,7 @@ private static final long serialVersionUID = 0L;
         getIntentIdBytes() {
       java.lang.Object ref = intentId_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         intentId_ = b;
@@ -2139,7 +2139,7 @@ private static final long serialVersionUID = 0L;
         getPlanVersionBytes() {
       java.lang.Object ref = planVersion_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         planVersion_ = b;
@@ -2218,7 +2218,7 @@ private static final long serialVersionUID = 0L;
         getPlannerVersionBytes() {
       java.lang.Object ref = plannerVersion_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         plannerVersion_ = b;
@@ -2373,7 +2373,7 @@ private static final long serialVersionUID = 0L;
      * <code>.monarchic.agent_protocol.v1.ReplanPolicy replan_policy = 13;</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
-        ai.monarchic.agent_protocol.v1.ReplanPolicy, ai.monarchic.agent_protocol.v1.ReplanPolicy.Builder, ai.monarchic.agent_protocol.v1.ReplanPolicyOrBuilder> 
+        ai.monarchic.agent_protocol.v1.ReplanPolicy, ai.monarchic.agent_protocol.v1.ReplanPolicy.Builder, ai.monarchic.agent_protocol.v1.ReplanPolicyOrBuilder>
         internalGetReplanPolicyFieldBuilder() {
       if (replanPolicyBuilder_ == null) {
         replanPolicyBuilder_ = new com.google.protobuf.SingleFieldBuilder<
@@ -2418,7 +2418,7 @@ private static final long serialVersionUID = 0L;
         getInputDigestBytes() {
       java.lang.Object ref = inputDigest_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         inputDigest_ = b;
@@ -2515,4 +2515,3 @@ private static final long serialVersionUID = 0L;
   }
 
 }
-

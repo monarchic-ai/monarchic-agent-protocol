@@ -211,4 +211,3 @@ class HeartbeatRequest extends \Google\Protobuf\Internal\Message
     }
 
 }
-

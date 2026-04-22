@@ -61,4 +61,3 @@ class VerificationStatus
         return constant($const);
     }
 }
-

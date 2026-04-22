@@ -379,4 +379,3 @@ class ObjectiveSpec extends \Google\Protobuf\Internal\Message
     }
 
 }
-

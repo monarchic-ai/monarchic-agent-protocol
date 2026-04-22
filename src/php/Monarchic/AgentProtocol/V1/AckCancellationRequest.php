@@ -285,4 +285,3 @@ class AckCancellationRequest extends \Google\Protobuf\Internal\Message
     }
 
 }
-

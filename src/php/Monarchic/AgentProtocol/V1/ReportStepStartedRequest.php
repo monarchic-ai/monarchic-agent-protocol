@@ -248,4 +248,3 @@ class ReportStepStartedRequest extends \Google\Protobuf\Internal\Message
     }
 
 }
-

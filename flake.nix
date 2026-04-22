@@ -40,7 +40,7 @@
             src = pkgs.fetchCrate {
               pname = "monarchic-agent-protocol";
               version = "0.1.16";
-              sha256 = "sha256-sqE6gdS+RcfJF8wAU7H8j/tAurmaWbc05HQYhwiMKWU=";
+              sha256 = "sha256-wS/2fNsv4r0hse/aNdgfxbYCW+XgrSEr+73KOgBPjIo=";
             };
             nativeBuildInputs = [ pkgs.protobuf ];
             cargoLock = {
@@ -83,7 +83,7 @@
             src = pkgs.fetchPypi {
               pname = "monarchic_agent_protocol";
               version = "0.1.16";
-              sha256 = "0djf2iv9cs83icjg9xyxl8q8hg8mjkg25ba7banmk5qld42hfwbp";
+              sha256 = "14aivrs41rcs5v171qdv5f1q0qwq629y6xs3zbwk0pf7nsp0a9sf";
             };
             nativeBuildInputs = [
               pkgs.python3Packages.setuptools
@@ -97,7 +97,7 @@
             pname = "monarchic-agent-protocol-ts";
             version = "0.1.16";
             src = ./.;
-            npmDepsHash = "sha256-Vsyu0Io9NVCJ9VaR4V6aSGoUNPyQ9EqW0SuKOP7iTuI=";
+            npmDepsHash = "sha256-vIkplcONOpIA8250xyPbhTM1M277lTBLdVy4TaU4xAE=";
             npmPackFlags = [ "--ignore-scripts" ];
             forceEmptyCache = true;
             dontNpmBuild = true;
@@ -116,9 +116,9 @@
             version = "0.1.16";
             src = pkgs.fetchurl {
               url = "https://registry.npmjs.org/@monarchic-ai/monarchic-agent-protocol/-/monarchic-agent-protocol-0.1.16.tgz";
-              sha256 = "092xlw6q90qn17f24l3axskf6wy5ibpc038b9z01gvb560ciglwa";
+              sha256 = "0bc9vgsvp5hsh3819rw0kv8ffmwfsy0a9mi4p4j7waav7isibvi5";
             };
-            npmDepsHash = "sha256-Vsyu0Io9NVCJ9VaR4V6aSGoUNPyQ9EqW0SuKOP7iTuI=";
+            npmDepsHash = "sha256-vIkplcONOpIA8250xyPbhTM1M277lTBLdVy4TaU4xAE=";
             npmPackFlags = [ "--ignore-scripts" ];
             forceEmptyCache = true;
             dontNpmBuild = true;
@@ -167,7 +167,7 @@
               owner = "monarchic-ai";
               repo = "monarchic-agent-protocol";
               rev = "v0.1.16";
-              sha256 = "13df6s62c6v7222cxp56s6j42rxls1awllni3lz24x2j597lzbxq";
+              sha256 = "00qya0g8k8hc7h96kqq7g23h9vrsxsq1i3rjzxn7vfcp0ah7mfsz";
             };
             modRoot = "src/go";
             vendorHash = "sha256-xj9DXJyfqpCcYXRc6Yr6X4s0F2o3mUQ3HWSNLjlKxWc=";
@@ -184,7 +184,7 @@
             version = "0.1.16";
             src = pkgs.fetchurl {
               url = "https://rubygems.org/downloads/monarchic-agent-protocol-0.1.16.gem";
-              sha256 = "1d050vp0agnji7sia66s13dmzgcrd67s73amyf80jaybab689b9a";
+              sha256 = "014j4pg0vjnpx6h0alsvfb4ggm3xihshdyiwy057hi7c7iawhrs3";
             };
           };
 
@@ -269,7 +269,7 @@
 
           csharp-registry-lib = pkgs.fetchurl {
             url = "https://api.nuget.org/v3-flatcontainer/monarchic.agentprotocol/0.1.16/monarchic.agentprotocol.0.1.16.nupkg";
-            sha256 = "041hy93xq8376fipnynacdzajpr8qcnjabfxv4pa6lgnb14k9qbc";
+            sha256 = "1a8l83jgmgi77l401pnmmvj5f3mmmld233iipm3kzf7lzjrxjfy2";
           };
 
           php-lib = pkgs.stdenv.mkDerivation {
@@ -292,7 +292,7 @@
             owner = "monarchic-ai";
             repo = "monarchic-agent-protocol";
             rev = "v0.1.16";
-            sha256 = "13df6s62c6v7222cxp56s6j42rxls1awllni3lz24x2j597lzbxq";
+            sha256 = "00qya0g8k8hc7h96kqq7g23h9vrsxsq1i3rjzxn7vfcp0ah7mfsz";
           };
 
           example-rust = pkgs.rustPlatform.buildRustPackage {
@@ -789,6 +789,7 @@ EOF
               pkgs.protobuf
               pkgs.protoc-gen-go
               pkgs.protoc-gen-dart
+              pkgs.perl
               pkgs.python3
               (pkgs.buildGoModule {
                 pname = "protoc-gen-jsonschema";
@@ -1033,7 +1034,7 @@ EOF
             owner = "monarchic-ai";
             repo = "monarchic-agent-protocol";
             rev = "v0.1.16";
-            sha256 = "13df6s62c6v7222cxp56s6j42rxls1awllni3lz24x2j597lzbxq";
+            sha256 = "00qya0g8k8hc7h96kqq7g23h9vrsxsq1i3rjzxn7vfcp0ah7mfsz";
           };
           rbProtobuf = pkgs.buildRubyGem {
             gemName = "google-protobuf";
@@ -1064,7 +1065,7 @@ edition = "2021"
 monarchic-agent-protocol = { path = "${pkgs.fetchCrate {
   pname = "monarchic-agent-protocol";
   version = "0.1.16";
-  sha256 = "sha256-sqE6gdS+RcfJF8wAU7H8j/tAurmaWbc05HQYhwiMKWU=";
+  sha256 = "sha256-wS/2fNsv4r0hse/aNdgfxbYCW+XgrSEr+73KOgBPjIo=";
 }}" }
 EOF
               cat > $out/src/main.rs <<'EOF'
@@ -1081,6 +1082,8 @@ fn main() {
         constraints: None,
         gates_required: Vec::new(),
         run_context: None,
+        experiment_spec: None,
+        objective_spec: None,
         extensions: Default::default(),
     };
     println!("{}", task.task_id);
@@ -1263,7 +1266,7 @@ EOF
               pname = "go-import";
               version = "0.1.16";
               src = goModImport;
-              vendorHash = "sha256-vGdw+MyxGFYITlEMqsvmnzjzXX3MQOjBCIOeEG8xqvU=";
+              vendorHash = "sha256-GqdNBPEPNoAQel6k54DkBHjDPxl3zw/tge8GSQPTv3g=";
               subPackages = [ "." ];
               doCheck = true;
               checkPhase = ''
@@ -1399,6 +1402,7 @@ EOF
               pkgs.protobuf
               pkgs.protoc-gen-go
               pkgs.protoc-gen-dart
+              pkgs.perl
               pkgs.python3
               (pkgs.buildGoModule {
                 pname = "protoc-gen-jsonschema";

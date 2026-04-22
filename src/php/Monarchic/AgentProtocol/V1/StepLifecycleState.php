@@ -81,4 +81,3 @@ class StepLifecycleState
         return constant($const);
     }
 }
-

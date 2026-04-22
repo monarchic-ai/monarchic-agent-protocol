@@ -62,7 +62,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       contractVersion_ = s;
@@ -78,7 +78,7 @@ private static final long serialVersionUID = 0L;
       getContractVersionBytes() {
     java.lang.Object ref = contractVersion_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       contractVersion_ = b;
@@ -101,7 +101,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       runnerId_ = s;
@@ -117,7 +117,7 @@ private static final long serialVersionUID = 0L;
       getRunnerIdBytes() {
     java.lang.Object ref = runnerId_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       runnerId_ = b;
@@ -140,7 +140,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       sessionId_ = s;
@@ -156,7 +156,7 @@ private static final long serialVersionUID = 0L;
       getSessionIdBytes() {
     java.lang.Object ref = sessionId_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       sessionId_ = b;
@@ -206,7 +206,7 @@ private static final long serialVersionUID = 0L;
    * <code>repeated .monarchic.agent_protocol.v1.Event events = 5;</code>
    */
   @java.lang.Override
-  public java.util.List<? extends ai.monarchic.agent_protocol.v1.EventOrBuilder> 
+  public java.util.List<? extends ai.monarchic.agent_protocol.v1.EventOrBuilder>
       getEventsOrBuilderList() {
     return events_;
   }
@@ -247,7 +247,7 @@ private static final long serialVersionUID = 0L;
    * <code>repeated .monarchic.agent_protocol.v1.Artifact artifacts = 6;</code>
    */
   @java.lang.Override
-  public java.util.List<? extends ai.monarchic.agent_protocol.v1.ArtifactOrBuilder> 
+  public java.util.List<? extends ai.monarchic.agent_protocol.v1.ArtifactOrBuilder>
       getArtifactsOrBuilderList() {
     return artifacts_;
   }
@@ -786,7 +786,7 @@ private static final long serialVersionUID = 0L;
             eventsBuilder_ = null;
             events_ = other.events_;
             bitField0_ = (bitField0_ & ~0x00000010);
-            eventsBuilder_ = 
+            eventsBuilder_ =
               com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                  internalGetEventsFieldBuilder() : null;
           } else {
@@ -812,7 +812,7 @@ private static final long serialVersionUID = 0L;
             artifactsBuilder_ = null;
             artifacts_ = other.artifacts_;
             bitField0_ = (bitField0_ & ~0x00000020);
-            artifactsBuilder_ = 
+            artifactsBuilder_ =
               com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                  internalGetArtifactsFieldBuilder() : null;
           } else {
@@ -956,7 +956,7 @@ private static final long serialVersionUID = 0L;
         getContractVersionBytes() {
       java.lang.Object ref = contractVersion_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         contractVersion_ = b;
@@ -1028,7 +1028,7 @@ private static final long serialVersionUID = 0L;
         getRunnerIdBytes() {
       java.lang.Object ref = runnerId_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         runnerId_ = b;
@@ -1100,7 +1100,7 @@ private static final long serialVersionUID = 0L;
         getSessionIdBytes() {
       java.lang.Object ref = sessionId_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         sessionId_ = b;
@@ -1255,7 +1255,7 @@ private static final long serialVersionUID = 0L;
      * <code>.monarchic.agent_protocol.v1.LeaseRef lease = 4;</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
-        ai.monarchic.agent_protocol.v1.LeaseRef, ai.monarchic.agent_protocol.v1.LeaseRef.Builder, ai.monarchic.agent_protocol.v1.LeaseRefOrBuilder> 
+        ai.monarchic.agent_protocol.v1.LeaseRef, ai.monarchic.agent_protocol.v1.LeaseRef.Builder, ai.monarchic.agent_protocol.v1.LeaseRefOrBuilder>
         internalGetLeaseFieldBuilder() {
       if (leaseBuilder_ == null) {
         leaseBuilder_ = new com.google.protobuf.SingleFieldBuilder<
@@ -1463,7 +1463,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .monarchic.agent_protocol.v1.Event events = 5;</code>
      */
-    public java.util.List<? extends ai.monarchic.agent_protocol.v1.EventOrBuilder> 
+    public java.util.List<? extends ai.monarchic.agent_protocol.v1.EventOrBuilder>
          getEventsOrBuilderList() {
       if (eventsBuilder_ != null) {
         return eventsBuilder_.getMessageOrBuilderList();
@@ -1489,12 +1489,12 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .monarchic.agent_protocol.v1.Event events = 5;</code>
      */
-    public java.util.List<ai.monarchic.agent_protocol.v1.Event.Builder> 
+    public java.util.List<ai.monarchic.agent_protocol.v1.Event.Builder>
          getEventsBuilderList() {
       return internalGetEventsFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilder<
-        ai.monarchic.agent_protocol.v1.Event, ai.monarchic.agent_protocol.v1.Event.Builder, ai.monarchic.agent_protocol.v1.EventOrBuilder> 
+        ai.monarchic.agent_protocol.v1.Event, ai.monarchic.agent_protocol.v1.Event.Builder, ai.monarchic.agent_protocol.v1.EventOrBuilder>
         internalGetEventsFieldBuilder() {
       if (eventsBuilder_ == null) {
         eventsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
@@ -1703,7 +1703,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .monarchic.agent_protocol.v1.Artifact artifacts = 6;</code>
      */
-    public java.util.List<? extends ai.monarchic.agent_protocol.v1.ArtifactOrBuilder> 
+    public java.util.List<? extends ai.monarchic.agent_protocol.v1.ArtifactOrBuilder>
          getArtifactsOrBuilderList() {
       if (artifactsBuilder_ != null) {
         return artifactsBuilder_.getMessageOrBuilderList();
@@ -1729,12 +1729,12 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .monarchic.agent_protocol.v1.Artifact artifacts = 6;</code>
      */
-    public java.util.List<ai.monarchic.agent_protocol.v1.Artifact.Builder> 
+    public java.util.List<ai.monarchic.agent_protocol.v1.Artifact.Builder>
          getArtifactsBuilderList() {
       return internalGetArtifactsFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilder<
-        ai.monarchic.agent_protocol.v1.Artifact, ai.monarchic.agent_protocol.v1.Artifact.Builder, ai.monarchic.agent_protocol.v1.ArtifactOrBuilder> 
+        ai.monarchic.agent_protocol.v1.Artifact, ai.monarchic.agent_protocol.v1.Artifact.Builder, ai.monarchic.agent_protocol.v1.ArtifactOrBuilder>
         internalGetArtifactsFieldBuilder() {
       if (artifactsBuilder_ == null) {
         artifactsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
@@ -1856,7 +1856,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct extensions = 7;</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
-        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>
         internalGetExtensionsFieldBuilder() {
       if (extensionsBuilder_ == null) {
         extensionsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
@@ -1977,7 +1977,7 @@ private static final long serialVersionUID = 0L;
      * <code>optional .monarchic.agent_protocol.v1.AuthContext auth_context = 8;</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
-        ai.monarchic.agent_protocol.v1.AuthContext, ai.monarchic.agent_protocol.v1.AuthContext.Builder, ai.monarchic.agent_protocol.v1.AuthContextOrBuilder> 
+        ai.monarchic.agent_protocol.v1.AuthContext, ai.monarchic.agent_protocol.v1.AuthContext.Builder, ai.monarchic.agent_protocol.v1.AuthContextOrBuilder>
         internalGetAuthContextFieldBuilder() {
       if (authContextBuilder_ == null) {
         authContextBuilder_ = new com.google.protobuf.SingleFieldBuilder<
@@ -2040,4 +2040,3 @@ private static final long serialVersionUID = 0L;
   }
 
 }
-

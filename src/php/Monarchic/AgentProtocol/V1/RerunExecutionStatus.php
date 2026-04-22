@@ -61,4 +61,3 @@ class RerunExecutionStatus
         return constant($const);
     }
 }
-

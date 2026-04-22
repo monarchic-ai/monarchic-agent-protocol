@@ -23,6 +23,8 @@ class Task extends \Google\Protobuf\Internal\Message
      */
     protected $task_id = '';
     /**
+     * Legacy enum role. Prefer role_id for new producers and consumers.
+     *
      * Generated from protobuf field <code>.monarchic.agent_protocol.v1.AgentRole role = 3;</code>
      */
     protected $role = 0;
@@ -58,6 +60,13 @@ class Task extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 11;</code>
      */
     protected $objective_spec = null;
+    /**
+     * Canonical open-ended role identifier. This allows built-in and custom
+     * roles without requiring protocol enum changes.
+     *
+     * Generated from protobuf field <code>string role_id = 12;</code>
+     */
+    protected $role_id = '';
 
     /**
      * Constructor.
@@ -68,6 +77,7 @@ class Task extends \Google\Protobuf\Internal\Message
      *     @type string $version
      *     @type string $task_id
      *     @type int $role
+     *           Legacy enum role. Prefer role_id for new producers and consumers.
      *     @type string $goal
      *     @type \Google\Protobuf\Struct $inputs
      *     @type \Google\Protobuf\Struct $constraints
@@ -76,6 +86,9 @@ class Task extends \Google\Protobuf\Internal\Message
      *     @type \Google\Protobuf\Struct $extensions
      *     @type \Monarchic\AgentProtocol\V1\ExperimentSpec $experiment_spec
      *     @type \Monarchic\AgentProtocol\V1\ObjectiveSpec $objective_spec
+     *     @type string $role_id
+     *           Canonical open-ended role identifier. This allows built-in and custom
+     *           roles without requiring protocol enum changes.
      * }
      */
     public function __construct($data = NULL) {
@@ -128,6 +141,8 @@ class Task extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Legacy enum role. Prefer role_id for new producers and consumers.
+     *
      * Generated from protobuf field <code>.monarchic.agent_protocol.v1.AgentRole role = 3;</code>
      * @return int
      */
@@ -137,6 +152,8 @@ class Task extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Legacy enum role. Prefer role_id for new producers and consumers.
+     *
      * Generated from protobuf field <code>.monarchic.agent_protocol.v1.AgentRole role = 3;</code>
      * @param int $var
      * @return $this
@@ -385,5 +402,32 @@ class Task extends \Google\Protobuf\Internal\Message
         return $this;
     }
 
-}
+    /**
+     * Canonical open-ended role identifier. This allows built-in and custom
+     * roles without requiring protocol enum changes.
+     *
+     * Generated from protobuf field <code>string role_id = 12;</code>
+     * @return string
+     */
+    public function getRoleId()
+    {
+        return $this->role_id;
+    }
 
+    /**
+     * Canonical open-ended role identifier. This allows built-in and custom
+     * roles without requiring protocol enum changes.
+     *
+     * Generated from protobuf field <code>string role_id = 12;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setRoleId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->role_id = $var;
+
+        return $this;
+    }
+
+}

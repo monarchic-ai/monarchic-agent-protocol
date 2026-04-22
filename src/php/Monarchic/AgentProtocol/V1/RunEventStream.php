@@ -71,4 +71,3 @@ class RunEventStream
         return constant($const);
     }
 }
-

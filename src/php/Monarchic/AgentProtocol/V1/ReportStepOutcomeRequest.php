@@ -403,4 +403,3 @@ class ReportStepOutcomeRequest extends \Google\Protobuf\Internal\Message
     }
 
 }
-

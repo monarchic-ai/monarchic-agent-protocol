@@ -35,28 +35,53 @@ public interface RunnerCapabilitiesOrBuilder extends
       getRuntimeBytes();
 
   /**
+   * <pre>
+   * Legacy enum-based supported roles. Prefer supported_role_ids for new
+   * producers and consumers.
+   * </pre>
+   *
    * <code>repeated .monarchic.agent_protocol.v1.AgentRole supported_roles = 3;</code>
    * @return A list containing the supportedRoles.
    */
   java.util.List<ai.monarchic.agent_protocol.v1.AgentRole> getSupportedRolesList();
   /**
+   * <pre>
+   * Legacy enum-based supported roles. Prefer supported_role_ids for new
+   * producers and consumers.
+   * </pre>
+   *
    * <code>repeated .monarchic.agent_protocol.v1.AgentRole supported_roles = 3;</code>
    * @return The count of supportedRoles.
    */
   int getSupportedRolesCount();
   /**
+   * <pre>
+   * Legacy enum-based supported roles. Prefer supported_role_ids for new
+   * producers and consumers.
+   * </pre>
+   *
    * <code>repeated .monarchic.agent_protocol.v1.AgentRole supported_roles = 3;</code>
    * @param index The index of the element to return.
    * @return The supportedRoles at the given index.
    */
   ai.monarchic.agent_protocol.v1.AgentRole getSupportedRoles(int index);
   /**
+   * <pre>
+   * Legacy enum-based supported roles. Prefer supported_role_ids for new
+   * producers and consumers.
+   * </pre>
+   *
    * <code>repeated .monarchic.agent_protocol.v1.AgentRole supported_roles = 3;</code>
    * @return A list containing the enum numeric values on the wire for supportedRoles.
    */
   java.util.List<java.lang.Integer>
   getSupportedRolesValueList();
   /**
+   * <pre>
+   * Legacy enum-based supported roles. Prefer supported_role_ids for new
+   * producers and consumers.
+   * </pre>
+   *
    * <code>repeated .monarchic.agent_protocol.v1.AgentRole supported_roles = 3;</code>
    * @param index The index of the value to return.
    * @return The enum numeric value on the wire of supportedRoles at the given index.
@@ -139,4 +164,29 @@ public interface RunnerCapabilitiesOrBuilder extends
    * <code>.google.protobuf.Struct extensions = 8;</code>
    */
   com.google.protobuf.StructOrBuilder getExtensionsOrBuilder();
+
+  /**
+   * <code>repeated string supported_role_ids = 9;</code>
+   * @return A list containing the supportedRoleIds.
+   */
+  java.util.List<java.lang.String>
+      getSupportedRoleIdsList();
+  /**
+   * <code>repeated string supported_role_ids = 9;</code>
+   * @return The count of supportedRoleIds.
+   */
+  int getSupportedRoleIdsCount();
+  /**
+   * <code>repeated string supported_role_ids = 9;</code>
+   * @param index The index of the element to return.
+   * @return The supportedRoleIds at the given index.
+   */
+  java.lang.String getSupportedRoleIds(int index);
+  /**
+   * <code>repeated string supported_role_ids = 9;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the supportedRoleIds at the given index.
+   */
+  com.google.protobuf.ByteString
+      getSupportedRoleIdsBytes(int index);
 }

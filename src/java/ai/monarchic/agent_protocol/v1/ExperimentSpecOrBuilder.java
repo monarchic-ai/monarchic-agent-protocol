@@ -88,7 +88,7 @@ public interface ExperimentSpecOrBuilder extends
   /**
    * <code>repeated .monarchic.agent_protocol.v1.DatasetRef dataset_refs = 6;</code>
    */
-  java.util.List<ai.monarchic.agent_protocol.v1.DatasetRef> 
+  java.util.List<ai.monarchic.agent_protocol.v1.DatasetRef>
       getDatasetRefsList();
   /**
    * <code>repeated .monarchic.agent_protocol.v1.DatasetRef dataset_refs = 6;</code>
@@ -101,7 +101,7 @@ public interface ExperimentSpecOrBuilder extends
   /**
    * <code>repeated .monarchic.agent_protocol.v1.DatasetRef dataset_refs = 6;</code>
    */
-  java.util.List<? extends ai.monarchic.agent_protocol.v1.DatasetRefOrBuilder> 
+  java.util.List<? extends ai.monarchic.agent_protocol.v1.DatasetRefOrBuilder>
       getDatasetRefsOrBuilderList();
   /**
    * <code>repeated .monarchic.agent_protocol.v1.DatasetRef dataset_refs = 6;</code>

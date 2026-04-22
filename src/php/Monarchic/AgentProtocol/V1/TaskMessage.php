@@ -35,9 +35,9 @@ class TaskMessage extends \Google\Protobuf\Internal\Message
      */
     protected $to_task_id = '';
     /**
-     * Generated from protobuf field <code>string kind = 6;</code>
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.TaskMessageKind kind = 6;</code>
      */
-    protected $kind = '';
+    protected $kind = 0;
     /**
      * Generated from protobuf field <code>optional string subject = 7;</code>
      */
@@ -82,7 +82,7 @@ class TaskMessage extends \Google\Protobuf\Internal\Message
      *     @type string $run_id
      *     @type string $from_task_id
      *     @type string $to_task_id
-     *     @type string $kind
+     *     @type int $kind
      *     @type string $subject
      *     @type string $body
      *     @type string[] $artifact_refs
@@ -209,8 +209,8 @@ class TaskMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string kind = 6;</code>
-     * @return string
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.TaskMessageKind kind = 6;</code>
+     * @return int
      */
     public function getKind()
     {
@@ -218,13 +218,13 @@ class TaskMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string kind = 6;</code>
-     * @param string $var
+     * Generated from protobuf field <code>.monarchic.agent_protocol.v1.TaskMessageKind kind = 6;</code>
+     * @param int $var
      * @return $this
      */
     public function setKind($var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkEnum($var, \Monarchic\AgentProtocol\V1\TaskMessageKind::class);
         $this->kind = $var;
 
         return $this;
@@ -457,4 +457,3 @@ class TaskMessage extends \Google\Protobuf\Internal\Message
     }
 
 }
-

@@ -61,7 +61,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       stateId_ = s;
@@ -77,7 +77,7 @@ private static final long serialVersionUID = 0L;
       getStateIdBytes() {
     java.lang.Object ref = stateId_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       stateId_ = b;
@@ -100,7 +100,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       planId_ = s;
@@ -116,7 +116,7 @@ private static final long serialVersionUID = 0L;
       getPlanIdBytes() {
     java.lang.Object ref = planId_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       planId_ = b;
@@ -166,7 +166,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       prUrl_ = s;
@@ -182,7 +182,7 @@ private static final long serialVersionUID = 0L;
       getPrUrlBytes() {
     java.lang.Object ref = prUrl_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       prUrl_ = b;
@@ -332,7 +332,7 @@ private static final long serialVersionUID = 0L;
    * <code>repeated .monarchic.agent_protocol.v1.BlockedOutcome blocked_outcomes = 11;</code>
    */
   @java.lang.Override
-  public java.util.List<? extends ai.monarchic.agent_protocol.v1.BlockedOutcomeOrBuilder> 
+  public java.util.List<? extends ai.monarchic.agent_protocol.v1.BlockedOutcomeOrBuilder>
       getBlockedOutcomesOrBuilderList() {
     return blockedOutcomes_;
   }
@@ -922,7 +922,7 @@ private static final long serialVersionUID = 0L;
             blockedOutcomesBuilder_ = null;
             blockedOutcomes_ = other.blockedOutcomes_;
             bitField0_ = (bitField0_ & ~0x00000400);
-            blockedOutcomesBuilder_ = 
+            blockedOutcomesBuilder_ =
               com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                  internalGetBlockedOutcomesFieldBuilder() : null;
           } else {
@@ -1077,7 +1077,7 @@ private static final long serialVersionUID = 0L;
         getStateIdBytes() {
       java.lang.Object ref = stateId_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         stateId_ = b;
@@ -1149,7 +1149,7 @@ private static final long serialVersionUID = 0L;
         getPlanIdBytes() {
       java.lang.Object ref = planId_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         planId_ = b;
@@ -1268,7 +1268,7 @@ private static final long serialVersionUID = 0L;
         getPrUrlBytes() {
       java.lang.Object ref = prUrl_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         prUrl_ = b;
@@ -1423,7 +1423,7 @@ private static final long serialVersionUID = 0L;
      * <code>optional .monarchic.agent_protocol.v1.ReviewDecision review_decision = 5;</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
-        ai.monarchic.agent_protocol.v1.ReviewDecision, ai.monarchic.agent_protocol.v1.ReviewDecision.Builder, ai.monarchic.agent_protocol.v1.ReviewDecisionOrBuilder> 
+        ai.monarchic.agent_protocol.v1.ReviewDecision, ai.monarchic.agent_protocol.v1.ReviewDecision.Builder, ai.monarchic.agent_protocol.v1.ReviewDecisionOrBuilder>
         internalGetReviewDecisionFieldBuilder() {
       if (reviewDecisionBuilder_ == null) {
         reviewDecisionBuilder_ = new com.google.protobuf.SingleFieldBuilder<
@@ -1544,7 +1544,7 @@ private static final long serialVersionUID = 0L;
      * <code>optional .monarchic.agent_protocol.v1.RerunScope rerun_scope = 6;</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
-        ai.monarchic.agent_protocol.v1.RerunScope, ai.monarchic.agent_protocol.v1.RerunScope.Builder, ai.monarchic.agent_protocol.v1.RerunScopeOrBuilder> 
+        ai.monarchic.agent_protocol.v1.RerunScope, ai.monarchic.agent_protocol.v1.RerunScope.Builder, ai.monarchic.agent_protocol.v1.RerunScopeOrBuilder>
         internalGetRerunScopeFieldBuilder() {
       if (rerunScopeBuilder_ == null) {
         rerunScopeBuilder_ = new com.google.protobuf.SingleFieldBuilder<
@@ -1665,7 +1665,7 @@ private static final long serialVersionUID = 0L;
      * <code>optional .monarchic.agent_protocol.v1.RerunExecutionResult rerun_result = 7;</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
-        ai.monarchic.agent_protocol.v1.RerunExecutionResult, ai.monarchic.agent_protocol.v1.RerunExecutionResult.Builder, ai.monarchic.agent_protocol.v1.RerunExecutionResultOrBuilder> 
+        ai.monarchic.agent_protocol.v1.RerunExecutionResult, ai.monarchic.agent_protocol.v1.RerunExecutionResult.Builder, ai.monarchic.agent_protocol.v1.RerunExecutionResultOrBuilder>
         internalGetRerunResultFieldBuilder() {
       if (rerunResultBuilder_ == null) {
         rerunResultBuilder_ = new com.google.protobuf.SingleFieldBuilder<
@@ -1786,7 +1786,7 @@ private static final long serialVersionUID = 0L;
      * <code>optional .monarchic.agent_protocol.v1.VerificationReceipt verification_receipt = 8;</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
-        ai.monarchic.agent_protocol.v1.VerificationReceipt, ai.monarchic.agent_protocol.v1.VerificationReceipt.Builder, ai.monarchic.agent_protocol.v1.VerificationReceiptOrBuilder> 
+        ai.monarchic.agent_protocol.v1.VerificationReceipt, ai.monarchic.agent_protocol.v1.VerificationReceipt.Builder, ai.monarchic.agent_protocol.v1.VerificationReceiptOrBuilder>
         internalGetVerificationReceiptFieldBuilder() {
       if (verificationReceiptBuilder_ == null) {
         verificationReceiptBuilder_ = new com.google.protobuf.SingleFieldBuilder<
@@ -2058,7 +2058,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .monarchic.agent_protocol.v1.BlockedOutcome blocked_outcomes = 11;</code>
      */
-    public java.util.List<? extends ai.monarchic.agent_protocol.v1.BlockedOutcomeOrBuilder> 
+    public java.util.List<? extends ai.monarchic.agent_protocol.v1.BlockedOutcomeOrBuilder>
          getBlockedOutcomesOrBuilderList() {
       if (blockedOutcomesBuilder_ != null) {
         return blockedOutcomesBuilder_.getMessageOrBuilderList();
@@ -2084,12 +2084,12 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .monarchic.agent_protocol.v1.BlockedOutcome blocked_outcomes = 11;</code>
      */
-    public java.util.List<ai.monarchic.agent_protocol.v1.BlockedOutcome.Builder> 
+    public java.util.List<ai.monarchic.agent_protocol.v1.BlockedOutcome.Builder>
          getBlockedOutcomesBuilderList() {
       return internalGetBlockedOutcomesFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilder<
-        ai.monarchic.agent_protocol.v1.BlockedOutcome, ai.monarchic.agent_protocol.v1.BlockedOutcome.Builder, ai.monarchic.agent_protocol.v1.BlockedOutcomeOrBuilder> 
+        ai.monarchic.agent_protocol.v1.BlockedOutcome, ai.monarchic.agent_protocol.v1.BlockedOutcome.Builder, ai.monarchic.agent_protocol.v1.BlockedOutcomeOrBuilder>
         internalGetBlockedOutcomesFieldBuilder() {
       if (blockedOutcomesBuilder_ == null) {
         blockedOutcomesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
@@ -2185,4 +2185,3 @@ private static final long serialVersionUID = 0L;
   }
 
 }
-

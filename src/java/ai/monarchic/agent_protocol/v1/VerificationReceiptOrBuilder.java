@@ -97,7 +97,7 @@ public interface VerificationReceiptOrBuilder extends
   /**
    * <code>repeated .monarchic.agent_protocol.v1.VerificationCheck checks = 7;</code>
    */
-  java.util.List<ai.monarchic.agent_protocol.v1.VerificationCheck> 
+  java.util.List<ai.monarchic.agent_protocol.v1.VerificationCheck>
       getChecksList();
   /**
    * <code>repeated .monarchic.agent_protocol.v1.VerificationCheck checks = 7;</code>
@@ -110,7 +110,7 @@ public interface VerificationReceiptOrBuilder extends
   /**
    * <code>repeated .monarchic.agent_protocol.v1.VerificationCheck checks = 7;</code>
    */
-  java.util.List<? extends ai.monarchic.agent_protocol.v1.VerificationCheckOrBuilder> 
+  java.util.List<? extends ai.monarchic.agent_protocol.v1.VerificationCheckOrBuilder>
       getChecksOrBuilderList();
   /**
    * <code>repeated .monarchic.agent_protocol.v1.VerificationCheck checks = 7;</code>
@@ -121,7 +121,7 @@ public interface VerificationReceiptOrBuilder extends
   /**
    * <code>repeated .monarchic.agent_protocol.v1.BlockedOutcome blocked_outcomes = 8;</code>
    */
-  java.util.List<ai.monarchic.agent_protocol.v1.BlockedOutcome> 
+  java.util.List<ai.monarchic.agent_protocol.v1.BlockedOutcome>
       getBlockedOutcomesList();
   /**
    * <code>repeated .monarchic.agent_protocol.v1.BlockedOutcome blocked_outcomes = 8;</code>
@@ -134,7 +134,7 @@ public interface VerificationReceiptOrBuilder extends
   /**
    * <code>repeated .monarchic.agent_protocol.v1.BlockedOutcome blocked_outcomes = 8;</code>
    */
-  java.util.List<? extends ai.monarchic.agent_protocol.v1.BlockedOutcomeOrBuilder> 
+  java.util.List<? extends ai.monarchic.agent_protocol.v1.BlockedOutcomeOrBuilder>
       getBlockedOutcomesOrBuilderList();
   /**
    * <code>repeated .monarchic.agent_protocol.v1.BlockedOutcome blocked_outcomes = 8;</code>

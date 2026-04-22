@@ -66,4 +66,3 @@ class ReviewDecisionScope
         return constant($const);
     }
 }
-
