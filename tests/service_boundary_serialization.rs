@@ -79,6 +79,46 @@ fn auth_context_rejects_unspecified_mechanism() {
 }
 
 #[test]
+fn auth_context_rejects_whitespace_metadata() {
+    for (path, value) in [
+        (vec!["auth_context_id"], String::from("auth ctx")),
+        (
+            vec!["principal", "principal_id"],
+            String::from("auth0 user"),
+        ),
+        (vec!["principal", "provider"], String::from("auth0 ")),
+        (vec!["tenant", "tenant_id"], String::from("tenant dev")),
+        (vec!["credential_id"], String::from("auth0 bearer shell")),
+        (vec!["scopes", "0"], String::from("runs write")),
+    ] {
+        let mut payload = load_fixture_value("auth_context.minimal.json");
+        let mut cursor = &mut payload;
+        for key in &path[..path.len() - 1] {
+            cursor = if let Ok(index) = key.parse::<usize>() {
+                cursor
+                    .get_mut(index)
+                    .expect("nested auth-context fixture index exists")
+            } else {
+                cursor
+                    .get_mut(*key)
+                    .expect("nested auth-context fixture field exists")
+            };
+        }
+        let terminal_key = path[path.len() - 1];
+        if let Ok(index) = terminal_key.parse::<usize>() {
+            cursor[index] = Value::String(value);
+        } else {
+            cursor[terminal_key] = Value::String(value);
+        }
+
+        assert!(
+            serde_json::from_value::<AuthContext>(payload).is_err(),
+            "expected whitespace-bearing auth context field {path:?} to fail"
+        );
+    }
+}
+
+#[test]
 fn usage_record_fixture_round_trips_canonically() {
     assert_fixture_round_trip::<UsageRecord>("usage_record.minimal.json");
 }
