@@ -216,7 +216,7 @@ export interface TenantRef {
 }
 
 export interface AuthContext {
-  contract_version: typeof SERVICE_BOUNDARY_CONTRACT_VERSION | string;
+  contract_version: "v1" | string;
   auth_context_id: string;
   principal: PrincipalRef;
   tenant: TenantRef;
