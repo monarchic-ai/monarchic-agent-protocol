@@ -221,4 +221,3 @@ class ResumeLeaseRequest extends \Google\Protobuf\Internal\Message
     }
 
 }
-

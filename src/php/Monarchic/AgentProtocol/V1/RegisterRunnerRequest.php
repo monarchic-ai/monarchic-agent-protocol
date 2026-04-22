@@ -221,4 +221,3 @@ class RegisterRunnerRequest extends \Google\Protobuf\Internal\Message
     }
 
 }
-

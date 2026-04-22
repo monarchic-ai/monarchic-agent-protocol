@@ -194,4 +194,3 @@ class LeaseStatus extends \Google\Protobuf\Internal\Message
     }
 
 }
-

@@ -81,4 +81,3 @@ class PlanStatus
         return constant($const);
     }
 }
-

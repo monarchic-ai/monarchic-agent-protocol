@@ -91,4 +91,3 @@ class AgentRole
         return constant($const);
     }
 }
-

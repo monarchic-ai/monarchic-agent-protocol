@@ -6,6 +6,11 @@ OUTPUT_PATH="$ROOT_DIR/hashes/registry-hashes.json"
 RELEASE_TAG=""
 ALLOW_MISSING=0
 
+if [[ "${SKIP_NETWORK:-0}" == "1" ]]; then
+  echo "SKIP_NETWORK=1; preserving existing registry hashes at $OUTPUT_PATH"
+  exit 0
+fi
+
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --output)

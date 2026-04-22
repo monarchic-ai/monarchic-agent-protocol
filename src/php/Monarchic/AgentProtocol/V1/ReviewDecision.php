@@ -218,4 +218,3 @@ class ReviewDecision extends \Google\Protobuf\Internal\Message
     }
 
 }
-

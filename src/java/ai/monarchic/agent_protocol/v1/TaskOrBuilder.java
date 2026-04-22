@@ -35,11 +35,19 @@ public interface TaskOrBuilder extends
       getTaskIdBytes();
 
   /**
+   * <pre>
+   * Legacy enum role. Prefer role_id for new producers and consumers.
+   * </pre>
+   *
    * <code>.monarchic.agent_protocol.v1.AgentRole role = 3;</code>
    * @return The enum numeric value on the wire for role.
    */
   int getRoleValue();
   /**
+   * <pre>
+   * Legacy enum role. Prefer role_id for new producers and consumers.
+   * </pre>
+   *
    * <code>.monarchic.agent_protocol.v1.AgentRole role = 3;</code>
    * @return The role.
    */
@@ -171,4 +179,26 @@ public interface TaskOrBuilder extends
    * <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 11;</code>
    */
   ai.monarchic.agent_protocol.v1.ObjectiveSpecOrBuilder getObjectiveSpecOrBuilder();
+
+  /**
+   * <pre>
+   * Canonical open-ended role identifier. This allows built-in and custom
+   * roles without requiring protocol enum changes.
+   * </pre>
+   *
+   * <code>string role_id = 12;</code>
+   * @return The roleId.
+   */
+  java.lang.String getRoleId();
+  /**
+   * <pre>
+   * Canonical open-ended role identifier. This allows built-in and custom
+   * roles without requiring protocol enum changes.
+   * </pre>
+   *
+   * <code>string role_id = 12;</code>
+   * @return The bytes for roleId.
+   */
+  com.google.protobuf.ByteString
+      getRoleIdBytes();
 }

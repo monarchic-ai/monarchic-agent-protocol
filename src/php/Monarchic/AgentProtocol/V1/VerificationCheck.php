@@ -164,4 +164,3 @@ class VerificationCheck extends \Google\Protobuf\Internal\Message
     }
 
 }
-

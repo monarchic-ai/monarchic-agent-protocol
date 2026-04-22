@@ -137,7 +137,7 @@ public interface PrLifecycleStateOrBuilder extends
   /**
    * <code>repeated .monarchic.agent_protocol.v1.BlockedOutcome blocked_outcomes = 11;</code>
    */
-  java.util.List<ai.monarchic.agent_protocol.v1.BlockedOutcome> 
+  java.util.List<ai.monarchic.agent_protocol.v1.BlockedOutcome>
       getBlockedOutcomesList();
   /**
    * <code>repeated .monarchic.agent_protocol.v1.BlockedOutcome blocked_outcomes = 11;</code>
@@ -150,7 +150,7 @@ public interface PrLifecycleStateOrBuilder extends
   /**
    * <code>repeated .monarchic.agent_protocol.v1.BlockedOutcome blocked_outcomes = 11;</code>
    */
-  java.util.List<? extends ai.monarchic.agent_protocol.v1.BlockedOutcomeOrBuilder> 
+  java.util.List<? extends ai.monarchic.agent_protocol.v1.BlockedOutcomeOrBuilder>
       getBlockedOutcomesOrBuilderList();
   /**
    * <code>repeated .monarchic.agent_protocol.v1.BlockedOutcome blocked_outcomes = 11;</code>

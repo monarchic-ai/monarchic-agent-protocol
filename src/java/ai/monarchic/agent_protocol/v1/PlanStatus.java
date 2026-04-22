@@ -160,7 +160,7 @@ public enum PlanStatus
   }
   public static com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.getDescriptor().getEnumTypes().get(3);
+    return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.getDescriptor().getEnumTypes().get(5);
   }
 
   private static final PlanStatus[] VALUES = values();
@@ -185,4 +185,3 @@ public enum PlanStatus
 
   // @@protoc_insertion_point(enum_scope:monarchic.agent_protocol.v1.PlanStatus)
 }
-

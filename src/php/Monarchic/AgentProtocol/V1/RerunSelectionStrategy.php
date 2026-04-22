@@ -56,4 +56,3 @@ class RerunSelectionStrategy
         return constant($const);
     }
 }
-

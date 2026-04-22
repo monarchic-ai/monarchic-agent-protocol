@@ -295,4 +295,3 @@ class DatasetRef extends \Google\Protobuf\Internal\Message
     }
 
 }
-

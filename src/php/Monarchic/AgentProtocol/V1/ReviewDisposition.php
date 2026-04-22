@@ -61,4 +61,3 @@ class ReviewDisposition
         return constant($const);
     }
 }
-

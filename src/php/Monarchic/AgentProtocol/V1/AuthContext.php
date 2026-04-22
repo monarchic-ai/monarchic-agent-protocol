@@ -302,4 +302,3 @@ class AuthContext extends \Google\Protobuf\Internal\Message
     }
 
 }
-

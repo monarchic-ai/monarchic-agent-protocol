@@ -66,7 +66,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       stepId_ = s;
@@ -82,7 +82,7 @@ private static final long serialVersionUID = 0L;
       getStepIdBytes() {
     java.lang.Object ref = stepId_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       stepId_ = b;
@@ -105,7 +105,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       description_ = s;
@@ -121,7 +121,7 @@ private static final long serialVersionUID = 0L;
       getDescriptionBytes() {
     java.lang.Object ref = description_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       description_ = b;
@@ -241,7 +241,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       taskId_ = s;
@@ -257,7 +257,7 @@ private static final long serialVersionUID = 0L;
       getTaskIdBytes() {
     java.lang.Object ref = taskId_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       taskId_ = b;
@@ -325,7 +325,7 @@ private static final long serialVersionUID = 0L;
    * <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>
    */
   @java.lang.Override
-  public java.util.List<? extends ai.monarchic.agent_protocol.v1.StepOutputExpectationOrBuilder> 
+  public java.util.List<? extends ai.monarchic.agent_protocol.v1.StepOutputExpectationOrBuilder>
       getExpectedOutputsOrBuilderList() {
     return expectedOutputs_;
   }
@@ -904,7 +904,7 @@ private static final long serialVersionUID = 0L;
             expectedOutputsBuilder_ = null;
             expectedOutputs_ = other.expectedOutputs_;
             bitField0_ = (bitField0_ & ~0x00000100);
-            expectedOutputsBuilder_ = 
+            expectedOutputsBuilder_ =
               com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                  internalGetExpectedOutputsFieldBuilder() : null;
           } else {
@@ -1056,7 +1056,7 @@ private static final long serialVersionUID = 0L;
         getStepIdBytes() {
       java.lang.Object ref = stepId_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         stepId_ = b;
@@ -1128,7 +1128,7 @@ private static final long serialVersionUID = 0L;
         getDescriptionBytes() {
       java.lang.Object ref = description_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         description_ = b;
@@ -1394,7 +1394,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct task_template = 4;</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
-        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>
         internalGetTaskTemplateFieldBuilder() {
       if (taskTemplateBuilder_ == null) {
         taskTemplateBuilder_ = new com.google.protobuf.SingleFieldBuilder<
@@ -1515,7 +1515,7 @@ private static final long serialVersionUID = 0L;
      * <code>optional .monarchic.agent_protocol.v1.FailureDetail failure = 5;</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
-        ai.monarchic.agent_protocol.v1.FailureDetail, ai.monarchic.agent_protocol.v1.FailureDetail.Builder, ai.monarchic.agent_protocol.v1.FailureDetailOrBuilder> 
+        ai.monarchic.agent_protocol.v1.FailureDetail, ai.monarchic.agent_protocol.v1.FailureDetail.Builder, ai.monarchic.agent_protocol.v1.FailureDetailOrBuilder>
         internalGetFailureFieldBuilder() {
       if (failureBuilder_ == null) {
         failureBuilder_ = new com.google.protobuf.SingleFieldBuilder<
@@ -1560,7 +1560,7 @@ private static final long serialVersionUID = 0L;
         getTaskIdBytes() {
       java.lang.Object ref = taskId_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         taskId_ = b;
@@ -1766,7 +1766,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct inputs = 8;</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
-        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>
         internalGetInputsFieldBuilder() {
       if (inputsBuilder_ == null) {
         inputsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
@@ -1974,7 +1974,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>
      */
-    public java.util.List<? extends ai.monarchic.agent_protocol.v1.StepOutputExpectationOrBuilder> 
+    public java.util.List<? extends ai.monarchic.agent_protocol.v1.StepOutputExpectationOrBuilder>
          getExpectedOutputsOrBuilderList() {
       if (expectedOutputsBuilder_ != null) {
         return expectedOutputsBuilder_.getMessageOrBuilderList();
@@ -2000,12 +2000,12 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .monarchic.agent_protocol.v1.StepOutputExpectation expected_outputs = 9;</code>
      */
-    public java.util.List<ai.monarchic.agent_protocol.v1.StepOutputExpectation.Builder> 
+    public java.util.List<ai.monarchic.agent_protocol.v1.StepOutputExpectation.Builder>
          getExpectedOutputsBuilderList() {
       return internalGetExpectedOutputsFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilder<
-        ai.monarchic.agent_protocol.v1.StepOutputExpectation, ai.monarchic.agent_protocol.v1.StepOutputExpectation.Builder, ai.monarchic.agent_protocol.v1.StepOutputExpectationOrBuilder> 
+        ai.monarchic.agent_protocol.v1.StepOutputExpectation, ai.monarchic.agent_protocol.v1.StepOutputExpectation.Builder, ai.monarchic.agent_protocol.v1.StepOutputExpectationOrBuilder>
         internalGetExpectedOutputsFieldBuilder() {
       if (expectedOutputsBuilder_ == null) {
         expectedOutputsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
@@ -2180,4 +2180,3 @@ private static final long serialVersionUID = 0L;
   }
 
 }
-

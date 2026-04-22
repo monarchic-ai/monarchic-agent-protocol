@@ -292,4 +292,3 @@ class AuditExportManifest extends \Google\Protobuf\Internal\Message
     }
 
 }
-

@@ -356,4 +356,3 @@ class Artifact extends \Google\Protobuf\Internal\Message
     }
 
 }
-

@@ -194,4 +194,3 @@ class LeaseAssignment extends \Google\Protobuf\Internal\Message
     }
 
 }
-

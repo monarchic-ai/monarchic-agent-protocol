@@ -299,4 +299,3 @@ class VerificationReceipt extends \Google\Protobuf\Internal\Message
     }
 
 }
-

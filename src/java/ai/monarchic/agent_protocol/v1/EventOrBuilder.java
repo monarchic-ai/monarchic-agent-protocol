@@ -120,7 +120,7 @@ public interface EventOrBuilder extends
   /**
    * <code>repeated .monarchic.agent_protocol.v1.EvalResult eval_results = 9;</code>
    */
-  java.util.List<ai.monarchic.agent_protocol.v1.EvalResult> 
+  java.util.List<ai.monarchic.agent_protocol.v1.EvalResult>
       getEvalResultsList();
   /**
    * <code>repeated .monarchic.agent_protocol.v1.EvalResult eval_results = 9;</code>
@@ -133,7 +133,7 @@ public interface EventOrBuilder extends
   /**
    * <code>repeated .monarchic.agent_protocol.v1.EvalResult eval_results = 9;</code>
    */
-  java.util.List<? extends ai.monarchic.agent_protocol.v1.EvalResultOrBuilder> 
+  java.util.List<? extends ai.monarchic.agent_protocol.v1.EvalResultOrBuilder>
       getEvalResultsOrBuilderList();
   /**
    * <code>repeated .monarchic.agent_protocol.v1.EvalResult eval_results = 9;</code>

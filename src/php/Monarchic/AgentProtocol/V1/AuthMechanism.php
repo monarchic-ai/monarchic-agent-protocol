@@ -66,4 +66,3 @@ class AuthMechanism
         return constant($const);
     }
 }
-

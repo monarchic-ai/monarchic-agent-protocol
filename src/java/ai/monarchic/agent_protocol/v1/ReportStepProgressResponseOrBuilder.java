@@ -43,7 +43,7 @@ public interface ReportStepProgressResponseOrBuilder extends
   /**
    * <code>repeated .monarchic.agent_protocol.v1.CancellationIntent cancellations = 4;</code>
    */
-  java.util.List<ai.monarchic.agent_protocol.v1.CancellationIntent> 
+  java.util.List<ai.monarchic.agent_protocol.v1.CancellationIntent>
       getCancellationsList();
   /**
    * <code>repeated .monarchic.agent_protocol.v1.CancellationIntent cancellations = 4;</code>
@@ -56,7 +56,7 @@ public interface ReportStepProgressResponseOrBuilder extends
   /**
    * <code>repeated .monarchic.agent_protocol.v1.CancellationIntent cancellations = 4;</code>
    */
-  java.util.List<? extends ai.monarchic.agent_protocol.v1.CancellationIntentOrBuilder> 
+  java.util.List<? extends ai.monarchic.agent_protocol.v1.CancellationIntentOrBuilder>
       getCancellationsOrBuilderList();
   /**
    * <code>repeated .monarchic.agent_protocol.v1.CancellationIntent cancellations = 4;</code>

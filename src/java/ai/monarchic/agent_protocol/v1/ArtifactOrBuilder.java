@@ -115,7 +115,7 @@ public interface ArtifactOrBuilder extends
   /**
    * <code>repeated .monarchic.agent_protocol.v1.DatasetRef dataset_refs = 9;</code>
    */
-  java.util.List<ai.monarchic.agent_protocol.v1.DatasetRef> 
+  java.util.List<ai.monarchic.agent_protocol.v1.DatasetRef>
       getDatasetRefsList();
   /**
    * <code>repeated .monarchic.agent_protocol.v1.DatasetRef dataset_refs = 9;</code>
@@ -128,7 +128,7 @@ public interface ArtifactOrBuilder extends
   /**
    * <code>repeated .monarchic.agent_protocol.v1.DatasetRef dataset_refs = 9;</code>
    */
-  java.util.List<? extends ai.monarchic.agent_protocol.v1.DatasetRefOrBuilder> 
+  java.util.List<? extends ai.monarchic.agent_protocol.v1.DatasetRefOrBuilder>
       getDatasetRefsOrBuilderList();
   /**
    * <code>repeated .monarchic.agent_protocol.v1.DatasetRef dataset_refs = 9;</code>
@@ -139,7 +139,7 @@ public interface ArtifactOrBuilder extends
   /**
    * <code>repeated .monarchic.agent_protocol.v1.EvalResult eval_results = 10;</code>
    */
-  java.util.List<ai.monarchic.agent_protocol.v1.EvalResult> 
+  java.util.List<ai.monarchic.agent_protocol.v1.EvalResult>
       getEvalResultsList();
   /**
    * <code>repeated .monarchic.agent_protocol.v1.EvalResult eval_results = 10;</code>
@@ -152,7 +152,7 @@ public interface ArtifactOrBuilder extends
   /**
    * <code>repeated .monarchic.agent_protocol.v1.EvalResult eval_results = 10;</code>
    */
-  java.util.List<? extends ai.monarchic.agent_protocol.v1.EvalResultOrBuilder> 
+  java.util.List<? extends ai.monarchic.agent_protocol.v1.EvalResultOrBuilder>
       getEvalResultsOrBuilderList();
   /**
    * <code>repeated .monarchic.agent_protocol.v1.EvalResult eval_results = 10;</code>

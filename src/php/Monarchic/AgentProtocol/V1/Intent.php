@@ -309,4 +309,3 @@ class Intent extends \Google\Protobuf\Internal\Message
     }
 
 }
-

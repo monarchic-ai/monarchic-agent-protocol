@@ -228,4 +228,3 @@ class RunContext extends \Google\Protobuf\Internal\Message
     }
 
 }
-

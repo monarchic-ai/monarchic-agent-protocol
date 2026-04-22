@@ -71,4 +71,3 @@ class UsageUnit
         return constant($const);
     }
 }
-

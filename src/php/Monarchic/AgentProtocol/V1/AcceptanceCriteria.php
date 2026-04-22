@@ -258,4 +258,3 @@ class AcceptanceCriteria extends \Google\Protobuf\Internal\Message
     }
 
 }
-

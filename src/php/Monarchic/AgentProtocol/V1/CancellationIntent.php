@@ -184,4 +184,3 @@ class CancellationIntent extends \Google\Protobuf\Internal\Message
     }
 
 }
-

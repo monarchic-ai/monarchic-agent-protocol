@@ -115,7 +115,7 @@ public enum RerunSelectionStrategy
   }
   public static com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.getDescriptor().getEnumTypes().get(16);
+    return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.getDescriptor().getEnumTypes().get(18);
   }
 
   private static final RerunSelectionStrategy[] VALUES = values();
@@ -140,4 +140,3 @@ public enum RerunSelectionStrategy
 
   // @@protoc_insertion_point(enum_scope:monarchic.agent_protocol.v1.RerunSelectionStrategy)
 }
-

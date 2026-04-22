@@ -151,7 +151,7 @@ public enum BlockedOutcomeScope
   }
   public static com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.getDescriptor().getEnumTypes().get(12);
+    return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.getDescriptor().getEnumTypes().get(14);
   }
 
   private static final BlockedOutcomeScope[] VALUES = values();
@@ -176,4 +176,3 @@ public enum BlockedOutcomeScope
 
   // @@protoc_insertion_point(enum_scope:monarchic.agent_protocol.v1.BlockedOutcomeScope)
 }
-

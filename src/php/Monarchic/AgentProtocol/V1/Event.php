@@ -339,4 +339,3 @@ class Event extends \Google\Protobuf\Internal\Message
     }
 
 }
-

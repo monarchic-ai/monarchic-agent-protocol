@@ -561,4 +561,3 @@ class RunOutcome extends \Google\Protobuf\Internal\Message
     }
 
 }
-

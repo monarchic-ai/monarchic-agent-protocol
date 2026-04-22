@@ -332,4 +332,3 @@ class EvalResult extends \Google\Protobuf\Internal\Message
     }
 
 }
-

@@ -63,7 +63,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       contractVersion_ = s;
@@ -79,7 +79,7 @@ private static final long serialVersionUID = 0L;
       getContractVersionBytes() {
     java.lang.Object ref = contractVersion_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       contractVersion_ = b;
@@ -102,7 +102,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       manifestId_ = s;
@@ -118,7 +118,7 @@ private static final long serialVersionUID = 0L;
       getManifestIdBytes() {
     java.lang.Object ref = manifestId_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       manifestId_ = b;
@@ -141,7 +141,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       runId_ = s;
@@ -157,7 +157,7 @@ private static final long serialVersionUID = 0L;
       getRunIdBytes() {
     java.lang.Object ref = runId_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       runId_ = b;
@@ -180,7 +180,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       planId_ = s;
@@ -196,7 +196,7 @@ private static final long serialVersionUID = 0L;
       getPlanIdBytes() {
     java.lang.Object ref = planId_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       planId_ = b;
@@ -230,7 +230,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       combinedDigest_ = s;
@@ -246,7 +246,7 @@ private static final long serialVersionUID = 0L;
       getCombinedDigestBytes() {
     java.lang.Object ref = combinedDigest_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       combinedDigest_ = b;
@@ -269,7 +269,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       eventDigest_ = s;
@@ -285,7 +285,7 @@ private static final long serialVersionUID = 0L;
       getEventDigestBytes() {
     java.lang.Object ref = eventDigest_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       eventDigest_ = b;
@@ -309,7 +309,7 @@ private static final long serialVersionUID = 0L;
    * <code>repeated .monarchic.agent_protocol.v1.ArtifactDescriptor artifact_descriptors = 8;</code>
    */
   @java.lang.Override
-  public java.util.List<? extends ai.monarchic.agent_protocol.v1.ArtifactDescriptorOrBuilder> 
+  public java.util.List<? extends ai.monarchic.agent_protocol.v1.ArtifactDescriptorOrBuilder>
       getArtifactDescriptorsOrBuilderList() {
     return artifactDescriptors_;
   }
@@ -747,7 +747,7 @@ private static final long serialVersionUID = 0L;
             artifactDescriptorsBuilder_ = null;
             artifactDescriptors_ = other.artifactDescriptors_;
             bitField0_ = (bitField0_ & ~0x00000080);
-            artifactDescriptorsBuilder_ = 
+            artifactDescriptorsBuilder_ =
               com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                  internalGetArtifactDescriptorsFieldBuilder() : null;
           } else {
@@ -871,7 +871,7 @@ private static final long serialVersionUID = 0L;
         getContractVersionBytes() {
       java.lang.Object ref = contractVersion_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         contractVersion_ = b;
@@ -943,7 +943,7 @@ private static final long serialVersionUID = 0L;
         getManifestIdBytes() {
       java.lang.Object ref = manifestId_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         manifestId_ = b;
@@ -1015,7 +1015,7 @@ private static final long serialVersionUID = 0L;
         getRunIdBytes() {
       java.lang.Object ref = runId_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         runId_ = b;
@@ -1087,7 +1087,7 @@ private static final long serialVersionUID = 0L;
         getPlanIdBytes() {
       java.lang.Object ref = planId_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         planId_ = b;
@@ -1191,7 +1191,7 @@ private static final long serialVersionUID = 0L;
         getCombinedDigestBytes() {
       java.lang.Object ref = combinedDigest_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         combinedDigest_ = b;
@@ -1263,7 +1263,7 @@ private static final long serialVersionUID = 0L;
         getEventDigestBytes() {
       java.lang.Object ref = eventDigest_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         eventDigest_ = b;
@@ -1505,7 +1505,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .monarchic.agent_protocol.v1.ArtifactDescriptor artifact_descriptors = 8;</code>
      */
-    public java.util.List<? extends ai.monarchic.agent_protocol.v1.ArtifactDescriptorOrBuilder> 
+    public java.util.List<? extends ai.monarchic.agent_protocol.v1.ArtifactDescriptorOrBuilder>
          getArtifactDescriptorsOrBuilderList() {
       if (artifactDescriptorsBuilder_ != null) {
         return artifactDescriptorsBuilder_.getMessageOrBuilderList();
@@ -1531,12 +1531,12 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .monarchic.agent_protocol.v1.ArtifactDescriptor artifact_descriptors = 8;</code>
      */
-    public java.util.List<ai.monarchic.agent_protocol.v1.ArtifactDescriptor.Builder> 
+    public java.util.List<ai.monarchic.agent_protocol.v1.ArtifactDescriptor.Builder>
          getArtifactDescriptorsBuilderList() {
       return internalGetArtifactDescriptorsFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilder<
-        ai.monarchic.agent_protocol.v1.ArtifactDescriptor, ai.monarchic.agent_protocol.v1.ArtifactDescriptor.Builder, ai.monarchic.agent_protocol.v1.ArtifactDescriptorOrBuilder> 
+        ai.monarchic.agent_protocol.v1.ArtifactDescriptor, ai.monarchic.agent_protocol.v1.ArtifactDescriptor.Builder, ai.monarchic.agent_protocol.v1.ArtifactDescriptorOrBuilder>
         internalGetArtifactDescriptorsFieldBuilder() {
       if (artifactDescriptorsBuilder_ == null) {
         artifactDescriptorsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
@@ -1600,4 +1600,3 @@ private static final long serialVersionUID = 0L;
   }
 
 }
-

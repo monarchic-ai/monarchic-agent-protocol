@@ -160,7 +160,7 @@ public enum StepLifecycleState
   }
   public static com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.getDescriptor().getEnumTypes().get(21);
+    return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.getDescriptor().getEnumTypes().get(24);
   }
 
   private static final StepLifecycleState[] VALUES = values();
@@ -185,4 +185,3 @@ public enum StepLifecycleState
 
   // @@protoc_insertion_point(enum_scope:monarchic.agent_protocol.v1.StepLifecycleState)
 }
-

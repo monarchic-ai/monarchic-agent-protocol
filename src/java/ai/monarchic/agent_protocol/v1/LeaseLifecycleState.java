@@ -142,7 +142,7 @@ public enum LeaseLifecycleState
   }
   public static com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.getDescriptor().getEnumTypes().get(19);
+    return ai.monarchic.agent_protocol.v1.MonarchicAgentProtocolV1.getDescriptor().getEnumTypes().get(22);
   }
 
   private static final LeaseLifecycleState[] VALUES = values();
@@ -167,4 +167,3 @@ public enum LeaseLifecycleState
 
   // @@protoc_insertion_point(enum_scope:monarchic.agent_protocol.v1.LeaseLifecycleState)
 }
-

@@ -61,7 +61,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       code_ = s;
@@ -77,7 +77,7 @@ private static final long serialVersionUID = 0L;
       getCodeBytes() {
     java.lang.Object ref = code_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       code_ = b;
@@ -118,7 +118,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       message_ = s;
@@ -134,7 +134,7 @@ private static final long serialVersionUID = 0L;
       getMessageBytes() {
     java.lang.Object ref = message_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       message_ = b;
@@ -184,7 +184,7 @@ private static final long serialVersionUID = 0L;
    * <code>repeated .monarchic.agent_protocol.v1.ArtifactDescriptor blocking_artifacts = 5;</code>
    */
   @java.lang.Override
-  public java.util.List<? extends ai.monarchic.agent_protocol.v1.ArtifactDescriptorOrBuilder> 
+  public java.util.List<? extends ai.monarchic.agent_protocol.v1.ArtifactDescriptorOrBuilder>
       getBlockingArtifactsOrBuilderList() {
     return blockingArtifacts_;
   }
@@ -583,7 +583,7 @@ private static final long serialVersionUID = 0L;
             blockingArtifactsBuilder_ = null;
             blockingArtifacts_ = other.blockingArtifacts_;
             bitField0_ = (bitField0_ & ~0x00000010);
-            blockingArtifactsBuilder_ = 
+            blockingArtifactsBuilder_ =
               com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                  internalGetBlockingArtifactsFieldBuilder() : null;
           } else {
@@ -694,7 +694,7 @@ private static final long serialVersionUID = 0L;
         getCodeBytes() {
       java.lang.Object ref = code_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         code_ = b;
@@ -817,7 +817,7 @@ private static final long serialVersionUID = 0L;
         getMessageBytes() {
       java.lang.Object ref = message_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         message_ = b;
@@ -972,7 +972,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct details = 4;</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
-        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>
         internalGetDetailsFieldBuilder() {
       if (detailsBuilder_ == null) {
         detailsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
@@ -1180,7 +1180,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .monarchic.agent_protocol.v1.ArtifactDescriptor blocking_artifacts = 5;</code>
      */
-    public java.util.List<? extends ai.monarchic.agent_protocol.v1.ArtifactDescriptorOrBuilder> 
+    public java.util.List<? extends ai.monarchic.agent_protocol.v1.ArtifactDescriptorOrBuilder>
          getBlockingArtifactsOrBuilderList() {
       if (blockingArtifactsBuilder_ != null) {
         return blockingArtifactsBuilder_.getMessageOrBuilderList();
@@ -1206,12 +1206,12 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .monarchic.agent_protocol.v1.ArtifactDescriptor blocking_artifacts = 5;</code>
      */
-    public java.util.List<ai.monarchic.agent_protocol.v1.ArtifactDescriptor.Builder> 
+    public java.util.List<ai.monarchic.agent_protocol.v1.ArtifactDescriptor.Builder>
          getBlockingArtifactsBuilderList() {
       return internalGetBlockingArtifactsFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilder<
-        ai.monarchic.agent_protocol.v1.ArtifactDescriptor, ai.monarchic.agent_protocol.v1.ArtifactDescriptor.Builder, ai.monarchic.agent_protocol.v1.ArtifactDescriptorOrBuilder> 
+        ai.monarchic.agent_protocol.v1.ArtifactDescriptor, ai.monarchic.agent_protocol.v1.ArtifactDescriptor.Builder, ai.monarchic.agent_protocol.v1.ArtifactDescriptorOrBuilder>
         internalGetBlockingArtifactsFieldBuilder() {
       if (blockingArtifactsBuilder_ == null) {
         blockingArtifactsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
@@ -1275,4 +1275,3 @@ private static final long serialVersionUID = 0L;
   }
 
 }
-

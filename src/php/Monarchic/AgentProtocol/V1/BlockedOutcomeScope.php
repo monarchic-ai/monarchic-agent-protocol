@@ -76,4 +76,3 @@ class BlockedOutcomeScope
         return constant($const);
     }
 }
-

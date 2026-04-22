@@ -184,4 +184,3 @@ class AckCancellationResponse extends \Google\Protobuf\Internal\Message
     }
 
 }
-

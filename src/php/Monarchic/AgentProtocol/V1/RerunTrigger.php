@@ -51,4 +51,3 @@ class RerunTrigger
         return constant($const);
     }
 }
-

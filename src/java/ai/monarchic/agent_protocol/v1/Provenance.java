@@ -71,7 +71,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       promptSha256_ = s;
@@ -87,7 +87,7 @@ private static final long serialVersionUID = 0L;
       getPromptSha256Bytes() {
     java.lang.Object ref = promptSha256_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       promptSha256_ = b;
@@ -110,7 +110,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       codeSha256_ = s;
@@ -126,7 +126,7 @@ private static final long serialVersionUID = 0L;
       getCodeSha256Bytes() {
     java.lang.Object ref = codeSha256_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       codeSha256_ = b;
@@ -186,7 +186,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       runtime_ = s;
@@ -202,7 +202,7 @@ private static final long serialVersionUID = 0L;
       getRuntimeBytes() {
     java.lang.Object ref = runtime_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       runtime_ = b;
@@ -233,7 +233,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       model_ = s;
@@ -249,7 +249,7 @@ private static final long serialVersionUID = 0L;
       getModelBytes() {
     java.lang.Object ref = model_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       model_ = b;
@@ -272,7 +272,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       runner_ = s;
@@ -288,7 +288,7 @@ private static final long serialVersionUID = 0L;
       getRunnerBytes() {
     java.lang.Object ref = runner_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       runner_ = b;
@@ -311,7 +311,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       orchestrator_ = s;
@@ -327,7 +327,7 @@ private static final long serialVersionUID = 0L;
       getOrchestratorBytes() {
     java.lang.Object ref = orchestrator_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       orchestrator_ = b;
@@ -358,7 +358,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       taskSpecSha256_ = s;
@@ -374,7 +374,7 @@ private static final long serialVersionUID = 0L;
       getTaskSpecSha256Bytes() {
     java.lang.Object ref = taskSpecSha256_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       taskSpecSha256_ = b;
@@ -405,7 +405,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       pipelineSha256_ = s;
@@ -421,7 +421,7 @@ private static final long serialVersionUID = 0L;
       getPipelineSha256Bytes() {
     java.lang.Object ref = pipelineSha256_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       pipelineSha256_ = b;
@@ -452,7 +452,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       commandSha256_ = s;
@@ -468,7 +468,7 @@ private static final long serialVersionUID = 0L;
       getCommandSha256Bytes() {
     java.lang.Object ref = commandSha256_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       commandSha256_ = b;
@@ -491,7 +491,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       createdAt_ = s;
@@ -507,7 +507,7 @@ private static final long serialVersionUID = 0L;
       getCreatedAtBytes() {
     java.lang.Object ref = createdAt_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       createdAt_ = b;
@@ -538,7 +538,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       sourceTaskId_ = s;
@@ -554,7 +554,7 @@ private static final long serialVersionUID = 0L;
       getSourceTaskIdBytes() {
     java.lang.Object ref = sourceTaskId_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       sourceTaskId_ = b;
@@ -578,7 +578,7 @@ private static final long serialVersionUID = 0L;
    * <code>repeated .monarchic.agent_protocol.v1.DatasetRef dataset_refs = 13;</code>
    */
   @java.lang.Override
-  public java.util.List<? extends ai.monarchic.agent_protocol.v1.DatasetRefOrBuilder> 
+  public java.util.List<? extends ai.monarchic.agent_protocol.v1.DatasetRefOrBuilder>
       getDatasetRefsOrBuilderList() {
     return datasetRefs_;
   }
@@ -1217,7 +1217,7 @@ private static final long serialVersionUID = 0L;
             datasetRefsBuilder_ = null;
             datasetRefs_ = other.datasetRefs_;
             bitField0_ = (bitField0_ & ~0x00001000);
-            datasetRefsBuilder_ = 
+            datasetRefsBuilder_ =
               com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                  internalGetDatasetRefsFieldBuilder() : null;
           } else {
@@ -1377,7 +1377,7 @@ private static final long serialVersionUID = 0L;
         getPromptSha256Bytes() {
       java.lang.Object ref = promptSha256_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         promptSha256_ = b;
@@ -1449,7 +1449,7 @@ private static final long serialVersionUID = 0L;
         getCodeSha256Bytes() {
       java.lang.Object ref = codeSha256_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         codeSha256_ = b;
@@ -1632,7 +1632,7 @@ private static final long serialVersionUID = 0L;
         getRuntimeBytes() {
       java.lang.Object ref = runtime_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         runtime_ = b;
@@ -1711,7 +1711,7 @@ private static final long serialVersionUID = 0L;
         getModelBytes() {
       java.lang.Object ref = model_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         model_ = b;
@@ -1783,7 +1783,7 @@ private static final long serialVersionUID = 0L;
         getRunnerBytes() {
       java.lang.Object ref = runner_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         runner_ = b;
@@ -1855,7 +1855,7 @@ private static final long serialVersionUID = 0L;
         getOrchestratorBytes() {
       java.lang.Object ref = orchestrator_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         orchestrator_ = b;
@@ -1934,7 +1934,7 @@ private static final long serialVersionUID = 0L;
         getTaskSpecSha256Bytes() {
       java.lang.Object ref = taskSpecSha256_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         taskSpecSha256_ = b;
@@ -2013,7 +2013,7 @@ private static final long serialVersionUID = 0L;
         getPipelineSha256Bytes() {
       java.lang.Object ref = pipelineSha256_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         pipelineSha256_ = b;
@@ -2092,7 +2092,7 @@ private static final long serialVersionUID = 0L;
         getCommandSha256Bytes() {
       java.lang.Object ref = commandSha256_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         commandSha256_ = b;
@@ -2164,7 +2164,7 @@ private static final long serialVersionUID = 0L;
         getCreatedAtBytes() {
       java.lang.Object ref = createdAt_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         createdAt_ = b;
@@ -2243,7 +2243,7 @@ private static final long serialVersionUID = 0L;
         getSourceTaskIdBytes() {
       java.lang.Object ref = sourceTaskId_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         sourceTaskId_ = b;
@@ -2485,7 +2485,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .monarchic.agent_protocol.v1.DatasetRef dataset_refs = 13;</code>
      */
-    public java.util.List<? extends ai.monarchic.agent_protocol.v1.DatasetRefOrBuilder> 
+    public java.util.List<? extends ai.monarchic.agent_protocol.v1.DatasetRefOrBuilder>
          getDatasetRefsOrBuilderList() {
       if (datasetRefsBuilder_ != null) {
         return datasetRefsBuilder_.getMessageOrBuilderList();
@@ -2511,12 +2511,12 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated .monarchic.agent_protocol.v1.DatasetRef dataset_refs = 13;</code>
      */
-    public java.util.List<ai.monarchic.agent_protocol.v1.DatasetRef.Builder> 
+    public java.util.List<ai.monarchic.agent_protocol.v1.DatasetRef.Builder>
          getDatasetRefsBuilderList() {
       return internalGetDatasetRefsFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilder<
-        ai.monarchic.agent_protocol.v1.DatasetRef, ai.monarchic.agent_protocol.v1.DatasetRef.Builder, ai.monarchic.agent_protocol.v1.DatasetRefOrBuilder> 
+        ai.monarchic.agent_protocol.v1.DatasetRef, ai.monarchic.agent_protocol.v1.DatasetRef.Builder, ai.monarchic.agent_protocol.v1.DatasetRefOrBuilder>
         internalGetDatasetRefsFieldBuilder() {
       if (datasetRefsBuilder_ == null) {
         datasetRefsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
@@ -2638,7 +2638,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct extensions = 14;</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
-        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>
         internalGetExtensionsFieldBuilder() {
       if (extensionsBuilder_ == null) {
         extensionsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
@@ -2701,4 +2701,3 @@ private static final long serialVersionUID = 0L;
   }
 
 }
-

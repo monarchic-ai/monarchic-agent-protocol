@@ -61,4 +61,3 @@ class ReplanStrategy
         return constant($const);
     }
 }
-

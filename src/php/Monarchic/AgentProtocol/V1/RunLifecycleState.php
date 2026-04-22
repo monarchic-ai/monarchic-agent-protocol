@@ -81,4 +81,3 @@ class RunLifecycleState
         return constant($const);
     }
 }
-

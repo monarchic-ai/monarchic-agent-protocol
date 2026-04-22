@@ -174,4 +174,3 @@ class BlockedOutcome extends \Google\Protobuf\Internal\Message
     }
 
 }
-

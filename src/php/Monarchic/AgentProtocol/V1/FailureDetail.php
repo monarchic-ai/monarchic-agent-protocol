@@ -147,4 +147,3 @@ class FailureDetail extends \Google\Protobuf\Internal\Message
     }
 
 }
-

@@ -81,4 +81,3 @@ class LeaseRejectionReason
         return constant($const);
     }
 }
-

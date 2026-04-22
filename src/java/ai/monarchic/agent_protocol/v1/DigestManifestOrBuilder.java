@@ -91,7 +91,7 @@ public interface DigestManifestOrBuilder extends
   /**
    * <code>repeated .monarchic.agent_protocol.v1.ArtifactDescriptor artifact_descriptors = 8;</code>
    */
-  java.util.List<ai.monarchic.agent_protocol.v1.ArtifactDescriptor> 
+  java.util.List<ai.monarchic.agent_protocol.v1.ArtifactDescriptor>
       getArtifactDescriptorsList();
   /**
    * <code>repeated .monarchic.agent_protocol.v1.ArtifactDescriptor artifact_descriptors = 8;</code>
@@ -104,7 +104,7 @@ public interface DigestManifestOrBuilder extends
   /**
    * <code>repeated .monarchic.agent_protocol.v1.ArtifactDescriptor artifact_descriptors = 8;</code>
    */
-  java.util.List<? extends ai.monarchic.agent_protocol.v1.ArtifactDescriptorOrBuilder> 
+  java.util.List<? extends ai.monarchic.agent_protocol.v1.ArtifactDescriptorOrBuilder>
       getArtifactDescriptorsOrBuilderList();
   /**
    * <code>repeated .monarchic.agent_protocol.v1.ArtifactDescriptor artifact_descriptors = 8;</code>

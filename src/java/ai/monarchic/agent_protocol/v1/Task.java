@@ -34,6 +34,7 @@ private static final long serialVersionUID = 0L;
     goal_ = "";
     gatesRequired_ =
         com.google.protobuf.LazyStringArrayList.emptyList();
+    roleId_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -63,7 +64,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       version_ = s;
@@ -79,7 +80,7 @@ private static final long serialVersionUID = 0L;
       getVersionBytes() {
     java.lang.Object ref = version_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       version_ = b;
@@ -102,7 +103,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       taskId_ = s;
@@ -118,7 +119,7 @@ private static final long serialVersionUID = 0L;
       getTaskIdBytes() {
     java.lang.Object ref = taskId_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       taskId_ = b;
@@ -131,6 +132,10 @@ private static final long serialVersionUID = 0L;
   public static final int ROLE_FIELD_NUMBER = 3;
   private int role_ = 0;
   /**
+   * <pre>
+   * Legacy enum role. Prefer role_id for new producers and consumers.
+   * </pre>
+   *
    * <code>.monarchic.agent_protocol.v1.AgentRole role = 3;</code>
    * @return The enum numeric value on the wire for role.
    */
@@ -138,6 +143,10 @@ private static final long serialVersionUID = 0L;
     return role_;
   }
   /**
+   * <pre>
+   * Legacy enum role. Prefer role_id for new producers and consumers.
+   * </pre>
+   *
    * <code>.monarchic.agent_protocol.v1.AgentRole role = 3;</code>
    * @return The role.
    */
@@ -159,7 +168,7 @@ private static final long serialVersionUID = 0L;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
-      com.google.protobuf.ByteString bs = 
+      com.google.protobuf.ByteString bs =
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
       goal_ = s;
@@ -175,7 +184,7 @@ private static final long serialVersionUID = 0L;
       getGoalBytes() {
     java.lang.Object ref = goal_;
     if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
+      com.google.protobuf.ByteString b =
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       goal_ = b;
@@ -378,6 +387,55 @@ private static final long serialVersionUID = 0L;
     return objectiveSpec_ == null ? ai.monarchic.agent_protocol.v1.ObjectiveSpec.getDefaultInstance() : objectiveSpec_;
   }
 
+  public static final int ROLE_ID_FIELD_NUMBER = 12;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object roleId_ = "";
+  /**
+   * <pre>
+   * Canonical open-ended role identifier. This allows built-in and custom
+   * roles without requiring protocol enum changes.
+   * </pre>
+   *
+   * <code>string role_id = 12;</code>
+   * @return The roleId.
+   */
+  @java.lang.Override
+  public java.lang.String getRoleId() {
+    java.lang.Object ref = roleId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs =
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      roleId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Canonical open-ended role identifier. This allows built-in and custom
+   * roles without requiring protocol enum changes.
+   * </pre>
+   *
+   * <code>string role_id = 12;</code>
+   * @return The bytes for roleId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getRoleIdBytes() {
+    java.lang.Object ref = roleId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      roleId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -424,6 +482,9 @@ private static final long serialVersionUID = 0L;
     }
     if (((bitField0_ & 0x00000020) != 0)) {
       output.writeMessage(11, getObjectiveSpec());
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(roleId_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 12, roleId_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -479,6 +540,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(11, getObjectiveSpec());
     }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(roleId_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(12, roleId_);
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -533,6 +597,8 @@ private static final long serialVersionUID = 0L;
       if (!getObjectiveSpec()
           .equals(other.getObjectiveSpec())) return false;
     }
+    if (!getRoleId()
+        .equals(other.getRoleId())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -580,6 +646,8 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + OBJECTIVE_SPEC_FIELD_NUMBER;
       hash = (53 * hash) + getObjectiveSpec().hashCode();
     }
+    hash = (37 * hash) + ROLE_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getRoleId().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -758,6 +826,7 @@ private static final long serialVersionUID = 0L;
         objectiveSpecBuilder_.dispose();
         objectiveSpecBuilder_ = null;
       }
+      roleId_ = "";
       return this;
     }
 
@@ -844,6 +913,9 @@ private static final long serialVersionUID = 0L;
             : objectiveSpecBuilder_.build();
         to_bitField0_ |= 0x00000020;
       }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.roleId_ = roleId_;
+      }
       result.bitField0_ |= to_bitField0_;
     }
 
@@ -904,6 +976,11 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasObjectiveSpec()) {
         mergeObjectiveSpec(other.getObjectiveSpec());
+      }
+      if (!other.getRoleId().isEmpty()) {
+        roleId_ = other.roleId_;
+        bitField0_ |= 0x00000800;
+        onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -999,6 +1076,11 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000400;
               break;
             } // case 90
+            case 98: {
+              roleId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 98
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -1041,7 +1123,7 @@ private static final long serialVersionUID = 0L;
         getVersionBytes() {
       java.lang.Object ref = version_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         version_ = b;
@@ -1113,7 +1195,7 @@ private static final long serialVersionUID = 0L;
         getTaskIdBytes() {
       java.lang.Object ref = taskId_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         taskId_ = b;
@@ -1162,6 +1244,10 @@ private static final long serialVersionUID = 0L;
 
     private int role_ = 0;
     /**
+     * <pre>
+     * Legacy enum role. Prefer role_id for new producers and consumers.
+     * </pre>
+     *
      * <code>.monarchic.agent_protocol.v1.AgentRole role = 3;</code>
      * @return The enum numeric value on the wire for role.
      */
@@ -1169,6 +1255,10 @@ private static final long serialVersionUID = 0L;
       return role_;
     }
     /**
+     * <pre>
+     * Legacy enum role. Prefer role_id for new producers and consumers.
+     * </pre>
+     *
      * <code>.monarchic.agent_protocol.v1.AgentRole role = 3;</code>
      * @param value The enum numeric value on the wire for role to set.
      * @return This builder for chaining.
@@ -1180,6 +1270,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Legacy enum role. Prefer role_id for new producers and consumers.
+     * </pre>
+     *
      * <code>.monarchic.agent_protocol.v1.AgentRole role = 3;</code>
      * @return The role.
      */
@@ -1189,6 +1283,10 @@ private static final long serialVersionUID = 0L;
       return result == null ? ai.monarchic.agent_protocol.v1.AgentRole.UNRECOGNIZED : result;
     }
     /**
+     * <pre>
+     * Legacy enum role. Prefer role_id for new producers and consumers.
+     * </pre>
+     *
      * <code>.monarchic.agent_protocol.v1.AgentRole role = 3;</code>
      * @param value The role to set.
      * @return This builder for chaining.
@@ -1201,6 +1299,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Legacy enum role. Prefer role_id for new producers and consumers.
+     * </pre>
+     *
      * <code>.monarchic.agent_protocol.v1.AgentRole role = 3;</code>
      * @return This builder for chaining.
      */
@@ -1236,7 +1338,7 @@ private static final long serialVersionUID = 0L;
         getGoalBytes() {
       java.lang.Object ref = goal_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
+        com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         goal_ = b;
@@ -1391,7 +1493,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct inputs = 5;</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
-        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>
         internalGetInputsFieldBuilder() {
       if (inputsBuilder_ == null) {
         inputsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
@@ -1512,7 +1614,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct constraints = 6;</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
-        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>
         internalGetConstraintsFieldBuilder() {
       if (constraintsBuilder_ == null) {
         constraintsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
@@ -1744,7 +1846,7 @@ private static final long serialVersionUID = 0L;
      * <code>.monarchic.agent_protocol.v1.RunContext run_context = 8;</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
-        ai.monarchic.agent_protocol.v1.RunContext, ai.monarchic.agent_protocol.v1.RunContext.Builder, ai.monarchic.agent_protocol.v1.RunContextOrBuilder> 
+        ai.monarchic.agent_protocol.v1.RunContext, ai.monarchic.agent_protocol.v1.RunContext.Builder, ai.monarchic.agent_protocol.v1.RunContextOrBuilder>
         internalGetRunContextFieldBuilder() {
       if (runContextBuilder_ == null) {
         runContextBuilder_ = new com.google.protobuf.SingleFieldBuilder<
@@ -1865,7 +1967,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct extensions = 9;</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
-        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>
         internalGetExtensionsFieldBuilder() {
       if (extensionsBuilder_ == null) {
         extensionsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
@@ -1986,7 +2088,7 @@ private static final long serialVersionUID = 0L;
      * <code>.monarchic.agent_protocol.v1.ExperimentSpec experiment_spec = 10;</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
-        ai.monarchic.agent_protocol.v1.ExperimentSpec, ai.monarchic.agent_protocol.v1.ExperimentSpec.Builder, ai.monarchic.agent_protocol.v1.ExperimentSpecOrBuilder> 
+        ai.monarchic.agent_protocol.v1.ExperimentSpec, ai.monarchic.agent_protocol.v1.ExperimentSpec.Builder, ai.monarchic.agent_protocol.v1.ExperimentSpecOrBuilder>
         internalGetExperimentSpecFieldBuilder() {
       if (experimentSpecBuilder_ == null) {
         experimentSpecBuilder_ = new com.google.protobuf.SingleFieldBuilder<
@@ -2107,7 +2209,7 @@ private static final long serialVersionUID = 0L;
      * <code>.monarchic.agent_protocol.v1.ObjectiveSpec objective_spec = 11;</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
-        ai.monarchic.agent_protocol.v1.ObjectiveSpec, ai.monarchic.agent_protocol.v1.ObjectiveSpec.Builder, ai.monarchic.agent_protocol.v1.ObjectiveSpecOrBuilder> 
+        ai.monarchic.agent_protocol.v1.ObjectiveSpec, ai.monarchic.agent_protocol.v1.ObjectiveSpec.Builder, ai.monarchic.agent_protocol.v1.ObjectiveSpecOrBuilder>
         internalGetObjectiveSpecFieldBuilder() {
       if (objectiveSpecBuilder_ == null) {
         objectiveSpecBuilder_ = new com.google.protobuf.SingleFieldBuilder<
@@ -2118,6 +2220,103 @@ private static final long serialVersionUID = 0L;
         objectiveSpec_ = null;
       }
       return objectiveSpecBuilder_;
+    }
+
+    private java.lang.Object roleId_ = "";
+    /**
+     * <pre>
+     * Canonical open-ended role identifier. This allows built-in and custom
+     * roles without requiring protocol enum changes.
+     * </pre>
+     *
+     * <code>string role_id = 12;</code>
+     * @return The roleId.
+     */
+    public java.lang.String getRoleId() {
+      java.lang.Object ref = roleId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        roleId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Canonical open-ended role identifier. This allows built-in and custom
+     * roles without requiring protocol enum changes.
+     * </pre>
+     *
+     * <code>string role_id = 12;</code>
+     * @return The bytes for roleId.
+     */
+    public com.google.protobuf.ByteString
+        getRoleIdBytes() {
+      java.lang.Object ref = roleId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        roleId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Canonical open-ended role identifier. This allows built-in and custom
+     * roles without requiring protocol enum changes.
+     * </pre>
+     *
+     * <code>string role_id = 12;</code>
+     * @param value The roleId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRoleId(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      roleId_ = value;
+      bitField0_ |= 0x00000800;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Canonical open-ended role identifier. This allows built-in and custom
+     * roles without requiring protocol enum changes.
+     * </pre>
+     *
+     * <code>string role_id = 12;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearRoleId() {
+      roleId_ = getDefaultInstance().getRoleId();
+      bitField0_ = (bitField0_ & ~0x00000800);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Canonical open-ended role identifier. This allows built-in and custom
+     * roles without requiring protocol enum changes.
+     * </pre>
+     *
+     * <code>string role_id = 12;</code>
+     * @param value The bytes for roleId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRoleIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      roleId_ = value;
+      bitField0_ |= 0x00000800;
+      onChanged();
+      return this;
     }
 
     // @@protoc_insertion_point(builder_scope:monarchic.agent_protocol.v1.Task)
@@ -2170,4 +2369,3 @@ private static final long serialVersionUID = 0L;
   }
 
 }
-

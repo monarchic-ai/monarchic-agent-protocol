@@ -71,16 +71,15 @@ public interface TaskMessageOrBuilder extends
       getToTaskIdBytes();
 
   /**
-   * <code>string kind = 6;</code>
+   * <code>.monarchic.agent_protocol.v1.TaskMessageKind kind = 6;</code>
+   * @return The enum numeric value on the wire for kind.
+   */
+  int getKindValue();
+  /**
+   * <code>.monarchic.agent_protocol.v1.TaskMessageKind kind = 6;</code>
    * @return The kind.
    */
-  java.lang.String getKind();
-  /**
-   * <code>string kind = 6;</code>
-   * @return The bytes for kind.
-   */
-  com.google.protobuf.ByteString
-      getKindBytes();
+  ai.monarchic.agent_protocol.v1.TaskMessageKind getKind();
 
   /**
    * <code>optional string subject = 7;</code>
