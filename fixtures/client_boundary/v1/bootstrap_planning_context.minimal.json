@@ -13,6 +13,10 @@
   "available_skill_ids": [
     "repo-intel"
   ],
+  "enabled_role_ids": [
+    "qa",
+    "reviewer"
+  ],
   "selected_template": {
     "template_id": "single-dev",
     "display_name": "Single Developer",

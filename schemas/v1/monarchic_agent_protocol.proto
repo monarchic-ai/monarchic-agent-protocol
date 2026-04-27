@@ -169,6 +169,8 @@ message BootstrapPlanTask {
   google.protobuf.Struct filesystem_policy = 12;
   optional string template_slot_id = 13;
   optional string notes = 14;
+  optional string agent_id = 15;
+  optional string injected_by_role_id = 16;
 }
 
 enum BootstrapPlanningMode {
@@ -250,6 +252,7 @@ message BootstrapPlanningContext {
   repeated string available_skill_ids = 9;
   optional BootstrapTemplateContext selected_template = 10;
   BootstrapPlanningMode planning_mode = 11;
+  repeated string enabled_role_ids = 12;
 }
 
 enum CampaignPipelineConnectionKind {
