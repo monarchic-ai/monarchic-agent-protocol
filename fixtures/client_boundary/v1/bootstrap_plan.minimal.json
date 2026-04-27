@@ -3,15 +3,15 @@
   "bootstrap_intent_id": "bootstrap-intent-001",
   "project_key": "monarchic-tui",
   "planning_mode": "direct_template_fill",
-  "pipeline_template_id": "single-dev",
-  "campaign_goal": "Add dedicated MCP catalog management to the TUI.",
+  "pipeline_template_id": "single-dev-plus-qa",
+  "campaign_goal": "Add dedicated MCP catalog management to the TUI with an explicit QA gate.",
   "created_at_ms": 1712236860000,
   "tasks": [
     {
-      "task_id": "dev-task-001",
-      "display_name": "Implement MCP catalog UI",
-      "role_id": "dev",
-      "task_milestone": "Implement the MCP catalog composer, keybinding, and catalog persistence.",
+      "task_id": "qa-task-001",
+      "display_name": "Run MCP catalog QA gate",
+      "role_id": "qa",
+      "task_milestone": "Verify the MCP catalog composer, keybinding, and catalog persistence.",
       "depends_on": [],
       "target_repo": "/workspace/monarchic-tui",
       "required_skill_ids": [],
@@ -31,8 +31,10 @@
           "tests/**"
         ]
       },
-      "template_slot_id": "dev-slot",
-      "notes": "Keep the manage pane consistent with the rest of the TUI."
+      "template_slot_id": "qa-slot",
+      "notes": "Keep the manage pane consistent with the rest of the TUI.",
+      "agent_id": "builtin.qa",
+      "injected_by_role_id": "qa"
     }
   ]
 }

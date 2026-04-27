@@ -54,6 +54,10 @@ pub struct BootstrapPlanTask {
     pub template_slot_id: Option<String>,
     #[serde(default)]
     pub notes: Option<String>,
+    #[serde(default)]
+    pub agent_id: Option<String>,
+    #[serde(default)]
+    pub injected_by_role_id: Option<String>,
 }
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -161,6 +165,8 @@ pub struct BootstrapPlanningContext {
     #[serde(default)]
     pub available_skill_ids: Vec<String>,
     #[serde(default)]
+    pub enabled_role_ids: Vec<String>,
+    #[serde(default)]
     pub selected_template: Option<BootstrapTemplateContext>,
     pub planning_mode: BootstrapPlanningMode,
 }
@@ -180,6 +186,8 @@ struct BootstrapPlanningContextUnchecked {
     pub codex_cmd: Vec<String>,
     #[serde(default)]
     pub available_skill_ids: Vec<String>,
+    #[serde(default)]
+    pub enabled_role_ids: Vec<String>,
     #[serde(default)]
     pub selected_template: Option<BootstrapTemplateContext>,
     #[serde(default)]
@@ -225,6 +233,7 @@ impl TryFrom<BootstrapPlanningContextUnchecked> for BootstrapPlanningContext {
             priority_profile: value.priority_profile,
             codex_cmd: value.codex_cmd,
             available_skill_ids: value.available_skill_ids,
+            enabled_role_ids: value.enabled_role_ids,
             selected_template: value.selected_template,
             planning_mode: value.planning_mode,
         })

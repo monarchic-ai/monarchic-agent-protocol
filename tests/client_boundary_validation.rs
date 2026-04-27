@@ -76,6 +76,19 @@ fn bootstrap_planning_context_uses_typed_planning_mode() {
         parsed.planning_mode,
         BootstrapPlanningMode::DirectTemplateFill
     );
+    assert_eq!(
+        parsed.enabled_role_ids,
+        vec![String::from("qa"), String::from("reviewer")]
+    );
+}
+
+#[test]
+fn bootstrap_plan_preserves_agent_injection_metadata() {
+    let value = load_fixture_value("bootstrap_plan.minimal.json");
+    let parsed: BootstrapPlan = serde_json::from_value(value).expect("deserialize bootstrap plan");
+
+    assert_eq!(parsed.tasks[0].agent_id.as_deref(), Some("builtin.qa"));
+    assert_eq!(parsed.tasks[0].injected_by_role_id.as_deref(), Some("qa"));
 }
 
 #[test]
