@@ -37,7 +37,7 @@ Protocol repo gates:
 Consumer lock:
 
 - Downstream repo seam checks in `monarch` must continue to run:
-  - `scripts/validate_autonomy_seam.sh`
+  - `scripts/validate_compute_seam.sh`
 - Any migration step that changes contract ownership must keep this script green.
 
 Migration completion condition:
