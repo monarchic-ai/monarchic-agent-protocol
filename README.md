@@ -58,6 +58,8 @@ Project-state contract fixtures used by the shell verification suite live under 
 - Protocol versions live under `schemas/v1/`.
 - Each v1 object requires `version: "v1"`.
 - New versions must be added under a new directory (e.g. `schemas/v2/`) without changing existing v1 files.
+- The package/crate transition operator runbook lives at
+  [`docs/protocol-release-transition-runbook.md`](docs/protocol-release-transition-runbook.md).
 
 ### Client boundary contracts
 
