@@ -118,6 +118,8 @@ The queue job contract uses the explicit wire marker
 `monarchic.control-plane.queue-job.v1` because it is consumed across the API,
 control-plane queue, and worker boundary. Canonical JSON fixtures for
 service-boundary contracts live under `fixtures/service_boundary/v1/`.
+The cross-service protocol ownership boundary is documented in
+[`docs/service-boundary-architecture.md`](docs/service-boundary-architecture.md).
 
 ## Lean4 Formalization
 
