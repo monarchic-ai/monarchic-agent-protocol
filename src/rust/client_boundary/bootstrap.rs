@@ -163,6 +163,8 @@ pub struct BootstrapPlanningContext {
     #[serde(default)]
     pub codex_cmd: Vec<String>,
     #[serde(default)]
+    pub agent_cmds: BTreeMap<String, Vec<String>>,
+    #[serde(default)]
     pub available_skill_ids: Vec<String>,
     #[serde(default)]
     pub enabled_role_ids: Vec<String>,
@@ -184,6 +186,8 @@ struct BootstrapPlanningContextUnchecked {
     pub priority_profile: String,
     #[serde(default)]
     pub codex_cmd: Vec<String>,
+    #[serde(default)]
+    pub agent_cmds: BTreeMap<String, Vec<String>>,
     #[serde(default)]
     pub available_skill_ids: Vec<String>,
     #[serde(default)]
@@ -232,6 +236,7 @@ impl TryFrom<BootstrapPlanningContextUnchecked> for BootstrapPlanningContext {
             notes: value.notes,
             priority_profile: value.priority_profile,
             codex_cmd: value.codex_cmd,
+            agent_cmds: value.agent_cmds,
             available_skill_ids: value.available_skill_ids,
             enabled_role_ids: value.enabled_role_ids,
             selected_template: value.selected_template,
