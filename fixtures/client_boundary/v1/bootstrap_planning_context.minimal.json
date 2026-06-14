@@ -10,6 +10,14 @@
   "codex_cmd": [
     "codex"
   ],
+  "agent_cmds": {
+    "claude": [
+      "claude"
+    ],
+    "opencode": [
+      "opencode"
+    ]
+  },
   "available_skill_ids": [
     "repo-intel"
   ],

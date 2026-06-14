@@ -240,6 +240,11 @@ message BootstrapTemplateContext {
   repeated BootstrapTemplateLaneContext lanes = 5;
 }
 
+message AgentCommand {
+  string runner_id = 1;
+  repeated string argv = 2;
+}
+
 message BootstrapPlanningContext {
   string contract_version = 1;
   string project_key = 2;
@@ -253,6 +258,7 @@ message BootstrapPlanningContext {
   optional BootstrapTemplateContext selected_template = 10;
   BootstrapPlanningMode planning_mode = 11;
   repeated string enabled_role_ids = 12;
+  repeated AgentCommand agent_cmds = 13;
 }
 
 enum CampaignPipelineConnectionKind {

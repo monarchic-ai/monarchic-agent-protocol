@@ -80,6 +80,10 @@ fn bootstrap_planning_context_uses_typed_planning_mode() {
         parsed.enabled_role_ids,
         vec![String::from("qa"), String::from("reviewer")]
     );
+    assert_eq!(
+        parsed.agent_cmds.get("opencode"),
+        Some(&vec![String::from("opencode")])
+    );
 }
 
 #[test]
