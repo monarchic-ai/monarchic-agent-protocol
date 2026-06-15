@@ -243,4 +243,38 @@ public interface BootstrapPlanTaskOrBuilder extends
    */
   com.google.protobuf.ByteString
       getNotesBytes();
+
+  /**
+   * <code>optional string agent_id = 15;</code>
+   * @return Whether the agentId field is set.
+   */
+  boolean hasAgentId();
+  /**
+   * <code>optional string agent_id = 15;</code>
+   * @return The agentId.
+   */
+  java.lang.String getAgentId();
+  /**
+   * <code>optional string agent_id = 15;</code>
+   * @return The bytes for agentId.
+   */
+  com.google.protobuf.ByteString
+      getAgentIdBytes();
+
+  /**
+   * <code>optional string injected_by_role_id = 16;</code>
+   * @return Whether the injectedByRoleId field is set.
+   */
+  boolean hasInjectedByRoleId();
+  /**
+   * <code>optional string injected_by_role_id = 16;</code>
+   * @return The injectedByRoleId.
+   */
+  java.lang.String getInjectedByRoleId();
+  /**
+   * <code>optional string injected_by_role_id = 16;</code>
+   * @return The bytes for injectedByRoleId.
+   */
+  com.google.protobuf.ByteString
+      getInjectedByRoleIdBytes();
 }

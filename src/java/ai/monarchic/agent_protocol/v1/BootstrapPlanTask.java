@@ -43,6 +43,8 @@ private static final long serialVersionUID = 0L;
     networkMode_ = "";
     templateSlotId_ = "";
     notes_ = "";
+    agentId_ = "";
+    injectedByRoleId_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -606,6 +608,100 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int AGENT_ID_FIELD_NUMBER = 15;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object agentId_ = "";
+  /**
+   * <code>optional string agent_id = 15;</code>
+   * @return Whether the agentId field is set.
+   */
+  @java.lang.Override
+  public boolean hasAgentId() {
+    return ((bitField0_ & 0x00000080) != 0);
+  }
+  /**
+   * <code>optional string agent_id = 15;</code>
+   * @return The agentId.
+   */
+  @java.lang.Override
+  public java.lang.String getAgentId() {
+    java.lang.Object ref = agentId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs =
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      agentId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>optional string agent_id = 15;</code>
+   * @return The bytes for agentId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getAgentIdBytes() {
+    java.lang.Object ref = agentId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      agentId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int INJECTED_BY_ROLE_ID_FIELD_NUMBER = 16;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object injectedByRoleId_ = "";
+  /**
+   * <code>optional string injected_by_role_id = 16;</code>
+   * @return Whether the injectedByRoleId field is set.
+   */
+  @java.lang.Override
+  public boolean hasInjectedByRoleId() {
+    return ((bitField0_ & 0x00000100) != 0);
+  }
+  /**
+   * <code>optional string injected_by_role_id = 16;</code>
+   * @return The injectedByRoleId.
+   */
+  @java.lang.Override
+  public java.lang.String getInjectedByRoleId() {
+    java.lang.Object ref = injectedByRoleId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs =
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      injectedByRoleId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>optional string injected_by_role_id = 16;</code>
+   * @return The bytes for injectedByRoleId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getInjectedByRoleIdBytes() {
+    java.lang.Object ref = injectedByRoleId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      injectedByRoleId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -661,6 +757,12 @@ private static final long serialVersionUID = 0L;
     }
     if (((bitField0_ & 0x00000040) != 0)) {
       com.google.protobuf.GeneratedMessage.writeString(output, 14, notes_);
+    }
+    if (((bitField0_ & 0x00000080) != 0)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 15, agentId_);
+    }
+    if (((bitField0_ & 0x00000100) != 0)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 16, injectedByRoleId_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -730,6 +832,12 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000040) != 0)) {
       size += com.google.protobuf.GeneratedMessage.computeStringSize(14, notes_);
     }
+    if (((bitField0_ & 0x00000080) != 0)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(15, agentId_);
+    }
+    if (((bitField0_ & 0x00000100) != 0)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(16, injectedByRoleId_);
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -794,6 +902,16 @@ private static final long serialVersionUID = 0L;
       if (!getNotes()
           .equals(other.getNotes())) return false;
     }
+    if (hasAgentId() != other.hasAgentId()) return false;
+    if (hasAgentId()) {
+      if (!getAgentId()
+          .equals(other.getAgentId())) return false;
+    }
+    if (hasInjectedByRoleId() != other.hasInjectedByRoleId()) return false;
+    if (hasInjectedByRoleId()) {
+      if (!getInjectedByRoleId()
+          .equals(other.getInjectedByRoleId())) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -853,6 +971,14 @@ private static final long serialVersionUID = 0L;
     if (hasNotes()) {
       hash = (37 * hash) + NOTES_FIELD_NUMBER;
       hash = (53 * hash) + getNotes().hashCode();
+    }
+    if (hasAgentId()) {
+      hash = (37 * hash) + AGENT_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getAgentId().hashCode();
+    }
+    if (hasInjectedByRoleId()) {
+      hash = (37 * hash) + INJECTED_BY_ROLE_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getInjectedByRoleId().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -1012,6 +1138,8 @@ private static final long serialVersionUID = 0L;
       }
       templateSlotId_ = "";
       notes_ = "";
+      agentId_ = "";
+      injectedByRoleId_ = "";
       return this;
     }
 
@@ -1099,6 +1227,14 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00002000) != 0)) {
         result.notes_ = notes_;
         to_bitField0_ |= 0x00000040;
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.agentId_ = agentId_;
+        to_bitField0_ |= 0x00000080;
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.injectedByRoleId_ = injectedByRoleId_;
+        to_bitField0_ |= 0x00000100;
       }
       result.bitField0_ |= to_bitField0_;
     }
@@ -1194,6 +1330,16 @@ private static final long serialVersionUID = 0L;
       if (other.hasNotes()) {
         notes_ = other.notes_;
         bitField0_ |= 0x00002000;
+        onChanged();
+      }
+      if (other.hasAgentId()) {
+        agentId_ = other.agentId_;
+        bitField0_ |= 0x00004000;
+        onChanged();
+      }
+      if (other.hasInjectedByRoleId()) {
+        injectedByRoleId_ = other.injectedByRoleId_;
+        bitField0_ |= 0x00008000;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -1297,6 +1443,16 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00002000;
               break;
             } // case 114
+            case 122: {
+              agentId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 122
+            case 130: {
+              injectedByRoleId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 130
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -2487,6 +2643,164 @@ private static final long serialVersionUID = 0L;
       checkByteStringIsUtf8(value);
       notes_ = value;
       bitField0_ |= 0x00002000;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object agentId_ = "";
+    /**
+     * <code>optional string agent_id = 15;</code>
+     * @return Whether the agentId field is set.
+     */
+    public boolean hasAgentId() {
+      return ((bitField0_ & 0x00004000) != 0);
+    }
+    /**
+     * <code>optional string agent_id = 15;</code>
+     * @return The agentId.
+     */
+    public java.lang.String getAgentId() {
+      java.lang.Object ref = agentId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        agentId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>optional string agent_id = 15;</code>
+     * @return The bytes for agentId.
+     */
+    public com.google.protobuf.ByteString
+        getAgentIdBytes() {
+      java.lang.Object ref = agentId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        agentId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>optional string agent_id = 15;</code>
+     * @param value The agentId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAgentId(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      agentId_ = value;
+      bitField0_ |= 0x00004000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional string agent_id = 15;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearAgentId() {
+      agentId_ = getDefaultInstance().getAgentId();
+      bitField0_ = (bitField0_ & ~0x00004000);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional string agent_id = 15;</code>
+     * @param value The bytes for agentId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAgentIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      agentId_ = value;
+      bitField0_ |= 0x00004000;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object injectedByRoleId_ = "";
+    /**
+     * <code>optional string injected_by_role_id = 16;</code>
+     * @return Whether the injectedByRoleId field is set.
+     */
+    public boolean hasInjectedByRoleId() {
+      return ((bitField0_ & 0x00008000) != 0);
+    }
+    /**
+     * <code>optional string injected_by_role_id = 16;</code>
+     * @return The injectedByRoleId.
+     */
+    public java.lang.String getInjectedByRoleId() {
+      java.lang.Object ref = injectedByRoleId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        injectedByRoleId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>optional string injected_by_role_id = 16;</code>
+     * @return The bytes for injectedByRoleId.
+     */
+    public com.google.protobuf.ByteString
+        getInjectedByRoleIdBytes() {
+      java.lang.Object ref = injectedByRoleId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        injectedByRoleId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>optional string injected_by_role_id = 16;</code>
+     * @param value The injectedByRoleId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setInjectedByRoleId(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      injectedByRoleId_ = value;
+      bitField0_ |= 0x00008000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional string injected_by_role_id = 16;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearInjectedByRoleId() {
+      injectedByRoleId_ = getDefaultInstance().getInjectedByRoleId();
+      bitField0_ = (bitField0_ & ~0x00008000);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional string injected_by_role_id = 16;</code>
+     * @param value The bytes for injectedByRoleId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setInjectedByRoleIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      injectedByRoleId_ = value;
+      bitField0_ |= 0x00008000;
       onChanged();
       return this;
     }

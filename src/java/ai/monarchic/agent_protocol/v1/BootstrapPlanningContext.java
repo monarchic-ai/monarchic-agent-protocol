@@ -41,6 +41,11 @@ private static final long serialVersionUID = 0L;
     availableSkillIds_ =
         com.google.protobuf.LazyStringArrayList.emptyList();
     planningMode_ = 0;
+    enabledRoleIds_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
+    agentCmds_ = java.util.Collections.emptyList();
+    defaultAgentCmd_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -341,34 +346,42 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.LazyStringArrayList codexCmd_ =
       com.google.protobuf.LazyStringArrayList.emptyList();
   /**
-   * <code>repeated string codex_cmd = 8;</code>
+   * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
+   * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
+   *     See monarchic_agent_protocol.proto;l=255
    * @return A list containing the codexCmd.
    */
-  public com.google.protobuf.ProtocolStringList
+  @java.lang.Deprecated public com.google.protobuf.ProtocolStringList
       getCodexCmdList() {
     return codexCmd_;
   }
   /**
-   * <code>repeated string codex_cmd = 8;</code>
+   * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
+   * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
+   *     See monarchic_agent_protocol.proto;l=255
    * @return The count of codexCmd.
    */
-  public int getCodexCmdCount() {
+  @java.lang.Deprecated public int getCodexCmdCount() {
     return codexCmd_.size();
   }
   /**
-   * <code>repeated string codex_cmd = 8;</code>
+   * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
+   * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
+   *     See monarchic_agent_protocol.proto;l=255
    * @param index The index of the element to return.
    * @return The codexCmd at the given index.
    */
-  public java.lang.String getCodexCmd(int index) {
+  @java.lang.Deprecated public java.lang.String getCodexCmd(int index) {
     return codexCmd_.get(index);
   }
   /**
-   * <code>repeated string codex_cmd = 8;</code>
+   * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
+   * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
+   *     See monarchic_agent_protocol.proto;l=255
    * @param index The index of the value to return.
    * @return The bytes of the codexCmd at the given index.
    */
-  public com.google.protobuf.ByteString
+  @java.lang.Deprecated public com.google.protobuf.ByteString
       getCodexCmdBytes(int index) {
     return codexCmd_.getByteString(index);
   }
@@ -454,6 +467,121 @@ private static final long serialVersionUID = 0L;
     return result == null ? ai.monarchic.agent_protocol.v1.BootstrapPlanningMode.UNRECOGNIZED : result;
   }
 
+  public static final int ENABLED_ROLE_IDS_FIELD_NUMBER = 12;
+  @SuppressWarnings("serial")
+  private com.google.protobuf.LazyStringArrayList enabledRoleIds_ =
+      com.google.protobuf.LazyStringArrayList.emptyList();
+  /**
+   * <code>repeated string enabled_role_ids = 12;</code>
+   * @return A list containing the enabledRoleIds.
+   */
+  public com.google.protobuf.ProtocolStringList
+      getEnabledRoleIdsList() {
+    return enabledRoleIds_;
+  }
+  /**
+   * <code>repeated string enabled_role_ids = 12;</code>
+   * @return The count of enabledRoleIds.
+   */
+  public int getEnabledRoleIdsCount() {
+    return enabledRoleIds_.size();
+  }
+  /**
+   * <code>repeated string enabled_role_ids = 12;</code>
+   * @param index The index of the element to return.
+   * @return The enabledRoleIds at the given index.
+   */
+  public java.lang.String getEnabledRoleIds(int index) {
+    return enabledRoleIds_.get(index);
+  }
+  /**
+   * <code>repeated string enabled_role_ids = 12;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the enabledRoleIds at the given index.
+   */
+  public com.google.protobuf.ByteString
+      getEnabledRoleIdsBytes(int index) {
+    return enabledRoleIds_.getByteString(index);
+  }
+
+  public static final int AGENT_CMDS_FIELD_NUMBER = 13;
+  @SuppressWarnings("serial")
+  private java.util.List<ai.monarchic.agent_protocol.v1.AgentCommand> agentCmds_;
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentCommand agent_cmds = 13;</code>
+   */
+  @java.lang.Override
+  public java.util.List<ai.monarchic.agent_protocol.v1.AgentCommand> getAgentCmdsList() {
+    return agentCmds_;
+  }
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentCommand agent_cmds = 13;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends ai.monarchic.agent_protocol.v1.AgentCommandOrBuilder>
+      getAgentCmdsOrBuilderList() {
+    return agentCmds_;
+  }
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentCommand agent_cmds = 13;</code>
+   */
+  @java.lang.Override
+  public int getAgentCmdsCount() {
+    return agentCmds_.size();
+  }
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentCommand agent_cmds = 13;</code>
+   */
+  @java.lang.Override
+  public ai.monarchic.agent_protocol.v1.AgentCommand getAgentCmds(int index) {
+    return agentCmds_.get(index);
+  }
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentCommand agent_cmds = 13;</code>
+   */
+  @java.lang.Override
+  public ai.monarchic.agent_protocol.v1.AgentCommandOrBuilder getAgentCmdsOrBuilder(
+      int index) {
+    return agentCmds_.get(index);
+  }
+
+  public static final int DEFAULT_AGENT_CMD_FIELD_NUMBER = 14;
+  @SuppressWarnings("serial")
+  private com.google.protobuf.LazyStringArrayList defaultAgentCmd_ =
+      com.google.protobuf.LazyStringArrayList.emptyList();
+  /**
+   * <code>repeated string default_agent_cmd = 14;</code>
+   * @return A list containing the defaultAgentCmd.
+   */
+  public com.google.protobuf.ProtocolStringList
+      getDefaultAgentCmdList() {
+    return defaultAgentCmd_;
+  }
+  /**
+   * <code>repeated string default_agent_cmd = 14;</code>
+   * @return The count of defaultAgentCmd.
+   */
+  public int getDefaultAgentCmdCount() {
+    return defaultAgentCmd_.size();
+  }
+  /**
+   * <code>repeated string default_agent_cmd = 14;</code>
+   * @param index The index of the element to return.
+   * @return The defaultAgentCmd at the given index.
+   */
+  public java.lang.String getDefaultAgentCmd(int index) {
+    return defaultAgentCmd_.get(index);
+  }
+  /**
+   * <code>repeated string default_agent_cmd = 14;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the defaultAgentCmd at the given index.
+   */
+  public com.google.protobuf.ByteString
+      getDefaultAgentCmdBytes(int index) {
+    return defaultAgentCmd_.getByteString(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -500,6 +628,15 @@ private static final long serialVersionUID = 0L;
     }
     if (planningMode_ != ai.monarchic.agent_protocol.v1.BootstrapPlanningMode.BOOTSTRAP_PLANNING_MODE_UNSPECIFIED.getNumber()) {
       output.writeEnum(11, planningMode_);
+    }
+    for (int i = 0; i < enabledRoleIds_.size(); i++) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 12, enabledRoleIds_.getRaw(i));
+    }
+    for (int i = 0; i < agentCmds_.size(); i++) {
+      output.writeMessage(13, agentCmds_.get(i));
+    }
+    for (int i = 0; i < defaultAgentCmd_.size(); i++) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 14, defaultAgentCmd_.getRaw(i));
     }
     getUnknownFields().writeTo(output);
   }
@@ -560,6 +697,26 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(11, planningMode_);
     }
+    {
+      int dataSize = 0;
+      for (int i = 0; i < enabledRoleIds_.size(); i++) {
+        dataSize += computeStringSizeNoTag(enabledRoleIds_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getEnabledRoleIdsList().size();
+    }
+    for (int i = 0; i < agentCmds_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(13, agentCmds_.get(i));
+    }
+    {
+      int dataSize = 0;
+      for (int i = 0; i < defaultAgentCmd_.size(); i++) {
+        dataSize += computeStringSizeNoTag(defaultAgentCmd_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getDefaultAgentCmdList().size();
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -602,6 +759,12 @@ private static final long serialVersionUID = 0L;
           .equals(other.getSelectedTemplate())) return false;
     }
     if (planningMode_ != other.planningMode_) return false;
+    if (!getEnabledRoleIdsList()
+        .equals(other.getEnabledRoleIdsList())) return false;
+    if (!getAgentCmdsList()
+        .equals(other.getAgentCmdsList())) return false;
+    if (!getDefaultAgentCmdList()
+        .equals(other.getDefaultAgentCmdList())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -645,6 +808,18 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + PLANNING_MODE_FIELD_NUMBER;
     hash = (53 * hash) + planningMode_;
+    if (getEnabledRoleIdsCount() > 0) {
+      hash = (37 * hash) + ENABLED_ROLE_IDS_FIELD_NUMBER;
+      hash = (53 * hash) + getEnabledRoleIdsList().hashCode();
+    }
+    if (getAgentCmdsCount() > 0) {
+      hash = (37 * hash) + AGENT_CMDS_FIELD_NUMBER;
+      hash = (53 * hash) + getAgentCmdsList().hashCode();
+    }
+    if (getDefaultAgentCmdCount() > 0) {
+      hash = (37 * hash) + DEFAULT_AGENT_CMD_FIELD_NUMBER;
+      hash = (53 * hash) + getDefaultAgentCmdList().hashCode();
+    }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -776,6 +951,7 @@ private static final long serialVersionUID = 0L;
       if (com.google.protobuf.GeneratedMessage
               .alwaysUseFieldBuilders) {
         internalGetSelectedTemplateFieldBuilder();
+        internalGetAgentCmdsFieldBuilder();
       }
     }
     @java.lang.Override
@@ -800,6 +976,17 @@ private static final long serialVersionUID = 0L;
         selectedTemplateBuilder_ = null;
       }
       planningMode_ = 0;
+      enabledRoleIds_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      if (agentCmdsBuilder_ == null) {
+        agentCmds_ = java.util.Collections.emptyList();
+      } else {
+        agentCmds_ = null;
+        agentCmdsBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00001000);
+      defaultAgentCmd_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
       return this;
     }
 
@@ -826,9 +1013,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public ai.monarchic.agent_protocol.v1.BootstrapPlanningContext buildPartial() {
       ai.monarchic.agent_protocol.v1.BootstrapPlanningContext result = new ai.monarchic.agent_protocol.v1.BootstrapPlanningContext(this);
+      buildPartialRepeatedFields(result);
       if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(ai.monarchic.agent_protocol.v1.BootstrapPlanningContext result) {
+      if (agentCmdsBuilder_ == null) {
+        if (((bitField0_ & 0x00001000) != 0)) {
+          agentCmds_ = java.util.Collections.unmodifiableList(agentCmds_);
+          bitField0_ = (bitField0_ & ~0x00001000);
+        }
+        result.agentCmds_ = agentCmds_;
+      } else {
+        result.agentCmds_ = agentCmdsBuilder_.build();
+      }
     }
 
     private void buildPartial0(ai.monarchic.agent_protocol.v1.BootstrapPlanningContext result) {
@@ -873,6 +1073,14 @@ private static final long serialVersionUID = 0L;
       }
       if (((from_bitField0_ & 0x00000400) != 0)) {
         result.planningMode_ = planningMode_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        enabledRoleIds_.makeImmutable();
+        result.enabledRoleIds_ = enabledRoleIds_;
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        defaultAgentCmd_.makeImmutable();
+        result.defaultAgentCmd_ = defaultAgentCmd_;
       }
       result.bitField0_ |= to_bitField0_;
     }
@@ -954,6 +1162,52 @@ private static final long serialVersionUID = 0L;
       }
       if (other.planningMode_ != 0) {
         setPlanningModeValue(other.getPlanningModeValue());
+      }
+      if (!other.enabledRoleIds_.isEmpty()) {
+        if (enabledRoleIds_.isEmpty()) {
+          enabledRoleIds_ = other.enabledRoleIds_;
+          bitField0_ |= 0x00000800;
+        } else {
+          ensureEnabledRoleIdsIsMutable();
+          enabledRoleIds_.addAll(other.enabledRoleIds_);
+        }
+        onChanged();
+      }
+      if (agentCmdsBuilder_ == null) {
+        if (!other.agentCmds_.isEmpty()) {
+          if (agentCmds_.isEmpty()) {
+            agentCmds_ = other.agentCmds_;
+            bitField0_ = (bitField0_ & ~0x00001000);
+          } else {
+            ensureAgentCmdsIsMutable();
+            agentCmds_.addAll(other.agentCmds_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.agentCmds_.isEmpty()) {
+          if (agentCmdsBuilder_.isEmpty()) {
+            agentCmdsBuilder_.dispose();
+            agentCmdsBuilder_ = null;
+            agentCmds_ = other.agentCmds_;
+            bitField0_ = (bitField0_ & ~0x00001000);
+            agentCmdsBuilder_ =
+              com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                 internalGetAgentCmdsFieldBuilder() : null;
+          } else {
+            agentCmdsBuilder_.addAllMessages(other.agentCmds_);
+          }
+        }
+      }
+      if (!other.defaultAgentCmd_.isEmpty()) {
+        if (defaultAgentCmd_.isEmpty()) {
+          defaultAgentCmd_ = other.defaultAgentCmd_;
+          bitField0_ |= 0x00002000;
+        } else {
+          ensureDefaultAgentCmdIsMutable();
+          defaultAgentCmd_.addAll(other.defaultAgentCmd_);
+        }
+        onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -1041,6 +1295,31 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000400;
               break;
             } // case 88
+            case 98: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureEnabledRoleIdsIsMutable();
+              enabledRoleIds_.add(s);
+              break;
+            } // case 98
+            case 106: {
+              ai.monarchic.agent_protocol.v1.AgentCommand m =
+                  input.readMessage(
+                      ai.monarchic.agent_protocol.v1.AgentCommand.parser(),
+                      extensionRegistry);
+              if (agentCmdsBuilder_ == null) {
+                ensureAgentCmdsIsMutable();
+                agentCmds_.add(m);
+              } else {
+                agentCmdsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 106
+            case 114: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureDefaultAgentCmdIsMutable();
+              defaultAgentCmd_.add(s);
+              break;
+            } // case 114
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -1617,45 +1896,55 @@ private static final long serialVersionUID = 0L;
       bitField0_ |= 0x00000080;
     }
     /**
-     * <code>repeated string codex_cmd = 8;</code>
+     * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
+     * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
+     *     See monarchic_agent_protocol.proto;l=255
      * @return A list containing the codexCmd.
      */
-    public com.google.protobuf.ProtocolStringList
+    @java.lang.Deprecated public com.google.protobuf.ProtocolStringList
         getCodexCmdList() {
       codexCmd_.makeImmutable();
       return codexCmd_;
     }
     /**
-     * <code>repeated string codex_cmd = 8;</code>
+     * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
+     * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
+     *     See monarchic_agent_protocol.proto;l=255
      * @return The count of codexCmd.
      */
-    public int getCodexCmdCount() {
+    @java.lang.Deprecated public int getCodexCmdCount() {
       return codexCmd_.size();
     }
     /**
-     * <code>repeated string codex_cmd = 8;</code>
+     * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
+     * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
+     *     See monarchic_agent_protocol.proto;l=255
      * @param index The index of the element to return.
      * @return The codexCmd at the given index.
      */
-    public java.lang.String getCodexCmd(int index) {
+    @java.lang.Deprecated public java.lang.String getCodexCmd(int index) {
       return codexCmd_.get(index);
     }
     /**
-     * <code>repeated string codex_cmd = 8;</code>
+     * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
+     * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
+     *     See monarchic_agent_protocol.proto;l=255
      * @param index The index of the value to return.
      * @return The bytes of the codexCmd at the given index.
      */
-    public com.google.protobuf.ByteString
+    @java.lang.Deprecated public com.google.protobuf.ByteString
         getCodexCmdBytes(int index) {
       return codexCmd_.getByteString(index);
     }
     /**
-     * <code>repeated string codex_cmd = 8;</code>
+     * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
+     * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
+     *     See monarchic_agent_protocol.proto;l=255
      * @param index The index to set the value at.
      * @param value The codexCmd to set.
      * @return This builder for chaining.
      */
-    public Builder setCodexCmd(
+    @java.lang.Deprecated public Builder setCodexCmd(
         int index, java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       ensureCodexCmdIsMutable();
@@ -1665,11 +1954,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string codex_cmd = 8;</code>
+     * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
+     * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
+     *     See monarchic_agent_protocol.proto;l=255
      * @param value The codexCmd to add.
      * @return This builder for chaining.
      */
-    public Builder addCodexCmd(
+    @java.lang.Deprecated public Builder addCodexCmd(
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       ensureCodexCmdIsMutable();
@@ -1679,11 +1970,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string codex_cmd = 8;</code>
+     * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
+     * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
+     *     See monarchic_agent_protocol.proto;l=255
      * @param values The codexCmd to add.
      * @return This builder for chaining.
      */
-    public Builder addAllCodexCmd(
+    @java.lang.Deprecated public Builder addAllCodexCmd(
         java.lang.Iterable<java.lang.String> values) {
       ensureCodexCmdIsMutable();
       com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -1693,10 +1986,12 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string codex_cmd = 8;</code>
+     * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
+     * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
+     *     See monarchic_agent_protocol.proto;l=255
      * @return This builder for chaining.
      */
-    public Builder clearCodexCmd() {
+    @java.lang.Deprecated public Builder clearCodexCmd() {
       codexCmd_ =
         com.google.protobuf.LazyStringArrayList.emptyList();
       bitField0_ = (bitField0_ & ~0x00000080);;
@@ -1704,11 +1999,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string codex_cmd = 8;</code>
+     * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
+     * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
+     *     See monarchic_agent_protocol.proto;l=255
      * @param value The bytes of the codexCmd to add.
      * @return This builder for chaining.
      */
-    public Builder addCodexCmdBytes(
+    @java.lang.Deprecated public Builder addCodexCmdBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
@@ -1998,6 +2295,468 @@ private static final long serialVersionUID = 0L;
     public Builder clearPlanningMode() {
       bitField0_ = (bitField0_ & ~0x00000400);
       planningMode_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.LazyStringArrayList enabledRoleIds_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
+    private void ensureEnabledRoleIdsIsMutable() {
+      if (!enabledRoleIds_.isModifiable()) {
+        enabledRoleIds_ = new com.google.protobuf.LazyStringArrayList(enabledRoleIds_);
+      }
+      bitField0_ |= 0x00000800;
+    }
+    /**
+     * <code>repeated string enabled_role_ids = 12;</code>
+     * @return A list containing the enabledRoleIds.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getEnabledRoleIdsList() {
+      enabledRoleIds_.makeImmutable();
+      return enabledRoleIds_;
+    }
+    /**
+     * <code>repeated string enabled_role_ids = 12;</code>
+     * @return The count of enabledRoleIds.
+     */
+    public int getEnabledRoleIdsCount() {
+      return enabledRoleIds_.size();
+    }
+    /**
+     * <code>repeated string enabled_role_ids = 12;</code>
+     * @param index The index of the element to return.
+     * @return The enabledRoleIds at the given index.
+     */
+    public java.lang.String getEnabledRoleIds(int index) {
+      return enabledRoleIds_.get(index);
+    }
+    /**
+     * <code>repeated string enabled_role_ids = 12;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the enabledRoleIds at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getEnabledRoleIdsBytes(int index) {
+      return enabledRoleIds_.getByteString(index);
+    }
+    /**
+     * <code>repeated string enabled_role_ids = 12;</code>
+     * @param index The index to set the value at.
+     * @param value The enabledRoleIds to set.
+     * @return This builder for chaining.
+     */
+    public Builder setEnabledRoleIds(
+        int index, java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensureEnabledRoleIdsIsMutable();
+      enabledRoleIds_.set(index, value);
+      bitField0_ |= 0x00000800;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string enabled_role_ids = 12;</code>
+     * @param value The enabledRoleIds to add.
+     * @return This builder for chaining.
+     */
+    public Builder addEnabledRoleIds(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensureEnabledRoleIdsIsMutable();
+      enabledRoleIds_.add(value);
+      bitField0_ |= 0x00000800;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string enabled_role_ids = 12;</code>
+     * @param values The enabledRoleIds to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllEnabledRoleIds(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureEnabledRoleIdsIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, enabledRoleIds_);
+      bitField0_ |= 0x00000800;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string enabled_role_ids = 12;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearEnabledRoleIds() {
+      enabledRoleIds_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
+      bitField0_ = (bitField0_ & ~0x00000800);;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string enabled_role_ids = 12;</code>
+     * @param value The bytes of the enabledRoleIds to add.
+     * @return This builder for chaining.
+     */
+    public Builder addEnabledRoleIdsBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      ensureEnabledRoleIdsIsMutable();
+      enabledRoleIds_.add(value);
+      bitField0_ |= 0x00000800;
+      onChanged();
+      return this;
+    }
+
+    private java.util.List<ai.monarchic.agent_protocol.v1.AgentCommand> agentCmds_ =
+      java.util.Collections.emptyList();
+    private void ensureAgentCmdsIsMutable() {
+      if (!((bitField0_ & 0x00001000) != 0)) {
+        agentCmds_ = new java.util.ArrayList<ai.monarchic.agent_protocol.v1.AgentCommand>(agentCmds_);
+        bitField0_ |= 0x00001000;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilder<
+        ai.monarchic.agent_protocol.v1.AgentCommand, ai.monarchic.agent_protocol.v1.AgentCommand.Builder, ai.monarchic.agent_protocol.v1.AgentCommandOrBuilder> agentCmdsBuilder_;
+
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentCommand agent_cmds = 13;</code>
+     */
+    public java.util.List<ai.monarchic.agent_protocol.v1.AgentCommand> getAgentCmdsList() {
+      if (agentCmdsBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(agentCmds_);
+      } else {
+        return agentCmdsBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentCommand agent_cmds = 13;</code>
+     */
+    public int getAgentCmdsCount() {
+      if (agentCmdsBuilder_ == null) {
+        return agentCmds_.size();
+      } else {
+        return agentCmdsBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentCommand agent_cmds = 13;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.AgentCommand getAgentCmds(int index) {
+      if (agentCmdsBuilder_ == null) {
+        return agentCmds_.get(index);
+      } else {
+        return agentCmdsBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentCommand agent_cmds = 13;</code>
+     */
+    public Builder setAgentCmds(
+        int index, ai.monarchic.agent_protocol.v1.AgentCommand value) {
+      if (agentCmdsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAgentCmdsIsMutable();
+        agentCmds_.set(index, value);
+        onChanged();
+      } else {
+        agentCmdsBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentCommand agent_cmds = 13;</code>
+     */
+    public Builder setAgentCmds(
+        int index, ai.monarchic.agent_protocol.v1.AgentCommand.Builder builderForValue) {
+      if (agentCmdsBuilder_ == null) {
+        ensureAgentCmdsIsMutable();
+        agentCmds_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        agentCmdsBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentCommand agent_cmds = 13;</code>
+     */
+    public Builder addAgentCmds(ai.monarchic.agent_protocol.v1.AgentCommand value) {
+      if (agentCmdsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAgentCmdsIsMutable();
+        agentCmds_.add(value);
+        onChanged();
+      } else {
+        agentCmdsBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentCommand agent_cmds = 13;</code>
+     */
+    public Builder addAgentCmds(
+        int index, ai.monarchic.agent_protocol.v1.AgentCommand value) {
+      if (agentCmdsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAgentCmdsIsMutable();
+        agentCmds_.add(index, value);
+        onChanged();
+      } else {
+        agentCmdsBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentCommand agent_cmds = 13;</code>
+     */
+    public Builder addAgentCmds(
+        ai.monarchic.agent_protocol.v1.AgentCommand.Builder builderForValue) {
+      if (agentCmdsBuilder_ == null) {
+        ensureAgentCmdsIsMutable();
+        agentCmds_.add(builderForValue.build());
+        onChanged();
+      } else {
+        agentCmdsBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentCommand agent_cmds = 13;</code>
+     */
+    public Builder addAgentCmds(
+        int index, ai.monarchic.agent_protocol.v1.AgentCommand.Builder builderForValue) {
+      if (agentCmdsBuilder_ == null) {
+        ensureAgentCmdsIsMutable();
+        agentCmds_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        agentCmdsBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentCommand agent_cmds = 13;</code>
+     */
+    public Builder addAllAgentCmds(
+        java.lang.Iterable<? extends ai.monarchic.agent_protocol.v1.AgentCommand> values) {
+      if (agentCmdsBuilder_ == null) {
+        ensureAgentCmdsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, agentCmds_);
+        onChanged();
+      } else {
+        agentCmdsBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentCommand agent_cmds = 13;</code>
+     */
+    public Builder clearAgentCmds() {
+      if (agentCmdsBuilder_ == null) {
+        agentCmds_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00001000);
+        onChanged();
+      } else {
+        agentCmdsBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentCommand agent_cmds = 13;</code>
+     */
+    public Builder removeAgentCmds(int index) {
+      if (agentCmdsBuilder_ == null) {
+        ensureAgentCmdsIsMutable();
+        agentCmds_.remove(index);
+        onChanged();
+      } else {
+        agentCmdsBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentCommand agent_cmds = 13;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.AgentCommand.Builder getAgentCmdsBuilder(
+        int index) {
+      return internalGetAgentCmdsFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentCommand agent_cmds = 13;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.AgentCommandOrBuilder getAgentCmdsOrBuilder(
+        int index) {
+      if (agentCmdsBuilder_ == null) {
+        return agentCmds_.get(index);  } else {
+        return agentCmdsBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentCommand agent_cmds = 13;</code>
+     */
+    public java.util.List<? extends ai.monarchic.agent_protocol.v1.AgentCommandOrBuilder>
+         getAgentCmdsOrBuilderList() {
+      if (agentCmdsBuilder_ != null) {
+        return agentCmdsBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(agentCmds_);
+      }
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentCommand agent_cmds = 13;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.AgentCommand.Builder addAgentCmdsBuilder() {
+      return internalGetAgentCmdsFieldBuilder().addBuilder(
+          ai.monarchic.agent_protocol.v1.AgentCommand.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentCommand agent_cmds = 13;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.AgentCommand.Builder addAgentCmdsBuilder(
+        int index) {
+      return internalGetAgentCmdsFieldBuilder().addBuilder(
+          index, ai.monarchic.agent_protocol.v1.AgentCommand.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentCommand agent_cmds = 13;</code>
+     */
+    public java.util.List<ai.monarchic.agent_protocol.v1.AgentCommand.Builder>
+         getAgentCmdsBuilderList() {
+      return internalGetAgentCmdsFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilder<
+        ai.monarchic.agent_protocol.v1.AgentCommand, ai.monarchic.agent_protocol.v1.AgentCommand.Builder, ai.monarchic.agent_protocol.v1.AgentCommandOrBuilder>
+        internalGetAgentCmdsFieldBuilder() {
+      if (agentCmdsBuilder_ == null) {
+        agentCmdsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            ai.monarchic.agent_protocol.v1.AgentCommand, ai.monarchic.agent_protocol.v1.AgentCommand.Builder, ai.monarchic.agent_protocol.v1.AgentCommandOrBuilder>(
+                agentCmds_,
+                ((bitField0_ & 0x00001000) != 0),
+                getParentForChildren(),
+                isClean());
+        agentCmds_ = null;
+      }
+      return agentCmdsBuilder_;
+    }
+
+    private com.google.protobuf.LazyStringArrayList defaultAgentCmd_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
+    private void ensureDefaultAgentCmdIsMutable() {
+      if (!defaultAgentCmd_.isModifiable()) {
+        defaultAgentCmd_ = new com.google.protobuf.LazyStringArrayList(defaultAgentCmd_);
+      }
+      bitField0_ |= 0x00002000;
+    }
+    /**
+     * <code>repeated string default_agent_cmd = 14;</code>
+     * @return A list containing the defaultAgentCmd.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getDefaultAgentCmdList() {
+      defaultAgentCmd_.makeImmutable();
+      return defaultAgentCmd_;
+    }
+    /**
+     * <code>repeated string default_agent_cmd = 14;</code>
+     * @return The count of defaultAgentCmd.
+     */
+    public int getDefaultAgentCmdCount() {
+      return defaultAgentCmd_.size();
+    }
+    /**
+     * <code>repeated string default_agent_cmd = 14;</code>
+     * @param index The index of the element to return.
+     * @return The defaultAgentCmd at the given index.
+     */
+    public java.lang.String getDefaultAgentCmd(int index) {
+      return defaultAgentCmd_.get(index);
+    }
+    /**
+     * <code>repeated string default_agent_cmd = 14;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the defaultAgentCmd at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getDefaultAgentCmdBytes(int index) {
+      return defaultAgentCmd_.getByteString(index);
+    }
+    /**
+     * <code>repeated string default_agent_cmd = 14;</code>
+     * @param index The index to set the value at.
+     * @param value The defaultAgentCmd to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDefaultAgentCmd(
+        int index, java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensureDefaultAgentCmdIsMutable();
+      defaultAgentCmd_.set(index, value);
+      bitField0_ |= 0x00002000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string default_agent_cmd = 14;</code>
+     * @param value The defaultAgentCmd to add.
+     * @return This builder for chaining.
+     */
+    public Builder addDefaultAgentCmd(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensureDefaultAgentCmdIsMutable();
+      defaultAgentCmd_.add(value);
+      bitField0_ |= 0x00002000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string default_agent_cmd = 14;</code>
+     * @param values The defaultAgentCmd to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllDefaultAgentCmd(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureDefaultAgentCmdIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, defaultAgentCmd_);
+      bitField0_ |= 0x00002000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string default_agent_cmd = 14;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDefaultAgentCmd() {
+      defaultAgentCmd_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
+      bitField0_ = (bitField0_ & ~0x00002000);;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string default_agent_cmd = 14;</code>
+     * @param value The bytes of the defaultAgentCmd to add.
+     * @return This builder for chaining.
+     */
+    public Builder addDefaultAgentCmdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      ensureDefaultAgentCmdIsMutable();
+      defaultAgentCmd_.add(value);
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }

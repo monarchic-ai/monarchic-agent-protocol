@@ -43,7 +43,8 @@ class BootstrapPlanningContext extends \Google\Protobuf\Internal\Message
      */
     protected $priority_profile = '';
     /**
-     * Generated from protobuf field <code>repeated string codex_cmd = 8;</code>
+     * Generated from protobuf field <code>repeated string codex_cmd = 8 [deprecated = true];</code>
+     * @deprecated
      */
     private $codex_cmd;
     /**
@@ -58,6 +59,18 @@ class BootstrapPlanningContext extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.monarchic.agent_protocol.v1.BootstrapPlanningMode planning_mode = 11;</code>
      */
     protected $planning_mode = 0;
+    /**
+     * Generated from protobuf field <code>repeated string enabled_role_ids = 12;</code>
+     */
+    private $enabled_role_ids;
+    /**
+     * Generated from protobuf field <code>repeated .monarchic.agent_protocol.v1.AgentCommand agent_cmds = 13;</code>
+     */
+    private $agent_cmds;
+    /**
+     * Generated from protobuf field <code>repeated string default_agent_cmd = 14;</code>
+     */
+    private $default_agent_cmd;
 
     /**
      * Constructor.
@@ -76,6 +89,9 @@ class BootstrapPlanningContext extends \Google\Protobuf\Internal\Message
      *     @type string[] $available_skill_ids
      *     @type \Monarchic\AgentProtocol\V1\BootstrapTemplateContext $selected_template
      *     @type int $planning_mode
+     *     @type string[] $enabled_role_ids
+     *     @type \Monarchic\AgentProtocol\V1\AgentCommand[] $agent_cmds
+     *     @type string[] $default_agent_cmd
      * }
      */
     public function __construct($data = NULL) {
@@ -248,22 +264,30 @@ class BootstrapPlanningContext extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated string codex_cmd = 8;</code>
+     * Generated from protobuf field <code>repeated string codex_cmd = 8 [deprecated = true];</code>
      * @return RepeatedField<string>
+     * @deprecated
      */
     public function getCodexCmd()
     {
+        if (count($this->codex_cmd) !== 0) {
+            @trigger_error('codex_cmd is deprecated.', E_USER_DEPRECATED);
+        }
         return $this->codex_cmd;
     }
 
     /**
-     * Generated from protobuf field <code>repeated string codex_cmd = 8;</code>
+     * Generated from protobuf field <code>repeated string codex_cmd = 8 [deprecated = true];</code>
      * @param string[] $var
      * @return $this
+     * @deprecated
      */
     public function setCodexCmd($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
+        if (count($arr) !== 0) {
+            @trigger_error('codex_cmd is deprecated.', E_USER_DEPRECATED);
+        }
         $this->codex_cmd = $arr;
 
         return $this;
@@ -341,6 +365,72 @@ class BootstrapPlanningContext extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Monarchic\AgentProtocol\V1\BootstrapPlanningMode::class);
         $this->planning_mode = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated string enabled_role_ids = 12;</code>
+     * @return RepeatedField<string>
+     */
+    public function getEnabledRoleIds()
+    {
+        return $this->enabled_role_ids;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated string enabled_role_ids = 12;</code>
+     * @param string[] $var
+     * @return $this
+     */
+    public function setEnabledRoleIds($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
+        $this->enabled_role_ids = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .monarchic.agent_protocol.v1.AgentCommand agent_cmds = 13;</code>
+     * @return RepeatedField<\Monarchic\AgentProtocol\V1\AgentCommand>
+     */
+    public function getAgentCmds()
+    {
+        return $this->agent_cmds;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .monarchic.agent_protocol.v1.AgentCommand agent_cmds = 13;</code>
+     * @param \Monarchic\AgentProtocol\V1\AgentCommand[] $var
+     * @return $this
+     */
+    public function setAgentCmds($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Monarchic\AgentProtocol\V1\AgentCommand::class);
+        $this->agent_cmds = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated string default_agent_cmd = 14;</code>
+     * @return RepeatedField<string>
+     */
+    public function getDefaultAgentCmd()
+    {
+        return $this->default_agent_cmd;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated string default_agent_cmd = 14;</code>
+     * @param string[] $var
+     * @return $this
+     */
+    public function setDefaultAgentCmd($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
+        $this->default_agent_cmd = $arr;
 
         return $this;
     }

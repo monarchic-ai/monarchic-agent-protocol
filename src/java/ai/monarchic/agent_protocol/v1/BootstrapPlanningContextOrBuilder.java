@@ -113,28 +113,36 @@ public interface BootstrapPlanningContextOrBuilder extends
       getPriorityProfileBytes();
 
   /**
-   * <code>repeated string codex_cmd = 8;</code>
+   * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
+   * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
+   *     See monarchic_agent_protocol.proto;l=255
    * @return A list containing the codexCmd.
    */
-  java.util.List<java.lang.String>
+  @java.lang.Deprecated java.util.List<java.lang.String>
       getCodexCmdList();
   /**
-   * <code>repeated string codex_cmd = 8;</code>
+   * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
+   * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
+   *     See monarchic_agent_protocol.proto;l=255
    * @return The count of codexCmd.
    */
-  int getCodexCmdCount();
+  @java.lang.Deprecated int getCodexCmdCount();
   /**
-   * <code>repeated string codex_cmd = 8;</code>
+   * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
+   * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
+   *     See monarchic_agent_protocol.proto;l=255
    * @param index The index of the element to return.
    * @return The codexCmd at the given index.
    */
-  java.lang.String getCodexCmd(int index);
+  @java.lang.Deprecated java.lang.String getCodexCmd(int index);
   /**
-   * <code>repeated string codex_cmd = 8;</code>
+   * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
+   * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
+   *     See monarchic_agent_protocol.proto;l=255
    * @param index The index of the value to return.
    * @return The bytes of the codexCmd at the given index.
    */
-  com.google.protobuf.ByteString
+  @java.lang.Deprecated com.google.protobuf.ByteString
       getCodexCmdBytes(int index);
 
   /**
@@ -187,4 +195,78 @@ public interface BootstrapPlanningContextOrBuilder extends
    * @return The planningMode.
    */
   ai.monarchic.agent_protocol.v1.BootstrapPlanningMode getPlanningMode();
+
+  /**
+   * <code>repeated string enabled_role_ids = 12;</code>
+   * @return A list containing the enabledRoleIds.
+   */
+  java.util.List<java.lang.String>
+      getEnabledRoleIdsList();
+  /**
+   * <code>repeated string enabled_role_ids = 12;</code>
+   * @return The count of enabledRoleIds.
+   */
+  int getEnabledRoleIdsCount();
+  /**
+   * <code>repeated string enabled_role_ids = 12;</code>
+   * @param index The index of the element to return.
+   * @return The enabledRoleIds at the given index.
+   */
+  java.lang.String getEnabledRoleIds(int index);
+  /**
+   * <code>repeated string enabled_role_ids = 12;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the enabledRoleIds at the given index.
+   */
+  com.google.protobuf.ByteString
+      getEnabledRoleIdsBytes(int index);
+
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentCommand agent_cmds = 13;</code>
+   */
+  java.util.List<ai.monarchic.agent_protocol.v1.AgentCommand>
+      getAgentCmdsList();
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentCommand agent_cmds = 13;</code>
+   */
+  ai.monarchic.agent_protocol.v1.AgentCommand getAgentCmds(int index);
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentCommand agent_cmds = 13;</code>
+   */
+  int getAgentCmdsCount();
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentCommand agent_cmds = 13;</code>
+   */
+  java.util.List<? extends ai.monarchic.agent_protocol.v1.AgentCommandOrBuilder>
+      getAgentCmdsOrBuilderList();
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentCommand agent_cmds = 13;</code>
+   */
+  ai.monarchic.agent_protocol.v1.AgentCommandOrBuilder getAgentCmdsOrBuilder(
+      int index);
+
+  /**
+   * <code>repeated string default_agent_cmd = 14;</code>
+   * @return A list containing the defaultAgentCmd.
+   */
+  java.util.List<java.lang.String>
+      getDefaultAgentCmdList();
+  /**
+   * <code>repeated string default_agent_cmd = 14;</code>
+   * @return The count of defaultAgentCmd.
+   */
+  int getDefaultAgentCmdCount();
+  /**
+   * <code>repeated string default_agent_cmd = 14;</code>
+   * @param index The index of the element to return.
+   * @return The defaultAgentCmd at the given index.
+   */
+  java.lang.String getDefaultAgentCmd(int index);
+  /**
+   * <code>repeated string default_agent_cmd = 14;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the defaultAgentCmd at the given index.
+   */
+  com.google.protobuf.ByteString
+      getDefaultAgentCmdBytes(int index);
 }

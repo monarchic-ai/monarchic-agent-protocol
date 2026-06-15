@@ -1440,6 +1440,8 @@ class BootstrapPlanTask extends $pb.GeneratedMessage {
     $0.Struct? filesystemPolicy,
     $core.String? templateSlotId,
     $core.String? notes,
+    $core.String? agentId,
+    $core.String? injectedByRoleId,
   }) {
     final result = create();
     if (taskId != null) result.taskId = taskId;
@@ -1458,6 +1460,8 @@ class BootstrapPlanTask extends $pb.GeneratedMessage {
     if (filesystemPolicy != null) result.filesystemPolicy = filesystemPolicy;
     if (templateSlotId != null) result.templateSlotId = templateSlotId;
     if (notes != null) result.notes = notes;
+    if (agentId != null) result.agentId = agentId;
+    if (injectedByRoleId != null) result.injectedByRoleId = injectedByRoleId;
     return result;
   }
 
@@ -1490,6 +1494,8 @@ class BootstrapPlanTask extends $pb.GeneratedMessage {
         subBuilder: $0.Struct.create)
     ..aOS(13, _omitFieldNames ? '' : 'templateSlotId')
     ..aOS(14, _omitFieldNames ? '' : 'notes')
+    ..aOS(15, _omitFieldNames ? '' : 'agentId')
+    ..aOS(16, _omitFieldNames ? '' : 'injectedByRoleId')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -1620,6 +1626,24 @@ class BootstrapPlanTask extends $pb.GeneratedMessage {
   $core.bool hasNotes() => $_has(13);
   @$pb.TagNumber(14)
   void clearNotes() => $_clearField(14);
+
+  @$pb.TagNumber(15)
+  $core.String get agentId => $_getSZ(14);
+  @$pb.TagNumber(15)
+  set agentId($core.String value) => $_setString(14, value);
+  @$pb.TagNumber(15)
+  $core.bool hasAgentId() => $_has(14);
+  @$pb.TagNumber(15)
+  void clearAgentId() => $_clearField(15);
+
+  @$pb.TagNumber(16)
+  $core.String get injectedByRoleId => $_getSZ(15);
+  @$pb.TagNumber(16)
+  set injectedByRoleId($core.String value) => $_setString(15, value);
+  @$pb.TagNumber(16)
+  $core.bool hasInjectedByRoleId() => $_has(15);
+  @$pb.TagNumber(16)
+  void clearInjectedByRoleId() => $_clearField(16);
 }
 
 class BootstrapPlan extends $pb.GeneratedMessage {
@@ -2374,6 +2398,67 @@ class BootstrapTemplateContext extends $pb.GeneratedMessage {
   $pb.PbList<BootstrapTemplateLaneContext> get lanes => $_getList(4);
 }
 
+class AgentCommand extends $pb.GeneratedMessage {
+  factory AgentCommand({
+    $core.String? runnerId,
+    $core.Iterable<$core.String>? argv,
+  }) {
+    final result = create();
+    if (runnerId != null) result.runnerId = runnerId;
+    if (argv != null) result.argv.addAll(argv);
+    return result;
+  }
+
+  AgentCommand._();
+
+  factory AgentCommand.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory AgentCommand.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'AgentCommand',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'runnerId')
+    ..pPS(2, _omitFieldNames ? '' : 'argv')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  AgentCommand clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  AgentCommand copyWith(void Function(AgentCommand) updates) =>
+      super.copyWith((message) => updates(message as AgentCommand))
+          as AgentCommand;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static AgentCommand create() => AgentCommand._();
+  @$core.override
+  AgentCommand createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static AgentCommand getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<AgentCommand>(create);
+  static AgentCommand? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get runnerId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set runnerId($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasRunnerId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearRunnerId() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $pb.PbList<$core.String> get argv => $_getList(1);
+}
+
 class BootstrapPlanningContext extends $pb.GeneratedMessage {
   factory BootstrapPlanningContext({
     $core.String? contractVersion,
@@ -2383,10 +2468,14 @@ class BootstrapPlanningContext extends $pb.GeneratedMessage {
     $core.String? campaignGoal,
     $core.String? notes,
     $core.String? priorityProfile,
+    @$core.Deprecated('This field is deprecated.')
     $core.Iterable<$core.String>? codexCmd,
     $core.Iterable<$core.String>? availableSkillIds,
     BootstrapTemplateContext? selectedTemplate,
     BootstrapPlanningMode? planningMode,
+    $core.Iterable<$core.String>? enabledRoleIds,
+    $core.Iterable<AgentCommand>? agentCmds,
+    $core.Iterable<$core.String>? defaultAgentCmd,
   }) {
     final result = create();
     if (contractVersion != null) result.contractVersion = contractVersion;
@@ -2401,6 +2490,9 @@ class BootstrapPlanningContext extends $pb.GeneratedMessage {
       result.availableSkillIds.addAll(availableSkillIds);
     if (selectedTemplate != null) result.selectedTemplate = selectedTemplate;
     if (planningMode != null) result.planningMode = planningMode;
+    if (enabledRoleIds != null) result.enabledRoleIds.addAll(enabledRoleIds);
+    if (agentCmds != null) result.agentCmds.addAll(agentCmds);
+    if (defaultAgentCmd != null) result.defaultAgentCmd.addAll(defaultAgentCmd);
     return result;
   }
 
@@ -2432,6 +2524,10 @@ class BootstrapPlanningContext extends $pb.GeneratedMessage {
         subBuilder: BootstrapTemplateContext.create)
     ..aE<BootstrapPlanningMode>(11, _omitFieldNames ? '' : 'planningMode',
         enumValues: BootstrapPlanningMode.values)
+    ..pPS(12, _omitFieldNames ? '' : 'enabledRoleIds')
+    ..pPM<AgentCommand>(13, _omitFieldNames ? '' : 'agentCmds',
+        subBuilder: AgentCommand.create)
+    ..pPS(14, _omitFieldNames ? '' : 'defaultAgentCmd')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -2511,6 +2607,7 @@ class BootstrapPlanningContext extends $pb.GeneratedMessage {
   @$pb.TagNumber(7)
   void clearPriorityProfile() => $_clearField(7);
 
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(8)
   $pb.PbList<$core.String> get codexCmd => $_getList(7);
 
@@ -2536,6 +2633,15 @@ class BootstrapPlanningContext extends $pb.GeneratedMessage {
   $core.bool hasPlanningMode() => $_has(10);
   @$pb.TagNumber(11)
   void clearPlanningMode() => $_clearField(11);
+
+  @$pb.TagNumber(12)
+  $pb.PbList<$core.String> get enabledRoleIds => $_getList(11);
+
+  @$pb.TagNumber(13)
+  $pb.PbList<AgentCommand> get agentCmds => $_getList(12);
+
+  @$pb.TagNumber(14)
+  $pb.PbList<$core.String> get defaultAgentCmd => $_getList(13);
 }
 
 class CampaignPipelineTaskRef extends $pb.GeneratedMessage {
