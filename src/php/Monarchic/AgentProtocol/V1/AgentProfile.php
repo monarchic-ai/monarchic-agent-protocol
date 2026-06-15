@@ -54,6 +54,10 @@ class AgentProfile extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.google.protobuf.Struct extensions = 10;</code>
      */
     protected $extensions = null;
+    /**
+     * Generated from protobuf field <code>optional string runner_policy_id = 11;</code>
+     */
+    protected $runner_policy_id = null;
 
     /**
      * Constructor.
@@ -71,6 +75,7 @@ class AgentProfile extends \Google\Protobuf\Internal\Message
      *     @type string[] $required_skill_ids
      *     @type string[] $required_mcp_ids
      *     @type \Google\Protobuf\Struct $extensions
+     *     @type string $runner_policy_id
      * }
      */
     public function __construct($data = NULL) {
@@ -314,6 +319,38 @@ class AgentProfile extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Google\Protobuf\Struct::class);
         $this->extensions = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string runner_policy_id = 11;</code>
+     * @return string
+     */
+    public function getRunnerPolicyId()
+    {
+        return isset($this->runner_policy_id) ? $this->runner_policy_id : '';
+    }
+
+    public function hasRunnerPolicyId()
+    {
+        return isset($this->runner_policy_id);
+    }
+
+    public function clearRunnerPolicyId()
+    {
+        unset($this->runner_policy_id);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string runner_policy_id = 11;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setRunnerPolicyId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->runner_policy_id = $var;
 
         return $this;
     }

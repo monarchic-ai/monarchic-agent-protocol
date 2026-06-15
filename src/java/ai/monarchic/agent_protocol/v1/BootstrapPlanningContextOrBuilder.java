@@ -115,7 +115,7 @@ public interface BootstrapPlanningContextOrBuilder extends
   /**
    * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
    * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
-   *     See monarchic_agent_protocol.proto;l=290
+   *     See monarchic_agent_protocol.proto;l=300
    * @return A list containing the codexCmd.
    */
   @java.lang.Deprecated java.util.List<java.lang.String>
@@ -123,14 +123,14 @@ public interface BootstrapPlanningContextOrBuilder extends
   /**
    * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
    * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
-   *     See monarchic_agent_protocol.proto;l=290
+   *     See monarchic_agent_protocol.proto;l=300
    * @return The count of codexCmd.
    */
   @java.lang.Deprecated int getCodexCmdCount();
   /**
    * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
    * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
-   *     See monarchic_agent_protocol.proto;l=290
+   *     See monarchic_agent_protocol.proto;l=300
    * @param index The index of the element to return.
    * @return The codexCmd at the given index.
    */
@@ -138,7 +138,7 @@ public interface BootstrapPlanningContextOrBuilder extends
   /**
    * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
    * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
-   *     See monarchic_agent_protocol.proto;l=290
+   *     See monarchic_agent_protocol.proto;l=300
    * @param index The index of the value to return.
    * @return The bytes of the codexCmd at the given index.
    */
@@ -292,5 +292,53 @@ public interface BootstrapPlanningContextOrBuilder extends
    * <code>repeated .monarchic.agent_protocol.v1.AgentProfile agent_profiles = 15;</code>
    */
   ai.monarchic.agent_protocol.v1.AgentProfileOrBuilder getAgentProfilesOrBuilder(
+      int index);
+
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.RunnerCapabilities available_runners = 16;</code>
+   */
+  java.util.List<ai.monarchic.agent_protocol.v1.RunnerCapabilities>
+      getAvailableRunnersList();
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.RunnerCapabilities available_runners = 16;</code>
+   */
+  ai.monarchic.agent_protocol.v1.RunnerCapabilities getAvailableRunners(int index);
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.RunnerCapabilities available_runners = 16;</code>
+   */
+  int getAvailableRunnersCount();
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.RunnerCapabilities available_runners = 16;</code>
+   */
+  java.util.List<? extends ai.monarchic.agent_protocol.v1.RunnerCapabilitiesOrBuilder>
+      getAvailableRunnersOrBuilderList();
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.RunnerCapabilities available_runners = 16;</code>
+   */
+  ai.monarchic.agent_protocol.v1.RunnerCapabilitiesOrBuilder getAvailableRunnersOrBuilder(
+      int index);
+
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPolicy runner_policies = 17;</code>
+   */
+  java.util.List<ai.monarchic.agent_protocol.v1.AgentRunnerPolicy>
+      getRunnerPoliciesList();
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPolicy runner_policies = 17;</code>
+   */
+  ai.monarchic.agent_protocol.v1.AgentRunnerPolicy getRunnerPolicies(int index);
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPolicy runner_policies = 17;</code>
+   */
+  int getRunnerPoliciesCount();
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPolicy runner_policies = 17;</code>
+   */
+  java.util.List<? extends ai.monarchic.agent_protocol.v1.AgentRunnerPolicyOrBuilder>
+      getRunnerPoliciesOrBuilderList();
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPolicy runner_policies = 17;</code>
+   */
+  ai.monarchic.agent_protocol.v1.AgentRunnerPolicyOrBuilder getRunnerPoliciesOrBuilder(
       int index);
 }

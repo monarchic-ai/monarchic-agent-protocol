@@ -75,6 +75,14 @@ class BootstrapPlanningContext extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>repeated .monarchic.agent_protocol.v1.AgentProfile agent_profiles = 15;</code>
      */
     private $agent_profiles;
+    /**
+     * Generated from protobuf field <code>repeated .monarchic.agent_protocol.v1.RunnerCapabilities available_runners = 16;</code>
+     */
+    private $available_runners;
+    /**
+     * Generated from protobuf field <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPolicy runner_policies = 17;</code>
+     */
+    private $runner_policies;
 
     /**
      * Constructor.
@@ -97,6 +105,8 @@ class BootstrapPlanningContext extends \Google\Protobuf\Internal\Message
      *     @type \Monarchic\AgentProtocol\V1\AgentCommand[] $agent_cmds
      *     @type string[] $default_agent_cmd
      *     @type \Monarchic\AgentProtocol\V1\AgentProfile[] $agent_profiles
+     *     @type \Monarchic\AgentProtocol\V1\RunnerCapabilities[] $available_runners
+     *     @type \Monarchic\AgentProtocol\V1\AgentRunnerPolicy[] $runner_policies
      * }
      */
     public function __construct($data = NULL) {
@@ -458,6 +468,50 @@ class BootstrapPlanningContext extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Monarchic\AgentProtocol\V1\AgentProfile::class);
         $this->agent_profiles = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .monarchic.agent_protocol.v1.RunnerCapabilities available_runners = 16;</code>
+     * @return RepeatedField<\Monarchic\AgentProtocol\V1\RunnerCapabilities>
+     */
+    public function getAvailableRunners()
+    {
+        return $this->available_runners;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .monarchic.agent_protocol.v1.RunnerCapabilities available_runners = 16;</code>
+     * @param \Monarchic\AgentProtocol\V1\RunnerCapabilities[] $var
+     * @return $this
+     */
+    public function setAvailableRunners($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Monarchic\AgentProtocol\V1\RunnerCapabilities::class);
+        $this->available_runners = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPolicy runner_policies = 17;</code>
+     * @return RepeatedField<\Monarchic\AgentProtocol\V1\AgentRunnerPolicy>
+     */
+    public function getRunnerPolicies()
+    {
+        return $this->runner_policies;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPolicy runner_policies = 17;</code>
+     * @param \Monarchic\AgentProtocol\V1\AgentRunnerPolicy[] $var
+     * @return $this
+     */
+    public function setRunnerPolicies($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Monarchic\AgentProtocol\V1\AgentRunnerPolicy::class);
+        $this->runner_policies = $arr;
 
         return $this;
     }

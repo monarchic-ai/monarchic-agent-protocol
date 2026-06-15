@@ -182,4 +182,21 @@ public interface AgentProfileOrBuilder extends
    * <code>.google.protobuf.Struct extensions = 10;</code>
    */
   com.google.protobuf.StructOrBuilder getExtensionsOrBuilder();
+
+  /**
+   * <code>optional string runner_policy_id = 11;</code>
+   * @return Whether the runnerPolicyId field is set.
+   */
+  boolean hasRunnerPolicyId();
+  /**
+   * <code>optional string runner_policy_id = 11;</code>
+   * @return The runnerPolicyId.
+   */
+  java.lang.String getRunnerPolicyId();
+  /**
+   * <code>optional string runner_policy_id = 11;</code>
+   * @return The bytes for runnerPolicyId.
+   */
+  com.google.protobuf.ByteString
+      getRunnerPolicyIdBytes();
 }

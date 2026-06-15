@@ -47,6 +47,8 @@ private static final long serialVersionUID = 0L;
     defaultAgentCmd_ =
         com.google.protobuf.LazyStringArrayList.emptyList();
     agentProfiles_ = java.util.Collections.emptyList();
+    availableRunners_ = java.util.Collections.emptyList();
+    runnerPolicies_ = java.util.Collections.emptyList();
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -349,7 +351,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
    * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
-   *     See monarchic_agent_protocol.proto;l=290
+   *     See monarchic_agent_protocol.proto;l=300
    * @return A list containing the codexCmd.
    */
   @java.lang.Deprecated public com.google.protobuf.ProtocolStringList
@@ -359,7 +361,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
    * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
-   *     See monarchic_agent_protocol.proto;l=290
+   *     See monarchic_agent_protocol.proto;l=300
    * @return The count of codexCmd.
    */
   @java.lang.Deprecated public int getCodexCmdCount() {
@@ -368,7 +370,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
    * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
-   *     See monarchic_agent_protocol.proto;l=290
+   *     See monarchic_agent_protocol.proto;l=300
    * @param index The index of the element to return.
    * @return The codexCmd at the given index.
    */
@@ -378,7 +380,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
    * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
-   *     See monarchic_agent_protocol.proto;l=290
+   *     See monarchic_agent_protocol.proto;l=300
    * @param index The index of the value to return.
    * @return The bytes of the codexCmd at the given index.
    */
@@ -624,6 +626,88 @@ private static final long serialVersionUID = 0L;
     return agentProfiles_.get(index);
   }
 
+  public static final int AVAILABLE_RUNNERS_FIELD_NUMBER = 16;
+  @SuppressWarnings("serial")
+  private java.util.List<ai.monarchic.agent_protocol.v1.RunnerCapabilities> availableRunners_;
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.RunnerCapabilities available_runners = 16;</code>
+   */
+  @java.lang.Override
+  public java.util.List<ai.monarchic.agent_protocol.v1.RunnerCapabilities> getAvailableRunnersList() {
+    return availableRunners_;
+  }
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.RunnerCapabilities available_runners = 16;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends ai.monarchic.agent_protocol.v1.RunnerCapabilitiesOrBuilder>
+      getAvailableRunnersOrBuilderList() {
+    return availableRunners_;
+  }
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.RunnerCapabilities available_runners = 16;</code>
+   */
+  @java.lang.Override
+  public int getAvailableRunnersCount() {
+    return availableRunners_.size();
+  }
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.RunnerCapabilities available_runners = 16;</code>
+   */
+  @java.lang.Override
+  public ai.monarchic.agent_protocol.v1.RunnerCapabilities getAvailableRunners(int index) {
+    return availableRunners_.get(index);
+  }
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.RunnerCapabilities available_runners = 16;</code>
+   */
+  @java.lang.Override
+  public ai.monarchic.agent_protocol.v1.RunnerCapabilitiesOrBuilder getAvailableRunnersOrBuilder(
+      int index) {
+    return availableRunners_.get(index);
+  }
+
+  public static final int RUNNER_POLICIES_FIELD_NUMBER = 17;
+  @SuppressWarnings("serial")
+  private java.util.List<ai.monarchic.agent_protocol.v1.AgentRunnerPolicy> runnerPolicies_;
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPolicy runner_policies = 17;</code>
+   */
+  @java.lang.Override
+  public java.util.List<ai.monarchic.agent_protocol.v1.AgentRunnerPolicy> getRunnerPoliciesList() {
+    return runnerPolicies_;
+  }
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPolicy runner_policies = 17;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends ai.monarchic.agent_protocol.v1.AgentRunnerPolicyOrBuilder>
+      getRunnerPoliciesOrBuilderList() {
+    return runnerPolicies_;
+  }
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPolicy runner_policies = 17;</code>
+   */
+  @java.lang.Override
+  public int getRunnerPoliciesCount() {
+    return runnerPolicies_.size();
+  }
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPolicy runner_policies = 17;</code>
+   */
+  @java.lang.Override
+  public ai.monarchic.agent_protocol.v1.AgentRunnerPolicy getRunnerPolicies(int index) {
+    return runnerPolicies_.get(index);
+  }
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPolicy runner_policies = 17;</code>
+   */
+  @java.lang.Override
+  public ai.monarchic.agent_protocol.v1.AgentRunnerPolicyOrBuilder getRunnerPoliciesOrBuilder(
+      int index) {
+    return runnerPolicies_.get(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -682,6 +766,12 @@ private static final long serialVersionUID = 0L;
     }
     for (int i = 0; i < agentProfiles_.size(); i++) {
       output.writeMessage(15, agentProfiles_.get(i));
+    }
+    for (int i = 0; i < availableRunners_.size(); i++) {
+      output.writeMessage(16, availableRunners_.get(i));
+    }
+    for (int i = 0; i < runnerPolicies_.size(); i++) {
+      output.writeMessage(17, runnerPolicies_.get(i));
     }
     getUnknownFields().writeTo(output);
   }
@@ -766,6 +856,14 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(15, agentProfiles_.get(i));
     }
+    for (int i = 0; i < availableRunners_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(16, availableRunners_.get(i));
+    }
+    for (int i = 0; i < runnerPolicies_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(17, runnerPolicies_.get(i));
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -816,6 +914,10 @@ private static final long serialVersionUID = 0L;
         .equals(other.getDefaultAgentCmdList())) return false;
     if (!getAgentProfilesList()
         .equals(other.getAgentProfilesList())) return false;
+    if (!getAvailableRunnersList()
+        .equals(other.getAvailableRunnersList())) return false;
+    if (!getRunnerPoliciesList()
+        .equals(other.getRunnerPoliciesList())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -874,6 +976,14 @@ private static final long serialVersionUID = 0L;
     if (getAgentProfilesCount() > 0) {
       hash = (37 * hash) + AGENT_PROFILES_FIELD_NUMBER;
       hash = (53 * hash) + getAgentProfilesList().hashCode();
+    }
+    if (getAvailableRunnersCount() > 0) {
+      hash = (37 * hash) + AVAILABLE_RUNNERS_FIELD_NUMBER;
+      hash = (53 * hash) + getAvailableRunnersList().hashCode();
+    }
+    if (getRunnerPoliciesCount() > 0) {
+      hash = (37 * hash) + RUNNER_POLICIES_FIELD_NUMBER;
+      hash = (53 * hash) + getRunnerPoliciesList().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -1008,6 +1118,8 @@ private static final long serialVersionUID = 0L;
         internalGetSelectedTemplateFieldBuilder();
         internalGetAgentCmdsFieldBuilder();
         internalGetAgentProfilesFieldBuilder();
+        internalGetAvailableRunnersFieldBuilder();
+        internalGetRunnerPoliciesFieldBuilder();
       }
     }
     @java.lang.Override
@@ -1050,6 +1162,20 @@ private static final long serialVersionUID = 0L;
         agentProfilesBuilder_.clear();
       }
       bitField0_ = (bitField0_ & ~0x00004000);
+      if (availableRunnersBuilder_ == null) {
+        availableRunners_ = java.util.Collections.emptyList();
+      } else {
+        availableRunners_ = null;
+        availableRunnersBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00008000);
+      if (runnerPoliciesBuilder_ == null) {
+        runnerPolicies_ = java.util.Collections.emptyList();
+      } else {
+        runnerPolicies_ = null;
+        runnerPoliciesBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00010000);
       return this;
     }
 
@@ -1100,6 +1226,24 @@ private static final long serialVersionUID = 0L;
         result.agentProfiles_ = agentProfiles_;
       } else {
         result.agentProfiles_ = agentProfilesBuilder_.build();
+      }
+      if (availableRunnersBuilder_ == null) {
+        if (((bitField0_ & 0x00008000) != 0)) {
+          availableRunners_ = java.util.Collections.unmodifiableList(availableRunners_);
+          bitField0_ = (bitField0_ & ~0x00008000);
+        }
+        result.availableRunners_ = availableRunners_;
+      } else {
+        result.availableRunners_ = availableRunnersBuilder_.build();
+      }
+      if (runnerPoliciesBuilder_ == null) {
+        if (((bitField0_ & 0x00010000) != 0)) {
+          runnerPolicies_ = java.util.Collections.unmodifiableList(runnerPolicies_);
+          bitField0_ = (bitField0_ & ~0x00010000);
+        }
+        result.runnerPolicies_ = runnerPolicies_;
+      } else {
+        result.runnerPolicies_ = runnerPoliciesBuilder_.build();
       }
     }
 
@@ -1307,6 +1451,58 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
+      if (availableRunnersBuilder_ == null) {
+        if (!other.availableRunners_.isEmpty()) {
+          if (availableRunners_.isEmpty()) {
+            availableRunners_ = other.availableRunners_;
+            bitField0_ = (bitField0_ & ~0x00008000);
+          } else {
+            ensureAvailableRunnersIsMutable();
+            availableRunners_.addAll(other.availableRunners_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.availableRunners_.isEmpty()) {
+          if (availableRunnersBuilder_.isEmpty()) {
+            availableRunnersBuilder_.dispose();
+            availableRunnersBuilder_ = null;
+            availableRunners_ = other.availableRunners_;
+            bitField0_ = (bitField0_ & ~0x00008000);
+            availableRunnersBuilder_ =
+              com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                 internalGetAvailableRunnersFieldBuilder() : null;
+          } else {
+            availableRunnersBuilder_.addAllMessages(other.availableRunners_);
+          }
+        }
+      }
+      if (runnerPoliciesBuilder_ == null) {
+        if (!other.runnerPolicies_.isEmpty()) {
+          if (runnerPolicies_.isEmpty()) {
+            runnerPolicies_ = other.runnerPolicies_;
+            bitField0_ = (bitField0_ & ~0x00010000);
+          } else {
+            ensureRunnerPoliciesIsMutable();
+            runnerPolicies_.addAll(other.runnerPolicies_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.runnerPolicies_.isEmpty()) {
+          if (runnerPoliciesBuilder_.isEmpty()) {
+            runnerPoliciesBuilder_.dispose();
+            runnerPoliciesBuilder_ = null;
+            runnerPolicies_ = other.runnerPolicies_;
+            bitField0_ = (bitField0_ & ~0x00010000);
+            runnerPoliciesBuilder_ =
+              com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                 internalGetRunnerPoliciesFieldBuilder() : null;
+          } else {
+            runnerPoliciesBuilder_.addAllMessages(other.runnerPolicies_);
+          }
+        }
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -1431,6 +1627,32 @@ private static final long serialVersionUID = 0L;
               }
               break;
             } // case 122
+            case 130: {
+              ai.monarchic.agent_protocol.v1.RunnerCapabilities m =
+                  input.readMessage(
+                      ai.monarchic.agent_protocol.v1.RunnerCapabilities.parser(),
+                      extensionRegistry);
+              if (availableRunnersBuilder_ == null) {
+                ensureAvailableRunnersIsMutable();
+                availableRunners_.add(m);
+              } else {
+                availableRunnersBuilder_.addMessage(m);
+              }
+              break;
+            } // case 130
+            case 138: {
+              ai.monarchic.agent_protocol.v1.AgentRunnerPolicy m =
+                  input.readMessage(
+                      ai.monarchic.agent_protocol.v1.AgentRunnerPolicy.parser(),
+                      extensionRegistry);
+              if (runnerPoliciesBuilder_ == null) {
+                ensureRunnerPoliciesIsMutable();
+                runnerPolicies_.add(m);
+              } else {
+                runnerPoliciesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 138
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -2009,7 +2231,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
      * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
-     *     See monarchic_agent_protocol.proto;l=290
+     *     See monarchic_agent_protocol.proto;l=300
      * @return A list containing the codexCmd.
      */
     @java.lang.Deprecated public com.google.protobuf.ProtocolStringList
@@ -2020,7 +2242,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
      * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
-     *     See monarchic_agent_protocol.proto;l=290
+     *     See monarchic_agent_protocol.proto;l=300
      * @return The count of codexCmd.
      */
     @java.lang.Deprecated public int getCodexCmdCount() {
@@ -2029,7 +2251,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
      * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
-     *     See monarchic_agent_protocol.proto;l=290
+     *     See monarchic_agent_protocol.proto;l=300
      * @param index The index of the element to return.
      * @return The codexCmd at the given index.
      */
@@ -2039,7 +2261,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
      * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
-     *     See monarchic_agent_protocol.proto;l=290
+     *     See monarchic_agent_protocol.proto;l=300
      * @param index The index of the value to return.
      * @return The bytes of the codexCmd at the given index.
      */
@@ -2050,7 +2272,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
      * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
-     *     See monarchic_agent_protocol.proto;l=290
+     *     See monarchic_agent_protocol.proto;l=300
      * @param index The index to set the value at.
      * @param value The codexCmd to set.
      * @return This builder for chaining.
@@ -2067,7 +2289,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
      * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
-     *     See monarchic_agent_protocol.proto;l=290
+     *     See monarchic_agent_protocol.proto;l=300
      * @param value The codexCmd to add.
      * @return This builder for chaining.
      */
@@ -2083,7 +2305,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
      * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
-     *     See monarchic_agent_protocol.proto;l=290
+     *     See monarchic_agent_protocol.proto;l=300
      * @param values The codexCmd to add.
      * @return This builder for chaining.
      */
@@ -2099,7 +2321,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
      * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
-     *     See monarchic_agent_protocol.proto;l=290
+     *     See monarchic_agent_protocol.proto;l=300
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearCodexCmd() {
@@ -2112,7 +2334,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
      * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
-     *     See monarchic_agent_protocol.proto;l=290
+     *     See monarchic_agent_protocol.proto;l=300
      * @param value The bytes of the codexCmd to add.
      * @return This builder for chaining.
      */
@@ -3110,6 +3332,486 @@ private static final long serialVersionUID = 0L;
         agentProfiles_ = null;
       }
       return agentProfilesBuilder_;
+    }
+
+    private java.util.List<ai.monarchic.agent_protocol.v1.RunnerCapabilities> availableRunners_ =
+      java.util.Collections.emptyList();
+    private void ensureAvailableRunnersIsMutable() {
+      if (!((bitField0_ & 0x00008000) != 0)) {
+        availableRunners_ = new java.util.ArrayList<ai.monarchic.agent_protocol.v1.RunnerCapabilities>(availableRunners_);
+        bitField0_ |= 0x00008000;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilder<
+        ai.monarchic.agent_protocol.v1.RunnerCapabilities, ai.monarchic.agent_protocol.v1.RunnerCapabilities.Builder, ai.monarchic.agent_protocol.v1.RunnerCapabilitiesOrBuilder> availableRunnersBuilder_;
+
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.RunnerCapabilities available_runners = 16;</code>
+     */
+    public java.util.List<ai.monarchic.agent_protocol.v1.RunnerCapabilities> getAvailableRunnersList() {
+      if (availableRunnersBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(availableRunners_);
+      } else {
+        return availableRunnersBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.RunnerCapabilities available_runners = 16;</code>
+     */
+    public int getAvailableRunnersCount() {
+      if (availableRunnersBuilder_ == null) {
+        return availableRunners_.size();
+      } else {
+        return availableRunnersBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.RunnerCapabilities available_runners = 16;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.RunnerCapabilities getAvailableRunners(int index) {
+      if (availableRunnersBuilder_ == null) {
+        return availableRunners_.get(index);
+      } else {
+        return availableRunnersBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.RunnerCapabilities available_runners = 16;</code>
+     */
+    public Builder setAvailableRunners(
+        int index, ai.monarchic.agent_protocol.v1.RunnerCapabilities value) {
+      if (availableRunnersBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAvailableRunnersIsMutable();
+        availableRunners_.set(index, value);
+        onChanged();
+      } else {
+        availableRunnersBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.RunnerCapabilities available_runners = 16;</code>
+     */
+    public Builder setAvailableRunners(
+        int index, ai.monarchic.agent_protocol.v1.RunnerCapabilities.Builder builderForValue) {
+      if (availableRunnersBuilder_ == null) {
+        ensureAvailableRunnersIsMutable();
+        availableRunners_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        availableRunnersBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.RunnerCapabilities available_runners = 16;</code>
+     */
+    public Builder addAvailableRunners(ai.monarchic.agent_protocol.v1.RunnerCapabilities value) {
+      if (availableRunnersBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAvailableRunnersIsMutable();
+        availableRunners_.add(value);
+        onChanged();
+      } else {
+        availableRunnersBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.RunnerCapabilities available_runners = 16;</code>
+     */
+    public Builder addAvailableRunners(
+        int index, ai.monarchic.agent_protocol.v1.RunnerCapabilities value) {
+      if (availableRunnersBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAvailableRunnersIsMutable();
+        availableRunners_.add(index, value);
+        onChanged();
+      } else {
+        availableRunnersBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.RunnerCapabilities available_runners = 16;</code>
+     */
+    public Builder addAvailableRunners(
+        ai.monarchic.agent_protocol.v1.RunnerCapabilities.Builder builderForValue) {
+      if (availableRunnersBuilder_ == null) {
+        ensureAvailableRunnersIsMutable();
+        availableRunners_.add(builderForValue.build());
+        onChanged();
+      } else {
+        availableRunnersBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.RunnerCapabilities available_runners = 16;</code>
+     */
+    public Builder addAvailableRunners(
+        int index, ai.monarchic.agent_protocol.v1.RunnerCapabilities.Builder builderForValue) {
+      if (availableRunnersBuilder_ == null) {
+        ensureAvailableRunnersIsMutable();
+        availableRunners_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        availableRunnersBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.RunnerCapabilities available_runners = 16;</code>
+     */
+    public Builder addAllAvailableRunners(
+        java.lang.Iterable<? extends ai.monarchic.agent_protocol.v1.RunnerCapabilities> values) {
+      if (availableRunnersBuilder_ == null) {
+        ensureAvailableRunnersIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, availableRunners_);
+        onChanged();
+      } else {
+        availableRunnersBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.RunnerCapabilities available_runners = 16;</code>
+     */
+    public Builder clearAvailableRunners() {
+      if (availableRunnersBuilder_ == null) {
+        availableRunners_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00008000);
+        onChanged();
+      } else {
+        availableRunnersBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.RunnerCapabilities available_runners = 16;</code>
+     */
+    public Builder removeAvailableRunners(int index) {
+      if (availableRunnersBuilder_ == null) {
+        ensureAvailableRunnersIsMutable();
+        availableRunners_.remove(index);
+        onChanged();
+      } else {
+        availableRunnersBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.RunnerCapabilities available_runners = 16;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.RunnerCapabilities.Builder getAvailableRunnersBuilder(
+        int index) {
+      return internalGetAvailableRunnersFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.RunnerCapabilities available_runners = 16;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.RunnerCapabilitiesOrBuilder getAvailableRunnersOrBuilder(
+        int index) {
+      if (availableRunnersBuilder_ == null) {
+        return availableRunners_.get(index);  } else {
+        return availableRunnersBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.RunnerCapabilities available_runners = 16;</code>
+     */
+    public java.util.List<? extends ai.monarchic.agent_protocol.v1.RunnerCapabilitiesOrBuilder>
+         getAvailableRunnersOrBuilderList() {
+      if (availableRunnersBuilder_ != null) {
+        return availableRunnersBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(availableRunners_);
+      }
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.RunnerCapabilities available_runners = 16;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.RunnerCapabilities.Builder addAvailableRunnersBuilder() {
+      return internalGetAvailableRunnersFieldBuilder().addBuilder(
+          ai.monarchic.agent_protocol.v1.RunnerCapabilities.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.RunnerCapabilities available_runners = 16;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.RunnerCapabilities.Builder addAvailableRunnersBuilder(
+        int index) {
+      return internalGetAvailableRunnersFieldBuilder().addBuilder(
+          index, ai.monarchic.agent_protocol.v1.RunnerCapabilities.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.RunnerCapabilities available_runners = 16;</code>
+     */
+    public java.util.List<ai.monarchic.agent_protocol.v1.RunnerCapabilities.Builder>
+         getAvailableRunnersBuilderList() {
+      return internalGetAvailableRunnersFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilder<
+        ai.monarchic.agent_protocol.v1.RunnerCapabilities, ai.monarchic.agent_protocol.v1.RunnerCapabilities.Builder, ai.monarchic.agent_protocol.v1.RunnerCapabilitiesOrBuilder>
+        internalGetAvailableRunnersFieldBuilder() {
+      if (availableRunnersBuilder_ == null) {
+        availableRunnersBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            ai.monarchic.agent_protocol.v1.RunnerCapabilities, ai.monarchic.agent_protocol.v1.RunnerCapabilities.Builder, ai.monarchic.agent_protocol.v1.RunnerCapabilitiesOrBuilder>(
+                availableRunners_,
+                ((bitField0_ & 0x00008000) != 0),
+                getParentForChildren(),
+                isClean());
+        availableRunners_ = null;
+      }
+      return availableRunnersBuilder_;
+    }
+
+    private java.util.List<ai.monarchic.agent_protocol.v1.AgentRunnerPolicy> runnerPolicies_ =
+      java.util.Collections.emptyList();
+    private void ensureRunnerPoliciesIsMutable() {
+      if (!((bitField0_ & 0x00010000) != 0)) {
+        runnerPolicies_ = new java.util.ArrayList<ai.monarchic.agent_protocol.v1.AgentRunnerPolicy>(runnerPolicies_);
+        bitField0_ |= 0x00010000;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilder<
+        ai.monarchic.agent_protocol.v1.AgentRunnerPolicy, ai.monarchic.agent_protocol.v1.AgentRunnerPolicy.Builder, ai.monarchic.agent_protocol.v1.AgentRunnerPolicyOrBuilder> runnerPoliciesBuilder_;
+
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPolicy runner_policies = 17;</code>
+     */
+    public java.util.List<ai.monarchic.agent_protocol.v1.AgentRunnerPolicy> getRunnerPoliciesList() {
+      if (runnerPoliciesBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(runnerPolicies_);
+      } else {
+        return runnerPoliciesBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPolicy runner_policies = 17;</code>
+     */
+    public int getRunnerPoliciesCount() {
+      if (runnerPoliciesBuilder_ == null) {
+        return runnerPolicies_.size();
+      } else {
+        return runnerPoliciesBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPolicy runner_policies = 17;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.AgentRunnerPolicy getRunnerPolicies(int index) {
+      if (runnerPoliciesBuilder_ == null) {
+        return runnerPolicies_.get(index);
+      } else {
+        return runnerPoliciesBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPolicy runner_policies = 17;</code>
+     */
+    public Builder setRunnerPolicies(
+        int index, ai.monarchic.agent_protocol.v1.AgentRunnerPolicy value) {
+      if (runnerPoliciesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureRunnerPoliciesIsMutable();
+        runnerPolicies_.set(index, value);
+        onChanged();
+      } else {
+        runnerPoliciesBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPolicy runner_policies = 17;</code>
+     */
+    public Builder setRunnerPolicies(
+        int index, ai.monarchic.agent_protocol.v1.AgentRunnerPolicy.Builder builderForValue) {
+      if (runnerPoliciesBuilder_ == null) {
+        ensureRunnerPoliciesIsMutable();
+        runnerPolicies_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        runnerPoliciesBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPolicy runner_policies = 17;</code>
+     */
+    public Builder addRunnerPolicies(ai.monarchic.agent_protocol.v1.AgentRunnerPolicy value) {
+      if (runnerPoliciesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureRunnerPoliciesIsMutable();
+        runnerPolicies_.add(value);
+        onChanged();
+      } else {
+        runnerPoliciesBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPolicy runner_policies = 17;</code>
+     */
+    public Builder addRunnerPolicies(
+        int index, ai.monarchic.agent_protocol.v1.AgentRunnerPolicy value) {
+      if (runnerPoliciesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureRunnerPoliciesIsMutable();
+        runnerPolicies_.add(index, value);
+        onChanged();
+      } else {
+        runnerPoliciesBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPolicy runner_policies = 17;</code>
+     */
+    public Builder addRunnerPolicies(
+        ai.monarchic.agent_protocol.v1.AgentRunnerPolicy.Builder builderForValue) {
+      if (runnerPoliciesBuilder_ == null) {
+        ensureRunnerPoliciesIsMutable();
+        runnerPolicies_.add(builderForValue.build());
+        onChanged();
+      } else {
+        runnerPoliciesBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPolicy runner_policies = 17;</code>
+     */
+    public Builder addRunnerPolicies(
+        int index, ai.monarchic.agent_protocol.v1.AgentRunnerPolicy.Builder builderForValue) {
+      if (runnerPoliciesBuilder_ == null) {
+        ensureRunnerPoliciesIsMutable();
+        runnerPolicies_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        runnerPoliciesBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPolicy runner_policies = 17;</code>
+     */
+    public Builder addAllRunnerPolicies(
+        java.lang.Iterable<? extends ai.monarchic.agent_protocol.v1.AgentRunnerPolicy> values) {
+      if (runnerPoliciesBuilder_ == null) {
+        ensureRunnerPoliciesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, runnerPolicies_);
+        onChanged();
+      } else {
+        runnerPoliciesBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPolicy runner_policies = 17;</code>
+     */
+    public Builder clearRunnerPolicies() {
+      if (runnerPoliciesBuilder_ == null) {
+        runnerPolicies_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00010000);
+        onChanged();
+      } else {
+        runnerPoliciesBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPolicy runner_policies = 17;</code>
+     */
+    public Builder removeRunnerPolicies(int index) {
+      if (runnerPoliciesBuilder_ == null) {
+        ensureRunnerPoliciesIsMutable();
+        runnerPolicies_.remove(index);
+        onChanged();
+      } else {
+        runnerPoliciesBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPolicy runner_policies = 17;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.AgentRunnerPolicy.Builder getRunnerPoliciesBuilder(
+        int index) {
+      return internalGetRunnerPoliciesFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPolicy runner_policies = 17;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.AgentRunnerPolicyOrBuilder getRunnerPoliciesOrBuilder(
+        int index) {
+      if (runnerPoliciesBuilder_ == null) {
+        return runnerPolicies_.get(index);  } else {
+        return runnerPoliciesBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPolicy runner_policies = 17;</code>
+     */
+    public java.util.List<? extends ai.monarchic.agent_protocol.v1.AgentRunnerPolicyOrBuilder>
+         getRunnerPoliciesOrBuilderList() {
+      if (runnerPoliciesBuilder_ != null) {
+        return runnerPoliciesBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(runnerPolicies_);
+      }
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPolicy runner_policies = 17;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.AgentRunnerPolicy.Builder addRunnerPoliciesBuilder() {
+      return internalGetRunnerPoliciesFieldBuilder().addBuilder(
+          ai.monarchic.agent_protocol.v1.AgentRunnerPolicy.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPolicy runner_policies = 17;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.AgentRunnerPolicy.Builder addRunnerPoliciesBuilder(
+        int index) {
+      return internalGetRunnerPoliciesFieldBuilder().addBuilder(
+          index, ai.monarchic.agent_protocol.v1.AgentRunnerPolicy.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPolicy runner_policies = 17;</code>
+     */
+    public java.util.List<ai.monarchic.agent_protocol.v1.AgentRunnerPolicy.Builder>
+         getRunnerPoliciesBuilderList() {
+      return internalGetRunnerPoliciesFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilder<
+        ai.monarchic.agent_protocol.v1.AgentRunnerPolicy, ai.monarchic.agent_protocol.v1.AgentRunnerPolicy.Builder, ai.monarchic.agent_protocol.v1.AgentRunnerPolicyOrBuilder>
+        internalGetRunnerPoliciesFieldBuilder() {
+      if (runnerPoliciesBuilder_ == null) {
+        runnerPoliciesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            ai.monarchic.agent_protocol.v1.AgentRunnerPolicy, ai.monarchic.agent_protocol.v1.AgentRunnerPolicy.Builder, ai.monarchic.agent_protocol.v1.AgentRunnerPolicyOrBuilder>(
+                runnerPolicies_,
+                ((bitField0_ & 0x00010000) != 0),
+                getParentForChildren(),
+                isClean());
+        runnerPolicies_ = null;
+      }
+      return runnerPoliciesBuilder_;
     }
 
     // @@protoc_insertion_point(builder_scope:monarchic.agent_protocol.v1.BootstrapPlanningContext)
