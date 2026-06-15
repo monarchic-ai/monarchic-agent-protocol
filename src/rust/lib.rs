@@ -18,10 +18,11 @@ pub mod client_boundary {
     };
     pub use crate::client_boundary_types::blocking::{BlockedOutcome, BlockedOutcomeScope};
     pub use crate::client_boundary_types::bootstrap::{
-        AgentProfile, AgentRunnerPreference, BootstrapFilesystemPolicy, BootstrapIntent,
-        BootstrapPlan, BootstrapPlanTask, BootstrapPlanningContext, BootstrapPlanningMode,
-        BootstrapSkillBinding, BootstrapTemplateConnectionContext, BootstrapTemplateContext,
-        BootstrapTemplateLaneContext, BootstrapTemplateSlotContext, ResolvedAgentRunner,
+        AgentProfile, AgentRunnerPolicy, AgentRunnerPreference, BootstrapFilesystemPolicy,
+        BootstrapIntent, BootstrapPlan, BootstrapPlanTask, BootstrapPlanningContext,
+        BootstrapPlanningMode, BootstrapSkillBinding, BootstrapTemplateConnectionContext,
+        BootstrapTemplateContext, BootstrapTemplateLaneContext, BootstrapTemplateSlotContext,
+        ResolvedAgentRunner, RunnerCapabilities,
     };
     pub use crate::client_boundary_types::campaign::{
         CampaignPipelineConnection, CampaignPipelineConnectionKind, CampaignPipelineGate,
@@ -98,7 +99,7 @@ pub mod generated {
 
 pub use generated::{
     AcceptanceCriteria, AckCancellationRequest, AckCancellationResponse, AcquireLeaseRequest,
-    AcquireLeaseResponse, AgentProfile, AgentRole, AgentRunnerPreference,
+    AcquireLeaseResponse, AgentProfile, AgentRole, AgentRunnerPolicy, AgentRunnerPreference,
     ApplyControlPlaneReviewDispositionRequest, ApplyControlPlaneReviewDispositionResponse,
     ApplyControlPlaneRunActionRequest, ApplyControlPlaneRunActionResponse, Artifact,
     ArtifactDescriptor, ArtifactKind, AuditExportManifest, AuthContext, AuthMechanism,

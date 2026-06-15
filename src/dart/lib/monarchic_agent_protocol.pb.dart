@@ -1544,6 +1544,114 @@ class AgentRunnerPreference extends $pb.GeneratedMessage {
   $0.Struct ensureExtensions() => $_ensure(6);
 }
 
+class AgentRunnerPolicy extends $pb.GeneratedMessage {
+  factory AgentRunnerPolicy({
+    $core.String? runnerPolicyId,
+    $core.String? displayName,
+    $core.String? description,
+    $core.Iterable<AgentRunnerPreference>? runnerPreferences,
+    $core.Iterable<$core.String>? roleIds,
+    $0.Struct? extensions,
+  }) {
+    final result = create();
+    if (runnerPolicyId != null) result.runnerPolicyId = runnerPolicyId;
+    if (displayName != null) result.displayName = displayName;
+    if (description != null) result.description = description;
+    if (runnerPreferences != null)
+      result.runnerPreferences.addAll(runnerPreferences);
+    if (roleIds != null) result.roleIds.addAll(roleIds);
+    if (extensions != null) result.extensions = extensions;
+    return result;
+  }
+
+  AgentRunnerPolicy._();
+
+  factory AgentRunnerPolicy.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory AgentRunnerPolicy.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'AgentRunnerPolicy',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'runnerPolicyId')
+    ..aOS(2, _omitFieldNames ? '' : 'displayName')
+    ..aOS(3, _omitFieldNames ? '' : 'description')
+    ..pPM<AgentRunnerPreference>(4, _omitFieldNames ? '' : 'runnerPreferences',
+        subBuilder: AgentRunnerPreference.create)
+    ..pPS(5, _omitFieldNames ? '' : 'roleIds')
+    ..aOM<$0.Struct>(6, _omitFieldNames ? '' : 'extensions',
+        subBuilder: $0.Struct.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  AgentRunnerPolicy clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  AgentRunnerPolicy copyWith(void Function(AgentRunnerPolicy) updates) =>
+      super.copyWith((message) => updates(message as AgentRunnerPolicy))
+          as AgentRunnerPolicy;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static AgentRunnerPolicy create() => AgentRunnerPolicy._();
+  @$core.override
+  AgentRunnerPolicy createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static AgentRunnerPolicy getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<AgentRunnerPolicy>(create);
+  static AgentRunnerPolicy? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get runnerPolicyId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set runnerPolicyId($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasRunnerPolicyId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearRunnerPolicyId() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get displayName => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set displayName($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasDisplayName() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearDisplayName() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get description => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set description($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasDescription() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearDescription() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $pb.PbList<AgentRunnerPreference> get runnerPreferences => $_getList(3);
+
+  @$pb.TagNumber(5)
+  $pb.PbList<$core.String> get roleIds => $_getList(4);
+
+  @$pb.TagNumber(6)
+  $0.Struct get extensions => $_getN(5);
+  @$pb.TagNumber(6)
+  set extensions($0.Struct value) => $_setField(6, value);
+  @$pb.TagNumber(6)
+  $core.bool hasExtensions() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearExtensions() => $_clearField(6);
+  @$pb.TagNumber(6)
+  $0.Struct ensureExtensions() => $_ensure(5);
+}
+
 class AgentProfile extends $pb.GeneratedMessage {
   factory AgentProfile({
     $core.String? agentId,
@@ -1556,6 +1664,7 @@ class AgentProfile extends $pb.GeneratedMessage {
     $core.Iterable<$core.String>? requiredSkillIds,
     $core.Iterable<$core.String>? requiredMcpIds,
     $0.Struct? extensions,
+    $core.String? runnerPolicyId,
   }) {
     final result = create();
     if (agentId != null) result.agentId = agentId;
@@ -1572,6 +1681,7 @@ class AgentProfile extends $pb.GeneratedMessage {
       result.requiredSkillIds.addAll(requiredSkillIds);
     if (requiredMcpIds != null) result.requiredMcpIds.addAll(requiredMcpIds);
     if (extensions != null) result.extensions = extensions;
+    if (runnerPolicyId != null) result.runnerPolicyId = runnerPolicyId;
     return result;
   }
 
@@ -1601,6 +1711,7 @@ class AgentProfile extends $pb.GeneratedMessage {
     ..pPS(9, _omitFieldNames ? '' : 'requiredMcpIds')
     ..aOM<$0.Struct>(10, _omitFieldNames ? '' : 'extensions',
         subBuilder: $0.Struct.create)
+    ..aOS(11, _omitFieldNames ? '' : 'runnerPolicyId')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -1689,6 +1800,15 @@ class AgentProfile extends $pb.GeneratedMessage {
   void clearExtensions() => $_clearField(10);
   @$pb.TagNumber(10)
   $0.Struct ensureExtensions() => $_ensure(9);
+
+  @$pb.TagNumber(11)
+  $core.String get runnerPolicyId => $_getSZ(10);
+  @$pb.TagNumber(11)
+  set runnerPolicyId($core.String value) => $_setString(10, value);
+  @$pb.TagNumber(11)
+  $core.bool hasRunnerPolicyId() => $_has(10);
+  @$pb.TagNumber(11)
+  void clearRunnerPolicyId() => $_clearField(11);
 }
 
 class ResolvedAgentRunner extends $pb.GeneratedMessage {
@@ -2898,6 +3018,8 @@ class BootstrapPlanningContext extends $pb.GeneratedMessage {
     $core.Iterable<AgentCommand>? agentCmds,
     $core.Iterable<$core.String>? defaultAgentCmd,
     $core.Iterable<AgentProfile>? agentProfiles,
+    $core.Iterable<RunnerCapabilities>? availableRunners,
+    $core.Iterable<AgentRunnerPolicy>? runnerPolicies,
   }) {
     final result = create();
     if (contractVersion != null) result.contractVersion = contractVersion;
@@ -2916,6 +3038,9 @@ class BootstrapPlanningContext extends $pb.GeneratedMessage {
     if (agentCmds != null) result.agentCmds.addAll(agentCmds);
     if (defaultAgentCmd != null) result.defaultAgentCmd.addAll(defaultAgentCmd);
     if (agentProfiles != null) result.agentProfiles.addAll(agentProfiles);
+    if (availableRunners != null)
+      result.availableRunners.addAll(availableRunners);
+    if (runnerPolicies != null) result.runnerPolicies.addAll(runnerPolicies);
     return result;
   }
 
@@ -2953,6 +3078,10 @@ class BootstrapPlanningContext extends $pb.GeneratedMessage {
     ..pPS(14, _omitFieldNames ? '' : 'defaultAgentCmd')
     ..pPM<AgentProfile>(15, _omitFieldNames ? '' : 'agentProfiles',
         subBuilder: AgentProfile.create)
+    ..pPM<RunnerCapabilities>(16, _omitFieldNames ? '' : 'availableRunners',
+        subBuilder: RunnerCapabilities.create)
+    ..pPM<AgentRunnerPolicy>(17, _omitFieldNames ? '' : 'runnerPolicies',
+        subBuilder: AgentRunnerPolicy.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -3070,6 +3199,12 @@ class BootstrapPlanningContext extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(15)
   $pb.PbList<AgentProfile> get agentProfiles => $_getList(14);
+
+  @$pb.TagNumber(16)
+  $pb.PbList<RunnerCapabilities> get availableRunners => $_getList(15);
+
+  @$pb.TagNumber(17)
+  $pb.PbList<AgentRunnerPolicy> get runnerPolicies => $_getList(16);
 }
 
 class CampaignPipelineTaskRef extends $pb.GeneratedMessage {

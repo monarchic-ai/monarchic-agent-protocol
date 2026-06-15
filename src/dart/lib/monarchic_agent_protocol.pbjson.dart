@@ -1222,6 +1222,54 @@ final $typed_data.Uint8List agentRunnerPreferenceDescriptor = $convert.base64Dec
     'RydWN0UgpleHRlbnNpb25zQggKBl9tb2RlbEILCglfcHJvdmlkZXJCEwoRX3JlYXNvbmluZ19l'
     'ZmZvcnQ=');
 
+@$core.Deprecated('Use agentRunnerPolicyDescriptor instead')
+const AgentRunnerPolicy$json = {
+  '1': 'AgentRunnerPolicy',
+  '2': [
+    {'1': 'runner_policy_id', '3': 1, '4': 1, '5': 9, '10': 'runnerPolicyId'},
+    {'1': 'display_name', '3': 2, '4': 1, '5': 9, '10': 'displayName'},
+    {
+      '1': 'description',
+      '3': 3,
+      '4': 1,
+      '5': 9,
+      '9': 0,
+      '10': 'description',
+      '17': true
+    },
+    {
+      '1': 'runner_preferences',
+      '3': 4,
+      '4': 3,
+      '5': 11,
+      '6': '.monarchic.agent_protocol.v1.AgentRunnerPreference',
+      '10': 'runnerPreferences'
+    },
+    {'1': 'role_ids', '3': 5, '4': 3, '5': 9, '10': 'roleIds'},
+    {
+      '1': 'extensions',
+      '3': 6,
+      '4': 1,
+      '5': 11,
+      '6': '.google.protobuf.Struct',
+      '10': 'extensions'
+    },
+  ],
+  '8': [
+    {'1': '_description'},
+  ],
+};
+
+/// Descriptor for `AgentRunnerPolicy`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List agentRunnerPolicyDescriptor = $convert.base64Decode(
+    'ChFBZ2VudFJ1bm5lclBvbGljeRIoChBydW5uZXJfcG9saWN5X2lkGAEgASgJUg5ydW5uZXJQb2'
+    'xpY3lJZBIhCgxkaXNwbGF5X25hbWUYAiABKAlSC2Rpc3BsYXlOYW1lEiUKC2Rlc2NyaXB0aW9u'
+    'GAMgASgJSABSC2Rlc2NyaXB0aW9uiAEBEmEKEnJ1bm5lcl9wcmVmZXJlbmNlcxgEIAMoCzIyLm'
+    '1vbmFyY2hpYy5hZ2VudF9wcm90b2NvbC52MS5BZ2VudFJ1bm5lclByZWZlcmVuY2VSEXJ1bm5l'
+    'clByZWZlcmVuY2VzEhkKCHJvbGVfaWRzGAUgAygJUgdyb2xlSWRzEjcKCmV4dGVuc2lvbnMYBi'
+    'ABKAsyFy5nb29nbGUucHJvdG9idWYuU3RydWN0UgpleHRlbnNpb25zQg4KDF9kZXNjcmlwdGlv'
+    'bg==');
+
 @$core.Deprecated('Use agentProfileDescriptor instead')
 const AgentProfile$json = {
   '1': 'AgentProfile',
@@ -1276,9 +1324,19 @@ const AgentProfile$json = {
       '6': '.google.protobuf.Struct',
       '10': 'extensions'
     },
+    {
+      '1': 'runner_policy_id',
+      '3': 11,
+      '4': 1,
+      '5': 9,
+      '9': 1,
+      '10': 'runnerPolicyId',
+      '17': true
+    },
   ],
   '8': [
     {'1': '_description'},
+    {'1': '_runner_policy_id'},
   ],
 };
 
@@ -1292,8 +1350,9 @@ final $typed_data.Uint8List agentProfileDescriptor = $convert.base64Decode(
     'VkTmV0d29ya01vZGVzEjIKFXJlcXVpcmVzX2h1bWFuX3JldmlldxgHIAEoCFITcmVxdWlyZXNI'
     'dW1hblJldmlldxIsChJyZXF1aXJlZF9za2lsbF9pZHMYCCADKAlSEHJlcXVpcmVkU2tpbGxJZH'
     'MSKAoQcmVxdWlyZWRfbWNwX2lkcxgJIAMoCVIOcmVxdWlyZWRNY3BJZHMSNwoKZXh0ZW5zaW9u'
-    'cxgKIAEoCzIXLmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3RSCmV4dGVuc2lvbnNCDgoMX2Rlc2NyaX'
-    'B0aW9u');
+    'cxgKIAEoCzIXLmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3RSCmV4dGVuc2lvbnMSLQoQcnVubmVyX3'
+    'BvbGljeV9pZBgLIAEoCUgBUg5ydW5uZXJQb2xpY3lJZIgBAUIOCgxfZGVzY3JpcHRpb25CEwoR'
+    'X3J1bm5lcl9wb2xpY3lfaWQ=');
 
 @$core.Deprecated('Use resolvedAgentRunnerDescriptor instead')
 const ResolvedAgentRunner$json = {
@@ -1820,6 +1879,22 @@ const BootstrapPlanningContext$json = {
       '6': '.monarchic.agent_protocol.v1.AgentProfile',
       '10': 'agentProfiles'
     },
+    {
+      '1': 'available_runners',
+      '3': 16,
+      '4': 3,
+      '5': 11,
+      '6': '.monarchic.agent_protocol.v1.RunnerCapabilities',
+      '10': 'availableRunners'
+    },
+    {
+      '1': 'runner_policies',
+      '3': 17,
+      '4': 3,
+      '5': 11,
+      '6': '.monarchic.agent_protocol.v1.AgentRunnerPolicy',
+      '10': 'runnerPolicies'
+    },
   ],
   '8': [
     {'1': '_notes'},
@@ -1843,7 +1918,11 @@ final $typed_data.Uint8List bootstrapPlanningContextDescriptor = $convert.base64
     'ADKAsyKS5tb25hcmNoaWMuYWdlbnRfcHJvdG9jb2wudjEuQWdlbnRDb21tYW5kUglhZ2VudENt'
     'ZHMSKgoRZGVmYXVsdF9hZ2VudF9jbWQYDiADKAlSD2RlZmF1bHRBZ2VudENtZBJQCg5hZ2VudF'
     '9wcm9maWxlcxgPIAMoCzIpLm1vbmFyY2hpYy5hZ2VudF9wcm90b2NvbC52MS5BZ2VudFByb2Zp'
-    'bGVSDWFnZW50UHJvZmlsZXNCCAoGX25vdGVzQhQKEl9zZWxlY3RlZF90ZW1wbGF0ZQ==');
+    'bGVSDWFnZW50UHJvZmlsZXMSXAoRYXZhaWxhYmxlX3J1bm5lcnMYECADKAsyLy5tb25hcmNoaW'
+    'MuYWdlbnRfcHJvdG9jb2wudjEuUnVubmVyQ2FwYWJpbGl0aWVzUhBhdmFpbGFibGVSdW5uZXJz'
+    'ElcKD3J1bm5lcl9wb2xpY2llcxgRIAMoCzIuLm1vbmFyY2hpYy5hZ2VudF9wcm90b2NvbC52MS'
+    '5BZ2VudFJ1bm5lclBvbGljeVIOcnVubmVyUG9saWNpZXNCCAoGX25vdGVzQhQKEl9zZWxlY3Rl'
+    'ZF90ZW1wbGF0ZQ==');
 
 @$core.Deprecated('Use campaignPipelineTaskRefDescriptor instead')
 const CampaignPipelineTaskRef$json = {

@@ -164,6 +164,15 @@ message AgentRunnerPreference {
   google.protobuf.Struct extensions = 7;
 }
 
+message AgentRunnerPolicy {
+  string runner_policy_id = 1;
+  string display_name = 2;
+  optional string description = 3;
+  repeated AgentRunnerPreference runner_preferences = 4;
+  repeated string role_ids = 5;
+  google.protobuf.Struct extensions = 6;
+}
+
 message AgentProfile {
   string agent_id = 1;
   string role_id = 2;
@@ -175,6 +184,7 @@ message AgentProfile {
   repeated string required_skill_ids = 8;
   repeated string required_mcp_ids = 9;
   google.protobuf.Struct extensions = 10;
+  optional string runner_policy_id = 11;
 }
 
 message ResolvedAgentRunner {
@@ -296,6 +306,8 @@ message BootstrapPlanningContext {
   repeated AgentCommand agent_cmds = 13;
   repeated string default_agent_cmd = 14;
   repeated AgentProfile agent_profiles = 15;
+  repeated RunnerCapabilities available_runners = 16;
+  repeated AgentRunnerPolicy runner_policies = 17;
 }
 
 enum CampaignPipelineConnectionKind {
