@@ -7,7 +7,7 @@
   "campaign_goal": "Add dedicated MCP catalog management to the TUI.",
   "notes": "Prefer the local MCP catalog if no packaged support is configured.",
   "priority_profile": "standard",
-  "codex_cmd": [
+  "default_agent_cmd": [
     "codex"
   ],
   "agent_cmds": {
