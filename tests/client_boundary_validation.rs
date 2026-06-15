@@ -80,10 +80,27 @@ fn bootstrap_planning_context_uses_typed_planning_mode() {
         parsed.enabled_role_ids,
         vec![String::from("qa"), String::from("reviewer")]
     );
+    assert_eq!(parsed.default_agent_cmd, vec![String::from("codex")]);
     assert_eq!(
         parsed.agent_cmds.get("opencode"),
         Some(&vec![String::from("opencode")])
     );
+}
+
+#[test]
+fn bootstrap_planning_context_accepts_legacy_codex_cmd_alias() {
+    let mut value = load_fixture_value("bootstrap_planning_context.minimal.json");
+    let default_agent_cmd = value
+        .as_object_mut()
+        .expect("bootstrap planning context object")
+        .remove("default_agent_cmd")
+        .expect("default agent command");
+    value["codex_cmd"] = default_agent_cmd;
+
+    let parsed: BootstrapPlanningContext =
+        serde_json::from_value(value).expect("deserialize legacy bootstrap planning context");
+
+    assert_eq!(parsed.default_agent_cmd, vec![String::from("codex")]);
 }
 
 #[test]
