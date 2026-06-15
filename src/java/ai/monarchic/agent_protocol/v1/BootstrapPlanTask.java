@@ -45,6 +45,7 @@ private static final long serialVersionUID = 0L;
     notes_ = "";
     agentId_ = "";
     injectedByRoleId_ = "";
+    runnerPreferences_ = java.util.Collections.emptyList();
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -702,6 +703,73 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int RUNNER_PREFERENCES_FIELD_NUMBER = 17;
+  @SuppressWarnings("serial")
+  private java.util.List<ai.monarchic.agent_protocol.v1.AgentRunnerPreference> runnerPreferences_;
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPreference runner_preferences = 17;</code>
+   */
+  @java.lang.Override
+  public java.util.List<ai.monarchic.agent_protocol.v1.AgentRunnerPreference> getRunnerPreferencesList() {
+    return runnerPreferences_;
+  }
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPreference runner_preferences = 17;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends ai.monarchic.agent_protocol.v1.AgentRunnerPreferenceOrBuilder>
+      getRunnerPreferencesOrBuilderList() {
+    return runnerPreferences_;
+  }
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPreference runner_preferences = 17;</code>
+   */
+  @java.lang.Override
+  public int getRunnerPreferencesCount() {
+    return runnerPreferences_.size();
+  }
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPreference runner_preferences = 17;</code>
+   */
+  @java.lang.Override
+  public ai.monarchic.agent_protocol.v1.AgentRunnerPreference getRunnerPreferences(int index) {
+    return runnerPreferences_.get(index);
+  }
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPreference runner_preferences = 17;</code>
+   */
+  @java.lang.Override
+  public ai.monarchic.agent_protocol.v1.AgentRunnerPreferenceOrBuilder getRunnerPreferencesOrBuilder(
+      int index) {
+    return runnerPreferences_.get(index);
+  }
+
+  public static final int RESOLVED_RUNNER_FIELD_NUMBER = 18;
+  private ai.monarchic.agent_protocol.v1.ResolvedAgentRunner resolvedRunner_;
+  /**
+   * <code>optional .monarchic.agent_protocol.v1.ResolvedAgentRunner resolved_runner = 18;</code>
+   * @return Whether the resolvedRunner field is set.
+   */
+  @java.lang.Override
+  public boolean hasResolvedRunner() {
+    return ((bitField0_ & 0x00000200) != 0);
+  }
+  /**
+   * <code>optional .monarchic.agent_protocol.v1.ResolvedAgentRunner resolved_runner = 18;</code>
+   * @return The resolvedRunner.
+   */
+  @java.lang.Override
+  public ai.monarchic.agent_protocol.v1.ResolvedAgentRunner getResolvedRunner() {
+    return resolvedRunner_ == null ? ai.monarchic.agent_protocol.v1.ResolvedAgentRunner.getDefaultInstance() : resolvedRunner_;
+  }
+  /**
+   * <code>optional .monarchic.agent_protocol.v1.ResolvedAgentRunner resolved_runner = 18;</code>
+   */
+  @java.lang.Override
+  public ai.monarchic.agent_protocol.v1.ResolvedAgentRunnerOrBuilder getResolvedRunnerOrBuilder() {
+    return resolvedRunner_ == null ? ai.monarchic.agent_protocol.v1.ResolvedAgentRunner.getDefaultInstance() : resolvedRunner_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -763,6 +831,12 @@ private static final long serialVersionUID = 0L;
     }
     if (((bitField0_ & 0x00000100) != 0)) {
       com.google.protobuf.GeneratedMessage.writeString(output, 16, injectedByRoleId_);
+    }
+    for (int i = 0; i < runnerPreferences_.size(); i++) {
+      output.writeMessage(17, runnerPreferences_.get(i));
+    }
+    if (((bitField0_ & 0x00000200) != 0)) {
+      output.writeMessage(18, getResolvedRunner());
     }
     getUnknownFields().writeTo(output);
   }
@@ -838,6 +912,14 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000100) != 0)) {
       size += com.google.protobuf.GeneratedMessage.computeStringSize(16, injectedByRoleId_);
     }
+    for (int i = 0; i < runnerPreferences_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(17, runnerPreferences_.get(i));
+    }
+    if (((bitField0_ & 0x00000200) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(18, getResolvedRunner());
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -912,6 +994,13 @@ private static final long serialVersionUID = 0L;
       if (!getInjectedByRoleId()
           .equals(other.getInjectedByRoleId())) return false;
     }
+    if (!getRunnerPreferencesList()
+        .equals(other.getRunnerPreferencesList())) return false;
+    if (hasResolvedRunner() != other.hasResolvedRunner()) return false;
+    if (hasResolvedRunner()) {
+      if (!getResolvedRunner()
+          .equals(other.getResolvedRunner())) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -979,6 +1068,14 @@ private static final long serialVersionUID = 0L;
     if (hasInjectedByRoleId()) {
       hash = (37 * hash) + INJECTED_BY_ROLE_ID_FIELD_NUMBER;
       hash = (53 * hash) + getInjectedByRoleId().hashCode();
+    }
+    if (getRunnerPreferencesCount() > 0) {
+      hash = (37 * hash) + RUNNER_PREFERENCES_FIELD_NUMBER;
+      hash = (53 * hash) + getRunnerPreferencesList().hashCode();
+    }
+    if (hasResolvedRunner()) {
+      hash = (37 * hash) + RESOLVED_RUNNER_FIELD_NUMBER;
+      hash = (53 * hash) + getResolvedRunner().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -1111,6 +1208,8 @@ private static final long serialVersionUID = 0L;
       if (com.google.protobuf.GeneratedMessage
               .alwaysUseFieldBuilders) {
         internalGetFilesystemPolicyFieldBuilder();
+        internalGetRunnerPreferencesFieldBuilder();
+        internalGetResolvedRunnerFieldBuilder();
       }
     }
     @java.lang.Override
@@ -1140,6 +1239,18 @@ private static final long serialVersionUID = 0L;
       notes_ = "";
       agentId_ = "";
       injectedByRoleId_ = "";
+      if (runnerPreferencesBuilder_ == null) {
+        runnerPreferences_ = java.util.Collections.emptyList();
+      } else {
+        runnerPreferences_ = null;
+        runnerPreferencesBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00010000);
+      resolvedRunner_ = null;
+      if (resolvedRunnerBuilder_ != null) {
+        resolvedRunnerBuilder_.dispose();
+        resolvedRunnerBuilder_ = null;
+      }
       return this;
     }
 
@@ -1166,9 +1277,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public ai.monarchic.agent_protocol.v1.BootstrapPlanTask buildPartial() {
       ai.monarchic.agent_protocol.v1.BootstrapPlanTask result = new ai.monarchic.agent_protocol.v1.BootstrapPlanTask(this);
+      buildPartialRepeatedFields(result);
       if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(ai.monarchic.agent_protocol.v1.BootstrapPlanTask result) {
+      if (runnerPreferencesBuilder_ == null) {
+        if (((bitField0_ & 0x00010000) != 0)) {
+          runnerPreferences_ = java.util.Collections.unmodifiableList(runnerPreferences_);
+          bitField0_ = (bitField0_ & ~0x00010000);
+        }
+        result.runnerPreferences_ = runnerPreferences_;
+      } else {
+        result.runnerPreferences_ = runnerPreferencesBuilder_.build();
+      }
     }
 
     private void buildPartial0(ai.monarchic.agent_protocol.v1.BootstrapPlanTask result) {
@@ -1235,6 +1359,12 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00008000) != 0)) {
         result.injectedByRoleId_ = injectedByRoleId_;
         to_bitField0_ |= 0x00000100;
+      }
+      if (((from_bitField0_ & 0x00020000) != 0)) {
+        result.resolvedRunner_ = resolvedRunnerBuilder_ == null
+            ? resolvedRunner_
+            : resolvedRunnerBuilder_.build();
+        to_bitField0_ |= 0x00000200;
       }
       result.bitField0_ |= to_bitField0_;
     }
@@ -1341,6 +1471,35 @@ private static final long serialVersionUID = 0L;
         injectedByRoleId_ = other.injectedByRoleId_;
         bitField0_ |= 0x00008000;
         onChanged();
+      }
+      if (runnerPreferencesBuilder_ == null) {
+        if (!other.runnerPreferences_.isEmpty()) {
+          if (runnerPreferences_.isEmpty()) {
+            runnerPreferences_ = other.runnerPreferences_;
+            bitField0_ = (bitField0_ & ~0x00010000);
+          } else {
+            ensureRunnerPreferencesIsMutable();
+            runnerPreferences_.addAll(other.runnerPreferences_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.runnerPreferences_.isEmpty()) {
+          if (runnerPreferencesBuilder_.isEmpty()) {
+            runnerPreferencesBuilder_.dispose();
+            runnerPreferencesBuilder_ = null;
+            runnerPreferences_ = other.runnerPreferences_;
+            bitField0_ = (bitField0_ & ~0x00010000);
+            runnerPreferencesBuilder_ =
+              com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                 internalGetRunnerPreferencesFieldBuilder() : null;
+          } else {
+            runnerPreferencesBuilder_.addAllMessages(other.runnerPreferences_);
+          }
+        }
+      }
+      if (other.hasResolvedRunner()) {
+        mergeResolvedRunner(other.getResolvedRunner());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -1453,6 +1612,26 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00008000;
               break;
             } // case 130
+            case 138: {
+              ai.monarchic.agent_protocol.v1.AgentRunnerPreference m =
+                  input.readMessage(
+                      ai.monarchic.agent_protocol.v1.AgentRunnerPreference.parser(),
+                      extensionRegistry);
+              if (runnerPreferencesBuilder_ == null) {
+                ensureRunnerPreferencesIsMutable();
+                runnerPreferences_.add(m);
+              } else {
+                runnerPreferencesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 138
+            case 146: {
+              input.readMessage(
+                  internalGetResolvedRunnerFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00020000;
+              break;
+            } // case 146
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -2803,6 +2982,367 @@ private static final long serialVersionUID = 0L;
       bitField0_ |= 0x00008000;
       onChanged();
       return this;
+    }
+
+    private java.util.List<ai.monarchic.agent_protocol.v1.AgentRunnerPreference> runnerPreferences_ =
+      java.util.Collections.emptyList();
+    private void ensureRunnerPreferencesIsMutable() {
+      if (!((bitField0_ & 0x00010000) != 0)) {
+        runnerPreferences_ = new java.util.ArrayList<ai.monarchic.agent_protocol.v1.AgentRunnerPreference>(runnerPreferences_);
+        bitField0_ |= 0x00010000;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilder<
+        ai.monarchic.agent_protocol.v1.AgentRunnerPreference, ai.monarchic.agent_protocol.v1.AgentRunnerPreference.Builder, ai.monarchic.agent_protocol.v1.AgentRunnerPreferenceOrBuilder> runnerPreferencesBuilder_;
+
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPreference runner_preferences = 17;</code>
+     */
+    public java.util.List<ai.monarchic.agent_protocol.v1.AgentRunnerPreference> getRunnerPreferencesList() {
+      if (runnerPreferencesBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(runnerPreferences_);
+      } else {
+        return runnerPreferencesBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPreference runner_preferences = 17;</code>
+     */
+    public int getRunnerPreferencesCount() {
+      if (runnerPreferencesBuilder_ == null) {
+        return runnerPreferences_.size();
+      } else {
+        return runnerPreferencesBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPreference runner_preferences = 17;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.AgentRunnerPreference getRunnerPreferences(int index) {
+      if (runnerPreferencesBuilder_ == null) {
+        return runnerPreferences_.get(index);
+      } else {
+        return runnerPreferencesBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPreference runner_preferences = 17;</code>
+     */
+    public Builder setRunnerPreferences(
+        int index, ai.monarchic.agent_protocol.v1.AgentRunnerPreference value) {
+      if (runnerPreferencesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureRunnerPreferencesIsMutable();
+        runnerPreferences_.set(index, value);
+        onChanged();
+      } else {
+        runnerPreferencesBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPreference runner_preferences = 17;</code>
+     */
+    public Builder setRunnerPreferences(
+        int index, ai.monarchic.agent_protocol.v1.AgentRunnerPreference.Builder builderForValue) {
+      if (runnerPreferencesBuilder_ == null) {
+        ensureRunnerPreferencesIsMutable();
+        runnerPreferences_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        runnerPreferencesBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPreference runner_preferences = 17;</code>
+     */
+    public Builder addRunnerPreferences(ai.monarchic.agent_protocol.v1.AgentRunnerPreference value) {
+      if (runnerPreferencesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureRunnerPreferencesIsMutable();
+        runnerPreferences_.add(value);
+        onChanged();
+      } else {
+        runnerPreferencesBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPreference runner_preferences = 17;</code>
+     */
+    public Builder addRunnerPreferences(
+        int index, ai.monarchic.agent_protocol.v1.AgentRunnerPreference value) {
+      if (runnerPreferencesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureRunnerPreferencesIsMutable();
+        runnerPreferences_.add(index, value);
+        onChanged();
+      } else {
+        runnerPreferencesBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPreference runner_preferences = 17;</code>
+     */
+    public Builder addRunnerPreferences(
+        ai.monarchic.agent_protocol.v1.AgentRunnerPreference.Builder builderForValue) {
+      if (runnerPreferencesBuilder_ == null) {
+        ensureRunnerPreferencesIsMutable();
+        runnerPreferences_.add(builderForValue.build());
+        onChanged();
+      } else {
+        runnerPreferencesBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPreference runner_preferences = 17;</code>
+     */
+    public Builder addRunnerPreferences(
+        int index, ai.monarchic.agent_protocol.v1.AgentRunnerPreference.Builder builderForValue) {
+      if (runnerPreferencesBuilder_ == null) {
+        ensureRunnerPreferencesIsMutable();
+        runnerPreferences_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        runnerPreferencesBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPreference runner_preferences = 17;</code>
+     */
+    public Builder addAllRunnerPreferences(
+        java.lang.Iterable<? extends ai.monarchic.agent_protocol.v1.AgentRunnerPreference> values) {
+      if (runnerPreferencesBuilder_ == null) {
+        ensureRunnerPreferencesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, runnerPreferences_);
+        onChanged();
+      } else {
+        runnerPreferencesBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPreference runner_preferences = 17;</code>
+     */
+    public Builder clearRunnerPreferences() {
+      if (runnerPreferencesBuilder_ == null) {
+        runnerPreferences_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00010000);
+        onChanged();
+      } else {
+        runnerPreferencesBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPreference runner_preferences = 17;</code>
+     */
+    public Builder removeRunnerPreferences(int index) {
+      if (runnerPreferencesBuilder_ == null) {
+        ensureRunnerPreferencesIsMutable();
+        runnerPreferences_.remove(index);
+        onChanged();
+      } else {
+        runnerPreferencesBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPreference runner_preferences = 17;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.AgentRunnerPreference.Builder getRunnerPreferencesBuilder(
+        int index) {
+      return internalGetRunnerPreferencesFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPreference runner_preferences = 17;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.AgentRunnerPreferenceOrBuilder getRunnerPreferencesOrBuilder(
+        int index) {
+      if (runnerPreferencesBuilder_ == null) {
+        return runnerPreferences_.get(index);  } else {
+        return runnerPreferencesBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPreference runner_preferences = 17;</code>
+     */
+    public java.util.List<? extends ai.monarchic.agent_protocol.v1.AgentRunnerPreferenceOrBuilder>
+         getRunnerPreferencesOrBuilderList() {
+      if (runnerPreferencesBuilder_ != null) {
+        return runnerPreferencesBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(runnerPreferences_);
+      }
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPreference runner_preferences = 17;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.AgentRunnerPreference.Builder addRunnerPreferencesBuilder() {
+      return internalGetRunnerPreferencesFieldBuilder().addBuilder(
+          ai.monarchic.agent_protocol.v1.AgentRunnerPreference.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPreference runner_preferences = 17;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.AgentRunnerPreference.Builder addRunnerPreferencesBuilder(
+        int index) {
+      return internalGetRunnerPreferencesFieldBuilder().addBuilder(
+          index, ai.monarchic.agent_protocol.v1.AgentRunnerPreference.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPreference runner_preferences = 17;</code>
+     */
+    public java.util.List<ai.monarchic.agent_protocol.v1.AgentRunnerPreference.Builder>
+         getRunnerPreferencesBuilderList() {
+      return internalGetRunnerPreferencesFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilder<
+        ai.monarchic.agent_protocol.v1.AgentRunnerPreference, ai.monarchic.agent_protocol.v1.AgentRunnerPreference.Builder, ai.monarchic.agent_protocol.v1.AgentRunnerPreferenceOrBuilder>
+        internalGetRunnerPreferencesFieldBuilder() {
+      if (runnerPreferencesBuilder_ == null) {
+        runnerPreferencesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            ai.monarchic.agent_protocol.v1.AgentRunnerPreference, ai.monarchic.agent_protocol.v1.AgentRunnerPreference.Builder, ai.monarchic.agent_protocol.v1.AgentRunnerPreferenceOrBuilder>(
+                runnerPreferences_,
+                ((bitField0_ & 0x00010000) != 0),
+                getParentForChildren(),
+                isClean());
+        runnerPreferences_ = null;
+      }
+      return runnerPreferencesBuilder_;
+    }
+
+    private ai.monarchic.agent_protocol.v1.ResolvedAgentRunner resolvedRunner_;
+    private com.google.protobuf.SingleFieldBuilder<
+        ai.monarchic.agent_protocol.v1.ResolvedAgentRunner, ai.monarchic.agent_protocol.v1.ResolvedAgentRunner.Builder, ai.monarchic.agent_protocol.v1.ResolvedAgentRunnerOrBuilder> resolvedRunnerBuilder_;
+    /**
+     * <code>optional .monarchic.agent_protocol.v1.ResolvedAgentRunner resolved_runner = 18;</code>
+     * @return Whether the resolvedRunner field is set.
+     */
+    public boolean hasResolvedRunner() {
+      return ((bitField0_ & 0x00020000) != 0);
+    }
+    /**
+     * <code>optional .monarchic.agent_protocol.v1.ResolvedAgentRunner resolved_runner = 18;</code>
+     * @return The resolvedRunner.
+     */
+    public ai.monarchic.agent_protocol.v1.ResolvedAgentRunner getResolvedRunner() {
+      if (resolvedRunnerBuilder_ == null) {
+        return resolvedRunner_ == null ? ai.monarchic.agent_protocol.v1.ResolvedAgentRunner.getDefaultInstance() : resolvedRunner_;
+      } else {
+        return resolvedRunnerBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>optional .monarchic.agent_protocol.v1.ResolvedAgentRunner resolved_runner = 18;</code>
+     */
+    public Builder setResolvedRunner(ai.monarchic.agent_protocol.v1.ResolvedAgentRunner value) {
+      if (resolvedRunnerBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        resolvedRunner_ = value;
+      } else {
+        resolvedRunnerBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00020000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional .monarchic.agent_protocol.v1.ResolvedAgentRunner resolved_runner = 18;</code>
+     */
+    public Builder setResolvedRunner(
+        ai.monarchic.agent_protocol.v1.ResolvedAgentRunner.Builder builderForValue) {
+      if (resolvedRunnerBuilder_ == null) {
+        resolvedRunner_ = builderForValue.build();
+      } else {
+        resolvedRunnerBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00020000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional .monarchic.agent_protocol.v1.ResolvedAgentRunner resolved_runner = 18;</code>
+     */
+    public Builder mergeResolvedRunner(ai.monarchic.agent_protocol.v1.ResolvedAgentRunner value) {
+      if (resolvedRunnerBuilder_ == null) {
+        if (((bitField0_ & 0x00020000) != 0) &&
+          resolvedRunner_ != null &&
+          resolvedRunner_ != ai.monarchic.agent_protocol.v1.ResolvedAgentRunner.getDefaultInstance()) {
+          getResolvedRunnerBuilder().mergeFrom(value);
+        } else {
+          resolvedRunner_ = value;
+        }
+      } else {
+        resolvedRunnerBuilder_.mergeFrom(value);
+      }
+      if (resolvedRunner_ != null) {
+        bitField0_ |= 0x00020000;
+        onChanged();
+      }
+      return this;
+    }
+    /**
+     * <code>optional .monarchic.agent_protocol.v1.ResolvedAgentRunner resolved_runner = 18;</code>
+     */
+    public Builder clearResolvedRunner() {
+      bitField0_ = (bitField0_ & ~0x00020000);
+      resolvedRunner_ = null;
+      if (resolvedRunnerBuilder_ != null) {
+        resolvedRunnerBuilder_.dispose();
+        resolvedRunnerBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional .monarchic.agent_protocol.v1.ResolvedAgentRunner resolved_runner = 18;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.ResolvedAgentRunner.Builder getResolvedRunnerBuilder() {
+      bitField0_ |= 0x00020000;
+      onChanged();
+      return internalGetResolvedRunnerFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>optional .monarchic.agent_protocol.v1.ResolvedAgentRunner resolved_runner = 18;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.ResolvedAgentRunnerOrBuilder getResolvedRunnerOrBuilder() {
+      if (resolvedRunnerBuilder_ != null) {
+        return resolvedRunnerBuilder_.getMessageOrBuilder();
+      } else {
+        return resolvedRunner_ == null ?
+            ai.monarchic.agent_protocol.v1.ResolvedAgentRunner.getDefaultInstance() : resolvedRunner_;
+      }
+    }
+    /**
+     * <code>optional .monarchic.agent_protocol.v1.ResolvedAgentRunner resolved_runner = 18;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        ai.monarchic.agent_protocol.v1.ResolvedAgentRunner, ai.monarchic.agent_protocol.v1.ResolvedAgentRunner.Builder, ai.monarchic.agent_protocol.v1.ResolvedAgentRunnerOrBuilder>
+        internalGetResolvedRunnerFieldBuilder() {
+      if (resolvedRunnerBuilder_ == null) {
+        resolvedRunnerBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            ai.monarchic.agent_protocol.v1.ResolvedAgentRunner, ai.monarchic.agent_protocol.v1.ResolvedAgentRunner.Builder, ai.monarchic.agent_protocol.v1.ResolvedAgentRunnerOrBuilder>(
+                getResolvedRunner(),
+                getParentForChildren(),
+                isClean());
+        resolvedRunner_ = null;
+      }
+      return resolvedRunnerBuilder_;
     }
 
     // @@protoc_insertion_point(builder_scope:monarchic.agent_protocol.v1.BootstrapPlanTask)

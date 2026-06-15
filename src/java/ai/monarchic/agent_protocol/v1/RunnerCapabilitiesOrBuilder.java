@@ -189,4 +189,104 @@ public interface RunnerCapabilitiesOrBuilder extends
    */
   com.google.protobuf.ByteString
       getSupportedRoleIdsBytes(int index);
+
+  /**
+   * <code>repeated string supported_models = 10;</code>
+   * @return A list containing the supportedModels.
+   */
+  java.util.List<java.lang.String>
+      getSupportedModelsList();
+  /**
+   * <code>repeated string supported_models = 10;</code>
+   * @return The count of supportedModels.
+   */
+  int getSupportedModelsCount();
+  /**
+   * <code>repeated string supported_models = 10;</code>
+   * @param index The index of the element to return.
+   * @return The supportedModels at the given index.
+   */
+  java.lang.String getSupportedModels(int index);
+  /**
+   * <code>repeated string supported_models = 10;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the supportedModels at the given index.
+   */
+  com.google.protobuf.ByteString
+      getSupportedModelsBytes(int index);
+
+  /**
+   * <code>repeated string supported_reasoning_efforts = 11;</code>
+   * @return A list containing the supportedReasoningEfforts.
+   */
+  java.util.List<java.lang.String>
+      getSupportedReasoningEffortsList();
+  /**
+   * <code>repeated string supported_reasoning_efforts = 11;</code>
+   * @return The count of supportedReasoningEfforts.
+   */
+  int getSupportedReasoningEffortsCount();
+  /**
+   * <code>repeated string supported_reasoning_efforts = 11;</code>
+   * @param index The index of the element to return.
+   * @return The supportedReasoningEfforts at the given index.
+   */
+  java.lang.String getSupportedReasoningEfforts(int index);
+  /**
+   * <code>repeated string supported_reasoning_efforts = 11;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the supportedReasoningEfforts at the given index.
+   */
+  com.google.protobuf.ByteString
+      getSupportedReasoningEffortsBytes(int index);
+
+  /**
+   * <code>repeated string supported_runner_capabilities = 12;</code>
+   * @return A list containing the supportedRunnerCapabilities.
+   */
+  java.util.List<java.lang.String>
+      getSupportedRunnerCapabilitiesList();
+  /**
+   * <code>repeated string supported_runner_capabilities = 12;</code>
+   * @return The count of supportedRunnerCapabilities.
+   */
+  int getSupportedRunnerCapabilitiesCount();
+  /**
+   * <code>repeated string supported_runner_capabilities = 12;</code>
+   * @param index The index of the element to return.
+   * @return The supportedRunnerCapabilities at the given index.
+   */
+  java.lang.String getSupportedRunnerCapabilities(int index);
+  /**
+   * <code>repeated string supported_runner_capabilities = 12;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the supportedRunnerCapabilities at the given index.
+   */
+  com.google.protobuf.ByteString
+      getSupportedRunnerCapabilitiesBytes(int index);
+
+  /**
+   * <code>repeated string supported_providers = 13;</code>
+   * @return A list containing the supportedProviders.
+   */
+  java.util.List<java.lang.String>
+      getSupportedProvidersList();
+  /**
+   * <code>repeated string supported_providers = 13;</code>
+   * @return The count of supportedProviders.
+   */
+  int getSupportedProvidersCount();
+  /**
+   * <code>repeated string supported_providers = 13;</code>
+   * @param index The index of the element to return.
+   * @return The supportedProviders at the given index.
+   */
+  java.lang.String getSupportedProviders(int index);
+  /**
+   * <code>repeated string supported_providers = 13;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the supportedProviders at the given index.
+   */
+  com.google.protobuf.ByteString
+      getSupportedProvidersBytes(int index);
 }

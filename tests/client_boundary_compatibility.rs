@@ -172,6 +172,7 @@ fn upgrade_legacy_execution_receipt(
             .collect(),
         event_digest: legacy.plan_hash,
         output_digest: legacy.outcome_hash,
+        resolved_runner: None,
     })
 }
 

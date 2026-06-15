@@ -18,10 +18,10 @@ pub mod client_boundary {
     };
     pub use crate::client_boundary_types::blocking::{BlockedOutcome, BlockedOutcomeScope};
     pub use crate::client_boundary_types::bootstrap::{
-        BootstrapFilesystemPolicy, BootstrapIntent, BootstrapPlan, BootstrapPlanTask,
-        BootstrapPlanningContext, BootstrapPlanningMode, BootstrapSkillBinding,
-        BootstrapTemplateConnectionContext, BootstrapTemplateContext, BootstrapTemplateLaneContext,
-        BootstrapTemplateSlotContext,
+        AgentProfile, AgentRunnerPreference, BootstrapFilesystemPolicy, BootstrapIntent,
+        BootstrapPlan, BootstrapPlanTask, BootstrapPlanningContext, BootstrapPlanningMode,
+        BootstrapSkillBinding, BootstrapTemplateConnectionContext, BootstrapTemplateContext,
+        BootstrapTemplateLaneContext, BootstrapTemplateSlotContext, ResolvedAgentRunner,
     };
     pub use crate::client_boundary_types::campaign::{
         CampaignPipelineConnection, CampaignPipelineConnectionKind, CampaignPipelineGate,
@@ -98,12 +98,12 @@ pub mod generated {
 
 pub use generated::{
     AcceptanceCriteria, AckCancellationRequest, AckCancellationResponse, AcquireLeaseRequest,
-    AcquireLeaseResponse, AgentRole, ApplyControlPlaneReviewDispositionRequest,
-    ApplyControlPlaneReviewDispositionResponse, ApplyControlPlaneRunActionRequest,
-    ApplyControlPlaneRunActionResponse, Artifact, ArtifactDescriptor, ArtifactKind,
-    AuditExportManifest, AuthContext, AuthMechanism, BlockedOutcome, BlockedOutcomeScope,
-    BootstrapFilesystemPolicy, BootstrapIntent, BootstrapPlan, BootstrapPlanTask,
-    BootstrapPlanningContext, BootstrapPlanningMode, BootstrapSkillBinding,
+    AcquireLeaseResponse, AgentProfile, AgentRole, AgentRunnerPreference,
+    ApplyControlPlaneReviewDispositionRequest, ApplyControlPlaneReviewDispositionResponse,
+    ApplyControlPlaneRunActionRequest, ApplyControlPlaneRunActionResponse, Artifact,
+    ArtifactDescriptor, ArtifactKind, AuditExportManifest, AuthContext, AuthMechanism,
+    BlockedOutcome, BlockedOutcomeScope, BootstrapFilesystemPolicy, BootstrapIntent, BootstrapPlan,
+    BootstrapPlanTask, BootstrapPlanningContext, BootstrapPlanningMode, BootstrapSkillBinding,
     BootstrapTemplateConnectionContext, BootstrapTemplateContext, BootstrapTemplateLaneContext,
     BootstrapTemplateSlotContext, CampaignPipelineConnection, CampaignPipelineConnectionKind,
     CampaignPipelineGate, CampaignPipelineGatePolicy, CampaignPipelineSpec,
@@ -120,10 +120,11 @@ pub use generated::{
     RenewLeaseRequest, RenewLeaseResponse, ReplanPolicy, ReplanStrategy, ReportStepOutcomeRequest,
     ReportStepOutcomeResponse, ReportStepProgressRequest, ReportStepProgressResponse,
     ReportStepStartedRequest, ReportStepStartedResponse, RerunExecutionResult,
-    RerunExecutionStatus, RerunScope, RerunSelectionStrategy, RerunTrigger, ResumeLeaseRequest,
-    ResumeLeaseResponse, ReviewDecision, ReviewDecisionScope, ReviewDisposition, RoleProvenance,
-    RunContext, RunEventRecord, RunEventStream, RunLifecycleState, RunOperatorSignals,
-    RunnerCapabilities, StepLifecycleState, StepOutputExpectation, Task, TaskMessage,
-    TaskMessageAck, TaskMessageKind, TenantRef, UsageCategory, UsageRecord, UsageUnit,
-    VerificationCheck, VerificationCheckStatus, VerificationReceipt, VerificationStatus,
+    RerunExecutionStatus, RerunScope, RerunSelectionStrategy, RerunTrigger, ResolvedAgentRunner,
+    ResumeLeaseRequest, ResumeLeaseResponse, ReviewDecision, ReviewDecisionScope,
+    ReviewDisposition, RoleProvenance, RunContext, RunEventRecord, RunEventStream,
+    RunLifecycleState, RunOperatorSignals, RunnerCapabilities, StepLifecycleState,
+    StepOutputExpectation, Task, TaskMessage, TaskMessageAck, TaskMessageKind, TenantRef,
+    UsageCategory, UsageRecord, UsageUnit, VerificationCheck, VerificationCheckStatus,
+    VerificationReceipt, VerificationStatus,
 };

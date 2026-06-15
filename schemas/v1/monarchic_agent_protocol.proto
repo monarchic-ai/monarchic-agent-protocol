@@ -154,6 +154,39 @@ message BootstrapIntent {
   uint64 created_at_ms = 9;
 }
 
+message AgentRunnerPreference {
+  string runner_id = 1;
+  optional string model = 2;
+  optional string provider = 3;
+  optional string reasoning_effort = 4;
+  repeated string required_capabilities = 5;
+  repeated string labels = 6;
+  google.protobuf.Struct extensions = 7;
+}
+
+message AgentProfile {
+  string agent_id = 1;
+  string role_id = 2;
+  string display_name = 3;
+  optional string description = 4;
+  repeated AgentRunnerPreference runner_preferences = 5;
+  repeated string allowed_network_modes = 6;
+  bool requires_human_review = 7;
+  repeated string required_skill_ids = 8;
+  repeated string required_mcp_ids = 9;
+  google.protobuf.Struct extensions = 10;
+}
+
+message ResolvedAgentRunner {
+  string runner_id = 1;
+  optional string model = 2;
+  optional string provider = 3;
+  optional string reasoning_effort = 4;
+  uint32 preference_index = 5;
+  optional string selection_reason = 6;
+  google.protobuf.Struct extensions = 7;
+}
+
 message BootstrapPlanTask {
   string task_id = 1;
   string display_name = 2;
@@ -171,6 +204,8 @@ message BootstrapPlanTask {
   optional string notes = 14;
   optional string agent_id = 15;
   optional string injected_by_role_id = 16;
+  repeated AgentRunnerPreference runner_preferences = 17;
+  optional ResolvedAgentRunner resolved_runner = 18;
 }
 
 enum BootstrapPlanningMode {
@@ -260,6 +295,7 @@ message BootstrapPlanningContext {
   repeated string enabled_role_ids = 12;
   repeated AgentCommand agent_cmds = 13;
   repeated string default_agent_cmd = 14;
+  repeated AgentProfile agent_profiles = 15;
 }
 
 enum CampaignPipelineConnectionKind {
@@ -534,6 +570,7 @@ message ExecutionReceipt {
   PlanStatus status = 8;
   optional FailureDetail failure = 9;
   uint64 generated_at_ms = 10;
+  optional ResolvedAgentRunner resolved_runner = 11;
 }
 
 enum VerificationStatus {
@@ -845,6 +882,10 @@ message RunnerCapabilities {
   bool supports_resume = 7;
   google.protobuf.Struct extensions = 8;
   repeated string supported_role_ids = 9;
+  repeated string supported_models = 10;
+  repeated string supported_reasoning_efforts = 11;
+  repeated string supported_runner_capabilities = 12;
+  repeated string supported_providers = 13;
 }
 
 // LeaseRef is the canonical identity for a runner-owned execution lease. The

@@ -1424,6 +1424,404 @@ class BootstrapIntent extends $pb.GeneratedMessage {
   void clearCreatedAtMs() => $_clearField(9);
 }
 
+class AgentRunnerPreference extends $pb.GeneratedMessage {
+  factory AgentRunnerPreference({
+    $core.String? runnerId,
+    $core.String? model,
+    $core.String? provider,
+    $core.String? reasoningEffort,
+    $core.Iterable<$core.String>? requiredCapabilities,
+    $core.Iterable<$core.String>? labels,
+    $0.Struct? extensions,
+  }) {
+    final result = create();
+    if (runnerId != null) result.runnerId = runnerId;
+    if (model != null) result.model = model;
+    if (provider != null) result.provider = provider;
+    if (reasoningEffort != null) result.reasoningEffort = reasoningEffort;
+    if (requiredCapabilities != null)
+      result.requiredCapabilities.addAll(requiredCapabilities);
+    if (labels != null) result.labels.addAll(labels);
+    if (extensions != null) result.extensions = extensions;
+    return result;
+  }
+
+  AgentRunnerPreference._();
+
+  factory AgentRunnerPreference.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory AgentRunnerPreference.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'AgentRunnerPreference',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'runnerId')
+    ..aOS(2, _omitFieldNames ? '' : 'model')
+    ..aOS(3, _omitFieldNames ? '' : 'provider')
+    ..aOS(4, _omitFieldNames ? '' : 'reasoningEffort')
+    ..pPS(5, _omitFieldNames ? '' : 'requiredCapabilities')
+    ..pPS(6, _omitFieldNames ? '' : 'labels')
+    ..aOM<$0.Struct>(7, _omitFieldNames ? '' : 'extensions',
+        subBuilder: $0.Struct.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  AgentRunnerPreference clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  AgentRunnerPreference copyWith(
+          void Function(AgentRunnerPreference) updates) =>
+      super.copyWith((message) => updates(message as AgentRunnerPreference))
+          as AgentRunnerPreference;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static AgentRunnerPreference create() => AgentRunnerPreference._();
+  @$core.override
+  AgentRunnerPreference createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static AgentRunnerPreference getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<AgentRunnerPreference>(create);
+  static AgentRunnerPreference? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get runnerId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set runnerId($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasRunnerId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearRunnerId() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get model => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set model($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasModel() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearModel() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get provider => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set provider($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasProvider() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearProvider() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get reasoningEffort => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set reasoningEffort($core.String value) => $_setString(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasReasoningEffort() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearReasoningEffort() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  $pb.PbList<$core.String> get requiredCapabilities => $_getList(4);
+
+  @$pb.TagNumber(6)
+  $pb.PbList<$core.String> get labels => $_getList(5);
+
+  @$pb.TagNumber(7)
+  $0.Struct get extensions => $_getN(6);
+  @$pb.TagNumber(7)
+  set extensions($0.Struct value) => $_setField(7, value);
+  @$pb.TagNumber(7)
+  $core.bool hasExtensions() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearExtensions() => $_clearField(7);
+  @$pb.TagNumber(7)
+  $0.Struct ensureExtensions() => $_ensure(6);
+}
+
+class AgentProfile extends $pb.GeneratedMessage {
+  factory AgentProfile({
+    $core.String? agentId,
+    $core.String? roleId,
+    $core.String? displayName,
+    $core.String? description,
+    $core.Iterable<AgentRunnerPreference>? runnerPreferences,
+    $core.Iterable<$core.String>? allowedNetworkModes,
+    $core.bool? requiresHumanReview,
+    $core.Iterable<$core.String>? requiredSkillIds,
+    $core.Iterable<$core.String>? requiredMcpIds,
+    $0.Struct? extensions,
+  }) {
+    final result = create();
+    if (agentId != null) result.agentId = agentId;
+    if (roleId != null) result.roleId = roleId;
+    if (displayName != null) result.displayName = displayName;
+    if (description != null) result.description = description;
+    if (runnerPreferences != null)
+      result.runnerPreferences.addAll(runnerPreferences);
+    if (allowedNetworkModes != null)
+      result.allowedNetworkModes.addAll(allowedNetworkModes);
+    if (requiresHumanReview != null)
+      result.requiresHumanReview = requiresHumanReview;
+    if (requiredSkillIds != null)
+      result.requiredSkillIds.addAll(requiredSkillIds);
+    if (requiredMcpIds != null) result.requiredMcpIds.addAll(requiredMcpIds);
+    if (extensions != null) result.extensions = extensions;
+    return result;
+  }
+
+  AgentProfile._();
+
+  factory AgentProfile.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory AgentProfile.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'AgentProfile',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'agentId')
+    ..aOS(2, _omitFieldNames ? '' : 'roleId')
+    ..aOS(3, _omitFieldNames ? '' : 'displayName')
+    ..aOS(4, _omitFieldNames ? '' : 'description')
+    ..pPM<AgentRunnerPreference>(5, _omitFieldNames ? '' : 'runnerPreferences',
+        subBuilder: AgentRunnerPreference.create)
+    ..pPS(6, _omitFieldNames ? '' : 'allowedNetworkModes')
+    ..aOB(7, _omitFieldNames ? '' : 'requiresHumanReview')
+    ..pPS(8, _omitFieldNames ? '' : 'requiredSkillIds')
+    ..pPS(9, _omitFieldNames ? '' : 'requiredMcpIds')
+    ..aOM<$0.Struct>(10, _omitFieldNames ? '' : 'extensions',
+        subBuilder: $0.Struct.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  AgentProfile clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  AgentProfile copyWith(void Function(AgentProfile) updates) =>
+      super.copyWith((message) => updates(message as AgentProfile))
+          as AgentProfile;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static AgentProfile create() => AgentProfile._();
+  @$core.override
+  AgentProfile createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static AgentProfile getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<AgentProfile>(create);
+  static AgentProfile? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get agentId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set agentId($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasAgentId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearAgentId() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get roleId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set roleId($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasRoleId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearRoleId() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get displayName => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set displayName($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasDisplayName() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearDisplayName() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get description => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set description($core.String value) => $_setString(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasDescription() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearDescription() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  $pb.PbList<AgentRunnerPreference> get runnerPreferences => $_getList(4);
+
+  @$pb.TagNumber(6)
+  $pb.PbList<$core.String> get allowedNetworkModes => $_getList(5);
+
+  @$pb.TagNumber(7)
+  $core.bool get requiresHumanReview => $_getBF(6);
+  @$pb.TagNumber(7)
+  set requiresHumanReview($core.bool value) => $_setBool(6, value);
+  @$pb.TagNumber(7)
+  $core.bool hasRequiresHumanReview() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearRequiresHumanReview() => $_clearField(7);
+
+  @$pb.TagNumber(8)
+  $pb.PbList<$core.String> get requiredSkillIds => $_getList(7);
+
+  @$pb.TagNumber(9)
+  $pb.PbList<$core.String> get requiredMcpIds => $_getList(8);
+
+  @$pb.TagNumber(10)
+  $0.Struct get extensions => $_getN(9);
+  @$pb.TagNumber(10)
+  set extensions($0.Struct value) => $_setField(10, value);
+  @$pb.TagNumber(10)
+  $core.bool hasExtensions() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearExtensions() => $_clearField(10);
+  @$pb.TagNumber(10)
+  $0.Struct ensureExtensions() => $_ensure(9);
+}
+
+class ResolvedAgentRunner extends $pb.GeneratedMessage {
+  factory ResolvedAgentRunner({
+    $core.String? runnerId,
+    $core.String? model,
+    $core.String? provider,
+    $core.String? reasoningEffort,
+    $core.int? preferenceIndex,
+    $core.String? selectionReason,
+    $0.Struct? extensions,
+  }) {
+    final result = create();
+    if (runnerId != null) result.runnerId = runnerId;
+    if (model != null) result.model = model;
+    if (provider != null) result.provider = provider;
+    if (reasoningEffort != null) result.reasoningEffort = reasoningEffort;
+    if (preferenceIndex != null) result.preferenceIndex = preferenceIndex;
+    if (selectionReason != null) result.selectionReason = selectionReason;
+    if (extensions != null) result.extensions = extensions;
+    return result;
+  }
+
+  ResolvedAgentRunner._();
+
+  factory ResolvedAgentRunner.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory ResolvedAgentRunner.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ResolvedAgentRunner',
+      package: const $pb.PackageName(
+          _omitMessageNames ? '' : 'monarchic.agent_protocol.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'runnerId')
+    ..aOS(2, _omitFieldNames ? '' : 'model')
+    ..aOS(3, _omitFieldNames ? '' : 'provider')
+    ..aOS(4, _omitFieldNames ? '' : 'reasoningEffort')
+    ..aI(5, _omitFieldNames ? '' : 'preferenceIndex',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aOS(6, _omitFieldNames ? '' : 'selectionReason')
+    ..aOM<$0.Struct>(7, _omitFieldNames ? '' : 'extensions',
+        subBuilder: $0.Struct.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ResolvedAgentRunner clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ResolvedAgentRunner copyWith(void Function(ResolvedAgentRunner) updates) =>
+      super.copyWith((message) => updates(message as ResolvedAgentRunner))
+          as ResolvedAgentRunner;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ResolvedAgentRunner create() => ResolvedAgentRunner._();
+  @$core.override
+  ResolvedAgentRunner createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static ResolvedAgentRunner getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ResolvedAgentRunner>(create);
+  static ResolvedAgentRunner? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get runnerId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set runnerId($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasRunnerId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearRunnerId() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get model => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set model($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasModel() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearModel() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get provider => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set provider($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasProvider() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearProvider() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get reasoningEffort => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set reasoningEffort($core.String value) => $_setString(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasReasoningEffort() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearReasoningEffort() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.int get preferenceIndex => $_getIZ(4);
+  @$pb.TagNumber(5)
+  set preferenceIndex($core.int value) => $_setUnsignedInt32(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasPreferenceIndex() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearPreferenceIndex() => $_clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get selectionReason => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set selectionReason($core.String value) => $_setString(5, value);
+  @$pb.TagNumber(6)
+  $core.bool hasSelectionReason() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearSelectionReason() => $_clearField(6);
+
+  @$pb.TagNumber(7)
+  $0.Struct get extensions => $_getN(6);
+  @$pb.TagNumber(7)
+  set extensions($0.Struct value) => $_setField(7, value);
+  @$pb.TagNumber(7)
+  $core.bool hasExtensions() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearExtensions() => $_clearField(7);
+  @$pb.TagNumber(7)
+  $0.Struct ensureExtensions() => $_ensure(6);
+}
+
 class BootstrapPlanTask extends $pb.GeneratedMessage {
   factory BootstrapPlanTask({
     $core.String? taskId,
@@ -1442,6 +1840,8 @@ class BootstrapPlanTask extends $pb.GeneratedMessage {
     $core.String? notes,
     $core.String? agentId,
     $core.String? injectedByRoleId,
+    $core.Iterable<AgentRunnerPreference>? runnerPreferences,
+    ResolvedAgentRunner? resolvedRunner,
   }) {
     final result = create();
     if (taskId != null) result.taskId = taskId;
@@ -1462,6 +1862,9 @@ class BootstrapPlanTask extends $pb.GeneratedMessage {
     if (notes != null) result.notes = notes;
     if (agentId != null) result.agentId = agentId;
     if (injectedByRoleId != null) result.injectedByRoleId = injectedByRoleId;
+    if (runnerPreferences != null)
+      result.runnerPreferences.addAll(runnerPreferences);
+    if (resolvedRunner != null) result.resolvedRunner = resolvedRunner;
     return result;
   }
 
@@ -1496,6 +1899,10 @@ class BootstrapPlanTask extends $pb.GeneratedMessage {
     ..aOS(14, _omitFieldNames ? '' : 'notes')
     ..aOS(15, _omitFieldNames ? '' : 'agentId')
     ..aOS(16, _omitFieldNames ? '' : 'injectedByRoleId')
+    ..pPM<AgentRunnerPreference>(17, _omitFieldNames ? '' : 'runnerPreferences',
+        subBuilder: AgentRunnerPreference.create)
+    ..aOM<ResolvedAgentRunner>(18, _omitFieldNames ? '' : 'resolvedRunner',
+        subBuilder: ResolvedAgentRunner.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -1644,6 +2051,20 @@ class BootstrapPlanTask extends $pb.GeneratedMessage {
   $core.bool hasInjectedByRoleId() => $_has(15);
   @$pb.TagNumber(16)
   void clearInjectedByRoleId() => $_clearField(16);
+
+  @$pb.TagNumber(17)
+  $pb.PbList<AgentRunnerPreference> get runnerPreferences => $_getList(16);
+
+  @$pb.TagNumber(18)
+  ResolvedAgentRunner get resolvedRunner => $_getN(17);
+  @$pb.TagNumber(18)
+  set resolvedRunner(ResolvedAgentRunner value) => $_setField(18, value);
+  @$pb.TagNumber(18)
+  $core.bool hasResolvedRunner() => $_has(17);
+  @$pb.TagNumber(18)
+  void clearResolvedRunner() => $_clearField(18);
+  @$pb.TagNumber(18)
+  ResolvedAgentRunner ensureResolvedRunner() => $_ensure(17);
 }
 
 class BootstrapPlan extends $pb.GeneratedMessage {
@@ -2476,6 +2897,7 @@ class BootstrapPlanningContext extends $pb.GeneratedMessage {
     $core.Iterable<$core.String>? enabledRoleIds,
     $core.Iterable<AgentCommand>? agentCmds,
     $core.Iterable<$core.String>? defaultAgentCmd,
+    $core.Iterable<AgentProfile>? agentProfiles,
   }) {
     final result = create();
     if (contractVersion != null) result.contractVersion = contractVersion;
@@ -2493,6 +2915,7 @@ class BootstrapPlanningContext extends $pb.GeneratedMessage {
     if (enabledRoleIds != null) result.enabledRoleIds.addAll(enabledRoleIds);
     if (agentCmds != null) result.agentCmds.addAll(agentCmds);
     if (defaultAgentCmd != null) result.defaultAgentCmd.addAll(defaultAgentCmd);
+    if (agentProfiles != null) result.agentProfiles.addAll(agentProfiles);
     return result;
   }
 
@@ -2528,6 +2951,8 @@ class BootstrapPlanningContext extends $pb.GeneratedMessage {
     ..pPM<AgentCommand>(13, _omitFieldNames ? '' : 'agentCmds',
         subBuilder: AgentCommand.create)
     ..pPS(14, _omitFieldNames ? '' : 'defaultAgentCmd')
+    ..pPM<AgentProfile>(15, _omitFieldNames ? '' : 'agentProfiles',
+        subBuilder: AgentProfile.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -2642,6 +3067,9 @@ class BootstrapPlanningContext extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(14)
   $pb.PbList<$core.String> get defaultAgentCmd => $_getList(13);
+
+  @$pb.TagNumber(15)
+  $pb.PbList<AgentProfile> get agentProfiles => $_getList(14);
 }
 
 class CampaignPipelineTaskRef extends $pb.GeneratedMessage {
@@ -4927,6 +5355,7 @@ class ExecutionReceipt extends $pb.GeneratedMessage {
     PlanStatus? status,
     FailureDetail? failure,
     $fixnum.Int64? generatedAtMs,
+    ResolvedAgentRunner? resolvedRunner,
   }) {
     final result = create();
     if (contractVersion != null) result.contractVersion = contractVersion;
@@ -4939,6 +5368,7 @@ class ExecutionReceipt extends $pb.GeneratedMessage {
     if (status != null) result.status = status;
     if (failure != null) result.failure = failure;
     if (generatedAtMs != null) result.generatedAtMs = generatedAtMs;
+    if (resolvedRunner != null) result.resolvedRunner = resolvedRunner;
     return result;
   }
 
@@ -4970,6 +5400,8 @@ class ExecutionReceipt extends $pb.GeneratedMessage {
     ..a<$fixnum.Int64>(
         10, _omitFieldNames ? '' : 'generatedAtMs', $pb.PbFieldType.OU6,
         defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOM<ResolvedAgentRunner>(11, _omitFieldNames ? '' : 'resolvedRunner',
+        subBuilder: ResolvedAgentRunner.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -5070,6 +5502,17 @@ class ExecutionReceipt extends $pb.GeneratedMessage {
   $core.bool hasGeneratedAtMs() => $_has(9);
   @$pb.TagNumber(10)
   void clearGeneratedAtMs() => $_clearField(10);
+
+  @$pb.TagNumber(11)
+  ResolvedAgentRunner get resolvedRunner => $_getN(10);
+  @$pb.TagNumber(11)
+  set resolvedRunner(ResolvedAgentRunner value) => $_setField(11, value);
+  @$pb.TagNumber(11)
+  $core.bool hasResolvedRunner() => $_has(10);
+  @$pb.TagNumber(11)
+  void clearResolvedRunner() => $_clearField(11);
+  @$pb.TagNumber(11)
+  ResolvedAgentRunner ensureResolvedRunner() => $_ensure(10);
 }
 
 class VerificationCheck extends $pb.GeneratedMessage {
@@ -7699,6 +8142,10 @@ class RunnerCapabilities extends $pb.GeneratedMessage {
     $core.bool? supportsResume,
     $0.Struct? extensions,
     $core.Iterable<$core.String>? supportedRoleIds,
+    $core.Iterable<$core.String>? supportedModels,
+    $core.Iterable<$core.String>? supportedReasoningEfforts,
+    $core.Iterable<$core.String>? supportedRunnerCapabilities,
+    $core.Iterable<$core.String>? supportedProviders,
   }) {
     final result = create();
     if (platform != null) result.platform = platform;
@@ -7713,6 +8160,13 @@ class RunnerCapabilities extends $pb.GeneratedMessage {
     if (extensions != null) result.extensions = extensions;
     if (supportedRoleIds != null)
       result.supportedRoleIds.addAll(supportedRoleIds);
+    if (supportedModels != null) result.supportedModels.addAll(supportedModels);
+    if (supportedReasoningEfforts != null)
+      result.supportedReasoningEfforts.addAll(supportedReasoningEfforts);
+    if (supportedRunnerCapabilities != null)
+      result.supportedRunnerCapabilities.addAll(supportedRunnerCapabilities);
+    if (supportedProviders != null)
+      result.supportedProviders.addAll(supportedProviders);
     return result;
   }
 
@@ -7744,6 +8198,10 @@ class RunnerCapabilities extends $pb.GeneratedMessage {
     ..aOM<$0.Struct>(8, _omitFieldNames ? '' : 'extensions',
         subBuilder: $0.Struct.create)
     ..pPS(9, _omitFieldNames ? '' : 'supportedRoleIds')
+    ..pPS(10, _omitFieldNames ? '' : 'supportedModels')
+    ..pPS(11, _omitFieldNames ? '' : 'supportedReasoningEfforts')
+    ..pPS(12, _omitFieldNames ? '' : 'supportedRunnerCapabilities')
+    ..pPS(13, _omitFieldNames ? '' : 'supportedProviders')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -7825,6 +8283,18 @@ class RunnerCapabilities extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(9)
   $pb.PbList<$core.String> get supportedRoleIds => $_getList(8);
+
+  @$pb.TagNumber(10)
+  $pb.PbList<$core.String> get supportedModels => $_getList(9);
+
+  @$pb.TagNumber(11)
+  $pb.PbList<$core.String> get supportedReasoningEfforts => $_getList(10);
+
+  @$pb.TagNumber(12)
+  $pb.PbList<$core.String> get supportedRunnerCapabilities => $_getList(11);
+
+  @$pb.TagNumber(13)
+  $pb.PbList<$core.String> get supportedProviders => $_getList(12);
 }
 
 /// LeaseRef is the canonical identity for a runner-owned execution lease. The
