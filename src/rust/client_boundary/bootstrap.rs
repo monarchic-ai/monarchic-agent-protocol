@@ -27,6 +27,64 @@ pub struct BootstrapIntent {
     pub created_at_ms: u64,
 }
 
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
+#[serde(deny_unknown_fields)]
+pub struct AgentRunnerPreference {
+    pub runner_id: String,
+    #[serde(default)]
+    pub model: Option<String>,
+    #[serde(default)]
+    pub provider: Option<String>,
+    #[serde(default)]
+    pub reasoning_effort: Option<String>,
+    #[serde(default)]
+    pub required_capabilities: Vec<String>,
+    #[serde(default)]
+    pub labels: Vec<String>,
+    #[serde(default)]
+    pub extensions: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
+#[serde(deny_unknown_fields)]
+pub struct AgentProfile {
+    pub agent_id: String,
+    pub role_id: String,
+    pub display_name: String,
+    #[serde(default)]
+    pub description: Option<String>,
+    #[serde(default)]
+    pub runner_preferences: Vec<AgentRunnerPreference>,
+    #[serde(default)]
+    pub allowed_network_modes: Vec<String>,
+    #[serde(default)]
+    pub requires_human_review: bool,
+    #[serde(default)]
+    pub required_skill_ids: Vec<String>,
+    #[serde(default)]
+    pub required_mcp_ids: Vec<String>,
+    #[serde(default)]
+    pub extensions: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, Default)]
+#[serde(deny_unknown_fields)]
+pub struct ResolvedAgentRunner {
+    pub runner_id: String,
+    #[serde(default)]
+    pub model: Option<String>,
+    #[serde(default)]
+    pub provider: Option<String>,
+    #[serde(default)]
+    pub reasoning_effort: Option<String>,
+    #[serde(default)]
+    pub preference_index: u32,
+    #[serde(default)]
+    pub selection_reason: Option<String>,
+    #[serde(default)]
+    pub extensions: BTreeMap<String, Value>,
+}
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub struct BootstrapPlanTask {
@@ -58,6 +116,10 @@ pub struct BootstrapPlanTask {
     pub agent_id: Option<String>,
     #[serde(default)]
     pub injected_by_role_id: Option<String>,
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    pub runner_preferences: Vec<AgentRunnerPreference>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub resolved_runner: Option<ResolvedAgentRunner>,
 }
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -164,6 +226,8 @@ pub struct BootstrapPlanningContext {
     pub default_agent_cmd: Vec<String>,
     #[serde(default)]
     pub agent_cmds: BTreeMap<String, Vec<String>>,
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    pub agent_profiles: Vec<AgentProfile>,
     #[serde(default)]
     pub available_skill_ids: Vec<String>,
     #[serde(default)]
@@ -188,6 +252,8 @@ struct BootstrapPlanningContextUnchecked {
     pub default_agent_cmd: Vec<String>,
     #[serde(default)]
     pub agent_cmds: BTreeMap<String, Vec<String>>,
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    pub agent_profiles: Vec<AgentProfile>,
     #[serde(default)]
     pub available_skill_ids: Vec<String>,
     #[serde(default)]
@@ -237,6 +303,7 @@ impl TryFrom<BootstrapPlanningContextUnchecked> for BootstrapPlanningContext {
             priority_profile: value.priority_profile,
             default_agent_cmd: value.default_agent_cmd,
             agent_cmds: value.agent_cmds,
+            agent_profiles: value.agent_profiles,
             available_skill_ids: value.available_skill_ids,
             enabled_role_ids: value.enabled_role_ids,
             selected_template: value.selected_template,

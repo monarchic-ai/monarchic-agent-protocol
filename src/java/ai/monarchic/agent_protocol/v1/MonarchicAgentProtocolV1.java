@@ -72,6 +72,21 @@ public final class MonarchicAgentProtocolV1 extends com.google.protobuf.Generate
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_monarchic_agent_protocol_v1_BootstrapIntent_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_monarchic_agent_protocol_v1_AgentRunnerPreference_descriptor;
+  static final
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_monarchic_agent_protocol_v1_AgentRunnerPreference_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_monarchic_agent_protocol_v1_AgentProfile_descriptor;
+  static final
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_monarchic_agent_protocol_v1_AgentProfile_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_monarchic_agent_protocol_v1_ResolvedAgentRunner_descriptor;
+  static final
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_monarchic_agent_protocol_v1_ResolvedAgentRunner_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_monarchic_agent_protocol_v1_BootstrapPlanTask_descriptor;
   static final
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -593,871 +608,905 @@ public final class MonarchicAgentProtocolV1 extends com.google.protobuf.Generate
       "plate_id\030\005 \001(\tH\000\210\001\001\022\025\n\rcampaign_goal\030\006 \001" +
       "(\t\022\022\n\005notes\030\007 \001(\tH\001\210\001\001\022\030\n\020priority_profi" +
       "le\030\010 \001(\t\022\025\n\rcreated_at_ms\030\t \001(\004B\027\n\025_pipe" +
-      "line_template_idB\010\n\006_notes\"\331\004\n\021Bootstrap" +
-      "PlanTask\022\017\n\007task_id\030\001 \001(\t\022\024\n\014display_nam" +
-      "e\030\002 \001(\t\022\017\n\007role_id\030\003 \001(\t\022\026\n\016task_milesto" +
-      "ne\030\004 \001(\t\022\022\n\ndepends_on\030\005 \003(\t\022\030\n\013target_r" +
-      "epo\030\006 \001(\tH\000\210\001\001\022\032\n\022required_skill_ids\030\007 \003" +
-      "(\t\022\030\n\020required_mcp_ids\030\010 \003(\t\022\035\n\020interact" +
-      "ion_mode\030\t \001(\tH\001\210\001\001\022\031\n\014network_mode\030\n \001(" +
-      "\tH\002\210\001\001\022\"\n\025requires_human_review\030\013 \001(\010H\003\210" +
-      "\001\001\0222\n\021filesystem_policy\030\014 \001(\0132\027.google.p" +
-      "rotobuf.Struct\022\035\n\020template_slot_id\030\r \001(\t" +
-      "H\004\210\001\001\022\022\n\005notes\030\016 \001(\tH\005\210\001\001\022\025\n\010agent_id\030\017 " +
-      "\001(\tH\006\210\001\001\022 \n\023injected_by_role_id\030\020 \001(\tH\007\210" +
-      "\001\001B\016\n\014_target_repoB\023\n\021_interaction_modeB" +
-      "\017\n\r_network_modeB\030\n\026_requires_human_revi" +
-      "ewB\023\n\021_template_slot_idB\010\n\006_notesB\013\n\t_ag" +
-      "ent_idB\026\n\024_injected_by_role_id\"\352\002\n\rBoots" +
-      "trapPlan\022\030\n\020contract_version\030\001 \001(\t\022\031\n\021bo" +
-      "otstrap_plan_id\030\002 \001(\t\022\033\n\023bootstrap_inten" +
-      "t_id\030\003 \001(\t\022\023\n\013project_key\030\004 \001(\t\022I\n\rplann" +
-      "ing_mode\030\005 \001(\01622.monarchic.agent_protoco" +
-      "l.v1.BootstrapPlanningMode\022!\n\024pipeline_t" +
-      "emplate_id\030\006 \001(\tH\000\210\001\001\022\025\n\rcampaign_goal\030\007" +
-      " \001(\t\022\025\n\rcreated_at_ms\030\010 \001(\004\022=\n\005tasks\030\t \003" +
-      "(\0132..monarchic.agent_protocol.v1.Bootstr" +
-      "apPlanTaskB\027\n\025_pipeline_template_id\"I\n\031B" +
-      "ootstrapFilesystemPolicy\022\014\n\004read\030\001 \003(\t\022\r" +
-      "\n\005write\030\002 \003(\t\022\017\n\007execute\030\003 \003(\t\"F\n\025Bootst" +
-      "rapSkillBinding\022\n\n\002id\030\001 \001(\t\022\020\n\010required\030" +
-      "\002 \001(\010\022\017\n\007purpose\030\003 \001(\t\"\331\002\n\034BootstrapTemp" +
-      "lateSlotContext\022\017\n\007slot_id\030\001 \001(\t\022\024\n\014disp" +
-      "lay_name\030\002 \001(\t\022\014\n\004role\030\003 \001(\t\022\030\n\020interact" +
-      "ion_mode\030\004 \001(\t\022\024\n\014network_mode\030\005 \001(\t\022\035\n\025" +
-      "requires_human_review\030\006 \001(\010\022Q\n\021filesyste" +
-      "m_policy\030\007 \001(\01326.monarchic.agent_protoco" +
-      "l.v1.BootstrapFilesystemPolicy\022K\n\017requir" +
-      "ed_skills\030\010 \003(\01322.monarchic.agent_protoc" +
-      "ol.v1.BootstrapSkillBinding\022\025\n\rrequired_" +
-      "mcps\030\t \003(\t\"\230\001\n\"BootstrapTemplateConnecti" +
-      "onContext\022\024\n\014from_slot_id\030\001 \001(\t\022\022\n\nto_sl" +
-      "ot_id\030\002 \001(\t\022\014\n\004kind\030\003 \001(\t\022\020\n\010required\030\004 " +
-      "\001(\010\022\030\n\013description\030\005 \001(\tH\000\210\001\001B\016\n\014_descri" +
-      "ption\"\240\001\n\034BootstrapTemplateLaneContext\022\017" +
-      "\n\007lane_id\030\001 \001(\t\022\024\n\014display_name\030\002 \001(\t\022\024\n" +
-      "\014from_slot_id\030\003 \001(\t\022\022\n\nto_slot_id\030\004 \001(\t\022" +
-      "\020\n\010slot_ids\030\005 \003(\t\022\035\n\025repeat_per_task_gro" +
-      "up\030\006 \001(\010\"\257\002\n\030BootstrapTemplateContext\022\023\n" +
-      "\013template_id\030\001 \001(\t\022\024\n\014display_name\030\002 \001(\t" +
-      "\022H\n\005slots\030\003 \003(\01329.monarchic.agent_protoc" +
-      "ol.v1.BootstrapTemplateSlotContext\022T\n\013co" +
-      "nnections\030\004 \003(\0132?.monarchic.agent_protoc" +
-      "ol.v1.BootstrapTemplateConnectionContext" +
-      "\022H\n\005lanes\030\005 \003(\01329.monarchic.agent_protoc" +
-      "ol.v1.BootstrapTemplateLaneContext\"/\n\014Ag" +
-      "entCommand\022\021\n\trunner_id\030\001 \001(\t\022\014\n\004argv\030\002 " +
-      "\003(\t\"\243\004\n\030BootstrapPlanningContext\022\030\n\020cont" +
-      "ract_version\030\001 \001(\t\022\023\n\013project_key\030\002 \001(\t\022" +
-      "\023\n\013target_repo\030\003 \001(\t\022\024\n\014target_repos\030\004 \003" +
-      "(\t\022\025\n\rcampaign_goal\030\005 \001(\t\022\022\n\005notes\030\006 \001(\t" +
-      "H\000\210\001\001\022\030\n\020priority_profile\030\007 \001(\t\022\025\n\tcodex" +
-      "_cmd\030\010 \003(\tB\002\030\001\022\033\n\023available_skill_ids\030\t " +
-      "\003(\t\022U\n\021selected_template\030\n \001(\01325.monarch" +
-      "ic.agent_protocol.v1.BootstrapTemplateCo" +
-      "ntextH\001\210\001\001\022I\n\rplanning_mode\030\013 \001(\01622.mona" +
-      "rchic.agent_protocol.v1.BootstrapPlannin" +
-      "gMode\022\030\n\020enabled_role_ids\030\014 \003(\t\022=\n\nagent" +
-      "_cmds\030\r \003(\0132).monarchic.agent_protocol.v" +
-      "1.AgentCommand\022\031\n\021default_agent_cmd\030\016 \003(" +
-      "\tB\010\n\006_notesB\024\n\022_selected_template\"\237\004\n\027Ca" +
-      "mpaignPipelineTaskRef\022\017\n\007task_id\030\001 \001(\t\022\025" +
-      "\n\rtask_artifact\030\002 \001(\t\022\024\n\007role_id\030\003 \001(\tH\000" +
-      "\210\001\001\022\033\n\016task_milestone\030\004 \001(\tH\001\210\001\001\022\030\n\013task" +
-      "_format\030\005 \001(\tH\002\210\001\001\022\022\n\ndepends_on\030\006 \003(\t\022\023" +
-      "\n\013runner_args\030\007 \003(\t\022\035\n\020interaction_mode\030" +
-      "\010 \001(\tH\003\210\001\001\022\031\n\014network_mode\030\t \001(\tH\004\210\001\001\022\035\n" +
-      "\025requires_human_review\030\n \001(\010\022Q\n\021filesyst" +
-      "em_policy\030\013 \001(\01326.monarchic.agent_protoc" +
-      "ol.v1.BootstrapFilesystemPolicy\022K\n\017requi" +
-      "red_skills\030\014 \003(\01322.monarchic.agent_proto" +
-      "col.v1.BootstrapSkillBinding\022\030\n\020required" +
-      "_mcp_ids\030\r \003(\tB\n\n\010_role_idB\021\n\017_task_mile" +
-      "stoneB\016\n\014_task_formatB\023\n\021_interaction_mo" +
-      "deB\017\n\r_network_mode\"\315\001\n\032CampaignPipeline" +
-      "Connection\022\024\n\014from_task_id\030\001 \001(\t\022\022\n\nto_t" +
-      "ask_id\030\002 \001(\t\022I\n\004kind\030\003 \001(\0162;.monarchic.a" +
-      "gent_protocol.v1.CampaignPipelineConnect" +
-      "ionKind\022\020\n\010required\030\004 \001(\010\022\030\n\013description" +
-      "\030\005 \001(\tH\000\210\001\001B\016\n\014_description\"W\n\024CampaignP" +
-      "ipelineGate\022\014\n\004name\030\001 \001(\t\022\017\n\007command\030\002 \003" +
-      "(\t\022\024\n\007workdir\030\003 \001(\tH\000\210\001\001B\n\n\010_workdir\"\201\001\n" +
-      "\032CampaignPipelineGatePolicy\022\030\n\020require_s" +
-      "tandard\030\001 \001(\010\022I\n\016required_gates\030\002 \003(\01321." +
-      "monarchic.agent_protocol.v1.CampaignPipe" +
-      "lineGate\"\342\003\n\024CampaignPipelineSpec\022\030\n\020con" +
-      "tract_version\030\001 \001(\t\022\023\n\013pipeline_id\030\002 \001(\t" +
-      "\022\017\n\007version\030\003 \001(\t\022\026\n\tobjective\030\004 \001(\tH\000\210\001" +
-      "\001\022\030\n\013project_key\030\005 \001(\tH\001\210\001\001\022\031\n\021continue_" +
-      "on_error\030\006 \001(\010\022Q\n\013gate_policy\030\007 \001(\01327.mo" +
-      "narchic.agent_protocol.v1.CampaignPipeli" +
-      "neGatePolicyH\002\210\001\001\022)\n\010metadata\030\010 \001(\0132\027.go" +
-      "ogle.protobuf.Struct\022L\n\013connections\030\t \003(" +
-      "\01327.monarchic.agent_protocol.v1.Campaign" +
-      "PipelineConnection\022C\n\005tasks\030\n \003(\01324.mona" +
-      "rchic.agent_protocol.v1.CampaignPipeline" +
-      "TaskRefB\014\n\n_objectiveB\016\n\014_project_keyB\016\n" +
-      "\014_gate_policy\"O\n\016RoleProvenance\022\021\n\trole_" +
-      "name\030\001 \001(\t\022\025\n\rtemplate_hash\030\002 \001(\t\022\023\n\013ren" +
-      "der_hash\030\003 \001(\t\"\270\001\n\016PlanProvenance\022\024\n\014gen" +
-      "erated_by\030\001 \001(\t\022\033\n\016policy_profile\030\002 \001(\tH" +
-      "\000\210\001\001\022\027\n\017generated_at_ms\030\003 \001(\004\022>\n\004role\030\004 " +
-      "\001(\0132+.monarchic.agent_protocol.v1.RolePr" +
-      "ovenanceH\001\210\001\001B\021\n\017_policy_profileB\007\n\005_rol" +
-      "e\"g\n\rFailureDetail\022\r\n\005class\030\001 \001(\t\022\014\n\004cod" +
-      "e\030\002 \001(\t\022\017\n\007message\030\003 \001(\t\022(\n\007details\030\004 \001(" +
-      "\0132\027.google.protobuf.Struct\"\310\001\n\022ArtifactD" +
-      "escriptor\022\023\n\013artifact_id\030\001 \001(\t\0227\n\004kind\030\002" +
+      "line_template_idB\010\n\006_notes\"\374\001\n\025AgentRunn" +
+      "erPreference\022\021\n\trunner_id\030\001 \001(\t\022\022\n\005model" +
+      "\030\002 \001(\tH\000\210\001\001\022\025\n\010provider\030\003 \001(\tH\001\210\001\001\022\035\n\020re" +
+      "asoning_effort\030\004 \001(\tH\002\210\001\001\022\035\n\025required_ca" +
+      "pabilities\030\005 \003(\t\022\016\n\006labels\030\006 \003(\t\022+\n\nexte" +
+      "nsions\030\007 \001(\0132\027.google.protobuf.StructB\010\n" +
+      "\006_modelB\013\n\t_providerB\023\n\021_reasoning_effor" +
+      "t\"\342\002\n\014AgentProfile\022\020\n\010agent_id\030\001 \001(\t\022\017\n\007" +
+      "role_id\030\002 \001(\t\022\024\n\014display_name\030\003 \001(\t\022\030\n\013d" +
+      "escription\030\004 \001(\tH\000\210\001\001\022N\n\022runner_preferen" +
+      "ces\030\005 \003(\01322.monarchic.agent_protocol.v1." +
+      "AgentRunnerPreference\022\035\n\025allowed_network" +
+      "_modes\030\006 \003(\t\022\035\n\025requires_human_review\030\007 " +
+      "\001(\010\022\032\n\022required_skill_ids\030\010 \003(\t\022\030\n\020requi" +
+      "red_mcp_ids\030\t \003(\t\022+\n\nextensions\030\n \001(\0132\027." +
+      "google.protobuf.StructB\016\n\014_description\"\231" +
+      "\002\n\023ResolvedAgentRunner\022\021\n\trunner_id\030\001 \001(" +
+      "\t\022\022\n\005model\030\002 \001(\tH\000\210\001\001\022\025\n\010provider\030\003 \001(\tH" +
+      "\001\210\001\001\022\035\n\020reasoning_effort\030\004 \001(\tH\002\210\001\001\022\030\n\020p" +
+      "reference_index\030\005 \001(\r\022\035\n\020selection_reaso" +
+      "n\030\006 \001(\tH\003\210\001\001\022+\n\nextensions\030\007 \001(\0132\027.googl" +
+      "e.protobuf.StructB\010\n\006_modelB\013\n\t_provider" +
+      "B\023\n\021_reasoning_effortB\023\n\021_selection_reas" +
+      "on\"\215\006\n\021BootstrapPlanTask\022\017\n\007task_id\030\001 \001(" +
+      "\t\022\024\n\014display_name\030\002 \001(\t\022\017\n\007role_id\030\003 \001(\t" +
+      "\022\026\n\016task_milestone\030\004 \001(\t\022\022\n\ndepends_on\030\005" +
+      " \003(\t\022\030\n\013target_repo\030\006 \001(\tH\000\210\001\001\022\032\n\022requir" +
+      "ed_skill_ids\030\007 \003(\t\022\030\n\020required_mcp_ids\030\010" +
+      " \003(\t\022\035\n\020interaction_mode\030\t \001(\tH\001\210\001\001\022\031\n\014n" +
+      "etwork_mode\030\n \001(\tH\002\210\001\001\022\"\n\025requires_human" +
+      "_review\030\013 \001(\010H\003\210\001\001\0222\n\021filesystem_policy\030" +
+      "\014 \001(\0132\027.google.protobuf.Struct\022\035\n\020templa" +
+      "te_slot_id\030\r \001(\tH\004\210\001\001\022\022\n\005notes\030\016 \001(\tH\005\210\001" +
+      "\001\022\025\n\010agent_id\030\017 \001(\tH\006\210\001\001\022 \n\023injected_by_" +
+      "role_id\030\020 \001(\tH\007\210\001\001\022N\n\022runner_preferences" +
+      "\030\021 \003(\01322.monarchic.agent_protocol.v1.Age" +
+      "ntRunnerPreference\022N\n\017resolved_runner\030\022 " +
+      "\001(\01320.monarchic.agent_protocol.v1.Resolv" +
+      "edAgentRunnerH\010\210\001\001B\016\n\014_target_repoB\023\n\021_i" +
+      "nteraction_modeB\017\n\r_network_modeB\030\n\026_req" +
+      "uires_human_reviewB\023\n\021_template_slot_idB" +
+      "\010\n\006_notesB\013\n\t_agent_idB\026\n\024_injected_by_r" +
+      "ole_idB\022\n\020_resolved_runner\"\352\002\n\rBootstrap" +
+      "Plan\022\030\n\020contract_version\030\001 \001(\t\022\031\n\021bootst" +
+      "rap_plan_id\030\002 \001(\t\022\033\n\023bootstrap_intent_id" +
+      "\030\003 \001(\t\022\023\n\013project_key\030\004 \001(\t\022I\n\rplanning_" +
+      "mode\030\005 \001(\01622.monarchic.agent_protocol.v1" +
+      ".BootstrapPlanningMode\022!\n\024pipeline_templ" +
+      "ate_id\030\006 \001(\tH\000\210\001\001\022\025\n\rcampaign_goal\030\007 \001(\t" +
+      "\022\025\n\rcreated_at_ms\030\010 \001(\004\022=\n\005tasks\030\t \003(\0132." +
+      ".monarchic.agent_protocol.v1.BootstrapPl" +
+      "anTaskB\027\n\025_pipeline_template_id\"I\n\031Boots" +
+      "trapFilesystemPolicy\022\014\n\004read\030\001 \003(\t\022\r\n\005wr" +
+      "ite\030\002 \003(\t\022\017\n\007execute\030\003 \003(\t\"F\n\025BootstrapS" +
+      "killBinding\022\n\n\002id\030\001 \001(\t\022\020\n\010required\030\002 \001(" +
+      "\010\022\017\n\007purpose\030\003 \001(\t\"\331\002\n\034BootstrapTemplate" +
+      "SlotContext\022\017\n\007slot_id\030\001 \001(\t\022\024\n\014display_" +
+      "name\030\002 \001(\t\022\014\n\004role\030\003 \001(\t\022\030\n\020interaction_" +
+      "mode\030\004 \001(\t\022\024\n\014network_mode\030\005 \001(\t\022\035\n\025requ" +
+      "ires_human_review\030\006 \001(\010\022Q\n\021filesystem_po" +
+      "licy\030\007 \001(\01326.monarchic.agent_protocol.v1" +
+      ".BootstrapFilesystemPolicy\022K\n\017required_s" +
+      "kills\030\010 \003(\01322.monarchic.agent_protocol.v" +
+      "1.BootstrapSkillBinding\022\025\n\rrequired_mcps" +
+      "\030\t \003(\t\"\230\001\n\"BootstrapTemplateConnectionCo" +
+      "ntext\022\024\n\014from_slot_id\030\001 \001(\t\022\022\n\nto_slot_i" +
+      "d\030\002 \001(\t\022\014\n\004kind\030\003 \001(\t\022\020\n\010required\030\004 \001(\010\022" +
+      "\030\n\013description\030\005 \001(\tH\000\210\001\001B\016\n\014_descriptio" +
+      "n\"\240\001\n\034BootstrapTemplateLaneContext\022\017\n\007la" +
+      "ne_id\030\001 \001(\t\022\024\n\014display_name\030\002 \001(\t\022\024\n\014fro" +
+      "m_slot_id\030\003 \001(\t\022\022\n\nto_slot_id\030\004 \001(\t\022\020\n\010s" +
+      "lot_ids\030\005 \003(\t\022\035\n\025repeat_per_task_group\030\006" +
+      " \001(\010\"\257\002\n\030BootstrapTemplateContext\022\023\n\013tem" +
+      "plate_id\030\001 \001(\t\022\024\n\014display_name\030\002 \001(\t\022H\n\005" +
+      "slots\030\003 \003(\01329.monarchic.agent_protocol.v" +
+      "1.BootstrapTemplateSlotContext\022T\n\013connec" +
+      "tions\030\004 \003(\0132?.monarchic.agent_protocol.v" +
+      "1.BootstrapTemplateConnectionContext\022H\n\005" +
+      "lanes\030\005 \003(\01329.monarchic.agent_protocol.v" +
+      "1.BootstrapTemplateLaneContext\"/\n\014AgentC" +
+      "ommand\022\021\n\trunner_id\030\001 \001(\t\022\014\n\004argv\030\002 \003(\t\"" +
+      "\346\004\n\030BootstrapPlanningContext\022\030\n\020contract" +
+      "_version\030\001 \001(\t\022\023\n\013project_key\030\002 \001(\t\022\023\n\013t" +
+      "arget_repo\030\003 \001(\t\022\024\n\014target_repos\030\004 \003(\t\022\025" +
+      "\n\rcampaign_goal\030\005 \001(\t\022\022\n\005notes\030\006 \001(\tH\000\210\001" +
+      "\001\022\030\n\020priority_profile\030\007 \001(\t\022\025\n\tcodex_cmd" +
+      "\030\010 \003(\tB\002\030\001\022\033\n\023available_skill_ids\030\t \003(\t\022" +
+      "U\n\021selected_template\030\n \001(\01325.monarchic.a" +
+      "gent_protocol.v1.BootstrapTemplateContex" +
+      "tH\001\210\001\001\022I\n\rplanning_mode\030\013 \001(\01622.monarchi" +
+      "c.agent_protocol.v1.BootstrapPlanningMod" +
+      "e\022\030\n\020enabled_role_ids\030\014 \003(\t\022=\n\nagent_cmd" +
+      "s\030\r \003(\0132).monarchic.agent_protocol.v1.Ag" +
+      "entCommand\022\031\n\021default_agent_cmd\030\016 \003(\t\022A\n" +
+      "\016agent_profiles\030\017 \003(\0132).monarchic.agent_" +
+      "protocol.v1.AgentProfileB\010\n\006_notesB\024\n\022_s" +
+      "elected_template\"\237\004\n\027CampaignPipelineTas" +
+      "kRef\022\017\n\007task_id\030\001 \001(\t\022\025\n\rtask_artifact\030\002" +
+      " \001(\t\022\024\n\007role_id\030\003 \001(\tH\000\210\001\001\022\033\n\016task_miles" +
+      "tone\030\004 \001(\tH\001\210\001\001\022\030\n\013task_format\030\005 \001(\tH\002\210\001" +
+      "\001\022\022\n\ndepends_on\030\006 \003(\t\022\023\n\013runner_args\030\007 \003" +
+      "(\t\022\035\n\020interaction_mode\030\010 \001(\tH\003\210\001\001\022\031\n\014net" +
+      "work_mode\030\t \001(\tH\004\210\001\001\022\035\n\025requires_human_r" +
+      "eview\030\n \001(\010\022Q\n\021filesystem_policy\030\013 \001(\01326" +
+      ".monarchic.agent_protocol.v1.BootstrapFi" +
+      "lesystemPolicy\022K\n\017required_skills\030\014 \003(\0132" +
+      "2.monarchic.agent_protocol.v1.BootstrapS" +
+      "killBinding\022\030\n\020required_mcp_ids\030\r \003(\tB\n\n" +
+      "\010_role_idB\021\n\017_task_milestoneB\016\n\014_task_fo" +
+      "rmatB\023\n\021_interaction_modeB\017\n\r_network_mo" +
+      "de\"\315\001\n\032CampaignPipelineConnection\022\024\n\014fro" +
+      "m_task_id\030\001 \001(\t\022\022\n\nto_task_id\030\002 \001(\t\022I\n\004k" +
+      "ind\030\003 \001(\0162;.monarchic.agent_protocol.v1." +
+      "CampaignPipelineConnectionKind\022\020\n\010requir" +
+      "ed\030\004 \001(\010\022\030\n\013description\030\005 \001(\tH\000\210\001\001B\016\n\014_d" +
+      "escription\"W\n\024CampaignPipelineGate\022\014\n\004na" +
+      "me\030\001 \001(\t\022\017\n\007command\030\002 \003(\t\022\024\n\007workdir\030\003 \001" +
+      "(\tH\000\210\001\001B\n\n\010_workdir\"\201\001\n\032CampaignPipeline" +
+      "GatePolicy\022\030\n\020require_standard\030\001 \001(\010\022I\n\016" +
+      "required_gates\030\002 \003(\01321.monarchic.agent_p" +
+      "rotocol.v1.CampaignPipelineGate\"\342\003\n\024Camp" +
+      "aignPipelineSpec\022\030\n\020contract_version\030\001 \001" +
+      "(\t\022\023\n\013pipeline_id\030\002 \001(\t\022\017\n\007version\030\003 \001(\t" +
+      "\022\026\n\tobjective\030\004 \001(\tH\000\210\001\001\022\030\n\013project_key\030" +
+      "\005 \001(\tH\001\210\001\001\022\031\n\021continue_on_error\030\006 \001(\010\022Q\n" +
+      "\013gate_policy\030\007 \001(\01327.monarchic.agent_pro" +
+      "tocol.v1.CampaignPipelineGatePolicyH\002\210\001\001" +
+      "\022)\n\010metadata\030\010 \001(\0132\027.google.protobuf.Str" +
+      "uct\022L\n\013connections\030\t \003(\01327.monarchic.age" +
+      "nt_protocol.v1.CampaignPipelineConnectio" +
+      "n\022C\n\005tasks\030\n \003(\01324.monarchic.agent_proto" +
+      "col.v1.CampaignPipelineTaskRefB\014\n\n_objec" +
+      "tiveB\016\n\014_project_keyB\016\n\014_gate_policy\"O\n\016" +
+      "RoleProvenance\022\021\n\trole_name\030\001 \001(\t\022\025\n\rtem" +
+      "plate_hash\030\002 \001(\t\022\023\n\013render_hash\030\003 \001(\t\"\270\001" +
+      "\n\016PlanProvenance\022\024\n\014generated_by\030\001 \001(\t\022\033" +
+      "\n\016policy_profile\030\002 \001(\tH\000\210\001\001\022\027\n\017generated" +
+      "_at_ms\030\003 \001(\004\022>\n\004role\030\004 \001(\0132+.monarchic.a" +
+      "gent_protocol.v1.RoleProvenanceH\001\210\001\001B\021\n\017" +
+      "_policy_profileB\007\n\005_role\"g\n\rFailureDetai" +
+      "l\022\r\n\005class\030\001 \001(\t\022\014\n\004code\030\002 \001(\t\022\017\n\007messag" +
+      "e\030\003 \001(\t\022(\n\007details\030\004 \001(\0132\027.google.protob" +
+      "uf.Struct\"\310\001\n\022ArtifactDescriptor\022\023\n\013arti" +
+      "fact_id\030\001 \001(\t\0227\n\004kind\030\002 \001(\0162).monarchic." +
+      "agent_protocol.v1.ArtifactKind\022\016\n\006digest" +
+      "\030\003 \001(\t\022\022\n\nmedia_type\030\004 \001(\t\022\024\n\014logical_na" +
+      "me\030\005 \001(\t\022\020\n\010producer\030\006 \001(\t\022\030\n\020contract_v" +
+      "ersion\030\007 \001(\t\"\362\001\n\016DigestManifest\022\030\n\020contr" +
+      "act_version\030\001 \001(\t\022\023\n\013manifest_id\030\002 \001(\t\022\016" +
+      "\n\006run_id\030\003 \001(\t\022\017\n\007plan_id\030\004 \001(\t\022\022\n\ncreat" +
+      "ed_at\030\005 \001(\004\022\027\n\017combined_digest\030\006 \001(\t\022\024\n\014" +
+      "event_digest\030\007 \001(\t\022M\n\024artifact_descripto" +
+      "rs\030\010 \003(\0132/.monarchic.agent_protocol.v1.A" +
+      "rtifactDescriptor\"b\n\014PrincipalRef\022\024\n\014pri" +
+      "ncipal_id\030\001 \001(\t\022\020\n\010provider\030\002 \001(\t\022\031\n\014dis" +
+      "play_name\030\003 \001(\tH\000\210\001\001B\017\n\r_display_name\"J\n" +
+      "\tTenantRef\022\021\n\ttenant_id\030\001 \001(\t\022\031\n\014display" +
+      "_name\030\002 \001(\tH\000\210\001\001B\017\n\r_display_name\"\327\002\n\013Au" +
+      "thContext\022\030\n\020contract_version\030\001 \001(\t\022\027\n\017a" +
+      "uth_context_id\030\002 \001(\t\022<\n\tprincipal\030\003 \001(\0132" +
+      ").monarchic.agent_protocol.v1.PrincipalR" +
+      "ef\0226\n\006tenant\030\004 \001(\0132&.monarchic.agent_pro" +
+      "tocol.v1.TenantRef\022=\n\tmechanism\030\005 \001(\0162*." +
+      "monarchic.agent_protocol.v1.AuthMechanis" +
+      "m\022\025\n\rcredential_id\030\006 \001(\t\022\016\n\006scopes\030\007 \003(\t" +
+      "\022\021\n\tissued_at\030\010 \001(\004\022\027\n\nexpires_at\030\t \001(\004H" +
+      "\000\210\001\001B\r\n\013_expires_at\"\241\003\n\013UsageRecord\022\030\n\020c" +
+      "ontract_version\030\001 \001(\t\022\020\n\010usage_id\030\002 \001(\t\022" +
+      "<\n\tprincipal\030\003 \001(\0132).monarchic.agent_pro" +
+      "tocol.v1.PrincipalRef\0226\n\006tenant\030\004 \001(\0132&." +
+      "monarchic.agent_protocol.v1.TenantRef\022\023\n" +
+      "\006run_id\030\005 \001(\tH\000\210\001\001\022\024\n\007plan_id\030\006 \001(\tH\001\210\001\001" +
+      "\022<\n\010category\030\007 \001(\0162*.monarchic.agent_pro" +
+      "tocol.v1.UsageCategory\022\023\n\013metric_name\030\010 " +
+      "\001(\t\022\020\n\010quantity\030\t \001(\004\0224\n\004unit\030\n \001(\0162&.mo" +
+      "narchic.agent_protocol.v1.UsageUnit\022\023\n\013r" +
+      "ecorded_at\030\013 \001(\004B\t\n\007_run_idB\n\n\010_plan_id\"" +
+      "\326\002\n\023AuditExportManifest\022\030\n\020contract_vers" +
+      "ion\030\001 \001(\t\022\021\n\texport_id\030\002 \001(\t\022<\n\tprincipa" +
+      "l\030\003 \001(\0132).monarchic.agent_protocol.v1.Pr" +
+      "incipalRef\0226\n\006tenant\030\004 \001(\0132&.monarchic.a" +
+      "gent_protocol.v1.TenantRef\022\016\n\006run_id\030\005 \001" +
+      "(\t\022\017\n\007plan_id\030\006 \001(\t\022\023\n\013exported_at\030\007 \001(\004" +
+      "\022\027\n\017combined_digest\030\010 \001(\t\022M\n\024artifact_de" +
+      "scriptors\030\t \003(\0132/.monarchic.agent_protoc" +
+      "ol.v1.ArtifactDescriptor\"c\n\014ReplanPolicy" +
+      "\022=\n\010strategy\030\001 \001(\0162+.monarchic.agent_pro" +
+      "tocol.v1.ReplanStrategy\022\024\n\014max_attempts\030" +
+      "\002 \001(\r\"f\n\025StepOutputExpectation\0227\n\004kind\030\001" +
       " \001(\0162).monarchic.agent_protocol.v1.Artif" +
-      "actKind\022\016\n\006digest\030\003 \001(\t\022\022\n\nmedia_type\030\004 " +
-      "\001(\t\022\024\n\014logical_name\030\005 \001(\t\022\020\n\010producer\030\006 " +
-      "\001(\t\022\030\n\020contract_version\030\007 \001(\t\"\362\001\n\016Digest" +
-      "Manifest\022\030\n\020contract_version\030\001 \001(\t\022\023\n\013ma" +
-      "nifest_id\030\002 \001(\t\022\016\n\006run_id\030\003 \001(\t\022\017\n\007plan_" +
-      "id\030\004 \001(\t\022\022\n\ncreated_at\030\005 \001(\004\022\027\n\017combined" +
-      "_digest\030\006 \001(\t\022\024\n\014event_digest\030\007 \001(\t\022M\n\024a" +
-      "rtifact_descriptors\030\010 \003(\0132/.monarchic.ag" +
-      "ent_protocol.v1.ArtifactDescriptor\"b\n\014Pr" +
-      "incipalRef\022\024\n\014principal_id\030\001 \001(\t\022\020\n\010prov" +
-      "ider\030\002 \001(\t\022\031\n\014display_name\030\003 \001(\tH\000\210\001\001B\017\n" +
-      "\r_display_name\"J\n\tTenantRef\022\021\n\ttenant_id" +
-      "\030\001 \001(\t\022\031\n\014display_name\030\002 \001(\tH\000\210\001\001B\017\n\r_di" +
-      "splay_name\"\327\002\n\013AuthContext\022\030\n\020contract_v" +
-      "ersion\030\001 \001(\t\022\027\n\017auth_context_id\030\002 \001(\t\022<\n" +
-      "\tprincipal\030\003 \001(\0132).monarchic.agent_proto" +
-      "col.v1.PrincipalRef\0226\n\006tenant\030\004 \001(\0132&.mo" +
-      "narchic.agent_protocol.v1.TenantRef\022=\n\tm" +
-      "echanism\030\005 \001(\0162*.monarchic.agent_protoco" +
-      "l.v1.AuthMechanism\022\025\n\rcredential_id\030\006 \001(" +
-      "\t\022\016\n\006scopes\030\007 \003(\t\022\021\n\tissued_at\030\010 \001(\004\022\027\n\n" +
-      "expires_at\030\t \001(\004H\000\210\001\001B\r\n\013_expires_at\"\241\003\n" +
-      "\013UsageRecord\022\030\n\020contract_version\030\001 \001(\t\022\020" +
-      "\n\010usage_id\030\002 \001(\t\022<\n\tprincipal\030\003 \001(\0132).mo" +
-      "narchic.agent_protocol.v1.PrincipalRef\0226" +
-      "\n\006tenant\030\004 \001(\0132&.monarchic.agent_protoco" +
-      "l.v1.TenantRef\022\023\n\006run_id\030\005 \001(\tH\000\210\001\001\022\024\n\007p" +
-      "lan_id\030\006 \001(\tH\001\210\001\001\022<\n\010category\030\007 \001(\0162*.mo" +
-      "narchic.agent_protocol.v1.UsageCategory\022" +
-      "\023\n\013metric_name\030\010 \001(\t\022\020\n\010quantity\030\t \001(\004\0224" +
-      "\n\004unit\030\n \001(\0162&.monarchic.agent_protocol." +
-      "v1.UsageUnit\022\023\n\013recorded_at\030\013 \001(\004B\t\n\007_ru" +
-      "n_idB\n\n\010_plan_id\"\326\002\n\023AuditExportManifest" +
-      "\022\030\n\020contract_version\030\001 \001(\t\022\021\n\texport_id\030" +
-      "\002 \001(\t\022<\n\tprincipal\030\003 \001(\0132).monarchic.age" +
-      "nt_protocol.v1.PrincipalRef\0226\n\006tenant\030\004 " +
-      "\001(\0132&.monarchic.agent_protocol.v1.Tenant" +
-      "Ref\022\016\n\006run_id\030\005 \001(\t\022\017\n\007plan_id\030\006 \001(\t\022\023\n\013" +
-      "exported_at\030\007 \001(\004\022\027\n\017combined_digest\030\010 \001" +
-      "(\t\022M\n\024artifact_descriptors\030\t \003(\0132/.monar" +
-      "chic.agent_protocol.v1.ArtifactDescripto" +
-      "r\"c\n\014ReplanPolicy\022=\n\010strategy\030\001 \001(\0162+.mo" +
-      "narchic.agent_protocol.v1.ReplanStrategy" +
-      "\022\024\n\014max_attempts\030\002 \001(\r\"f\n\025StepOutputExpe" +
-      "ctation\0227\n\004kind\030\001 \001(\0162).monarchic.agent_" +
-      "protocol.v1.ArtifactKind\022\024\n\014logical_name" +
-      "\030\002 \001(\t\"\251\003\n\010PlanStep\022\017\n\007step_id\030\001 \001(\t\022\023\n\013" +
-      "description\030\002 \001(\t\022\022\n\ndepends_on\030\003 \003(\t\022.\n" +
-      "\rtask_template\030\004 \001(\0132\027.google.protobuf.S" +
-      "truct\022@\n\007failure\030\005 \001(\0132*.monarchic.agent" +
-      "_protocol.v1.FailureDetailH\000\210\001\001\022\024\n\007task_" +
-      "id\030\006 \001(\tH\001\210\001\001\0227\n\004kind\030\007 \001(\0162).monarchic." +
-      "agent_protocol.v1.PlanStepKind\022\'\n\006inputs" +
-      "\030\010 \001(\0132\027.google.protobuf.Struct\022L\n\020expec" +
-      "ted_outputs\030\t \003(\01322.monarchic.agent_prot" +
-      "ocol.v1.StepOutputExpectation\022\023\n\013policy_" +
-      "tags\030\n \003(\tB\n\n\010_failureB\n\n\010_task_id\"\264\004\n\004P" +
-      "lan\022\030\n\020contract_version\030\001 \001(\t\022\017\n\007plan_id" +
-      "\030\002 \001(\t\022\023\n\006run_id\030\003 \001(\tH\000\210\001\001\022\021\n\tobjective" +
-      "\030\004 \001(\t\0227\n\006status\030\005 \001(\0162\'.monarchic.agent" +
-      "_protocol.v1.PlanStatus\022\025\n\rcreated_at_ms" +
-      "\030\006 \001(\004\022\025\n\rupdated_at_ms\030\007 \001(\004\022?\n\nprovena" +
-      "nce\030\010 \001(\0132+.monarchic.agent_protocol.v1." +
-      "PlanProvenance\0224\n\005steps\030\t \003(\0132%.monarchi" +
-      "c.agent_protocol.v1.PlanStep\022\026\n\tintent_i" +
-      "d\030\n \001(\tH\001\210\001\001\022\031\n\014plan_version\030\013 \001(\tH\002\210\001\001\022" +
-      "\034\n\017planner_version\030\014 \001(\tH\003\210\001\001\022@\n\rreplan_" +
-      "policy\030\r \001(\0132).monarchic.agent_protocol." +
-      "v1.ReplanPolicy\022\031\n\014input_digest\030\016 \001(\tH\004\210" +
-      "\001\001B\t\n\007_run_idB\014\n\n_intent_idB\017\n\r_plan_ver" +
-      "sionB\022\n\020_planner_versionB\017\n\r_input_diges" +
-      "t\"\304\002\n\020ExecutionReceipt\022\030\n\020contract_versi" +
-      "on\030\001 \001(\t\022\016\n\006run_id\030\002 \001(\t\022\017\n\007plan_id\030\003 \001(" +
-      "\t\022\021\n\tplan_hash\030\004 \001(\t\022\023\n\013task_hashes\030\005 \003(" +
-      "\t\022\027\n\017artifact_hashes\030\006 \003(\t\022\024\n\014outcome_ha" +
-      "sh\030\007 \001(\t\0227\n\006status\030\010 \001(\0162\'.monarchic.age" +
-      "nt_protocol.v1.PlanStatus\022@\n\007failure\030\t \001" +
-      "(\0132*.monarchic.agent_protocol.v1.Failure" +
-      "DetailH\000\210\001\001\022\027\n\017generated_at_ms\030\n \001(\004B\n\n\010" +
-      "_failure\"\240\001\n\021VerificationCheck\022\020\n\010check_" +
-      "id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022D\n\006status\030\003 \001(\01624" +
-      ".monarchic.agent_protocol.v1.Verificatio" +
-      "nCheckStatus\022\017\n\007message\030\004 \001(\t\022\024\n\014artifac" +
-      "t_ids\030\005 \003(\t\"\347\001\n\016BlockedOutcome\022\014\n\004code\030\001" +
-      " \001(\t\022?\n\005scope\030\002 \001(\01620.monarchic.agent_pr" +
-      "otocol.v1.BlockedOutcomeScope\022\017\n\007message" +
-      "\030\003 \001(\t\022(\n\007details\030\004 \001(\0132\027.google.protobu" +
-      "f.Struct\022K\n\022blocking_artifacts\030\005 \003(\0132/.m" +
-      "onarchic.agent_protocol.v1.ArtifactDescr" +
-      "iptor\"\232\003\n\023VerificationReceipt\022\030\n\020contrac" +
-      "t_version\030\001 \001(\t\022\027\n\017verification_id\030\002 \001(\t" +
-      "\022\017\n\007plan_id\030\003 \001(\t\022\035\n\025execution_receipt_i" +
-      "ds\030\004 \003(\t\022#\n\033verification_policy_version\030" +
-      "\005 \001(\t\022?\n\006status\030\006 \001(\0162/.monarchic.agent_" +
-      "protocol.v1.VerificationStatus\022>\n\006checks" +
-      "\030\007 \003(\0132..monarchic.agent_protocol.v1.Ver" +
-      "ificationCheck\022E\n\020blocked_outcomes\030\010 \003(\013" +
-      "2+.monarchic.agent_protocol.v1.BlockedOu" +
-      "tcome\022\033\n\023artifact_digest_set\030\t \003(\t\022\026\n\016ve" +
-      "rified_at_ms\030\n \001(\004\"\354\001\n\016ReviewDecision\022\023\n" +
-      "\013decision_id\030\001 \001(\t\022\017\n\007plan_id\030\002 \001(\t\022?\n\005s" +
-      "cope\030\003 \001(\01620.monarchic.agent_protocol.v1" +
-      ".ReviewDecisionScope\022\r\n\005actor\030\004 \001(\t\022@\n\010d" +
-      "ecision\030\005 \001(\0162..monarchic.agent_protocol" +
-      ".v1.ReviewDisposition\022\016\n\006reason\030\006 \001(\t\022\022\n" +
-      "\ncreated_at\030\007 \001(\004\"\372\001\n\nRerunScope\022\020\n\010scop" +
-      "e_id\030\001 \001(\t\022\017\n\007plan_id\030\002 \001(\t\022:\n\007trigger\030\003" +
-      " \001(\0162).monarchic.agent_protocol.v1.Rerun" +
-      "Trigger\022\016\n\006reason\030\004 \001(\t\022\037\n\022source_decisi" +
-      "on_id\030\005 \001(\tH\000\210\001\001\022\020\n\010task_ids\030\006 \003(\t\022\020\n\010st" +
-      "ep_ids\030\007 \003(\t\022\r\n\005paths\030\010 \003(\t\022\022\n\ncreated_a" +
-      "t\030\t \001(\004B\025\n\023_source_decision_id\"\231\004\n\024Rerun" +
-      "ExecutionResult\022\021\n\tresult_id\030\001 \001(\t\022\017\n\007pl" +
-      "an_id\030\002 \001(\t\022\026\n\016rerun_scope_id\030\003 \001(\t\022\037\n\022s" +
-      "ource_decision_id\030\004 \001(\tH\000\210\001\001\022:\n\007trigger\030" +
-      "\005 \001(\0162).monarchic.agent_protocol.v1.Reru" +
-      "nTrigger\022M\n\020matched_strategy\030\006 \001(\01623.mon" +
-      "archic.agent_protocol.v1.RerunSelectionS" +
-      "trategy\022\022\n\nroot_tasks\030\007 \003(\t\022\026\n\016selected_" +
-      "tasks\030\010 \003(\t\022\025\n\rmatched_paths\030\t \003(\t\022\016\n\006re" +
-      "ason\030\n \001(\t\022A\n\006status\030\013 \001(\01621.monarchic.a" +
-      "gent_protocol.v1.RerunExecutionStatus\022\027\n" +
-      "\017completed_tasks\030\014 \003(\t\022\024\n\014failed_tasks\030\r" +
-      " \003(\t\022\025\n\rskipped_tasks\030\016 \003(\t\022\022\n\ncreated_a" +
-      "t\030\017 \001(\004\022\022\n\nupdated_at\030\020 \001(\004B\025\n\023_source_d" +
-      "ecision_id\"\201\005\n\020PrLifecycleState\022\020\n\010state" +
-      "_id\030\001 \001(\t\022\017\n\007plan_id\030\002 \001(\t\022\026\n\tpr_number\030" +
-      "\003 \001(\004H\000\210\001\001\022\023\n\006pr_url\030\004 \001(\tH\001\210\001\001\022I\n\017revie" +
-      "w_decision\030\005 \001(\0132+.monarchic.agent_proto" +
-      "col.v1.ReviewDecisionH\002\210\001\001\022A\n\013rerun_scop" +
-      "e\030\006 \001(\0132\'.monarchic.agent_protocol.v1.Re" +
-      "runScopeH\003\210\001\001\022L\n\014rerun_result\030\007 \001(\01321.mo" +
-      "narchic.agent_protocol.v1.RerunExecution" +
-      "ResultH\004\210\001\001\022S\n\024verification_receipt\030\010 \001(" +
-      "\01320.monarchic.agent_protocol.v1.Verifica" +
-      "tionReceiptH\005\210\001\001\022\023\n\013merge_ready\030\t \001(\010\022\025\n" +
-      "\rrelease_ready\030\n \001(\010\022E\n\020blocked_outcomes" +
-      "\030\013 \003(\0132+.monarchic.agent_protocol.v1.Blo" +
-      "ckedOutcome\022\022\n\nupdated_at\030\014 \001(\004B\014\n\n_pr_n" +
-      "umberB\t\n\007_pr_urlB\022\n\020_review_decisionB\016\n\014" +
-      "_rerun_scopeB\017\n\r_rerun_resultB\027\n\025_verifi" +
-      "cation_receipt\"\341\003\n\004Task\022\017\n\007version\030\001 \001(\t" +
-      "\022\017\n\007task_id\030\002 \001(\t\0224\n\004role\030\003 \001(\0162&.monarc" +
-      "hic.agent_protocol.v1.AgentRole\022\014\n\004goal\030" +
-      "\004 \001(\t\022\'\n\006inputs\030\005 \001(\0132\027.google.protobuf." +
-      "Struct\022,\n\013constraints\030\006 \001(\0132\027.google.pro" +
-      "tobuf.Struct\022\026\n\016gates_required\030\007 \003(\t\022<\n\013" +
-      "run_context\030\010 \001(\0132\'.monarchic.agent_prot" +
-      "ocol.v1.RunContext\022+\n\nextensions\030\t \001(\0132\027" +
-      ".google.protobuf.Struct\022D\n\017experiment_sp" +
-      "ec\030\n \001(\0132+.monarchic.agent_protocol.v1.E" +
-      "xperimentSpec\022B\n\016objective_spec\030\013 \001(\0132*." +
-      "monarchic.agent_protocol.v1.ObjectiveSpe" +
-      "c\022\017\n\007role_id\030\014 \001(\t\"\234\003\n\010Artifact\022\017\n\007versi" +
-      "on\030\001 \001(\t\022\023\n\013artifact_id\030\002 \001(\t\022\014\n\004type\030\003 " +
-      "\001(\t\022\017\n\007summary\030\004 \001(\t\022\014\n\004path\030\005 \001(\t\022\017\n\007ta" +
-      "sk_id\030\006 \001(\t\022+\n\nextensions\030\007 \001(\0132\027.google" +
-      ".protobuf.Struct\022;\n\nprovenance\030\010 \001(\0132\'.m" +
-      "onarchic.agent_protocol.v1.Provenance\022=\n" +
-      "\014dataset_refs\030\t \003(\0132\'.monarchic.agent_pr" +
-      "otocol.v1.DatasetRef\022=\n\014eval_results\030\n \003" +
-      "(\0132\'.monarchic.agent_protocol.v1.EvalRes" +
-      "ult\022D\n\017experiment_spec\030\013 \001(\0132+.monarchic" +
-      ".agent_protocol.v1.ExperimentSpec\"\355\002\n\005Ev" +
-      "ent\022\017\n\007version\030\001 \001(\t\022\022\n\nevent_type\030\002 \001(\t" +
-      "\022\021\n\ttimestamp\030\003 \001(\t\022\017\n\007task_id\030\004 \001(\t\022\016\n\006" +
-      "status\030\005 \001(\t\022\024\n\007message\030\006 \001(\tH\000\210\001\001\022+\n\nex" +
-      "tensions\030\007 \001(\0132\027.google.protobuf.Struct\022" +
-      ";\n\nprovenance\030\010 \001(\0132\'.monarchic.agent_pr" +
-      "otocol.v1.Provenance\022=\n\014eval_results\030\t \003" +
-      "(\0132\'.monarchic.agent_protocol.v1.EvalRes" +
-      "ult\022@\n\rfailure_class\030\n \001(\0132).monarchic.a" +
-      "gent_protocol.v1.FailureClassB\n\n\010_messag" +
-      "e\"\341\002\n\016RunEventRecord\022\030\n\020contract_version" +
-      "\030\001 \001(\t\022\020\n\010event_id\030\002 \001(\t\022\016\n\006run_id\030\003 \001(\t" +
-      "\022\017\n\007plan_id\030\004 \001(\t\022\020\n\010sequence\030\005 \001(\004\022;\n\006s" +
-      "tream\030\006 \001(\0162+.monarchic.agent_protocol.v" +
-      "1.RunEventStream\022\023\n\013recorded_at\030\007 \001(\004\022\024\n" +
-      "\007step_id\030\010 \001(\tH\000\210\001\001\022\024\n\007task_id\030\t \001(\tH\001\210\001" +
-      "\001\022\022\n\nevent_type\030\n \001(\t\022\016\n\006status\030\013 \001(\t\022\024\n" +
-      "\007message\030\014 \001(\tH\002\210\001\001\022\024\n\014artifact_ids\030\r \003(" +
-      "\tB\n\n\010_step_idB\n\n\010_task_idB\n\n\010_message\"\265\003" +
-      "\n\013TaskMessage\022\017\n\007version\030\001 \001(\t\022\022\n\nmessag" +
-      "e_id\030\002 \001(\t\022\016\n\006run_id\030\003 \001(\t\022\024\n\014from_task_" +
-      "id\030\004 \001(\t\022\022\n\nto_task_id\030\005 \001(\t\022:\n\004kind\030\006 \001" +
-      "(\0162,.monarchic.agent_protocol.v1.TaskMes" +
-      "sageKind\022\024\n\007subject\030\007 \001(\tH\000\210\001\001\022\021\n\004body\030\010" +
-      " \001(\tH\001\210\001\001\022\025\n\rartifact_refs\030\t \003(\t\022\025\n\010repl" +
-      "y_to\030\n \001(\tH\002\210\001\001\022\022\n\ncreated_at\030\013 \001(\t\022\024\n\014r" +
-      "equires_ack\030\014 \001(\010\022+\n\nextensions\030\r \001(\0132\027." +
-      "google.protobuf.Struct\022;\n\nprovenance\030\016 \001" +
-      "(\0132\'.monarchic.agent_protocol.v1.Provena" +
-      "nceB\n\n\010_subjectB\007\n\005_bodyB\013\n\t_reply_to\"\301\001" +
-      "\n\016TaskMessageAck\022\017\n\007version\030\001 \001(\t\022\022\n\nmes" +
-      "sage_id\030\002 \001(\t\022\016\n\006run_id\030\003 \001(\t\022\017\n\007task_id" +
-      "\030\004 \001(\t\022\020\n\010acked_at\030\005 \001(\t\022\016\n\006status\030\006 \001(\t" +
-      "\022\021\n\004note\030\007 \001(\tH\000\210\001\001\022+\n\nextensions\030\010 \001(\0132" +
-      "\027.google.protobuf.StructB\007\n\005_note\"\365\001\n\nGa" +
-      "teResult\022\017\n\007version\030\001 \001(\t\022\014\n\004gate\030\002 \001(\t\022" +
-      "\016\n\006status\030\003 \001(\t\022\023\n\006reason\030\004 \001(\tH\000\210\001\001\022)\n\010" +
-      "evidence\030\005 \001(\0132\027.google.protobuf.Struct\022" +
-      "+\n\nextensions\030\006 \001(\0132\027.google.protobuf.St" +
-      "ruct\022@\n\rfailure_class\030\007 \001(\0132).monarchic." +
-      "agent_protocol.v1.FailureClassB\t\n\007_reaso" +
-      "n\"\210\006\n\nRunOutcome\022\017\n\007version\030\001 \001(\t\022\017\n\007tas" +
-      "k_id\030\002 \001(\t\022\023\n\006run_id\030\003 \001(\tH\000\210\001\001\022\035\n\020objec" +
-      "tive_metric\030\004 \001(\tH\001\210\001\001\022\034\n\017objective_scor" +
-      "e\030\005 \001(\001H\002\210\001\001\022H\n\022objective_decision\030\006 \001(\016" +
-      "2,.monarchic.agent_protocol.v1.OutcomeDe" +
-      "cision\022\037\n\022estimated_cost_usd\030\007 \001(\001H\003\210\001\001\022" +
-      "\035\n\020budget_limit_usd\030\010 \001(\001H\004\210\001\001\022C\n\rcost_d",
-      "ecision\030\t \001(\0162,.monarchic.agent_protocol" +
-      ".v1.OutcomeDecision\022\027\n\nrisk_level\030\n \001(\tH" +
-      "\005\210\001\001\022\031\n\014risk_summary\030\013 \001(\tH\006\210\001\001\022C\n\rrisk_" +
-      "decision\030\014 \001(\0162,.monarchic.agent_protoco" +
-      "l.v1.OutcomeDecision\022D\n\016final_decision\030\r" +
-      " \001(\0162,.monarchic.agent_protocol.v1.Outco" +
-      "meDecision\022\024\n\007summary\030\016 \001(\tH\007\210\001\001\022)\n\010evid" +
-      "ence\030\017 \001(\0132\027.google.protobuf.Struct\022+\n\ne" +
-      "xtensions\030\020 \001(\0132\027.google.protobuf.Struct" +
-      "B\t\n\007_run_idB\023\n\021_objective_metricB\022\n\020_obj" +
-      "ective_scoreB\025\n\023_estimated_cost_usdB\023\n\021_" +
-      "budget_limit_usdB\r\n\013_risk_levelB\017\n\r_risk" +
-      "_summaryB\n\n\010_summary\"\231\001\n\nRunContext\022\017\n\007v" +
-      "ersion\030\001 \001(\t\022\014\n\004repo\030\002 \001(\t\022\020\n\010worktree\030\003" +
-      " \001(\t\022\r\n\005image\030\004 \001(\t\022\016\n\006runner\030\005 \001(\t\022\016\n\006l" +
-      "abels\030\006 \003(\t\022+\n\nextensions\030\007 \001(\0132\027.google" +
-      ".protobuf.Struct\"\255\002\n\022RunnerCapabilities\022" +
-      "\020\n\010platform\030\001 \001(\t\022\017\n\007runtime\030\002 \001(\t\022?\n\017su" +
-      "pported_roles\030\003 \003(\0162&.monarchic.agent_pr" +
-      "otocol.v1.AgentRole\022\037\n\027supported_task_ve" +
-      "rsions\030\004 \003(\t\022\016\n\006labels\030\005 \003(\t\022 \n\030supports" +
-      "_interactive_pty\030\006 \001(\010\022\027\n\017supports_resum" +
-      "e\030\007 \001(\010\022+\n\nextensions\030\010 \001(\0132\027.google.pro" +
-      "tobuf.Struct\022\032\n\022supported_role_ids\030\t \003(\t" +
-      "\"v\n\010LeaseRef\022\020\n\010lease_id\030\001 \001(\t\022\025\n\rfencin" +
-      "g_token\030\002 \001(\t\022\016\n\006run_id\030\003 \001(\t\022\017\n\007plan_id" +
-      "\030\004 \001(\t\022\017\n\007step_id\030\005 \001(\t\022\017\n\007task_id\030\006 \001(\t" +
-      "\"\177\n\014FencingToken\022\r\n\005token\030\001 \001(\t\022\024\n\014issue" +
-      "d_at_ms\030\002 \001(\004\022\016\n\006issuer\030\003 \001(\t\022\r\n\005scope\030\004" +
-      " \001(\t\022+\n\nextensions\030\005 \001(\0132\027.google.protob" +
-      "uf.Struct\"\341\002\n\005Lease\022\020\n\010lease_id\030\001 \001(\t\022\016\n" +
-      "\006run_id\030\002 \001(\t\022\017\n\007plan_id\030\003 \001(\t\022\017\n\007step_i" +
-      "d\030\004 \001(\t\022\017\n\007task_id\030\005 \001(\t\022\021\n\trunner_id\030\006 " +
-      "\001(\t\022\022\n\nsession_id\030\007 \001(\t\022@\n\rfencing_token" +
-      "\030\010 \001(\0132).monarchic.agent_protocol.v1.Fen" +
-      "cingToken\022\024\n\014issued_at_ms\030\t \001(\004\022\025\n\rexpir" +
-      "es_at_ms\030\n \001(\004\022@\n\006status\030\013 \001(\01620.monarch" +
-      "ic.agent_protocol.v1.LeaseLifecycleState" +
-      "\022+\n\nextensions\030\014 \001(\0132\027.google.protobuf.S" +
-      "truct\"\257\004\n\rRecoveryEvent\022\020\n\010event_id\030\001 \001(" +
-      "\t\022\016\n\006run_id\030\002 \001(\t\022\017\n\007plan_id\030\003 \001(\t\022\024\n\007st" +
-      "ep_id\030\004 \001(\tH\000\210\001\001\022<\n\004kind\030\005 \001(\0162..monarch" +
-      "ic.agent_protocol.v1.RecoveryEventKind\022\026" +
-      "\n\016occurred_at_ms\030\006 \001(\004\022\r\n\005actor\030\007 \001(\t\022(\n" +
-      "\007details\030\010 \001(\0132\027.google.protobuf.Struct\022" +
-      "\030\n\020contract_version\030\t \001(\t\022F\n\trun_state\030\n" +
-      " \001(\0162..monarchic.agent_protocol.v1.RunLi" +
-      "fecycleStateH\001\210\001\001\022H\n\nstep_state\030\013 \001(\0162/." +
-      "monarchic.agent_protocol.v1.StepLifecycl" +
-      "eStateH\002\210\001\001\022V\n\026lease_rejection_reason\030\014 " +
-      "\001(\01621.monarchic.agent_protocol.v1.LeaseR" +
-      "ejectionReasonH\003\210\001\001B\n\n\010_step_idB\014\n\n_run_" +
-      "stateB\r\n\013_step_stateB\031\n\027_lease_rejection" +
-      "_reason\"\344\001\n\013LeaseStatus\0224\n\005lease\030\001 \001(\0132%" +
-      ".monarchic.agent_protocol.v1.LeaseRef\022\r\n" +
-      "\005state\030\002 \001(\t\022\025\n\rupdated_at_ms\030\003 \001(\004\022@\n\007f" +
-      "ailure\030\004 \001(\0132*.monarchic.agent_protocol." +
-      "v1.FailureDetailH\000\210\001\001\022+\n\nextensions\030\005 \001(" +
-      "\0132\027.google.protobuf.StructB\n\n\010_failure\"\257" +
-      "\001\n\022CancellationIntent\0224\n\005lease\030\001 \001(\0132%.m" +
-      "onarchic.agent_protocol.v1.LeaseRef\022\016\n\006r" +
-      "eason\030\002 \001(\t\022\027\n\017requested_at_ms\030\003 \001(\004\022\r\n\005" +
-      "force\030\004 \001(\010\022+\n\nextensions\030\005 \001(\0132\027.google" +
-      ".protobuf.Struct\"\321\001\n\017LeaseAssignment\0224\n\005" +
-      "lease\030\001 \001(\0132%.monarchic.agent_protocol.v" +
-      "1.LeaseRef\022/\n\004task\030\002 \001(\0132!.monarchic.age" +
-      "nt_protocol.v1.Task\022\024\n\014issued_at_ms\030\003 \001(" +
-      "\004\022\024\n\014lease_ttl_ms\030\004 \001(\004\022+\n\nextensions\030\005 " +
-      "\001(\0132\027.google.protobuf.Struct\"\253\002\n\025Registe" +
-      "rRunnerRequest\022\030\n\020contract_version\030\001 \001(\t" +
-      "\022\021\n\trunner_id\030\002 \001(\t\022E\n\014capabilities\030\003 \001(" +
-      "\0132/.monarchic.agent_protocol.v1.RunnerCa" +
-      "pabilities\022\033\n\023max_parallel_leases\030\004 \001(\r\022" +
-      "+\n\nextensions\030\005 \001(\0132\027.google.protobuf.St" +
-      "ruct\022C\n\014auth_context\030\006 \001(\0132(.monarchic.a" +
-      "gent_protocol.v1.AuthContextH\000\210\001\001B\017\n\r_au" +
-      "th_context\"\313\001\n\026RegisterRunnerResponse\022\030\n" +
-      "\020contract_version\030\001 \001(\t\022\027\n\017orchestrator_" +
-      "id\030\002 \001(\t\022\022\n\nsession_id\030\003 \001(\t\022\035\n\025heartbea" +
-      "t_interval_ms\030\004 \001(\004\022\036\n\026lease_poll_interv" +
-      "al_ms\030\005 \001(\004\022+\n\nextensions\030\006 \001(\0132\027.google" +
-      ".protobuf.Struct\"\227\002\n\020HeartbeatRequest\022\030\n" +
-      "\020contract_version\030\001 \001(\t\022\021\n\trunner_id\030\002 \001" +
-      "(\t\022\022\n\nsession_id\030\003 \001(\t\022?\n\ractive_leases\030" +
-      "\004 \003(\0132(.monarchic.agent_protocol.v1.Leas" +
-      "eStatus\022+\n\nextensions\030\005 \001(\0132\027.google.pro" +
-      "tobuf.Struct\022C\n\014auth_context\030\006 \001(\0132(.mon" +
-      "archic.agent_protocol.v1.AuthContextH\000\210\001" +
-      "\001B\017\n\r_auth_context\"\326\001\n\021HeartbeatResponse" +
-      "\022\030\n\020contract_version\030\001 \001(\t\022\027\n\017orchestrat" +
-      "or_id\030\002 \001(\t\022\031\n\021next_heartbeat_ms\030\003 \001(\004\022F" +
-      "\n\rcancellations\030\004 \003(\0132/.monarchic.agent_" +
-      "protocol.v1.CancellationIntent\022+\n\nextens" +
-      "ions\030\005 \001(\0132\027.google.protobuf.Struct\"\214\002\n\023" +
-      "AcquireLeaseRequest\022\030\n\020contract_version\030" +
-      "\001 \001(\t\022\021\n\trunner_id\030\002 \001(\t\022\022\n\nsession_id\030\003" +
-      " \001(\t\022\027\n\017available_slots\030\004 \001(\r\022\030\n\020active_" +
-      "lease_ids\030\005 \003(\t\022+\n\nextensions\030\006 \001(\0132\027.go" +
-      "ogle.protobuf.Struct\022C\n\014auth_context\030\007 \001" +
-      "(\0132(.monarchic.agent_protocol.v1.AuthCon" +
-      "textH\000\210\001\001B\017\n\r_auth_context\"\230\002\n\024AcquireLe" +
-      "aseResponse\022\030\n\020contract_version\030\001 \001(\t\022\027\n" +
-      "\017orchestrator_id\030\002 \001(\t\022@\n\nassignment\030\003 \001" +
-      "(\0132,.monarchic.agent_protocol.v1.LeaseAs" +
-      "signment\022\026\n\016retry_after_ms\030\004 \001(\004\022F\n\rcanc" +
-      "ellations\030\005 \003(\0132/.monarchic.agent_protoc" +
-      "ol.v1.CancellationIntent\022+\n\nextensions\030\006" +
-      " \001(\0132\027.google.protobuf.Struct\"\215\002\n\021RenewL" +
-      "easeRequest\022\030\n\020contract_version\030\001 \001(\t\022\021\n" +
-      "\trunner_id\030\002 \001(\t\022\022\n\nsession_id\030\003 \001(\t\0224\n\005" +
-      "lease\030\004 \001(\0132%.monarchic.agent_protocol.v" +
-      "1.LeaseRef\022+\n\nextensions\030\005 \001(\0132\027.google." +
-      "protobuf.Struct\022C\n\014auth_context\030\006 \001(\0132(." +
-      "monarchic.agent_protocol.v1.AuthContextH" +
-      "\000\210\001\001B\017\n\r_auth_context\"\262\002\n\022RenewLeaseResp" +
-      "onse\022\030\n\020contract_version\030\001 \001(\t\022\027\n\017orches" +
-      "trator_id\030\002 \001(\t\022\020\n\010accepted\030\003 \001(\010\022\024\n\014lea" +
-      "se_ttl_ms\030\004 \001(\004\022F\n\rcancellations\030\005 \003(\0132/" +
-      ".monarchic.agent_protocol.v1.Cancellatio" +
-      "nIntent\022@\n\007failure\030\006 \001(\0132*.monarchic.age" +
-      "nt_protocol.v1.FailureDetailH\000\210\001\001\022+\n\next" +
-      "ensions\030\007 \001(\0132\027.google.protobuf.StructB\n" +
-      "\n\010_failure\"\216\002\n\022ResumeLeaseRequest\022\030\n\020con" +
+      "actKind\022\024\n\014logical_name\030\002 \001(\t\"\251\003\n\010PlanSt" +
+      "ep\022\017\n\007step_id\030\001 \001(\t\022\023\n\013description\030\002 \001(\t" +
+      "\022\022\n\ndepends_on\030\003 \003(\t\022.\n\rtask_template\030\004 " +
+      "\001(\0132\027.google.protobuf.Struct\022@\n\007failure\030" +
+      "\005 \001(\0132*.monarchic.agent_protocol.v1.Fail" +
+      "ureDetailH\000\210\001\001\022\024\n\007task_id\030\006 \001(\tH\001\210\001\001\0227\n\004" +
+      "kind\030\007 \001(\0162).monarchic.agent_protocol.v1" +
+      ".PlanStepKind\022\'\n\006inputs\030\010 \001(\0132\027.google.p" +
+      "rotobuf.Struct\022L\n\020expected_outputs\030\t \003(\013" +
+      "22.monarchic.agent_protocol.v1.StepOutpu" +
+      "tExpectation\022\023\n\013policy_tags\030\n \003(\tB\n\n\010_fa" +
+      "ilureB\n\n\010_task_id\"\264\004\n\004Plan\022\030\n\020contract_v" +
+      "ersion\030\001 \001(\t\022\017\n\007plan_id\030\002 \001(\t\022\023\n\006run_id\030" +
+      "\003 \001(\tH\000\210\001\001\022\021\n\tobjective\030\004 \001(\t\0227\n\006status\030" +
+      "\005 \001(\0162\'.monarchic.agent_protocol.v1.Plan" +
+      "Status\022\025\n\rcreated_at_ms\030\006 \001(\004\022\025\n\rupdated" +
+      "_at_ms\030\007 \001(\004\022?\n\nprovenance\030\010 \001(\0132+.monar" +
+      "chic.agent_protocol.v1.PlanProvenance\0224\n" +
+      "\005steps\030\t \003(\0132%.monarchic.agent_protocol." +
+      "v1.PlanStep\022\026\n\tintent_id\030\n \001(\tH\001\210\001\001\022\031\n\014p" +
+      "lan_version\030\013 \001(\tH\002\210\001\001\022\034\n\017planner_versio" +
+      "n\030\014 \001(\tH\003\210\001\001\022@\n\rreplan_policy\030\r \001(\0132).mo" +
+      "narchic.agent_protocol.v1.ReplanPolicy\022\031" +
+      "\n\014input_digest\030\016 \001(\tH\004\210\001\001B\t\n\007_run_idB\014\n\n" +
+      "_intent_idB\017\n\r_plan_versionB\022\n\020_planner_" +
+      "versionB\017\n\r_input_digest\"\250\003\n\020ExecutionRe" +
+      "ceipt\022\030\n\020contract_version\030\001 \001(\t\022\016\n\006run_i" +
+      "d\030\002 \001(\t\022\017\n\007plan_id\030\003 \001(\t\022\021\n\tplan_hash\030\004 " +
+      "\001(\t\022\023\n\013task_hashes\030\005 \003(\t\022\027\n\017artifact_has" +
+      "hes\030\006 \003(\t\022\024\n\014outcome_hash\030\007 \001(\t\0227\n\006statu" +
+      "s\030\010 \001(\0162\'.monarchic.agent_protocol.v1.Pl" +
+      "anStatus\022@\n\007failure\030\t \001(\0132*.monarchic.ag" +
+      "ent_protocol.v1.FailureDetailH\000\210\001\001\022\027\n\017ge" +
+      "nerated_at_ms\030\n \001(\004\022N\n\017resolved_runner\030\013" +
+      " \001(\01320.monarchic.agent_protocol.v1.Resol" +
+      "vedAgentRunnerH\001\210\001\001B\n\n\010_failureB\022\n\020_reso" +
+      "lved_runner\"\240\001\n\021VerificationCheck\022\020\n\010che" +
+      "ck_id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022D\n\006status\030\003 \001(" +
+      "\01624.monarchic.agent_protocol.v1.Verifica" +
+      "tionCheckStatus\022\017\n\007message\030\004 \001(\t\022\024\n\014arti" +
+      "fact_ids\030\005 \003(\t\"\347\001\n\016BlockedOutcome\022\014\n\004cod" +
+      "e\030\001 \001(\t\022?\n\005scope\030\002 \001(\01620.monarchic.agent" +
+      "_protocol.v1.BlockedOutcomeScope\022\017\n\007mess" +
+      "age\030\003 \001(\t\022(\n\007details\030\004 \001(\0132\027.google.prot" +
+      "obuf.Struct\022K\n\022blocking_artifacts\030\005 \003(\0132" +
+      "/.monarchic.agent_protocol.v1.ArtifactDe" +
+      "scriptor\"\232\003\n\023VerificationReceipt\022\030\n\020cont" +
+      "ract_version\030\001 \001(\t\022\027\n\017verification_id\030\002 " +
+      "\001(\t\022\017\n\007plan_id\030\003 \001(\t\022\035\n\025execution_receip" +
+      "t_ids\030\004 \003(\t\022#\n\033verification_policy_versi" +
+      "on\030\005 \001(\t\022?\n\006status\030\006 \001(\0162/.monarchic.age" +
+      "nt_protocol.v1.VerificationStatus\022>\n\006che" +
+      "cks\030\007 \003(\0132..monarchic.agent_protocol.v1." +
+      "VerificationCheck\022E\n\020blocked_outcomes\030\010 " +
+      "\003(\0132+.monarchic.agent_protocol.v1.Blocke" +
+      "dOutcome\022\033\n\023artifact_digest_set\030\t \003(\t\022\026\n" +
+      "\016verified_at_ms\030\n \001(\004\"\354\001\n\016ReviewDecision" +
+      "\022\023\n\013decision_id\030\001 \001(\t\022\017\n\007plan_id\030\002 \001(\t\022?" +
+      "\n\005scope\030\003 \001(\01620.monarchic.agent_protocol" +
+      ".v1.ReviewDecisionScope\022\r\n\005actor\030\004 \001(\t\022@" +
+      "\n\010decision\030\005 \001(\0162..monarchic.agent_proto" +
+      "col.v1.ReviewDisposition\022\016\n\006reason\030\006 \001(\t" +
+      "\022\022\n\ncreated_at\030\007 \001(\004\"\372\001\n\nRerunScope\022\020\n\010s" +
+      "cope_id\030\001 \001(\t\022\017\n\007plan_id\030\002 \001(\t\022:\n\007trigge" +
+      "r\030\003 \001(\0162).monarchic.agent_protocol.v1.Re" +
+      "runTrigger\022\016\n\006reason\030\004 \001(\t\022\037\n\022source_dec" +
+      "ision_id\030\005 \001(\tH\000\210\001\001\022\020\n\010task_ids\030\006 \003(\t\022\020\n" +
+      "\010step_ids\030\007 \003(\t\022\r\n\005paths\030\010 \003(\t\022\022\n\ncreate" +
+      "d_at\030\t \001(\004B\025\n\023_source_decision_id\"\231\004\n\024Re" +
+      "runExecutionResult\022\021\n\tresult_id\030\001 \001(\t\022\017\n" +
+      "\007plan_id\030\002 \001(\t\022\026\n\016rerun_scope_id\030\003 \001(\t\022\037" +
+      "\n\022source_decision_id\030\004 \001(\tH\000\210\001\001\022:\n\007trigg" +
+      "er\030\005 \001(\0162).monarchic.agent_protocol.v1.R" +
+      "erunTrigger\022M\n\020matched_strategy\030\006 \001(\01623." +
+      "monarchic.agent_protocol.v1.RerunSelecti" +
+      "onStrategy\022\022\n\nroot_tasks\030\007 \003(\t\022\026\n\016select" +
+      "ed_tasks\030\010 \003(\t\022\025\n\rmatched_paths\030\t \003(\t\022\016\n" +
+      "\006reason\030\n \001(\t\022A\n\006status\030\013 \001(\01621.monarchi" +
+      "c.agent_protocol.v1.RerunExecutionStatus" +
+      "\022\027\n\017completed_tasks\030\014 \003(\t\022\024\n\014failed_task" +
+      "s\030\r \003(\t\022\025\n\rskipped_tasks\030\016 \003(\t\022\022\n\ncreate" +
+      "d_at\030\017 \001(\004\022\022\n\nupdated_at\030\020 \001(\004B\025\n\023_sourc" +
+      "e_decision_id\"\201\005\n\020PrLifecycleState\022\020\n\010st" +
+      "ate_id\030\001 \001(\t\022\017\n\007plan_id\030\002 \001(\t\022\026\n\tpr_numb" +
+      "er\030\003 \001(\004H\000\210\001\001\022\023\n\006pr_url\030\004 \001(\tH\001\210\001\001\022I\n\017re" +
+      "view_decision\030\005 \001(\0132+.monarchic.agent_pr" +
+      "otocol.v1.ReviewDecisionH\002\210\001\001\022A\n\013rerun_s" +
+      "cope\030\006 \001(\0132\'.monarchic.agent_protocol.v1" +
+      ".RerunScopeH\003\210\001\001\022L\n\014rerun_result\030\007 \001(\01321" +
+      ".monarchic.agent_protocol.v1.RerunExecut" +
+      "ionResultH\004\210\001\001\022S\n\024verification_receipt\030\010" +
+      " \001(\01320.monarchic.agent_protocol.v1.Verif" +
+      "icationReceiptH\005\210\001\001\022\023\n\013merge_ready\030\t \001(\010" +
+      "\022\025\n\rrelease_ready\030\n \001(\010\022E\n\020blocked_outco" +
+      "mes\030\013 \003(\0132+.monarchic.agent_protocol.v1." +
+      "BlockedOutcome\022\022\n\nupdated_at\030\014 \001(\004B\014\n\n_p" +
+      "r_numberB\t\n\007_pr_urlB\022\n\020_review_decisionB" +
+      "\016\n\014_rerun_scopeB\017\n\r_rerun_resultB\027\n\025_ver" +
+      "ification_receipt\"\341\003\n\004Task\022\017\n\007version\030\001 " +
+      "\001(\t\022\017\n\007task_id\030\002 \001(\t\0224\n\004role\030\003 \001(\0162&.mon" +
+      "archic.agent_protocol.v1.AgentRole\022\014\n\004go" +
+      "al\030\004 \001(\t\022\'\n\006inputs\030\005 \001(\0132\027.google.protob" +
+      "uf.Struct\022,\n\013constraints\030\006 \001(\0132\027.google." +
+      "protobuf.Struct\022\026\n\016gates_required\030\007 \003(\t\022" +
+      "<\n\013run_context\030\010 \001(\0132\'.monarchic.agent_p" +
+      "rotocol.v1.RunContext\022+\n\nextensions\030\t \001(" +
+      "\0132\027.google.protobuf.Struct\022D\n\017experiment" +
+      "_spec\030\n \001(\0132+.monarchic.agent_protocol.v" +
+      "1.ExperimentSpec\022B\n\016objective_spec\030\013 \001(\013" +
+      "2*.monarchic.agent_protocol.v1.Objective" +
+      "Spec\022\017\n\007role_id\030\014 \001(\t\"\234\003\n\010Artifact\022\017\n\007ve" +
+      "rsion\030\001 \001(\t\022\023\n\013artifact_id\030\002 \001(\t\022\014\n\004type" +
+      "\030\003 \001(\t\022\017\n\007summary\030\004 \001(\t\022\014\n\004path\030\005 \001(\t\022\017\n" +
+      "\007task_id\030\006 \001(\t\022+\n\nextensions\030\007 \001(\0132\027.goo" +
+      "gle.protobuf.Struct\022;\n\nprovenance\030\010 \001(\0132" +
+      "\'.monarchic.agent_protocol.v1.Provenance" +
+      "\022=\n\014dataset_refs\030\t \003(\0132\'.monarchic.agent" +
+      "_protocol.v1.DatasetRef\022=\n\014eval_results\030" +
+      "\n \003(\0132\'.monarchic.agent_protocol.v1.Eval" +
+      "Result\022D\n\017experiment_spec\030\013 \001(\0132+.monarc" +
+      "hic.agent_protocol.v1.ExperimentSpec\"\355\002\n" +
+      "\005Event\022\017\n\007version\030\001 \001(\t\022\022\n\nevent_type\030\002 " +
+      "\001(\t\022\021\n\ttimestamp\030\003 \001(\t\022\017\n\007task_id\030\004 \001(\t\022" +
+      "\016\n\006status\030\005 \001(\t\022\024\n\007message\030\006 \001(\tH\000\210\001\001\022+\n" +
+      "\nextensions\030\007 \001(\0132\027.google.protobuf.Stru" +
+      "ct\022;\n\nprovenance\030\010 \001(\0132\'.monarchic.agent" +
+      "_protocol.v1.Provenance\022=\n\014eval_results\030" +
+      "\t \003(\0132\'.monarchic.agent_protocol.v1.Eval" +
+      "Result\022@\n\rfailure_class\030\n \001(\0132).monarchi" +
+      "c.agent_protocol.v1.FailureClassB\n\n\010_mes" +
+      "sage\"\341\002\n\016RunEventRecord\022\030\n\020contract_vers" +
+      "ion\030\001 \001(\t\022\020\n\010event_id\030\002 \001(\t\022\016\n\006run_id\030\003 " +
+      "\001(\t\022\017\n\007plan_id\030\004 \001(\t\022\020\n\010sequence\030\005 \001(\004\022;" +
+      "\n\006stream\030\006 \001(\0162+.monarchic.agent_protoco" +
+      "l.v1.RunEventStream\022\023\n\013recorded_at\030\007 \001(\004" +
+      "\022\024\n\007step_id\030\010 \001(\tH\000\210\001\001\022\024\n\007task_id\030\t \001(\tH" +
+      "\001\210\001\001\022\022\n\nevent_type\030\n \001(\t\022\016\n\006status\030\013 \001(\t",
+      "\022\024\n\007message\030\014 \001(\tH\002\210\001\001\022\024\n\014artifact_ids\030\r" +
+      " \003(\tB\n\n\010_step_idB\n\n\010_task_idB\n\n\010_message" +
+      "\"\265\003\n\013TaskMessage\022\017\n\007version\030\001 \001(\t\022\022\n\nmes" +
+      "sage_id\030\002 \001(\t\022\016\n\006run_id\030\003 \001(\t\022\024\n\014from_ta" +
+      "sk_id\030\004 \001(\t\022\022\n\nto_task_id\030\005 \001(\t\022:\n\004kind\030" +
+      "\006 \001(\0162,.monarchic.agent_protocol.v1.Task" +
+      "MessageKind\022\024\n\007subject\030\007 \001(\tH\000\210\001\001\022\021\n\004bod" +
+      "y\030\010 \001(\tH\001\210\001\001\022\025\n\rartifact_refs\030\t \003(\t\022\025\n\010r" +
+      "eply_to\030\n \001(\tH\002\210\001\001\022\022\n\ncreated_at\030\013 \001(\t\022\024" +
+      "\n\014requires_ack\030\014 \001(\010\022+\n\nextensions\030\r \001(\013" +
+      "2\027.google.protobuf.Struct\022;\n\nprovenance\030" +
+      "\016 \001(\0132\'.monarchic.agent_protocol.v1.Prov" +
+      "enanceB\n\n\010_subjectB\007\n\005_bodyB\013\n\t_reply_to" +
+      "\"\301\001\n\016TaskMessageAck\022\017\n\007version\030\001 \001(\t\022\022\n\n" +
+      "message_id\030\002 \001(\t\022\016\n\006run_id\030\003 \001(\t\022\017\n\007task" +
+      "_id\030\004 \001(\t\022\020\n\010acked_at\030\005 \001(\t\022\016\n\006status\030\006 " +
+      "\001(\t\022\021\n\004note\030\007 \001(\tH\000\210\001\001\022+\n\nextensions\030\010 \001" +
+      "(\0132\027.google.protobuf.StructB\007\n\005_note\"\365\001\n" +
+      "\nGateResult\022\017\n\007version\030\001 \001(\t\022\014\n\004gate\030\002 \001" +
+      "(\t\022\016\n\006status\030\003 \001(\t\022\023\n\006reason\030\004 \001(\tH\000\210\001\001\022" +
+      ")\n\010evidence\030\005 \001(\0132\027.google.protobuf.Stru" +
+      "ct\022+\n\nextensions\030\006 \001(\0132\027.google.protobuf" +
+      ".Struct\022@\n\rfailure_class\030\007 \001(\0132).monarch" +
+      "ic.agent_protocol.v1.FailureClassB\t\n\007_re" +
+      "ason\"\210\006\n\nRunOutcome\022\017\n\007version\030\001 \001(\t\022\017\n\007" +
+      "task_id\030\002 \001(\t\022\023\n\006run_id\030\003 \001(\tH\000\210\001\001\022\035\n\020ob" +
+      "jective_metric\030\004 \001(\tH\001\210\001\001\022\034\n\017objective_s" +
+      "core\030\005 \001(\001H\002\210\001\001\022H\n\022objective_decision\030\006 " +
+      "\001(\0162,.monarchic.agent_protocol.v1.Outcom" +
+      "eDecision\022\037\n\022estimated_cost_usd\030\007 \001(\001H\003\210" +
+      "\001\001\022\035\n\020budget_limit_usd\030\010 \001(\001H\004\210\001\001\022C\n\rcos" +
+      "t_decision\030\t \001(\0162,.monarchic.agent_proto" +
+      "col.v1.OutcomeDecision\022\027\n\nrisk_level\030\n \001" +
+      "(\tH\005\210\001\001\022\031\n\014risk_summary\030\013 \001(\tH\006\210\001\001\022C\n\rri" +
+      "sk_decision\030\014 \001(\0162,.monarchic.agent_prot" +
+      "ocol.v1.OutcomeDecision\022D\n\016final_decisio" +
+      "n\030\r \001(\0162,.monarchic.agent_protocol.v1.Ou" +
+      "tcomeDecision\022\024\n\007summary\030\016 \001(\tH\007\210\001\001\022)\n\010e" +
+      "vidence\030\017 \001(\0132\027.google.protobuf.Struct\022+" +
+      "\n\nextensions\030\020 \001(\0132\027.google.protobuf.Str" +
+      "uctB\t\n\007_run_idB\023\n\021_objective_metricB\022\n\020_" +
+      "objective_scoreB\025\n\023_estimated_cost_usdB\023" +
+      "\n\021_budget_limit_usdB\r\n\013_risk_levelB\017\n\r_r" +
+      "isk_summaryB\n\n\010_summary\"\231\001\n\nRunContext\022\017" +
+      "\n\007version\030\001 \001(\t\022\014\n\004repo\030\002 \001(\t\022\020\n\010worktre" +
+      "e\030\003 \001(\t\022\r\n\005image\030\004 \001(\t\022\016\n\006runner\030\005 \001(\t\022\016" +
+      "\n\006labels\030\006 \003(\t\022+\n\nextensions\030\007 \001(\0132\027.goo" +
+      "gle.protobuf.Struct\"\260\003\n\022RunnerCapabiliti" +
+      "es\022\020\n\010platform\030\001 \001(\t\022\017\n\007runtime\030\002 \001(\t\022?\n" +
+      "\017supported_roles\030\003 \003(\0162&.monarchic.agent" +
+      "_protocol.v1.AgentRole\022\037\n\027supported_task" +
+      "_versions\030\004 \003(\t\022\016\n\006labels\030\005 \003(\t\022 \n\030suppo" +
+      "rts_interactive_pty\030\006 \001(\010\022\027\n\017supports_re" +
+      "sume\030\007 \001(\010\022+\n\nextensions\030\010 \001(\0132\027.google." +
+      "protobuf.Struct\022\032\n\022supported_role_ids\030\t " +
+      "\003(\t\022\030\n\020supported_models\030\n \003(\t\022#\n\033support" +
+      "ed_reasoning_efforts\030\013 \003(\t\022%\n\035supported_" +
+      "runner_capabilities\030\014 \003(\t\022\033\n\023supported_p" +
+      "roviders\030\r \003(\t\"v\n\010LeaseRef\022\020\n\010lease_id\030\001" +
+      " \001(\t\022\025\n\rfencing_token\030\002 \001(\t\022\016\n\006run_id\030\003 " +
+      "\001(\t\022\017\n\007plan_id\030\004 \001(\t\022\017\n\007step_id\030\005 \001(\t\022\017\n" +
+      "\007task_id\030\006 \001(\t\"\177\n\014FencingToken\022\r\n\005token\030" +
+      "\001 \001(\t\022\024\n\014issued_at_ms\030\002 \001(\004\022\016\n\006issuer\030\003 " +
+      "\001(\t\022\r\n\005scope\030\004 \001(\t\022+\n\nextensions\030\005 \001(\0132\027" +
+      ".google.protobuf.Struct\"\341\002\n\005Lease\022\020\n\010lea" +
+      "se_id\030\001 \001(\t\022\016\n\006run_id\030\002 \001(\t\022\017\n\007plan_id\030\003" +
+      " \001(\t\022\017\n\007step_id\030\004 \001(\t\022\017\n\007task_id\030\005 \001(\t\022\021" +
+      "\n\trunner_id\030\006 \001(\t\022\022\n\nsession_id\030\007 \001(\t\022@\n" +
+      "\rfencing_token\030\010 \001(\0132).monarchic.agent_p" +
+      "rotocol.v1.FencingToken\022\024\n\014issued_at_ms\030" +
+      "\t \001(\004\022\025\n\rexpires_at_ms\030\n \001(\004\022@\n\006status\030\013" +
+      " \001(\01620.monarchic.agent_protocol.v1.Lease" +
+      "LifecycleState\022+\n\nextensions\030\014 \001(\0132\027.goo" +
+      "gle.protobuf.Struct\"\257\004\n\rRecoveryEvent\022\020\n" +
+      "\010event_id\030\001 \001(\t\022\016\n\006run_id\030\002 \001(\t\022\017\n\007plan_" +
+      "id\030\003 \001(\t\022\024\n\007step_id\030\004 \001(\tH\000\210\001\001\022<\n\004kind\030\005" +
+      " \001(\0162..monarchic.agent_protocol.v1.Recov" +
+      "eryEventKind\022\026\n\016occurred_at_ms\030\006 \001(\004\022\r\n\005" +
+      "actor\030\007 \001(\t\022(\n\007details\030\010 \001(\0132\027.google.pr" +
+      "otobuf.Struct\022\030\n\020contract_version\030\t \001(\t\022" +
+      "F\n\trun_state\030\n \001(\0162..monarchic.agent_pro" +
+      "tocol.v1.RunLifecycleStateH\001\210\001\001\022H\n\nstep_" +
+      "state\030\013 \001(\0162/.monarchic.agent_protocol.v" +
+      "1.StepLifecycleStateH\002\210\001\001\022V\n\026lease_rejec" +
+      "tion_reason\030\014 \001(\01621.monarchic.agent_prot" +
+      "ocol.v1.LeaseRejectionReasonH\003\210\001\001B\n\n\010_st" +
+      "ep_idB\014\n\n_run_stateB\r\n\013_step_stateB\031\n\027_l" +
+      "ease_rejection_reason\"\344\001\n\013LeaseStatus\0224\n" +
+      "\005lease\030\001 \001(\0132%.monarchic.agent_protocol." +
+      "v1.LeaseRef\022\r\n\005state\030\002 \001(\t\022\025\n\rupdated_at" +
+      "_ms\030\003 \001(\004\022@\n\007failure\030\004 \001(\0132*.monarchic.a" +
+      "gent_protocol.v1.FailureDetailH\000\210\001\001\022+\n\ne" +
+      "xtensions\030\005 \001(\0132\027.google.protobuf.Struct" +
+      "B\n\n\010_failure\"\257\001\n\022CancellationIntent\0224\n\005l" +
+      "ease\030\001 \001(\0132%.monarchic.agent_protocol.v1" +
+      ".LeaseRef\022\016\n\006reason\030\002 \001(\t\022\027\n\017requested_a" +
+      "t_ms\030\003 \001(\004\022\r\n\005force\030\004 \001(\010\022+\n\nextensions\030" +
+      "\005 \001(\0132\027.google.protobuf.Struct\"\321\001\n\017Lease" +
+      "Assignment\0224\n\005lease\030\001 \001(\0132%.monarchic.ag" +
+      "ent_protocol.v1.LeaseRef\022/\n\004task\030\002 \001(\0132!" +
+      ".monarchic.agent_protocol.v1.Task\022\024\n\014iss" +
+      "ued_at_ms\030\003 \001(\004\022\024\n\014lease_ttl_ms\030\004 \001(\004\022+\n" +
+      "\nextensions\030\005 \001(\0132\027.google.protobuf.Stru" +
+      "ct\"\253\002\n\025RegisterRunnerRequest\022\030\n\020contract" +
+      "_version\030\001 \001(\t\022\021\n\trunner_id\030\002 \001(\t\022E\n\014cap" +
+      "abilities\030\003 \001(\0132/.monarchic.agent_protoc" +
+      "ol.v1.RunnerCapabilities\022\033\n\023max_parallel" +
+      "_leases\030\004 \001(\r\022+\n\nextensions\030\005 \001(\0132\027.goog" +
+      "le.protobuf.Struct\022C\n\014auth_context\030\006 \001(\013" +
+      "2(.monarchic.agent_protocol.v1.AuthConte" +
+      "xtH\000\210\001\001B\017\n\r_auth_context\"\313\001\n\026RegisterRun" +
+      "nerResponse\022\030\n\020contract_version\030\001 \001(\t\022\027\n" +
+      "\017orchestrator_id\030\002 \001(\t\022\022\n\nsession_id\030\003 \001" +
+      "(\t\022\035\n\025heartbeat_interval_ms\030\004 \001(\004\022\036\n\026lea" +
+      "se_poll_interval_ms\030\005 \001(\004\022+\n\nextensions\030" +
+      "\006 \001(\0132\027.google.protobuf.Struct\"\227\002\n\020Heart" +
+      "beatRequest\022\030\n\020contract_version\030\001 \001(\t\022\021\n" +
+      "\trunner_id\030\002 \001(\t\022\022\n\nsession_id\030\003 \001(\t\022?\n\r" +
+      "active_leases\030\004 \003(\0132(.monarchic.agent_pr" +
+      "otocol.v1.LeaseStatus\022+\n\nextensions\030\005 \001(" +
+      "\0132\027.google.protobuf.Struct\022C\n\014auth_conte" +
+      "xt\030\006 \001(\0132(.monarchic.agent_protocol.v1.A" +
+      "uthContextH\000\210\001\001B\017\n\r_auth_context\"\326\001\n\021Hea" +
+      "rtbeatResponse\022\030\n\020contract_version\030\001 \001(\t" +
+      "\022\027\n\017orchestrator_id\030\002 \001(\t\022\031\n\021next_heartb" +
+      "eat_ms\030\003 \001(\004\022F\n\rcancellations\030\004 \003(\0132/.mo" +
+      "narchic.agent_protocol.v1.CancellationIn" +
+      "tent\022+\n\nextensions\030\005 \001(\0132\027.google.protob" +
+      "uf.Struct\"\214\002\n\023AcquireLeaseRequest\022\030\n\020con" +
       "tract_version\030\001 \001(\t\022\021\n\trunner_id\030\002 \001(\t\022\022" +
-      "\n\nsession_id\030\003 \001(\t\0224\n\005lease\030\004 \001(\0132%.mona" +
-      "rchic.agent_protocol.v1.LeaseRef\022+\n\nexte" +
-      "nsions\030\005 \001(\0132\027.google.protobuf.Struct\022C\n" +
-      "\014auth_context\030\006 \001(\0132(.monarchic.agent_pr" +
-      "otocol.v1.AuthContextH\000\210\001\001B\017\n\r_auth_cont" +
-      "ext\"\304\002\n\023ResumeLeaseResponse\022\030\n\020contract_" +
-      "version\030\001 \001(\t\022\027\n\017orchestrator_id\030\002 \001(\t\022\020" +
-      "\n\010accepted\030\003 \001(\010\0221\n\005lease\030\004 \001(\0132\".monarc" +
-      "hic.agent_protocol.v1.Lease\022\025\n\rexpires_a" +
-      "t_ms\030\005 \001(\004\022\035\n\025current_fencing_token\030\006 \001(" +
-      "\t\022A\n\006reason\030\007 \001(\01621.monarchic.agent_prot" +
-      "ocol.v1.LeaseRejectionReason\022\017\n\007message\030" +
-      "\010 \001(\t\022+\n\nextensions\030\t \001(\0132\027.google.proto" +
-      "buf.Struct\"\250\002\n\030ReportStepStartedRequest\022" +
-      "\030\n\020contract_version\030\001 \001(\t\022\021\n\trunner_id\030\002" +
-      " \001(\t\022\022\n\nsession_id\030\003 \001(\t\0224\n\005lease\030\004 \001(\0132" +
-      "%.monarchic.agent_protocol.v1.LeaseRef\022\022" +
-      "\n\nstarted_at\030\005 \001(\t\022+\n\nextensions\030\006 \001(\0132\027" +
-      ".google.protobuf.Struct\022C\n\014auth_context\030" +
-      "\007 \001(\0132(.monarchic.agent_protocol.v1.Auth" +
-      "ContextH\000\210\001\001B\017\n\r_auth_context\"\333\001\n\031Report" +
-      "StepStartedResponse\022\030\n\020contract_version\030" +
-      "\001 \001(\t\022\027\n\017orchestrator_id\030\002 \001(\t\022\020\n\010accept" +
-      "ed\030\003 \001(\010\022@\n\007failure\030\004 \001(\0132*.monarchic.ag" +
-      "ent_protocol.v1.FailureDetailH\000\210\001\001\022+\n\nex" +
-      "tensions\030\005 \001(\0132\027.google.protobuf.StructB" +
-      "\n\n\010_failure\"\203\003\n\031ReportStepProgressReques" +
-      "t\022\030\n\020contract_version\030\001 \001(\t\022\021\n\trunner_id" +
-      "\030\002 \001(\t\022\022\n\nsession_id\030\003 \001(\t\0224\n\005lease\030\004 \001(" +
-      "\0132%.monarchic.agent_protocol.v1.LeaseRef" +
-      "\0222\n\006events\030\005 \003(\0132\".monarchic.agent_proto" +
-      "col.v1.Event\0228\n\tartifacts\030\006 \003(\0132%.monarc" +
-      "hic.agent_protocol.v1.Artifact\022+\n\nextens" +
-      "ions\030\007 \001(\0132\027.google.protobuf.Struct\022C\n\014a" +
-      "uth_context\030\010 \001(\0132(.monarchic.agent_prot" +
-      "ocol.v1.AuthContextH\000\210\001\001B\017\n\r_auth_contex" +
-      "t\"\244\002\n\032ReportStepProgressResponse\022\030\n\020cont" +
-      "ract_version\030\001 \001(\t\022\027\n\017orchestrator_id\030\002 " +
-      "\001(\t\022\020\n\010accepted\030\003 \001(\010\022F\n\rcancellations\030\004" +
-      " \003(\0132/.monarchic.agent_protocol.v1.Cance" +
-      "llationIntent\022@\n\007failure\030\005 \001(\0132*.monarch" +
-      "ic.agent_protocol.v1.FailureDetailH\000\210\001\001\022" +
-      "+\n\nextensions\030\006 \001(\0132\027.google.protobuf.St" +
-      "ructB\n\n\010_failure\"\361\004\n\030ReportStepOutcomeRe" +
-      "quest\022\030\n\020contract_version\030\001 \001(\t\022\021\n\trunne" +
-      "r_id\030\002 \001(\t\022\022\n\nsession_id\030\003 \001(\t\0224\n\005lease\030" +
-      "\004 \001(\0132%.monarchic.agent_protocol.v1.Leas" +
-      "eRef\0227\n\006status\030\005 \001(\0162\'.monarchic.agent_p" +
-      "rotocol.v1.PlanStatus\0222\n\006events\030\006 \003(\0132\"." +
-      "monarchic.agent_protocol.v1.Event\0228\n\tart" +
-      "ifacts\030\007 \003(\0132%.monarchic.agent_protocol." +
-      "v1.Artifact\022A\n\013run_outcome\030\010 \001(\0132\'.monar" +
-      "chic.agent_protocol.v1.RunOutcomeH\000\210\001\001\022@" +
-      "\n\007failure\030\t \001(\0132*.monarchic.agent_protoc" +
-      "ol.v1.FailureDetailH\001\210\001\001\022\023\n\013finished_at\030" +
-      "\n \001(\t\022+\n\nextensions\030\013 \001(\0132\027.google.proto" +
-      "buf.Struct\022C\n\014auth_context\030\014 \001(\0132(.monar" +
-      "chic.agent_protocol.v1.AuthContextH\002\210\001\001B" +
-      "\016\n\014_run_outcomeB\n\n\010_failureB\017\n\r_auth_con" +
-      "text\"\333\001\n\031ReportStepOutcomeResponse\022\030\n\020co" +
-      "ntract_version\030\001 \001(\t\022\027\n\017orchestrator_id\030" +
-      "\002 \001(\t\022\020\n\010accepted\030\003 \001(\010\022@\n\007failure\030\004 \001(\013" +
-      "2*.monarchic.agent_protocol.v1.FailureDe" +
-      "tailH\000\210\001\001\022+\n\nextensions\030\005 \001(\0132\027.google.p" +
-      "rotobuf.StructB\n\n\010_failure\"\304\002\n\026AckCancel" +
-      "lationRequest\022\030\n\020contract_version\030\001 \001(\t\022" +
+      "\n\nsession_id\030\003 \001(\t\022\027\n\017available_slots\030\004 " +
+      "\001(\r\022\030\n\020active_lease_ids\030\005 \003(\t\022+\n\nextensi" +
+      "ons\030\006 \001(\0132\027.google.protobuf.Struct\022C\n\014au" +
+      "th_context\030\007 \001(\0132(.monarchic.agent_proto" +
+      "col.v1.AuthContextH\000\210\001\001B\017\n\r_auth_context" +
+      "\"\230\002\n\024AcquireLeaseResponse\022\030\n\020contract_ve" +
+      "rsion\030\001 \001(\t\022\027\n\017orchestrator_id\030\002 \001(\t\022@\n\n" +
+      "assignment\030\003 \001(\0132,.monarchic.agent_proto" +
+      "col.v1.LeaseAssignment\022\026\n\016retry_after_ms" +
+      "\030\004 \001(\004\022F\n\rcancellations\030\005 \003(\0132/.monarchi" +
+      "c.agent_protocol.v1.CancellationIntent\022+" +
+      "\n\nextensions\030\006 \001(\0132\027.google.protobuf.Str" +
+      "uct\"\215\002\n\021RenewLeaseRequest\022\030\n\020contract_ve" +
+      "rsion\030\001 \001(\t\022\021\n\trunner_id\030\002 \001(\t\022\022\n\nsessio" +
+      "n_id\030\003 \001(\t\0224\n\005lease\030\004 \001(\0132%.monarchic.ag" +
+      "ent_protocol.v1.LeaseRef\022+\n\nextensions\030\005" +
+      " \001(\0132\027.google.protobuf.Struct\022C\n\014auth_co" +
+      "ntext\030\006 \001(\0132(.monarchic.agent_protocol.v" +
+      "1.AuthContextH\000\210\001\001B\017\n\r_auth_context\"\262\002\n\022" +
+      "RenewLeaseResponse\022\030\n\020contract_version\030\001" +
+      " \001(\t\022\027\n\017orchestrator_id\030\002 \001(\t\022\020\n\010accepte" +
+      "d\030\003 \001(\010\022\024\n\014lease_ttl_ms\030\004 \001(\004\022F\n\rcancell" +
+      "ations\030\005 \003(\0132/.monarchic.agent_protocol." +
+      "v1.CancellationIntent\022@\n\007failure\030\006 \001(\0132*" +
+      ".monarchic.agent_protocol.v1.FailureDeta" +
+      "ilH\000\210\001\001\022+\n\nextensions\030\007 \001(\0132\027.google.pro" +
+      "tobuf.StructB\n\n\010_failure\"\216\002\n\022ResumeLease" +
+      "Request\022\030\n\020contract_version\030\001 \001(\t\022\021\n\trun" +
+      "ner_id\030\002 \001(\t\022\022\n\nsession_id\030\003 \001(\t\0224\n\005leas" +
+      "e\030\004 \001(\0132%.monarchic.agent_protocol.v1.Le" +
+      "aseRef\022+\n\nextensions\030\005 \001(\0132\027.google.prot" +
+      "obuf.Struct\022C\n\014auth_context\030\006 \001(\0132(.mona" +
+      "rchic.agent_protocol.v1.AuthContextH\000\210\001\001" +
+      "B\017\n\r_auth_context\"\304\002\n\023ResumeLeaseRespons" +
+      "e\022\030\n\020contract_version\030\001 \001(\t\022\027\n\017orchestra" +
+      "tor_id\030\002 \001(\t\022\020\n\010accepted\030\003 \001(\010\0221\n\005lease\030" +
+      "\004 \001(\0132\".monarchic.agent_protocol.v1.Leas" +
+      "e\022\025\n\rexpires_at_ms\030\005 \001(\004\022\035\n\025current_fenc" +
+      "ing_token\030\006 \001(\t\022A\n\006reason\030\007 \001(\01621.monarc" +
+      "hic.agent_protocol.v1.LeaseRejectionReas" +
+      "on\022\017\n\007message\030\010 \001(\t\022+\n\nextensions\030\t \001(\0132" +
+      "\027.google.protobuf.Struct\"\250\002\n\030ReportStepS" +
+      "tartedRequest\022\030\n\020contract_version\030\001 \001(\t\022" +
       "\021\n\trunner_id\030\002 \001(\t\022\022\n\nsession_id\030\003 \001(\t\0224" +
       "\n\005lease\030\004 \001(\0132%.monarchic.agent_protocol" +
-      ".v1.LeaseRef\022\016\n\006status\030\005 \001(\t\022\024\n\007message\030" +
-      "\006 \001(\tH\000\210\001\001\022+\n\nextensions\030\007 \001(\0132\027.google." +
-      "protobuf.Struct\022C\n\014auth_context\030\010 \001(\0132(." +
+      ".v1.LeaseRef\022\022\n\nstarted_at\030\005 \001(\t\022+\n\nexte" +
+      "nsions\030\006 \001(\0132\027.google.protobuf.Struct\022C\n" +
+      "\014auth_context\030\007 \001(\0132(.monarchic.agent_pr" +
+      "otocol.v1.AuthContextH\000\210\001\001B\017\n\r_auth_cont" +
+      "ext\"\333\001\n\031ReportStepStartedResponse\022\030\n\020con" +
+      "tract_version\030\001 \001(\t\022\027\n\017orchestrator_id\030\002" +
+      " \001(\t\022\020\n\010accepted\030\003 \001(\010\022@\n\007failure\030\004 \001(\0132" +
+      "*.monarchic.agent_protocol.v1.FailureDet" +
+      "ailH\000\210\001\001\022+\n\nextensions\030\005 \001(\0132\027.google.pr" +
+      "otobuf.StructB\n\n\010_failure\"\203\003\n\031ReportStep" +
+      "ProgressRequest\022\030\n\020contract_version\030\001 \001(" +
+      "\t\022\021\n\trunner_id\030\002 \001(\t\022\022\n\nsession_id\030\003 \001(\t" +
+      "\0224\n\005lease\030\004 \001(\0132%.monarchic.agent_protoc" +
+      "ol.v1.LeaseRef\0222\n\006events\030\005 \003(\0132\".monarch" +
+      "ic.agent_protocol.v1.Event\0228\n\tartifacts\030" +
+      "\006 \003(\0132%.monarchic.agent_protocol.v1.Arti" +
+      "fact\022+\n\nextensions\030\007 \001(\0132\027.google.protob" +
+      "uf.Struct\022C\n\014auth_context\030\010 \001(\0132(.monarc" +
+      "hic.agent_protocol.v1.AuthContextH\000\210\001\001B\017" +
+      "\n\r_auth_context\"\244\002\n\032ReportStepProgressRe" +
+      "sponse\022\030\n\020contract_version\030\001 \001(\t\022\027\n\017orch" +
+      "estrator_id\030\002 \001(\t\022\020\n\010accepted\030\003 \001(\010\022F\n\rc" +
+      "ancellations\030\004 \003(\0132/.monarchic.agent_pro" +
+      "tocol.v1.CancellationIntent\022@\n\007failure\030\005" +
+      " \001(\0132*.monarchic.agent_protocol.v1.Failu" +
+      "reDetailH\000\210\001\001\022+\n\nextensions\030\006 \001(\0132\027.goog" +
+      "le.protobuf.StructB\n\n\010_failure\"\361\004\n\030Repor" +
+      "tStepOutcomeRequest\022\030\n\020contract_version\030" +
+      "\001 \001(\t\022\021\n\trunner_id\030\002 \001(\t\022\022\n\nsession_id\030\003" +
+      " \001(\t\0224\n\005lease\030\004 \001(\0132%.monarchic.agent_pr" +
+      "otocol.v1.LeaseRef\0227\n\006status\030\005 \001(\0162\'.mon" +
+      "archic.agent_protocol.v1.PlanStatus\0222\n\006e" +
+      "vents\030\006 \003(\0132\".monarchic.agent_protocol.v" +
+      "1.Event\0228\n\tartifacts\030\007 \003(\0132%.monarchic.a" +
+      "gent_protocol.v1.Artifact\022A\n\013run_outcome" +
+      "\030\010 \001(\0132\'.monarchic.agent_protocol.v1.Run" +
+      "OutcomeH\000\210\001\001\022@\n\007failure\030\t \001(\0132*.monarchi" +
+      "c.agent_protocol.v1.FailureDetailH\001\210\001\001\022\023" +
+      "\n\013finished_at\030\n \001(\t\022+\n\nextensions\030\013 \001(\0132" +
+      "\027.google.protobuf.Struct\022C\n\014auth_context" +
+      "\030\014 \001(\0132(.monarchic.agent_protocol.v1.Aut" +
+      "hContextH\002\210\001\001B\016\n\014_run_outcomeB\n\n\010_failur" +
+      "eB\017\n\r_auth_context\"\333\001\n\031ReportStepOutcome" +
+      "Response\022\030\n\020contract_version\030\001 \001(\t\022\027\n\017or" +
+      "chestrator_id\030\002 \001(\t\022\020\n\010accepted\030\003 \001(\010\022@\n" +
+      "\007failure\030\004 \001(\0132*.monarchic.agent_protoco" +
+      "l.v1.FailureDetailH\000\210\001\001\022+\n\nextensions\030\005 " +
+      "\001(\0132\027.google.protobuf.StructB\n\n\010_failure" +
+      "\"\304\002\n\026AckCancellationRequest\022\030\n\020contract_" +
+      "version\030\001 \001(\t\022\021\n\trunner_id\030\002 \001(\t\022\022\n\nsess" +
+      "ion_id\030\003 \001(\t\0224\n\005lease\030\004 \001(\0132%.monarchic." +
+      "agent_protocol.v1.LeaseRef\022\016\n\006status\030\005 \001" +
+      "(\t\022\024\n\007message\030\006 \001(\tH\000\210\001\001\022+\n\nextensions\030\007" +
+      " \001(\0132\027.google.protobuf.Struct\022C\n\014auth_co" +
+      "ntext\030\010 \001(\0132(.monarchic.agent_protocol.v" +
+      "1.AuthContextH\001\210\001\001B\n\n\010_messageB\017\n\r_auth_" +
+      "context\"\331\001\n\027AckCancellationResponse\022\030\n\020c" +
+      "ontract_version\030\001 \001(\t\022\027\n\017orchestrator_id" +
+      "\030\002 \001(\t\022\020\n\010accepted\030\003 \001(\010\022@\n\007failure\030\004 \001(" +
+      "\0132*.monarchic.agent_protocol.v1.FailureD" +
+      "etailH\000\210\001\001\022+\n\nextensions\030\005 \001(\0132\027.google." +
+      "protobuf.StructB\n\n\010_failure\"\215\001\n\021ControlP" +
+      "laneScope\022\031\n\014organization\030\001 \001(\tH\000\210\001\001\022\021\n\004" +
+      "user\030\002 \001(\tH\001\210\001\001\022\034\n\017default_project\030\003 \001(\t" +
+      "H\002\210\001\001B\017\n\r_organizationB\007\n\005_userB\022\n\020_defa" +
+      "ult_project\"\253\001\n\022RunOperatorSignals\022\025\n\rpr" +
+      "ompt_needed\030\001 \001(\010\022\033\n\016prompt_summary\030\002 \001(" +
+      "\tH\000\210\001\001\022\027\n\017pause_requested\030\003 \001(\010\022\033\n\023inter" +
+      "rupt_requested\030\004 \001(\010\022\030\n\020cancel_requested" +
+      "\030\005 \001(\010B\021\n\017_prompt_summary\"\252\006\n\026ControlPla" +
+      "neRunSummary\022\023\n\013project_key\030\001 \001(\t\022\016\n\006run" +
+      "_id\030\002 \001(\t\022\024\n\007run_dir\030\003 \001(\tH\000\210\001\001\022L\n\017lifec" +
+      "ycle_state\030\004 \001(\0162..monarchic.agent_proto" +
+      "col.v1.RunLifecycleStateH\001\210\001\001\022\016\n\006status\030" +
+      "\005 \001(\t\022\032\n\rupdated_label\030\006 \001(\tH\002\210\001\001\022\032\n\rupd" +
+      "ated_epoch\030\007 \001(\004H\003\210\001\001\022\036\n\021meaningful_stat" +
+      "us\030\010 \001(\tH\004\210\001\001\022\035\n\020meaningful_score\030\t \001(\001H" +
+      "\005\210\001\001\022\032\n\022meaningful_reasons\030\n \003(\t\022\027\n\ntota" +
+      "l_runs\030\013 \001(\004H\006\210\001\001\022\032\n\rtotal_success\030\014 \001(\004" +
+      "H\007\210\001\001\022\031\n\014total_failed\030\r \001(\004H\010\210\001\001\022\032\n\rmess" +
+      "age_count\030\016 \001(\004H\t\210\001\001\022*\n\035unresolved_requi" +
+      "red_ack_count\030\017 \001(\004H\n\210\001\001\022\023\n\013alert_stale\030" +
+      "\020 \001(\010\022\027\n\017alert_low_score\030\021 \001(\010\022I\n\020operat" +
+      "or_signals\030\022 \001(\0132/.monarchic.agent_proto" +
+      "col.v1.RunOperatorSignalsB\n\n\010_run_dirB\022\n" +
+      "\020_lifecycle_stateB\020\n\016_updated_labelB\020\n\016_" +
+      "updated_epochB\024\n\022_meaningful_statusB\023\n\021_" +
+      "meaningful_scoreB\r\n\013_total_runsB\020\n\016_tota" +
+      "l_successB\017\n\r_total_failedB\020\n\016_message_c" +
+      "ountB \n\036_unresolved_required_ack_count\"{" +
+      "\n\035ControlPlaneRunActivityCursor\022\033\n\016after" +
+      "_sequence\030\001 \001(\004H\000\210\001\001\022\031\n\014resume_token\030\002 \001" +
+      "(\tH\001\210\001\001B\021\n\017_after_sequenceB\017\n\r_resume_to" +
+      "ken\"\301\002\n\033ListControlPlaneRunsRequest\022\030\n\020c" +
+      "ontract_version\030\001 \001(\t\022=\n\005scope\030\002 \001(\0132..m" +
+      "onarchic.agent_protocol.v1.ControlPlaneS" +
+      "cope\022\030\n\013project_key\030\003 \001(\tH\000\210\001\001\022\022\n\005limit\030" +
+      "\004 \001(\rH\001\210\001\001\022+\n\nextensions\030\005 \001(\0132\027.google." +
+      "protobuf.Struct\022C\n\014auth_context\030\006 \001(\0132(." +
       "monarchic.agent_protocol.v1.AuthContextH" +
-      "\001\210\001\001B\n\n\010_messageB\017\n\r_auth_context\"\331\001\n\027Ac" +
-      "kCancellationResponse\022\030\n\020contract_versio" +
-      "n\030\001 \001(\t\022\027\n\017orchestrator_id\030\002 \001(\t\022\020\n\010acce" +
-      "pted\030\003 \001(\010\022@\n\007failure\030\004 \001(\0132*.monarchic." +
-      "agent_protocol.v1.FailureDetailH\000\210\001\001\022+\n\n" +
-      "extensions\030\005 \001(\0132\027.google.protobuf.Struc" +
-      "tB\n\n\010_failure\"\215\001\n\021ControlPlaneScope\022\031\n\014o" +
-      "rganization\030\001 \001(\tH\000\210\001\001\022\021\n\004user\030\002 \001(\tH\001\210\001" +
-      "\001\022\034\n\017default_project\030\003 \001(\tH\002\210\001\001B\017\n\r_orga" +
-      "nizationB\007\n\005_userB\022\n\020_default_project\"\253\001" +
-      "\n\022RunOperatorSignals\022\025\n\rprompt_needed\030\001 " +
-      "\001(\010\022\033\n\016prompt_summary\030\002 \001(\tH\000\210\001\001\022\027\n\017paus" +
-      "e_requested\030\003 \001(\010\022\033\n\023interrupt_requested" +
-      "\030\004 \001(\010\022\030\n\020cancel_requested\030\005 \001(\010B\021\n\017_pro" +
-      "mpt_summary\"\252\006\n\026ControlPlaneRunSummary\022\023" +
-      "\n\013project_key\030\001 \001(\t\022\016\n\006run_id\030\002 \001(\t\022\024\n\007r" +
-      "un_dir\030\003 \001(\tH\000\210\001\001\022L\n\017lifecycle_state\030\004 \001" +
-      "(\0162..monarchic.agent_protocol.v1.RunLife" +
-      "cycleStateH\001\210\001\001\022\016\n\006status\030\005 \001(\t\022\032\n\rupdat" +
-      "ed_label\030\006 \001(\tH\002\210\001\001\022\032\n\rupdated_epoch\030\007 \001" +
-      "(\004H\003\210\001\001\022\036\n\021meaningful_status\030\010 \001(\tH\004\210\001\001\022" +
-      "\035\n\020meaningful_score\030\t \001(\001H\005\210\001\001\022\032\n\022meanin" +
-      "gful_reasons\030\n \003(\t\022\027\n\ntotal_runs\030\013 \001(\004H\006" +
-      "\210\001\001\022\032\n\rtotal_success\030\014 \001(\004H\007\210\001\001\022\031\n\014total" +
-      "_failed\030\r \001(\004H\010\210\001\001\022\032\n\rmessage_count\030\016 \001(" +
-      "\004H\t\210\001\001\022*\n\035unresolved_required_ack_count\030" +
-      "\017 \001(\004H\n\210\001\001\022\023\n\013alert_stale\030\020 \001(\010\022\027\n\017alert" +
-      "_low_score\030\021 \001(\010\022I\n\020operator_signals\030\022 \001" +
-      "(\0132/.monarchic.agent_protocol.v1.RunOper" +
-      "atorSignalsB\n\n\010_run_dirB\022\n\020_lifecycle_st" +
-      "ateB\020\n\016_updated_labelB\020\n\016_updated_epochB" +
-      "\024\n\022_meaningful_statusB\023\n\021_meaningful_sco" +
-      "reB\r\n\013_total_runsB\020\n\016_total_successB\017\n\r_" +
-      "total_failedB\020\n\016_message_countB \n\036_unres" +
-      "olved_required_ack_count\"{\n\035ControlPlane" +
-      "RunActivityCursor\022\033\n\016after_sequence\030\001 \001(" +
-      "\004H\000\210\001\001\022\031\n\014resume_token\030\002 \001(\tH\001\210\001\001B\021\n\017_af" +
-      "ter_sequenceB\017\n\r_resume_token\"\301\002\n\033ListCo" +
-      "ntrolPlaneRunsRequest\022\030\n\020contract_versio" +
+      "\002\210\001\001B\016\n\014_project_keyB\010\n\006_limitB\017\n\r_auth_" +
+      "context\"\250\001\n\034ListControlPlaneRunsResponse" +
+      "\022\030\n\020contract_version\030\001 \001(\t\022A\n\004runs\030\002 \003(\013" +
+      "23.monarchic.agent_protocol.v1.ControlPl" +
+      "aneRunSummary\022+\n\nextensions\030\003 \001(\0132\027.goog" +
+      "le.protobuf.Struct\"\261\002\n\031GetControlPlaneRu" +
+      "nRequest\022\030\n\020contract_version\030\001 \001(\t\022=\n\005sc" +
+      "ope\030\002 \001(\0132..monarchic.agent_protocol.v1." +
+      "ControlPlaneScope\022\030\n\013project_key\030\003 \001(\tH\000" +
+      "\210\001\001\022\016\n\006run_id\030\004 \001(\t\022+\n\nextensions\030\005 \001(\0132" +
+      "\027.google.protobuf.Struct\022C\n\014auth_context" +
+      "\030\006 \001(\0132(.monarchic.agent_protocol.v1.Aut" +
+      "hContextH\001\210\001\001B\016\n\014_project_keyB\017\n\r_auth_c" +
+      "ontext\"\245\001\n\032GetControlPlaneRunResponse\022\030\n" +
+      "\020contract_version\030\001 \001(\t\022@\n\003run\030\002 \001(\01323.m" +
+      "onarchic.agent_protocol.v1.ControlPlaneR" +
+      "unSummary\022+\n\nextensions\030\003 \001(\0132\027.google.p" +
+      "rotobuf.Struct\"\247\003\n%GetControlPlaneRunAct" +
+      "ivityPageRequest\022\030\n\020contract_version\030\001 \001" +
+      "(\t\022=\n\005scope\030\002 \001(\0132..monarchic.agent_prot" +
+      "ocol.v1.ControlPlaneScope\022\030\n\013project_key" +
+      "\030\003 \001(\tH\000\210\001\001\022\016\n\006run_id\030\004 \001(\t\022\022\n\005limit\030\005 \001" +
+      "(\rH\001\210\001\001\022J\n\006cursor\030\006 \001(\0132:.monarchic.agen" +
+      "t_protocol.v1.ControlPlaneRunActivityCur" +
+      "sor\022+\n\nextensions\030\007 \001(\0132\027.google.protobu" +
+      "f.Struct\022C\n\014auth_context\030\010 \001(\0132(.monarch" +
+      "ic.agent_protocol.v1.AuthContextH\002\210\001\001B\016\n" +
+      "\014_project_keyB\010\n\006_limitB\017\n\r_auth_context" +
+      "\"\376\001\n&GetControlPlaneRunActivityPageRespo" +
+      "nse\022\030\n\020contract_version\030\001 \001(\t\022<\n\007records" +
+      "\030\002 \003(\0132+.monarchic.agent_protocol.v1.Run" +
+      "EventRecord\022O\n\013next_cursor\030\003 \001(\0132:.monar" +
+      "chic.agent_protocol.v1.ControlPlaneRunAc" +
+      "tivityCursor\022+\n\nextensions\030\004 \001(\0132\027.googl" +
+      "e.protobuf.Struct\"\363\002\n!ApplyControlPlaneR" +
+      "unActionRequest\022\030\n\020contract_version\030\001 \001(" +
+      "\t\022=\n\005scope\030\002 \001(\0132..monarchic.agent_proto" +
+      "col.v1.ControlPlaneScope\022\016\n\006run_id\030\003 \001(\t" +
+      "\022B\n\006action\030\004 \001(\01622.monarchic.agent_proto" +
+      "col.v1.ControlPlaneRunAction\022\023\n\006reason\030\005" +
+      " \001(\tH\000\210\001\001\022+\n\nextensions\030\006 \001(\0132\027.google.p" +
+      "rotobuf.Struct\022C\n\014auth_context\030\007 \001(\0132(.m" +
+      "onarchic.agent_protocol.v1.AuthContextH\001" +
+      "\210\001\001B\t\n\007_reasonB\017\n\r_auth_context\"\325\002\n\"Appl" +
+      "yControlPlaneRunActionResponse\022\030\n\020contra" +
+      "ct_version\030\001 \001(\t\022\016\n\006run_id\030\002 \001(\t\022B\n\006acti" +
+      "on\030\003 \001(\01622.monarchic.agent_protocol.v1.C" +
+      "ontrolPlaneRunAction\022\020\n\010accepted\030\004 \001(\010\022L" +
+      "\n\017lifecycle_state\030\005 \001(\0162..monarchic.agen" +
+      "t_protocol.v1.RunLifecycleStateH\000\210\001\001\022\024\n\007" +
+      "message\030\006 \001(\tH\001\210\001\001\022+\n\nextensions\030\007 \001(\0132\027" +
+      ".google.protobuf.StructB\022\n\020_lifecycle_st" +
+      "ateB\n\n\010_message\"\237\003\n)ApplyControlPlaneRev" +
+      "iewDispositionRequest\022\030\n\020contract_versio" +
       "n\030\001 \001(\t\022=\n\005scope\030\002 \001(\0132..monarchic.agent" +
-      "_protocol.v1.ControlPlaneScope\022\030\n\013projec" +
-      "t_key\030\003 \001(\tH\000\210\001\001\022\022\n\005limit\030\004 \001(\rH\001\210\001\001\022+\n\n" +
-      "extensions\030\005 \001(\0132\027.google.protobuf.Struc" +
-      "t\022C\n\014auth_context\030\006 \001(\0132(.monarchic.agen" +
-      "t_protocol.v1.AuthContextH\002\210\001\001B\016\n\014_proje" +
-      "ct_keyB\010\n\006_limitB\017\n\r_auth_context\"\250\001\n\034Li" +
-      "stControlPlaneRunsResponse\022\030\n\020contract_v" +
-      "ersion\030\001 \001(\t\022A\n\004runs\030\002 \003(\01323.monarchic.a" +
-      "gent_protocol.v1.ControlPlaneRunSummary\022" +
-      "+\n\nextensions\030\003 \001(\0132\027.google.protobuf.St" +
-      "ruct\"\261\002\n\031GetControlPlaneRunRequest\022\030\n\020co" +
-      "ntract_version\030\001 \001(\t\022=\n\005scope\030\002 \001(\0132..mo" +
-      "narchic.agent_protocol.v1.ControlPlaneSc" +
-      "ope\022\030\n\013project_key\030\003 \001(\tH\000\210\001\001\022\016\n\006run_id\030" +
-      "\004 \001(\t\022+\n\nextensions\030\005 \001(\0132\027.google.proto" +
-      "buf.Struct\022C\n\014auth_context\030\006 \001(\0132(.monar" +
-      "chic.agent_protocol.v1.AuthContextH\001\210\001\001B" +
-      "\016\n\014_project_keyB\017\n\r_auth_context\"\245\001\n\032Get" +
-      "ControlPlaneRunResponse\022\030\n\020contract_vers" +
-      "ion\030\001 \001(\t\022@\n\003run\030\002 \001(\01323.monarchic.agent" +
-      "_protocol.v1.ControlPlaneRunSummary\022+\n\ne" +
-      "xtensions\030\003 \001(\0132\027.google.protobuf.Struct" +
-      "\"\247\003\n%GetControlPlaneRunActivityPageReque" +
-      "st\022\030\n\020contract_version\030\001 \001(\t\022=\n\005scope\030\002 " +
-      "\001(\0132..monarchic.agent_protocol.v1.Contro" +
-      "lPlaneScope\022\030\n\013project_key\030\003 \001(\tH\000\210\001\001\022\016\n" +
-      "\006run_id\030\004 \001(\t\022\022\n\005limit\030\005 \001(\rH\001\210\001\001\022J\n\006cur" +
-      "sor\030\006 \001(\0132:.monarchic.agent_protocol.v1." +
-      "ControlPlaneRunActivityCursor\022+\n\nextensi" +
-      "ons\030\007 \001(\0132\027.google.protobuf.Struct\022C\n\014au" +
-      "th_context\030\010 \001(\0132(.monarchic.agent_proto" +
-      "col.v1.AuthContextH\002\210\001\001B\016\n\014_project_keyB" +
-      "\010\n\006_limitB\017\n\r_auth_context\"\376\001\n&GetContro" +
-      "lPlaneRunActivityPageResponse\022\030\n\020contrac" +
-      "t_version\030\001 \001(\t\022<\n\007records\030\002 \003(\0132+.monar" +
-      "chic.agent_protocol.v1.RunEventRecord\022O\n" +
-      "\013next_cursor\030\003 \001(\0132:.monarchic.agent_pro" +
-      "tocol.v1.ControlPlaneRunActivityCursor\022+" +
-      "\n\nextensions\030\004 \001(\0132\027.google.protobuf.Str" +
-      "uct\"\363\002\n!ApplyControlPlaneRunActionReques" +
-      "t\022\030\n\020contract_version\030\001 \001(\t\022=\n\005scope\030\002 \001" +
-      "(\0132..monarchic.agent_protocol.v1.Control" +
-      "PlaneScope\022\016\n\006run_id\030\003 \001(\t\022B\n\006action\030\004 \001" +
-      "(\01622.monarchic.agent_protocol.v1.Control" +
-      "PlaneRunAction\022\023\n\006reason\030\005 \001(\tH\000\210\001\001\022+\n\ne" +
-      "xtensions\030\006 \001(\0132\027.google.protobuf.Struct" +
-      "\022C\n\014auth_context\030\007 \001(\0132(.monarchic.agent" +
-      "_protocol.v1.AuthContextH\001\210\001\001B\t\n\007_reason" +
-      "B\017\n\r_auth_context\"\325\002\n\"ApplyControlPlaneR" +
-      "unActionResponse\022\030\n\020contract_version\030\001 \001" +
-      "(\t\022\016\n\006run_id\030\002 \001(\t\022B\n\006action\030\003 \001(\01622.mon" +
-      "archic.agent_protocol.v1.ControlPlaneRun" +
-      "Action\022\020\n\010accepted\030\004 \001(\010\022L\n\017lifecycle_st" +
-      "ate\030\005 \001(\0162..monarchic.agent_protocol.v1." +
-      "RunLifecycleStateH\000\210\001\001\022\024\n\007message\030\006 \001(\tH" +
-      "\001\210\001\001\022+\n\nextensions\030\007 \001(\0132\027.google.protob" +
-      "uf.StructB\022\n\020_lifecycle_stateB\n\n\010_messag" +
-      "e\"\237\003\n)ApplyControlPlaneReviewDisposition" +
-      "Request\022\030\n\020contract_version\030\001 \001(\t\022=\n\005sco" +
-      "pe\030\002 \001(\0132..monarchic.agent_protocol.v1.C" +
-      "ontrolPlaneScope\022\023\n\013project_key\030\003 \001(\t\022\024\n" +
-      "\007plan_id\030\004 \001(\tH\000\210\001\001\022\r\n\005actor\030\005 \001(\t\022@\n\010de" +
-      "cision\030\006 \001(\0162..monarchic.agent_protocol." +
-      "v1.ReviewDisposition\022\016\n\006reason\030\007 \001(\t\022+\n\n" +
-      "extensions\030\010 \001(\0132\027.google.protobuf.Struc" +
-      "t\022C\n\014auth_context\030\t \001(\0132(.monarchic.agen" +
-      "t_protocol.v1.AuthContextH\001\210\001\001B\n\n\010_plan_" +
-      "idB\017\n\r_auth_context\"\244\003\n*ApplyControlPlan" +
-      "eReviewDispositionResponse\022\030\n\020contract_v" +
-      "ersion\030\001 \001(\t\022\023\n\013project_key\030\002 \001(\t\022\024\n\007pla" +
-      "n_id\030\003 \001(\tH\000\210\001\001\022\020\n\010accepted\030\004 \001(\010\022I\n\017rev" +
-      "iew_decision\030\005 \001(\0132+.monarchic.agent_pro" +
-      "tocol.v1.ReviewDecisionH\001\210\001\001\022N\n\022pr_lifec" +
-      "ycle_state\030\006 \001(\0132-.monarchic.agent_proto" +
-      "col.v1.PrLifecycleStateH\002\210\001\001\022\024\n\007message\030" +
-      "\007 \001(\tH\003\210\001\001\022+\n\nextensions\030\010 \001(\0132\027.google." +
-      "protobuf.StructB\n\n\010_plan_idB\022\n\020_review_d" +
-      "ecisionB\025\n\023_pr_lifecycle_stateB\n\n\010_messa" +
-      "ge\"\222\002\n\037EnsureControlPlaneWorkerRequest\022\030" +
-      "\n\020contract_version\030\001 \001(\t\022=\n\005scope\030\002 \001(\0132" +
-      "..monarchic.agent_protocol.v1.ControlPla" +
-      "neScope\022\023\n\013project_key\030\003 \001(\t\022+\n\nextensio" +
-      "ns\030\004 \001(\0132\027.google.protobuf.Struct\022C\n\014aut" +
-      "h_context\030\005 \001(\0132(.monarchic.agent_protoc" +
-      "ol.v1.AuthContextH\000\210\001\001B\017\n\r_auth_context\"" +
-      "\330\001\n EnsureControlPlaneWorkerResponse\022\030\n\020" +
-      "contract_version\030\001 \001(\t\022\023\n\013project_key\030\002 " +
-      "\001(\t\022\020\n\010accepted\030\003 \001(\010\022\026\n\tworker_id\030\004 \001(\t" +
-      "H\000\210\001\001\022\024\n\007message\030\005 \001(\tH\001\210\001\001\022+\n\nextension" +
-      "s\030\006 \001(\0132\027.google.protobuf.StructB\014\n\n_wor" +
-      "ker_idB\n\n\010_message*\266\001\n\tAgentRole\022\032\n\026AGEN" +
-      "T_ROLE_UNSPECIFIED\020\000\022\021\n\rPRODUCT_OWNER\020\001\022" +
-      "\023\n\017PROJECT_MANAGER\020\002\022\007\n\003DEV\020\003\022\006\n\002QA\020\004\022\014\n" +
-      "\010REVIEWER\020\005\022\014\n\010SECURITY\020\006\022\007\n\003OPS\020\007\022\r\n\tPU" +
-      "BLISHER\020\010\022\016\n\nRESEARCHER\020\t\022\020\n\014VERIFICATIO" +
-      "N\020\n*f\n\017OutcomeDecision\022 \n\034OUTCOME_DECISI" +
-      "ON_UNSPECIFIED\020\000\022\n\n\006ACCEPT\020\001\022\013\n\007ITERATE\020" +
-      "\002\022\n\n\006REJECT\020\003\022\014\n\010ESCALATE\020\004*\223\001\n\013IntentCl" +
-      "ass\022\034\n\030INTENT_CLASS_UNSPECIFIED\020\000\022\030\n\024INT" +
-      "ENT_CLASS_INSPECT\020\001\022\031\n\025INTENT_CLASS_VALI" +
-      "DATE\020\002\022\030\n\024INTENT_CLASS_EXECUTE\020\003\022\027\n\023INTE" +
-      "NT_CLASS_VERIFY\020\004*\247\001\n\025BootstrapPlanningM" +
-      "ode\022\'\n#BOOTSTRAP_PLANNING_MODE_UNSPECIFI" +
-      "ED\020\000\0220\n,BOOTSTRAP_PLANNING_MODE_DIRECT_T" +
-      "EMPLATE_FILL\020\001\0223\n/BOOTSTRAP_PLANNING_MOD" +
-      "E_BOUNDED_RESEARCH_REPLAN\020\002*\314\002\n\036Campaign" +
-      "PipelineConnectionKind\0221\n-CAMPAIGN_PIPEL" +
-      "INE_CONNECTION_KIND_UNSPECIFIED\020\000\0220\n,CAM" +
-      "PAIGN_PIPELINE_CONNECTION_KIND_DEPENDS_O" +
-      "N\020\001\022-\n)CAMPAIGN_PIPELINE_CONNECTION_KIND" +
-      "_HANDOFF\020\002\022,\n(CAMPAIGN_PIPELINE_CONNECTI" +
-      "ON_KIND_REVIEW\020\003\0223\n/CAMPAIGN_PIPELINE_CO" +
-      "NNECTION_KIND_MESSAGE_ROUTE\020\004\0223\n/CAMPAIG" +
-      "N_PIPELINE_CONNECTION_KIND_ARTIFACT_FLOW" +
-      "\020\005*\223\001\n\nPlanStatus\022\033\n\027PLAN_STATUS_UNSPECI" +
-      "FIED\020\000\022\t\n\005DRAFT\020\001\022\013\n\007PLANNED\020\002\022\r\n\tEXECUT" +
-      "ING\020\003\022\014\n\010COMPLETE\020\004\022\013\n\007BOUNDED\020\005\022\n\n\006FAIL" +
-      "ED\020\006\022\r\n\tCANCELLED\020\007\022\013\n\007UNKNOWN\020\010*\375\002\n\014Art" +
-      "ifactKind\022\035\n\031ARTIFACT_KIND_UNSPECIFIED\020\000" +
-      "\022\026\n\022ARTIFACT_KIND_PLAN\020\001\022#\n\037ARTIFACT_KIN" +
-      "D_EXECUTION_RECEIPT\020\002\022&\n\"ARTIFACT_KIND_V" +
-      "ERIFICATION_RECEIPT\020\003\022\033\n\027ARTIFACT_KIND_E" +
-      "VENT_LOG\020\004\022!\n\035ARTIFACT_KIND_DIGEST_MANIF" +
-      "EST\020\005\022 \n\034ARTIFACT_KIND_PROOF_MANIFEST\020\006\022" +
-      "\027\n\023ARTIFACT_KIND_PATCH\020\007\022\035\n\031ARTIFACT_KIN" +
-      "D_TEST_REPORT\020\010\022\033\n\027ARTIFACT_KIND_BUILD_L" +
-      "OG\020\t\022\030\n\024ARTIFACT_KIND_BUNDLE\020\n\022\030\n\024ARTIFA" +
-      "CT_KIND_CUSTOM\020\013*\315\001\n\rAuthMechanism\022\036\n\032AU" +
-      "TH_MECHANISM_UNSPECIFIED\020\000\022 \n\034AUTH_MECHA" +
-      "NISM_SHARED_SECRET\020\001\022\037\n\033AUTH_MECHANISM_B" +
-      "EARER_TOKEN\020\002\022\037\n\033AUTH_MECHANISM_SIGNED_T" +
-      "OKEN\020\003\022\035\n\031AUTH_MECHANISM_MUTUAL_TLS\020\004\022\031\n" +
-      "\025AUTH_MECHANISM_CUSTOM\020\005*\314\001\n\rUsageCatego" +
-      "ry\022\036\n\032USAGE_CATEGORY_UNSPECIFIED\020\000\022 \n\034US" +
-      "AGE_CATEGORY_CONTROL_PLANE\020\001\022\034\n\030USAGE_CA" +
-      "TEGORY_EXECUTION\020\002\022\037\n\033USAGE_CATEGORY_VER" +
-      "IFICATION\020\003\022\037\n\033USAGE_CATEGORY_AUDIT_EXPO" +
-      "RT\020\004\022\031\n\025USAGE_CATEGORY_CUSTOM\020\005*\266\001\n\tUsag" +
-      "eUnit\022\032\n\026USAGE_UNIT_UNSPECIFIED\020\000\022\027\n\023USA" +
-      "GE_UNIT_REQUESTS\020\001\022\033\n\027USAGE_UNIT_MILLISE" +
-      "CONDS\020\002\022\024\n\020USAGE_UNIT_BYTES\020\003\022\025\n\021USAGE_U" +
-      "NIT_TOKENS\020\004\022\023\n\017USAGE_UNIT_RUNS\020\005\022\025\n\021USA" +
-      "GE_UNIT_CUSTOM\020\006*\366\001\n\014PlanStepKind\022\036\n\032PLA" +
-      "N_STEP_KIND_UNSPECIFIED\020\000\022\033\n\027PLAN_STEP_K" +
-      "IND_ANALYSIS\020\001\022\034\n\030PLAN_STEP_KIND_EXECUTI" +
-      "ON\020\002\022\037\n\033PLAN_STEP_KIND_VERIFICATION\020\003\022\031\n" +
-      "\025PLAN_STEP_KIND_REVIEW\020\004\022\030\n\024PLAN_STEP_KI" +
-      "ND_MERGE\020\005\022\032\n\026PLAN_STEP_KIND_RELEASE\020\006\022\031" +
-      "\n\025PLAN_STEP_KIND_CUSTOM\020\007*\241\001\n\016ReplanStra" +
-      "tegy\022\037\n\033REPLAN_STRATEGY_UNSPECIFIED\020\000\022\031\n" +
-      "\025REPLAN_STRATEGY_RETRY\020\001\022\032\n\026REPLAN_STRAT" +
-      "EGY_REPAIR\020\002\022\034\n\030REPLAN_STRATEGY_ESCALATE" +
-      "\020\003\022\031\n\025REPLAN_STRATEGY_BLOCK\020\004*\273\001\n\022Verifi" +
-      "cationStatus\022#\n\037VERIFICATION_STATUS_UNSP" +
-      "ECIFIED\020\000\022\037\n\033VERIFICATION_STATUS_PENDING" +
-      "\020\001\022\036\n\032VERIFICATION_STATUS_PASSED\020\002\022\036\n\032VE" +
-      "RIFICATION_STATUS_FAILED\020\003\022\037\n\033VERIFICATI" +
-      "ON_STATUS_BLOCKED\020\004*\336\001\n\027VerificationChec" +
-      "kStatus\022)\n%VERIFICATION_CHECK_STATUS_UNS" +
-      "PECIFIED\020\000\022$\n VERIFICATION_CHECK_STATUS_" +
-      "PASSED\020\001\022$\n VERIFICATION_CHECK_STATUS_FA" +
-      "ILED\020\002\022%\n!VERIFICATION_CHECK_STATUS_BLOC" +
-      "KED\020\003\022%\n!VERIFICATION_CHECK_STATUS_SKIPP" +
-      "ED\020\004*\251\002\n\023BlockedOutcomeScope\022%\n!BLOCKED_",
-      "OUTCOME_SCOPE_UNSPECIFIED\020\000\022 \n\034BLOCKED_O" +
-      "UTCOME_SCOPE_INTENT\020\001\022\036\n\032BLOCKED_OUTCOME" +
-      "_SCOPE_PLAN\020\002\022\036\n\032BLOCKED_OUTCOME_SCOPE_S" +
-      "TEP\020\003\022\035\n\031BLOCKED_OUTCOME_SCOPE_RUN\020\004\022&\n\"" +
-      "BLOCKED_OUTCOME_SCOPE_VERIFICATION\020\005\022\037\n\033" +
-      "BLOCKED_OUTCOME_SCOPE_MERGE\020\006\022!\n\035BLOCKED" +
-      "_OUTCOME_SCOPE_RELEASE\020\007*\357\001\n\023ReviewDecis" +
-      "ionScope\022%\n!REVIEW_DECISION_SCOPE_UNSPEC" +
-      "IFIED\020\000\022\036\n\032REVIEW_DECISION_SCOPE_PLAN\020\001\022" +
-      "\036\n\032REVIEW_DECISION_SCOPE_STEP\020\002\022&\n\"REVIE" +
-      "W_DECISION_SCOPE_PULL_REQUEST\020\003\022&\n\"REVIE" +
-      "W_DECISION_SCOPE_VERIFICATION\020\004\022!\n\035REVIE" +
-      "W_DECISION_SCOPE_RELEASE\020\005*\274\001\n\021ReviewDis" +
-      "position\022\"\n\036REVIEW_DISPOSITION_UNSPECIFI" +
-      "ED\020\000\022\036\n\032REVIEW_DISPOSITION_APPROVE\020\001\022&\n\"" +
-      "REVIEW_DISPOSITION_REQUEST_CHANGES\020\002\022\035\n\031" +
-      "REVIEW_DISPOSITION_REJECT\020\003\022\034\n\030REVIEW_DI" +
-      "SPOSITION_DEFER\020\004*j\n\014RerunTrigger\022\035\n\031RER" +
-      "UN_TRIGGER_UNSPECIFIED\020\000\022!\n\035RERUN_TRIGGE" +
-      "R_REVIEW_DECISION\020\001\022\030\n\024RERUN_TRIGGER_MAN" +
-      "UAL\020\002*\264\001\n\026RerunSelectionStrategy\022(\n$RERU" +
-      "N_SELECTION_STRATEGY_UNSPECIFIED\020\000\022%\n!RE" +
-      "RUN_SELECTION_STRATEGY_TASK_IDS\020\001\022%\n!RER" +
-      "UN_SELECTION_STRATEGY_STEP_IDS\020\002\022\"\n\036RERU" +
-      "N_SELECTION_STRATEGY_PATHS\020\003*\317\001\n\024RerunEx" +
-      "ecutionStatus\022&\n\"RERUN_EXECUTION_STATUS_" +
-      "UNSPECIFIED\020\000\022\"\n\036RERUN_EXECUTION_STATUS_" +
-      "PENDING\020\001\022$\n RERUN_EXECUTION_STATUS_SUCC" +
-      "EEDED\020\002\022!\n\035RERUN_EXECUTION_STATUS_FAILED" +
-      "\020\003\022\"\n\036RERUN_EXECUTION_STATUS_PARTIAL\020\004*\356" +
-      "\001\n\016RunEventStream\022 \n\034RUN_EVENT_STREAM_UN" +
-      "SPECIFIED\020\000\022\036\n\032RUN_EVENT_STREAM_EXECUTIO" +
-      "N\020\001\022\035\n\031RUN_EVENT_STREAM_RECOVERY\020\002\022\033\n\027RU" +
-      "N_EVENT_STREAM_REVIEW\020\003\022!\n\035RUN_EVENT_STR" +
-      "EAM_VERIFICATION\020\004\022\036\n\032RUN_EVENT_STREAM_L" +
-      "IFECYCLE\020\005\022\033\n\027RUN_EVENT_STREAM_CUSTOM\020\006*" +
-      "\265\001\n\017TaskMessageKind\022!\n\035TASK_MESSAGE_KIND" +
-      "_UNSPECIFIED\020\000\022$\n TASK_MESSAGE_KIND_ARTI" +
-      "FACT_READY\020\001\022+\n\'TASK_MESSAGE_KIND_CLARIF" +
-      "ICATION_REQUEST\020\002\022,\n(TASK_MESSAGE_KIND_C" +
-      "LARIFICATION_RESPONSE\020\003*\260\001\n\023LeaseLifecyc" +
-      "leState\022%\n!LEASE_LIFECYCLE_STATE_UNSPECI" +
-      "FIED\020\000\022\020\n\014LEASE_ISSUED\020\001\022\020\n\014LEASE_ACTIVE" +
-      "\020\002\022\022\n\016LEASE_RELEASED\020\003\022\021\n\rLEASE_EXPIRED\020" +
-      "\004\022\023\n\017LEASE_CANCELLED\020\005\022\022\n\016LEASE_REJECTED" +
-      "\020\006*\306\001\n\021RunLifecycleState\022#\n\037RUN_LIFECYCL" +
-      "E_STATE_UNSPECIFIED\020\000\022\017\n\013RUN_PENDING\020\001\022\021" +
-      "\n\rRUN_EXECUTING\020\002\022\016\n\nRUN_PAUSED\020\003\022\022\n\016RUN" +
-      "_CANCELLING\020\004\022\021\n\rRUN_CANCELLED\020\005\022\016\n\nRUN_" +
-      "FAILED\020\006\022\020\n\014RUN_COMPLETE\020\007\022\017\n\013RUN_BLOCKE" +
-      "D\020\010*\311\001\n\022StepLifecycleState\022$\n STEP_LIFEC" +
-      "YCLE_STATE_UNSPECIFIED\020\000\022\020\n\014STEP_PENDING" +
-      "\020\001\022\016\n\nSTEP_READY\020\002\022\017\n\013STEP_LEASED\020\003\022\020\n\014S" +
-      "TEP_RUNNING\020\004\022\021\n\rSTEP_COMPLETE\020\005\022\017\n\013STEP" +
-      "_FAILED\020\006\022\022\n\016STEP_CANCELLED\020\007\022\020\n\014STEP_BL" +
-      "OCKED\020\010*\356\002\n\024LeaseRejectionReason\022&\n\"LEAS" +
-      "E_REJECTION_REASON_UNSPECIFIED\020\000\022\'\n#LEAS" +
-      "E_REJECTION_STALE_FENCING_TOKEN\020\001\022\033\n\027LEA" +
-      "SE_REJECTION_EXPIRED\020\002\022$\n LEASE_REJECTIO" +
-      "N_SESSION_MISMATCH\020\003\022!\n\035LEASE_REJECTION_" +
-      "UNKNOWN_LEASE\020\004\022)\n%LEASE_REJECTION_STEP_" +
-      "ALREADY_TERMINAL\020\005\022&\n\"LEASE_REJECTION_RU" +
-      "N_NOT_EXECUTABLE\020\006\022&\n\"LEASE_REJECTION_DE" +
-      "PENDENCY_BLOCKED\020\007\022$\n LEASE_REJECTION_LE" +
-      "ASE_SUPERSEDED\020\010*\210\003\n\021RecoveryEventKind\022#" +
-      "\n\037RECOVERY_EVENT_KIND_UNSPECIFIED\020\000\022\'\n#R" +
-      "ECOVERY_EVENT_ORCHESTRATOR_STARTED\020\001\022!\n\035" +
-      "RECOVERY_EVENT_STATE_RELOADED\020\002\022!\n\035RECOV" +
-      "ERY_EVENT_LEASE_RESTORED\020\003\022!\n\035RECOVERY_E" +
-      "VENT_LEASE_REJECTED\020\004\022 \n\034RECOVERY_EVENT_" +
-      "STEP_REQUEUED\020\005\022\037\n\033RECOVERY_EVENT_STEP_B" +
-      "LOCKED\020\006\022 \n\034RECOVERY_EVENT_RUN_RECOVERED" +
-      "\020\007\022)\n%RECOVERY_EVENT_CANCELLATION_REQUES" +
-      "TED\020\010\022,\n(RECOVERY_EVENT_CANCELLATION_ACK" +
-      "NOWLEDGED\020\t*\327\001\n\025ControlPlaneRunAction\022(\n" +
-      "$CONTROL_PLANE_RUN_ACTION_UNSPECIFIED\020\000\022" +
-      "\"\n\036CONTROL_PLANE_RUN_ACTION_PAUSE\020\001\022#\n\037C" +
-      "ONTROL_PLANE_RUN_ACTION_RESUME\020\002\022&\n\"CONT" +
-      "ROL_PLANE_RUN_ACTION_INTERRUPT\020\003\022#\n\037CONT" +
-      "ROL_PLANE_RUN_ACTION_CANCEL\020\0042\343\010\n\024Runner" +
-      "ControlService\022y\n\016RegisterRunner\0222.monar" +
-      "chic.agent_protocol.v1.RegisterRunnerReq" +
-      "uest\0323.monarchic.agent_protocol.v1.Regis" +
-      "terRunnerResponse\022j\n\tHeartbeat\022-.monarch" +
-      "ic.agent_protocol.v1.HeartbeatRequest\032.." +
-      "monarchic.agent_protocol.v1.HeartbeatRes" +
-      "ponse\022s\n\014AcquireLease\0220.monarchic.agent_" +
-      "protocol.v1.AcquireLeaseRequest\0321.monarc" +
-      "hic.agent_protocol.v1.AcquireLeaseRespon" +
-      "se\022m\n\nRenewLease\022..monarchic.agent_proto" +
-      "col.v1.RenewLeaseRequest\032/.monarchic.age" +
-      "nt_protocol.v1.RenewLeaseResponse\022p\n\013Res" +
-      "umeLease\022/.monarchic.agent_protocol.v1.R" +
-      "esumeLeaseRequest\0320.monarchic.agent_prot" +
-      "ocol.v1.ResumeLeaseResponse\022\202\001\n\021ReportSt" +
-      "epStarted\0225.monarchic.agent_protocol.v1." +
-      "ReportStepStartedRequest\0326.monarchic.age" +
-      "nt_protocol.v1.ReportStepStartedResponse" +
-      "\022\205\001\n\022ReportStepProgress\0226.monarchic.agen" +
-      "t_protocol.v1.ReportStepProgressRequest\032" +
-      "7.monarchic.agent_protocol.v1.ReportStep" +
-      "ProgressResponse\022\202\001\n\021ReportStepOutcome\0225" +
-      ".monarchic.agent_protocol.v1.ReportStepO" +
-      "utcomeRequest\0326.monarchic.agent_protocol" +
-      ".v1.ReportStepOutcomeResponse\022|\n\017AckCanc" +
-      "ellation\0223.monarchic.agent_protocol.v1.A" +
-      "ckCancellationRequest\0324.monarchic.agent_" +
-      "protocol.v1.AckCancellationResponse2\200\007\n\024" +
-      "ClientControlService\022\177\n\010ListRuns\0228.monar" +
-      "chic.agent_protocol.v1.ListControlPlaneR" +
-      "unsRequest\0329.monarchic.agent_protocol.v1" +
-      ".ListControlPlaneRunsResponse\022y\n\006GetRun\022" +
-      "6.monarchic.agent_protocol.v1.GetControl" +
-      "PlaneRunRequest\0327.monarchic.agent_protoc" +
-      "ol.v1.GetControlPlaneRunResponse\022\235\001\n\022Get" +
-      "RunActivityPage\022B.monarchic.agent_protoc" +
-      "ol.v1.GetControlPlaneRunActivityPageRequ" +
-      "est\032C.monarchic.agent_protocol.v1.GetCon" +
-      "trolPlaneRunActivityPageResponse\022\221\001\n\016App" +
-      "lyRunAction\022>.monarchic.agent_protocol.v" +
-      "1.ApplyControlPlaneRunActionRequest\032?.mo" +
-      "narchic.agent_protocol.v1.ApplyControlPl" +
-      "aneRunActionResponse\022\251\001\n\026ApplyReviewDisp" +
-      "osition\022F.monarchic.agent_protocol.v1.Ap" +
-      "plyControlPlaneReviewDispositionRequest\032" +
-      "G.monarchic.agent_protocol.v1.ApplyContr" +
-      "olPlaneReviewDispositionResponse\022\213\001\n\014Ens" +
-      "ureWorker\022<.monarchic.agent_protocol.v1." +
-      "EnsureControlPlaneWorkerRequest\032=.monarc" +
-      "hic.agent_protocol.v1.EnsureControlPlane" +
-      "WorkerResponseB\210\002\n\036ai.monarchic.agent_pr" +
-      "otocol.v1B\030MonarchicAgentProtocolV1P\001Zdg" +
-      "ithub.com/monarchic-ai/monarchic-agent-p" +
-      "rotocol/src/go/monarchic/agent_protocol/" +
-      "v1;agent_protocolv1\242\002\003MAP\252\002\032Monarchic.Ag" +
-      "entProtocol.V1\312\002\032Monarchic\\AgentProtocol" +
-      "\\V1\342\002#Monarchic\\AgentProtocol\\V1\\Metadat" +
-      "ab\006proto3"
+      "_protocol.v1.ControlPlaneScope\022\023\n\013projec" +
+      "t_key\030\003 \001(\t\022\024\n\007plan_id\030\004 \001(\tH\000\210\001\001\022\r\n\005act" +
+      "or\030\005 \001(\t\022@\n\010decision\030\006 \001(\0162..monarchic.a" +
+      "gent_protocol.v1.ReviewDisposition\022\016\n\006re" +
+      "ason\030\007 \001(\t\022+\n\nextensions\030\010 \001(\0132\027.google." +
+      "protobuf.Struct\022C\n\014auth_context\030\t \001(\0132(." +
+      "monarchic.agent_protocol.v1.AuthContextH" +
+      "\001\210\001\001B\n\n\010_plan_idB\017\n\r_auth_context\"\244\003\n*Ap" +
+      "plyControlPlaneReviewDispositionResponse" +
+      "\022\030\n\020contract_version\030\001 \001(\t\022\023\n\013project_ke" +
+      "y\030\002 \001(\t\022\024\n\007plan_id\030\003 \001(\tH\000\210\001\001\022\020\n\010accepte" +
+      "d\030\004 \001(\010\022I\n\017review_decision\030\005 \001(\0132+.monar" +
+      "chic.agent_protocol.v1.ReviewDecisionH\001\210" +
+      "\001\001\022N\n\022pr_lifecycle_state\030\006 \001(\0132-.monarch" +
+      "ic.agent_protocol.v1.PrLifecycleStateH\002\210" +
+      "\001\001\022\024\n\007message\030\007 \001(\tH\003\210\001\001\022+\n\nextensions\030\010" +
+      " \001(\0132\027.google.protobuf.StructB\n\n\010_plan_i" +
+      "dB\022\n\020_review_decisionB\025\n\023_pr_lifecycle_s" +
+      "tateB\n\n\010_message\"\222\002\n\037EnsureControlPlaneW" +
+      "orkerRequest\022\030\n\020contract_version\030\001 \001(\t\022=" +
+      "\n\005scope\030\002 \001(\0132..monarchic.agent_protocol" +
+      ".v1.ControlPlaneScope\022\023\n\013project_key\030\003 \001" +
+      "(\t\022+\n\nextensions\030\004 \001(\0132\027.google.protobuf" +
+      ".Struct\022C\n\014auth_context\030\005 \001(\0132(.monarchi" +
+      "c.agent_protocol.v1.AuthContextH\000\210\001\001B\017\n\r" +
+      "_auth_context\"\330\001\n EnsureControlPlaneWork" +
+      "erResponse\022\030\n\020contract_version\030\001 \001(\t\022\023\n\013" +
+      "project_key\030\002 \001(\t\022\020\n\010accepted\030\003 \001(\010\022\026\n\tw" +
+      "orker_id\030\004 \001(\tH\000\210\001\001\022\024\n\007message\030\005 \001(\tH\001\210\001" +
+      "\001\022+\n\nextensions\030\006 \001(\0132\027.google.protobuf." +
+      "StructB\014\n\n_worker_idB\n\n\010_message*\266\001\n\tAge" +
+      "ntRole\022\032\n\026AGENT_ROLE_UNSPECIFIED\020\000\022\021\n\rPR" +
+      "ODUCT_OWNER\020\001\022\023\n\017PROJECT_MANAGER\020\002\022\007\n\003DE" +
+      "V\020\003\022\006\n\002QA\020\004\022\014\n\010REVIEWER\020\005\022\014\n\010SECURITY\020\006\022" +
+      "\007\n\003OPS\020\007\022\r\n\tPUBLISHER\020\010\022\016\n\nRESEARCHER\020\t\022" +
+      "\020\n\014VERIFICATION\020\n*f\n\017OutcomeDecision\022 \n\034" +
+      "OUTCOME_DECISION_UNSPECIFIED\020\000\022\n\n\006ACCEPT" +
+      "\020\001\022\013\n\007ITERATE\020\002\022\n\n\006REJECT\020\003\022\014\n\010ESCALATE\020" +
+      "\004*\223\001\n\013IntentClass\022\034\n\030INTENT_CLASS_UNSPEC" +
+      "IFIED\020\000\022\030\n\024INTENT_CLASS_INSPECT\020\001\022\031\n\025INT" +
+      "ENT_CLASS_VALIDATE\020\002\022\030\n\024INTENT_CLASS_EXE" +
+      "CUTE\020\003\022\027\n\023INTENT_CLASS_VERIFY\020\004*\247\001\n\025Boot" +
+      "strapPlanningMode\022\'\n#BOOTSTRAP_PLANNING_" +
+      "MODE_UNSPECIFIED\020\000\0220\n,BOOTSTRAP_PLANNING" +
+      "_MODE_DIRECT_TEMPLATE_FILL\020\001\0223\n/BOOTSTRA" +
+      "P_PLANNING_MODE_BOUNDED_RESEARCH_REPLAN\020" +
+      "\002*\314\002\n\036CampaignPipelineConnectionKind\0221\n-" +
+      "CAMPAIGN_PIPELINE_CONNECTION_KIND_UNSPEC" +
+      "IFIED\020\000\0220\n,CAMPAIGN_PIPELINE_CONNECTION_" +
+      "KIND_DEPENDS_ON\020\001\022-\n)CAMPAIGN_PIPELINE_C" +
+      "ONNECTION_KIND_HANDOFF\020\002\022,\n(CAMPAIGN_PIP" +
+      "ELINE_CONNECTION_KIND_REVIEW\020\003\0223\n/CAMPAI" +
+      "GN_PIPELINE_CONNECTION_KIND_MESSAGE_ROUT" +
+      "E\020\004\0223\n/CAMPAIGN_PIPELINE_CONNECTION_KIND" +
+      "_ARTIFACT_FLOW\020\005*\223\001\n\nPlanStatus\022\033\n\027PLAN_" +
+      "STATUS_UNSPECIFIED\020\000\022\t\n\005DRAFT\020\001\022\013\n\007PLANN" +
+      "ED\020\002\022\r\n\tEXECUTING\020\003\022\014\n\010COMPLETE\020\004\022\013\n\007BOU" +
+      "NDED\020\005\022\n\n\006FAILED\020\006\022\r\n\tCANCELLED\020\007\022\013\n\007UNK" +
+      "NOWN\020\010*\375\002\n\014ArtifactKind\022\035\n\031ARTIFACT_KIND" +
+      "_UNSPECIFIED\020\000\022\026\n\022ARTIFACT_KIND_PLAN\020\001\022#" +
+      "\n\037ARTIFACT_KIND_EXECUTION_RECEIPT\020\002\022&\n\"A" +
+      "RTIFACT_KIND_VERIFICATION_RECEIPT\020\003\022\033\n\027A" +
+      "RTIFACT_KIND_EVENT_LOG\020\004\022!\n\035ARTIFACT_KIN" +
+      "D_DIGEST_MANIFEST\020\005\022 \n\034ARTIFACT_KIND_PRO" +
+      "OF_MANIFEST\020\006\022\027\n\023ARTIFACT_KIND_PATCH\020\007\022\035" +
+      "\n\031ARTIFACT_KIND_TEST_REPORT\020\010\022\033\n\027ARTIFAC" +
+      "T_KIND_BUILD_LOG\020\t\022\030\n\024ARTIFACT_KIND_BUND" +
+      "LE\020\n\022\030\n\024ARTIFACT_KIND_CUSTOM\020\013*\315\001\n\rAuthM" +
+      "echanism\022\036\n\032AUTH_MECHANISM_UNSPECIFIED\020\000" +
+      "\022 \n\034AUTH_MECHANISM_SHARED_SECRET\020\001\022\037\n\033AU",
+      "TH_MECHANISM_BEARER_TOKEN\020\002\022\037\n\033AUTH_MECH" +
+      "ANISM_SIGNED_TOKEN\020\003\022\035\n\031AUTH_MECHANISM_M" +
+      "UTUAL_TLS\020\004\022\031\n\025AUTH_MECHANISM_CUSTOM\020\005*\314" +
+      "\001\n\rUsageCategory\022\036\n\032USAGE_CATEGORY_UNSPE" +
+      "CIFIED\020\000\022 \n\034USAGE_CATEGORY_CONTROL_PLANE" +
+      "\020\001\022\034\n\030USAGE_CATEGORY_EXECUTION\020\002\022\037\n\033USAG" +
+      "E_CATEGORY_VERIFICATION\020\003\022\037\n\033USAGE_CATEG" +
+      "ORY_AUDIT_EXPORT\020\004\022\031\n\025USAGE_CATEGORY_CUS" +
+      "TOM\020\005*\266\001\n\tUsageUnit\022\032\n\026USAGE_UNIT_UNSPEC" +
+      "IFIED\020\000\022\027\n\023USAGE_UNIT_REQUESTS\020\001\022\033\n\027USAG" +
+      "E_UNIT_MILLISECONDS\020\002\022\024\n\020USAGE_UNIT_BYTE" +
+      "S\020\003\022\025\n\021USAGE_UNIT_TOKENS\020\004\022\023\n\017USAGE_UNIT" +
+      "_RUNS\020\005\022\025\n\021USAGE_UNIT_CUSTOM\020\006*\366\001\n\014PlanS" +
+      "tepKind\022\036\n\032PLAN_STEP_KIND_UNSPECIFIED\020\000\022" +
+      "\033\n\027PLAN_STEP_KIND_ANALYSIS\020\001\022\034\n\030PLAN_STE" +
+      "P_KIND_EXECUTION\020\002\022\037\n\033PLAN_STEP_KIND_VER" +
+      "IFICATION\020\003\022\031\n\025PLAN_STEP_KIND_REVIEW\020\004\022\030" +
+      "\n\024PLAN_STEP_KIND_MERGE\020\005\022\032\n\026PLAN_STEP_KI" +
+      "ND_RELEASE\020\006\022\031\n\025PLAN_STEP_KIND_CUSTOM\020\007*" +
+      "\241\001\n\016ReplanStrategy\022\037\n\033REPLAN_STRATEGY_UN" +
+      "SPECIFIED\020\000\022\031\n\025REPLAN_STRATEGY_RETRY\020\001\022\032" +
+      "\n\026REPLAN_STRATEGY_REPAIR\020\002\022\034\n\030REPLAN_STR" +
+      "ATEGY_ESCALATE\020\003\022\031\n\025REPLAN_STRATEGY_BLOC" +
+      "K\020\004*\273\001\n\022VerificationStatus\022#\n\037VERIFICATI" +
+      "ON_STATUS_UNSPECIFIED\020\000\022\037\n\033VERIFICATION_" +
+      "STATUS_PENDING\020\001\022\036\n\032VERIFICATION_STATUS_" +
+      "PASSED\020\002\022\036\n\032VERIFICATION_STATUS_FAILED\020\003" +
+      "\022\037\n\033VERIFICATION_STATUS_BLOCKED\020\004*\336\001\n\027Ve" +
+      "rificationCheckStatus\022)\n%VERIFICATION_CH" +
+      "ECK_STATUS_UNSPECIFIED\020\000\022$\n VERIFICATION" +
+      "_CHECK_STATUS_PASSED\020\001\022$\n VERIFICATION_C" +
+      "HECK_STATUS_FAILED\020\002\022%\n!VERIFICATION_CHE" +
+      "CK_STATUS_BLOCKED\020\003\022%\n!VERIFICATION_CHEC" +
+      "K_STATUS_SKIPPED\020\004*\251\002\n\023BlockedOutcomeSco" +
+      "pe\022%\n!BLOCKED_OUTCOME_SCOPE_UNSPECIFIED\020" +
+      "\000\022 \n\034BLOCKED_OUTCOME_SCOPE_INTENT\020\001\022\036\n\032B" +
+      "LOCKED_OUTCOME_SCOPE_PLAN\020\002\022\036\n\032BLOCKED_O" +
+      "UTCOME_SCOPE_STEP\020\003\022\035\n\031BLOCKED_OUTCOME_S" +
+      "COPE_RUN\020\004\022&\n\"BLOCKED_OUTCOME_SCOPE_VERI" +
+      "FICATION\020\005\022\037\n\033BLOCKED_OUTCOME_SCOPE_MERG" +
+      "E\020\006\022!\n\035BLOCKED_OUTCOME_SCOPE_RELEASE\020\007*\357" +
+      "\001\n\023ReviewDecisionScope\022%\n!REVIEW_DECISIO" +
+      "N_SCOPE_UNSPECIFIED\020\000\022\036\n\032REVIEW_DECISION" +
+      "_SCOPE_PLAN\020\001\022\036\n\032REVIEW_DECISION_SCOPE_S" +
+      "TEP\020\002\022&\n\"REVIEW_DECISION_SCOPE_PULL_REQU" +
+      "EST\020\003\022&\n\"REVIEW_DECISION_SCOPE_VERIFICAT" +
+      "ION\020\004\022!\n\035REVIEW_DECISION_SCOPE_RELEASE\020\005" +
+      "*\274\001\n\021ReviewDisposition\022\"\n\036REVIEW_DISPOSI" +
+      "TION_UNSPECIFIED\020\000\022\036\n\032REVIEW_DISPOSITION" +
+      "_APPROVE\020\001\022&\n\"REVIEW_DISPOSITION_REQUEST" +
+      "_CHANGES\020\002\022\035\n\031REVIEW_DISPOSITION_REJECT\020" +
+      "\003\022\034\n\030REVIEW_DISPOSITION_DEFER\020\004*j\n\014Rerun" +
+      "Trigger\022\035\n\031RERUN_TRIGGER_UNSPECIFIED\020\000\022!" +
+      "\n\035RERUN_TRIGGER_REVIEW_DECISION\020\001\022\030\n\024RER" +
+      "UN_TRIGGER_MANUAL\020\002*\264\001\n\026RerunSelectionSt" +
+      "rategy\022(\n$RERUN_SELECTION_STRATEGY_UNSPE" +
+      "CIFIED\020\000\022%\n!RERUN_SELECTION_STRATEGY_TAS" +
+      "K_IDS\020\001\022%\n!RERUN_SELECTION_STRATEGY_STEP" +
+      "_IDS\020\002\022\"\n\036RERUN_SELECTION_STRATEGY_PATHS" +
+      "\020\003*\317\001\n\024RerunExecutionStatus\022&\n\"RERUN_EXE" +
+      "CUTION_STATUS_UNSPECIFIED\020\000\022\"\n\036RERUN_EXE" +
+      "CUTION_STATUS_PENDING\020\001\022$\n RERUN_EXECUTI" +
+      "ON_STATUS_SUCCEEDED\020\002\022!\n\035RERUN_EXECUTION" +
+      "_STATUS_FAILED\020\003\022\"\n\036RERUN_EXECUTION_STAT" +
+      "US_PARTIAL\020\004*\356\001\n\016RunEventStream\022 \n\034RUN_E" +
+      "VENT_STREAM_UNSPECIFIED\020\000\022\036\n\032RUN_EVENT_S" +
+      "TREAM_EXECUTION\020\001\022\035\n\031RUN_EVENT_STREAM_RE" +
+      "COVERY\020\002\022\033\n\027RUN_EVENT_STREAM_REVIEW\020\003\022!\n" +
+      "\035RUN_EVENT_STREAM_VERIFICATION\020\004\022\036\n\032RUN_" +
+      "EVENT_STREAM_LIFECYCLE\020\005\022\033\n\027RUN_EVENT_ST" +
+      "REAM_CUSTOM\020\006*\265\001\n\017TaskMessageKind\022!\n\035TAS" +
+      "K_MESSAGE_KIND_UNSPECIFIED\020\000\022$\n TASK_MES" +
+      "SAGE_KIND_ARTIFACT_READY\020\001\022+\n\'TASK_MESSA" +
+      "GE_KIND_CLARIFICATION_REQUEST\020\002\022,\n(TASK_" +
+      "MESSAGE_KIND_CLARIFICATION_RESPONSE\020\003*\260\001" +
+      "\n\023LeaseLifecycleState\022%\n!LEASE_LIFECYCLE" +
+      "_STATE_UNSPECIFIED\020\000\022\020\n\014LEASE_ISSUED\020\001\022\020" +
+      "\n\014LEASE_ACTIVE\020\002\022\022\n\016LEASE_RELEASED\020\003\022\021\n\r" +
+      "LEASE_EXPIRED\020\004\022\023\n\017LEASE_CANCELLED\020\005\022\022\n\016" +
+      "LEASE_REJECTED\020\006*\306\001\n\021RunLifecycleState\022#" +
+      "\n\037RUN_LIFECYCLE_STATE_UNSPECIFIED\020\000\022\017\n\013R" +
+      "UN_PENDING\020\001\022\021\n\rRUN_EXECUTING\020\002\022\016\n\nRUN_P" +
+      "AUSED\020\003\022\022\n\016RUN_CANCELLING\020\004\022\021\n\rRUN_CANCE" +
+      "LLED\020\005\022\016\n\nRUN_FAILED\020\006\022\020\n\014RUN_COMPLETE\020\007" +
+      "\022\017\n\013RUN_BLOCKED\020\010*\311\001\n\022StepLifecycleState" +
+      "\022$\n STEP_LIFECYCLE_STATE_UNSPECIFIED\020\000\022\020" +
+      "\n\014STEP_PENDING\020\001\022\016\n\nSTEP_READY\020\002\022\017\n\013STEP" +
+      "_LEASED\020\003\022\020\n\014STEP_RUNNING\020\004\022\021\n\rSTEP_COMP" +
+      "LETE\020\005\022\017\n\013STEP_FAILED\020\006\022\022\n\016STEP_CANCELLE" +
+      "D\020\007\022\020\n\014STEP_BLOCKED\020\010*\356\002\n\024LeaseRejection" +
+      "Reason\022&\n\"LEASE_REJECTION_REASON_UNSPECI" +
+      "FIED\020\000\022\'\n#LEASE_REJECTION_STALE_FENCING_" +
+      "TOKEN\020\001\022\033\n\027LEASE_REJECTION_EXPIRED\020\002\022$\n " +
+      "LEASE_REJECTION_SESSION_MISMATCH\020\003\022!\n\035LE" +
+      "ASE_REJECTION_UNKNOWN_LEASE\020\004\022)\n%LEASE_R" +
+      "EJECTION_STEP_ALREADY_TERMINAL\020\005\022&\n\"LEAS" +
+      "E_REJECTION_RUN_NOT_EXECUTABLE\020\006\022&\n\"LEAS" +
+      "E_REJECTION_DEPENDENCY_BLOCKED\020\007\022$\n LEAS" +
+      "E_REJECTION_LEASE_SUPERSEDED\020\010*\210\003\n\021Recov" +
+      "eryEventKind\022#\n\037RECOVERY_EVENT_KIND_UNSP" +
+      "ECIFIED\020\000\022\'\n#RECOVERY_EVENT_ORCHESTRATOR" +
+      "_STARTED\020\001\022!\n\035RECOVERY_EVENT_STATE_RELOA" +
+      "DED\020\002\022!\n\035RECOVERY_EVENT_LEASE_RESTORED\020\003" +
+      "\022!\n\035RECOVERY_EVENT_LEASE_REJECTED\020\004\022 \n\034R" +
+      "ECOVERY_EVENT_STEP_REQUEUED\020\005\022\037\n\033RECOVER" +
+      "Y_EVENT_STEP_BLOCKED\020\006\022 \n\034RECOVERY_EVENT" +
+      "_RUN_RECOVERED\020\007\022)\n%RECOVERY_EVENT_CANCE" +
+      "LLATION_REQUESTED\020\010\022,\n(RECOVERY_EVENT_CA" +
+      "NCELLATION_ACKNOWLEDGED\020\t*\327\001\n\025ControlPla" +
+      "neRunAction\022(\n$CONTROL_PLANE_RUN_ACTION_" +
+      "UNSPECIFIED\020\000\022\"\n\036CONTROL_PLANE_RUN_ACTIO" +
+      "N_PAUSE\020\001\022#\n\037CONTROL_PLANE_RUN_ACTION_RE" +
+      "SUME\020\002\022&\n\"CONTROL_PLANE_RUN_ACTION_INTER" +
+      "RUPT\020\003\022#\n\037CONTROL_PLANE_RUN_ACTION_CANCE" +
+      "L\020\0042\343\010\n\024RunnerControlService\022y\n\016Register" +
+      "Runner\0222.monarchic.agent_protocol.v1.Reg" +
+      "isterRunnerRequest\0323.monarchic.agent_pro" +
+      "tocol.v1.RegisterRunnerResponse\022j\n\tHeart" +
+      "beat\022-.monarchic.agent_protocol.v1.Heart" +
+      "beatRequest\032..monarchic.agent_protocol.v" +
+      "1.HeartbeatResponse\022s\n\014AcquireLease\0220.mo" +
+      "narchic.agent_protocol.v1.AcquireLeaseRe" +
+      "quest\0321.monarchic.agent_protocol.v1.Acqu" +
+      "ireLeaseResponse\022m\n\nRenewLease\022..monarch" +
+      "ic.agent_protocol.v1.RenewLeaseRequest\032/" +
+      ".monarchic.agent_protocol.v1.RenewLeaseR" +
+      "esponse\022p\n\013ResumeLease\022/.monarchic.agent" +
+      "_protocol.v1.ResumeLeaseRequest\0320.monarc" +
+      "hic.agent_protocol.v1.ResumeLeaseRespons" +
+      "e\022\202\001\n\021ReportStepStarted\0225.monarchic.agen" +
+      "t_protocol.v1.ReportStepStartedRequest\0326" +
+      ".monarchic.agent_protocol.v1.ReportStepS" +
+      "tartedResponse\022\205\001\n\022ReportStepProgress\0226." +
+      "monarchic.agent_protocol.v1.ReportStepPr" +
+      "ogressRequest\0327.monarchic.agent_protocol" +
+      ".v1.ReportStepProgressResponse\022\202\001\n\021Repor" +
+      "tStepOutcome\0225.monarchic.agent_protocol." +
+      "v1.ReportStepOutcomeRequest\0326.monarchic." +
+      "agent_protocol.v1.ReportStepOutcomeRespo" +
+      "nse\022|\n\017AckCancellation\0223.monarchic.agent" +
+      "_protocol.v1.AckCancellationRequest\0324.mo" +
+      "narchic.agent_protocol.v1.AckCancellatio" +
+      "nResponse2\200\007\n\024ClientControlService\022\177\n\010Li" +
+      "stRuns\0228.monarchic.agent_protocol.v1.Lis" +
+      "tControlPlaneRunsRequest\0329.monarchic.age" +
+      "nt_protocol.v1.ListControlPlaneRunsRespo" +
+      "nse\022y\n\006GetRun\0226.monarchic.agent_protocol" +
+      ".v1.GetControlPlaneRunRequest\0327.monarchi" +
+      "c.agent_protocol.v1.GetControlPlaneRunRe" +
+      "sponse\022\235\001\n\022GetRunActivityPage\022B.monarchi" +
+      "c.agent_protocol.v1.GetControlPlaneRunAc" +
+      "tivityPageRequest\032C.monarchic.agent_prot" +
+      "ocol.v1.GetControlPlaneRunActivityPageRe" +
+      "sponse\022\221\001\n\016ApplyRunAction\022>.monarchic.ag" +
+      "ent_protocol.v1.ApplyControlPlaneRunActi" +
+      "onRequest\032?.monarchic.agent_protocol.v1." +
+      "ApplyControlPlaneRunActionResponse\022\251\001\n\026A" +
+      "pplyReviewDisposition\022F.monarchic.agent_" +
+      "protocol.v1.ApplyControlPlaneReviewDispo" +
+      "sitionRequest\032G.monarchic.agent_protocol" +
+      ".v1.ApplyControlPlaneReviewDispositionRe" +
+      "sponse\022\213\001\n\014EnsureWorker\022<.monarchic.agen" +
+      "t_protocol.v1.EnsureControlPlaneWorkerRe" +
+      "quest\032=.monarchic.agent_protocol.v1.Ensu" +
+      "reControlPlaneWorkerResponseB\210\002\n\036ai.mona" +
+      "rchic.agent_protocol.v1B\030MonarchicAgentP" +
+      "rotocolV1P\001Zdgithub.com/monarchic-ai/mon" +
+      "archic-agent-protocol/src/go/monarchic/a" +
+      "gent_protocol/v1;agent_protocolv1\242\002\003MAP\252" +
+      "\002\032Monarchic.AgentProtocol.V1\312\002\032Monarchic" +
+      "\\AgentProtocol\\V1\342\002#Monarchic\\AgentProto" +
+      "col\\V1\\Metadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1518,530 +1567,548 @@ public final class MonarchicAgentProtocolV1 extends com.google.protobuf.Generate
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_BootstrapIntent_descriptor,
         new java.lang.String[] { "ContractVersion", "BootstrapIntentId", "ProjectKey", "TargetRepos", "PipelineTemplateId", "CampaignGoal", "Notes", "PriorityProfile", "CreatedAtMs", });
-    internal_static_monarchic_agent_protocol_v1_BootstrapPlanTask_descriptor =
+    internal_static_monarchic_agent_protocol_v1_AgentRunnerPreference_descriptor =
       getDescriptor().getMessageTypes().get(9);
+    internal_static_monarchic_agent_protocol_v1_AgentRunnerPreference_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_monarchic_agent_protocol_v1_AgentRunnerPreference_descriptor,
+        new java.lang.String[] { "RunnerId", "Model", "Provider", "ReasoningEffort", "RequiredCapabilities", "Labels", "Extensions", });
+    internal_static_monarchic_agent_protocol_v1_AgentProfile_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_monarchic_agent_protocol_v1_AgentProfile_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_monarchic_agent_protocol_v1_AgentProfile_descriptor,
+        new java.lang.String[] { "AgentId", "RoleId", "DisplayName", "Description", "RunnerPreferences", "AllowedNetworkModes", "RequiresHumanReview", "RequiredSkillIds", "RequiredMcpIds", "Extensions", });
+    internal_static_monarchic_agent_protocol_v1_ResolvedAgentRunner_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_monarchic_agent_protocol_v1_ResolvedAgentRunner_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_monarchic_agent_protocol_v1_ResolvedAgentRunner_descriptor,
+        new java.lang.String[] { "RunnerId", "Model", "Provider", "ReasoningEffort", "PreferenceIndex", "SelectionReason", "Extensions", });
+    internal_static_monarchic_agent_protocol_v1_BootstrapPlanTask_descriptor =
+      getDescriptor().getMessageTypes().get(12);
     internal_static_monarchic_agent_protocol_v1_BootstrapPlanTask_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_BootstrapPlanTask_descriptor,
-        new java.lang.String[] { "TaskId", "DisplayName", "RoleId", "TaskMilestone", "DependsOn", "TargetRepo", "RequiredSkillIds", "RequiredMcpIds", "InteractionMode", "NetworkMode", "RequiresHumanReview", "FilesystemPolicy", "TemplateSlotId", "Notes", "AgentId", "InjectedByRoleId", });
+        new java.lang.String[] { "TaskId", "DisplayName", "RoleId", "TaskMilestone", "DependsOn", "TargetRepo", "RequiredSkillIds", "RequiredMcpIds", "InteractionMode", "NetworkMode", "RequiresHumanReview", "FilesystemPolicy", "TemplateSlotId", "Notes", "AgentId", "InjectedByRoleId", "RunnerPreferences", "ResolvedRunner", });
     internal_static_monarchic_agent_protocol_v1_BootstrapPlan_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_monarchic_agent_protocol_v1_BootstrapPlan_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_BootstrapPlan_descriptor,
         new java.lang.String[] { "ContractVersion", "BootstrapPlanId", "BootstrapIntentId", "ProjectKey", "PlanningMode", "PipelineTemplateId", "CampaignGoal", "CreatedAtMs", "Tasks", });
     internal_static_monarchic_agent_protocol_v1_BootstrapFilesystemPolicy_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_monarchic_agent_protocol_v1_BootstrapFilesystemPolicy_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_BootstrapFilesystemPolicy_descriptor,
         new java.lang.String[] { "Read", "Write", "Execute", });
     internal_static_monarchic_agent_protocol_v1_BootstrapSkillBinding_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_monarchic_agent_protocol_v1_BootstrapSkillBinding_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_BootstrapSkillBinding_descriptor,
         new java.lang.String[] { "Id", "Required", "Purpose", });
     internal_static_monarchic_agent_protocol_v1_BootstrapTemplateSlotContext_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_monarchic_agent_protocol_v1_BootstrapTemplateSlotContext_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_BootstrapTemplateSlotContext_descriptor,
         new java.lang.String[] { "SlotId", "DisplayName", "Role", "InteractionMode", "NetworkMode", "RequiresHumanReview", "FilesystemPolicy", "RequiredSkills", "RequiredMcps", });
     internal_static_monarchic_agent_protocol_v1_BootstrapTemplateConnectionContext_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_monarchic_agent_protocol_v1_BootstrapTemplateConnectionContext_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_BootstrapTemplateConnectionContext_descriptor,
         new java.lang.String[] { "FromSlotId", "ToSlotId", "Kind", "Required", "Description", });
     internal_static_monarchic_agent_protocol_v1_BootstrapTemplateLaneContext_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_monarchic_agent_protocol_v1_BootstrapTemplateLaneContext_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_BootstrapTemplateLaneContext_descriptor,
         new java.lang.String[] { "LaneId", "DisplayName", "FromSlotId", "ToSlotId", "SlotIds", "RepeatPerTaskGroup", });
     internal_static_monarchic_agent_protocol_v1_BootstrapTemplateContext_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_monarchic_agent_protocol_v1_BootstrapTemplateContext_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_BootstrapTemplateContext_descriptor,
         new java.lang.String[] { "TemplateId", "DisplayName", "Slots", "Connections", "Lanes", });
     internal_static_monarchic_agent_protocol_v1_AgentCommand_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_monarchic_agent_protocol_v1_AgentCommand_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_AgentCommand_descriptor,
         new java.lang.String[] { "RunnerId", "Argv", });
     internal_static_monarchic_agent_protocol_v1_BootstrapPlanningContext_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_monarchic_agent_protocol_v1_BootstrapPlanningContext_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_BootstrapPlanningContext_descriptor,
-        new java.lang.String[] { "ContractVersion", "ProjectKey", "TargetRepo", "TargetRepos", "CampaignGoal", "Notes", "PriorityProfile", "CodexCmd", "AvailableSkillIds", "SelectedTemplate", "PlanningMode", "EnabledRoleIds", "AgentCmds", "DefaultAgentCmd", });
+        new java.lang.String[] { "ContractVersion", "ProjectKey", "TargetRepo", "TargetRepos", "CampaignGoal", "Notes", "PriorityProfile", "CodexCmd", "AvailableSkillIds", "SelectedTemplate", "PlanningMode", "EnabledRoleIds", "AgentCmds", "DefaultAgentCmd", "AgentProfiles", });
     internal_static_monarchic_agent_protocol_v1_CampaignPipelineTaskRef_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_monarchic_agent_protocol_v1_CampaignPipelineTaskRef_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_CampaignPipelineTaskRef_descriptor,
         new java.lang.String[] { "TaskId", "TaskArtifact", "RoleId", "TaskMilestone", "TaskFormat", "DependsOn", "RunnerArgs", "InteractionMode", "NetworkMode", "RequiresHumanReview", "FilesystemPolicy", "RequiredSkills", "RequiredMcpIds", });
     internal_static_monarchic_agent_protocol_v1_CampaignPipelineConnection_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(23);
     internal_static_monarchic_agent_protocol_v1_CampaignPipelineConnection_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_CampaignPipelineConnection_descriptor,
         new java.lang.String[] { "FromTaskId", "ToTaskId", "Kind", "Required", "Description", });
     internal_static_monarchic_agent_protocol_v1_CampaignPipelineGate_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(24);
     internal_static_monarchic_agent_protocol_v1_CampaignPipelineGate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_CampaignPipelineGate_descriptor,
         new java.lang.String[] { "Name", "Command", "Workdir", });
     internal_static_monarchic_agent_protocol_v1_CampaignPipelineGatePolicy_descriptor =
-      getDescriptor().getMessageTypes().get(22);
+      getDescriptor().getMessageTypes().get(25);
     internal_static_monarchic_agent_protocol_v1_CampaignPipelineGatePolicy_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_CampaignPipelineGatePolicy_descriptor,
         new java.lang.String[] { "RequireStandard", "RequiredGates", });
     internal_static_monarchic_agent_protocol_v1_CampaignPipelineSpec_descriptor =
-      getDescriptor().getMessageTypes().get(23);
+      getDescriptor().getMessageTypes().get(26);
     internal_static_monarchic_agent_protocol_v1_CampaignPipelineSpec_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_CampaignPipelineSpec_descriptor,
         new java.lang.String[] { "ContractVersion", "PipelineId", "Version", "Objective", "ProjectKey", "ContinueOnError", "GatePolicy", "Metadata", "Connections", "Tasks", });
     internal_static_monarchic_agent_protocol_v1_RoleProvenance_descriptor =
-      getDescriptor().getMessageTypes().get(24);
+      getDescriptor().getMessageTypes().get(27);
     internal_static_monarchic_agent_protocol_v1_RoleProvenance_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_RoleProvenance_descriptor,
         new java.lang.String[] { "RoleName", "TemplateHash", "RenderHash", });
     internal_static_monarchic_agent_protocol_v1_PlanProvenance_descriptor =
-      getDescriptor().getMessageTypes().get(25);
+      getDescriptor().getMessageTypes().get(28);
     internal_static_monarchic_agent_protocol_v1_PlanProvenance_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_PlanProvenance_descriptor,
         new java.lang.String[] { "GeneratedBy", "PolicyProfile", "GeneratedAtMs", "Role", });
     internal_static_monarchic_agent_protocol_v1_FailureDetail_descriptor =
-      getDescriptor().getMessageTypes().get(26);
+      getDescriptor().getMessageTypes().get(29);
     internal_static_monarchic_agent_protocol_v1_FailureDetail_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_FailureDetail_descriptor,
         new java.lang.String[] { "Class_", "Code", "Message", "Details", });
     internal_static_monarchic_agent_protocol_v1_ArtifactDescriptor_descriptor =
-      getDescriptor().getMessageTypes().get(27);
+      getDescriptor().getMessageTypes().get(30);
     internal_static_monarchic_agent_protocol_v1_ArtifactDescriptor_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_ArtifactDescriptor_descriptor,
         new java.lang.String[] { "ArtifactId", "Kind", "Digest", "MediaType", "LogicalName", "Producer", "ContractVersion", });
     internal_static_monarchic_agent_protocol_v1_DigestManifest_descriptor =
-      getDescriptor().getMessageTypes().get(28);
+      getDescriptor().getMessageTypes().get(31);
     internal_static_monarchic_agent_protocol_v1_DigestManifest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_DigestManifest_descriptor,
         new java.lang.String[] { "ContractVersion", "ManifestId", "RunId", "PlanId", "CreatedAt", "CombinedDigest", "EventDigest", "ArtifactDescriptors", });
     internal_static_monarchic_agent_protocol_v1_PrincipalRef_descriptor =
-      getDescriptor().getMessageTypes().get(29);
+      getDescriptor().getMessageTypes().get(32);
     internal_static_monarchic_agent_protocol_v1_PrincipalRef_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_PrincipalRef_descriptor,
         new java.lang.String[] { "PrincipalId", "Provider", "DisplayName", });
     internal_static_monarchic_agent_protocol_v1_TenantRef_descriptor =
-      getDescriptor().getMessageTypes().get(30);
+      getDescriptor().getMessageTypes().get(33);
     internal_static_monarchic_agent_protocol_v1_TenantRef_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_TenantRef_descriptor,
         new java.lang.String[] { "TenantId", "DisplayName", });
     internal_static_monarchic_agent_protocol_v1_AuthContext_descriptor =
-      getDescriptor().getMessageTypes().get(31);
+      getDescriptor().getMessageTypes().get(34);
     internal_static_monarchic_agent_protocol_v1_AuthContext_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_AuthContext_descriptor,
         new java.lang.String[] { "ContractVersion", "AuthContextId", "Principal", "Tenant", "Mechanism", "CredentialId", "Scopes", "IssuedAt", "ExpiresAt", });
     internal_static_monarchic_agent_protocol_v1_UsageRecord_descriptor =
-      getDescriptor().getMessageTypes().get(32);
+      getDescriptor().getMessageTypes().get(35);
     internal_static_monarchic_agent_protocol_v1_UsageRecord_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_UsageRecord_descriptor,
         new java.lang.String[] { "ContractVersion", "UsageId", "Principal", "Tenant", "RunId", "PlanId", "Category", "MetricName", "Quantity", "Unit", "RecordedAt", });
     internal_static_monarchic_agent_protocol_v1_AuditExportManifest_descriptor =
-      getDescriptor().getMessageTypes().get(33);
+      getDescriptor().getMessageTypes().get(36);
     internal_static_monarchic_agent_protocol_v1_AuditExportManifest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_AuditExportManifest_descriptor,
         new java.lang.String[] { "ContractVersion", "ExportId", "Principal", "Tenant", "RunId", "PlanId", "ExportedAt", "CombinedDigest", "ArtifactDescriptors", });
     internal_static_monarchic_agent_protocol_v1_ReplanPolicy_descriptor =
-      getDescriptor().getMessageTypes().get(34);
+      getDescriptor().getMessageTypes().get(37);
     internal_static_monarchic_agent_protocol_v1_ReplanPolicy_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_ReplanPolicy_descriptor,
         new java.lang.String[] { "Strategy", "MaxAttempts", });
     internal_static_monarchic_agent_protocol_v1_StepOutputExpectation_descriptor =
-      getDescriptor().getMessageTypes().get(35);
+      getDescriptor().getMessageTypes().get(38);
     internal_static_monarchic_agent_protocol_v1_StepOutputExpectation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_StepOutputExpectation_descriptor,
         new java.lang.String[] { "Kind", "LogicalName", });
     internal_static_monarchic_agent_protocol_v1_PlanStep_descriptor =
-      getDescriptor().getMessageTypes().get(36);
+      getDescriptor().getMessageTypes().get(39);
     internal_static_monarchic_agent_protocol_v1_PlanStep_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_PlanStep_descriptor,
         new java.lang.String[] { "StepId", "Description", "DependsOn", "TaskTemplate", "Failure", "TaskId", "Kind", "Inputs", "ExpectedOutputs", "PolicyTags", });
     internal_static_monarchic_agent_protocol_v1_Plan_descriptor =
-      getDescriptor().getMessageTypes().get(37);
+      getDescriptor().getMessageTypes().get(40);
     internal_static_monarchic_agent_protocol_v1_Plan_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_Plan_descriptor,
         new java.lang.String[] { "ContractVersion", "PlanId", "RunId", "Objective", "Status", "CreatedAtMs", "UpdatedAtMs", "Provenance", "Steps", "IntentId", "PlanVersion", "PlannerVersion", "ReplanPolicy", "InputDigest", });
     internal_static_monarchic_agent_protocol_v1_ExecutionReceipt_descriptor =
-      getDescriptor().getMessageTypes().get(38);
+      getDescriptor().getMessageTypes().get(41);
     internal_static_monarchic_agent_protocol_v1_ExecutionReceipt_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_ExecutionReceipt_descriptor,
-        new java.lang.String[] { "ContractVersion", "RunId", "PlanId", "PlanHash", "TaskHashes", "ArtifactHashes", "OutcomeHash", "Status", "Failure", "GeneratedAtMs", });
+        new java.lang.String[] { "ContractVersion", "RunId", "PlanId", "PlanHash", "TaskHashes", "ArtifactHashes", "OutcomeHash", "Status", "Failure", "GeneratedAtMs", "ResolvedRunner", });
     internal_static_monarchic_agent_protocol_v1_VerificationCheck_descriptor =
-      getDescriptor().getMessageTypes().get(39);
+      getDescriptor().getMessageTypes().get(42);
     internal_static_monarchic_agent_protocol_v1_VerificationCheck_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_VerificationCheck_descriptor,
         new java.lang.String[] { "CheckId", "Name", "Status", "Message", "ArtifactIds", });
     internal_static_monarchic_agent_protocol_v1_BlockedOutcome_descriptor =
-      getDescriptor().getMessageTypes().get(40);
+      getDescriptor().getMessageTypes().get(43);
     internal_static_monarchic_agent_protocol_v1_BlockedOutcome_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_BlockedOutcome_descriptor,
         new java.lang.String[] { "Code", "Scope", "Message", "Details", "BlockingArtifacts", });
     internal_static_monarchic_agent_protocol_v1_VerificationReceipt_descriptor =
-      getDescriptor().getMessageTypes().get(41);
+      getDescriptor().getMessageTypes().get(44);
     internal_static_monarchic_agent_protocol_v1_VerificationReceipt_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_VerificationReceipt_descriptor,
         new java.lang.String[] { "ContractVersion", "VerificationId", "PlanId", "ExecutionReceiptIds", "VerificationPolicyVersion", "Status", "Checks", "BlockedOutcomes", "ArtifactDigestSet", "VerifiedAtMs", });
     internal_static_monarchic_agent_protocol_v1_ReviewDecision_descriptor =
-      getDescriptor().getMessageTypes().get(42);
+      getDescriptor().getMessageTypes().get(45);
     internal_static_monarchic_agent_protocol_v1_ReviewDecision_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_ReviewDecision_descriptor,
         new java.lang.String[] { "DecisionId", "PlanId", "Scope", "Actor", "Decision", "Reason", "CreatedAt", });
     internal_static_monarchic_agent_protocol_v1_RerunScope_descriptor =
-      getDescriptor().getMessageTypes().get(43);
+      getDescriptor().getMessageTypes().get(46);
     internal_static_monarchic_agent_protocol_v1_RerunScope_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_RerunScope_descriptor,
         new java.lang.String[] { "ScopeId", "PlanId", "Trigger", "Reason", "SourceDecisionId", "TaskIds", "StepIds", "Paths", "CreatedAt", });
     internal_static_monarchic_agent_protocol_v1_RerunExecutionResult_descriptor =
-      getDescriptor().getMessageTypes().get(44);
+      getDescriptor().getMessageTypes().get(47);
     internal_static_monarchic_agent_protocol_v1_RerunExecutionResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_RerunExecutionResult_descriptor,
         new java.lang.String[] { "ResultId", "PlanId", "RerunScopeId", "SourceDecisionId", "Trigger", "MatchedStrategy", "RootTasks", "SelectedTasks", "MatchedPaths", "Reason", "Status", "CompletedTasks", "FailedTasks", "SkippedTasks", "CreatedAt", "UpdatedAt", });
     internal_static_monarchic_agent_protocol_v1_PrLifecycleState_descriptor =
-      getDescriptor().getMessageTypes().get(45);
+      getDescriptor().getMessageTypes().get(48);
     internal_static_monarchic_agent_protocol_v1_PrLifecycleState_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_PrLifecycleState_descriptor,
         new java.lang.String[] { "StateId", "PlanId", "PrNumber", "PrUrl", "ReviewDecision", "RerunScope", "RerunResult", "VerificationReceipt", "MergeReady", "ReleaseReady", "BlockedOutcomes", "UpdatedAt", });
     internal_static_monarchic_agent_protocol_v1_Task_descriptor =
-      getDescriptor().getMessageTypes().get(46);
+      getDescriptor().getMessageTypes().get(49);
     internal_static_monarchic_agent_protocol_v1_Task_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_Task_descriptor,
         new java.lang.String[] { "Version", "TaskId", "Role", "Goal", "Inputs", "Constraints", "GatesRequired", "RunContext", "Extensions", "ExperimentSpec", "ObjectiveSpec", "RoleId", });
     internal_static_monarchic_agent_protocol_v1_Artifact_descriptor =
-      getDescriptor().getMessageTypes().get(47);
+      getDescriptor().getMessageTypes().get(50);
     internal_static_monarchic_agent_protocol_v1_Artifact_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_Artifact_descriptor,
         new java.lang.String[] { "Version", "ArtifactId", "Type", "Summary", "Path", "TaskId", "Extensions", "Provenance", "DatasetRefs", "EvalResults", "ExperimentSpec", });
     internal_static_monarchic_agent_protocol_v1_Event_descriptor =
-      getDescriptor().getMessageTypes().get(48);
+      getDescriptor().getMessageTypes().get(51);
     internal_static_monarchic_agent_protocol_v1_Event_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_Event_descriptor,
         new java.lang.String[] { "Version", "EventType", "Timestamp", "TaskId", "Status", "Message", "Extensions", "Provenance", "EvalResults", "FailureClass", });
     internal_static_monarchic_agent_protocol_v1_RunEventRecord_descriptor =
-      getDescriptor().getMessageTypes().get(49);
+      getDescriptor().getMessageTypes().get(52);
     internal_static_monarchic_agent_protocol_v1_RunEventRecord_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_RunEventRecord_descriptor,
         new java.lang.String[] { "ContractVersion", "EventId", "RunId", "PlanId", "Sequence", "Stream", "RecordedAt", "StepId", "TaskId", "EventType", "Status", "Message", "ArtifactIds", });
     internal_static_monarchic_agent_protocol_v1_TaskMessage_descriptor =
-      getDescriptor().getMessageTypes().get(50);
+      getDescriptor().getMessageTypes().get(53);
     internal_static_monarchic_agent_protocol_v1_TaskMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_TaskMessage_descriptor,
         new java.lang.String[] { "Version", "MessageId", "RunId", "FromTaskId", "ToTaskId", "Kind", "Subject", "Body", "ArtifactRefs", "ReplyTo", "CreatedAt", "RequiresAck", "Extensions", "Provenance", });
     internal_static_monarchic_agent_protocol_v1_TaskMessageAck_descriptor =
-      getDescriptor().getMessageTypes().get(51);
+      getDescriptor().getMessageTypes().get(54);
     internal_static_monarchic_agent_protocol_v1_TaskMessageAck_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_TaskMessageAck_descriptor,
         new java.lang.String[] { "Version", "MessageId", "RunId", "TaskId", "AckedAt", "Status", "Note", "Extensions", });
     internal_static_monarchic_agent_protocol_v1_GateResult_descriptor =
-      getDescriptor().getMessageTypes().get(52);
+      getDescriptor().getMessageTypes().get(55);
     internal_static_monarchic_agent_protocol_v1_GateResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_GateResult_descriptor,
         new java.lang.String[] { "Version", "Gate", "Status", "Reason", "Evidence", "Extensions", "FailureClass", });
     internal_static_monarchic_agent_protocol_v1_RunOutcome_descriptor =
-      getDescriptor().getMessageTypes().get(53);
+      getDescriptor().getMessageTypes().get(56);
     internal_static_monarchic_agent_protocol_v1_RunOutcome_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_RunOutcome_descriptor,
         new java.lang.String[] { "Version", "TaskId", "RunId", "ObjectiveMetric", "ObjectiveScore", "ObjectiveDecision", "EstimatedCostUsd", "BudgetLimitUsd", "CostDecision", "RiskLevel", "RiskSummary", "RiskDecision", "FinalDecision", "Summary", "Evidence", "Extensions", });
     internal_static_monarchic_agent_protocol_v1_RunContext_descriptor =
-      getDescriptor().getMessageTypes().get(54);
+      getDescriptor().getMessageTypes().get(57);
     internal_static_monarchic_agent_protocol_v1_RunContext_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_RunContext_descriptor,
         new java.lang.String[] { "Version", "Repo", "Worktree", "Image", "Runner", "Labels", "Extensions", });
     internal_static_monarchic_agent_protocol_v1_RunnerCapabilities_descriptor =
-      getDescriptor().getMessageTypes().get(55);
+      getDescriptor().getMessageTypes().get(58);
     internal_static_monarchic_agent_protocol_v1_RunnerCapabilities_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_RunnerCapabilities_descriptor,
-        new java.lang.String[] { "Platform", "Runtime", "SupportedRoles", "SupportedTaskVersions", "Labels", "SupportsInteractivePty", "SupportsResume", "Extensions", "SupportedRoleIds", });
+        new java.lang.String[] { "Platform", "Runtime", "SupportedRoles", "SupportedTaskVersions", "Labels", "SupportsInteractivePty", "SupportsResume", "Extensions", "SupportedRoleIds", "SupportedModels", "SupportedReasoningEfforts", "SupportedRunnerCapabilities", "SupportedProviders", });
     internal_static_monarchic_agent_protocol_v1_LeaseRef_descriptor =
-      getDescriptor().getMessageTypes().get(56);
+      getDescriptor().getMessageTypes().get(59);
     internal_static_monarchic_agent_protocol_v1_LeaseRef_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_LeaseRef_descriptor,
         new java.lang.String[] { "LeaseId", "FencingToken", "RunId", "PlanId", "StepId", "TaskId", });
     internal_static_monarchic_agent_protocol_v1_FencingToken_descriptor =
-      getDescriptor().getMessageTypes().get(57);
+      getDescriptor().getMessageTypes().get(60);
     internal_static_monarchic_agent_protocol_v1_FencingToken_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_FencingToken_descriptor,
         new java.lang.String[] { "Token", "IssuedAtMs", "Issuer", "Scope", "Extensions", });
     internal_static_monarchic_agent_protocol_v1_Lease_descriptor =
-      getDescriptor().getMessageTypes().get(58);
+      getDescriptor().getMessageTypes().get(61);
     internal_static_monarchic_agent_protocol_v1_Lease_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_Lease_descriptor,
         new java.lang.String[] { "LeaseId", "RunId", "PlanId", "StepId", "TaskId", "RunnerId", "SessionId", "FencingToken", "IssuedAtMs", "ExpiresAtMs", "Status", "Extensions", });
     internal_static_monarchic_agent_protocol_v1_RecoveryEvent_descriptor =
-      getDescriptor().getMessageTypes().get(59);
+      getDescriptor().getMessageTypes().get(62);
     internal_static_monarchic_agent_protocol_v1_RecoveryEvent_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_RecoveryEvent_descriptor,
         new java.lang.String[] { "EventId", "RunId", "PlanId", "StepId", "Kind", "OccurredAtMs", "Actor", "Details", "ContractVersion", "RunState", "StepState", "LeaseRejectionReason", });
     internal_static_monarchic_agent_protocol_v1_LeaseStatus_descriptor =
-      getDescriptor().getMessageTypes().get(60);
+      getDescriptor().getMessageTypes().get(63);
     internal_static_monarchic_agent_protocol_v1_LeaseStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_LeaseStatus_descriptor,
         new java.lang.String[] { "Lease", "State", "UpdatedAtMs", "Failure", "Extensions", });
     internal_static_monarchic_agent_protocol_v1_CancellationIntent_descriptor =
-      getDescriptor().getMessageTypes().get(61);
+      getDescriptor().getMessageTypes().get(64);
     internal_static_monarchic_agent_protocol_v1_CancellationIntent_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_CancellationIntent_descriptor,
         new java.lang.String[] { "Lease", "Reason", "RequestedAtMs", "Force", "Extensions", });
     internal_static_monarchic_agent_protocol_v1_LeaseAssignment_descriptor =
-      getDescriptor().getMessageTypes().get(62);
+      getDescriptor().getMessageTypes().get(65);
     internal_static_monarchic_agent_protocol_v1_LeaseAssignment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_LeaseAssignment_descriptor,
         new java.lang.String[] { "Lease", "Task", "IssuedAtMs", "LeaseTtlMs", "Extensions", });
     internal_static_monarchic_agent_protocol_v1_RegisterRunnerRequest_descriptor =
-      getDescriptor().getMessageTypes().get(63);
+      getDescriptor().getMessageTypes().get(66);
     internal_static_monarchic_agent_protocol_v1_RegisterRunnerRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_RegisterRunnerRequest_descriptor,
         new java.lang.String[] { "ContractVersion", "RunnerId", "Capabilities", "MaxParallelLeases", "Extensions", "AuthContext", });
     internal_static_monarchic_agent_protocol_v1_RegisterRunnerResponse_descriptor =
-      getDescriptor().getMessageTypes().get(64);
+      getDescriptor().getMessageTypes().get(67);
     internal_static_monarchic_agent_protocol_v1_RegisterRunnerResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_RegisterRunnerResponse_descriptor,
         new java.lang.String[] { "ContractVersion", "OrchestratorId", "SessionId", "HeartbeatIntervalMs", "LeasePollIntervalMs", "Extensions", });
     internal_static_monarchic_agent_protocol_v1_HeartbeatRequest_descriptor =
-      getDescriptor().getMessageTypes().get(65);
+      getDescriptor().getMessageTypes().get(68);
     internal_static_monarchic_agent_protocol_v1_HeartbeatRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_HeartbeatRequest_descriptor,
         new java.lang.String[] { "ContractVersion", "RunnerId", "SessionId", "ActiveLeases", "Extensions", "AuthContext", });
     internal_static_monarchic_agent_protocol_v1_HeartbeatResponse_descriptor =
-      getDescriptor().getMessageTypes().get(66);
+      getDescriptor().getMessageTypes().get(69);
     internal_static_monarchic_agent_protocol_v1_HeartbeatResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_HeartbeatResponse_descriptor,
         new java.lang.String[] { "ContractVersion", "OrchestratorId", "NextHeartbeatMs", "Cancellations", "Extensions", });
     internal_static_monarchic_agent_protocol_v1_AcquireLeaseRequest_descriptor =
-      getDescriptor().getMessageTypes().get(67);
+      getDescriptor().getMessageTypes().get(70);
     internal_static_monarchic_agent_protocol_v1_AcquireLeaseRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_AcquireLeaseRequest_descriptor,
         new java.lang.String[] { "ContractVersion", "RunnerId", "SessionId", "AvailableSlots", "ActiveLeaseIds", "Extensions", "AuthContext", });
     internal_static_monarchic_agent_protocol_v1_AcquireLeaseResponse_descriptor =
-      getDescriptor().getMessageTypes().get(68);
+      getDescriptor().getMessageTypes().get(71);
     internal_static_monarchic_agent_protocol_v1_AcquireLeaseResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_AcquireLeaseResponse_descriptor,
         new java.lang.String[] { "ContractVersion", "OrchestratorId", "Assignment", "RetryAfterMs", "Cancellations", "Extensions", });
     internal_static_monarchic_agent_protocol_v1_RenewLeaseRequest_descriptor =
-      getDescriptor().getMessageTypes().get(69);
+      getDescriptor().getMessageTypes().get(72);
     internal_static_monarchic_agent_protocol_v1_RenewLeaseRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_RenewLeaseRequest_descriptor,
         new java.lang.String[] { "ContractVersion", "RunnerId", "SessionId", "Lease", "Extensions", "AuthContext", });
     internal_static_monarchic_agent_protocol_v1_RenewLeaseResponse_descriptor =
-      getDescriptor().getMessageTypes().get(70);
+      getDescriptor().getMessageTypes().get(73);
     internal_static_monarchic_agent_protocol_v1_RenewLeaseResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_RenewLeaseResponse_descriptor,
         new java.lang.String[] { "ContractVersion", "OrchestratorId", "Accepted", "LeaseTtlMs", "Cancellations", "Failure", "Extensions", });
     internal_static_monarchic_agent_protocol_v1_ResumeLeaseRequest_descriptor =
-      getDescriptor().getMessageTypes().get(71);
+      getDescriptor().getMessageTypes().get(74);
     internal_static_monarchic_agent_protocol_v1_ResumeLeaseRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_ResumeLeaseRequest_descriptor,
         new java.lang.String[] { "ContractVersion", "RunnerId", "SessionId", "Lease", "Extensions", "AuthContext", });
     internal_static_monarchic_agent_protocol_v1_ResumeLeaseResponse_descriptor =
-      getDescriptor().getMessageTypes().get(72);
+      getDescriptor().getMessageTypes().get(75);
     internal_static_monarchic_agent_protocol_v1_ResumeLeaseResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_ResumeLeaseResponse_descriptor,
         new java.lang.String[] { "ContractVersion", "OrchestratorId", "Accepted", "Lease", "ExpiresAtMs", "CurrentFencingToken", "Reason", "Message", "Extensions", });
     internal_static_monarchic_agent_protocol_v1_ReportStepStartedRequest_descriptor =
-      getDescriptor().getMessageTypes().get(73);
+      getDescriptor().getMessageTypes().get(76);
     internal_static_monarchic_agent_protocol_v1_ReportStepStartedRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_ReportStepStartedRequest_descriptor,
         new java.lang.String[] { "ContractVersion", "RunnerId", "SessionId", "Lease", "StartedAt", "Extensions", "AuthContext", });
     internal_static_monarchic_agent_protocol_v1_ReportStepStartedResponse_descriptor =
-      getDescriptor().getMessageTypes().get(74);
+      getDescriptor().getMessageTypes().get(77);
     internal_static_monarchic_agent_protocol_v1_ReportStepStartedResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_ReportStepStartedResponse_descriptor,
         new java.lang.String[] { "ContractVersion", "OrchestratorId", "Accepted", "Failure", "Extensions", });
     internal_static_monarchic_agent_protocol_v1_ReportStepProgressRequest_descriptor =
-      getDescriptor().getMessageTypes().get(75);
+      getDescriptor().getMessageTypes().get(78);
     internal_static_monarchic_agent_protocol_v1_ReportStepProgressRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_ReportStepProgressRequest_descriptor,
         new java.lang.String[] { "ContractVersion", "RunnerId", "SessionId", "Lease", "Events", "Artifacts", "Extensions", "AuthContext", });
     internal_static_monarchic_agent_protocol_v1_ReportStepProgressResponse_descriptor =
-      getDescriptor().getMessageTypes().get(76);
+      getDescriptor().getMessageTypes().get(79);
     internal_static_monarchic_agent_protocol_v1_ReportStepProgressResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_ReportStepProgressResponse_descriptor,
         new java.lang.String[] { "ContractVersion", "OrchestratorId", "Accepted", "Cancellations", "Failure", "Extensions", });
     internal_static_monarchic_agent_protocol_v1_ReportStepOutcomeRequest_descriptor =
-      getDescriptor().getMessageTypes().get(77);
+      getDescriptor().getMessageTypes().get(80);
     internal_static_monarchic_agent_protocol_v1_ReportStepOutcomeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_ReportStepOutcomeRequest_descriptor,
         new java.lang.String[] { "ContractVersion", "RunnerId", "SessionId", "Lease", "Status", "Events", "Artifacts", "RunOutcome", "Failure", "FinishedAt", "Extensions", "AuthContext", });
     internal_static_monarchic_agent_protocol_v1_ReportStepOutcomeResponse_descriptor =
-      getDescriptor().getMessageTypes().get(78);
+      getDescriptor().getMessageTypes().get(81);
     internal_static_monarchic_agent_protocol_v1_ReportStepOutcomeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_ReportStepOutcomeResponse_descriptor,
         new java.lang.String[] { "ContractVersion", "OrchestratorId", "Accepted", "Failure", "Extensions", });
     internal_static_monarchic_agent_protocol_v1_AckCancellationRequest_descriptor =
-      getDescriptor().getMessageTypes().get(79);
+      getDescriptor().getMessageTypes().get(82);
     internal_static_monarchic_agent_protocol_v1_AckCancellationRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_AckCancellationRequest_descriptor,
         new java.lang.String[] { "ContractVersion", "RunnerId", "SessionId", "Lease", "Status", "Message", "Extensions", "AuthContext", });
     internal_static_monarchic_agent_protocol_v1_AckCancellationResponse_descriptor =
-      getDescriptor().getMessageTypes().get(80);
+      getDescriptor().getMessageTypes().get(83);
     internal_static_monarchic_agent_protocol_v1_AckCancellationResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_AckCancellationResponse_descriptor,
         new java.lang.String[] { "ContractVersion", "OrchestratorId", "Accepted", "Failure", "Extensions", });
     internal_static_monarchic_agent_protocol_v1_ControlPlaneScope_descriptor =
-      getDescriptor().getMessageTypes().get(81);
+      getDescriptor().getMessageTypes().get(84);
     internal_static_monarchic_agent_protocol_v1_ControlPlaneScope_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_ControlPlaneScope_descriptor,
         new java.lang.String[] { "Organization", "User", "DefaultProject", });
     internal_static_monarchic_agent_protocol_v1_RunOperatorSignals_descriptor =
-      getDescriptor().getMessageTypes().get(82);
+      getDescriptor().getMessageTypes().get(85);
     internal_static_monarchic_agent_protocol_v1_RunOperatorSignals_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_RunOperatorSignals_descriptor,
         new java.lang.String[] { "PromptNeeded", "PromptSummary", "PauseRequested", "InterruptRequested", "CancelRequested", });
     internal_static_monarchic_agent_protocol_v1_ControlPlaneRunSummary_descriptor =
-      getDescriptor().getMessageTypes().get(83);
+      getDescriptor().getMessageTypes().get(86);
     internal_static_monarchic_agent_protocol_v1_ControlPlaneRunSummary_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_ControlPlaneRunSummary_descriptor,
         new java.lang.String[] { "ProjectKey", "RunId", "RunDir", "LifecycleState", "Status", "UpdatedLabel", "UpdatedEpoch", "MeaningfulStatus", "MeaningfulScore", "MeaningfulReasons", "TotalRuns", "TotalSuccess", "TotalFailed", "MessageCount", "UnresolvedRequiredAckCount", "AlertStale", "AlertLowScore", "OperatorSignals", });
     internal_static_monarchic_agent_protocol_v1_ControlPlaneRunActivityCursor_descriptor =
-      getDescriptor().getMessageTypes().get(84);
+      getDescriptor().getMessageTypes().get(87);
     internal_static_monarchic_agent_protocol_v1_ControlPlaneRunActivityCursor_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_ControlPlaneRunActivityCursor_descriptor,
         new java.lang.String[] { "AfterSequence", "ResumeToken", });
     internal_static_monarchic_agent_protocol_v1_ListControlPlaneRunsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(85);
+      getDescriptor().getMessageTypes().get(88);
     internal_static_monarchic_agent_protocol_v1_ListControlPlaneRunsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_ListControlPlaneRunsRequest_descriptor,
         new java.lang.String[] { "ContractVersion", "Scope", "ProjectKey", "Limit", "Extensions", "AuthContext", });
     internal_static_monarchic_agent_protocol_v1_ListControlPlaneRunsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(86);
+      getDescriptor().getMessageTypes().get(89);
     internal_static_monarchic_agent_protocol_v1_ListControlPlaneRunsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_ListControlPlaneRunsResponse_descriptor,
         new java.lang.String[] { "ContractVersion", "Runs", "Extensions", });
     internal_static_monarchic_agent_protocol_v1_GetControlPlaneRunRequest_descriptor =
-      getDescriptor().getMessageTypes().get(87);
+      getDescriptor().getMessageTypes().get(90);
     internal_static_monarchic_agent_protocol_v1_GetControlPlaneRunRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_GetControlPlaneRunRequest_descriptor,
         new java.lang.String[] { "ContractVersion", "Scope", "ProjectKey", "RunId", "Extensions", "AuthContext", });
     internal_static_monarchic_agent_protocol_v1_GetControlPlaneRunResponse_descriptor =
-      getDescriptor().getMessageTypes().get(88);
+      getDescriptor().getMessageTypes().get(91);
     internal_static_monarchic_agent_protocol_v1_GetControlPlaneRunResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_GetControlPlaneRunResponse_descriptor,
         new java.lang.String[] { "ContractVersion", "Run", "Extensions", });
     internal_static_monarchic_agent_protocol_v1_GetControlPlaneRunActivityPageRequest_descriptor =
-      getDescriptor().getMessageTypes().get(89);
+      getDescriptor().getMessageTypes().get(92);
     internal_static_monarchic_agent_protocol_v1_GetControlPlaneRunActivityPageRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_GetControlPlaneRunActivityPageRequest_descriptor,
         new java.lang.String[] { "ContractVersion", "Scope", "ProjectKey", "RunId", "Limit", "Cursor", "Extensions", "AuthContext", });
     internal_static_monarchic_agent_protocol_v1_GetControlPlaneRunActivityPageResponse_descriptor =
-      getDescriptor().getMessageTypes().get(90);
+      getDescriptor().getMessageTypes().get(93);
     internal_static_monarchic_agent_protocol_v1_GetControlPlaneRunActivityPageResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_GetControlPlaneRunActivityPageResponse_descriptor,
         new java.lang.String[] { "ContractVersion", "Records", "NextCursor", "Extensions", });
     internal_static_monarchic_agent_protocol_v1_ApplyControlPlaneRunActionRequest_descriptor =
-      getDescriptor().getMessageTypes().get(91);
+      getDescriptor().getMessageTypes().get(94);
     internal_static_monarchic_agent_protocol_v1_ApplyControlPlaneRunActionRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_ApplyControlPlaneRunActionRequest_descriptor,
         new java.lang.String[] { "ContractVersion", "Scope", "RunId", "Action", "Reason", "Extensions", "AuthContext", });
     internal_static_monarchic_agent_protocol_v1_ApplyControlPlaneRunActionResponse_descriptor =
-      getDescriptor().getMessageTypes().get(92);
+      getDescriptor().getMessageTypes().get(95);
     internal_static_monarchic_agent_protocol_v1_ApplyControlPlaneRunActionResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_ApplyControlPlaneRunActionResponse_descriptor,
         new java.lang.String[] { "ContractVersion", "RunId", "Action", "Accepted", "LifecycleState", "Message", "Extensions", });
     internal_static_monarchic_agent_protocol_v1_ApplyControlPlaneReviewDispositionRequest_descriptor =
-      getDescriptor().getMessageTypes().get(93);
+      getDescriptor().getMessageTypes().get(96);
     internal_static_monarchic_agent_protocol_v1_ApplyControlPlaneReviewDispositionRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_ApplyControlPlaneReviewDispositionRequest_descriptor,
         new java.lang.String[] { "ContractVersion", "Scope", "ProjectKey", "PlanId", "Actor", "Decision", "Reason", "Extensions", "AuthContext", });
     internal_static_monarchic_agent_protocol_v1_ApplyControlPlaneReviewDispositionResponse_descriptor =
-      getDescriptor().getMessageTypes().get(94);
+      getDescriptor().getMessageTypes().get(97);
     internal_static_monarchic_agent_protocol_v1_ApplyControlPlaneReviewDispositionResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_ApplyControlPlaneReviewDispositionResponse_descriptor,
         new java.lang.String[] { "ContractVersion", "ProjectKey", "PlanId", "Accepted", "ReviewDecision", "PrLifecycleState", "Message", "Extensions", });
     internal_static_monarchic_agent_protocol_v1_EnsureControlPlaneWorkerRequest_descriptor =
-      getDescriptor().getMessageTypes().get(95);
+      getDescriptor().getMessageTypes().get(98);
     internal_static_monarchic_agent_protocol_v1_EnsureControlPlaneWorkerRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_EnsureControlPlaneWorkerRequest_descriptor,
         new java.lang.String[] { "ContractVersion", "Scope", "ProjectKey", "Extensions", "AuthContext", });
     internal_static_monarchic_agent_protocol_v1_EnsureControlPlaneWorkerResponse_descriptor =
-      getDescriptor().getMessageTypes().get(96);
+      getDescriptor().getMessageTypes().get(99);
     internal_static_monarchic_agent_protocol_v1_EnsureControlPlaneWorkerResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_monarchic_agent_protocol_v1_EnsureControlPlaneWorkerResponse_descriptor,

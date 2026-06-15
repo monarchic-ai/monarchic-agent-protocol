@@ -46,6 +46,7 @@ private static final long serialVersionUID = 0L;
     agentCmds_ = java.util.Collections.emptyList();
     defaultAgentCmd_ =
         com.google.protobuf.LazyStringArrayList.emptyList();
+    agentProfiles_ = java.util.Collections.emptyList();
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -348,7 +349,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
    * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
-   *     See monarchic_agent_protocol.proto;l=255
+   *     See monarchic_agent_protocol.proto;l=290
    * @return A list containing the codexCmd.
    */
   @java.lang.Deprecated public com.google.protobuf.ProtocolStringList
@@ -358,7 +359,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
    * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
-   *     See monarchic_agent_protocol.proto;l=255
+   *     See monarchic_agent_protocol.proto;l=290
    * @return The count of codexCmd.
    */
   @java.lang.Deprecated public int getCodexCmdCount() {
@@ -367,7 +368,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
    * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
-   *     See monarchic_agent_protocol.proto;l=255
+   *     See monarchic_agent_protocol.proto;l=290
    * @param index The index of the element to return.
    * @return The codexCmd at the given index.
    */
@@ -377,7 +378,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
    * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
-   *     See monarchic_agent_protocol.proto;l=255
+   *     See monarchic_agent_protocol.proto;l=290
    * @param index The index of the value to return.
    * @return The bytes of the codexCmd at the given index.
    */
@@ -582,6 +583,47 @@ private static final long serialVersionUID = 0L;
     return defaultAgentCmd_.getByteString(index);
   }
 
+  public static final int AGENT_PROFILES_FIELD_NUMBER = 15;
+  @SuppressWarnings("serial")
+  private java.util.List<ai.monarchic.agent_protocol.v1.AgentProfile> agentProfiles_;
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentProfile agent_profiles = 15;</code>
+   */
+  @java.lang.Override
+  public java.util.List<ai.monarchic.agent_protocol.v1.AgentProfile> getAgentProfilesList() {
+    return agentProfiles_;
+  }
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentProfile agent_profiles = 15;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends ai.monarchic.agent_protocol.v1.AgentProfileOrBuilder>
+      getAgentProfilesOrBuilderList() {
+    return agentProfiles_;
+  }
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentProfile agent_profiles = 15;</code>
+   */
+  @java.lang.Override
+  public int getAgentProfilesCount() {
+    return agentProfiles_.size();
+  }
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentProfile agent_profiles = 15;</code>
+   */
+  @java.lang.Override
+  public ai.monarchic.agent_protocol.v1.AgentProfile getAgentProfiles(int index) {
+    return agentProfiles_.get(index);
+  }
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentProfile agent_profiles = 15;</code>
+   */
+  @java.lang.Override
+  public ai.monarchic.agent_protocol.v1.AgentProfileOrBuilder getAgentProfilesOrBuilder(
+      int index) {
+    return agentProfiles_.get(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -637,6 +679,9 @@ private static final long serialVersionUID = 0L;
     }
     for (int i = 0; i < defaultAgentCmd_.size(); i++) {
       com.google.protobuf.GeneratedMessage.writeString(output, 14, defaultAgentCmd_.getRaw(i));
+    }
+    for (int i = 0; i < agentProfiles_.size(); i++) {
+      output.writeMessage(15, agentProfiles_.get(i));
     }
     getUnknownFields().writeTo(output);
   }
@@ -717,6 +762,10 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getDefaultAgentCmdList().size();
     }
+    for (int i = 0; i < agentProfiles_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(15, agentProfiles_.get(i));
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -765,6 +814,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getAgentCmdsList())) return false;
     if (!getDefaultAgentCmdList()
         .equals(other.getDefaultAgentCmdList())) return false;
+    if (!getAgentProfilesList()
+        .equals(other.getAgentProfilesList())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -819,6 +870,10 @@ private static final long serialVersionUID = 0L;
     if (getDefaultAgentCmdCount() > 0) {
       hash = (37 * hash) + DEFAULT_AGENT_CMD_FIELD_NUMBER;
       hash = (53 * hash) + getDefaultAgentCmdList().hashCode();
+    }
+    if (getAgentProfilesCount() > 0) {
+      hash = (37 * hash) + AGENT_PROFILES_FIELD_NUMBER;
+      hash = (53 * hash) + getAgentProfilesList().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -952,6 +1007,7 @@ private static final long serialVersionUID = 0L;
               .alwaysUseFieldBuilders) {
         internalGetSelectedTemplateFieldBuilder();
         internalGetAgentCmdsFieldBuilder();
+        internalGetAgentProfilesFieldBuilder();
       }
     }
     @java.lang.Override
@@ -987,6 +1043,13 @@ private static final long serialVersionUID = 0L;
       bitField0_ = (bitField0_ & ~0x00001000);
       defaultAgentCmd_ =
           com.google.protobuf.LazyStringArrayList.emptyList();
+      if (agentProfilesBuilder_ == null) {
+        agentProfiles_ = java.util.Collections.emptyList();
+      } else {
+        agentProfiles_ = null;
+        agentProfilesBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00004000);
       return this;
     }
 
@@ -1028,6 +1091,15 @@ private static final long serialVersionUID = 0L;
         result.agentCmds_ = agentCmds_;
       } else {
         result.agentCmds_ = agentCmdsBuilder_.build();
+      }
+      if (agentProfilesBuilder_ == null) {
+        if (((bitField0_ & 0x00004000) != 0)) {
+          agentProfiles_ = java.util.Collections.unmodifiableList(agentProfiles_);
+          bitField0_ = (bitField0_ & ~0x00004000);
+        }
+        result.agentProfiles_ = agentProfiles_;
+      } else {
+        result.agentProfiles_ = agentProfilesBuilder_.build();
       }
     }
 
@@ -1209,6 +1281,32 @@ private static final long serialVersionUID = 0L;
         }
         onChanged();
       }
+      if (agentProfilesBuilder_ == null) {
+        if (!other.agentProfiles_.isEmpty()) {
+          if (agentProfiles_.isEmpty()) {
+            agentProfiles_ = other.agentProfiles_;
+            bitField0_ = (bitField0_ & ~0x00004000);
+          } else {
+            ensureAgentProfilesIsMutable();
+            agentProfiles_.addAll(other.agentProfiles_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.agentProfiles_.isEmpty()) {
+          if (agentProfilesBuilder_.isEmpty()) {
+            agentProfilesBuilder_.dispose();
+            agentProfilesBuilder_ = null;
+            agentProfiles_ = other.agentProfiles_;
+            bitField0_ = (bitField0_ & ~0x00004000);
+            agentProfilesBuilder_ =
+              com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                 internalGetAgentProfilesFieldBuilder() : null;
+          } else {
+            agentProfilesBuilder_.addAllMessages(other.agentProfiles_);
+          }
+        }
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -1320,6 +1418,19 @@ private static final long serialVersionUID = 0L;
               defaultAgentCmd_.add(s);
               break;
             } // case 114
+            case 122: {
+              ai.monarchic.agent_protocol.v1.AgentProfile m =
+                  input.readMessage(
+                      ai.monarchic.agent_protocol.v1.AgentProfile.parser(),
+                      extensionRegistry);
+              if (agentProfilesBuilder_ == null) {
+                ensureAgentProfilesIsMutable();
+                agentProfiles_.add(m);
+              } else {
+                agentProfilesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 122
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -1898,7 +2009,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
      * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
-     *     See monarchic_agent_protocol.proto;l=255
+     *     See monarchic_agent_protocol.proto;l=290
      * @return A list containing the codexCmd.
      */
     @java.lang.Deprecated public com.google.protobuf.ProtocolStringList
@@ -1909,7 +2020,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
      * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
-     *     See monarchic_agent_protocol.proto;l=255
+     *     See monarchic_agent_protocol.proto;l=290
      * @return The count of codexCmd.
      */
     @java.lang.Deprecated public int getCodexCmdCount() {
@@ -1918,7 +2029,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
      * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
-     *     See monarchic_agent_protocol.proto;l=255
+     *     See monarchic_agent_protocol.proto;l=290
      * @param index The index of the element to return.
      * @return The codexCmd at the given index.
      */
@@ -1928,7 +2039,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
      * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
-     *     See monarchic_agent_protocol.proto;l=255
+     *     See monarchic_agent_protocol.proto;l=290
      * @param index The index of the value to return.
      * @return The bytes of the codexCmd at the given index.
      */
@@ -1939,7 +2050,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
      * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
-     *     See monarchic_agent_protocol.proto;l=255
+     *     See monarchic_agent_protocol.proto;l=290
      * @param index The index to set the value at.
      * @param value The codexCmd to set.
      * @return This builder for chaining.
@@ -1956,7 +2067,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
      * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
-     *     See monarchic_agent_protocol.proto;l=255
+     *     See monarchic_agent_protocol.proto;l=290
      * @param value The codexCmd to add.
      * @return This builder for chaining.
      */
@@ -1972,7 +2083,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
      * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
-     *     See monarchic_agent_protocol.proto;l=255
+     *     See monarchic_agent_protocol.proto;l=290
      * @param values The codexCmd to add.
      * @return This builder for chaining.
      */
@@ -1988,7 +2099,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
      * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
-     *     See monarchic_agent_protocol.proto;l=255
+     *     See monarchic_agent_protocol.proto;l=290
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearCodexCmd() {
@@ -2001,7 +2112,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
      * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
-     *     See monarchic_agent_protocol.proto;l=255
+     *     See monarchic_agent_protocol.proto;l=290
      * @param value The bytes of the codexCmd to add.
      * @return This builder for chaining.
      */
@@ -2759,6 +2870,246 @@ private static final long serialVersionUID = 0L;
       bitField0_ |= 0x00002000;
       onChanged();
       return this;
+    }
+
+    private java.util.List<ai.monarchic.agent_protocol.v1.AgentProfile> agentProfiles_ =
+      java.util.Collections.emptyList();
+    private void ensureAgentProfilesIsMutable() {
+      if (!((bitField0_ & 0x00004000) != 0)) {
+        agentProfiles_ = new java.util.ArrayList<ai.monarchic.agent_protocol.v1.AgentProfile>(agentProfiles_);
+        bitField0_ |= 0x00004000;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilder<
+        ai.monarchic.agent_protocol.v1.AgentProfile, ai.monarchic.agent_protocol.v1.AgentProfile.Builder, ai.monarchic.agent_protocol.v1.AgentProfileOrBuilder> agentProfilesBuilder_;
+
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentProfile agent_profiles = 15;</code>
+     */
+    public java.util.List<ai.monarchic.agent_protocol.v1.AgentProfile> getAgentProfilesList() {
+      if (agentProfilesBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(agentProfiles_);
+      } else {
+        return agentProfilesBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentProfile agent_profiles = 15;</code>
+     */
+    public int getAgentProfilesCount() {
+      if (agentProfilesBuilder_ == null) {
+        return agentProfiles_.size();
+      } else {
+        return agentProfilesBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentProfile agent_profiles = 15;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.AgentProfile getAgentProfiles(int index) {
+      if (agentProfilesBuilder_ == null) {
+        return agentProfiles_.get(index);
+      } else {
+        return agentProfilesBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentProfile agent_profiles = 15;</code>
+     */
+    public Builder setAgentProfiles(
+        int index, ai.monarchic.agent_protocol.v1.AgentProfile value) {
+      if (agentProfilesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAgentProfilesIsMutable();
+        agentProfiles_.set(index, value);
+        onChanged();
+      } else {
+        agentProfilesBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentProfile agent_profiles = 15;</code>
+     */
+    public Builder setAgentProfiles(
+        int index, ai.monarchic.agent_protocol.v1.AgentProfile.Builder builderForValue) {
+      if (agentProfilesBuilder_ == null) {
+        ensureAgentProfilesIsMutable();
+        agentProfiles_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        agentProfilesBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentProfile agent_profiles = 15;</code>
+     */
+    public Builder addAgentProfiles(ai.monarchic.agent_protocol.v1.AgentProfile value) {
+      if (agentProfilesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAgentProfilesIsMutable();
+        agentProfiles_.add(value);
+        onChanged();
+      } else {
+        agentProfilesBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentProfile agent_profiles = 15;</code>
+     */
+    public Builder addAgentProfiles(
+        int index, ai.monarchic.agent_protocol.v1.AgentProfile value) {
+      if (agentProfilesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAgentProfilesIsMutable();
+        agentProfiles_.add(index, value);
+        onChanged();
+      } else {
+        agentProfilesBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentProfile agent_profiles = 15;</code>
+     */
+    public Builder addAgentProfiles(
+        ai.monarchic.agent_protocol.v1.AgentProfile.Builder builderForValue) {
+      if (agentProfilesBuilder_ == null) {
+        ensureAgentProfilesIsMutable();
+        agentProfiles_.add(builderForValue.build());
+        onChanged();
+      } else {
+        agentProfilesBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentProfile agent_profiles = 15;</code>
+     */
+    public Builder addAgentProfiles(
+        int index, ai.monarchic.agent_protocol.v1.AgentProfile.Builder builderForValue) {
+      if (agentProfilesBuilder_ == null) {
+        ensureAgentProfilesIsMutable();
+        agentProfiles_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        agentProfilesBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentProfile agent_profiles = 15;</code>
+     */
+    public Builder addAllAgentProfiles(
+        java.lang.Iterable<? extends ai.monarchic.agent_protocol.v1.AgentProfile> values) {
+      if (agentProfilesBuilder_ == null) {
+        ensureAgentProfilesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, agentProfiles_);
+        onChanged();
+      } else {
+        agentProfilesBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentProfile agent_profiles = 15;</code>
+     */
+    public Builder clearAgentProfiles() {
+      if (agentProfilesBuilder_ == null) {
+        agentProfiles_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00004000);
+        onChanged();
+      } else {
+        agentProfilesBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentProfile agent_profiles = 15;</code>
+     */
+    public Builder removeAgentProfiles(int index) {
+      if (agentProfilesBuilder_ == null) {
+        ensureAgentProfilesIsMutable();
+        agentProfiles_.remove(index);
+        onChanged();
+      } else {
+        agentProfilesBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentProfile agent_profiles = 15;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.AgentProfile.Builder getAgentProfilesBuilder(
+        int index) {
+      return internalGetAgentProfilesFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentProfile agent_profiles = 15;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.AgentProfileOrBuilder getAgentProfilesOrBuilder(
+        int index) {
+      if (agentProfilesBuilder_ == null) {
+        return agentProfiles_.get(index);  } else {
+        return agentProfilesBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentProfile agent_profiles = 15;</code>
+     */
+    public java.util.List<? extends ai.monarchic.agent_protocol.v1.AgentProfileOrBuilder>
+         getAgentProfilesOrBuilderList() {
+      if (agentProfilesBuilder_ != null) {
+        return agentProfilesBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(agentProfiles_);
+      }
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentProfile agent_profiles = 15;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.AgentProfile.Builder addAgentProfilesBuilder() {
+      return internalGetAgentProfilesFieldBuilder().addBuilder(
+          ai.monarchic.agent_protocol.v1.AgentProfile.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentProfile agent_profiles = 15;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.AgentProfile.Builder addAgentProfilesBuilder(
+        int index) {
+      return internalGetAgentProfilesFieldBuilder().addBuilder(
+          index, ai.monarchic.agent_protocol.v1.AgentProfile.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .monarchic.agent_protocol.v1.AgentProfile agent_profiles = 15;</code>
+     */
+    public java.util.List<ai.monarchic.agent_protocol.v1.AgentProfile.Builder>
+         getAgentProfilesBuilderList() {
+      return internalGetAgentProfilesFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilder<
+        ai.monarchic.agent_protocol.v1.AgentProfile, ai.monarchic.agent_protocol.v1.AgentProfile.Builder, ai.monarchic.agent_protocol.v1.AgentProfileOrBuilder>
+        internalGetAgentProfilesFieldBuilder() {
+      if (agentProfilesBuilder_ == null) {
+        agentProfilesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            ai.monarchic.agent_protocol.v1.AgentProfile, ai.monarchic.agent_protocol.v1.AgentProfile.Builder, ai.monarchic.agent_protocol.v1.AgentProfileOrBuilder>(
+                agentProfiles_,
+                ((bitField0_ & 0x00004000) != 0),
+                getParentForChildren(),
+                isClean());
+        agentProfiles_ = null;
+      }
+      return agentProfilesBuilder_;
     }
 
     // @@protoc_insertion_point(builder_scope:monarchic.agent_protocol.v1.BootstrapPlanningContext)

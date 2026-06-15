@@ -2,6 +2,7 @@ use serde::{Deserialize, Serialize};
 
 use super::artifact::ArtifactDescriptor;
 use super::blocking::BlockedOutcome;
+use super::bootstrap::ResolvedAgentRunner;
 use crate::version::CLIENT_BOUNDARY_CONTRACT_VERSION;
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
@@ -58,6 +59,8 @@ pub struct ExecutionReceipt {
     pub artifact_descriptors: Vec<ArtifactDescriptor>,
     pub event_digest: String,
     pub output_digest: String,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub resolved_runner: Option<ResolvedAgentRunner>,
 }
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]

@@ -71,6 +71,10 @@ class BootstrapPlanningContext extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>repeated string default_agent_cmd = 14;</code>
      */
     private $default_agent_cmd;
+    /**
+     * Generated from protobuf field <code>repeated .monarchic.agent_protocol.v1.AgentProfile agent_profiles = 15;</code>
+     */
+    private $agent_profiles;
 
     /**
      * Constructor.
@@ -92,6 +96,7 @@ class BootstrapPlanningContext extends \Google\Protobuf\Internal\Message
      *     @type string[] $enabled_role_ids
      *     @type \Monarchic\AgentProtocol\V1\AgentCommand[] $agent_cmds
      *     @type string[] $default_agent_cmd
+     *     @type \Monarchic\AgentProtocol\V1\AgentProfile[] $agent_profiles
      * }
      */
     public function __construct($data = NULL) {
@@ -431,6 +436,28 @@ class BootstrapPlanningContext extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
         $this->default_agent_cmd = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .monarchic.agent_protocol.v1.AgentProfile agent_profiles = 15;</code>
+     * @return RepeatedField<\Monarchic\AgentProtocol\V1\AgentProfile>
+     */
+    public function getAgentProfiles()
+    {
+        return $this->agent_profiles;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .monarchic.agent_protocol.v1.AgentProfile agent_profiles = 15;</code>
+     * @param \Monarchic\AgentProtocol\V1\AgentProfile[] $var
+     * @return $this
+     */
+    public function setAgentProfiles($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Monarchic\AgentProtocol\V1\AgentProfile::class);
+        $this->agent_profiles = $arr;
 
         return $this;
     }

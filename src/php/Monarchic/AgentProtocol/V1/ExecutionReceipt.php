@@ -54,6 +54,10 @@ class ExecutionReceipt extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>uint64 generated_at_ms = 10;</code>
      */
     protected $generated_at_ms = 0;
+    /**
+     * Generated from protobuf field <code>optional .monarchic.agent_protocol.v1.ResolvedAgentRunner resolved_runner = 11;</code>
+     */
+    protected $resolved_runner = null;
 
     /**
      * Constructor.
@@ -71,6 +75,7 @@ class ExecutionReceipt extends \Google\Protobuf\Internal\Message
      *     @type int $status
      *     @type \Monarchic\AgentProtocol\V1\FailureDetail $failure
      *     @type int|string $generated_at_ms
+     *     @type \Monarchic\AgentProtocol\V1\ResolvedAgentRunner $resolved_runner
      * }
      */
     public function __construct($data = NULL) {
@@ -304,6 +309,38 @@ class ExecutionReceipt extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkUint64($var);
         $this->generated_at_ms = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional .monarchic.agent_protocol.v1.ResolvedAgentRunner resolved_runner = 11;</code>
+     * @return \Monarchic\AgentProtocol\V1\ResolvedAgentRunner|null
+     */
+    public function getResolvedRunner()
+    {
+        return $this->resolved_runner;
+    }
+
+    public function hasResolvedRunner()
+    {
+        return isset($this->resolved_runner);
+    }
+
+    public function clearResolvedRunner()
+    {
+        unset($this->resolved_runner);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional .monarchic.agent_protocol.v1.ResolvedAgentRunner resolved_runner = 11;</code>
+     * @param \Monarchic\AgentProtocol\V1\ResolvedAgentRunner $var
+     * @return $this
+     */
+    public function setResolvedRunner($var)
+    {
+        GPBUtil::checkMessage($var, \Monarchic\AgentProtocol\V1\ResolvedAgentRunner::class);
+        $this->resolved_runner = $var;
 
         return $this;
     }

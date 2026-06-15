@@ -78,6 +78,14 @@ class BootstrapPlanTask extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>optional string injected_by_role_id = 16;</code>
      */
     protected $injected_by_role_id = null;
+    /**
+     * Generated from protobuf field <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPreference runner_preferences = 17;</code>
+     */
+    private $runner_preferences;
+    /**
+     * Generated from protobuf field <code>optional .monarchic.agent_protocol.v1.ResolvedAgentRunner resolved_runner = 18;</code>
+     */
+    protected $resolved_runner = null;
 
     /**
      * Constructor.
@@ -101,6 +109,8 @@ class BootstrapPlanTask extends \Google\Protobuf\Internal\Message
      *     @type string $notes
      *     @type string $agent_id
      *     @type string $injected_by_role_id
+     *     @type \Monarchic\AgentProtocol\V1\AgentRunnerPreference[] $runner_preferences
+     *     @type \Monarchic\AgentProtocol\V1\ResolvedAgentRunner $resolved_runner
      * }
      */
     public function __construct($data = NULL) {
@@ -546,6 +556,60 @@ class BootstrapPlanTask extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->injected_by_role_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPreference runner_preferences = 17;</code>
+     * @return RepeatedField<\Monarchic\AgentProtocol\V1\AgentRunnerPreference>
+     */
+    public function getRunnerPreferences()
+    {
+        return $this->runner_preferences;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPreference runner_preferences = 17;</code>
+     * @param \Monarchic\AgentProtocol\V1\AgentRunnerPreference[] $var
+     * @return $this
+     */
+    public function setRunnerPreferences($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Monarchic\AgentProtocol\V1\AgentRunnerPreference::class);
+        $this->runner_preferences = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional .monarchic.agent_protocol.v1.ResolvedAgentRunner resolved_runner = 18;</code>
+     * @return \Monarchic\AgentProtocol\V1\ResolvedAgentRunner|null
+     */
+    public function getResolvedRunner()
+    {
+        return $this->resolved_runner;
+    }
+
+    public function hasResolvedRunner()
+    {
+        return isset($this->resolved_runner);
+    }
+
+    public function clearResolvedRunner()
+    {
+        unset($this->resolved_runner);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional .monarchic.agent_protocol.v1.ResolvedAgentRunner resolved_runner = 18;</code>
+     * @param \Monarchic\AgentProtocol\V1\ResolvedAgentRunner $var
+     * @return $this
+     */
+    public function setResolvedRunner($var)
+    {
+        GPBUtil::checkMessage($var, \Monarchic\AgentProtocol\V1\ResolvedAgentRunner::class);
+        $this->resolved_runner = $var;
 
         return $this;
     }

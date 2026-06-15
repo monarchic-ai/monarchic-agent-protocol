@@ -115,7 +115,7 @@ public interface BootstrapPlanningContextOrBuilder extends
   /**
    * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
    * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
-   *     See monarchic_agent_protocol.proto;l=255
+   *     See monarchic_agent_protocol.proto;l=290
    * @return A list containing the codexCmd.
    */
   @java.lang.Deprecated java.util.List<java.lang.String>
@@ -123,14 +123,14 @@ public interface BootstrapPlanningContextOrBuilder extends
   /**
    * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
    * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
-   *     See monarchic_agent_protocol.proto;l=255
+   *     See monarchic_agent_protocol.proto;l=290
    * @return The count of codexCmd.
    */
   @java.lang.Deprecated int getCodexCmdCount();
   /**
    * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
    * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
-   *     See monarchic_agent_protocol.proto;l=255
+   *     See monarchic_agent_protocol.proto;l=290
    * @param index The index of the element to return.
    * @return The codexCmd at the given index.
    */
@@ -138,7 +138,7 @@ public interface BootstrapPlanningContextOrBuilder extends
   /**
    * <code>repeated string codex_cmd = 8 [deprecated = true];</code>
    * @deprecated monarchic.agent_protocol.v1.BootstrapPlanningContext.codex_cmd is deprecated.
-   *     See monarchic_agent_protocol.proto;l=255
+   *     See monarchic_agent_protocol.proto;l=290
    * @param index The index of the value to return.
    * @return The bytes of the codexCmd at the given index.
    */
@@ -269,4 +269,28 @@ public interface BootstrapPlanningContextOrBuilder extends
    */
   com.google.protobuf.ByteString
       getDefaultAgentCmdBytes(int index);
+
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentProfile agent_profiles = 15;</code>
+   */
+  java.util.List<ai.monarchic.agent_protocol.v1.AgentProfile>
+      getAgentProfilesList();
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentProfile agent_profiles = 15;</code>
+   */
+  ai.monarchic.agent_protocol.v1.AgentProfile getAgentProfiles(int index);
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentProfile agent_profiles = 15;</code>
+   */
+  int getAgentProfilesCount();
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentProfile agent_profiles = 15;</code>
+   */
+  java.util.List<? extends ai.monarchic.agent_protocol.v1.AgentProfileOrBuilder>
+      getAgentProfilesOrBuilderList();
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentProfile agent_profiles = 15;</code>
+   */
+  ai.monarchic.agent_protocol.v1.AgentProfileOrBuilder getAgentProfilesOrBuilder(
+      int index);
 }

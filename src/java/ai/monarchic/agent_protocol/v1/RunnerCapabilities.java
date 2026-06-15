@@ -42,6 +42,14 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.LazyStringArrayList.emptyList();
     supportedRoleIds_ =
         com.google.protobuf.LazyStringArrayList.emptyList();
+    supportedModels_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
+    supportedReasoningEfforts_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
+    supportedRunnerCapabilities_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
+    supportedProviders_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -379,6 +387,154 @@ private static final long serialVersionUID = 0L;
     return supportedRoleIds_.getByteString(index);
   }
 
+  public static final int SUPPORTED_MODELS_FIELD_NUMBER = 10;
+  @SuppressWarnings("serial")
+  private com.google.protobuf.LazyStringArrayList supportedModels_ =
+      com.google.protobuf.LazyStringArrayList.emptyList();
+  /**
+   * <code>repeated string supported_models = 10;</code>
+   * @return A list containing the supportedModels.
+   */
+  public com.google.protobuf.ProtocolStringList
+      getSupportedModelsList() {
+    return supportedModels_;
+  }
+  /**
+   * <code>repeated string supported_models = 10;</code>
+   * @return The count of supportedModels.
+   */
+  public int getSupportedModelsCount() {
+    return supportedModels_.size();
+  }
+  /**
+   * <code>repeated string supported_models = 10;</code>
+   * @param index The index of the element to return.
+   * @return The supportedModels at the given index.
+   */
+  public java.lang.String getSupportedModels(int index) {
+    return supportedModels_.get(index);
+  }
+  /**
+   * <code>repeated string supported_models = 10;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the supportedModels at the given index.
+   */
+  public com.google.protobuf.ByteString
+      getSupportedModelsBytes(int index) {
+    return supportedModels_.getByteString(index);
+  }
+
+  public static final int SUPPORTED_REASONING_EFFORTS_FIELD_NUMBER = 11;
+  @SuppressWarnings("serial")
+  private com.google.protobuf.LazyStringArrayList supportedReasoningEfforts_ =
+      com.google.protobuf.LazyStringArrayList.emptyList();
+  /**
+   * <code>repeated string supported_reasoning_efforts = 11;</code>
+   * @return A list containing the supportedReasoningEfforts.
+   */
+  public com.google.protobuf.ProtocolStringList
+      getSupportedReasoningEffortsList() {
+    return supportedReasoningEfforts_;
+  }
+  /**
+   * <code>repeated string supported_reasoning_efforts = 11;</code>
+   * @return The count of supportedReasoningEfforts.
+   */
+  public int getSupportedReasoningEffortsCount() {
+    return supportedReasoningEfforts_.size();
+  }
+  /**
+   * <code>repeated string supported_reasoning_efforts = 11;</code>
+   * @param index The index of the element to return.
+   * @return The supportedReasoningEfforts at the given index.
+   */
+  public java.lang.String getSupportedReasoningEfforts(int index) {
+    return supportedReasoningEfforts_.get(index);
+  }
+  /**
+   * <code>repeated string supported_reasoning_efforts = 11;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the supportedReasoningEfforts at the given index.
+   */
+  public com.google.protobuf.ByteString
+      getSupportedReasoningEffortsBytes(int index) {
+    return supportedReasoningEfforts_.getByteString(index);
+  }
+
+  public static final int SUPPORTED_RUNNER_CAPABILITIES_FIELD_NUMBER = 12;
+  @SuppressWarnings("serial")
+  private com.google.protobuf.LazyStringArrayList supportedRunnerCapabilities_ =
+      com.google.protobuf.LazyStringArrayList.emptyList();
+  /**
+   * <code>repeated string supported_runner_capabilities = 12;</code>
+   * @return A list containing the supportedRunnerCapabilities.
+   */
+  public com.google.protobuf.ProtocolStringList
+      getSupportedRunnerCapabilitiesList() {
+    return supportedRunnerCapabilities_;
+  }
+  /**
+   * <code>repeated string supported_runner_capabilities = 12;</code>
+   * @return The count of supportedRunnerCapabilities.
+   */
+  public int getSupportedRunnerCapabilitiesCount() {
+    return supportedRunnerCapabilities_.size();
+  }
+  /**
+   * <code>repeated string supported_runner_capabilities = 12;</code>
+   * @param index The index of the element to return.
+   * @return The supportedRunnerCapabilities at the given index.
+   */
+  public java.lang.String getSupportedRunnerCapabilities(int index) {
+    return supportedRunnerCapabilities_.get(index);
+  }
+  /**
+   * <code>repeated string supported_runner_capabilities = 12;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the supportedRunnerCapabilities at the given index.
+   */
+  public com.google.protobuf.ByteString
+      getSupportedRunnerCapabilitiesBytes(int index) {
+    return supportedRunnerCapabilities_.getByteString(index);
+  }
+
+  public static final int SUPPORTED_PROVIDERS_FIELD_NUMBER = 13;
+  @SuppressWarnings("serial")
+  private com.google.protobuf.LazyStringArrayList supportedProviders_ =
+      com.google.protobuf.LazyStringArrayList.emptyList();
+  /**
+   * <code>repeated string supported_providers = 13;</code>
+   * @return A list containing the supportedProviders.
+   */
+  public com.google.protobuf.ProtocolStringList
+      getSupportedProvidersList() {
+    return supportedProviders_;
+  }
+  /**
+   * <code>repeated string supported_providers = 13;</code>
+   * @return The count of supportedProviders.
+   */
+  public int getSupportedProvidersCount() {
+    return supportedProviders_.size();
+  }
+  /**
+   * <code>repeated string supported_providers = 13;</code>
+   * @param index The index of the element to return.
+   * @return The supportedProviders at the given index.
+   */
+  public java.lang.String getSupportedProviders(int index) {
+    return supportedProviders_.get(index);
+  }
+  /**
+   * <code>repeated string supported_providers = 13;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the supportedProviders at the given index.
+   */
+  public com.google.protobuf.ByteString
+      getSupportedProvidersBytes(int index) {
+    return supportedProviders_.getByteString(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -424,6 +580,18 @@ private static final long serialVersionUID = 0L;
     }
     for (int i = 0; i < supportedRoleIds_.size(); i++) {
       com.google.protobuf.GeneratedMessage.writeString(output, 9, supportedRoleIds_.getRaw(i));
+    }
+    for (int i = 0; i < supportedModels_.size(); i++) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 10, supportedModels_.getRaw(i));
+    }
+    for (int i = 0; i < supportedReasoningEfforts_.size(); i++) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 11, supportedReasoningEfforts_.getRaw(i));
+    }
+    for (int i = 0; i < supportedRunnerCapabilities_.size(); i++) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 12, supportedRunnerCapabilities_.getRaw(i));
+    }
+    for (int i = 0; i < supportedProviders_.size(); i++) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 13, supportedProviders_.getRaw(i));
     }
     getUnknownFields().writeTo(output);
   }
@@ -488,6 +656,38 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getSupportedRoleIdsList().size();
     }
+    {
+      int dataSize = 0;
+      for (int i = 0; i < supportedModels_.size(); i++) {
+        dataSize += computeStringSizeNoTag(supportedModels_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getSupportedModelsList().size();
+    }
+    {
+      int dataSize = 0;
+      for (int i = 0; i < supportedReasoningEfforts_.size(); i++) {
+        dataSize += computeStringSizeNoTag(supportedReasoningEfforts_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getSupportedReasoningEffortsList().size();
+    }
+    {
+      int dataSize = 0;
+      for (int i = 0; i < supportedRunnerCapabilities_.size(); i++) {
+        dataSize += computeStringSizeNoTag(supportedRunnerCapabilities_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getSupportedRunnerCapabilitiesList().size();
+    }
+    {
+      int dataSize = 0;
+      for (int i = 0; i < supportedProviders_.size(); i++) {
+        dataSize += computeStringSizeNoTag(supportedProviders_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getSupportedProvidersList().size();
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -523,6 +723,14 @@ private static final long serialVersionUID = 0L;
     }
     if (!getSupportedRoleIdsList()
         .equals(other.getSupportedRoleIdsList())) return false;
+    if (!getSupportedModelsList()
+        .equals(other.getSupportedModelsList())) return false;
+    if (!getSupportedReasoningEffortsList()
+        .equals(other.getSupportedReasoningEffortsList())) return false;
+    if (!getSupportedRunnerCapabilitiesList()
+        .equals(other.getSupportedRunnerCapabilitiesList())) return false;
+    if (!getSupportedProvidersList()
+        .equals(other.getSupportedProvidersList())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -563,6 +771,22 @@ private static final long serialVersionUID = 0L;
     if (getSupportedRoleIdsCount() > 0) {
       hash = (37 * hash) + SUPPORTED_ROLE_IDS_FIELD_NUMBER;
       hash = (53 * hash) + getSupportedRoleIdsList().hashCode();
+    }
+    if (getSupportedModelsCount() > 0) {
+      hash = (37 * hash) + SUPPORTED_MODELS_FIELD_NUMBER;
+      hash = (53 * hash) + getSupportedModelsList().hashCode();
+    }
+    if (getSupportedReasoningEffortsCount() > 0) {
+      hash = (37 * hash) + SUPPORTED_REASONING_EFFORTS_FIELD_NUMBER;
+      hash = (53 * hash) + getSupportedReasoningEffortsList().hashCode();
+    }
+    if (getSupportedRunnerCapabilitiesCount() > 0) {
+      hash = (37 * hash) + SUPPORTED_RUNNER_CAPABILITIES_FIELD_NUMBER;
+      hash = (53 * hash) + getSupportedRunnerCapabilitiesList().hashCode();
+    }
+    if (getSupportedProvidersCount() > 0) {
+      hash = (37 * hash) + SUPPORTED_PROVIDERS_FIELD_NUMBER;
+      hash = (53 * hash) + getSupportedProvidersList().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -722,6 +946,14 @@ private static final long serialVersionUID = 0L;
       }
       supportedRoleIds_ =
           com.google.protobuf.LazyStringArrayList.emptyList();
+      supportedModels_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      supportedReasoningEfforts_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      supportedRunnerCapabilities_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      supportedProviders_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
       return this;
     }
 
@@ -789,6 +1021,22 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000100) != 0)) {
         supportedRoleIds_.makeImmutable();
         result.supportedRoleIds_ = supportedRoleIds_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        supportedModels_.makeImmutable();
+        result.supportedModels_ = supportedModels_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        supportedReasoningEfforts_.makeImmutable();
+        result.supportedReasoningEfforts_ = supportedReasoningEfforts_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        supportedRunnerCapabilities_.makeImmutable();
+        result.supportedRunnerCapabilities_ = supportedRunnerCapabilities_;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        supportedProviders_.makeImmutable();
+        result.supportedProviders_ = supportedProviders_;
       }
       result.bitField0_ |= to_bitField0_;
     }
@@ -862,6 +1110,46 @@ private static final long serialVersionUID = 0L;
         } else {
           ensureSupportedRoleIdsIsMutable();
           supportedRoleIds_.addAll(other.supportedRoleIds_);
+        }
+        onChanged();
+      }
+      if (!other.supportedModels_.isEmpty()) {
+        if (supportedModels_.isEmpty()) {
+          supportedModels_ = other.supportedModels_;
+          bitField0_ |= 0x00000200;
+        } else {
+          ensureSupportedModelsIsMutable();
+          supportedModels_.addAll(other.supportedModels_);
+        }
+        onChanged();
+      }
+      if (!other.supportedReasoningEfforts_.isEmpty()) {
+        if (supportedReasoningEfforts_.isEmpty()) {
+          supportedReasoningEfforts_ = other.supportedReasoningEfforts_;
+          bitField0_ |= 0x00000400;
+        } else {
+          ensureSupportedReasoningEffortsIsMutable();
+          supportedReasoningEfforts_.addAll(other.supportedReasoningEfforts_);
+        }
+        onChanged();
+      }
+      if (!other.supportedRunnerCapabilities_.isEmpty()) {
+        if (supportedRunnerCapabilities_.isEmpty()) {
+          supportedRunnerCapabilities_ = other.supportedRunnerCapabilities_;
+          bitField0_ |= 0x00000800;
+        } else {
+          ensureSupportedRunnerCapabilitiesIsMutable();
+          supportedRunnerCapabilities_.addAll(other.supportedRunnerCapabilities_);
+        }
+        onChanged();
+      }
+      if (!other.supportedProviders_.isEmpty()) {
+        if (supportedProviders_.isEmpty()) {
+          supportedProviders_ = other.supportedProviders_;
+          bitField0_ |= 0x00001000;
+        } else {
+          ensureSupportedProvidersIsMutable();
+          supportedProviders_.addAll(other.supportedProviders_);
         }
         onChanged();
       }
@@ -952,6 +1240,30 @@ private static final long serialVersionUID = 0L;
               supportedRoleIds_.add(s);
               break;
             } // case 74
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureSupportedModelsIsMutable();
+              supportedModels_.add(s);
+              break;
+            } // case 82
+            case 90: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureSupportedReasoningEffortsIsMutable();
+              supportedReasoningEfforts_.add(s);
+              break;
+            } // case 90
+            case 98: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureSupportedRunnerCapabilitiesIsMutable();
+              supportedRunnerCapabilities_.add(s);
+              break;
+            } // case 98
+            case 106: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureSupportedProvidersIsMutable();
+              supportedProviders_.add(s);
+              break;
+            } // case 106
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -1823,6 +2135,450 @@ private static final long serialVersionUID = 0L;
       ensureSupportedRoleIdsIsMutable();
       supportedRoleIds_.add(value);
       bitField0_ |= 0x00000100;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.LazyStringArrayList supportedModels_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
+    private void ensureSupportedModelsIsMutable() {
+      if (!supportedModels_.isModifiable()) {
+        supportedModels_ = new com.google.protobuf.LazyStringArrayList(supportedModels_);
+      }
+      bitField0_ |= 0x00000200;
+    }
+    /**
+     * <code>repeated string supported_models = 10;</code>
+     * @return A list containing the supportedModels.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getSupportedModelsList() {
+      supportedModels_.makeImmutable();
+      return supportedModels_;
+    }
+    /**
+     * <code>repeated string supported_models = 10;</code>
+     * @return The count of supportedModels.
+     */
+    public int getSupportedModelsCount() {
+      return supportedModels_.size();
+    }
+    /**
+     * <code>repeated string supported_models = 10;</code>
+     * @param index The index of the element to return.
+     * @return The supportedModels at the given index.
+     */
+    public java.lang.String getSupportedModels(int index) {
+      return supportedModels_.get(index);
+    }
+    /**
+     * <code>repeated string supported_models = 10;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the supportedModels at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getSupportedModelsBytes(int index) {
+      return supportedModels_.getByteString(index);
+    }
+    /**
+     * <code>repeated string supported_models = 10;</code>
+     * @param index The index to set the value at.
+     * @param value The supportedModels to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSupportedModels(
+        int index, java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensureSupportedModelsIsMutable();
+      supportedModels_.set(index, value);
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string supported_models = 10;</code>
+     * @param value The supportedModels to add.
+     * @return This builder for chaining.
+     */
+    public Builder addSupportedModels(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensureSupportedModelsIsMutable();
+      supportedModels_.add(value);
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string supported_models = 10;</code>
+     * @param values The supportedModels to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllSupportedModels(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureSupportedModelsIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, supportedModels_);
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string supported_models = 10;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearSupportedModels() {
+      supportedModels_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
+      bitField0_ = (bitField0_ & ~0x00000200);;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string supported_models = 10;</code>
+     * @param value The bytes of the supportedModels to add.
+     * @return This builder for chaining.
+     */
+    public Builder addSupportedModelsBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      ensureSupportedModelsIsMutable();
+      supportedModels_.add(value);
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.LazyStringArrayList supportedReasoningEfforts_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
+    private void ensureSupportedReasoningEffortsIsMutable() {
+      if (!supportedReasoningEfforts_.isModifiable()) {
+        supportedReasoningEfforts_ = new com.google.protobuf.LazyStringArrayList(supportedReasoningEfforts_);
+      }
+      bitField0_ |= 0x00000400;
+    }
+    /**
+     * <code>repeated string supported_reasoning_efforts = 11;</code>
+     * @return A list containing the supportedReasoningEfforts.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getSupportedReasoningEffortsList() {
+      supportedReasoningEfforts_.makeImmutable();
+      return supportedReasoningEfforts_;
+    }
+    /**
+     * <code>repeated string supported_reasoning_efforts = 11;</code>
+     * @return The count of supportedReasoningEfforts.
+     */
+    public int getSupportedReasoningEffortsCount() {
+      return supportedReasoningEfforts_.size();
+    }
+    /**
+     * <code>repeated string supported_reasoning_efforts = 11;</code>
+     * @param index The index of the element to return.
+     * @return The supportedReasoningEfforts at the given index.
+     */
+    public java.lang.String getSupportedReasoningEfforts(int index) {
+      return supportedReasoningEfforts_.get(index);
+    }
+    /**
+     * <code>repeated string supported_reasoning_efforts = 11;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the supportedReasoningEfforts at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getSupportedReasoningEffortsBytes(int index) {
+      return supportedReasoningEfforts_.getByteString(index);
+    }
+    /**
+     * <code>repeated string supported_reasoning_efforts = 11;</code>
+     * @param index The index to set the value at.
+     * @param value The supportedReasoningEfforts to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSupportedReasoningEfforts(
+        int index, java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensureSupportedReasoningEffortsIsMutable();
+      supportedReasoningEfforts_.set(index, value);
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string supported_reasoning_efforts = 11;</code>
+     * @param value The supportedReasoningEfforts to add.
+     * @return This builder for chaining.
+     */
+    public Builder addSupportedReasoningEfforts(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensureSupportedReasoningEffortsIsMutable();
+      supportedReasoningEfforts_.add(value);
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string supported_reasoning_efforts = 11;</code>
+     * @param values The supportedReasoningEfforts to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllSupportedReasoningEfforts(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureSupportedReasoningEffortsIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, supportedReasoningEfforts_);
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string supported_reasoning_efforts = 11;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearSupportedReasoningEfforts() {
+      supportedReasoningEfforts_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
+      bitField0_ = (bitField0_ & ~0x00000400);;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string supported_reasoning_efforts = 11;</code>
+     * @param value The bytes of the supportedReasoningEfforts to add.
+     * @return This builder for chaining.
+     */
+    public Builder addSupportedReasoningEffortsBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      ensureSupportedReasoningEffortsIsMutable();
+      supportedReasoningEfforts_.add(value);
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.LazyStringArrayList supportedRunnerCapabilities_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
+    private void ensureSupportedRunnerCapabilitiesIsMutable() {
+      if (!supportedRunnerCapabilities_.isModifiable()) {
+        supportedRunnerCapabilities_ = new com.google.protobuf.LazyStringArrayList(supportedRunnerCapabilities_);
+      }
+      bitField0_ |= 0x00000800;
+    }
+    /**
+     * <code>repeated string supported_runner_capabilities = 12;</code>
+     * @return A list containing the supportedRunnerCapabilities.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getSupportedRunnerCapabilitiesList() {
+      supportedRunnerCapabilities_.makeImmutable();
+      return supportedRunnerCapabilities_;
+    }
+    /**
+     * <code>repeated string supported_runner_capabilities = 12;</code>
+     * @return The count of supportedRunnerCapabilities.
+     */
+    public int getSupportedRunnerCapabilitiesCount() {
+      return supportedRunnerCapabilities_.size();
+    }
+    /**
+     * <code>repeated string supported_runner_capabilities = 12;</code>
+     * @param index The index of the element to return.
+     * @return The supportedRunnerCapabilities at the given index.
+     */
+    public java.lang.String getSupportedRunnerCapabilities(int index) {
+      return supportedRunnerCapabilities_.get(index);
+    }
+    /**
+     * <code>repeated string supported_runner_capabilities = 12;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the supportedRunnerCapabilities at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getSupportedRunnerCapabilitiesBytes(int index) {
+      return supportedRunnerCapabilities_.getByteString(index);
+    }
+    /**
+     * <code>repeated string supported_runner_capabilities = 12;</code>
+     * @param index The index to set the value at.
+     * @param value The supportedRunnerCapabilities to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSupportedRunnerCapabilities(
+        int index, java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensureSupportedRunnerCapabilitiesIsMutable();
+      supportedRunnerCapabilities_.set(index, value);
+      bitField0_ |= 0x00000800;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string supported_runner_capabilities = 12;</code>
+     * @param value The supportedRunnerCapabilities to add.
+     * @return This builder for chaining.
+     */
+    public Builder addSupportedRunnerCapabilities(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensureSupportedRunnerCapabilitiesIsMutable();
+      supportedRunnerCapabilities_.add(value);
+      bitField0_ |= 0x00000800;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string supported_runner_capabilities = 12;</code>
+     * @param values The supportedRunnerCapabilities to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllSupportedRunnerCapabilities(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureSupportedRunnerCapabilitiesIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, supportedRunnerCapabilities_);
+      bitField0_ |= 0x00000800;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string supported_runner_capabilities = 12;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearSupportedRunnerCapabilities() {
+      supportedRunnerCapabilities_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
+      bitField0_ = (bitField0_ & ~0x00000800);;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string supported_runner_capabilities = 12;</code>
+     * @param value The bytes of the supportedRunnerCapabilities to add.
+     * @return This builder for chaining.
+     */
+    public Builder addSupportedRunnerCapabilitiesBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      ensureSupportedRunnerCapabilitiesIsMutable();
+      supportedRunnerCapabilities_.add(value);
+      bitField0_ |= 0x00000800;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.LazyStringArrayList supportedProviders_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
+    private void ensureSupportedProvidersIsMutable() {
+      if (!supportedProviders_.isModifiable()) {
+        supportedProviders_ = new com.google.protobuf.LazyStringArrayList(supportedProviders_);
+      }
+      bitField0_ |= 0x00001000;
+    }
+    /**
+     * <code>repeated string supported_providers = 13;</code>
+     * @return A list containing the supportedProviders.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getSupportedProvidersList() {
+      supportedProviders_.makeImmutable();
+      return supportedProviders_;
+    }
+    /**
+     * <code>repeated string supported_providers = 13;</code>
+     * @return The count of supportedProviders.
+     */
+    public int getSupportedProvidersCount() {
+      return supportedProviders_.size();
+    }
+    /**
+     * <code>repeated string supported_providers = 13;</code>
+     * @param index The index of the element to return.
+     * @return The supportedProviders at the given index.
+     */
+    public java.lang.String getSupportedProviders(int index) {
+      return supportedProviders_.get(index);
+    }
+    /**
+     * <code>repeated string supported_providers = 13;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the supportedProviders at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getSupportedProvidersBytes(int index) {
+      return supportedProviders_.getByteString(index);
+    }
+    /**
+     * <code>repeated string supported_providers = 13;</code>
+     * @param index The index to set the value at.
+     * @param value The supportedProviders to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSupportedProviders(
+        int index, java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensureSupportedProvidersIsMutable();
+      supportedProviders_.set(index, value);
+      bitField0_ |= 0x00001000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string supported_providers = 13;</code>
+     * @param value The supportedProviders to add.
+     * @return This builder for chaining.
+     */
+    public Builder addSupportedProviders(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensureSupportedProvidersIsMutable();
+      supportedProviders_.add(value);
+      bitField0_ |= 0x00001000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string supported_providers = 13;</code>
+     * @param values The supportedProviders to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllSupportedProviders(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureSupportedProvidersIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, supportedProviders_);
+      bitField0_ |= 0x00001000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string supported_providers = 13;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearSupportedProviders() {
+      supportedProviders_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
+      bitField0_ = (bitField0_ & ~0x00001000);;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string supported_providers = 13;</code>
+     * @param value The bytes of the supportedProviders to add.
+     * @return This builder for chaining.
+     */
+    public Builder addSupportedProvidersBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      ensureSupportedProvidersIsMutable();
+      supportedProviders_.add(value);
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }

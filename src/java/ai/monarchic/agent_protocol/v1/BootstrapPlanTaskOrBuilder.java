@@ -277,4 +277,43 @@ public interface BootstrapPlanTaskOrBuilder extends
    */
   com.google.protobuf.ByteString
       getInjectedByRoleIdBytes();
+
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPreference runner_preferences = 17;</code>
+   */
+  java.util.List<ai.monarchic.agent_protocol.v1.AgentRunnerPreference>
+      getRunnerPreferencesList();
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPreference runner_preferences = 17;</code>
+   */
+  ai.monarchic.agent_protocol.v1.AgentRunnerPreference getRunnerPreferences(int index);
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPreference runner_preferences = 17;</code>
+   */
+  int getRunnerPreferencesCount();
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPreference runner_preferences = 17;</code>
+   */
+  java.util.List<? extends ai.monarchic.agent_protocol.v1.AgentRunnerPreferenceOrBuilder>
+      getRunnerPreferencesOrBuilderList();
+  /**
+   * <code>repeated .monarchic.agent_protocol.v1.AgentRunnerPreference runner_preferences = 17;</code>
+   */
+  ai.monarchic.agent_protocol.v1.AgentRunnerPreferenceOrBuilder getRunnerPreferencesOrBuilder(
+      int index);
+
+  /**
+   * <code>optional .monarchic.agent_protocol.v1.ResolvedAgentRunner resolved_runner = 18;</code>
+   * @return Whether the resolvedRunner field is set.
+   */
+  boolean hasResolvedRunner();
+  /**
+   * <code>optional .monarchic.agent_protocol.v1.ResolvedAgentRunner resolved_runner = 18;</code>
+   * @return The resolvedRunner.
+   */
+  ai.monarchic.agent_protocol.v1.ResolvedAgentRunner getResolvedRunner();
+  /**
+   * <code>optional .monarchic.agent_protocol.v1.ResolvedAgentRunner resolved_runner = 18;</code>
+   */
+  ai.monarchic.agent_protocol.v1.ResolvedAgentRunnerOrBuilder getResolvedRunnerOrBuilder();
 }

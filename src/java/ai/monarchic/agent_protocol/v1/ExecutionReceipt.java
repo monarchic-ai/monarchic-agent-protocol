@@ -378,6 +378,32 @@ private static final long serialVersionUID = 0L;
     return generatedAtMs_;
   }
 
+  public static final int RESOLVED_RUNNER_FIELD_NUMBER = 11;
+  private ai.monarchic.agent_protocol.v1.ResolvedAgentRunner resolvedRunner_;
+  /**
+   * <code>optional .monarchic.agent_protocol.v1.ResolvedAgentRunner resolved_runner = 11;</code>
+   * @return Whether the resolvedRunner field is set.
+   */
+  @java.lang.Override
+  public boolean hasResolvedRunner() {
+    return ((bitField0_ & 0x00000002) != 0);
+  }
+  /**
+   * <code>optional .monarchic.agent_protocol.v1.ResolvedAgentRunner resolved_runner = 11;</code>
+   * @return The resolvedRunner.
+   */
+  @java.lang.Override
+  public ai.monarchic.agent_protocol.v1.ResolvedAgentRunner getResolvedRunner() {
+    return resolvedRunner_ == null ? ai.monarchic.agent_protocol.v1.ResolvedAgentRunner.getDefaultInstance() : resolvedRunner_;
+  }
+  /**
+   * <code>optional .monarchic.agent_protocol.v1.ResolvedAgentRunner resolved_runner = 11;</code>
+   */
+  @java.lang.Override
+  public ai.monarchic.agent_protocol.v1.ResolvedAgentRunnerOrBuilder getResolvedRunnerOrBuilder() {
+    return resolvedRunner_ == null ? ai.monarchic.agent_protocol.v1.ResolvedAgentRunner.getDefaultInstance() : resolvedRunner_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -421,6 +447,9 @@ private static final long serialVersionUID = 0L;
     }
     if (generatedAtMs_ != 0L) {
       output.writeUInt64(10, generatedAtMs_);
+    }
+    if (((bitField0_ & 0x00000002) != 0)) {
+      output.writeMessage(11, getResolvedRunner());
     }
     getUnknownFields().writeTo(output);
   }
@@ -474,6 +503,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeUInt64Size(10, generatedAtMs_);
     }
+    if (((bitField0_ & 0x00000002) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(11, getResolvedRunner());
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -511,6 +544,11 @@ private static final long serialVersionUID = 0L;
     }
     if (getGeneratedAtMs()
         != other.getGeneratedAtMs()) return false;
+    if (hasResolvedRunner() != other.hasResolvedRunner()) return false;
+    if (hasResolvedRunner()) {
+      if (!getResolvedRunner()
+          .equals(other.getResolvedRunner())) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -549,6 +587,10 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + GENERATED_AT_MS_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getGeneratedAtMs());
+    if (hasResolvedRunner()) {
+      hash = (37 * hash) + RESOLVED_RUNNER_FIELD_NUMBER;
+      hash = (53 * hash) + getResolvedRunner().hashCode();
+    }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -680,6 +722,7 @@ private static final long serialVersionUID = 0L;
       if (com.google.protobuf.GeneratedMessage
               .alwaysUseFieldBuilders) {
         internalGetFailureFieldBuilder();
+        internalGetResolvedRunnerFieldBuilder();
       }
     }
     @java.lang.Override
@@ -702,6 +745,11 @@ private static final long serialVersionUID = 0L;
         failureBuilder_ = null;
       }
       generatedAtMs_ = 0L;
+      resolvedRunner_ = null;
+      if (resolvedRunnerBuilder_ != null) {
+        resolvedRunnerBuilder_.dispose();
+        resolvedRunnerBuilder_ = null;
+      }
       return this;
     }
 
@@ -771,6 +819,12 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000200) != 0)) {
         result.generatedAtMs_ = generatedAtMs_;
       }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.resolvedRunner_ = resolvedRunnerBuilder_ == null
+            ? resolvedRunner_
+            : resolvedRunnerBuilder_.build();
+        to_bitField0_ |= 0x00000002;
+      }
       result.bitField0_ |= to_bitField0_;
     }
 
@@ -839,6 +893,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getGeneratedAtMs() != 0L) {
         setGeneratedAtMs(other.getGeneratedAtMs());
+      }
+      if (other.hasResolvedRunner()) {
+        mergeResolvedRunner(other.getResolvedRunner());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -920,6 +977,13 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000200;
               break;
             } // case 80
+            case 90: {
+              input.readMessage(
+                  internalGetResolvedRunnerFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 90
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -1721,6 +1785,127 @@ private static final long serialVersionUID = 0L;
       generatedAtMs_ = 0L;
       onChanged();
       return this;
+    }
+
+    private ai.monarchic.agent_protocol.v1.ResolvedAgentRunner resolvedRunner_;
+    private com.google.protobuf.SingleFieldBuilder<
+        ai.monarchic.agent_protocol.v1.ResolvedAgentRunner, ai.monarchic.agent_protocol.v1.ResolvedAgentRunner.Builder, ai.monarchic.agent_protocol.v1.ResolvedAgentRunnerOrBuilder> resolvedRunnerBuilder_;
+    /**
+     * <code>optional .monarchic.agent_protocol.v1.ResolvedAgentRunner resolved_runner = 11;</code>
+     * @return Whether the resolvedRunner field is set.
+     */
+    public boolean hasResolvedRunner() {
+      return ((bitField0_ & 0x00000400) != 0);
+    }
+    /**
+     * <code>optional .monarchic.agent_protocol.v1.ResolvedAgentRunner resolved_runner = 11;</code>
+     * @return The resolvedRunner.
+     */
+    public ai.monarchic.agent_protocol.v1.ResolvedAgentRunner getResolvedRunner() {
+      if (resolvedRunnerBuilder_ == null) {
+        return resolvedRunner_ == null ? ai.monarchic.agent_protocol.v1.ResolvedAgentRunner.getDefaultInstance() : resolvedRunner_;
+      } else {
+        return resolvedRunnerBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>optional .monarchic.agent_protocol.v1.ResolvedAgentRunner resolved_runner = 11;</code>
+     */
+    public Builder setResolvedRunner(ai.monarchic.agent_protocol.v1.ResolvedAgentRunner value) {
+      if (resolvedRunnerBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        resolvedRunner_ = value;
+      } else {
+        resolvedRunnerBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional .monarchic.agent_protocol.v1.ResolvedAgentRunner resolved_runner = 11;</code>
+     */
+    public Builder setResolvedRunner(
+        ai.monarchic.agent_protocol.v1.ResolvedAgentRunner.Builder builderForValue) {
+      if (resolvedRunnerBuilder_ == null) {
+        resolvedRunner_ = builderForValue.build();
+      } else {
+        resolvedRunnerBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional .monarchic.agent_protocol.v1.ResolvedAgentRunner resolved_runner = 11;</code>
+     */
+    public Builder mergeResolvedRunner(ai.monarchic.agent_protocol.v1.ResolvedAgentRunner value) {
+      if (resolvedRunnerBuilder_ == null) {
+        if (((bitField0_ & 0x00000400) != 0) &&
+          resolvedRunner_ != null &&
+          resolvedRunner_ != ai.monarchic.agent_protocol.v1.ResolvedAgentRunner.getDefaultInstance()) {
+          getResolvedRunnerBuilder().mergeFrom(value);
+        } else {
+          resolvedRunner_ = value;
+        }
+      } else {
+        resolvedRunnerBuilder_.mergeFrom(value);
+      }
+      if (resolvedRunner_ != null) {
+        bitField0_ |= 0x00000400;
+        onChanged();
+      }
+      return this;
+    }
+    /**
+     * <code>optional .monarchic.agent_protocol.v1.ResolvedAgentRunner resolved_runner = 11;</code>
+     */
+    public Builder clearResolvedRunner() {
+      bitField0_ = (bitField0_ & ~0x00000400);
+      resolvedRunner_ = null;
+      if (resolvedRunnerBuilder_ != null) {
+        resolvedRunnerBuilder_.dispose();
+        resolvedRunnerBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional .monarchic.agent_protocol.v1.ResolvedAgentRunner resolved_runner = 11;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.ResolvedAgentRunner.Builder getResolvedRunnerBuilder() {
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return internalGetResolvedRunnerFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>optional .monarchic.agent_protocol.v1.ResolvedAgentRunner resolved_runner = 11;</code>
+     */
+    public ai.monarchic.agent_protocol.v1.ResolvedAgentRunnerOrBuilder getResolvedRunnerOrBuilder() {
+      if (resolvedRunnerBuilder_ != null) {
+        return resolvedRunnerBuilder_.getMessageOrBuilder();
+      } else {
+        return resolvedRunner_ == null ?
+            ai.monarchic.agent_protocol.v1.ResolvedAgentRunner.getDefaultInstance() : resolvedRunner_;
+      }
+    }
+    /**
+     * <code>optional .monarchic.agent_protocol.v1.ResolvedAgentRunner resolved_runner = 11;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        ai.monarchic.agent_protocol.v1.ResolvedAgentRunner, ai.monarchic.agent_protocol.v1.ResolvedAgentRunner.Builder, ai.monarchic.agent_protocol.v1.ResolvedAgentRunnerOrBuilder>
+        internalGetResolvedRunnerFieldBuilder() {
+      if (resolvedRunnerBuilder_ == null) {
+        resolvedRunnerBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            ai.monarchic.agent_protocol.v1.ResolvedAgentRunner, ai.monarchic.agent_protocol.v1.ResolvedAgentRunner.Builder, ai.monarchic.agent_protocol.v1.ResolvedAgentRunnerOrBuilder>(
+                getResolvedRunner(),
+                getParentForChildren(),
+                isClean());
+        resolvedRunner_ = null;
+      }
+      return resolvedRunnerBuilder_;
     }
 
     // @@protoc_insertion_point(builder_scope:monarchic.agent_protocol.v1.ExecutionReceipt)

@@ -151,4 +151,19 @@ public interface ExecutionReceiptOrBuilder extends
    * @return The generatedAtMs.
    */
   long getGeneratedAtMs();
+
+  /**
+   * <code>optional .monarchic.agent_protocol.v1.ResolvedAgentRunner resolved_runner = 11;</code>
+   * @return Whether the resolvedRunner field is set.
+   */
+  boolean hasResolvedRunner();
+  /**
+   * <code>optional .monarchic.agent_protocol.v1.ResolvedAgentRunner resolved_runner = 11;</code>
+   * @return The resolvedRunner.
+   */
+  ai.monarchic.agent_protocol.v1.ResolvedAgentRunner getResolvedRunner();
+  /**
+   * <code>optional .monarchic.agent_protocol.v1.ResolvedAgentRunner resolved_runner = 11;</code>
+   */
+  ai.monarchic.agent_protocol.v1.ResolvedAgentRunnerOrBuilder getResolvedRunnerOrBuilder();
 }

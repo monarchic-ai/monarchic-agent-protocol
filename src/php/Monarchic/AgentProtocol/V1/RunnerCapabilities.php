@@ -56,6 +56,22 @@ class RunnerCapabilities extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>repeated string supported_role_ids = 9;</code>
      */
     private $supported_role_ids;
+    /**
+     * Generated from protobuf field <code>repeated string supported_models = 10;</code>
+     */
+    private $supported_models;
+    /**
+     * Generated from protobuf field <code>repeated string supported_reasoning_efforts = 11;</code>
+     */
+    private $supported_reasoning_efforts;
+    /**
+     * Generated from protobuf field <code>repeated string supported_runner_capabilities = 12;</code>
+     */
+    private $supported_runner_capabilities;
+    /**
+     * Generated from protobuf field <code>repeated string supported_providers = 13;</code>
+     */
+    private $supported_providers;
 
     /**
      * Constructor.
@@ -74,6 +90,10 @@ class RunnerCapabilities extends \Google\Protobuf\Internal\Message
      *     @type bool $supports_resume
      *     @type \Google\Protobuf\Struct $extensions
      *     @type string[] $supported_role_ids
+     *     @type string[] $supported_models
+     *     @type string[] $supported_reasoning_efforts
+     *     @type string[] $supported_runner_capabilities
+     *     @type string[] $supported_providers
      * }
      */
     public function __construct($data = NULL) {
@@ -291,6 +311,94 @@ class RunnerCapabilities extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
         $this->supported_role_ids = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated string supported_models = 10;</code>
+     * @return RepeatedField<string>
+     */
+    public function getSupportedModels()
+    {
+        return $this->supported_models;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated string supported_models = 10;</code>
+     * @param string[] $var
+     * @return $this
+     */
+    public function setSupportedModels($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
+        $this->supported_models = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated string supported_reasoning_efforts = 11;</code>
+     * @return RepeatedField<string>
+     */
+    public function getSupportedReasoningEfforts()
+    {
+        return $this->supported_reasoning_efforts;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated string supported_reasoning_efforts = 11;</code>
+     * @param string[] $var
+     * @return $this
+     */
+    public function setSupportedReasoningEfforts($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
+        $this->supported_reasoning_efforts = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated string supported_runner_capabilities = 12;</code>
+     * @return RepeatedField<string>
+     */
+    public function getSupportedRunnerCapabilities()
+    {
+        return $this->supported_runner_capabilities;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated string supported_runner_capabilities = 12;</code>
+     * @param string[] $var
+     * @return $this
+     */
+    public function setSupportedRunnerCapabilities($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
+        $this->supported_runner_capabilities = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated string supported_providers = 13;</code>
+     * @return RepeatedField<string>
+     */
+    public function getSupportedProviders()
+    {
+        return $this->supported_providers;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated string supported_providers = 13;</code>
+     * @param string[] $var
+     * @return $this
+     */
+    public function setSupportedProviders($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
+        $this->supported_providers = $arr;
 
         return $this;
     }
