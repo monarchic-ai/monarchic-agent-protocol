@@ -70,6 +70,14 @@ class BootstrapPlanTask extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>optional string notes = 14;</code>
      */
     protected $notes = null;
+    /**
+     * Generated from protobuf field <code>optional string agent_id = 15;</code>
+     */
+    protected $agent_id = null;
+    /**
+     * Generated from protobuf field <code>optional string injected_by_role_id = 16;</code>
+     */
+    protected $injected_by_role_id = null;
 
     /**
      * Constructor.
@@ -91,6 +99,8 @@ class BootstrapPlanTask extends \Google\Protobuf\Internal\Message
      *     @type \Google\Protobuf\Struct $filesystem_policy
      *     @type string $template_slot_id
      *     @type string $notes
+     *     @type string $agent_id
+     *     @type string $injected_by_role_id
      * }
      */
     public function __construct($data = NULL) {
@@ -472,6 +482,70 @@ class BootstrapPlanTask extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->notes = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string agent_id = 15;</code>
+     * @return string
+     */
+    public function getAgentId()
+    {
+        return isset($this->agent_id) ? $this->agent_id : '';
+    }
+
+    public function hasAgentId()
+    {
+        return isset($this->agent_id);
+    }
+
+    public function clearAgentId()
+    {
+        unset($this->agent_id);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string agent_id = 15;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setAgentId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->agent_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string injected_by_role_id = 16;</code>
+     * @return string
+     */
+    public function getInjectedByRoleId()
+    {
+        return isset($this->injected_by_role_id) ? $this->injected_by_role_id : '';
+    }
+
+    public function hasInjectedByRoleId()
+    {
+        return isset($this->injected_by_role_id);
+    }
+
+    public function clearInjectedByRoleId()
+    {
+        unset($this->injected_by_role_id);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string injected_by_role_id = 16;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setInjectedByRoleId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->injected_by_role_id = $var;
 
         return $this;
     }

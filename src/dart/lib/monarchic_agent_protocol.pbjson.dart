@@ -1235,6 +1235,24 @@ const BootstrapPlanTask$json = {
       '17': true
     },
     {'1': 'notes', '3': 14, '4': 1, '5': 9, '9': 5, '10': 'notes', '17': true},
+    {
+      '1': 'agent_id',
+      '3': 15,
+      '4': 1,
+      '5': 9,
+      '9': 6,
+      '10': 'agentId',
+      '17': true
+    },
+    {
+      '1': 'injected_by_role_id',
+      '3': 16,
+      '4': 1,
+      '5': 9,
+      '9': 7,
+      '10': 'injectedByRoleId',
+      '17': true
+    },
   ],
   '8': [
     {'1': '_target_repo'},
@@ -1243,6 +1261,8 @@ const BootstrapPlanTask$json = {
     {'1': '_requires_human_review'},
     {'1': '_template_slot_id'},
     {'1': '_notes'},
+    {'1': '_agent_id'},
+    {'1': '_injected_by_role_id'},
   ],
 };
 
@@ -1258,9 +1278,11 @@ final $typed_data.Uint8List bootstrapPlanTaskDescriptor = $convert.base64Decode(
     'I3ChVyZXF1aXJlc19odW1hbl9yZXZpZXcYCyABKAhIA1ITcmVxdWlyZXNIdW1hblJldmlld4gB'
     'ARJEChFmaWxlc3lzdGVtX3BvbGljeRgMIAEoCzIXLmdvb2dsZS5wcm90b2J1Zi5TdHJ1Y3RSEG'
     'ZpbGVzeXN0ZW1Qb2xpY3kSLQoQdGVtcGxhdGVfc2xvdF9pZBgNIAEoCUgEUg50ZW1wbGF0ZVNs'
-    'b3RJZIgBARIZCgVub3RlcxgOIAEoCUgFUgVub3Rlc4gBAUIOCgxfdGFyZ2V0X3JlcG9CEwoRX2'
-    'ludGVyYWN0aW9uX21vZGVCDwoNX25ldHdvcmtfbW9kZUIYChZfcmVxdWlyZXNfaHVtYW5fcmV2'
-    'aWV3QhMKEV90ZW1wbGF0ZV9zbG90X2lkQggKBl9ub3Rlcw==');
+    'b3RJZIgBARIZCgVub3RlcxgOIAEoCUgFUgVub3Rlc4gBARIeCghhZ2VudF9pZBgPIAEoCUgGUg'
+    'dhZ2VudElkiAEBEjIKE2luamVjdGVkX2J5X3JvbGVfaWQYECABKAlIB1IQaW5qZWN0ZWRCeVJv'
+    'bGVJZIgBAUIOCgxfdGFyZ2V0X3JlcG9CEwoRX2ludGVyYWN0aW9uX21vZGVCDwoNX25ldHdvcm'
+    'tfbW9kZUIYChZfcmVxdWlyZXNfaHVtYW5fcmV2aWV3QhMKEV90ZW1wbGF0ZV9zbG90X2lkQggK'
+    'Bl9ub3Rlc0ILCglfYWdlbnRfaWRCFgoUX2luamVjdGVkX2J5X3JvbGVfaWQ=');
 
 @$core.Deprecated('Use bootstrapPlanDescriptor instead')
 const BootstrapPlan$json = {
@@ -1501,6 +1523,20 @@ final $typed_data.Uint8List bootstrapTemplateContextDescriptor = $convert.base64
     'VsYW5lcxgFIAMoCzI5Lm1vbmFyY2hpYy5hZ2VudF9wcm90b2NvbC52MS5Cb290c3RyYXBUZW1w'
     'bGF0ZUxhbmVDb250ZXh0UgVsYW5lcw==');
 
+@$core.Deprecated('Use agentCommandDescriptor instead')
+const AgentCommand$json = {
+  '1': 'AgentCommand',
+  '2': [
+    {'1': 'runner_id', '3': 1, '4': 1, '5': 9, '10': 'runnerId'},
+    {'1': 'argv', '3': 2, '4': 3, '5': 9, '10': 'argv'},
+  ],
+};
+
+/// Descriptor for `AgentCommand`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List agentCommandDescriptor = $convert.base64Decode(
+    'CgxBZ2VudENvbW1hbmQSGwoJcnVubmVyX2lkGAEgASgJUghydW5uZXJJZBISCgRhcmd2GAIgAy'
+    'gJUgRhcmd2');
+
 @$core.Deprecated('Use bootstrapPlanningContextDescriptor instead')
 const BootstrapPlanningContext$json = {
   '1': 'BootstrapPlanningContext',
@@ -1512,7 +1548,14 @@ const BootstrapPlanningContext$json = {
     {'1': 'campaign_goal', '3': 5, '4': 1, '5': 9, '10': 'campaignGoal'},
     {'1': 'notes', '3': 6, '4': 1, '5': 9, '9': 0, '10': 'notes', '17': true},
     {'1': 'priority_profile', '3': 7, '4': 1, '5': 9, '10': 'priorityProfile'},
-    {'1': 'codex_cmd', '3': 8, '4': 3, '5': 9, '10': 'codexCmd'},
+    {
+      '1': 'codex_cmd',
+      '3': 8,
+      '4': 3,
+      '5': 9,
+      '8': {'3': true},
+      '10': 'codexCmd',
+    },
     {
       '1': 'available_skill_ids',
       '3': 9,
@@ -1538,6 +1581,22 @@ const BootstrapPlanningContext$json = {
       '6': '.monarchic.agent_protocol.v1.BootstrapPlanningMode',
       '10': 'planningMode'
     },
+    {'1': 'enabled_role_ids', '3': 12, '4': 3, '5': 9, '10': 'enabledRoleIds'},
+    {
+      '1': 'agent_cmds',
+      '3': 13,
+      '4': 3,
+      '5': 11,
+      '6': '.monarchic.agent_protocol.v1.AgentCommand',
+      '10': 'agentCmds'
+    },
+    {
+      '1': 'default_agent_cmd',
+      '3': 14,
+      '4': 3,
+      '5': 9,
+      '10': 'defaultAgentCmd'
+    },
   ],
   '8': [
     {'1': '_notes'},
@@ -1552,12 +1611,15 @@ final $typed_data.Uint8List bootstrapPlanningContextDescriptor = $convert.base64
     'dF9yZXBvGAMgASgJUgp0YXJnZXRSZXBvEiEKDHRhcmdldF9yZXBvcxgEIAMoCVILdGFyZ2V0Um'
     'Vwb3MSIwoNY2FtcGFpZ25fZ29hbBgFIAEoCVIMY2FtcGFpZ25Hb2FsEhkKBW5vdGVzGAYgASgJ'
     'SABSBW5vdGVziAEBEikKEHByaW9yaXR5X3Byb2ZpbGUYByABKAlSD3ByaW9yaXR5UHJvZmlsZR'
-    'IbCgljb2RleF9jbWQYCCADKAlSCGNvZGV4Q21kEi4KE2F2YWlsYWJsZV9za2lsbF9pZHMYCSAD'
-    'KAlSEWF2YWlsYWJsZVNraWxsSWRzEmcKEXNlbGVjdGVkX3RlbXBsYXRlGAogASgLMjUubW9uYX'
-    'JjaGljLmFnZW50X3Byb3RvY29sLnYxLkJvb3RzdHJhcFRlbXBsYXRlQ29udGV4dEgBUhBzZWxl'
-    'Y3RlZFRlbXBsYXRliAEBElcKDXBsYW5uaW5nX21vZGUYCyABKA4yMi5tb25hcmNoaWMuYWdlbn'
-    'RfcHJvdG9jb2wudjEuQm9vdHN0cmFwUGxhbm5pbmdNb2RlUgxwbGFubmluZ01vZGVCCAoGX25v'
-    'dGVzQhQKEl9zZWxlY3RlZF90ZW1wbGF0ZQ==');
+    'IfCgljb2RleF9jbWQYCCADKAlCAhgBUghjb2RleENtZBIuChNhdmFpbGFibGVfc2tpbGxfaWRz'
+    'GAkgAygJUhFhdmFpbGFibGVTa2lsbElkcxJnChFzZWxlY3RlZF90ZW1wbGF0ZRgKIAEoCzI1Lm'
+    '1vbmFyY2hpYy5hZ2VudF9wcm90b2NvbC52MS5Cb290c3RyYXBUZW1wbGF0ZUNvbnRleHRIAVIQ'
+    'c2VsZWN0ZWRUZW1wbGF0ZYgBARJXCg1wbGFubmluZ19tb2RlGAsgASgOMjIubW9uYXJjaGljLm'
+    'FnZW50X3Byb3RvY29sLnYxLkJvb3RzdHJhcFBsYW5uaW5nTW9kZVIMcGxhbm5pbmdNb2RlEigK'
+    'EGVuYWJsZWRfcm9sZV9pZHMYDCADKAlSDmVuYWJsZWRSb2xlSWRzEkgKCmFnZW50X2NtZHMYDS'
+    'ADKAsyKS5tb25hcmNoaWMuYWdlbnRfcHJvdG9jb2wudjEuQWdlbnRDb21tYW5kUglhZ2VudENt'
+    'ZHMSKgoRZGVmYXVsdF9hZ2VudF9jbWQYDiADKAlSD2RlZmF1bHRBZ2VudENtZEIICgZfbm90ZX'
+    'NCFAoSX3NlbGVjdGVkX3RlbXBsYXRl');
 
 @$core.Deprecated('Use campaignPipelineTaskRefDescriptor instead')
 const CampaignPipelineTaskRef$json = {
