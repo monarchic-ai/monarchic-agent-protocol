@@ -12,7 +12,7 @@
       "Monarchic\\AgentProtocol\\V1\\": "src/php/Monarchic/AgentProtocol/V1/"
     }
   },
-  "version": "0.1.16",
+  "version": "0.1.17",
   "authors": [
     {
       "name": "Monarchic AI",
