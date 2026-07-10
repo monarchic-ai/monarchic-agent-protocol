@@ -81,6 +81,7 @@ pub mod service_boundary {
 /// Consume this surface when you need protobuf-native request/response messages
 /// or exact wire-layout compatibility. Handwritten wrapper modules should not
 /// depend on generated field layout accidents outside explicit conversion code.
+#[cfg(feature = "generated-protobuf")]
 pub mod monarchic {
     pub mod agent_protocol {
         pub mod v1 {
@@ -93,10 +94,12 @@ pub mod monarchic {
 ///
 /// New code should prefer [`generated`] for clarity or one of the handwritten
 /// wrapper modules above when wire-native protobuf structs are not required.
+#[cfg(feature = "generated-protobuf")]
 pub mod generated {
     pub use crate::monarchic::agent_protocol::v1::*;
 }
 
+#[cfg(feature = "generated-protobuf")]
 pub use generated::{
     AcceptanceCriteria, AckCancellationRequest, AckCancellationResponse, AcquireLeaseRequest,
     AcquireLeaseResponse, AgentProfile, AgentRole, AgentRunnerPolicy, AgentRunnerPreference,
