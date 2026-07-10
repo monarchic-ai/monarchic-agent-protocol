@@ -163,11 +163,6 @@ jobs:
       - name: Debug OIDC env
         run: |
           env | grep ACTIONS_ID_TOKEN || true
-      - name: Upgrade npm
-        run: |
-          npm -v
-          npm install -g npm@latest
-          npm -v
       - name: Clear npm auth
         run: |
           rm -f ~/.npmrc
