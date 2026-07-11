@@ -18,4 +18,4 @@ integration_tests = "add_when_needed"
 e2e_tests = "add_when_needed"
 
 [completion]
-open_pr = "ask"
+open_pr = "never"
