@@ -13,9 +13,9 @@ require_clean_worktree = true
 
 [verification]
 missing_tests = "add_when_needed"
-unit_tests = "required_if_touched"
-integration_tests = "add_when_needed"
-e2e_tests = "add_when_needed"
+unit_tests = "if_touched"
+integration_tests = "when_needed"
+e2e_tests = "when_needed"
 
 [completion]
 open_pr = "never"
