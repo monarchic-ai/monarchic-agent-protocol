@@ -1,0 +1,21 @@
+version = 1
+profile = "monarchic-strict"
+
+[git]
+version_control = "auto"
+commit_mode = "atomic"
+message_style = "conventional"
+push_mode = "on_success"
+push_remote = "origin"
+push_branch = "main"
+rebase_on_push_branch_change = "auto"
+require_clean_worktree = true
+
+[verification]
+missing_tests = "add_when_needed"
+unit_tests = "required_if_touched"
+integration_tests = "add_when_needed"
+e2e_tests = "add_when_needed"
+
+[completion]
+open_pr = "ask"
