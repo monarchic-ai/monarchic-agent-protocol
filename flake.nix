@@ -34,26 +34,30 @@
             '';
           };
 
-          rs-registry-lib = pkgs.rustPlatform.buildRustPackage {
-            pname = "monarchic-agent-protocol";
-            version = "0.1.16";
-            src = pkgs.fetchCrate {
+          rs-registry-lib =
+            let
+              crateSrc = pkgs.fetchCrate {
+                pname = "monarchic-agent-protocol";
+                version = "0.1.16";
+                sha256 = "sha256-wS/2fNsv4r0hse/aNdgfxbYCW+XgrSEr+73KOgBPjIo=";
+              };
+            in
+            pkgs.rustPlatform.buildRustPackage {
               pname = "monarchic-agent-protocol";
               version = "0.1.16";
-              sha256 = "sha256-wS/2fNsv4r0hse/aNdgfxbYCW+XgrSEr+73KOgBPjIo=";
+              src = crateSrc;
+              nativeBuildInputs = [ pkgs.protobuf ];
+              cargoLock = {
+                lockFile = "${crateSrc}/Cargo.lock";
+              };
+              installPhase = ''
+                runHook preInstall
+                mkdir -p $out/lib
+                cp target/*/release/deps/*.rlib $out/lib/
+                cp target/*/release/deps/*.rmeta $out/lib/ || true
+                runHook postInstall
+              '';
             };
-            nativeBuildInputs = [ pkgs.protobuf ];
-            cargoLock = {
-              lockFile = ./Cargo.lock;
-            };
-            installPhase = ''
-              runHook preInstall
-              mkdir -p $out/lib
-              cp target/*/release/deps/*.rlib $out/lib/
-              cp target/*/release/deps/*.rmeta $out/lib/ || true
-              runHook postInstall
-            '';
-          };
 
           py-lib = pkgs.python3Packages.buildPythonPackage {
             pname = "monarchic-agent-protocol";
