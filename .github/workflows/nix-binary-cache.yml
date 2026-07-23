@@ -54,8 +54,23 @@ jobs:
             echo "$HOME/.nix-profile/bin" >> "$GITHUB_PATH"
           fi
 
+      - name: Trust GitHub SSH host key
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$HOME/.ssh"
+          ssh-keyscan github.com >> "$HOME/.ssh/known_hosts"
+          chmod 700 "$HOME/.ssh"
+          chmod 600 "$HOME/.ssh/known_hosts"
+
       - name: Build, sign, and upload package closures
         shell: bash
+        env:
+          NIX_CONFIG: |
+            experimental-features = nix-command flakes
+            accept-flake-config = true
+            substituters = https://cache.nixos.org
+            trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWVMkYbcAA1q6Y2OkQbBWBV88F2rI=
         run: |
           set -euo pipefail
           mapfile -t attrs < <(
