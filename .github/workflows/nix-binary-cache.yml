@@ -59,6 +59,7 @@ jobs:
         run: |
           set -euo pipefail
           mapfile -t attrs < <(
+            # shellcheck disable=SC2016
             nix eval --raw --impure --expr '
               let
                 flake = builtins.getFlake (toString ./.);
