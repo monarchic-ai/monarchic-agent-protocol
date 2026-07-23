@@ -1,0 +1,83 @@
+name: Nix binary cache
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: nix-binary-cache-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  populate-cache:
+    name: Build flake packages
+    runs-on: ${{ fromJSON(vars.CI_RUNNER_LABELS || '["ubuntu-latest"]') }}
+    timeout-minutes: 90
+
+    env:
+      MONARCHIC_NIX_CACHE_REGION: ${{ vars.MONARCHIC_NIX_CACHE_REGION || 'us-east-2' }}
+      MONARCHIC_NIX_CACHE_BUCKET: ${{ vars.MONARCHIC_NIX_CACHE_BUCKET || 'monarchic-production-nix-binary-cache-913433059611-us-east-2' }}
+      MONARCHIC_NIX_CACHE_SECRET_ID: ${{ vars.MONARCHIC_NIX_CACHE_SECRET_ID || 'monarchic/production/nix-binary-cache-signing-key' }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v31
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+            accept-flake-config = true
+            substituters = https://cache.nixos.org s3://${{ env.MONARCHIC_NIX_CACHE_BUCKET }}?region=${{ env.MONARCHIC_NIX_CACHE_REGION }}
+            trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWVMkYbcAA1q6Y2OkQbBWBV88F2rI= ${{ vars.MONARCHIC_NIX_CACHE_PUBLIC_KEY }}
+
+      - name: Configure production AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.MONARCHIC_NIX_CACHE_AWS_ROLE_ARN || 'arn:aws:iam::913433059611:role/MonarchicNixBinaryCacheRole' }}
+          aws-region: ${{ env.MONARCHIC_NIX_CACHE_REGION }}
+
+      - name: Build, sign, and upload package closures
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t attrs < <(
+            nix eval --raw --impure --expr '
+              let
+                flake = builtins.getFlake (toString ./.);
+                system = builtins.currentSystem;
+                packages = flake.packages.${system} or {};
+              in
+                builtins.concatStringsSep "\n" (builtins.attrNames packages)
+            '
+          )
+          system="$(nix eval --raw --impure --expr builtins.currentSystem)"
+          if [ "${#attrs[@]}" -eq 0 ]; then
+            echo "No packages.${system} outputs to cache."
+            exit 0
+          fi
+
+          key_file="$(mktemp)"
+          trap 'rm -f "$key_file" "$RUNNER_TEMP/monarchic-nix-cache-paths"' EXIT
+          aws secretsmanager get-secret-value \
+            --region "$MONARCHIC_NIX_CACHE_REGION" \
+            --secret-id "$MONARCHIC_NIX_CACHE_SECRET_ID" \
+            --query SecretString \
+            --output text > "$key_file"
+
+          : > "$RUNNER_TEMP/monarchic-nix-cache-paths"
+          for attr in "${attrs[@]}"; do
+            nix build --print-out-paths ".#${attr}" | tee -a "$RUNNER_TEMP/monarchic-nix-cache-paths"
+          done
+
+          sort -u "$RUNNER_TEMP/monarchic-nix-cache-paths" > "$RUNNER_TEMP/monarchic-nix-cache-paths.sorted"
+          nix store sign --key-file "$key_file" --stdin < "$RUNNER_TEMP/monarchic-nix-cache-paths.sorted"
+          nix copy --to "s3://${MONARCHIC_NIX_CACHE_BUCKET}?region=${MONARCHIC_NIX_CACHE_REGION}&compression=zstd" --stdin < "$RUNNER_TEMP/monarchic-nix-cache-paths.sorted"
