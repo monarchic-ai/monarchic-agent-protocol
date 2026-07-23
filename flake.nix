@@ -227,10 +227,9 @@
             '';
           };
 
-          java-registry-lib = pkgs.fetchurl {
-            url = "https://jitpack.io/com/github/monarchic-ai/monarchic-agent-protocol/v0.1.16/monarchic-agent-protocol-v0.1.16.jar";
-            sha256 = "1pswhgbnc6dh8l8g2b9d6mrv2fccb5clx9vf2hr9fgxjddf4ck6k";
-          };
+          # JitPack has not published this version yet, so keep the registry
+          # package attr buildable from the local Java artifact for cache jobs.
+          java-registry-lib = self.packages.${system}.java-lib;
 
           dart-lib = pkgs.stdenv.mkDerivation {
             pname = "monarchic-agent-protocol-dart";
