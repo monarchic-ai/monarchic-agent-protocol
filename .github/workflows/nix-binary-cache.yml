@@ -24,10 +24,14 @@ jobs:
       MONARCHIC_NIX_CACHE_REGION: ${{ vars.MONARCHIC_NIX_CACHE_REGION || 'us-east-2' }}
       MONARCHIC_NIX_CACHE_BUCKET: ${{ vars.MONARCHIC_NIX_CACHE_BUCKET || 'monarchic-production-nix-binary-cache-913433059611-us-east-2' }}
       MONARCHIC_NIX_CACHE_SECRET_ID: ${{ vars.MONARCHIC_NIX_CACHE_SECRET_ID || 'monarchic/production/nix-binary-cache-signing-key' }}
+      MONARCHIC_NIX_CACHE_RETAIN_COMMITS: ${{ vars.MONARCHIC_NIX_CACHE_RETAIN_COMMITS || '2' }}
+      MONARCHIC_NIX_CACHE_PRUNE_GRACE_SECONDS: ${{ vars.MONARCHIC_NIX_CACHE_PRUNE_GRACE_SECONDS || '3600' }}
 
     steps:
       - name: Check out repository
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 2
 
       - name: Install Nix
         uses: cachix/install-nix-action@v31
@@ -91,7 +95,7 @@ jobs:
           fi
 
           key_file="$(mktemp)"
-          trap 'rm -f "$key_file" "$RUNNER_TEMP/monarchic-nix-cache-paths"' EXIT
+          trap 'rm -f "$key_file" "$RUNNER_TEMP"/monarchic-nix-cache-*' EXIT
           aws secretsmanager get-secret-value \
             --region "$MONARCHIC_NIX_CACHE_REGION" \
             --secret-id "$MONARCHIC_NIX_CACHE_SECRET_ID" \
@@ -104,5 +108,140 @@ jobs:
           done
 
           sort -u "$RUNNER_TEMP/monarchic-nix-cache-paths" > "$RUNNER_TEMP/monarchic-nix-cache-paths.sorted"
+          xargs -r nix-store -qR < "$RUNNER_TEMP/monarchic-nix-cache-paths.sorted" \
+            | sort -u > "$RUNNER_TEMP/monarchic-nix-cache-closure"
           nix store sign --key-file "$key_file" --stdin < "$RUNNER_TEMP/monarchic-nix-cache-paths.sorted"
           nix copy --to "s3://${MONARCHIC_NIX_CACHE_BUCKET}?region=${MONARCHIC_NIX_CACHE_REGION}&compression=zstd" --stdin < "$RUNNER_TEMP/monarchic-nix-cache-paths.sorted"
+
+          manifest_key="manifests/${GITHUB_REPOSITORY}/${GITHUB_SHA}.txt"
+          aws s3 cp \
+            "$RUNNER_TEMP/monarchic-nix-cache-closure" \
+            "s3://${MONARCHIC_NIX_CACHE_BUCKET}/${manifest_key}" \
+            --content-type text/plain \
+            --metadata "repo=${GITHUB_REPOSITORY},commit=${GITHUB_SHA}" \
+            --no-progress
+
+          # shellcheck disable=SC2016
+          aws s3api list-objects-v2 \
+            --bucket "$MONARCHIC_NIX_CACHE_BUCKET" \
+            --prefix manifests/ \
+            --query 'Contents[?ends_with(Key, `.txt`)].[LastModified,Key]' \
+            --output text > "$RUNNER_TEMP/monarchic-nix-cache-manifests" || true
+
+          declare -A retained_manifest_count=()
+          : > "$RUNNER_TEMP/monarchic-nix-cache-retained-manifests"
+          while read -r modified key; do
+            [ -n "${key:-}" ] || continue
+            [ "$key" != "None" ] || continue
+            repo_prefix="${key%/*}"
+            count="${retained_manifest_count[$repo_prefix]:-0}"
+            if [ "$count" -lt "$MONARCHIC_NIX_CACHE_RETAIN_COMMITS" ]; then
+              printf '%s\n' "$key" >> "$RUNNER_TEMP/monarchic-nix-cache-retained-manifests"
+              retained_manifest_count[$repo_prefix]="$((count + 1))"
+            fi
+          done < <(sort -r "$RUNNER_TEMP/monarchic-nix-cache-manifests")
+
+          : > "$RUNNER_TEMP/monarchic-nix-cache-retained-paths"
+          while read -r key; do
+            aws s3 cp "s3://${MONARCHIC_NIX_CACHE_BUCKET}/${key}" - --no-progress \
+              >> "$RUNNER_TEMP/monarchic-nix-cache-retained-paths" || true
+          done < "$RUNNER_TEMP/monarchic-nix-cache-retained-manifests"
+          sort -u "$RUNNER_TEMP/monarchic-nix-cache-retained-paths" \
+            > "$RUNNER_TEMP/monarchic-nix-cache-retained-paths.sorted"
+
+          # shellcheck disable=SC2016
+          awk '
+            /^\/nix\/store\// {
+              path = $0
+              sub("^/nix/store/", "", path)
+              if (length(path) >= 32) print substr(path, 1, 32) ".narinfo"
+            }
+          ' "$RUNNER_TEMP/monarchic-nix-cache-retained-paths.sorted" \
+            | sort -u > "$RUNNER_TEMP/monarchic-nix-cache-retained-narinfos"
+
+          : > "$RUNNER_TEMP/monarchic-nix-cache-retained-nar-urls"
+          while read -r narinfo; do
+            # shellcheck disable=SC2016
+            aws s3 cp "s3://${MONARCHIC_NIX_CACHE_BUCKET}/${narinfo}" - --no-progress 2>/dev/null \
+              | awk -F': ' '$1 == "URL" { print $2 }' \
+              >> "$RUNNER_TEMP/monarchic-nix-cache-retained-nar-urls" || true
+          done < "$RUNNER_TEMP/monarchic-nix-cache-retained-narinfos"
+          sort -u "$RUNNER_TEMP/monarchic-nix-cache-retained-nar-urls" \
+            > "$RUNNER_TEMP/monarchic-nix-cache-retained-nar-urls.sorted"
+
+          delete_batch_file="$RUNNER_TEMP/monarchic-nix-cache-delete.json"
+          delete_batch_count=0
+          delete_batch_first=1
+          start_delete_batch() {
+            printf '{"Objects":[' > "$delete_batch_file"
+            delete_batch_count=0
+            delete_batch_first=1
+          }
+          flush_delete_batch() {
+            if [ "$delete_batch_count" -eq 0 ]; then
+              return
+            fi
+            printf '],"Quiet":true}\n' >> "$delete_batch_file"
+            aws s3api delete-objects \
+              --bucket "$MONARCHIC_NIX_CACHE_BUCKET" \
+              --delete "file://${delete_batch_file}" >/dev/null
+            echo "Deleted ${delete_batch_count} expired cache object(s)."
+            start_delete_batch
+          }
+          queue_delete() {
+            key="$1"
+            if [ "$delete_batch_first" -eq 0 ]; then
+              printf ',' >> "$delete_batch_file"
+            fi
+            printf '{"Key":"%s"}' "$key" >> "$delete_batch_file"
+            delete_batch_first=0
+            delete_batch_count="$((delete_batch_count + 1))"
+            if [ "$delete_batch_count" -ge 1000 ]; then
+              flush_delete_batch
+            fi
+          }
+          is_older_than_grace() {
+            modified="$1"
+            modified_epoch="$(date -d "$modified" +%s)"
+            now_epoch="$(date -u +%s)"
+            [ "$modified_epoch" -lt "$((now_epoch - MONARCHIC_NIX_CACHE_PRUNE_GRACE_SECONDS))" ]
+          }
+
+          start_delete_batch
+          # shellcheck disable=SC2016
+          aws s3api list-objects-v2 \
+            --bucket "$MONARCHIC_NIX_CACHE_BUCKET" \
+            --query 'Contents[?ends_with(Key, `.narinfo`)].[LastModified,Key]' \
+            --output text > "$RUNNER_TEMP/monarchic-nix-cache-narinfos" || true
+          while read -r modified narinfo; do
+            [ -n "${narinfo:-}" ] || continue
+            [ "$narinfo" != "None" ] || continue
+            if grep -Fxq "$narinfo" "$RUNNER_TEMP/monarchic-nix-cache-retained-narinfos"; then
+              continue
+            fi
+            if ! is_older_than_grace "$modified"; then
+              continue
+            fi
+            # shellcheck disable=SC2016
+            nar_url="$(
+              aws s3 cp "s3://${MONARCHIC_NIX_CACHE_BUCKET}/${narinfo}" - --no-progress 2>/dev/null \
+                | awk -F': ' '$1 == "URL" { print $2; exit }'
+            )"
+            queue_delete "$narinfo"
+            if [ -n "$nar_url" ] \
+              && ! grep -Fxq "$nar_url" "$RUNNER_TEMP/monarchic-nix-cache-retained-nar-urls.sorted"; then
+              queue_delete "$nar_url"
+            fi
+          done < "$RUNNER_TEMP/monarchic-nix-cache-narinfos"
+
+          while read -r modified key; do
+            [ -n "${key:-}" ] || continue
+            [ "$key" != "None" ] || continue
+            if grep -Fxq "$key" "$RUNNER_TEMP/monarchic-nix-cache-retained-manifests"; then
+              continue
+            fi
+            if is_older_than_grace "$modified"; then
+              queue_delete "$key"
+            fi
+          done < "$RUNNER_TEMP/monarchic-nix-cache-manifests"
+          flush_delete_batch
