@@ -36,14 +36,23 @@ jobs:
           extra_nix_config: |
             experimental-features = nix-command flakes
             accept-flake-config = true
-            substituters = https://cache.nixos.org s3://${{ env.MONARCHIC_NIX_CACHE_BUCKET }}?region=${{ env.MONARCHIC_NIX_CACHE_REGION }}
-            trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWVMkYbcAA1q6Y2OkQbBWBV88F2rI= ${{ vars.MONARCHIC_NIX_CACHE_PUBLIC_KEY }}
+            substituters = https://cache.nixos.org
+            trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWVMkYbcAA1q6Y2OkQbBWBV88F2rI=
 
       - name: Configure production AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ vars.MONARCHIC_NIX_CACHE_AWS_ROLE_ARN || 'arn:aws:iam::913433059611:role/MonarchicNixBinaryCacheRole' }}
           aws-region: ${{ env.MONARCHIC_NIX_CACHE_REGION }}
+
+      - name: Ensure SSH is available for private flake inputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! command -v ssh >/dev/null 2>&1; then
+            nix profile install nixpkgs#openssh
+            echo "$HOME/.nix-profile/bin" >> "$GITHUB_PATH"
+          fi
 
       - name: Build, sign, and upload package closures
         shell: bash
