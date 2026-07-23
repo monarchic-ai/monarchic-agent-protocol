@@ -49,12 +49,19 @@ jobs:
           role-to-assume: ${{ vars.MONARCHIC_NIX_CACHE_AWS_ROLE_ARN || 'arn:aws:iam::913433059611:role/MonarchicNixBinaryCacheRole' }}
           aws-region: ${{ env.MONARCHIC_NIX_CACHE_REGION }}
 
-      - name: Ensure SSH is available for private flake inputs
+      - name: Ensure cache build tools are available
         shell: bash
         run: |
           set -euo pipefail
+          missing=()
           if ! command -v ssh >/dev/null 2>&1; then
-            nix profile install nixpkgs#openssh
+            missing+=(nixpkgs#openssh)
+          fi
+          if ! command -v awk >/dev/null 2>&1; then
+            missing+=(nixpkgs#gawk)
+          fi
+          if [ "${#missing[@]}" -gt 0 ]; then
+            nix profile install "${missing[@]}"
             echo "$HOME/.nix-profile/bin" >> "$GITHUB_PATH"
           fi
 
