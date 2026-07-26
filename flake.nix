@@ -101,7 +101,7 @@
             pname = "monarchic-agent-protocol-ts";
             version = "0.1.16";
             src = ./.;
-            npmDepsHash = "sha256-vIkplcONOpIA8250xyPbhTM1M277lTBLdVy4TaU4xAE=";
+            npmDepsHash = "sha256-e+en5FBie/xlT/Svmahgesj0jGso+JOqYCaGtXNVgTE=";
             npmPackFlags = [ "--ignore-scripts" ];
             forceEmptyCache = true;
             dontNpmBuild = true;
