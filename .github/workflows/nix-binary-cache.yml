@@ -51,6 +51,10 @@ jobs:
 
       - name: Ensure cache build tools are available
         shell: bash
+        env:
+          NIX_CONFIG: |
+            experimental-features = nix-command flakes
+            accept-flake-config = true
         run: |
           set -euo pipefail
           missing=()
@@ -77,6 +81,7 @@ jobs:
       - name: Build, sign, and upload package closures
         shell: bash
         env:
+          GIT_SSH_COMMAND: ssh -o StrictHostKeyChecking=accept-new
           NIX_CONFIG: |
             experimental-features = nix-command flakes
             accept-flake-config = true
