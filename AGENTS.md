@@ -75,3 +75,18 @@ Initial index created all repository artifacts.
 
 - Prefer reading the generated wiki before inferring repository architecture from scratch.
 - Use the MCP server for targeted summary, workflow, and wiki page queries.
+## Required Internal Skills
+
+When working in this repo, use these skills from the `internal-skills` repo:
+
+- `halt`
+- `tools`
+- `lang`
+- `nix`
+- `test`
+- `docs`
+- `review`
+- `vcs`
+- `cleanup`
+- `debug`
+- `handoff`
