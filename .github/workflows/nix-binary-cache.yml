@@ -17,7 +17,7 @@ concurrency:
 jobs:
   populate-cache:
     name: Build flake packages
-    runs-on: ${{ fromJSON(vars.CI_RUNNER_LABELS || '["ubuntu-latest"]') }}
+    runs-on: ${{ fromJSON(vars.CI_RUNNER_LABELS || '["self-hosted","Linux","X64","monarchic-local","nixos"]') }}
     timeout-minutes: 90
 
     env:

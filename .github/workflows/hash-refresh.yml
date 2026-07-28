@@ -18,7 +18,7 @@ permissions:
 
 jobs:
   refresh:
-    runs-on: ${{ fromJSON(vars.CI_RUNNER_LABELS || '["ubuntu-latest"]') }}
+    runs-on: ${{ fromJSON(vars.CI_RUNNER_LABELS || '["self-hosted","Linux","X64","monarchic-local","nixos"]') }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
