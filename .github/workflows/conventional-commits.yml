@@ -1,15 +1,6 @@
 name: Conventional Commits
 
 on:
-  pull_request:
-    branches:
-      - main
-    types:
-      - opened
-      - reopened
-      - synchronize
-      - ready_for_review
-      - edited
   workflow_dispatch:
     inputs:
       ref:
@@ -19,14 +10,14 @@ on:
 jobs:
   conventional-commits:
     name: Conventional Commits
-    runs-on: ${{ fromJSON(vars.CI_RUNNER_LABELS || '["self-hosted","Linux","X64","monarchic-local","nixos"]') }}
+    runs-on: ${{ fromJSON(vars.CI_RUNNER_LABELS) }}
     timeout-minutes: 15
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          repository: ${{ (inputs.ref && startsWith(inputs.ref, 'refs/pull/')) && github.repository || github.event.pull_request.head.repo.full_name || github.repository }}
+          repository: ${{ github.repository }}
           ref: ${{ inputs.ref || github.ref }}
           fetch-depth: 0
 
@@ -43,9 +34,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if [[ "${GITHUB_EVENT_NAME}" == "pull_request" ]]; then
-            range="${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}"
-          elif [[ "${GITHUB_EVENT_NAME}" == "workflow_dispatch" ]]; then
+          if [[ "${GITHUB_EVENT_NAME}" == "workflow_dispatch" ]]; then
             git fetch origin main:refs/remotes/origin/main
             range="origin/main..HEAD"
           elif git rev-parse --verify HEAD~1 >/dev/null 2>&1; then

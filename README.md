@@ -1,6 +1,6 @@
 # Monarchic AI Protocol
 
-[![ci](https://github.com/monarchic-ai/monarchic-agent-protocol/actions/workflows/ci.yml/badge.svg)](https://github.com/monarchic-ai/monarchic-agent-protocol/actions/workflows/ci.yml)
+[![Nix CI](https://github.com/monarchic-ai/monarchic-agent-protocol/actions/workflows/nix-ci.yml/badge.svg)](https://github.com/monarchic-ai/monarchic-agent-protocol/actions/workflows/nix-ci.yml)
 [![release](https://github.com/monarchic-ai/monarchic-agent-protocol/actions/workflows/release.yml/badge.svg)](https://github.com/monarchic-ai/monarchic-agent-protocol/actions/workflows/release.yml)
 
 This repository defines the shared, versioned protocol for Monarchic AI. It is the compatibility layer between the orchestrator, runner, and agent roles, so the schemas are minimal and stable while allowing forward-compatible extensions.
@@ -834,7 +834,7 @@ Dart sources live under `src/dart`.
 
 ### CI and releases
 
-- `.github/workflows/ci.yml` validates JSON schemas, protobuf codegen, and runs `cargo test`.
+- `.github/workflows/nix-ci.yml` runs the shared Nix CI workflow for package builds, flake checks, schema validation, protobuf codegen, generated artifact freshness, and import checks.
 - `.github/workflows/release.yml` publishes language packages.
   - Python publishing is implemented for PyPI; other language registry steps are scaffolded.
 

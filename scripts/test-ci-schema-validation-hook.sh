@@ -2,7 +2,7 @@
 set -euo pipefail
 
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-workflow_path="${repo_root}/.github/workflows/ci.yml"
+workflow_path="${repo_root}/.github/workflows/nix-ci.yml"
 
 if [[ ! -f "${workflow_path}" ]]; then
   echo "[test-ci-schema-validation-hook] Missing workflow: ${workflow_path}" >&2
@@ -10,20 +10,25 @@ if [[ ! -f "${workflow_path}" ]]; then
 fi
 
 declare -a required_snippets=(
-  "run: python -m pip install --upgrade pip jsonschema"
-  "run: bash scripts/lint-schemas.sh"
+  "uses: monarchic-meta/.github/.github/workflows/nix-ci.yml@main"
+  "publish_cache: \${{ github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/main') }}"
 )
 
 for snippet in "${required_snippets[@]}"; do
   if ! grep -Fq "${snippet}" "${workflow_path}"; then
-    echo "[test-ci-schema-validation-hook] Missing CI snippet: ${snippet}" >&2
+    echo "[test-ci-schema-validation-hook] Missing Nix CI snippet: ${snippet}" >&2
     exit 1
   fi
 done
 
-if grep -Fq "Draft202012Validator" "${workflow_path}"; then
-  echo "[test-ci-schema-validation-hook] Found deprecated inline schema validator block." >&2
+if grep -Fq "pull_request" "${workflow_path}"; then
+  echo "[test-ci-schema-validation-hook] Nix CI must not run on pull_request." >&2
   exit 1
 fi
 
-echo "[test-ci-schema-validation-hook] PASS: CI uses scripts/lint-schemas.sh for schema validation."
+if grep -Fq "ubuntu-" "${workflow_path}"; then
+  echo "[test-ci-schema-validation-hook] Nix CI must not use Ubuntu fallback runners." >&2
+  exit 1
+fi
+
+echo "[test-ci-schema-validation-hook] PASS: CI delegates schema validation to shared Nix CI."

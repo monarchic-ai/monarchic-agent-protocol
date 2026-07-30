@@ -1114,6 +1114,64 @@ EOF
             touch $out
           '';
 
+          lint-schemas = pkgs.runCommand "lint-schemas" {
+            nativeBuildInputs = [ pkgs.bash pkgs.python3 pkgs.python3Packages.jsonschema ];
+          } ''
+            set -euo pipefail
+            cd ${self}
+            ${pkgs.bash}/bin/bash ./scripts/lint-schemas.sh
+            touch $out
+          '';
+
+          readme-schema-index-coverage = pkgs.runCommand "readme-schema-index-coverage" {
+            nativeBuildInputs = [ pkgs.bash pkgs.python3 ];
+          } ''
+            set -euo pipefail
+            cd ${self}
+            ${pkgs.bash}/bin/bash ./scripts/test-readme-schema-index-coverage.sh
+            touch $out
+          '';
+
+          schema-changelog-format = pkgs.runCommand "schema-changelog-format" {
+            nativeBuildInputs = [ pkgs.bash pkgs.python3 ];
+          } ''
+            set -euo pipefail
+            cd ${self}
+            ${pkgs.bash}/bin/bash ./scripts/test-schema-changelog-format.sh
+            touch $out
+          '';
+
+          readme-schema-workflow = pkgs.runCommand "readme-schema-workflow" {
+            nativeBuildInputs = [ pkgs.bash ];
+          } ''
+            set -euo pipefail
+            cd ${self}
+            ${pkgs.bash}/bin/bash ./scripts/test-readme-schema-workflow.sh
+            touch $out
+          '';
+
+          nix-ci-workflow = pkgs.runCommand "nix-ci-workflow" {
+            nativeBuildInputs = [ pkgs.bash pkgs.gnugrep ];
+          } ''
+            set -euo pipefail
+            cd ${self}
+            ${pkgs.bash}/bin/bash ./scripts/test-ci-schema-validation-hook.sh
+            touch $out
+          '';
+
+          lean-protobuf-schema-manifest = pkgs.runCommand "lean-protobuf-schema-manifest" {
+            nativeBuildInputs = [ pkgs.bash pkgs.git pkgs.python3 ];
+          } ''
+            set -euo pipefail
+            cp -R ${self} repo
+            chmod -R u+w repo
+            cd repo
+            git init -q
+            git add formal/lean/MonarchicAgentProtocol/ProtobufSchemaManifest.lean
+            ${pkgs.bash}/bin/bash ./scripts/check-lean-protobuf-schema-manifest.sh
+            touch $out
+          '';
+
           test-proto = pkgs.runCommand "test-proto" {
             nativeBuildInputs = [
               pkgs.protobuf
@@ -1123,6 +1181,8 @@ EOF
             bash ${./scripts/test-proto.sh} ${./schemas/v1/monarchic_agent_protocol.proto}
             touch $out
           '';
+
+          cargo-test = self.packages.${system}.rs-lib;
 
           example-rust = self.packages.${system}.example-rust;
           example-ts = self.packages.${system}.example-ts;

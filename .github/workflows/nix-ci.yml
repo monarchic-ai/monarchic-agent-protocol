@@ -1,0 +1,22 @@
+name: Nix CI
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: nix-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  nix-ci:
+    uses: monarchic-meta/.github/.github/workflows/nix-ci.yml@main
+    with:
+      publish_cache: ${{ github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/main') }}
+    secrets: inherit
