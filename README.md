@@ -835,8 +835,8 @@ Dart sources live under `src/dart`.
 ### CI and releases
 
 - `.github/workflows/nix-ci.yml` runs the shared Nix CI workflow for package builds, flake checks, schema validation, protobuf codegen, generated artifact freshness, and import checks.
-- `.github/workflows/release.yml` publishes language packages.
-  - Python publishing is implemented for PyPI; other language registry steps are scaffolded.
+- `.github/workflows/release.yml` publishes language packages from `v*.*.*` tag pushes only after the shared release preflight verifies the tag points at `main` and the matching `Nix CI` run passed.
+  - Release publishing covers crates.io, PyPI, npm, NuGet, RubyGems, Packagist, and a post-release registry hash PR.
 
 ## License
 
