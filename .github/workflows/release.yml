@@ -12,7 +12,7 @@ on:
 
 jobs:
   release-preflight:
-    uses: monarchic-meta/.github/.github/workflows/release.yml@main
+    uses: monarchic-ai/.github/.github/workflows/release.yml@main
     secrets: inherit
 
   verify-release-inputs:

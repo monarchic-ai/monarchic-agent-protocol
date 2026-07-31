@@ -10,7 +10,7 @@ if [[ ! -f "${workflow_path}" ]]; then
 fi
 
 declare -a required_snippets=(
-  "uses: monarchic-meta/.github/.github/workflows/nix-ci.yml@main"
+  "uses: monarchic-ai/.github/.github/workflows/nix-ci.yml@main"
   "publish_cache: \${{ github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/main') }}"
 )
 
