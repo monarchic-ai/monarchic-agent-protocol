@@ -117,8 +117,8 @@ Validation strategy guide for monarchic-agent-protocol.
 
 - Reserve `nix build .#default` (build) from `.` for packaging, release, deploy, or pre-release safety gates.
 - Reserve `cargo build` (build) from `.` for packaging, release, deploy, or pre-release safety gates.
-- Review `.github/workflows/ci.yml` when changing release-sensitive validation because it likely influences build, deployment, or publication steps.
-- Review `.github/workflows/conventional-commits.yml` when changing release-sensitive validation because it likely influences build, deployment, or publication steps.
+- Review `.github/workflows/nix-ci.yml` when changing release-sensitive validation because it delegates package builds, checks, generated artifact freshness, and commit-checker tests to the shared Nix CI workflow.
+- Review `.github/workflows/release.yml` when changing release-sensitive publication behavior.
 
 <details>
 <summary>Related files:</summary>

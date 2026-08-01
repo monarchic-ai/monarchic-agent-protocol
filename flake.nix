@@ -1159,6 +1159,15 @@ EOF
             touch $out
           '';
 
+          conventional-commit-check = pkgs.runCommand "conventional-commit-check" {
+            nativeBuildInputs = [ pkgs.bash pkgs.python3 ];
+          } ''
+            set -euo pipefail
+            cd ${self}
+            ${pkgs.bash}/bin/bash ./scripts/test-conventional-commit-check.sh
+            touch $out
+          '';
+
           lean-protobuf-schema-manifest = pkgs.runCommand "lean-protobuf-schema-manifest" {
             nativeBuildInputs = [ pkgs.bash pkgs.git pkgs.python3 ];
           } ''

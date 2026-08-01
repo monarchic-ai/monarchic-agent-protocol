@@ -11,7 +11,9 @@ fi
 
 declare -a required_snippets=(
   "uses: monarchic-ai/.github/.github/workflows/nix-ci.yml@main"
-  "publish_cache: \${{ github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/main') }}"
+  "merge_group:"
+  "publish_cache: \${{ github.ref == 'refs/heads/main' }}"
+  "MONARCHIC_GITHUB_PAT: \${{ secrets.MONARCHIC_GITHUB_PAT }}"
 )
 
 for snippet in "${required_snippets[@]}"; do
@@ -23,6 +25,11 @@ done
 
 if grep -Fq "pull_request" "${workflow_path}"; then
   echo "[test-ci-schema-validation-hook] Nix CI must not run on pull_request." >&2
+  exit 1
+fi
+
+if grep -Fq "secrets: inherit" "${workflow_path}"; then
+  echo "[test-ci-schema-validation-hook] Nix CI must pass only the shared workflow secrets it needs." >&2
   exit 1
 fi
 
