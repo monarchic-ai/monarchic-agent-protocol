@@ -18,46 +18,31 @@ permissions:
 
 jobs:
   refresh:
-    runs-on: ${{ fromJSON(vars.CI_RUNNER_LABELS) }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ inputs.base_branch }}
+    uses: monarchic-ai/.github/.github/workflows/maintenance.yml@main
+    with:
+      checkout_ref: ${{ inputs.base_branch }}
+      maintenance_command: |
+        nix run .#generate-proto
+        nix run .#generate-json-schema
+        nix run .#update-local-hashes
+      commit_paths: |
+        schemas/v1/schema.json
+        src/**
+        hashes/local-hashes.json
+      commit_message: "chore(protocol): refresh generated artifacts and local hashes"
+      push_branch: ${{ inputs.pr_branch }}
+      create_pull_request: true
+      pull_request_base_branch: ${{ inputs.base_branch }}
+      pull_request_title: "chore(protocol): refresh generated artifacts and local hashes"
+      pull_request_body: |
+        Automated refresh:
+        - `scripts/generate-proto.sh`
+        - `scripts/generate-json-schema.sh`
+        - `scripts/update-local-hashes.sh`
 
-      - name: Install Nix
-        uses: cachix/install-nix-action@v31
-        with:
-          github_access_token: ${{ secrets.GITHUB_TOKEN }}
-          extra_nix_config: |
-            experimental-features = nix-command flakes
-            accept-flake-config = true
-
-      - name: Refresh generated artifacts and local hashes
-        run: |
-          set -euo pipefail
-          nix run .#generate-proto
-          nix run .#generate-json-schema
-          nix run .#update-local-hashes
-
-      - name: Create or update PR
-        uses: peter-evans/create-pull-request@v6
-        with:
-          branch: ${{ inputs.pr_branch }}
-          base: ${{ inputs.base_branch }}
-          title: "chore(protocol): refresh generated artifacts and local hashes"
-          commit-message: "chore(protocol): refresh generated artifacts and local hashes"
-          body: |
-            Automated refresh:
-            - `scripts/generate-proto.sh`
-            - `scripts/generate-json-schema.sh`
-            - `scripts/update-local-hashes.sh`
-
-            Merge after CI passes, then tag and push release tag.
-          labels: |
-            automation
-            release
-          add-paths: |
-            schemas/v1/schema.json
-            src/**
-            hashes/local-hashes.json
+        Merge after CI passes, then tag and push release tag.
+      pull_request_labels: |
+        automation
+        release
+    secrets:
+      MONARCHIC_GITHUB_PAT: ${{ secrets.MONARCHIC_GITHUB_PAT }}

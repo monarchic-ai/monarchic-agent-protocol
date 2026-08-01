@@ -836,6 +836,7 @@ Dart sources live under `src/dart`.
 
 - `.github/workflows/nix-ci.yml` runs the shared Nix CI workflow for package builds, flake checks, schema validation, protobuf codegen, generated artifact freshness, and import checks.
 - `nix flake check` covers the conventional commit checker implementation; install `scripts/install-conventional-commit-hook.sh` locally when commit-message enforcement is needed before pushing.
+- `.github/workflows/hash-refresh.yml` manually calls the shared maintenance workflow to regenerate protocol artifacts and local hashes, then opens or updates a generated refresh pull request.
 - `.github/workflows/release.yml` publishes language packages from `v*.*.*` tag pushes only after the shared release preflight verifies the tag points at `main` and the matching `Nix CI` run passed.
   - Release publishing covers crates.io, PyPI, npm, NuGet, RubyGems, Packagist, and a post-release registry hash PR.
 
