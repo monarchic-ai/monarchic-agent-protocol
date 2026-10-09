@@ -219,7 +219,7 @@
             buildPhase = ''
               runHook preBuild
               mkdir -p build/classes
-              ${pkgs.jdk}/bin/javac -classpath "${protobufJava}" -d build/classes $(find src/java -name '*.java')
+              ${pkgs.jdk}/bin/javac -J-XX:ActiveProcessorCount="$NIX_BUILD_CORES" -classpath "${protobufJava}" -d build/classes $(find src/java -name '*.java')
               ${pkgs.jdk}/bin/jar cf build/monarchic-agent-protocol.jar -C build/classes .
               runHook postBuild
             '';
@@ -413,11 +413,11 @@ EOF
                   monarchic_agent_protocol.proto
                 cp ${./examples/proto/java/TaskExample.java} "$tmp_dir/TaskExample.java"
                 mkdir -p build/classes
-                ${pkgs.jdk}/bin/javac -classpath "${protobufJava}" \
+                ${pkgs.jdk}/bin/javac -J-XX:ActiveProcessorCount="$NIX_BUILD_CORES" -classpath "${protobufJava}" \
                   -d build/classes \
                   $(find "$tmp_dir/java" -name '*.java') \
                   "$tmp_dir/TaskExample.java"
-                ${pkgs.jdk}/bin/java -classpath "build/classes:${protobufJava}" TaskExample >/dev/null
+                ${pkgs.jdk}/bin/java -XX:ActiveProcessorCount="$NIX_BUILD_CORES" -classpath "build/classes:${protobufJava}" TaskExample >/dev/null
                 runHook postBuild
               '';
               installPhase = ''
@@ -457,11 +457,11 @@ EOF
                   --kotlin_out="$tmp_dir/kotlin" \
                   monarchic_agent_protocol.proto
                 mkdir -p build/java-classes build/classes
-                ${pkgs.jdk}/bin/javac -classpath "${protobufJava}" \
+                ${pkgs.jdk}/bin/javac -J-XX:ActiveProcessorCount="$NIX_BUILD_CORES" -classpath "${protobufJava}" \
                   -d build/java-classes \
                   $(find "$tmp_dir/java" -name '*.java')
                 gen_sources="$(find "$tmp_dir/kotlin" -name '*.kt' | tr '\n' ' ')"
-                ${pkgs.kotlin}/bin/kotlinc ${./examples/proto/kotlin/TaskExample.kt} $gen_sources \
+                JAVA_TOOL_OPTIONS="-XX:ActiveProcessorCount=$NIX_BUILD_CORES" ${pkgs.kotlin}/bin/kotlinc ${./examples/proto/kotlin/TaskExample.kt} $gen_sources \
                   -classpath "${protobufJava}:${protobufKotlin}:build/java-classes" \
                   -d build/classes
                 runHook postBuild
@@ -690,6 +690,7 @@ PHP
               trap 'rm -rf "$tmp_dir"' EXIT
               export HOME="$tmp_dir"
               export DOTNET_CLI_HOME="$tmp_dir/dotnet"
+              export DOTNET_PROCESSOR_COUNT="$NIX_BUILD_CORES"
               mkdir -p "$tmp_dir/csharp"
               ${pkgs.protobuf}/bin/protoc -I ${./schemas/v1} \
                 --csharp_out="$tmp_dir/csharp" \
@@ -723,7 +724,7 @@ EOF
               ${pkgs.dotnet-sdk_8}/bin/dotnet restore "$tmp_dir/Example.csproj" \
                 --configfile "$tmp_dir/NuGet.Config" \
                 --packages "$tmp_dir/nuget-packages"
-              ${pkgs.dotnet-sdk_8}/bin/dotnet build "$tmp_dir/Example.csproj" -c Release --no-restore
+              ${pkgs.dotnet-sdk_8}/bin/dotnet build "$tmp_dir/Example.csproj" -c Release --no-restore -maxcpucount:"$NIX_BUILD_CORES"
               runHook postBuild
             '';
             installPhase = ''
@@ -1343,7 +1344,7 @@ EOF
               doCheck = true;
               checkPhase = ''
                 runHook preCheck
-                go build .
+                GOMAXPROCS="$NIX_BUILD_CORES" go build -p "$NIX_BUILD_CORES" .
                 runHook postCheck
               '';
             });
@@ -1431,7 +1432,7 @@ EOF
             buildPhase = ''
               runHook preBuild
               mkdir -p build/classes
-              ${pkgs.jdk}/bin/javac -classpath "${self.packages.${system}.java-lib}/share/java/monarchic-agent-protocol.jar:${protobufJava}" -d build/classes $(find . -name '*.java')
+              ${pkgs.jdk}/bin/javac -J-XX:ActiveProcessorCount="$NIX_BUILD_CORES" -classpath "${self.packages.${system}.java-lib}/share/java/monarchic-agent-protocol.jar:${protobufJava}" -d build/classes $(find . -name '*.java')
               runHook postBuild
             '';
             installPhase = ''
@@ -1441,7 +1442,7 @@ EOF
             '';
             checkPhase = ''
               runHook preCheck
-              ${pkgs.jdk}/bin/java -classpath "build/classes:${self.packages.${system}.java-lib}/share/java/monarchic-agent-protocol.jar:${protobufJava}" importcheck.Main
+              ${pkgs.jdk}/bin/java -XX:ActiveProcessorCount="$NIX_BUILD_CORES" -classpath "build/classes:${self.packages.${system}.java-lib}/share/java/monarchic-agent-protocol.jar:${protobufJava}" importcheck.Main
               runHook postCheck
             '';
           };
