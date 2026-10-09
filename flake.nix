@@ -9,6 +9,11 @@
     let
       systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forAllSystems = f: nixpkgs.lib.genAttrs systems (system: f system);
+      buildGoModuleWithBudget = pkgs: args: pkgs.buildGoModule (args // {
+        preBuild = (args.preBuild or "") + "\n" + ''
+          export GOMAXPROCS="$NIX_BUILD_CORES"
+        '';
+      });
     in
     {
       packages = forAllSystems (system:
@@ -156,7 +161,7 @@
             '';
           };
 
-          go-lib = pkgs.buildGoModule {
+          go-lib = buildGoModuleWithBudget pkgs {
             pname = "monarchic-agent-protocol-go";
             version = "0.1.16";
             src = ./.;
@@ -164,7 +169,7 @@
             vendorHash = "sha256-xj9DXJyfqpCcYXRc6Yr6X4s0F2o3mUQ3HWSNLjlKxWc=";
           };
 
-          go-registry-lib = pkgs.buildGoModule {
+          go-registry-lib = buildGoModuleWithBudget pkgs {
             pname = "monarchic-agent-protocol-go-mod";
             version = "0.1.16";
             src = pkgs.fetchFromGitHub {
@@ -795,7 +800,7 @@ EOF
               pkgs.protoc-gen-dart
               pkgs.perl
               pkgs.python3
-              (pkgs.buildGoModule {
+              (buildGoModuleWithBudget pkgs {
                 pname = "protoc-gen-jsonschema";
                 version = "0.5.2";
                 src = pkgs.fetchFromGitHub {
@@ -820,7 +825,7 @@ EOF
             runtimeInputs = [
               pkgs.protobuf
               pkgs.python3
-              (pkgs.buildGoModule {
+              (buildGoModuleWithBudget pkgs {
                 pname = "protoc-gen-jsonschema";
                 version = "0.5.2";
                 src = pkgs.fetchFromGitHub {
@@ -1297,7 +1302,7 @@ EOF
             '';
           };
 
-          go-import = pkgs.buildGoModule
+          go-import = buildGoModuleWithBudget pkgs
             (let
               goModImport = pkgs.runCommand "go-import-src" {} ''
                 set -euo pipefail
@@ -1477,7 +1482,7 @@ EOF
               pkgs.protoc-gen-dart
               pkgs.perl
               pkgs.python3
-              (pkgs.buildGoModule {
+              (buildGoModuleWithBudget pkgs {
                 pname = "protoc-gen-jsonschema";
                 version = "0.5.2";
                 src = pkgs.fetchFromGitHub {
@@ -1507,7 +1512,7 @@ EOF
               pkgs.bash
               pkgs.protobuf
               pkgs.python3
-              (pkgs.buildGoModule {
+              (buildGoModuleWithBudget pkgs {
                 pname = "protoc-gen-jsonschema";
                 version = "0.5.2";
                 src = pkgs.fetchFromGitHub {
